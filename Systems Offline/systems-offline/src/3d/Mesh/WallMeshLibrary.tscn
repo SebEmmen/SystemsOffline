@@ -7,4 +7,4 @@
 
 [node name="Wall" parent="." unique_id=1574530245 instance=ExtResource("1_iukl6")]
 
-[node name="SingleDoorWall" parent="." unique_id=908054421 instance=ExtResource("2_8vnla")]
+[node name="SingleDoorWall" parent="." unique_id=825145075 instance=ExtResource("2_8vnla")]

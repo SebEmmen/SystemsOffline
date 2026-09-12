@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bhf3p20kxbmb2"]
+
+[ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="1_lwx03"]
+
+[node name="DoorMeshLibrary" type="Node3D" unique_id=1146450817]
+
+[node name="SlidingDoor" parent="." unique_id=212972216 instance=ExtResource("1_lwx03")]
