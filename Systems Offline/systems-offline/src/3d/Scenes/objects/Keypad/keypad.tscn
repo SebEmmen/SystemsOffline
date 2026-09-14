@@ -173,7 +173,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6ltle")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qvwoe"]
-size = Vector3(0.18666649, 0.20999992, 0.12333331)
+size = Vector3(0.18666649, 0.20999992, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1w00j"]
 _surfaces = [{
@@ -228,7 +228,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1w00j")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqr5m"]
-size = Vector3(0.1866664, 0.20999983, 0.116666704)
+size = Vector3(0.1866664, 0.20999983, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_etrb6"]
 _surfaces = [{
@@ -285,7 +285,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_etrb6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4g6dr"]
-size = Vector3(0.18666646, 0.20999983, 0.12333329)
+size = Vector3(0.18666646, 0.20999983, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sq1dj"]
 _surfaces = [{
@@ -342,7 +342,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sq1dj")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtbb7"]
-size = Vector3(0.1866665, 0.20999983, 0.12333322)
+size = Vector3(0.1866665, 0.20999983, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8syqw"]
 _surfaces = [{
@@ -399,7 +399,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8syqw")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vv5ua"]
-size = Vector3(0.1866664, 0.20999992, 0.12333329)
+size = Vector3(0.1866664, 0.20999992, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g7nca"]
 _surfaces = [{
@@ -456,7 +456,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g7nca")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fo3p1"]
-size = Vector3(0.18666646, 0.21000004, 0.12333329)
+size = Vector3(0.18666646, 0.21000004, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k6r1j"]
 _surfaces = [{
@@ -511,7 +511,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k6r1j")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o4hew"]
-size = Vector3(0.1866665, 0.21000004, 0.12333322)
+size = Vector3(0.1866665, 0.21000004, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kreoi"]
 _surfaces = [{
@@ -566,7 +566,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kreoi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qqmpt"]
-size = Vector3(0.18666649, 0.21000001, 0.12333326)
+size = Vector3(0.18666649, 0.21000001, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kuxqj"]
 _surfaces = [{
@@ -623,7 +623,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kuxqj")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmbkh"]
-size = Vector3(0.18666646, 0.2100001, 0.123333275)
+size = Vector3(0.18666646, 0.2100001, 0.1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hq1o2"]
 _surfaces = [{
@@ -678,7 +678,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hq1o2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_220n0"]
-size = Vector3(0.1866665, 0.2100001, 0.1233332)
+size = Vector3(0.1866665, 0.2100001, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48kpk"]
 resource_name = "mat13"
@@ -737,7 +737,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1k7hx")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eh1ba"]
-size = Vector3(0.1866664, 0.20999992, 0.12333296)
+size = Vector3(0.1866664, 0.20999992, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qaewt"]
 resource_name = "mat9"
@@ -798,7 +798,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5ibt5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yprho"]
-size = Vector3(0.1866665, 0.20999992, 0.12333306)
+size = Vector3(0.1866665, 0.20999992, 0.1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6gqvj"]
 
@@ -826,7 +826,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_u6wj7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb00" unique_id=1097034326]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963256, -0.5210144, 0.012965754)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963256, -0.5210144, 0.0012990981)
 shape = SubResource("BoxShape3D_qvwoe")
 
 [node name="sb01" type="StaticBody3D" parent="." unique_id=1364186068]
@@ -838,7 +838,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_2m7hh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb01" unique_id=764128224]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.27196333, -0.24101445, 0.016299259)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.27196333, -0.24101445, 0.006299237)
 shape = SubResource("BoxShape3D_gqr5m")
 
 [node name="sb02" type="StaticBody3D" parent="." unique_id=1501608527]
@@ -850,7 +850,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_i5y8h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb02" unique_id=1054549955]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, -0.24101445, 0.012965862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, -0.24101445, 0.0012992173)
 shape = SubResource("BoxShape3D_4g6dr")
 
 [node name="sb03" type="StaticBody3D" parent="." unique_id=1945778285]
@@ -862,7 +862,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_g21vx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb03" unique_id=853507140]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.24101445, 0.012966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.24101445, 0.0012993887)
 shape = SubResource("BoxShape3D_mtbb7")
 
 [node name="sb04" type="StaticBody3D" parent="." unique_id=566345541]
@@ -874,7 +874,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_lxc3o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb04" unique_id=679106165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, 0.038985476, 0.01296597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, 0.038985476, 0.0012993254)
 shape = SubResource("BoxShape3D_vv5ua")
 
 [node name="sb05" type="StaticBody3D" parent="." unique_id=1302466010]
@@ -886,7 +886,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_4nuge")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb05" unique_id=1050176198]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.038985416, 0.012965862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.038985416, 0.0012992173)
 shape = SubResource("BoxShape3D_fo3p1")
 
 [node name="sb06" type="StaticBody3D" parent="." unique_id=31154581]
@@ -898,7 +898,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_n7752")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb06" unique_id=255169485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.038985416, 0.012966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.038985416, 0.0012993887)
 shape = SubResource("BoxShape3D_o4hew")
 
 [node name="sb07" type="StaticBody3D" parent="." unique_id=1782315037]
@@ -910,7 +910,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_7f7ha")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb07" unique_id=2063443111]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196336, 0.31898546, 0.012966074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196336, 0.31898546, 0.0012994446)
 shape = SubResource("BoxShape3D_qqmpt")
 
 [node name="sb08" type="StaticBody3D" parent="." unique_id=329823710]
@@ -922,7 +922,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_bgweh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb08" unique_id=152244864]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.3189854, 0.0129659735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.3189854, 0.0012993366)
 shape = SubResource("BoxShape3D_vmbkh")
 
 [node name="sb09" type="StaticBody3D" parent="." unique_id=1000093455]
@@ -934,7 +934,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_hbpu5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb09" unique_id=1677463498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.3189854, 0.012966108)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.3189854, 0.0012995079)
 shape = SubResource("BoxShape3D_220n0")
 
 [node name="sb_clear" type="StaticBody3D" parent="." unique_id=818633760]
@@ -946,7 +946,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_e2p0g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb_clear" unique_id=762329855]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, -0.5210144, 0.012965925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, -0.5210144, 0.0012994446)
 shape = SubResource("BoxShape3D_eh1ba")
 
 [node name="sb_ok" type="StaticBody3D" parent="." unique_id=361432747]
@@ -958,7 +958,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0
 mesh = SubResource("ArrayMesh_yx6a3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb_ok" unique_id=461617034]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.5210144, 0.012965977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.5210144, 0.0012994483)
 shape = SubResource("BoxShape3D_yprho")
 
 [node name="Screen" type="Label3D" parent="." unique_id=949294374]
@@ -979,7 +979,7 @@ mesh = SubResource("BoxMesh_6gqvj")
 surface_material_override/0 = SubResource("StandardMaterial3D_ovu3a")
 
 [node name="Code" type="Label3D" parent="StickyNote" unique_id=289948629]
-transform = Transform3D(-0.09999998, -1.0288204e-08, -8.789357e-09, 5.333277e-09, 0.09999995, -3.4924597e-10, 7.683411e-09, -2.7939677e-09, -0.09999991, -0.019286698, -0.001219093, -0.07746163)
+transform = Transform3D(-0.12, 6.399933e-09, -1.8119495e-08, 6.3999335e-09, 0.12, -3.3527636e-09, 1.8119495e-08, -3.3527645e-09, -0.12, -0.019286698, -0.001219093, -0.07746163)
 modulate = Color(0, 0, 0, 1)
 text = "51515
 15151
