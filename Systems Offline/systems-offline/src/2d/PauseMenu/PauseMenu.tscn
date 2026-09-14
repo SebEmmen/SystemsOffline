@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bon0sodvgf0lp"]
 
-[ext_resource type="Script" uid="uid://dhvnkfdaj5yfy" path="res://src/2d/HUD/PauseMenu/PauzeMenu.gd" id="1_i5fl8"]
+[ext_resource type="Script" uid="uid://dhvnkfdaj5yfy" path="res://src/2d/HUD/escape_menu.gd" id="1_i5fl8"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=2114750774]
 process_mode = 3
@@ -56,5 +56,4 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="Control/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Control/Panel/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

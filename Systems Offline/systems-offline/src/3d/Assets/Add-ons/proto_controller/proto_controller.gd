@@ -38,18 +38,15 @@ var freeflying : bool = false
 
 func _ready() -> void:
 	check_input_mappings()
-	
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
-	
-	capture_mouse()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		capture_mouse()
-	#if Input.is_key_pressed(KEY_ESCAPE):
-		#release_mouse()
+	if Input.is_key_pressed(KEY_ESCAPE):
+		release_mouse()
 	
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
@@ -131,13 +128,11 @@ func disable_freefly():
 func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true
-	#print("Mouse Captured!")
 
 
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
-	#print("Mouse Visible!")
 
 
 ## Checks if some Input Actions haven't been created.
