@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://jj0araii8kr0" path="res://src/3d/Scenes/objects/keypad.gd" id="1_4g6dr"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="1_gqr5m"]
 [ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="2_2aojk"]
+[ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="4_rhii3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46x25"]
 resource_name = "mat22"
@@ -803,6 +804,12 @@ size = Vector3(0.1866665, 0.20999992, 0.12333306)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3d3a"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_6gqvj"]
+size = Vector3(1, 1, 0.060424805)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovu3a"]
+albedo_color = Color(1, 1, 0, 1)
+
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
 script = ExtResource("1_4g6dr")
 
@@ -965,3 +972,18 @@ font_size = 75
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0.6849098, 0.3106079, 0.119781494)
 mesh = SubResource("CapsuleMesh_6gqvj")
 surface_material_override/0 = SubResource("StandardMaterial3D_b3d3a")
+
+[node name="StickyNote" type="MeshInstance3D" parent="." unique_id=371074990]
+transform = Transform3D(0.37735182, 0.13922898, 0, -0.1442886, 0.36358774, -0.006559965, -0.0055184704, 0.013905798, 0.17152008, -0.7520447, 0, 0.072711945)
+mesh = SubResource("BoxMesh_6gqvj")
+surface_material_override/0 = SubResource("StandardMaterial3D_ovu3a")
+
+[node name="Code" type="Label3D" parent="StickyNote" unique_id=289948629]
+transform = Transform3D(-0.09999998, -1.0288204e-08, -8.789357e-09, 5.333277e-09, 0.09999995, -3.4924597e-10, 7.683411e-09, -2.7939677e-09, -0.09999991, -0.019286698, -0.001219093, -0.07746163)
+modulate = Color(0, 0, 0, 1)
+text = "51515
+15151
+51515"
+font = ExtResource("4_rhii3")
+font_size = 320
+line_spacing = 100.0
