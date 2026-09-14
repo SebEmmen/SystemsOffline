@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cds7ahk4k6sc7"
-path="res://.godot/imported/MOD_Sec_keypad.glb-36e94f1314ae79ef8ec27d0b3dbcead8.scn"
+path="res://.godot/imported/MOD_Sec_keypad.glb-7d2815e3004caed8dce0e2c73a22e8ac.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Add-ons/Keypad/MOD_Sec_keypad.glb"
-dest_files=["res://.godot/imported/MOD_Sec_keypad.glb-36e94f1314ae79ef8ec27d0b3dbcead8.scn"]
+source_file="res://src/3d/Scenes/objects/Keypad/MOD_Sec_keypad.glb"
+dest_files=["res://.godot/imported/MOD_Sec_keypad.glb-7d2815e3004caed8dce0e2c73a22e8ac.scn"]
 
 [params]
 

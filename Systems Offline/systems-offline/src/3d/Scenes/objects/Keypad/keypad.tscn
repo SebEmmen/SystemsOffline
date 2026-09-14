@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://2vwr86remyve"]
 
+[ext_resource type="Script" uid="uid://jj0araii8kr0" path="res://src/3d/Scenes/objects/keypad.gd" id="1_4g6dr"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="1_gqr5m"]
+[ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="2_2aojk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46x25"]
 resource_name = "mat22"
@@ -798,12 +800,15 @@ shadow_mesh = SubResource("ArrayMesh_5ibt5")
 size = Vector3(0.1866665, 0.20999992, 0.12333306)
 
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
+script = ExtResource("1_4g6dr")
 
 [node name="base" type="MeshInstance3D" parent="." unique_id=1819979736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_qb4kn")
 
 [node name="sb00" type="StaticBody3D" parent="." unique_id=1612102591]
+script = ExtResource("2_2aojk")
+key_value = "0"
 
 [node name="00" type="MeshInstance3D" parent="sb00" unique_id=850600103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -814,6 +819,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963256, -0.5210144, 0.01
 shape = SubResource("BoxShape3D_qvwoe")
 
 [node name="sb01" type="StaticBody3D" parent="." unique_id=1364186068]
+script = ExtResource("2_2aojk")
+key_value = "1"
 
 [node name="01" type="MeshInstance3D" parent="sb01" unique_id=458280299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -824,6 +831,8 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.27196333, -0.24101445
 shape = SubResource("BoxShape3D_gqr5m")
 
 [node name="sb02" type="StaticBody3D" parent="." unique_id=1501608527]
+script = ExtResource("2_2aojk")
+key_value = "2"
 
 [node name="02" type="MeshInstance3D" parent="sb02" unique_id=1166823763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -834,6 +843,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, -0.24101445, 0.0
 shape = SubResource("BoxShape3D_4g6dr")
 
 [node name="sb03" type="StaticBody3D" parent="." unique_id=1945778285]
+script = ExtResource("2_2aojk")
+key_value = "3"
 
 [node name="03" type="MeshInstance3D" parent="sb03" unique_id=1077347367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -844,6 +855,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.24101445, 0.0
 shape = SubResource("BoxShape3D_mtbb7")
 
 [node name="sb04" type="StaticBody3D" parent="." unique_id=566345541]
+script = ExtResource("2_2aojk")
+key_value = "4"
 
 [node name="04" type="MeshInstance3D" parent="sb04" unique_id=1108432171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -854,6 +867,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, 0.038985476, 0.01
 shape = SubResource("BoxShape3D_vv5ua")
 
 [node name="sb05" type="StaticBody3D" parent="." unique_id=1302466010]
+script = ExtResource("2_2aojk")
+key_value = "5"
 
 [node name="05" type="MeshInstance3D" parent="sb05" unique_id=606111261]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -864,6 +879,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.038985416, 0.0
 shape = SubResource("BoxShape3D_fo3p1")
 
 [node name="sb06" type="StaticBody3D" parent="." unique_id=31154581]
+script = ExtResource("2_2aojk")
+key_value = "6"
 
 [node name="06" type="MeshInstance3D" parent="sb06" unique_id=1997715032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -874,6 +891,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.038985416, 0.0
 shape = SubResource("BoxShape3D_o4hew")
 
 [node name="sb07" type="StaticBody3D" parent="." unique_id=1782315037]
+script = ExtResource("2_2aojk")
+key_value = "7"
 
 [node name="07" type="MeshInstance3D" parent="sb07" unique_id=35386272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -884,6 +903,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196336, 0.31898546, 0.012
 shape = SubResource("BoxShape3D_qqmpt")
 
 [node name="sb08" type="StaticBody3D" parent="." unique_id=329823710]
+script = ExtResource("2_2aojk")
+key_value = "8"
 
 [node name="08" type="MeshInstance3D" parent="sb08" unique_id=284008907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -894,6 +915,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.3189854, 0.012
 shape = SubResource("BoxShape3D_vmbkh")
 
 [node name="sb09" type="StaticBody3D" parent="." unique_id=1000093455]
+script = ExtResource("2_2aojk")
+key_value = "9"
 
 [node name="09" type="MeshInstance3D" parent="sb09" unique_id=263582998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -904,6 +927,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.3189854, 0.012
 shape = SubResource("BoxShape3D_220n0")
 
 [node name="sb_clear" type="StaticBody3D" parent="." unique_id=818633760]
+script = ExtResource("2_2aojk")
+key_value = "C"
 
 [node name="Clear" type="MeshInstance3D" parent="sb_clear" unique_id=343611112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -914,6 +939,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, -0.5210144, 0.012
 shape = SubResource("BoxShape3D_eh1ba")
 
 [node name="sb_ok" type="StaticBody3D" parent="." unique_id=361432747]
+script = ExtResource("2_2aojk")
+key_value = "OK"
 
 [node name="Ok" type="MeshInstance3D" parent="sb_ok" unique_id=881601079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
@@ -925,7 +952,7 @@ shape = SubResource("BoxShape3D_yprho")
 
 [node name="Screen" type="Label3D" parent="." unique_id=949294374]
 unique_name_in_owner = true
-transform = Transform3D(-0.49663326, 0, 7.5497894e-08, 0, 0.48753154, 0, -7.4989536e-08, 0, -0.49999997, 0.013521016, 0.59722817, -0.034236312)
+transform = Transform3D(-0.4669982, 0, 7.5497894e-08, 0, 0.42467505, 0, -7.0514766e-08, 0, -0.49999997, 0.013521016, 0.59722817, -0.034236312)
 text = "-----"
 font = ExtResource("1_gqr5m")
 font_size = 75
