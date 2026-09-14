@@ -799,11 +799,15 @@ shadow_mesh = SubResource("ArrayMesh_5ibt5")
 [sub_resource type="BoxShape3D" id="BoxShape3D_yprho"]
 size = Vector3(0.1866665, 0.20999992, 0.12333306)
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6gqvj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3d3a"]
+
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
 script = ExtResource("1_4g6dr")
 
 [node name="base" type="MeshInstance3D" parent="." unique_id=1819979736]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010660686, -0.07568, -0.027946994)
 mesh = SubResource("ArrayMesh_qb4kn")
 
 [node name="sb00" type="StaticBody3D" parent="." unique_id=1612102591]
@@ -956,3 +960,8 @@ transform = Transform3D(-0.4669982, 0, 7.5497894e-08, 0, 0.42467505, 0, -7.05147
 text = "-----"
 font = ExtResource("1_gqr5m")
 font_size = 75
+
+[node name="LockLED" type="MeshInstance3D" parent="." unique_id=788158507]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0.6849098, 0.3106079, 0.119781494)
+mesh = SubResource("CapsuleMesh_6gqvj")
+surface_material_override/0 = SubResource("StandardMaterial3D_b3d3a")
