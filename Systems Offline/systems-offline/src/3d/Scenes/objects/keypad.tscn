@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://2vwr86remyve"]
 
+[ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="1_gqr5m"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46x25"]
 resource_name = "mat22"
 albedo_color = Color(0.6262097, 0.6262097, 0.6262097, 1)
@@ -920,3 +922,10 @@ mesh = SubResource("ArrayMesh_yx6a3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sb_ok" unique_id=461617034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.5210144, 0.012965977)
 shape = SubResource("BoxShape3D_yprho")
+
+[node name="Screen" type="Label3D" parent="." unique_id=949294374]
+unique_name_in_owner = true
+transform = Transform3D(-0.49663326, 0, 7.5497894e-08, 0, 0.48753154, 0, -7.4989536e-08, 0, -0.49999997, 0.013521016, 0.59722817, -0.034236312)
+text = "-----"
+font = ExtResource("1_gqr5m")
+font_size = 75
