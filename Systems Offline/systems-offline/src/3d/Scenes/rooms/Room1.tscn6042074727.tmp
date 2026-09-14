@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://c35qrqo7ajmic"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/proto_controller/proto_controller.tscn" id="1_alw4e"]
-[ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
-[ext_resource type="MeshLibrary" uid="uid://cct5f4d8iimtf" path="res://src/3d/Mesh/WallMeshLibrary.meshlib" id="3_alw4e"]
 [ext_resource type="PackedScene" uid="uid://cu2mxrjjnougm" path="res://src/3d/Scenes/objects/Wall.tscn" id="3_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://x6e73ogrivpv" path="res://src/3d/Scenes/objects/SingleDoorWall.tscn" id="4_yy3xw"]
 [ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="5_t4i55"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD/HUD.tscn" id="6_1v5mr"]
-[ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/HUD/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
-[ext_resource type="PackedScene" uid="uid://i5fo2wa3w81k" path="res://src/2d/HUD/OptionsMenu/OptionsMenu.tscn" id="7_yy3xw"]
+[ext_resource type="PackedScene" uid="uid://i5fo2wa3w81k" path="res://src/2d/HUD/OptionsMenu/options.tscn" id="6_b3d3a"]
+[ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,6 +20,12 @@ background_mode = 2
 sky = SubResource("Sky_aywg0")
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_882ar"]
+size = Vector3(50, 1, 50)
+
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=508166444]
@@ -32,15 +36,9 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="ProtoController" parent="." unique_id=1779789665 instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.056080908, 0, 0.9984262, 0, 1, 0, -0.9984262, 0, 0.056080908, -1.8372698, 1, -5.1210666)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 1, 4)
 
-[node name="FloorGridMap" type="GridMap" parent="." unique_id=1714211970]
-mesh_library = ExtResource("2_1ds61")
-cell_size = Vector3(5, 2, 5)
-cell_center_y = false
-data = {
-"cells": PackedInt32Array(65534, 65535, 0, 65535, 1, 1, 65535, 65535, 0, 65535, 65534, 0, 65534, 65534, 0, 1, 1, 1, 0, 1, 1, 0, 65535, 0, 0, 65534, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0)
-}
+[node name="Floor" type="StaticBody3D" parent="." unique_id=958289839]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=705156458]
 mesh = SubResource("BoxMesh_ojbw0")
@@ -104,21 +102,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3, 0.5, 10)
 [node name="SingleDoorWall" parent="EntranceRoom/BackWallWithDoor" unique_id=908054421 instance=ExtResource("4_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.427, 2.9734488, 10.172982)
 
-[node name="WallGridMap" type="GridMap" parent="." unique_id=2124857015]
-mesh_library = ExtResource("3_alw4e")
-cell_size = Vector3(5, 5, 2.5)
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65534, 65531, 655360, 0, 65531, 589824, 65535, 65530, 1, 65534, 65532, 1441792, 65533, 65531, 1048576, 65533, 65533, 1048576, 65533, 65534, 1048576, 65533, 65535, 1048576, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 1, 65531, 1441792, 1, 65532, 1441792, 1, 65533, 1441792, 1, 65534, 1441792, 1, 65535, 1441792)
-}
-
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
-[node name="PauseMenu" parent="." unique_id=2114750774 instance=ExtResource("7_b3d3a")]
+[node name="Escape-menu" parent="." unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
-[node name="OptionsMenu" parent="PauseMenu" unique_id=953478739 instance=ExtResource("7_yy3xw")]
+[node name="Options_menu" parent="Escape-menu" unique_id=953478739 instance=ExtResource("6_b3d3a")]
 
-[connection signal="pressed" from="PauseMenu/OptionsMenu/Control/Panel/VBoxContainer/Sound" to="PauseMenu/OptionsMenu" method="_on_sound_pressed"]
-[connection signal="pressed" from="PauseMenu/OptionsMenu/Control/Panel/VBoxContainer/Back" to="PauseMenu/OptionsMenu" method="_on_back_pressed"]
-
-[editable path="PauseMenu/OptionsMenu"]
+[editable path="Escape-menu"]
+[editable path="Escape-menu/Options_menu"]

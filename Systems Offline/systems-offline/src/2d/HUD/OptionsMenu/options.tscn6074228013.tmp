@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://i5fo2wa3w81k"]
+
+[ext_resource type="Script" uid="uid://dok24enu2qi57" path="res://src/2d/HUD/OptionsMenu/options.gd" id="1_1q4wf"]
+
+[node name="Options_menu" type="CanvasLayer" unique_id=953478739]
+script = ExtResource("1_1q4wf")
+
+[node name="Control" type="Control" parent="." unique_id=1873582784]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=2140754173]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 433.0
+offset_top = 115.0
+offset_right = -433.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel" unique_id=1198274304]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -16.0
+offset_right = 4.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sensitivity" type="Button" parent="Control/Panel/VBoxContainer" unique_id=104939280]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="Sound" type="Button" parent="Control/Panel/VBoxContainer" unique_id=683469586]
+layout_mode = 2
+text = "Sound"
+
+[node name="Back" type="Button" parent="Control/Panel/VBoxContainer" unique_id=1130616399]
+layout_mode = 2
+text = "Back"
