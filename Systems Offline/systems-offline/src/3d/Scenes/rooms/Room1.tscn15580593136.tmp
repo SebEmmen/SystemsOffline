@@ -63,7 +63,6 @@ transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0,
 object_ref = NodePath("..")
 interaction_type = 3
 sliding_door = NodePath("../../SlidingDoor/SlidingDoorBody")
-correct_code = "51515"
 
 [node name="TempItem" parent="." unique_id=506849166 instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.183424, 2.1769521, -13.45346)

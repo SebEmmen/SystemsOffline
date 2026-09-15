@@ -115,6 +115,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wwq2i")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhii3"]
+size = Vector3(1.6799998, 1.7700002, 0.20500046)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p36h5"]
 resource_name = "mat21"
 
@@ -810,178 +813,181 @@ size = Vector3(1, 1, 0.060424805)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovu3a"]
 albedo_color = Color(1, 1, 0, 1)
 
-[node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091 node_paths=PackedStringArray("object_ref")]
-script = ExtResource("1_rhii3")
-object_ref = NodePath(".")
-interaction_type = 2
-correct_code = "51515"
+[node name="MOD_Sec_keypad" type="Node3D" unique_id=490958024]
 
-[node name="base" type="MeshInstance3D" parent="." unique_id=1819979736]
+[node name="KeyPadInteract" type="StaticBody3D" parent="." unique_id=351202966]
+script = ExtResource("1_rhii3")
+
+[node name="base" type="MeshInstance3D" parent="KeyPadInteract" unique_id=1819979736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010660686, -0.07568, -0.027946994)
 mesh = SubResource("ArrayMesh_qb4kn")
 
-[node name="sb00" type="StaticBody3D" parent="." unique_id=1612102591]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract" unique_id=512630397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020110153, 0.06673582, 0.068799675)
+shape = SubResource("BoxShape3D_rhii3")
+
+[node name="sb00" type="StaticBody3D" parent="KeyPadInteract" unique_id=1612102591]
 script = ExtResource("2_2aojk")
 key_value = "0"
 
-[node name="00" type="MeshInstance3D" parent="sb00" unique_id=850600103]
+[node name="00" type="MeshInstance3D" parent="KeyPadInteract/sb00" unique_id=850600103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_u6wj7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb00" unique_id=1097034326]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb00" unique_id=1097034326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963256, -0.5210144, 0.0012990981)
 shape = SubResource("BoxShape3D_qvwoe")
 
-[node name="sb01" type="StaticBody3D" parent="." unique_id=1364186068]
+[node name="sb01" type="StaticBody3D" parent="KeyPadInteract" unique_id=1364186068]
 script = ExtResource("2_2aojk")
 key_value = "1"
 
-[node name="01" type="MeshInstance3D" parent="sb01" unique_id=458280299]
+[node name="01" type="MeshInstance3D" parent="KeyPadInteract/sb01" unique_id=458280299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_2m7hh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb01" unique_id=764128224]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb01" unique_id=764128224]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.27196333, -0.24101445, 0.006299237)
 shape = SubResource("BoxShape3D_gqr5m")
 
-[node name="sb02" type="StaticBody3D" parent="." unique_id=1501608527]
+[node name="sb02" type="StaticBody3D" parent="KeyPadInteract" unique_id=1501608527]
 script = ExtResource("2_2aojk")
 key_value = "2"
 
-[node name="02" type="MeshInstance3D" parent="sb02" unique_id=1166823763]
+[node name="02" type="MeshInstance3D" parent="KeyPadInteract/sb02" unique_id=1166823763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_i5y8h")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb02" unique_id=1054549955]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb02" unique_id=1054549955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, -0.24101445, 0.0012992173)
 shape = SubResource("BoxShape3D_4g6dr")
 
-[node name="sb03" type="StaticBody3D" parent="." unique_id=1945778285]
+[node name="sb03" type="StaticBody3D" parent="KeyPadInteract" unique_id=1945778285]
 script = ExtResource("2_2aojk")
 key_value = "3"
 
-[node name="03" type="MeshInstance3D" parent="sb03" unique_id=1077347367]
+[node name="03" type="MeshInstance3D" parent="KeyPadInteract/sb03" unique_id=1077347367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_g21vx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb03" unique_id=853507140]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb03" unique_id=853507140]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.24101445, 0.0012993887)
 shape = SubResource("BoxShape3D_mtbb7")
 
-[node name="sb04" type="StaticBody3D" parent="." unique_id=566345541]
+[node name="sb04" type="StaticBody3D" parent="KeyPadInteract" unique_id=566345541]
 script = ExtResource("2_2aojk")
 key_value = "4"
 
-[node name="04" type="MeshInstance3D" parent="sb04" unique_id=1108432171]
+[node name="04" type="MeshInstance3D" parent="KeyPadInteract/sb04" unique_id=1108432171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_lxc3o")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb04" unique_id=679106165]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb04" unique_id=679106165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, 0.038985476, 0.0012993254)
 shape = SubResource("BoxShape3D_vv5ua")
 
-[node name="sb05" type="StaticBody3D" parent="." unique_id=1302466010]
+[node name="sb05" type="StaticBody3D" parent="KeyPadInteract" unique_id=1302466010]
 script = ExtResource("2_2aojk")
 key_value = "5"
 
-[node name="05" type="MeshInstance3D" parent="sb05" unique_id=606111261]
+[node name="05" type="MeshInstance3D" parent="KeyPadInteract/sb05" unique_id=606111261]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_4nuge")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb05" unique_id=1050176198]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb05" unique_id=1050176198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.038985416, 0.0012992173)
 shape = SubResource("BoxShape3D_fo3p1")
 
-[node name="sb06" type="StaticBody3D" parent="." unique_id=31154581]
+[node name="sb06" type="StaticBody3D" parent="KeyPadInteract" unique_id=31154581]
 script = ExtResource("2_2aojk")
 key_value = "6"
 
-[node name="06" type="MeshInstance3D" parent="sb06" unique_id=1997715032]
+[node name="06" type="MeshInstance3D" parent="KeyPadInteract/sb06" unique_id=1997715032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_n7752")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb06" unique_id=255169485]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb06" unique_id=255169485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.038985416, 0.0012993887)
 shape = SubResource("BoxShape3D_o4hew")
 
-[node name="sb07" type="StaticBody3D" parent="." unique_id=1782315037]
+[node name="sb07" type="StaticBody3D" parent="KeyPadInteract" unique_id=1782315037]
 script = ExtResource("2_2aojk")
 key_value = "7"
 
-[node name="07" type="MeshInstance3D" parent="sb07" unique_id=35386272]
+[node name="07" type="MeshInstance3D" parent="KeyPadInteract/sb07" unique_id=35386272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_7f7ha")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb07" unique_id=2063443111]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb07" unique_id=2063443111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196336, 0.31898546, 0.0012994446)
 shape = SubResource("BoxShape3D_qqmpt")
 
-[node name="sb08" type="StaticBody3D" parent="." unique_id=329823710]
+[node name="sb08" type="StaticBody3D" parent="KeyPadInteract" unique_id=329823710]
 script = ExtResource("2_2aojk")
 key_value = "8"
 
-[node name="08" type="MeshInstance3D" parent="sb08" unique_id=284008907]
+[node name="08" type="MeshInstance3D" parent="KeyPadInteract/sb08" unique_id=284008907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_bgweh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb08" unique_id=152244864]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb08" unique_id=152244864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011963271, 0.3189854, 0.0012993366)
 shape = SubResource("BoxShape3D_vmbkh")
 
-[node name="sb09" type="StaticBody3D" parent="." unique_id=1000093455]
+[node name="sb09" type="StaticBody3D" parent="KeyPadInteract" unique_id=1000093455]
 script = ExtResource("2_2aojk")
 key_value = "9"
 
-[node name="09" type="MeshInstance3D" parent="sb09" unique_id=263582998]
+[node name="09" type="MeshInstance3D" parent="KeyPadInteract/sb09" unique_id=263582998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_hbpu5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb09" unique_id=1677463498]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb09" unique_id=1677463498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, 0.3189854, 0.0012995079)
 shape = SubResource("BoxShape3D_220n0")
 
-[node name="sb_clear" type="StaticBody3D" parent="." unique_id=818633760]
+[node name="sb_clear" type="StaticBody3D" parent="KeyPadInteract" unique_id=818633760]
 script = ExtResource("2_2aojk")
 key_value = "C"
 
-[node name="Clear" type="MeshInstance3D" parent="sb_clear" unique_id=343611112]
+[node name="Clear" type="MeshInstance3D" parent="KeyPadInteract/sb_clear" unique_id=343611112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_e2p0g")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb_clear" unique_id=762329855]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb_clear" unique_id=762329855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27196333, -0.5210144, 0.0012994446)
 shape = SubResource("BoxShape3D_eh1ba")
 
-[node name="sb_ok" type="StaticBody3D" parent="." unique_id=361432747]
+[node name="sb_ok" type="StaticBody3D" parent="KeyPadInteract" unique_id=361432747]
 script = ExtResource("2_2aojk")
 key_value = "OK"
 
-[node name="Ok" type="MeshInstance3D" parent="sb_ok" unique_id=881601079]
+[node name="Ok" type="MeshInstance3D" parent="KeyPadInteract/sb_ok" unique_id=881601079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011307396, -0.07291086, -0.027946994)
 mesh = SubResource("ArrayMesh_yx6a3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sb_ok" unique_id=461617034]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyPadInteract/sb_ok" unique_id=461617034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24803674, -0.5210144, 0.0012994483)
 shape = SubResource("BoxShape3D_yprho")
 
-[node name="Screen" type="Label3D" parent="." unique_id=949294374]
+[node name="Screen" type="Label3D" parent="KeyPadInteract" unique_id=949294374]
 unique_name_in_owner = true
 transform = Transform3D(-0.4669982, 0, 7.5497894e-08, 0, 0.42467505, 0, -7.0514766e-08, 0, -0.49999997, 0.013521016, 0.59722817, -0.034236312)
 text = "-----"
 font = ExtResource("1_gqr5m")
 font_size = 75
 
-[node name="LockLED" type="MeshInstance3D" parent="." unique_id=788158507]
+[node name="LockLED" type="MeshInstance3D" parent="KeyPadInteract" unique_id=788158507]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0.6849098, 0.3106079, 0.119781494)
 mesh = SubResource("CapsuleMesh_6gqvj")
 surface_material_override/0 = SubResource("StandardMaterial3D_b3d3a")
 
-[node name="StickyNote" type="MeshInstance3D" parent="." unique_id=371074990]
+[node name="StickyNote" type="MeshInstance3D" parent="KeyPadInteract" unique_id=371074990]
 transform = Transform3D(0.37735182, 0.13922898, 0, -0.1442886, 0.36358774, -0.006559965, -0.0055184704, 0.013905798, 0.17152008, -0.7520447, 0, 0.072711945)
 mesh = SubResource("BoxMesh_6gqvj")
 surface_material_override/0 = SubResource("StandardMaterial3D_ovu3a")
 
-[node name="Code" type="Label3D" parent="StickyNote" unique_id=289948629]
+[node name="Code" type="Label3D" parent="KeyPadInteract/StickyNote" unique_id=289948629]
 transform = Transform3D(-0.12, 6.399933e-09, -1.8119495e-08, 6.3999335e-09, 0.12, -3.3527636e-09, 1.8119495e-08, -3.3527645e-09, -0.12, -0.019286698, -0.001219093, -0.07746163)
 modulate = Color(0, 0, 0, 1)
 text = "51515
