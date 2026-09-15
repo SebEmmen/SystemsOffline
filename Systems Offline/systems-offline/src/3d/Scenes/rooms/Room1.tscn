@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
 [ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="6_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
+[ext_resource type="PackedScene" uid="uid://2vwr86remyve" path="res://src/3d/Scenes/objects/Keypad/keypad.tscn" id="7_yy3xw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,7 +30,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="ProtoController" parent="." unique_id=1779789665 instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.056080908, 0, 0.9984262, 0, 1, 0, -0.9984262, 0, 0.056080908, -1.8372698, 1, -5.1210666)
+transform = Transform3D(0.949891, 0, -0.31258178, 0, 1, 0, 0.31258178, 0, 0.949891, -1.8372698, 1, -5.1210666)
 
 [node name="FloorGridMap" type="GridMap" parent="." unique_id=1714211970]
 mesh_library = ExtResource("2_1ds61")
@@ -53,3 +54,9 @@ data = {
 
 [node name="SlidingDoor" parent="." unique_id=212972216 instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
+
+[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("sliding_door") instance=ExtResource("7_yy3xw")]
+transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
+sliding_door = NodePath("../SlidingDoor/SlidingDoorBody")
+
+[editable path="Keypad"]
