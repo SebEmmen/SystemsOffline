@@ -811,6 +811,7 @@ size = Vector3(1, 1, 0.060424805)
 albedo_color = Color(1, 1, 0, 1)
 
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_4g6dr")
 
 [node name="base" type="MeshInstance3D" parent="." unique_id=1819979736]
