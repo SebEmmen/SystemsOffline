@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="6_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://2vwr86remyve" path="res://src/3d/Scenes/objects/Keypad/keypad.tscn" id="7_yy3xw"]
+[ext_resource type="PackedScene" uid="uid://6v4ujtgo4roc" path="res://src/3d/Scenes/objects/TempItem.tscn" id="8_yy3xw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -58,5 +59,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
 [node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("sliding_door") instance=ExtResource("7_yy3xw")]
 transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
 sliding_door = NodePath("../SlidingDoor/SlidingDoorBody")
+
+[node name="TempItem" parent="." unique_id=506849166 instance=ExtResource("8_yy3xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.183424, 2.1769521, -13.45346)
 
 [editable path="Keypad"]

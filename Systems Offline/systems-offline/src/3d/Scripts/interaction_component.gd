@@ -2,6 +2,7 @@ extends Node
 
 enum InteractionType{
 	DEFAULT,
+	PICKUP,
 	DOOR,
 	KEYPAD,
 	KNOB
@@ -33,7 +34,6 @@ var entered_code := ""
 @export_group("Knob")
 @export var rotation_speed : float = 0.05
 #endregion
-
 #region Sound Effects Variables
 @export_group("Sound Effects")
 var primary_audio_player: AudioStreamPlayer3D
@@ -56,7 +56,9 @@ func _ready() -> void:
 func interact() -> void:
 	match interaction_type:
 		InteractionType.DEFAULT: 
-			pass
+			print("Object has been picked up!")
+			queue_free()
+			object_ref.visible = false
 		InteractionType.DOOR:
 			interact_door()
 		InteractionType.KEYPAD:
@@ -88,6 +90,7 @@ func unlock_door() -> void:
 	print("Door unlocked!")
 	
 #endregion
+
 
 #region KeyPad Functions
 func ready_keypad() -> void:
@@ -152,6 +155,7 @@ func update_led(locked: bool) -> void:
 		material.albedo_color = Color.GREEN
 		material.emission = Color.GREEN
 #endregion
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
