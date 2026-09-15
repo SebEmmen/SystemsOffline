@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3wuqplm7lupy"]
 
-[ext_resource type="Script" uid="uid://s6oliolcgukk" path="res://src/3d/Scripts/door.gd" id="1_l2ed4"]
+[ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_l2ed4"]
 [ext_resource type="Material" uid="uid://rbm0jt7rir2c" path="res://src/3d/Materials/slidingdoortemp.tres" id="1_pa7bx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
@@ -64,8 +64,10 @@ _data = {
 [node name="SlidingDoor" type="Node3D" unique_id=212972216]
 transform = Transform3D(0.9991126, 0, 0.042119164, 0, 1, 0, -0.042119164, 0, 0.9991126, 0, 0, 0)
 
-[node name="SlidingDoorBody" type="StaticBody3D" parent="." unique_id=1063624797 node_paths=PackedStringArray("animation_player")]
+[node name="SlidingDoorBody" type="StaticBody3D" parent="." unique_id=1063624797 node_paths=PackedStringArray("object_ref", "animation_player")]
 script = ExtResource("1_l2ed4")
+object_ref = NodePath(".")
+interaction_type = 1
 animation_player = NodePath("../AnimationPlayer")
 
 [node name="SlidingDoorMesh" type="MeshInstance3D" parent="SlidingDoorBody" unique_id=1913860126]
