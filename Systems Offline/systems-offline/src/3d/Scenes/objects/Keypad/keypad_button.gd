@@ -9,7 +9,7 @@ func interact() -> void:
 	var keypad = get_parent()
 
 	# Buttons only work while we're in keypad view mode
-	if not keypad.using_keypad:
+	if not keypad.is_interacting:
 		return
 
 	print("Hit node: ", name, " | key value: ", key_value)

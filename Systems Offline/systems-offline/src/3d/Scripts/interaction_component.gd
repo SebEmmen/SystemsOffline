@@ -11,6 +11,8 @@ enum InteractionType{
 # Select specific object reference and interaction type (set to default)
 @export var object_ref: Node3D
 @export var interaction_type: InteractionType = InteractionType.DEFAULT
+@export var player: CharacterBody3D
+@export var player_camera: Camera3D
 
 #region Default Variables
 @export_group("Default")
@@ -25,6 +27,7 @@ var locked: bool = true
 #region KeyPad Specific Variables
 @export_group("KeyPad")
 @onready var screen_label: Label3D = $Screen
+@export var keypad_camera: Camera3D
 @export var sliding_door: StaticBody3D
 @onready var lock_led: MeshInstance3D = $LockLED
 var entered_code := ""
@@ -98,7 +101,69 @@ func ready_keypad() -> void:
 	update_led(true)
 
 func interact_keypad() -> void:
-	pass
+	object_ref.enter_keypad()
+
+func enter_keypad() -> void:
+	if is_interacting:
+		return
+
+	is_interacting = true
+
+	keypad_camera.make_current()
+	player.disable_controls()
+	player.visible = false
+
+func exit_keypad() -> void:
+	is_interacting = false
+
+	player_camera.make_current()
+
+	# Wait until the Escape input has finished processing.
+	await get_tree().process_frame
+
+	player.enable_controls()
+	player.visible = true
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_interacting:
+		return
+
+	# Leave keypad with Escape
+	if event.is_action_pressed("ui_cancel"):
+		exit_keypad()
+		get_viewport().set_input_as_handled()
+
+	# Click keypad buttons with left mouse button
+	elif event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			click_keypad_button()
+			get_viewport().set_input_as_handled()
+
+func get_button_under_mouse() -> Object:
+	var mouse_position := get_viewport().get_mouse_position()
+
+	var ray_origin := keypad_camera.project_ray_origin(mouse_position)
+	var ray_direction := keypad_camera.project_ray_normal(mouse_position)
+	var ray_end := ray_origin + ray_direction * 5.0
+
+	var query := PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	var result : Dictionary = keypad_camera.get_world_3d().direct_space_state.intersect_ray(query)
+
+	if result:
+		return result.collider
+
+	return null
+
+func click_keypad_button() -> void:
+	var button := get_button_under_mouse()
+
+	if button == null:
+		return
+
+	print("Mouse hit: ", button.name)
+
+	if button.has_method("interact"):
+		button.interact()
 
 func press_key(key: String) -> void:
 	if key == "C":
