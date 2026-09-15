@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://vwyb5bkiq3l2"]
+
+[ext_resource type="Script" uid="uid://bg2iv31cvra84" path="res://src/3d/Scenes/objects/knob.gd" id="1_llq43"]
+[ext_resource type="Material" uid="uid://rbm0jt7rir2c" path="res://src/3d/Materials/slidingdoortemp.tres" id="2_oksc0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r5iys"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llq43"]
+size = Vector3(0.2, 0.1, 0.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ojbw0"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.01
+
+[node name="Knob" type="Node3D" unique_id=751802425]
+script = ExtResource("1_llq43")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=337332119]
+material_override = ExtResource("2_oksc0")
+mesh = SubResource("CylinderMesh_r5iys")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=766022756]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1627890868]
+shape = SubResource("BoxShape3D_llq43")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D/StaticBody3D" unique_id=1377883962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009690425, 0.054130033, -0.07360608)
+mesh = SubResource("CylinderMesh_ojbw0")

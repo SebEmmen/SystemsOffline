@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b3hs03ywpxl30"]
+
+[ext_resource type="PackedScene" uid="uid://vwyb5bkiq3l2" path="res://src/3d/Scenes/objects/Knob.tscn" id="1_s5wx4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l42ft"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtvaw"]
+size = Vector3(2, 1, 1)
+
+[node name="CommsDevice" type="Node3D" unique_id=1644845927]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=182533483]
+mesh = SubResource("BoxMesh_l42ft")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=151158844]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1944494297]
+shape = SubResource("BoxShape3D_mtvaw")
+
+[node name="Knob" parent="." unique_id=751802425 instance=ExtResource("1_s5wx4")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.027443e-08, 0.5537515)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=936602602]
