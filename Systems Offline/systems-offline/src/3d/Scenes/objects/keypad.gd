@@ -31,7 +31,7 @@ func update_screen() -> void:
 func check_code() -> void:
 	if entered_code == correct_code:
 		print("Correct code!")
-		sliding_door.unlock()
+		sliding_door.unlock_door()
 		flash_enter()
 		update_led(false)
 	else:

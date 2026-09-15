@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://2vwr86remyve"]
 
-[ext_resource type="Script" uid="uid://jj0araii8kr0" path="res://src/3d/Scenes/objects/keypad.gd" id="1_4g6dr"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="1_gqr5m"]
+[ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_rhii3"]
 [ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="2_2aojk"]
 [ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="4_rhii3"]
 
@@ -810,8 +810,10 @@ size = Vector3(1, 1, 0.060424805)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovu3a"]
 albedo_color = Color(1, 1, 0, 1)
 
-[node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
-script = ExtResource("1_4g6dr")
+[node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091 node_paths=PackedStringArray("object_ref")]
+script = ExtResource("1_rhii3")
+object_ref = NodePath(".")
+interaction_type = 2
 
 [node name="base" type="MeshInstance3D" parent="." unique_id=1819979736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010660686, -0.07568, -0.027946994)
