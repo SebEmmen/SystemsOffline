@@ -27,9 +27,15 @@ var locked: bool = true
 @export var sliding_door: StaticBody3D
 @onready var lock_led: MeshInstance3D = $LockLED
 var entered_code := ""
-var correct_code := "51515"
+@export var correct_code : String
 #endregion
+#region Knob Specific Variables
+@export_group("Knob")
+@export var rotation_speed : float = 0.05
+#endregion
+
 #region Sound Effects Variables
+@export_group("Sound Effects")
 var primary_audio_player: AudioStreamPlayer3D
 var secondary_audio_player: AudioStreamPlayer3D
 var tertiary_audio_player: AudioStreamPlayer3D
