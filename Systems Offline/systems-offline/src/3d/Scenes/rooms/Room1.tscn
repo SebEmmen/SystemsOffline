@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c35qrqo7ajmic"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/proto_controller/proto_controller.tscn" id="1_alw4e"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://cct5f4d8iimtf" path="res://src/3d/Mesh/WallMeshLibrary.meshlib" id="3_alw4e"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
@@ -35,6 +35,12 @@ transform = Transform3D(0.949891, 0, -0.31258178, 0, 1, 0, 0.31258178, 0, 0.9498
 crosshair = NodePath("../HUD/Crosshair")
 interaction_text = NodePath("../HUD/InteractionLabel")
 
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
+interaction_label = NodePath("../../../../HUD/InteractionLabel")
+crosshair = NodePath("../../../../HUD/Crosshair")
+crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
+view_label = NodePath("../../../../HUD/ViewLabel")
+
 [node name="FloorGridMap" type="GridMap" parent="." unique_id=1714211970]
 mesh_library = ExtResource("2_1ds61")
 cell_size = Vector3(5, 2, 5)
@@ -53,29 +59,30 @@ data = {
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
+[node name="ViewLabel" parent="HUD" index="3" unique_id=51349289]
+text = "Press [E] to inspect"
+
 [node name="Escape-menu" parent="." unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
-[node name="SlidingDoor" parent="." unique_id=212972216 instance=ExtResource("6_b3d3a")]
+[node name="SlidingDoor" parent="." unique_id=212972216 node_paths=PackedStringArray("player", "player_camera", "animation_player") instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
+player = NodePath("../ProtoController")
+player_camera = NodePath("../ProtoController/Head/Camera3D")
+animation_player = NodePath("AnimationPlayer")
 
-[node name="SlidingDoorBody" parent="SlidingDoor" index="0" unique_id=1063624797 node_paths=PackedStringArray("player", "player_camera")]
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
-
-[node name="Keypad" parent="." unique_id=1609901091 instance=ExtResource("7_yy3xw")]
+[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "keypad_camera", "sliding_door") instance=ExtResource("7_yy3xw")]
 transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
-
-[node name="KeypadInteract" parent="Keypad" index="0" unique_id=644942317 node_paths=PackedStringArray("object_ref", "player", "player_camera", "keypad_camera", "sliding_door")]
 object_ref = NodePath(".")
 interaction_type = 3
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
+player = NodePath("../ProtoController")
+player_camera = NodePath("../ProtoController/Head/Camera3D")
 keypad_camera = NodePath("KeypadCamera")
-sliding_door = NodePath("../../SlidingDoor/SlidingDoorBody")
-correct_code = "51515"
+sliding_door = NodePath("../SlidingDoor")
+correct_code = "12345"
 
 [node name="TempItem" parent="." unique_id=506849166 instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.183424, 2.1769521, -13.45346)
+interaction_type = 1
 
 [editable path="ProtoController"]
 [editable path="HUD"]

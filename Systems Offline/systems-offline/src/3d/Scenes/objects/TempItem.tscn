@@ -8,13 +8,12 @@
 size = Vector3(0.99886733, 0.9999998, 0.99886733)
 
 [node name="TempItem" type="Node3D" unique_id=506849166]
+script = ExtResource("1_ca0bt")
 
 [node name="Ball" type="MeshInstance3D" parent="." unique_id=1642591021]
 mesh = SubResource("SphereMesh_r5iys")
 
-[node name="sbBall" type="StaticBody3D" parent="Ball" unique_id=1843391824 node_paths=PackedStringArray("object_ref")]
-script = ExtResource("1_ca0bt")
-object_ref = NodePath("..")
+[node name="sbBall" type="StaticBody3D" parent="Ball" unique_id=1843391824]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball/sbBall" unique_id=1038223149]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.940697e-08, 0)

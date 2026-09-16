@@ -1,3 +1,4 @@
+class_name InteractableComponent
 extends Node
 
 enum InteractionType{
@@ -31,7 +32,7 @@ var locked: bool = true
 @export_group("KeyPad")
 @onready var screen_label: Label3D = $Screen
 @export var keypad_camera: Camera3D
-@export var sliding_door: StaticBody3D
+@export var sliding_door: Node3D
 @onready var lock_led: MeshInstance3D = $LockLED
 var entered_code := ""
 @export var correct_code : String
@@ -59,17 +60,14 @@ func _ready() -> void:
 		InteractionType.KEYPAD:
 			ready_keypad()
 
-func view() -> void:
-	match interaction_type:
-		InteractionType.INSPECT:
-			view_inspect()
-
 func interact() -> void:
 	match interaction_type:
 		InteractionType.DEFAULT: 
 			print("Object has been picked up!")
 			queue_free()
 			object_ref.visible = false
+		InteractionType.INSPECT:
+			interact_inspect()
 		InteractionType.DOOR:
 			interact_door()
 		InteractionType.KEYPAD:
@@ -232,7 +230,7 @@ func update_led(locked: bool) -> void:
 
 #region Inspect Functions
 
-func view_inspect() -> void:
+func interact_inspect() -> void:
 	pass
 
 #endregion

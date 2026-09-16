@@ -61,14 +61,13 @@ _data = {
 &"open": SubResource("Animation_l2ed4")
 }
 
-[node name="SlidingDoor" type="Node3D" unique_id=212972216]
+[node name="SlidingDoor" type="Node3D" unique_id=212972216 node_paths=PackedStringArray("object_ref")]
 transform = Transform3D(0.9991126, 0, 0.042119164, 0, 1, 0, -0.042119164, 0, 0.9991126, 0, 0, 0)
-
-[node name="SlidingDoorBody" type="StaticBody3D" parent="." unique_id=1063624797 node_paths=PackedStringArray("object_ref", "animation_player")]
 script = ExtResource("1_l2ed4")
 object_ref = NodePath(".")
 interaction_type = 2
-animation_player = NodePath("../AnimationPlayer")
+
+[node name="SlidingDoorBody" type="StaticBody3D" parent="." unique_id=1063624797]
 
 [node name="SlidingDoorMesh" type="MeshInstance3D" parent="SlidingDoorBody" unique_id=1913860126]
 material_override = ExtResource("1_pa7bx")
