@@ -2,7 +2,7 @@ extends Node
 
 enum InteractionType{
 	DEFAULT,
-	PICKUP,
+	INSPECT,
 	DOOR,
 	KEYPAD,
 	KNOB
@@ -18,6 +18,9 @@ enum InteractionType{
 @export_group("Default")
 var can_interact: bool = true
 var is_interacting: bool = false 
+#endregion
+#region Inspect Variables
+@export_group("Inspect Variables")
 #endregion
 #region Door Specific Variables
 @export_group("Door")
@@ -55,6 +58,11 @@ func _ready() -> void:
 			pass
 		InteractionType.KEYPAD:
 			ready_keypad()
+
+func view() -> void:
+	match interaction_type:
+		InteractionType.INSPECT:
+			view_inspect()
 
 func interact() -> void:
 	match interaction_type:
@@ -221,6 +229,13 @@ func update_led(locked: bool) -> void:
 		material.emission = Color.GREEN
 #endregion
 
+
+#region Inspect Functions
+
+func view_inspect() -> void:
+	pass
+
+#endregion
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
