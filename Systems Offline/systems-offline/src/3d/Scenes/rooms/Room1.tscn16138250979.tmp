@@ -30,10 +30,8 @@ environment = SubResource("Environment_a7dbj")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("crosshair", "interaction_text") instance=ExtResource("1_alw4e")]
+[node name="ProtoController" parent="." unique_id=1779789665 instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.949891, 0, -0.31258178, 0, 1, 0, 0.31258178, 0, 0.949891, -1.8372698, 1, -5.1210666)
-crosshair = NodePath("../HUD/Crosshair")
-interaction_text = NodePath("../HUD/InteractionLabel")
 
 [node name="FloorGridMap" type="GridMap" parent="." unique_id=1714211970]
 mesh_library = ExtResource("2_1ds61")
@@ -58,26 +56,17 @@ data = {
 [node name="SlidingDoor" parent="." unique_id=212972216 instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
 
-[node name="SlidingDoorBody" parent="SlidingDoor" index="0" unique_id=1063624797 node_paths=PackedStringArray("player", "player_camera")]
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
-
 [node name="Keypad" parent="." unique_id=1609901091 instance=ExtResource("7_yy3xw")]
 transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
 
-[node name="KeypadInteract" parent="Keypad" index="0" unique_id=644942317 node_paths=PackedStringArray("object_ref", "player", "player_camera", "keypad_camera", "sliding_door")]
-object_ref = NodePath(".")
+[node name="KeypadInteract" parent="Keypad" index="0" unique_id=644942317 node_paths=PackedStringArray("object_ref", "sliding_door")]
+object_ref = NodePath("..")
 interaction_type = 3
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
-keypad_camera = NodePath("KeypadCamera")
 sliding_door = NodePath("../../SlidingDoor/SlidingDoorBody")
 correct_code = "51515"
 
 [node name="TempItem" parent="." unique_id=506849166 instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.183424, 2.1769521, -13.45346)
 
-[editable path="ProtoController"]
-[editable path="HUD"]
 [editable path="SlidingDoor"]
 [editable path="Keypad"]
