@@ -8,18 +8,16 @@ extends CharacterBody3D
 
 @export var can_move: bool = true
 @export var has_gravity: bool = true
-@export var can_jump: bool = true
 @export var can_sprint: bool = true
 
-
+#region Speeds
 @export_group("Speeds")
 
 @export var look_speed: float = 0.002
 @export var base_speed: float = 10.0
-@export var jump_velocity: float = 5.0
 @export var sprint_speed: float = 15.0
-
-
+#endregion
+#region Input Actions
 @export_group("Input Actions")
 
 @export var input_left: String = "move_left"
@@ -28,7 +26,7 @@ extends CharacterBody3D
 @export var input_back: String = "move_back"
 @export var input_jump: String = "ui_accept"
 @export var input_sprint: String = "sprint"
-
+#endregion
 
 
 var mouse_captured: bool = false
@@ -78,12 +76,6 @@ func _physics_process(delta: float) -> void:
 	if has_gravity:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-
-
-	# Jumping
-	if can_jump and controls_enabled:
-		if Input.is_action_just_pressed(input_jump) and is_on_floor():
-			velocity.y = jump_velocity
 
 
 	# Sprinting
@@ -217,14 +209,6 @@ func check_input_mappings() -> void:
 			+ input_back
 		)
 		can_move = false
-
-
-	if can_jump and not InputMap.has_action(input_jump):
-		push_error(
-			"Jumping disabled. No InputAction found for input_jump: "
-			+ input_jump
-		)
-		can_jump = false
 
 
 	if can_sprint and not InputMap.has_action(input_sprint):
