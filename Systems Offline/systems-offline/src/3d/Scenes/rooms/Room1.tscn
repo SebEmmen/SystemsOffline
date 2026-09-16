@@ -81,8 +81,12 @@ sliding_door = NodePath("../SlidingDoor")
 correct_code = "12345"
 
 [node name="TempItem" parent="." unique_id=506849166 instance=ExtResource("8_yy3xw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.183424, 2.1769521, -13.45346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1754894, 0.5248313, -10.564606)
 interaction_type = 1
+
+[node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref") instance=ExtResource("8_yy3xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1956341, 0.5518472, -8.255277)
+object_ref = NodePath(".")
 
 [editable path="ProtoController"]
 [editable path="HUD"]

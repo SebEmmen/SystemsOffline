@@ -25,7 +25,7 @@ var is_interacting: bool = false
 #endregion
 #region Door Specific Variables
 @export_group("Door")
-var locked: bool = true
+@export var locked: bool = true
 @export var animation_player: AnimationPlayer
 #endregion
 #region KeyPad Specific Variables
