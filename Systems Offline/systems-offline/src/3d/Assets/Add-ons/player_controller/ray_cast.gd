@@ -23,18 +23,14 @@ func _process(_delta: float) -> void:
 
 		if interactable:
 			# Check if the object is set to INSPECT mode
-			if interactable.interaction_type == InteractableComponent.InteractionType.INSPECT: # 1 corresponds to InteractionType.INSPECT
+			if interactable.interaction_type == InteractableComponent.InteractionType.INSPECT:
 				_set_ui_state(false, true)
-				
-				if Input.is_action_just_pressed("view") and interactable.has_method("view"):
-					interactable.view()
 			else:
 				_set_ui_state(true, false)
-				
-				if Input.is_action_just_pressed("interact") and interactable.has_method("interact"):
-					interactable.interact()
 		else:
 			_reset_ui()
+		if Input.is_action_just_pressed("interact") and interactable.has_method("interact"):
+					interactable.interact()
 	else:
 		_reset_ui()
 

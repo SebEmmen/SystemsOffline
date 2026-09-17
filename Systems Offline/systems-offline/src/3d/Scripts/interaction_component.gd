@@ -21,7 +21,8 @@ var can_interact: bool = true
 var is_interacting: bool = false 
 #endregion
 #region Inspect Variables
-@export_group("Inspect Variables")
+@export_group("Inspect")
+@export var inspect_camera : Camera3D
 #endregion
 #region Door Specific Variables
 @export_group("Door")
@@ -232,7 +233,29 @@ func update_led() -> void:
 #region Inspect Functions
 
 func interact_inspect() -> void:
-	pass
+	object_ref.enter_inspect()
+
+func enter_inspect() -> void:
+	if is_interacting:
+		return
+
+	is_interacting = true
+
+	inspect_camera.make_current()
+	player.disable_controls()
+	player.visible = false
+	
+func exit_inspect() -> void:
+	is_interacting = false
+
+	player_camera.make_current()
+
+	# Wait until the Escape input has finished processing.
+	await get_tree().process_frame
+
+	player.enable_controls()
+	player.visible = true
+	
 
 #endregion
 # Called every frame. 'delta' is the elapsed time since the previous frame.

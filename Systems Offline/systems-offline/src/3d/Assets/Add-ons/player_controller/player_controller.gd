@@ -14,8 +14,8 @@ extends CharacterBody3D
 @export_group("Speeds")
 
 @export var look_speed: float = 0.002
-@export var base_speed: float = 10.0
-@export var sprint_speed: float = 15.0
+@export var base_speed: float = 5.0
+@export var sprint_speed: float = 7.0
 #endregion
 #region Input Actions
 @export_group("Input Actions")
@@ -24,7 +24,6 @@ extends CharacterBody3D
 @export var input_right: String = "move_right"
 @export var input_forward: String = "move_forward"
 @export var input_back: String = "move_back"
-@export var input_jump: String = "ui_accept"
 @export var input_sprint: String = "sprint"
 #endregion
 
@@ -38,8 +37,8 @@ var controls_enabled := true
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 
-@export var crosshair: Control
-@export var interaction_text: Label
+@export var my_crosshairs: Array[Control]
+@export var my_HUD_labels: Array[Label]
 
 
 func _ready() -> void:
@@ -163,8 +162,11 @@ func release_mouse() -> void:
 func disable_controls() -> void:
 	controls_enabled = false
 
-	crosshair.hide()
-	interaction_text.hide()
+	for n in my_crosshairs:
+		n.hide()
+	for m in my_HUD_labels:
+		m.hide()
+	
 
 	release_mouse()
 
@@ -172,7 +174,7 @@ func disable_controls() -> void:
 func enable_controls() -> void:
 	controls_enabled = true
 
-	crosshair.show()
+	my_crosshairs[0].show()
 
 	capture_mouse()
 

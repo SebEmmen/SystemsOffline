@@ -14,8 +14,9 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=1779789665]
+[node name="ProtoController" type="CharacterBody3D" unique_id=1779789665 node_paths=PackedStringArray("my_crosshairs")]
 script = ExtResource("1_ucva2")
+my_crosshairs = [null]
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1438870549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
