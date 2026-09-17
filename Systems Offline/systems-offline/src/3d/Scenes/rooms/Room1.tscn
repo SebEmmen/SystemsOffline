@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://2vwr86remyve" path="res://src/3d/Scenes/objects/Keypad/keypad.tscn" id="7_yy3xw"]
 [ext_resource type="PackedScene" uid="uid://6v4ujtgo4roc" path="res://src/3d/Scenes/objects/TempItem.tscn" id="8_yy3xw"]
+[ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="9_t4i55"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -70,13 +71,14 @@ player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
 animation_player = NodePath("AnimationPlayer")
 
-[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "keypad_camera", "sliding_door") instance=ExtResource("7_yy3xw")]
+[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "keypad_camera", "transition_camera", "sliding_door") instance=ExtResource("7_yy3xw")]
 transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
 keypad_camera = NodePath("KeypadCamera")
+transition_camera = NodePath("../TransitionCamera")
 sliding_door = NodePath("../SlidingDoor")
 correct_code = "12345"
 
@@ -87,6 +89,8 @@ interaction_type = 1
 [node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1956341, 0.5518472, -8.255277)
 object_ref = NodePath(".")
+
+[node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("9_t4i55")]
 
 [editable path="ProtoController"]
 [editable path="HUD"]

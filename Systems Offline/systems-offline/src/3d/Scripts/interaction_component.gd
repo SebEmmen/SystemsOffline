@@ -19,6 +19,7 @@ enum InteractionType{
 @export_group("Default")
 var can_interact: bool = true
 var is_interacting: bool = false 
+var is_transitioning := false
 #endregion
 #region Inspect Variables
 @export_group("Inspect Variables")
@@ -32,6 +33,7 @@ var is_interacting: bool = false
 @export_group("KeyPad")
 @onready var screen_label: Label3D = $Screen
 @export var keypad_camera: Camera3D
+@export var transition_camera: Camera3D
 @export var sliding_door: Node3D
 @onready var lock_led: MeshInstance3D = $LockLED
 var entered_code := ""
@@ -73,6 +75,34 @@ func interact() -> void:
 		InteractionType.KEYPAD:
 			interact_keypad()
 
+func transition(from: Camera3D, target: Camera3D) -> void:
+	if is_transitioning:
+		return
+
+	is_transitioning = true
+
+	transition_camera.global_transform = from.global_transform
+	transition_camera.make_current()
+
+	# Create the tween
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_property(
+		transition_camera,
+		"global_transform",
+		target.global_transform,
+		10
+	)
+
+	await tween.finished
+
+	# Target camera takes over
+	target.make_current()
+
+	is_transitioning = false
+
 #region Door Functions
 
 # Interact Function for Door
@@ -110,28 +140,30 @@ func interact_keypad() -> void:
 	object_ref.enter_keypad()
 
 func enter_keypad() -> void:
-	if is_interacting:
+	if is_interacting or is_transitioning:
 		return
 
 	is_interacting = true
 
-	keypad_camera.make_current()
 	player.disable_controls()
+
 	player.visible = false
+	await transition(player_camera, keypad_camera)
+
 
 func exit_keypad() -> void:
+	if not is_interacting or is_transitioning:
+		return
+
 	is_interacting = false
 
-	player_camera.make_current()
-
-	# Wait until the Escape input has finished processing.
-	await get_tree().process_frame
-
 	player.enable_controls()
+
+	await transition(keypad_camera, player_camera)
 	player.visible = true
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not is_interacting:
+	if not is_interacting or is_transitioning:
 		return
 
 	# Leave keypad with Escape
