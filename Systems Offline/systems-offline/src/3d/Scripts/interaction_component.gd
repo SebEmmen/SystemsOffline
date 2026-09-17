@@ -18,7 +18,8 @@ enum InteractionType{
 #region Default Variables
 @export_group("Default")
 var can_interact: bool = true
-var is_interacting: bool = false 
+var is_interacting: bool = false
+@export var pickup_message : Label
 #endregion
 #region Inspect Variables
 @export_group("Inspect")
@@ -64,15 +65,24 @@ func _ready() -> void:
 func interact() -> void:
 	match interaction_type:
 		InteractionType.DEFAULT: 
-			print("Object has been picked up!")
-			queue_free()
-			object_ref.visible = false
+			interact_pickup()
 		InteractionType.INSPECT:
 			interact_inspect()
 		InteractionType.DOOR:
 			interact_door()
 		InteractionType.KEYPAD:
 			interact_keypad()
+
+#region PickUp Functions
+func interact_pickup() -> void:
+	object_ref.visible = false
+	print("Object has been picked up!")
+	pickup_message.visible = true
+	await get_tree().create_timer(1.0).timeout
+	pickup_message.visible = false
+	print("done")
+	queue_free()
+#endregion
 
 #region Door Functions
 
