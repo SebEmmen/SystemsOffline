@@ -22,7 +22,8 @@ var is_interacting: bool = false
 var is_transitioning := false
 #endregion
 #region Inspect Variables
-@export_group("Inspect Variables")
+@export_group("Inspect")
+@export var inspect_camera : Camera3D
 #endregion
 #region Door Specific Variables
 @export_group("Door")
@@ -31,11 +32,11 @@ var is_transitioning := false
 #endregion
 #region KeyPad Specific Variables
 @export_group("KeyPad")
-@onready var screen_label: Label3D = $Screen
+@export var screen_label: Label3D
 @export var keypad_camera: Camera3D
 @export var transition_camera: Camera3D
 @export var sliding_door: Node3D
-@onready var lock_led: MeshInstance3D = $LockLED
+@export var lock_led: MeshInstance3D
 var entered_code := ""
 @export var correct_code : String
 #endregion
@@ -134,7 +135,7 @@ func unlock_door() -> void:
 #region KeyPad Functions
 func ready_keypad() -> void:
 	update_screen()
-	update_led(true)
+	update_led()
 
 func interact_keypad() -> void:
 	object_ref.enter_keypad()
@@ -225,7 +226,8 @@ func check_code() -> void:
 		print("Correct code!")
 		sliding_door.unlock_door()
 		flash_enter()
-		update_led(false)
+		locked = false
+		update_led()
 	else:
 		flash_error()
 		#entered_code = ""
@@ -248,7 +250,7 @@ func flash_error():
 	screen_label.modulate = Color("ffffff")
 	screen_label.text = entered_code
 	
-func update_led(locked: bool) -> void:
+func update_led() -> void:
 	var material := lock_led.get_active_material(0) as StandardMaterial3D
 
 	if locked:
@@ -263,9 +265,31 @@ func update_led(locked: bool) -> void:
 #region Inspect Functions
 
 func interact_inspect() -> void:
-	pass
+	object_ref.enter_inspect()
+
+func enter_inspect() -> void:
+	if is_interacting:
+		return
+
+	is_interacting = true
+
+	inspect_camera.make_current()
+	player.disable_controls()
+	player.visible = false
+	
+func exit_inspect() -> void:
+	is_interacting = false
+
+	player_camera.make_current()
+
+	# Wait until the Escape input has finished processing.
+	await get_tree().process_frame
+
+	player.enable_controls()
+	player.visible = true
+	
 
 #endregion
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

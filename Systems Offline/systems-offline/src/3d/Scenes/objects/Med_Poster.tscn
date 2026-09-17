@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dqbkntvgsbpto"]
+
+[ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_udo2b"]
+[ext_resource type="Material" uid="uid://cflgda82sa6gn" path="res://src/3d/Materials/paper.tres" id="2_j0acv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
+size = Vector3(0.457, 0.61, 0.005)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2rrcu"]
+size = Vector3(0.457, 0.61, 0.01)
+
+[node name="MediumPoster" type="Node3D" unique_id=131794683]
+script = ExtResource("1_udo2b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=45797016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.003529489)
+material_override = ExtResource("2_j0acv")
+mesh = SubResource("BoxMesh_r5iys")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1452943759]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1214529485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003)
+shape = SubResource("BoxShape3D_2rrcu")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=599613705]
+transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 0, 0, -0.003)
+text = "Poster"
+
+[node name="PosterCamera" type="Camera3D" parent="." unique_id=1301412908]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.788942e-09, 0, -0.47202834)
+fov = 72.84662
