@@ -5,10 +5,13 @@
 
 extends CharacterBody3D
 
-
+@export var camera: Camera3D
+@export var ray: RayCast3D
 @export var can_move: bool = true
 @export var has_gravity: bool = true
 @export var can_sprint: bool = true
+@export var can_shrink: bool = false
+@export var is_shrunk: bool = false
 
 #region Speeds
 @export_group("Speeds")
@@ -75,6 +78,22 @@ func _physics_process(delta: float) -> void:
 	if has_gravity:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+
+	# Shrinking
+	if can_shrink and controls_enabled and Input.is_action_just_pressed("shrink"):
+		var tween = create_tween().set_parallel(true)
+		if !is_shrunk:
+			is_shrunk = !is_shrunk
+			tween.tween_property(self, "scale", Vector3(0.1, 0.1, 0.1), 0.2)
+			tween.tween_property(camera, "fov", 110, 0.2)
+			tween.tween_property(ray, "scale", Vector3(0.2, 0.2, 0.2), 0.2)
+
+		else:
+			is_shrunk = !is_shrunk
+			tween.tween_property(self, "scale", Vector3(1, 1, 1), 0.2)
+			tween.tween_property(camera, "fov", 75, 0.2)
+			tween.tween_property(ray, "scale", Vector3(2.0, 2.0, 2.0), 0.2)
+
 
 
 	# Sprinting
