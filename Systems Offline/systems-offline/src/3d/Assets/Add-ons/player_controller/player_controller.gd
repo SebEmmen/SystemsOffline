@@ -167,8 +167,6 @@ func toggle_mouse() -> void:
 
 func disable_controls() -> void:
 	controls_enabled = false
-	crosshair.hide()
-	interaction_text.hide()
 	for n in my_crosshairs:
 		n.hide()
 	for m in my_HUD_labels:
@@ -180,8 +178,6 @@ func disable_controls() -> void:
 
 func enable_controls() -> void:
 	controls_enabled = true
-	crosshair.show()
-	interaction_text.show()
 	for n in my_crosshairs:
 		n.show()
 	for m in my_HUD_labels:
@@ -192,7 +188,6 @@ func enable_controls() -> void:
 	
 func toggle_controls() -> void:
 	controls_enabled = !controls_enabled
-	crosshair.visible = !crosshair.visible
 	toggle_mouse()
 
 func check_input_mappings() -> void:
