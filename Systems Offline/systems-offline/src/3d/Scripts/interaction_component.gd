@@ -104,6 +104,7 @@ func transition(from: Camera3D, target: Camera3D) -> void:
 
 	is_transitioning = false
 
+
 #region Door Functions
 
 # Interact Function for Door
@@ -172,14 +173,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		match interaction_type:
 			InteractionType.KEYPAD:
 				exit_keypad()
+				get_viewport().set_input_as_handled()
 
 			InteractionType.INSPECT:
 				exit_inspect()
-
-		get_viewport().set_input_as_handled()
+				get_viewport().set_input_as_handled()
+		
 		return
-
-
 	# Mouse clicking is only needed for keypad
 	if interaction_type == InteractionType.KEYPAD:
 		if event is InputEventMouseButton:
