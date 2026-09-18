@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b2yhy5hnqkfp6"]
+
+[ext_resource type="PackedScene" uid="uid://b82kv8uytrla1" path="res://src/3d/Assets/Metal steampunk wall/Metal steampunk wall.glb" id="1_o4eyu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4eyu"]
+size = Vector3(2.8475573, 2, 2)
+
+[node name="SteamPunkWall" type="Node3D" unique_id=2094843380]
+
+[node name="Metal steampunk wall" parent="." unique_id=2059803143 instance=ExtResource("1_o4eyu")]
+
+[node name="Cube" parent="Metal steampunk wall" index="0" unique_id=1732135516]
+transform = Transform3D(-8.7422775e-10, -1, 0, -8.7422775e-10, 1.9106855e-15, -2.5, 0.02, -4.371139e-08, -1.09278474e-07, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Metal steampunk wall/Cube" index="0" unique_id=1230248138]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Metal steampunk wall/Cube/StaticBody3D" unique_id=1703493500]
+transform = Transform3D(1.0000001, -1.1368684e-13, 0, 0, 1, 0, 0, -5.293956e-23, 1.0000001, 0.10594465, 0, 3.469447e-18)
+shape = SubResource("BoxShape3D_o4eyu")
+
+[editable path="Metal steampunk wall"]

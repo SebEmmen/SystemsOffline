@@ -85,11 +85,11 @@ text = "Press [E] to inspect"
 
 [node name="Escape-menu" parent="." unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
-[node name="SlidingDoor" parent="." unique_id=212972216 node_paths=PackedStringArray("player", "player_camera", "animation_player", "transition_camera") instance=ExtResource("6_b3d3a")]
+[node name="SlidingDoor" parent="." unique_id=212972216 node_paths=PackedStringArray("player", "player_camera", "transition_camera") instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
-animation_player = NodePath("AnimationPlayer")
+locked = false
 transition_camera = NodePath("../TransitionCamera")
 
 [node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "screen_label", "keypad_camera", "transition_camera", "sliding_door", "lock_led") instance=ExtResource("7_yy3xw")]

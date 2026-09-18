@@ -10,7 +10,7 @@ extends RayCast3D
 @onready var player: CharacterBody3D = owner
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not player.controls_enabled:
 		interaction_label.visible = false
 		return

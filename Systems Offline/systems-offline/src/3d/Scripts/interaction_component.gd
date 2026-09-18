@@ -27,8 +27,8 @@ var is_transitioning := false
 #endregion
 #region Door Specific Variables
 @export_group("Door")
+@onready var default_position: Vector3 = object_ref.position
 @export var locked: bool = true
-@export var animation_player: AnimationPlayer
 #endregion
 #region KeyPad Specific Variables
 @export_group("KeyPad")
@@ -104,6 +104,7 @@ func transition(from: Camera3D, target: Camera3D) -> void:
 
 	is_transitioning = false
 
+
 #region Door Functions
 
 # Interact Function for Door
@@ -111,18 +112,18 @@ func interact_door() -> void:
 	if locked:
 		print("Door is locked!")
 		return
-
 	if can_interact:
 		can_interact = false
 		is_interacting = !is_interacting
+	var tween_door = create_tween()
+	var target_pos = default_position + Vector3(3.4, 0, 0)
+	if is_interacting:
+		tween_door.tween_property(object_ref, "position", target_pos, 1.0)
+	else:
+		tween_door.tween_property(object_ref, "position", default_position, 1.0)
 
-		if is_interacting:
-			animation_player.play("open")
-		else:
-			animation_player.play("close")
-
-		await get_tree().create_timer(1.0, false).timeout
-		can_interact = true
+		await tween_door.finished
+	can_interact = true
 
 # Unlocks the door
 func unlock_door() -> void:
@@ -172,14 +173,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		match interaction_type:
 			InteractionType.KEYPAD:
 				exit_keypad()
+				get_viewport().set_input_as_handled()
 
 			InteractionType.INSPECT:
 				exit_inspect()
-
-		get_viewport().set_input_as_handled()
+				get_viewport().set_input_as_handled()
+		
 		return
-
-
 	# Mouse clicking is only needed for keypad
 	if interaction_type == InteractionType.KEYPAD:
 		if event is InputEventMouseButton:
