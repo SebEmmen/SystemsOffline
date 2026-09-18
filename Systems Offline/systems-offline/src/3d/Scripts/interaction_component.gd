@@ -114,17 +114,14 @@ func interact_door() -> void:
 	if can_interact:
 		can_interact = false
 		is_interacting = !is_interacting
-		
-		
 	var tween_door = create_tween()
-
+	var target_pos = default_position + Vector3(3.4, 0, 0)
 	if is_interacting:
-		var target_pos = default_position + Vector3(3.5, 0, 0)
 		tween_door.tween_property(object_ref, "position", target_pos, 1.0)
 	else:
 		tween_door.tween_property(object_ref, "position", default_position, 1.0)
 
-	await tween_door.finished
+		await tween_door.finished
 	can_interact = true
 
 # Unlocks the door
