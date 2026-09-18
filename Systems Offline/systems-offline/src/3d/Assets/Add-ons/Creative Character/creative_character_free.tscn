@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dtqmmf10dotwl"]
+
+[ext_resource type="PackedScene" uid="uid://bncclas75ggoh" path="res://src/3d/Assets/Add-ons/Creative Character/Creative_Character_free.glb" id="1_cx645"]
+
+[node name="Creative_Character_free" unique_id=1940061653 instance=ExtResource("1_cx645")]
+
+[node name="Skeleton3D" parent="Skeleton" parent_id_path=PackedInt32Array(1258682692) index="0" unique_id=908286048]
+bones/11/rotation = Quaternion(-0.136136, -0.129154, -0.637447, 0.747293)
+
+[node name="Costume_10_001" parent="Skeleton/Skeleton3D" index="1" unique_id=597898478]
+visible = false
+
+[node name="Costume_6_001" parent="Skeleton/Skeleton3D" index="2" unique_id=1306747559]
+visible = false
+
+[node name="Glasses_006" parent="Skeleton/Skeleton3D" index="4" unique_id=1104318371]
+visible = false
+
+[node name="Gloves_006" parent="Skeleton/Skeleton3D" index="5" unique_id=1353987526]
+visible = false
+
+[node name="Hairstyle_male_010" parent="Skeleton/Skeleton3D" index="7" unique_id=443383434]
+visible = false
+
+[node name="Hairstyle_male_012" parent="Skeleton/Skeleton3D" index="8" unique_id=714804411]
+visible = false
+
+[node name="Hat_010" parent="Skeleton/Skeleton3D" index="9" unique_id=365937588]
+visible = false
+
+[node name="Hat_049" parent="Skeleton/Skeleton3D" index="10" unique_id=1903304395]
+visible = false
+
+[node name="Hat_057" parent="Skeleton/Skeleton3D" index="11" unique_id=724545674]
+visible = false
+
+[node name="Headphones_002" parent="Skeleton/Skeleton3D" index="12" unique_id=829926406]
+visible = false
+
+[node name="Male_emotion_angry_003" parent="Skeleton/Skeleton3D" index="13" unique_id=1487813717]
+visible = false
+
+[node name="Male_emotion_usual_001" parent="Skeleton/Skeleton3D" index="15" unique_id=592826901]
+visible = false
+
+[node name="Moustache_001" parent="Skeleton/Skeleton3D" index="16" unique_id=1842505427]
+visible = false
+
+[node name="Moustache_002" parent="Skeleton/Skeleton3D" index="17" unique_id=475506751]
+visible = false
+
+[node name="Outerwear_029" parent="Skeleton/Skeleton3D" index="18" unique_id=1514996927]
+visible = false
+
+[node name="Pacifier_001" parent="Skeleton/Skeleton3D" index="20" unique_id=2044351675]
+visible = false
+
+[node name="Pants_010" parent="Skeleton/Skeleton3D" index="21" unique_id=375663876]
+visible = false
+
+[node name="Shoe_Slippers_002" parent="Skeleton/Skeleton3D" index="23" unique_id=1837968501]
+visible = false
+
+[node name="Shoe_Slippers_005" parent="Skeleton/Skeleton3D" index="24" unique_id=865065365]
+visible = false
+
+[node name="Shorts_003" parent="Skeleton/Skeleton3D" index="26" unique_id=841817650]
+visible = false
+
+[node name="Socks_008" parent="Skeleton/Skeleton3D" index="27" unique_id=242962039]
+visible = false
+
+[node name="T_Shirt_009" parent="Skeleton/Skeleton3D" index="28" unique_id=411774133]
+visible = false

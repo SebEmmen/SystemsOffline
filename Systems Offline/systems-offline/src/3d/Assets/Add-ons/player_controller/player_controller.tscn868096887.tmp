@@ -13,17 +13,6 @@ height = 1.8
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=1779789665]
 script = ExtResource("1_ucva2")
-can_move = null
-has_gravity = null
-can_sprint = null
-look_speed = null
-base_speed = null
-sprint_speed = null
-input_left = null
-input_right = null
-input_forward = null
-input_back = null
-input_sprint = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1438870549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -39,7 +28,6 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1159036928]
-transform = Transform3D(1, 0, 0, 0, 0.95516866, 0.29606232, 0, -0.29606232, 0.9551686, 0.16943836, 0.021038055, -0.2096521)
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=428450941]
@@ -47,4 +35,3 @@ transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0
 script = ExtResource("2_1ae3g")
 
 [node name="Creative_Character_free" parent="." unique_id=1940061653 instance=ExtResource("3_j2dax")]
-transform = Transform3D(-0.99999905, 0, -0.0013921191, 0, 1, 0, 0.0013921191, 0, -0.99999905, 0, 0.0722096, 0)

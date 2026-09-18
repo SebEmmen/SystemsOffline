@@ -175,12 +175,17 @@ func capture_mouse() -> void:
 func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+	
+func toggle_mouse() -> void:
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 
 func disable_controls() -> void:
 	controls_enabled = false
-
 	for n in my_crosshairs:
 		n.hide()
 	for m in my_HUD_labels:
@@ -192,11 +197,17 @@ func disable_controls() -> void:
 
 func enable_controls() -> void:
 	controls_enabled = true
+	for n in my_crosshairs:
+		n.show()
+	for m in my_HUD_labels:
+		m.show()
 
-	my_crosshairs[0].show()
 
 	capture_mouse()
-
+	
+func toggle_controls() -> void:
+	controls_enabled = !controls_enabled
+	toggle_mouse()
 
 func check_input_mappings() -> void:
 

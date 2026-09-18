@@ -19,6 +19,7 @@ enum InteractionType{
 @export_group("Default")
 var can_interact: bool = true
 var is_interacting: bool = false 
+var is_transitioning := false
 #endregion
 #region Inspect Variables
 @export_group("Inspect")
@@ -33,6 +34,7 @@ var is_interacting: bool = false
 @export_group("KeyPad")
 @export var screen_label: Label3D
 @export var keypad_camera: Camera3D
+@export var transition_camera: Camera3D
 @export var sliding_door: Node3D
 @export var lock_led: MeshInstance3D
 var entered_code := ""
@@ -74,6 +76,34 @@ func interact() -> void:
 		InteractionType.KEYPAD:
 			interact_keypad()
 
+func transition(from: Camera3D, target: Camera3D) -> void:
+	if is_transitioning:
+		return
+
+	is_transitioning = true
+
+	transition_camera.global_transform = from.global_transform
+	transition_camera.make_current()
+
+	# Create the tween
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_property(
+		transition_camera,
+		"global_transform",
+		target.global_transform,
+		0.5
+	)
+
+	await tween.finished
+
+	# Target camera takes over
+	target.make_current()
+
+	is_transitioning = false
+
 #region Door Functions
 
 # Interact Function for Door
@@ -111,40 +141,51 @@ func interact_keypad() -> void:
 	object_ref.enter_keypad()
 
 func enter_keypad() -> void:
-	if is_interacting:
+	if is_interacting or is_transitioning:
 		return
 
 	is_interacting = true
 
-	keypad_camera.make_current()
 	player.disable_controls()
+
 	player.visible = false
+	await transition(player_camera, keypad_camera)
+
 
 func exit_keypad() -> void:
+	if not is_interacting or is_transitioning:
+		return
+
 	is_interacting = false
 
-	player_camera.make_current()
-
-	# Wait until the Escape input has finished processing.
-	await get_tree().process_frame
-
 	player.enable_controls()
+
+	await transition(keypad_camera, player_camera)
 	player.visible = true
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not is_interacting:
+	if not is_interacting or is_transitioning:
 		return
 
-	# Leave keypad with Escape
 	if event.is_action_pressed("ui_cancel"):
-		exit_keypad()
-		get_viewport().set_input_as_handled()
+		
+		match interaction_type:
+			InteractionType.KEYPAD:
+				exit_keypad()
 
-	# Click keypad buttons with left mouse button
-	elif event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			click_keypad_button()
-			get_viewport().set_input_as_handled()
+			InteractionType.INSPECT:
+				exit_inspect()
+
+		get_viewport().set_input_as_handled()
+		return
+
+
+	# Mouse clicking is only needed for keypad
+	if interaction_type == InteractionType.KEYPAD:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				click_keypad_button()
+				get_viewport().set_input_as_handled()
 
 func get_button_under_mouse() -> Object:
 	var mouse_position := get_viewport().get_mouse_position()
@@ -236,25 +277,29 @@ func interact_inspect() -> void:
 	object_ref.enter_inspect()
 
 func enter_inspect() -> void:
-	if is_interacting:
+	if is_interacting or is_transitioning:
 		return
 
 	is_interacting = true
 
-	inspect_camera.make_current()
 	player.disable_controls()
+
+	await transition(player_camera, inspect_camera)
+
 	player.visible = false
 	
 func exit_inspect() -> void:
+	if not is_interacting or is_transitioning:
+		return
+
+	player.visible = true
+
+	await transition(inspect_camera, player_camera)
+
 	is_interacting = false
 
-	player_camera.make_current()
-
-	# Wait until the Escape input has finished processing.
 	await get_tree().process_frame
-
 	player.enable_controls()
-	player.visible = true
 	
 
 #endregion
