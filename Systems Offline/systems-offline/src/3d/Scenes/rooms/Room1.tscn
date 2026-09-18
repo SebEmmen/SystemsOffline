@@ -35,9 +35,12 @@ shadow_enabled = true
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.949891, 0, -0.31258178, 0, 1, 0, 0.31258178, 0, 0.949891, -1.8372698, 1, -5.1210666)
+camera = NodePath("Head/Camera3D")
+ray = NodePath("Head/Camera3D/RayCast3D")
 can_move = true
 has_gravity = true
 can_sprint = true
+can_shrink = true
 look_speed = 0.002
 base_speed = 5.0
 sprint_speed = 7.0
@@ -46,9 +49,6 @@ input_right = "move_right"
 input_forward = "move_forward"
 input_back = "move_back"
 input_sprint = "sprint"
-camera = NodePath("Head/Camera3D")
-ray = NodePath("Head/Camera3D/RayCast3D")
-can_shrink = true
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
@@ -84,11 +84,11 @@ text = "Press [E] to inspect"
 
 [node name="Escape-menu" parent="." unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
-[node name="SlidingDoor" parent="." unique_id=212972216 node_paths=PackedStringArray("player", "player_camera", "animation_player", "transition_camera") instance=ExtResource("6_b3d3a")]
+[node name="SlidingDoor" parent="." unique_id=212972216 node_paths=PackedStringArray("player", "player_camera", "transition_camera") instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
-animation_player = NodePath("AnimationPlayer")
+locked = false
 transition_camera = NodePath("../TransitionCamera")
 
 [node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "screen_label", "keypad_camera", "transition_camera", "sliding_door", "lock_led") instance=ExtResource("7_yy3xw")]

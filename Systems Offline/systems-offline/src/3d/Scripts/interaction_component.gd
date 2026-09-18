@@ -27,8 +27,8 @@ var is_transitioning := false
 #endregion
 #region Door Specific Variables
 @export_group("Door")
+@onready var default_position: Vector3 = object_ref.position
 @export var locked: bool = true
-@export var animation_player: AnimationPlayer
 #endregion
 #region KeyPad Specific Variables
 @export_group("KeyPad")
@@ -111,18 +111,21 @@ func interact_door() -> void:
 	if locked:
 		print("Door is locked!")
 		return
-
 	if can_interact:
 		can_interact = false
 		is_interacting = !is_interacting
+		
+		
+	var tween_door = create_tween()
 
-		if is_interacting:
-			animation_player.play("open")
-		else:
-			animation_player.play("close")
+	if is_interacting:
+		var target_pos = default_position + Vector3(3.5, 0, 0)
+		tween_door.tween_property(object_ref, "position", target_pos, 1.0)
+	else:
+		tween_door.tween_property(object_ref, "position", default_position, 1.0)
 
-		await get_tree().create_timer(1.0, false).timeout
-		can_interact = true
+	await tween_door.finished
+	can_interact = true
 
 # Unlocks the door
 func unlock_door() -> void:
