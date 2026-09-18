@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://c35qrqo7ajmic"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
+[ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
+[ext_resource type="MeshLibrary" uid="uid://cct5f4d8iimtf" path="res://src/3d/Mesh/WallMeshLibrary.meshlib" id="3_alw4e"]
+[ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
+[ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="6_b3d3a"]
+[ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
+[ext_resource type="PackedScene" uid="uid://2vwr86remyve" path="res://src/3d/Scenes/objects/Keypad/keypad.tscn" id="7_yy3xw"]
+[ext_resource type="PackedScene" uid="uid://6v4ujtgo4roc" path="res://src/3d/Scenes/objects/TempItem.tscn" id="8_yy3xw"]
+[ext_resource type="PackedScene" uid="uid://dqbkntvgsbpto" path="res://src/3d/Scenes/objects/Med_Poster.tscn" id="9_t4i55"]
+[ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_aywg0"]
+sky_material = SubResource("ProceduralSkyMaterial_1e042")
+
+[sub_resource type="Environment" id="Environment_a7dbj"]
+background_mode = 2
+sky = SubResource("Sky_aywg0")
+glow_enabled = true
+
+[node name="Room1" type="Node3D" unique_id=1585455230]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=508166444]
+environment = SubResource("Environment_a7dbj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1612126971]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="ProtoController" parent="." unique_id=1779789665 instance=ExtResource("1_alw4e")]
+transform = Transform3D(0.949891, 0, -0.31258178, 0, 1, 0, 0.31258178, 0, 0.949891, -1.8372698, 1, -5.1210666)
+can_move = true
+has_gravity = true
+can_sprint = true
+look_speed = 0.002
+base_speed = 5.0
+sprint_speed = 7.0
+input_left = "move_left"
+input_right = "move_right"
+input_forward = "move_forward"
+input_back = "move_back"
+input_sprint = "sprint"
+
+[node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
+visible = true
+
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
+interaction_label = NodePath("../../../../HUD/InteractionLabel")
+crosshair = NodePath("../../../../HUD/Crosshair")
+crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
+view_label = NodePath("../../../../HUD/ViewLabel")
+
+[node name="FloorGridMap" type="GridMap" parent="." unique_id=1714211970]
+mesh_library = ExtResource("2_1ds61")
+cell_size = Vector3(5, 2, 5)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65534, 65535, 0, 65535, 1, 1, 65535, 65535, 0, 65535, 65534, 0, 65534, 65534, 0, 1, 1, 1, 0, 1, 1, 0, 65535, 0, 0, 65534, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 65535, 65532, 0, 65535, 65531, 0, 65535, 65530, 0, 65535, 65529, 655360, 0, 65529, 655360, 1, 65529, 655360, 2, 65529, 655360, 65534, 65529, 655360, 65533, 65529, 655360, 65532, 65529, 655360, 65532, 65528, 655360, 65532, 65527, 655360, 65532, 65526, 655360, 2, 65528, 655360, 2, 65527, 655360, 2, 65526, 655360, 1, 65526, 655360, 0, 65526, 655360, 65535, 65526, 655360, 65534, 65526, 655360, 65533, 65526, 655360, 65533, 65527, 655360, 65533, 65528, 655360, 65534, 65528, 655360, 65535, 65528, 655360, 0, 65528, 655360, 0, 65527, 655360, 1, 65527, 655360, 1, 65528, 655360, 65535, 65527, 655360, 65534, 65527, 655360, 65532, 65525, 655360, 65533, 65525, 655360, 65534, 65525, 655360, 65535, 65525, 655360, 0, 65525, 655360, 1, 65525, 655360, 2, 65525, 655360)
+}
+
+[node name="WallGridMap" type="GridMap" parent="." unique_id=2124857015]
+mesh_library = ExtResource("3_alw4e")
+cell_size = Vector3(5, 5, 2.5)
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65534, 65531, 655360, 0, 65531, 589824, 65535, 65530, 1, 65534, 65532, 1441792, 65533, 65531, 1048576, 65533, 65533, 1048576, 65533, 65534, 1048576, 65533, 65535, 1048576, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 1, 65531, 1441792, 1, 65532, 1441792, 1, 65533, 1441792, 1, 65534, 1441792, 1, 65535, 1441792, 65535, 65529, 1441792, 65535, 65528, 1441792, 65535, 65527, 1441792, 65535, 65526, 1441792, 65535, 65525, 1048576, 0, 65525, 655360, 0, 65526, 1441792, 0, 65527, 1441792, 0, 65528, 1441792, 0, 65529, 1441792, 65535, 65524, 655361, 1, 65525, 655360, 2, 65525, 655360, 65534, 65525, 1048576, 65533, 65525, 655360, 65532, 65525, 655360, 65531, 65523, 1048576, 65531, 65521, 1048576, 65531, 65517, 1048576, 65531, 65515, 1048576, 65532, 65513, 0, 65533, 65513, 0, 65534, 65513, 0, 0, 65513, 0, 1, 65513, 0, 2, 65513, 0, 3, 65515, 1441792, 3, 65517, 1441792, 3, 65521, 1441792, 3, 65523, 1441792, 65535, 65514, 655361, 65534, 65523, 0)
+}
+
+[node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
+
+[node name="ViewLabel" parent="HUD" index="3" unique_id=51349289]
+text = "Press [E] to inspect"
+
+[node name="Escape-menu" parent="." unique_id=2114750774 instance=ExtResource("7_b3d3a")]
+
+[node name="SlidingDoor" parent="." unique_id=212972216 node_paths=PackedStringArray("player", "player_camera", "animation_player", "transition_camera") instance=ExtResource("6_b3d3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
+player = NodePath("../ProtoController")
+player_camera = NodePath("../ProtoController/Head/Camera3D")
+animation_player = NodePath("AnimationPlayer")
+transition_camera = NodePath("../TransitionCamera")
+
+[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "screen_label", "keypad_camera", "transition_camera", "sliding_door", "lock_led") instance=ExtResource("7_yy3xw")]
+transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
+object_ref = NodePath(".")
+interaction_type = 3
+player = NodePath("../ProtoController")
+player_camera = NodePath("../ProtoController/Head/Camera3D")
+inspect_camera = NodePath("../MediumPoster/PosterCamera")
+screen_label = NodePath("Screen")
+keypad_camera = NodePath("KeypadCamera")
+transition_camera = NodePath("../TransitionCamera")
+sliding_door = NodePath("../SlidingDoor")
+lock_led = NodePath("LockLED")
+correct_code = "12345"
+
+[node name="KeypadCamera" parent="Keypad" index="15" unique_id=497401612]
+transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
+
+[node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref") instance=ExtResource("8_yy3xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1754894, 0.5248313, -10.564606)
+object_ref = NodePath(".")
+
+[node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref") instance=ExtResource("8_yy3xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1956341, 0.5518472, -8.255277)
+object_ref = NodePath(".")
+
+[node name="MediumPoster" parent="." unique_id=131794683 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "transition_camera") instance=ExtResource("9_t4i55")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5812039, 1.8267894, -14.847501)
+object_ref = NodePath(".")
+interaction_type = 1
+player = NodePath("../ProtoController")
+player_camera = NodePath("../ProtoController/Head/Camera3D")
+inspect_camera = NodePath("PosterCamera")
+transition_camera = NodePath("../TransitionCamera")
+
+[node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
+visible = false
+
+[editable path="ProtoController"]
+[editable path="HUD"]
+[editable path="SlidingDoor"]
+[editable path="Keypad"]
+[editable path="MediumPoster"]

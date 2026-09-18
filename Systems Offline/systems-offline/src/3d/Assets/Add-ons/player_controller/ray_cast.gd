@@ -10,7 +10,7 @@ extends RayCast3D
 @onready var player: CharacterBody3D = owner
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if not player.controls_enabled:
 		interaction_label.visible = false
 		return
@@ -20,6 +20,10 @@ func _process(_delta: float) -> void:
 		var hit_obj = get_collider()
 		
 		var interactable = _get_interactable_node(hit_obj)
+		
+		if interactable == null:
+			_reset_ui()
+			return
 
 		if interactable:
 			# Check if the object is set to INSPECT mode
