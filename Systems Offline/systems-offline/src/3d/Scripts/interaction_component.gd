@@ -14,6 +14,7 @@ enum InteractionType{
 @export var interaction_type: InteractionType = InteractionType.DEFAULT
 @export var player: CharacterBody3D
 @export var player_camera: Camera3D
+@export var transition_camera: Camera3D
 
 #region Default Variables
 @export_group("Default")
@@ -34,7 +35,6 @@ var is_transitioning := false
 @export_group("KeyPad")
 @export var screen_label: Label3D
 @export var keypad_camera: Camera3D
-@export var transition_camera: Camera3D
 @export var sliding_door: Node3D
 @export var lock_led: MeshInstance3D
 var entered_code := ""
