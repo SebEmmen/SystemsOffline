@@ -54,7 +54,6 @@ func exit_crate() -> void:
 	move_lid()
 	player.enable_controls()
 
-
 #endregion
 
 func _unhandled_input(event: InputEvent) -> void:
