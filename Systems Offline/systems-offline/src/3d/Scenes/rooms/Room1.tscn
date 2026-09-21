@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://byl3nfa08y808" path="res://src/3d/Assets/vent/Vent.glb" id="11_ew57s"]
 [ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/Crate.tscn" id="12_ew57s"]
+[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="13_itbdl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -132,8 +133,11 @@ visible = false
 [node name="Vent" parent="." unique_id=1707397813 instance=ExtResource("11_ew57s")]
 transform = Transform3D(-0.2, 3.019916e-08, -1.3200473e-15, 0, -8.742278e-09, -0.2, -3.019916e-08, -0.2, 8.742278e-09, -5.016928, 10.098864, -48.24623)
 
-[node name="Crate" parent="." unique_id=158196895 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "inspect_camera") instance=ExtResource("12_ew57s")]
+[node name="Crate" parent="." unique_id=158196895 node_paths=PackedStringArray("crate_lid", "object_ref", "player", "player_camera", "transition_camera", "inspect_camera") instance=ExtResource("12_ew57s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.707919, 0.0050001144, -7.7584405)
+script = ExtResource("13_itbdl")
+inspect_type = 1
+crate_lid = NodePath("Crate base/Plane_001")
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../ProtoController")
