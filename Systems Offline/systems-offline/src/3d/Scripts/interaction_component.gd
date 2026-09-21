@@ -14,6 +14,7 @@ enum InteractionType{
 @export var interaction_type: InteractionType = InteractionType.DEFAULT
 @export var player: CharacterBody3D
 @export var player_camera: Camera3D
+@export var transition_camera: Camera3D
 
 #region Default Variables
 @export_group("Default")
@@ -34,7 +35,6 @@ var is_transitioning := false
 @export_group("KeyPad")
 @export var screen_label: Label3D
 @export var keypad_camera: Camera3D
-@export var transition_camera: Camera3D
 @export var sliding_door: Node3D
 @export var lock_led: MeshInstance3D
 var entered_code := ""
@@ -164,28 +164,7 @@ func exit_keypad() -> void:
 	await transition(keypad_camera, player_camera)
 	player.visible = true
 
-func _unhandled_input(event: InputEvent) -> void:
-	if not is_interacting or is_transitioning:
-		return
 
-	if event.is_action_pressed("ui_cancel"):
-		
-		match interaction_type:
-			InteractionType.KEYPAD:
-				exit_keypad()
-				get_viewport().set_input_as_handled()
-
-			InteractionType.INSPECT:
-				exit_inspect()
-				get_viewport().set_input_as_handled()
-		
-		return
-	# Mouse clicking is only needed for keypad
-	if interaction_type == InteractionType.KEYPAD:
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				click_keypad_button()
-				get_viewport().set_input_as_handled()
 
 func get_button_under_mouse() -> Object:
 	var mouse_position := get_viewport().get_mouse_position()
@@ -284,10 +263,9 @@ func enter_inspect() -> void:
 
 	player.disable_controls()
 
+	player.visible = false
 	await transition(player_camera, inspect_camera)
 
-	player.visible = false
-	
 func exit_inspect() -> void:
 	if not is_interacting or is_transitioning:
 		return
@@ -303,6 +281,29 @@ func exit_inspect() -> void:
 	
 
 #endregion
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_interacting or is_transitioning:
+		return
+
+	if event.is_action_pressed("ui_cancel"):
+		
+		match interaction_type:
+			InteractionType.KEYPAD:
+				exit_keypad()
+				get_viewport().set_input_as_handled()
+
+			InteractionType.INSPECT:
+				exit_inspect()
+				get_viewport().set_input_as_handled()
+		
+		return
+	# Mouse clicking is only needed for keypad
+	if interaction_type == InteractionType.KEYPAD:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				click_keypad_button()
+				get_viewport().set_input_as_handled()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass

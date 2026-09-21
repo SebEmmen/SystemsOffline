@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dqbkntvgsbpto" path="res://src/3d/Scenes/objects/Med_Poster.tscn" id="9_t4i55"]
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://byl3nfa08y808" path="res://src/3d/Assets/vent/Vent.glb" id="11_ew57s"]
+[ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/Crate.tscn" id="12_ew57s"]
+[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="13_itbdl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -88,19 +90,19 @@ text = "Press [E] to inspect"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
-locked = false
 transition_camera = NodePath("../TransitionCamera")
+locked = false
 
-[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "screen_label", "keypad_camera", "transition_camera", "sliding_door", "lock_led") instance=ExtResource("7_yy3xw")]
+[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "inspect_camera", "screen_label", "keypad_camera", "sliding_door", "lock_led") instance=ExtResource("7_yy3xw")]
 transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../TransitionCamera")
 inspect_camera = NodePath("../MediumPoster/PosterCamera")
 screen_label = NodePath("Screen")
 keypad_camera = NodePath("KeypadCamera")
-transition_camera = NodePath("../TransitionCamera")
 sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
 correct_code = "12345"
@@ -116,14 +118,14 @@ object_ref = NodePath(".")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1956341, 0.5518472, -8.255277)
 object_ref = NodePath(".")
 
-[node name="MediumPoster" parent="." unique_id=131794683 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "transition_camera") instance=ExtResource("9_t4i55")]
+[node name="MediumPoster" parent="." unique_id=131794683 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "inspect_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5812039, 1.8267894, -14.847501)
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
-inspect_camera = NodePath("PosterCamera")
 transition_camera = NodePath("../TransitionCamera")
+inspect_camera = NodePath("PosterCamera")
 
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
@@ -131,8 +133,22 @@ visible = false
 [node name="Vent" parent="." unique_id=1707397813 instance=ExtResource("11_ew57s")]
 transform = Transform3D(-0.2, 3.019916e-08, -1.3200473e-15, 0, -8.742278e-09, -0.2, -3.019916e-08, -0.2, 8.742278e-09, -5.016928, 10.098864, -48.24623)
 
+[node name="Crate" parent="." unique_id=158196895 node_paths=PackedStringArray("crate_lid", "object_ref", "player", "player_camera", "transition_camera", "inspect_camera") instance=ExtResource("12_ew57s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.707919, 0.0050001144, -7.7584405)
+script = ExtResource("13_itbdl")
+inspect_type = 1
+crate_lid = NodePath("Crate base/Plane_001")
+object_ref = NodePath(".")
+interaction_type = 1
+player = NodePath("../ProtoController")
+player_camera = NodePath("../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../TransitionCamera")
+inspect_camera = NodePath("Crate base/CrateCamera")
+
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="SlidingDoor"]
 [editable path="Keypad"]
 [editable path="MediumPoster"]
+[editable path="Crate"]
+[editable path="Crate/Crate base"]
