@@ -261,6 +261,8 @@ func enter_inspect() -> void:
 
 	is_interacting = true
 
+	player.disable_controls()
+
 	player.visible = false
 	await transition(player_camera, inspect_camera)
 
@@ -275,6 +277,7 @@ func exit_inspect() -> void:
 	is_interacting = false
 
 	await get_tree().process_frame
+	player.enable_controls()
 	
 
 #endregion
