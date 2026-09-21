@@ -35,9 +35,12 @@ shadow_enabled = true
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.949891, 0, -0.31258178, 0, 1, 0, 0.31258178, 0, 0.949891, -1.8372698, 1, -5.1210666)
+camera = NodePath("Head/Camera3D")
+ray = NodePath("Head/Camera3D/RayCast3D")
 can_move = true
 has_gravity = true
 can_sprint = true
+can_shrink = true
 look_speed = 0.002
 base_speed = 5.0
 sprint_speed = 7.0
@@ -46,9 +49,6 @@ input_right = "move_right"
 input_forward = "move_forward"
 input_back = "move_back"
 input_sprint = "sprint"
-camera = NodePath("Head/Camera3D")
-ray = NodePath("Head/Camera3D/RayCast3D")
-can_shrink = true
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
@@ -105,7 +105,7 @@ sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
 correct_code = "12345"
 
-[node name="KeypadCamera" parent="Keypad" index="15" unique_id=497401612]
+[node name="KeypadCamera" parent="Keypad" index="17" unique_id=497401612]
 transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
 
 [node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref") instance=ExtResource("8_yy3xw")]

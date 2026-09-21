@@ -6,7 +6,8 @@ enum InteractionType{
 	INSPECT,
 	DOOR,
 	KEYPAD,
-	KNOB
+	KNOB,
+	COVER
 }
 
 # Select specific object reference and interaction type (set to default)
@@ -39,6 +40,15 @@ var is_transitioning := false
 @export var lock_led: MeshInstance3D
 var entered_code := ""
 @export var correct_code : String
+#endregion
+#region Cover Variables
+@export_group("Cover")
+@export var cover_pivot: Node3D
+@export var cover_open_angle: float = -90.0
+@export var cover_duration: float = 0.5
+
+var cover_open := false
+var cover_moving := false
 #endregion
 #region Knob Specific Variables
 @export_group("Knob")
@@ -75,6 +85,8 @@ func interact() -> void:
 			interact_door()
 		InteractionType.KEYPAD:
 			interact_keypad()
+		InteractionType.COVER:
+			interact_cover()
 
 func transition(from: Camera3D, target: Camera3D) -> void:
 	if is_transitioning:
@@ -139,6 +151,61 @@ func ready_keypad() -> void:
 
 func interact_keypad() -> void:
 	object_ref.enter_keypad()
+	if cover_moving:
+		return
+
+	cover_moving = true
+	cover_open = !cover_open
+
+	var target_rotation: float
+
+	if cover_open:
+		target_rotation = deg_to_rad(cover_open_angle)
+	else:
+		target_rotation = 0.0
+
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_property(
+		cover_pivot,
+		"rotation:x",
+		target_rotation,
+		cover_duration
+	)
+
+	await tween.finished
+
+func interact_cover() -> void:
+	if cover_moving:
+		return
+
+	cover_moving = true
+	cover_open = !cover_open
+
+	var target_rotation: float
+
+	if cover_open:
+		target_rotation = deg_to_rad(cover_open_angle)
+	else:
+		target_rotation = 0.0
+
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_property(
+		cover_pivot,
+		"rotation:x",
+		target_rotation,
+		cover_duration
+	)
+
+	await tween.finished
+
+	cover_moving = false
+
 
 func enter_keypad() -> void:
 	if is_interacting or is_transitioning:
@@ -162,6 +229,9 @@ func exit_keypad() -> void:
 
 	await transition(keypad_camera, player_camera)
 	player.visible = true
+	
+func open_keypad_cover():
+	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:

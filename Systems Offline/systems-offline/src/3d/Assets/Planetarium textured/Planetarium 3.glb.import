@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0gsx8i7o1rj7"
-path="res://.godot/imported/Planetarium textured.glb-98bfa11b5957848d96b1dd07eddd008a.scn"
+uid="uid://ceds1vgbkfbmd"
+path="res://.godot/imported/Planetarium 3.glb-45da405b897cf4b714c0dddafe52f5ee.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Planetarium textured/Planetarium textured.glb"
-dest_files=["res://.godot/imported/Planetarium textured.glb-98bfa11b5957848d96b1dd07eddd008a.scn"]
+source_file="res://src/3d/Assets/Planetarium textured/Planetarium 3.glb"
+dest_files=["res://.godot/imported/Planetarium 3.glb-45da405b897cf4b714c0dddafe52f5ee.scn"]
 
 [params]
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_rhii3"]
 [ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="2_2aojk"]
 [ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="4_rhii3"]
+[ext_resource type="Script" uid="uid://de6nq3x4lqmx0" path="res://src/3d/Scenes/objects/Keypad/cover.gd" id="5_7cjmy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p36h5"]
 resource_name = "mat21"
@@ -813,6 +814,14 @@ shadow_mesh = SubResource("ArrayMesh_wwq2i")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhii3"]
 size = Vector3(1.6799998, 1.7700002, 0.20500046)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cg0m"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.003921569, 0.13725491, 0.13725491, 0.85882354)
+roughness = 0.05
+clearcoat_roughness = 0.1
+refraction_enabled = true
+
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
 script = ExtResource("1_rhii3")
 
@@ -1023,3 +1032,20 @@ mesh = SubResource("ArrayMesh_qb4kn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KeypadInteract" unique_id=1046636595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020110153, 0.06673582, 0.068799675)
 shape = SubResource("BoxShape3D_rhii3")
+
+[node name="CoverPivot" type="Node3D" parent="." unique_id=1987710966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93286777, 0)
+
+[node name="Cover" type="CSGCombiner3D" parent="CoverPivot" unique_id=1854037006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95444334, 0)
+script = ExtResource("5_7cjmy")
+
+[node name="Positive" type="CSGBox3D" parent="CoverPivot/Cover" unique_id=1647597975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020132065, 0.06678772, -0.095397174)
+size = Vector3(1.6787109, 1.7903137, 0.33984375)
+material = SubResource("StandardMaterial3D_1cg0m")
+
+[node name="Negative" type="CSGBox3D" parent="CoverPivot/Cover" unique_id=548055344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114507675, 0.07235527, -2.974246)
+operation = 2
+size = Vector3(1.5646515, 1.6617317, 0.28955078)
