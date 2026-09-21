@@ -15,6 +15,7 @@ extends CharacterBody3D
 @export var can_gravity_invert: bool = true
 @export var gravity_invert: bool = false
 
+
 #region Speeds
 @export_group("Speeds")
 
@@ -36,6 +37,8 @@ extends CharacterBody3D
 var mouse_captured: bool = false
 var look_rotation: Vector2
 var move_speed: float = 0.0
+var gravity_flipping := false
+var left_surface := false
 
 var controls_enabled := true
 
@@ -76,6 +79,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 
+
 	# Apply gravity
 	if has_gravity and not gravity_invert:
 		if not is_on_floor():
@@ -104,7 +108,12 @@ func _physics_process(delta: float) -> void:
 	if can_gravity_invert and controls_enabled and Input.is_action_just_pressed("gravity_invert"):
 		if is_on_floor() or is_on_ceiling():
 			gravity_invert = !gravity_invert
-		else: print("Must be on floor!")
+
+			gravity_flipping = true
+			left_surface = false
+			controls_enabled = false
+		else:
+			print("Must be on floor or ceiling!")
 
 	# Sprinting
 	if can_sprint and controls_enabled and Input.is_action_pressed(input_sprint):
@@ -154,14 +163,28 @@ func _physics_process(delta: float) -> void:
 	# Actually move the player
 	move_and_slide()
 
+	# Regain controls after gravity flip
+	if gravity_flipping:
+		# First wait until we've actually left the old surface
+		if not is_on_floor() and not is_on_ceiling():
+			left_surface = true
+
+		# Only restore controls after leaving and landing again
+		if left_surface and (is_on_floor() or is_on_ceiling()):
+			gravity_flipping = false
+			left_surface = false
+			controls_enabled = true
+		
 func rotate_look(rot_input: Vector2) -> void:
 
 	look_rotation.x -= rot_input.y * look_speed
 
 	look_rotation.x = clamp(
 		look_rotation.x,
-		deg_to_rad(-85),
-		deg_to_rad(85)
+		#deg_to_rad(-85),
+		#deg_to_rad(85)
+		deg_to_rad(-50),
+		deg_to_rad(100)
 	)
 
 	look_rotation.y -= rot_input.x * look_speed
