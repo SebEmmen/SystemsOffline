@@ -12,6 +12,8 @@ extends CharacterBody3D
 @export var can_sprint: bool = true
 @export var can_shrink: bool = false
 @export var is_shrunk: bool = false
+@export var can_gravity_invert: bool = true
+@export var gravity_invert: bool = false
 
 #region Speeds
 @export_group("Speeds")
@@ -75,9 +77,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 
 	# Apply gravity
-	if has_gravity:
+	if has_gravity and not gravity_invert:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+			
+	if has_gravity and gravity_invert:
+		if not is_on_ceiling():
+			velocity += get_gravity() * delta * -1
 
 	# Shrinking
 	if can_shrink and controls_enabled and Input.is_action_just_pressed("shrink"):
@@ -94,7 +100,11 @@ func _physics_process(delta: float) -> void:
 			tween.tween_property(camera, "fov", 75, 0.2)
 			tween.tween_property(ray, "scale", Vector3(2.0, 2.0, 2.0), 0.2)
 
-
+	# Gravity invert
+	if can_gravity_invert and controls_enabled and Input.is_action_just_pressed("gravity_invert"):
+		if is_on_floor() or is_on_ceiling():
+			gravity_invert = !gravity_invert
+		else: print("Must be on floor!")
 
 	# Sprinting
 	if can_sprint and controls_enabled and Input.is_action_pressed(input_sprint):
