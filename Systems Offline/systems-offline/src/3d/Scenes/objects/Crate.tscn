@@ -34,13 +34,13 @@ shadow_enabled = true
 [node name="Crate base" parent="." unique_id=250827240 instance=ExtResource("1_6tsuu")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane" parent_id_path=PackedInt32Array(250827240, 1169493034) index="0" unique_id=1972956691]
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane" parent_id_path=PackedInt32Array(250827240, 336428789) index="0" unique_id=1972956691]
 
 [node name="CSCrate" type="CollisionShape3D" parent="Crate base/Plane/StaticBody3D" unique_id=1862005000]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.00018084048, 0.84829193, -8.654594e-05)
 shape = SubResource("BoxShape3D_6tsuu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane_001" parent_id_path=PackedInt32Array(250827240, 1159434327) index="0" unique_id=1317642267]
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane_001" parent_id_path=PackedInt32Array(250827240, 1922202703) index="0" unique_id=1317642267]
 
 [node name="CSLid" type="CollisionShape3D" parent="Crate base/Plane_001/StaticBody3D" unique_id=704489268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12174761, 1.1920929e-07)

@@ -40,15 +40,37 @@ func move_lid() -> void:
 		tween_lid.tween_property(crate_lid, "position", lid_position, 1.0)
 		open = !open
 
+func place_lid_next() -> void:
+	var tween_lid := create_tween()
+	var final_pos = lid_position + Vector3(-1.43, 0.0, 0.0)
+	tween_lid.tween_property(crate_lid, "position",final_pos, 0.4)
+	tween_lid.tween_property(crate_lid, "rotation", Vector3(0.0, 0.0, -200.0), 0.0)
+	tween_lid.tween_property(crate_lid, "position", final_pos + Vector3(0.0, -0.65, 0.0), 0.0)
+
+
+func place_lid_on() -> void:
+	var tween_lid := create_tween()
+	var final_pos = lid_position + Vector3(-1.43, 0.0, 0.0)
+	tween_lid.tween_property(crate_lid, "position", final_pos, 0.0)
+	tween_lid.tween_property(crate_lid, "rotation", Vector3(0.0, 0.0, 0.0), 0.0)
+	tween_lid.tween_property(crate_lid, "position", lid_position, 0.5)
+
+	
+
 func enter_crate() -> void:
 	player.disable_controls()
 	move_lid()
 	await get_tree().create_timer(1.0).timeout
-	crate_lid.visible = false
 	enter_inspect()
+	crate_lid.visible = false
+	place_lid_next()
+	crate_lid.visible = true
+	
 
 func exit_crate() -> void:
 	exit_inspect()
+	crate_lid.visible = false
+	place_lid_on()
 	crate_lid.visible = true
 	await get_tree().create_timer(0.5).timeout
 	move_lid()

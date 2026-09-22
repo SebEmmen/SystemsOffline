@@ -121,8 +121,7 @@ func interact_door() -> void:
 		tween_door.tween_property(object_ref, "position", target_pos, 1.0)
 	else:
 		tween_door.tween_property(object_ref, "position", default_position, 1.0)
-
-		await tween_door.finished
+	await get_tree().create_timer(1.0).timeout
 	can_interact = true
 
 # Unlocks the door
@@ -281,6 +280,8 @@ func exit_inspect() -> void:
 	
 
 #endregion
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
