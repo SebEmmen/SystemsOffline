@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d3ibejya452h5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
-size = Vector3(5, 0.01, 5)
+size = Vector3(2, 0.01, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_47tre"]
-size = Vector3(5, 0.01, 5)
+size = Vector3(2, 0.01, 2)
 
 [node name="Floor" type="Node3D" unique_id=562173998]
 

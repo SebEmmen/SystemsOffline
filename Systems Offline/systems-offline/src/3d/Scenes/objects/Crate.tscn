@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bqg7cqbpvfckh"]
+
+[ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_2tn2r"]
+[ext_resource type="PackedScene" uid="uid://bj4br3egi7tpv" path="res://src/3d/Assets/Crate/Crate base.glb" id="1_6tsuu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6tsuu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_2tn2r"]
+sky_material = SubResource("ProceduralSkyMaterial_6tsuu")
+
+[sub_resource type="Environment" id="Environment_wjaxw"]
+background_mode = 2
+sky = SubResource("Sky_2tn2r")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6tsuu"]
+size = Vector3(2.1040504, 1.6965839, 2.1002707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2tn2r"]
+size = Vector3(2.4168634, 0.41525948, 2.4168634)
+
+[node name="Crate" type="Node3D" unique_id=158196895]
+script = ExtResource("1_2tn2r")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=415847337]
+environment = SubResource("Environment_wjaxw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=316637882]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Crate base" parent="." unique_id=250827240 instance=ExtResource("1_6tsuu")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane" parent_id_path=PackedInt32Array(250827240, 336428789) index="0" unique_id=1972956691]
+
+[node name="CSCrate" type="CollisionShape3D" parent="Crate base/Plane/StaticBody3D" unique_id=1862005000]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.00018084048, 0.84829193, -8.654594e-05)
+shape = SubResource("BoxShape3D_6tsuu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane_001" parent_id_path=PackedInt32Array(250827240, 1922202703) index="0" unique_id=1317642267]
+
+[node name="CSLid" type="CollisionShape3D" parent="Crate base/Plane_001/StaticBody3D" unique_id=704489268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12174761, 1.1920929e-07)
+shape = SubResource("BoxShape3D_2tn2r")
+
+[node name="CrateCamera" type="Camera3D" parent="Crate base" unique_id=1477527282]
+transform = Transform3D(1.6666665, 0, 0, 0, -7.2852316e-08, 1.6666665, 0, -1.6666665, -7.2852316e-08, 0, 3.0798035, 0)
+
+[editable path="Crate base"]
