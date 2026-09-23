@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://2vwr86remyve" path="res://src/3d/Scenes/objects/Keypad/keypad.tscn" id="7_yy3xw"]
 [ext_resource type="PackedScene" uid="uid://6v4ujtgo4roc" path="res://src/3d/Scenes/objects/TempItem.tscn" id="8_yy3xw"]
+[ext_resource type="Resource" uid="uid://bv156ojfujtap" path="res://src/3d/Scripts/Resources/ItemData.tres" id="9_cj18i"]
 [ext_resource type="PackedScene" uid="uid://dqbkntvgsbpto" path="res://src/3d/Scenes/objects/Med_Poster.tscn" id="9_t4i55"]
+[ext_resource type="Resource" uid="uid://bdg4enig48wpp" path="res://src/3d/Scripts/Resources/Ball.tres" id="10_5jc6v"]
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://byl3nfa08y808" path="res://src/3d/Assets/vent/Vent.glb" id="11_ew57s"]
 [ext_resource type="PackedScene" uid="uid://dy2cj4a7icohg" path="res://src/3d/Scenes/objects/Whitebox/Platform.tscn" id="11_itbdl"]
@@ -91,19 +93,19 @@ text = "Press [E] to inspect"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.005, -15)
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
-locked = false
 transition_camera = NodePath("../TransitionCamera")
+locked = false
 
-[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "screen_label", "keypad_camera", "transition_camera", "sliding_door", "lock_led") instance=ExtResource("7_yy3xw")]
+[node name="Keypad" parent="." unique_id=1609901091 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "inspect_camera", "screen_label", "keypad_camera", "sliding_door", "lock_led") instance=ExtResource("7_yy3xw")]
 transform = Transform3D(-0.49964848, 0, 0.018745394, 0, 0.5, 0, -0.018745394, 0, -0.49964848, -0.028122872, 1.8877192, -14.7161875)
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../TransitionCamera")
 inspect_camera = NodePath("../MediumPoster/PosterCamera")
 screen_label = NodePath("Screen")
 keypad_camera = NodePath("KeypadCamera")
-transition_camera = NodePath("../TransitionCamera")
 sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
 correct_code = "12345"
@@ -111,22 +113,25 @@ correct_code = "12345"
 [node name="KeypadCamera" parent="Keypad" index="15" unique_id=497401612]
 transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
 
-[node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref") instance=ExtResource("8_yy3xw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1754894, 0.5248313, -10.564606)
+[node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref", "player") instance=ExtResource("8_yy3xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1754894, 0.5248313, -6.4650226)
 object_ref = NodePath(".")
+player = NodePath("../ProtoController")
+item_data = ExtResource("9_cj18i")
 
 [node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref") instance=ExtResource("8_yy3xw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1956341, 0.5518472, -8.255277)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1956341, 0.5518472, -4.423398)
 object_ref = NodePath(".")
+item_data = ExtResource("10_5jc6v")
 
-[node name="MediumPoster" parent="." unique_id=131794683 node_paths=PackedStringArray("object_ref", "player", "player_camera", "inspect_camera", "transition_camera") instance=ExtResource("9_t4i55")]
+[node name="MediumPoster" parent="." unique_id=131794683 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "inspect_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5812039, 1.8267894, -14.847501)
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
-inspect_camera = NodePath("PosterCamera")
 transition_camera = NodePath("../TransitionCamera")
+inspect_camera = NodePath("PosterCamera")
 
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bdg4enig48wpp"]
+
+[ext_resource type="Script" uid="uid://4tb0pxmych06" path="res://src/3d/Scripts/Resources/itemdata.gd" id="1_0cupj"]
+
+[resource]
+script = ExtResource("1_0cupj")
+item_id = "7"
+item_name = "Ball"

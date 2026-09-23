@@ -18,6 +18,7 @@ enum InteractionType{
 
 #region Default Variables
 @export_group("Default")
+@export var item_data: ItemData
 var can_interact: bool = true
 var is_interacting: bool = false 
 var is_transitioning := false
@@ -66,7 +67,10 @@ func _ready() -> void:
 func interact() -> void:
 	match interaction_type:
 		InteractionType.DEFAULT: 
+			Inventory.add_item(item_data)
 			print("Object has been picked up!")
+			if Inventory.has_item("7"):
+				print("It has this item!")
 			queue_free()
 			object_ref.visible = false
 		InteractionType.INSPECT:
