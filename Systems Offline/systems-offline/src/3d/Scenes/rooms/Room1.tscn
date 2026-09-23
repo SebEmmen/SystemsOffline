@@ -97,6 +97,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0454178, 2.005, -7.967153)
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../TransitionCamera")
+locked = null
+correct_code = null
+rotation_speed = null
 
 [node name="SlidingDoorMesh" parent="SlidingDoor/SlidingDoorBody" parent_id_path=PackedInt32Array(212972216, 1063624797) index="0" unique_id=1913860126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044916928, 0, 0)
@@ -109,11 +112,13 @@ player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../TransitionCamera")
 inspect_camera = NodePath("../MediumPoster/PosterCamera")
+locked = null
 screen_label = NodePath("Screen")
 keypad_camera = NodePath("KeypadCamera")
 sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
 correct_code = "12345"
+rotation_speed = null
 
 [node name="KeypadCamera" parent="Keypad" index="15" unique_id=497401612]
 transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
@@ -121,15 +126,23 @@ transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0
 [node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref", "player", "pickup_message") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1754894, 0.5248313, -6.4650226)
 object_ref = NodePath(".")
+interaction_type = null
 player = NodePath("../ProtoController")
 item_data = ExtResource("9_cj18i")
 pickup_message = NodePath("../HUD/ItemPickupMessage")
+locked = null
+correct_code = null
+rotation_speed = null
 
 [node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref", "pickup_message") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1956341, 0.5518472, -4.423398)
 object_ref = NodePath(".")
+interaction_type = null
 item_data = ExtResource("10_5jc6v")
 pickup_message = NodePath("../HUD/ItemPickupMessage")
+locked = null
+correct_code = null
+rotation_speed = null
 
 [node name="MediumPoster" parent="." unique_id=131794683 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "inspect_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5812039, 1.8267894, -14.847501)
@@ -139,6 +152,9 @@ player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../TransitionCamera")
 inspect_camera = NodePath("PosterCamera")
+locked = null
+correct_code = null
+rotation_speed = null
 
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false

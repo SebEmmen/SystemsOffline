@@ -2,22 +2,22 @@ class_name InteractableComponent
 extends Node
 
 enum InteractionType{
-	DEFAULT,
+	PICKUP,
 	INSPECT,
 	DOOR,
 	KEYPAD,
 	KNOB
 }
 
-# Select specific object reference and interaction type (set to default)
+# Select specific object reference and interaction type (set to pickup)
 @export var object_ref: Node3D
-@export var interaction_type: InteractionType = InteractionType.DEFAULT
+@export var interaction_type: InteractionType = InteractionType.PICKUP
 @export var player: CharacterBody3D
 @export var player_camera: Camera3D
 @export var transition_camera: Camera3D
 
-#region Default Variables
-@export_group("Default")
+#region Pickup Variables
+@export_group("PickUp")
 @export var item_data: ItemData
 var can_interact: bool = true
 var is_interacting: bool = false 
@@ -60,14 +60,14 @@ var tertiary_audio_player: AudioStreamPlayer3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	match interaction_type:
-		InteractionType.DEFAULT:
+		InteractionType.PICKUP:
 			pass
 		InteractionType.KEYPAD:
 			ready_keypad()
 
 func interact() -> void:
 	match interaction_type:
-		InteractionType.DEFAULT: 
+		InteractionType.PICKUP: 
 			print("Object has been picked up!")
 			Inventory.add_item(item_data)
 			if Inventory.has_item("7"):
