@@ -67,8 +67,8 @@ func _ready() -> void:
 func interact() -> void:
 	match interaction_type:
 		InteractionType.DEFAULT: 
-			Inventory.add_item(item_data)
 			print("Object has been picked up!")
+			Inventory.add_item(item_data)
 			if Inventory.has_item("7"):
 				print("It has this item!")
 			queue_free()
