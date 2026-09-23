@@ -22,6 +22,7 @@ enum InteractionType{
 var can_interact: bool = true
 var is_interacting: bool = false 
 var is_transitioning := false
+@export var pickup_message: Label
 #endregion
 #region Inspect Variables
 @export_group("Inspect")
@@ -120,7 +121,7 @@ func interact_door() -> void:
 		can_interact = false
 		is_interacting = !is_interacting
 	var tween_door = create_tween()
-	var target_pos = default_position + Vector3(3.4, 0, 0)
+	var target_pos = default_position + Vector3(2.95, 0, 0)
 	if is_interacting:
 		tween_door.tween_property(object_ref, "position", target_pos, 1.0)
 	else:

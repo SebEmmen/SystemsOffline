@@ -4,10 +4,10 @@
 [ext_resource type="Material" uid="uid://rbm0jt7rir2c" path="res://src/3d/Materials/slidingdoortemp.tres" id="1_pa7bx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
-size = Vector3(3.5, 4, 0.15)
+size = Vector3(3, 4, 0.15)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vtsjs"]
-size = Vector3(3.5, 4, 0.15)
+[sub_resource type="BoxShape3D" id="BoxShape3D_l2ed4"]
+size = Vector3(3, 4, 0.15)
 
 [node name="SlidingDoor" type="Node3D" unique_id=212972216 node_paths=PackedStringArray("object_ref")]
 transform = Transform3D(0.9991126, 0, 0.042119164, 0, 1, 0, -0.042119164, 0, 0.9991126, 0, 0, 0)
@@ -21,5 +21,5 @@ interaction_type = 2
 material_override = ExtResource("1_pa7bx")
 mesh = SubResource("BoxMesh_r5iys")
 
-[node name="CollisionSlidingDoor" type="CollisionShape3D" parent="SlidingDoorBody" unique_id=1624379772]
-shape = SubResource("BoxShape3D_vtsjs")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SlidingDoorBody" unique_id=1759810719]
+shape = SubResource("BoxShape3D_l2ed4")
