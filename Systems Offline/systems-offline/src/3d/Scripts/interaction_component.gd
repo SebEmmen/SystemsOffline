@@ -151,6 +151,7 @@ func enter_keypad() -> void:
 	if !Inventory.has_item("7"):
 		print("You need to find the key to access the keypad!")
 		return
+	
 	is_interacting = true
 
 	player.disable_controls()

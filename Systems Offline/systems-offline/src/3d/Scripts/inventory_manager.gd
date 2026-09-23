@@ -24,10 +24,12 @@ func has_item(item_id: String) -> bool:
 			return true
 	return false
 
-func remove_item(item_data: Resource) -> void:
-	inventory.erase(item_data)
-
-
+func remove_item_by_id(item_id: String) -> void:
+	if inventory.is_empty() or !has_item(item_id):
+		return
+	for item in inventory:
+		if item.item_id == item_id:
+			inventory.erase(item)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
