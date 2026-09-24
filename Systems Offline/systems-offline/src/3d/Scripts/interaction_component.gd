@@ -44,8 +44,8 @@ var entered_code := ""
 #region Cover Variables
 @export_group("Cover")
 @export var cover_pivot: Node3D
-@export var cover_open_angle: float = -90.0
-@export var cover_duration: float = 0.5
+@export var cover_open_angle: float = -180.0
+@export var cover_duration: float = 0.7
 
 var cover_open := false
 var cover_moving := false
@@ -229,9 +229,7 @@ func exit_keypad() -> void:
 
 	await transition(keypad_camera, player_camera)
 	player.visible = true
-	
-func open_keypad_cover():
-	pass
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:

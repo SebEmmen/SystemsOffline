@@ -817,10 +817,14 @@ size = Vector3(1.6799998, 1.7700002, 0.20500046)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cg0m"]
 transparency = 1
 cull_mode = 2
-albedo_color = Color(0.003921569, 0.13725491, 0.13725491, 0.85882354)
+albedo_color = Color(0.14352795, 0.90564615, 0.90548927, 0.05490196)
 roughness = 0.05
 clearcoat_roughness = 0.1
 refraction_enabled = true
+refraction_scale = -0.05
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7cjmy"]
+data = PackedVector3Array(-0.83734226, -0.7986984, -0.17288023, -0.83734226, 0.9799957, -0.17288023, -0.83734226, -0.7986984, 0.16696352, -0.83734226, -0.7986984, -0.17288023, -0.83734226, -0.7986984, 0.16696352, 0.87847805, -0.7986984, -0.17288023, -0.83734226, -0.7986984, -0.17288023, 0.87847805, -0.7986984, -0.17288023, -0.83734226, 0.9799957, -0.17288023, -0.83734226, -0.7986984, 0.16696352, -0.83734226, 0.9799957, -0.17288023, -0.83734226, 0.9799957, 0.16696352, -0.83734226, -0.7986984, 0.16696352, -0.83734226, 0.9799957, 0.16696352, 0.87847805, 0.9799957, 0.16696352, -0.83734226, 0.9799957, -0.17288023, 0.87847805, 0.9799957, 0.16696352, -0.83734226, 0.9799957, 0.16696352, -0.83734226, -0.7986984, 0.16696352, 0.87847805, -0.7986984, 0.16696352, 0.87847805, -0.7986984, -0.17288023, -0.83734226, -0.7986984, 0.16696352, 0.87847805, 0.9799957, 0.16696352, 0.87847805, -0.7986984, 0.16696352, 0.87847805, -0.7986984, -0.17288023, 0.87847805, -0.7986984, 0.16696352, 0.87847805, 0.9799957, 0.16696352, -0.83734226, 0.9799957, -0.17288023, 0.87847805, -0.7986984, -0.17288023, 0.87847805, 0.9799957, -0.17288023, -0.83734226, 0.9799957, -0.17288023, 0.87847805, 0.9799957, -0.17288023, 0.87847805, 0.9799957, 0.16696352, 0.87847805, -0.7986984, -0.17288023, 0.87847805, 0.9799957, 0.16696352, 0.87847805, 0.9799957, -0.17288023)
 
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
 script = ExtResource("1_rhii3")
@@ -1034,18 +1038,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020110153, 0.06673582, 0.06
 shape = SubResource("BoxShape3D_rhii3")
 
 [node name="CoverPivot" type="Node3D" parent="." unique_id=1987710966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93286777, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8425757, 0)
 
 [node name="Cover" type="CSGCombiner3D" parent="CoverPivot" unique_id=1854037006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95444334, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82462096, 0)
 script = ExtResource("5_7cjmy")
 
 [node name="Positive" type="CSGBox3D" parent="CoverPivot/Cover" unique_id=1647597975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020132065, 0.06678772, -0.095397174)
-size = Vector3(1.6787109, 1.7903137, 0.33984375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020567894, 0.09064865, -0.0029583573)
+size = Vector3(1.7158203, 1.7786942, 0.33984375)
 material = SubResource("StandardMaterial3D_1cg0m")
 
 [node name="Negative" type="CSGBox3D" parent="CoverPivot/Cover" unique_id=548055344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114507675, 0.07235527, -2.974246)
 operation = 2
 size = Vector3(1.5646515, 1.6617317, 0.28955078)
+
+[node name="CoverInteract" type="StaticBody3D" parent="CoverPivot" unique_id=1967961863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7790643, 0)
+script = ExtResource("1_rhii3")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="CoverPivot/CoverInteract" unique_id=1643234798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95444334, 0)
+shape = SubResource("ConcavePolygonShape3D_7cjmy")
