@@ -213,7 +213,7 @@ func press_key(key: String) -> void:
 	update_screen()
 
 func update_screen() -> void:
-	var empty_slots := 5 - entered_code.length()
+	var empty_slots := correct_code.length() - entered_code.length()
 	screen_label.text = "-".repeat(empty_slots) + entered_code
 
 func check_code() -> void:

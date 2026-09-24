@@ -11,6 +11,8 @@ enum InspectType{
 
 #region Crate Variables
 @export_group("Crate")
+@export var number_label: Label3D
+@export var number : String = "0"
 @export var crate_lid: Node3D
 @onready var lid_position: Vector3 = crate_lid.position
 @onready var lid_rotation: Vector3 = crate_lid.rotation
@@ -19,7 +21,7 @@ enum InspectType{
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	number_label.text = number
 
 
 func interact() -> void:
