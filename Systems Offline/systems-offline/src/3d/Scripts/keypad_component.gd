@@ -15,6 +15,11 @@ enum KeypadType{
 @export var lock_led: MeshInstance3D
 var entered_code := ""
 @export var correct_code : String
+
+@export_group("Cover")
+@export var keypad_cover: Node3D
+@export var cover_fade_duration: float = 0.5
+
 #endregion
 
 # Called when the node enters the scene tree for the first time.
@@ -37,17 +42,43 @@ func ready_button_keypad() -> void:
 func enter_button_keypad() -> void:
 	if is_interacting or is_transitioning:
 		return
-	if !Inventory.has_item("7"):
+
+	if not Inventory.has_item("7"):
 		print("You need to find the key to access the keypad!")
 		return
-	
-	is_interacting = true
 
+	# Lock interaction immediately
+	is_interacting = true
 	player.disable_controls()
 
+	# Open cover and perform camera whiplash
+	open_keypad_cover()
+	#await open_keypad_cover()
+	await get_tree().create_timer(0.2).timeout
+	await whiplash()
+
+	# Transition into keypad view
 	player.visible = false
 	await transition(player_camera, keypad_camera)
 
+func open_keypad_cover() -> void:
+	if keypad_cover == null:
+		print("Error keypad_cover == null")
+		return
+
+	var tween := create_tween()
+
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_property(
+		keypad_cover,
+		"rotation:x",
+		deg_to_rad(-160.0),
+		cover_fade_duration
+	)
+
+	await tween.finished
 
 func exit_button_keypad() -> void:
 	if not is_interacting or is_transitioning:
@@ -60,7 +91,33 @@ func exit_button_keypad() -> void:
 	await transition(keypad_camera, player_camera)
 	player.visible = true
 
+func whiplash() -> void:
+	print("Whiplash!")
 
+	var original_rotation := player_camera.rotation.x
+
+	var tween := create_tween()
+
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	# Quickly look down
+	tween.tween_property(
+		player_camera,
+		"rotation:x",
+		original_rotation + deg_to_rad(10.0),
+		0.15
+	)
+
+	# Return to the original rotation
+	tween.tween_property(
+		player_camera,
+		"rotation:x",
+		original_rotation,
+		0.4
+	)
+
+	await tween.finished
 
 func get_button_under_mouse() -> Object:
 	var mouse_position := get_viewport().get_mouse_position()
@@ -116,7 +173,6 @@ func check_code() -> void:
 		flash_error()
 		#entered_code = ""
 		#update_screen()
-	
 	
 func flash_enter():
 	screen_label.text = "ENTER"

@@ -813,6 +813,18 @@ shadow_mesh = SubResource("ArrayMesh_wwq2i")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhii3"]
 size = Vector3(1.6799998, 1.7700002, 0.20500046)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhii3"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.8352941, 0.9490196, 1, 0.11764706)
+metallic_specular = 0.8
+roughness = 0.05
+emission_enabled = true
+emission = Color(0.39607844, 0.8745098, 1, 1)
+emission_energy_multiplier = 0.1
+refraction_enabled = true
+refraction_scale = 0.02
+
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
 script = ExtResource("1_rhii3")
 
@@ -1021,3 +1033,16 @@ mesh = SubResource("ArrayMesh_qb4kn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KeypadInteract" unique_id=1046636595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020110153, 0.06673582, 0.068799675)
 shape = SubResource("BoxShape3D_rhii3")
+
+[node name="CoverVertex" type="Node3D" parent="." unique_id=1718145220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.81693125, 0.07954994)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CoverVertex" unique_id=2068081884]
+
+[node name="Positive" type="CSGBox3D" parent="CoverVertex/CSGCombiner3D" unique_id=1849180554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033839285, 0.8842513, -0.08169693)
+size = Vector3(1.6525879, 1.7687073, 0.16687012)
+material = SubResource("StandardMaterial3D_rhii3")
+
+[node name="Negative" type="CSGBox3D" parent="CoverVertex/CSGCombiner3D" unique_id=366644641]
+visible = false
