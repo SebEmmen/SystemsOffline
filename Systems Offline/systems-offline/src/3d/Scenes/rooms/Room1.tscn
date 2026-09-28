@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/Crate.tscn" id="16_2pe5o"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="17_wvn26"]
-[ext_resource type="PackedScene" uid="uid://ch17bgiui8ilt" path="res://src/3d/Assets/Elevator/alien elevator 1st floor.glb" id="20_7flw8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,7 +42,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.949891, 0, -0.31258178, 0, 1, 0, 0.31258178, 0, 0.949891, -1.8372698, 1, -5.1210666)
+transform = Transform3D(0.9463729, 0.0030779685, -0.32306215, 0, 0.99995464, 0.009527049, 0.3230768, -0.00901614, 0.94632995, -1.517086, 0.008810878, -2.8353195)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_move = true
@@ -102,6 +101,7 @@ visible = false
 
 [node name="Platform" parent="." unique_id=589354236 instance=ExtResource("11_itbdl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.25, -64.579)
+visible = false
 
 [node name="Cuboid" parent="." unique_id=647220541 instance=ExtResource("12_cj18i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -81.643)
@@ -176,7 +176,7 @@ transition_camera = NodePath("../../../TransitionCamera")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0454178, 2.005, -7.967153)
 script = ExtResource("13_j4nu1")
 unlockable_type = 0
-locked = true
+locked = false
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 
@@ -184,7 +184,7 @@ player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044916928, 0, 0)
 
 [node name="Keypad" parent="Tutorial Room" unique_id=1609901091 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("7_yy3xw")]
-transform = Transform3D(-0.49999997, 0, -4.3711385e-08, 0, 0.5, 0, 4.3711385e-08, 0, -0.49999997, 0.5, 2, -7.8)
+transform = Transform3D(-0.49999997, 0, -4.3711385e-08, 0, 0.5, 0, 4.3711385e-08, 0, -0.49999997, 0.52710706, 1.9278404, -7.7352214)
 script = ExtResource("15_71ovv")
 keypad_type = 0
 screen_label = NodePath("Screen")
@@ -202,6 +202,10 @@ transition_camera = NodePath("../../TransitionCamera")
 
 [node name="KeypadCamera" parent="Tutorial Room/Keypad" index="15" unique_id=497401612]
 transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
+
+[node name="Positive" parent="Tutorial Room/Keypad/CoverVertex/CSGCombiner3D" parent_id_path=PackedInt32Array(1609901091, 2068081884) index="0" unique_id=1849180554]
+transform = Transform3D(0.9999935, 0, -2.060574e-13, 0, 1, 0, 2.060574e-13, 0, 0.9999935, 0.033839226, 0.8842511, -0.08169651)
+material_override = null
 
 [node name="TempItem" parent="Tutorial Room" unique_id=506849166 node_paths=PackedStringArray("object_ref", "player", "pickup_message") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1754894, 0.5248313, -6.4650226)
@@ -227,9 +231,6 @@ interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
-
-[node name="alien elevator 1st floor" parent="." unique_id=38147042 instance=ExtResource("20_7flw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5242863, 1.6804218, 2.000515)
 
 [editable path="ProtoController"]
 [editable path="HUD"]

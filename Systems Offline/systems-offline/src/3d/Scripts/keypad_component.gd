@@ -55,7 +55,7 @@ func enter_button_keypad() -> void:
 	open_keypad_cover()
 	#await open_keypad_cover()
 	await get_tree().create_timer(0.2).timeout
-	await whiplash()
+	#await whiplash()
 
 	# Transition into keypad view
 	player.visible = false
