@@ -1,6 +1,4 @@
 #extends MarginContainer
-
-
 extends Control
 
 func _on_continue_pressed():

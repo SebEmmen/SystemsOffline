@@ -96,12 +96,11 @@ visible = false
 [node name="ViewLabel" parent="HUD" index="4" unique_id=51349289]
 text = "Press [E] to inspect"
 
-[node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313]
+[node name="InventoryUI" parent="." unique_id=1823256622 instance=ExtResource("5_7flw8")]
 script = ExtResource("6_tjnt7")
 
-[node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]
-
-[node name="InventoryUI" parent="UI_Manger" unique_id=1823256622 instance=ExtResource("5_7flw8")]
+[node name="Escape-menu" parent="." unique_id=2114750774 instance=ExtResource("7_b3d3a")]
+script = ExtResource("6_tjnt7")
 
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
@@ -241,8 +240,8 @@ transition_camera = NodePath("../../TransitionCamera")
 
 [editable path="ProtoController"]
 [editable path="HUD"]
-[editable path="UI_Manger/PauseMenu"]
-[editable path="UI_Manger/InventoryUI"]
+[editable path="InventoryUI"]
+[editable path="Escape-menu"]
 [editable path="Tutorial Room/Crates/Crate 1"]
 [editable path="Tutorial Room/Crates/Crate 1/Crate base"]
 [editable path="Tutorial Room/Crates/Crate 2"]
