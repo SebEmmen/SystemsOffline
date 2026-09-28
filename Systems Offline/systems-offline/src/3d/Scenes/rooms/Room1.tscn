@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/Crate.tscn" id="16_2pe5o"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="17_wvn26"]
+[ext_resource type="PackedScene" uid="uid://ch17bgiui8ilt" path="res://src/3d/Assets/Elevator/alien elevator 1st floor.glb" id="20_7flw8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -224,6 +225,9 @@ interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+
+[node name="alien elevator 1st floor" parent="." unique_id=38147042 instance=ExtResource("20_7flw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5242863, 1.6804218, 2.000515)
 
 [editable path="ProtoController"]
 [editable path="HUD"]
