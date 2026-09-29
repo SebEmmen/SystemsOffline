@@ -699,7 +699,7 @@ size = Vector3(0.1866665, 0.20999992, 0.1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3d3a"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6gqvj"]
-size = Vector3(1, 1, 0.060424805)
+size = Vector3(0.90000004, 0.90000004, 0.060424805)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovu3a"]
 albedo_color = Color(1, 1, 0, 1)
@@ -812,6 +812,59 @@ shadow_mesh = SubResource("ArrayMesh_wwq2i")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhii3"]
 size = Vector3(1.6799998, 1.7700002, 0.20500046)
+
+[sub_resource type="Shader" id="Shader_71ovv"]
+code = "
+shader_type spatial;
+render_mode blend_mix, depth_prepass_alpha, cull_disabled;
+
+uniform vec4 glass_color : source_color = vec4(0.5, 0.8, 1.0, 0.15);
+uniform vec4 edge_color : source_color = vec4(0.0, 0.8, 1.0, 0.15);
+
+uniform float edge_width : hint_range(0.001, 0.2) = 0.01;
+uniform float glow_strength : hint_range(0.0, 10.0) = 1.0;
+
+void fragment() {
+    vec2 edge_distance = min(UV, vec2(1.0) - UV);
+
+    float edge = 1.0 - smoothstep(
+        0.0,
+        edge_width,
+        min(edge_distance.x, edge_distance.y)
+    );
+
+    ALBEDO = glass_color.rgb;
+    ALPHA = mix(glass_color.a, 0.9, edge);
+    EMISSION = edge_color.rgb * edge * glow_strength;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15ehv"]
+render_priority = 0
+shader = SubResource("Shader_71ovv")
+shader_parameter/glass_color = Color(0.7, 0.9, 1, 0.15)
+shader_parameter/edge_color = Color(0, 0.8, 1, 1)
+shader_parameter/edge_width = 0.04
+shader_parameter/glow_strength = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cjmy"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.8352941, 0.9490196, 1, 0.11764706)
+metallic_specular = 0.8
+roughness = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhii3"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.8352941, 0.9490196, 1, 0.11764706)
+metallic_specular = 0.8
+roughness = 0.05
+emission_enabled = true
+emission = Color(0.39607844, 0.8745098, 1, 1)
+emission_energy_multiplier = 0.1
+refraction_enabled = true
+refraction_scale = 0.02
 
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
 script = ExtResource("1_rhii3")
@@ -997,18 +1050,17 @@ mesh = SubResource("CapsuleMesh_6gqvj")
 surface_material_override/0 = SubResource("StandardMaterial3D_b3d3a")
 
 [node name="StickyNote" type="MeshInstance3D" parent="." unique_id=371074990]
-transform = Transform3D(0.37735182, 0.13922898, 0, -0.1442886, 0.36358774, -0.006559965, -0.0055184704, 0.013905798, 0.17152008, -0.7520447, 0, 0.072711945)
+transform = Transform3D(0.297721, 0.036907867, 3.4924597e-10, -0.036880907, 0.29750356, -0.011465436, -0.0014105494, 0.011378338, 0.2997808, -0.65440094, 0.18893984, 0.07993814)
 mesh = SubResource("BoxMesh_6gqvj")
 surface_material_override/0 = SubResource("StandardMaterial3D_ovu3a")
 
 [node name="Code" type="Label3D" parent="StickyNote" unique_id=289948629]
-transform = Transform3D(-0.12, 6.399933e-09, -1.8119495e-08, 6.3999335e-09, 0.12, -3.3527636e-09, 1.8119495e-08, -3.3527645e-09, -0.12, -0.019286698, -0.001219093, -0.07746163)
-modulate = Color(0, 0, 0, 1)
-text = "51515
-15151
-51515"
+transform = Transform3D(-0.20894061, 1.0310032e-08, -1.8044375e-08, 5.156471e-08, 0.1738921, -4.656613e-09, 3.0500814e-08, -4.1909516e-09, -0.12, -0.009146702, 0.1235176, -0.042796664)
+text = "
+view
+key"
 font = ExtResource("4_rhii3")
-font_size = 320
+font_size = 250
 line_spacing = 100.0
 
 [node name="KeypadCamera" type="Camera3D" parent="." unique_id=497401612]
@@ -1023,3 +1075,20 @@ mesh = SubResource("ArrayMesh_qb4kn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KeypadInteract" unique_id=1046636595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020110153, 0.06673582, 0.068799675)
 shape = SubResource("BoxShape3D_rhii3")
+
+[node name="CoverVertex" type="Node3D" parent="." unique_id=1718145220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.81693125, 0.07954994)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CoverVertex" unique_id=2068081884]
+
+[node name="Positive" type="CSGBox3D" parent="CoverVertex/CSGCombiner3D" unique_id=1849180554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033839285, 0.8842513, -0.08169693)
+material_override = SubResource("ShaderMaterial_15ehv")
+size = Vector3(1.6525879, 1.7687073, 0.16687012)
+material = SubResource("StandardMaterial3D_7cjmy")
+
+[node name="Negative" type="CSGBox3D" parent="CoverVertex/CSGCombiner3D" unique_id=436013196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04577166, 0.8810584, -0.069764555)
+operation = 2
+size = Vector3(1.612854, 1.6968155, 0.14300537)
+material = SubResource("StandardMaterial3D_rhii3")
