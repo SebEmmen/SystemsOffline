@@ -10,8 +10,9 @@ enum Menu {
 @onready var pause_menu: Control = $PauseMenu
 @onready var inventory_ui: Control = $InventoryUI
 
-var current_menu: Menu = Menu.NONE
 
+var current_menu: Menu = Menu.NONE
+	
 
 func _ready() -> void:
 
@@ -77,5 +78,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
+	SaveManager.save_game()
+	
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://src/2d/Scenes/MainMenu.tscn")

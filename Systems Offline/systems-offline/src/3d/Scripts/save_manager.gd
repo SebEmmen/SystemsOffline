@@ -20,11 +20,13 @@ func save_game() -> void:
 	if player == null:
 		push_error("SaveManager: Player not found!")
 		return
-
+	
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data()
 	}
+	print(save_data)
+
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 
