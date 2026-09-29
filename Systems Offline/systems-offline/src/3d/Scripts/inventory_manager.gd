@@ -2,15 +2,18 @@ extends Node
 
 @export var inventory: Array[ItemData]
 
-#var binoculars: ItemData = preload("res://src/3d/Scripts/Resources/Binoculars.tres")
+signal inventory_update 
+
+var binoculars: ItemData = preload("res://src/3d/Scripts/Resources/Binoculars.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#add_item(binoculars)
-	pass
+	add_item(binoculars)
+	
 
 func add_item(item_data: Resource) -> void:
 	inventory.append(item_data)
+	inventory_update.emit()
 	print("Added ", item_data.item_name, " to your inventory")
 	if inventory.is_empty():
 		print("Inventory is empty")
@@ -18,6 +21,7 @@ func add_item(item_data: Resource) -> void:
 		print("The following Items are in your inventory:")
 	for n in inventory:
 		print(n.item_name, ", ", n.item_id)
+	
 
 func has_item(item_id: String) -> bool:
 	if inventory.is_empty():

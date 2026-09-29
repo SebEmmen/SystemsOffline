@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="6_tjnt7"]
 [ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://2vwr86remyve" path="res://src/3d/Scenes/objects/Keypad/keypad.tscn" id="7_yy3xw"]
+[ext_resource type="PackedScene" uid="uid://74jh74isiibj" path="res://src/2d/Scenes/Inventory/InventorySlot.tscn" id="8_o4t00"]
 [ext_resource type="PackedScene" uid="uid://6v4ujtgo4roc" path="res://src/3d/Scenes/objects/TempItem.tscn" id="8_yy3xw"]
 [ext_resource type="Resource" uid="uid://bv156ojfujtap" path="res://src/3d/Scripts/Resources/ItemData.tres" id="9_cj18i"]
 [ext_resource type="PackedScene" uid="uid://dqbkntvgsbpto" path="res://src/3d/Scenes/objects/Med_Poster.tscn" id="9_t4i55"]
@@ -103,6 +104,7 @@ script = ExtResource("6_tjnt7")
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
 [node name="InventoryUI" parent="UI_Manger" unique_id=1823256622 instance=ExtResource("5_7flw8")]
+slot_scene = ExtResource("8_o4t00")
 
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
