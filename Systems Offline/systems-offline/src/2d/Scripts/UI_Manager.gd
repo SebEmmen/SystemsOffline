@@ -14,7 +14,6 @@ var current_menu: Menu = Menu.NONE
 
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
 
 	pause_menu.visible = false
 	inventory_ui.visible = false

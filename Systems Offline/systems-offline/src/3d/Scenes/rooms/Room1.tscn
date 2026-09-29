@@ -97,6 +97,7 @@ visible = false
 text = "Press [E] to inspect"
 
 [node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313]
+process_mode = 3
 script = ExtResource("6_tjnt7")
 
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]

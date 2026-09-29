@@ -2,12 +2,12 @@ extends Node
 
 @export var inventory: Array[ItemData]
 
-var binoculars: ItemData = preload("res://src/3d/Scripts/Resources/Binoculars.tres")
+#var binoculars: ItemData = preload("res://src/3d/Scripts/Resources/Binoculars.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_item(binoculars)
-	
+	#add_item(binoculars)
+	pass
 
 func add_item(item_data: Resource) -> void:
 	inventory.append(item_data)
