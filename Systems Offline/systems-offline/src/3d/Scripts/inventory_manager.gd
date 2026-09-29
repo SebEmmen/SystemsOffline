@@ -4,40 +4,27 @@ extends Node
 
 signal inventory_update 
 
-var binoculars: ItemData = preload("res://src/3d/Scripts/Resources/Binoculars.tres")
+var binoculars: ItemData = preload("res://src/3d/Resources/Binoculars.tres")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_item(binoculars)
-	
 
-func add_item(item_data: Resource) -> void:
-	inventory.append(item_data)
-	inventory_update.emit()
-	print("Added ", item_data.item_name, " to your inventory")
-	if inventory.is_empty():
-		print("Inventory is empty")
-	else:
-		print("The following Items are in your inventory:")
-	for n in inventory:
-		print(n.item_name, ", ", n.item_id)
-	
+func add_item(item_data: ItemData) -> void:
+	if item_data:
+		inventory.append(item_data)
+		inventory_update.emit()
+	for item in inventory:
+		print(item.item_name, " ", item.item_id)
 
 func has_item(item_id: String) -> bool:
-	if inventory.is_empty():
-		return false
 	for item in inventory:
 		if item.item_id == item_id:
 			return true
 	return false
 
 func remove_item_by_id(item_id: String) -> void:
-	if inventory.is_empty() or !has_item(item_id):
-		return
 	for item in inventory:
 		if item.item_id == item_id:
 			inventory.erase(item)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+			inventory_update.emit()
+			break

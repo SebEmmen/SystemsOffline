@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bdnfinlbanto6" path="res://src/2d/Scripts/inventory_slot.gd" id="1_napbd"]
 
 [node name="InventorySlot" type="Control" unique_id=1834476137]
-custom_maximum_size = Vector2(-1, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +14,6 @@ grow_vertical = 2
 script = ExtResource("1_napbd")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1938016773]
-custom_maximum_size = Vector2(100, 100)
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0

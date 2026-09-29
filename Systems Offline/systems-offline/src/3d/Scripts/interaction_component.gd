@@ -91,7 +91,7 @@ func transition(from: Camera3D, target: Camera3D) -> void:
 
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
 

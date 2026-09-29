@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://jyd52qx51xte"]
+
+[ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="1_reo0n"]
+[ext_resource type="Texture2D" uid="uid://p22uqdayq51j" path="res://src/2d/Assets/key_image.jpg" id="2_fx1f1"]
+[ext_resource type="Script" uid="uid://4tb0pxmych06" path="res://src/3d/Scripts/itemdata.gd" id="3_75abh"]
+
+[resource]
+script = ExtResource("3_75abh")
+item_id = "tutorial_key"
+item_name = "Cargo Keypad Key"
+description = "This key will open the cover for the keypad in the cargo room"
+inventory_icon = ExtResource("2_fx1f1")
+inspect_scene = ExtResource("1_reo0n")
