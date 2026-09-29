@@ -151,18 +151,6 @@ transform = Transform3D(-0.2, 3.019916e-08, -1.3200473e-15, 0, -8.742278e-09, -0
 [node name="Cilinder" parent="." unique_id=239300972 instance=ExtResource("14_5jc6v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -37)
 
-[node name="Box3" parent="." unique_id=1428870102 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(1.6166815, 0, -1.1774297, 0, 2, 0, 1.1774297, 0, 1.6166815, 4.953262, 1, -4.1712527)
-
-[node name="Box2" parent="." unique_id=574198978 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(1.9825697, 0, -0.26347175, 0, 2, 0, 0.26347175, 0, 1.9825697, -4.6704946, 1, 4.365501)
-
-[node name="Box" parent="." unique_id=1605775188 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(0.9369579, 0, -0.3494422, 0, 1, 0, 0.3494422, 0, 0.9369579, 5.0050697, 0.5, -1.2493019)
-
-[node name="Box4" parent="." unique_id=282121472 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(1.3003534, 0, -0.74771714, 0, 1.5, 0, 0.74771714, 0, 1.3003534, -9.594, 0.75, -3.633)
-
 [node name="Box5" parent="." unique_id=1908084551 instance=ExtResource("15_2pe5o")]
 transform = Transform3D(4, 0, 0, 0, 3, 0, 0, 0, 4, 13.984321, 0.50499916, -64.22973)
 
