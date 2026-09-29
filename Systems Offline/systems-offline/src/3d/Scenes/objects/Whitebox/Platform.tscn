@@ -10,6 +10,8 @@ bottom_radius = 8.0
 height = 0.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qt5eg"]
+height = 0.5
+radius = 8.0
 
 [sub_resource type="PrismMesh" id="PrismMesh_qt5eg"]
 left_to_right = 1.0
