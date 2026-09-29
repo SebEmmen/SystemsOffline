@@ -43,7 +43,7 @@ func enter_button_keypad() -> void:
 	if is_interacting or is_transitioning:
 		return
 
-	if not Inventory.has_item("7"):
+	if not Inventory.has_item("tutorial_key"):
 		print("You need to find the key to access the keypad!")
 		return
 

@@ -25,7 +25,7 @@ func setup_inspection(data: ItemData) -> void:
 	
 	if data:
 		item_name_label.text = data.item_name
-		item_description_label.text = data.description
+		item_description_label.text = "Description: " + data.description
 		
 		if data.inspect_scene:
 			var item_mesh = data.inspect_scene.instantiate()

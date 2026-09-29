@@ -52,8 +52,8 @@ func interact() -> void:
 		InteractionType.PICKUP: 
 			print("Object has been picked up!")
 			Inventory.add_item(item_data)
-			if Inventory.has_item("7"):
-				print("It has this item!")
+			if Inventory.has_item("tutorial_key"):
+				print("You found a key! Press tab and inspect it!")
 			queue_free()
 			object_ref.visible = false
 		InteractionType.INSPECT:
