@@ -15,6 +15,7 @@ func get_player() -> CharacterBody3D:
 
 
 func save_game() -> void:
+
 	var player = get_player()
 
 	if player == null:
@@ -24,6 +25,7 @@ func save_game() -> void:
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data()
+		
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)

@@ -4,10 +4,11 @@ extends Node
 
 signal inventory_update 
 
-var binoculars: ItemData = preload("res://src/3d/Resources/Binoculars.tres")
+#var binoculars: ItemData = preload("res://src/3d/Resources/Binoculars.tres")
 
 func _ready() -> void:
-	add_item(binoculars)
+	#add_item(binoculars)
+	pass
 
 func add_item(item_data: ItemData) -> void:
 	if item_data:
