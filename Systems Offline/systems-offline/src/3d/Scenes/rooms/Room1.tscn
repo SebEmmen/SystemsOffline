@@ -98,6 +98,7 @@ script = ExtResource("6_tjnt7")
 
 [node name="ItemInspector" parent="UI_Manger" unique_id=928279941 instance=ExtResource("8_o4t00")]
 visible = false
+rotation_sensitivity = null
 
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
