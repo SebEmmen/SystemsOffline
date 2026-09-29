@@ -204,7 +204,7 @@ func enable_controls() -> void:
 
 
 	capture_mouse()
-	
+
 func toggle_controls() -> void:
 	controls_enabled = !controls_enabled
 	toggle_mouse()
