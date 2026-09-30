@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://h5m45rb1xd1k"]
+
+[ext_resource type="Material" uid="uid://d1bg77t1lxqkg" path="res://src/3d/Materials/hintObject.tres" id="1_v6a12"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
+size = Vector3(0.4, 0.4, 0.05)
+
+[node name="HintObject" type="Node3D" unique_id=1149939097]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=122089137]
+material_override = ExtResource("1_v6a12")
+mesh = SubResource("BoxMesh_r5iys")
