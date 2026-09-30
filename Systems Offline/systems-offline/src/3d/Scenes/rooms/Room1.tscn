@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="17_wvn26"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
+[ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 
@@ -127,7 +128,7 @@ pickup_message = NodePath("../HUD/ItemPickupMessage")
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
 [node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.728695, 0, 2.4009871)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.728695, 0, 2.4009871)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -195,7 +196,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.4360442, 0, -1.576674
 script = null
 
 [node name="Dummy Crate4" parent="Tutorial Room/Crates" unique_id=61901682 instance=ExtResource("16_2pe5o")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 2.1355565, 0, 4.1457872)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.1355565, 0, 3.2203188)
 script = null
 
 [node name="SlidingDoor" parent="Tutorial Room" unique_id=212972216 node_paths=PackedStringArray("player", "player_camera") instance=ExtResource("6_b3d3a")]
@@ -218,7 +219,7 @@ screen_label = NodePath("Screen")
 keypad_camera = NodePath("KeypadCamera")
 sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
-correct_code = "4927"
+correct_code = "2947"
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../../ProtoController")
@@ -269,6 +270,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5923966, 2.9849024, -7.7630
 
 [node name="coat_hanger" parent="Tutorial Room/KeyHanger" index="0" unique_id=843989947]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Hint" type="Node" parent="Tutorial Room" unique_id=1445622338]
+
+[node name="HintObject" parent="Tutorial Room/Hint" unique_id=1149939097 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.3543408, 4.330809, -7.8249993)
+
+[node name="HintObject2" parent="Tutorial Room/Hint" unique_id=1554673993 instance=ExtResource("25_354s1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6389487, 4.330809, -7.8249993)
+
+[node name="HintObject3" parent="Tutorial Room/Hint" unique_id=945717358 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.997459, 4.330809, -7.8249993)
+
+[node name="HintObject4" parent="Tutorial Room/Hint" unique_id=941298832 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -7.8249993)
 
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
