@@ -248,6 +248,12 @@ player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
+[node name="KeyHanger" parent="Tutorial Room" unique_id=1598884683 instance=ExtResource("29_a4exi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5923966, 2.9849024, -7.7630267)
+
+[node name="coat_hanger" parent="Tutorial Room/KeyHanger" index="0" unique_id=843989947]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
 [node name="Box5" parent="Whitebox" unique_id=1428870102 instance=ExtResource("15_2pe5o")]
@@ -319,9 +325,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -37)
 [node name="Platform" parent="Whitebox" unique_id=589354236 instance=ExtResource("11_itbdl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.25, -64.579)
 
-[node name="Node3D" parent="." unique_id=1598884683 instance=ExtResource("29_a4exi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5923966, 2.9849024, -7.7630267)
-
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
@@ -337,3 +340,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5923966, 2.9849024, -7.7630
 [editable path="Tutorial Room/SlidingDoor"]
 [editable path="Tutorial Room/Keypad"]
 [editable path="Tutorial Room/MediumPoster"]
+[editable path="Tutorial Room/KeyHanger"]
