@@ -147,7 +147,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
 
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("interact"):
 		
 		match keypad_type:
 			KeypadType.BUTTON_KEYPAD:

@@ -57,6 +57,7 @@ shadow_enabled = true
 transform = Transform3D(0.9463729, 0.0030779685, -0.32306215, 0, 0.99995464, 0.009527049, 0.3230768, -0.00901614, 0.94632995, -1.517086, 0.008810878, -2.8353195)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
+has_gravity = false
 can_shrink = true
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
@@ -251,7 +252,7 @@ item_data = ExtResource("25_dqwws")
 pickup_message = NodePath("../../HUD/ItemPickupMessage")
 
 [node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.890143, 1.8267894, -7.8519163)
+transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -5.722243, 1.8267894, -7.851916)
 script = ExtResource("17_wvn26")
 inspect_type = 0
 inspect_camera = NodePath("PosterCamera")
@@ -261,6 +262,36 @@ interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+
+[node name="Label3D" parent="Tutorial Room/MediumPoster/MeshInstance3D" parent_id_path=PackedInt32Array(131794683, 45797016) index="1" unique_id=599613705]
+modulate = Color(0.051302753, 2.5862757e-06, 0.048060834, 1)
+text = "Press Tab
+to view your
+inventory"
+font_size = 16
+outline_size = 2
+
+[node name="MediumPoster2" parent="Tutorial Room" unique_id=436732102 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
+transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -8.19541, 1.8267894, -7.8519154)
+script = ExtResource("17_wvn26")
+inspect_type = 0
+inspect_camera = NodePath("PosterCamera")
+number = "0"
+object_ref = NodePath(".")
+interaction_type = 1
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../TransitionCamera")
+
+[node name="Label3D" parent="Tutorial Room/MediumPoster2/MeshInstance3D" parent_id_path=PackedInt32Array(436732102, 45797016) index="1" unique_id=599613705]
+modulate = Color(0.10605211, 7.018065e-06, 0.10114049, 1)
+text = "Right clicking 
+objects in 
+inventory
+ lets you
+ inspect them!"
+font_size = 14
+outline_size = 2
 
 [node name="KeyHanger" parent="Tutorial Room" unique_id=1598884683 instance=ExtResource("29_a4exi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5923966, 2.9849024, -7.7630267)
@@ -368,4 +399,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 
 [editable path="Tutorial Room/SlidingDoor"]
 [editable path="Tutorial Room/Keypad"]
 [editable path="Tutorial Room/MediumPoster"]
+[editable path="Tutorial Room/MediumPoster2"]
 [editable path="Tutorial Room/KeyHanger"]

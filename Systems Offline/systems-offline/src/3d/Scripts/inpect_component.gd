@@ -25,16 +25,11 @@ enum InspectType{
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if number_label:
-		number_label.text = number
-	elif inspect_type == InspectType.CRATE:
-		push_warning("InspectComponent: 'number_label' is not assigned on " + name)
-		
-	if crate_lid:
-		lid_position = crate_lid.position
-		lid_rotation = crate_lid.rotation
-	elif inspect_type == InspectType.CRATE:
-		push_warning("InspectComponent: 'crate_lid' is not assigned on " + name)
+	match inspect_type:
+		InspectType.POSTER:
+			pass
+		InspectType.CRATE:
+			ready_crate()
 
 func interact() -> void:
 	match inspect_type:
@@ -76,6 +71,19 @@ func exit_inspect() -> void:
 #endregion
 
 #region Crate Functions
+
+func ready_crate() -> void:
+	if number_label:
+		number_label.text = number
+	elif inspect_type == InspectType.CRATE:
+		push_warning("InspectComponent: 'number_label' is not assigned on " + name)
+		
+	if crate_lid:
+		lid_position = crate_lid.position
+		lid_rotation = crate_lid.rotation
+	elif inspect_type == InspectType.CRATE:
+		push_warning("InspectComponent: 'crate_lid' is not assigned on " + name)
+
 func move_lid() -> void:
 	var tween_lid := create_tween()
 	var final_pos = lid_position + Vector3(-0.5, 0.0, 0.0)
@@ -127,7 +135,7 @@ func exit_crate() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("interact"):
 		
 		match inspect_type:
 			InspectType.CRATE:

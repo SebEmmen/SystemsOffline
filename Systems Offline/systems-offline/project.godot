@@ -26,10 +26,6 @@ SaveManager="*uid://bl27jibd7no3x"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
-[filesystem]
-
-import/blender/enabled=false
-
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
