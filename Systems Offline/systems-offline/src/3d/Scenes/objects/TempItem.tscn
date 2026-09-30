@@ -8,6 +8,7 @@
 size = Vector3(0.99886733, 0.9999998, 0.99886733)
 
 [node name="TempItem" type="Node3D" unique_id=506849166]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("1_ca0bt")
 
 [node name="Ball" type="MeshInstance3D" parent="." unique_id=1642591021]

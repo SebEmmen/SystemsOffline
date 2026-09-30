@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bkkgxtmdb8ftb"]
 
+[ext_resource type="PackedScene" uid="uid://6v4ujtgo4roc" path="res://src/3d/Scenes/objects/TempItem.tscn" id="1_kmrtl"]
 [ext_resource type="Script" uid="uid://4tb0pxmych06" path="res://src/3d/Scripts/itemdata.gd" id="2_cksjv"]
 
 [sub_resource type="Resource" id="Resource_4nu6k"]
@@ -11,3 +12,4 @@ item_id = "binoculars"
 item_name = "Binoculars"
 description = "This is to help see further"
 inventory_icon = SubResource("Resource_4nu6k")
+inspect_scene = ExtResource("1_kmrtl")
