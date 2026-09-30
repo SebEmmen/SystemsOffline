@@ -813,6 +813,9 @@ shadow_mesh = SubResource("ArrayMesh_wwq2i")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhii3"]
 size = Vector3(1.6799998, 1.7700002, 0.20500046)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(1.7, 1.8, 0.15)
+
 [sub_resource type="Shader" id="Shader_71ovv"]
 code = "
 shader_type spatial;
@@ -1079,15 +1082,21 @@ shape = SubResource("BoxShape3D_rhii3")
 [node name="CoverVertex" type="Node3D" parent="." unique_id=1718145220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.81693125, 0.07954994)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CoverVertex" unique_id=2068081884]
+[node name="CoverInteract" type="StaticBody3D" parent="CoverVertex" unique_id=628403338]
 
-[node name="Positive" type="CSGBox3D" parent="CoverVertex/CSGCombiner3D" unique_id=1849180554]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CoverVertex/CoverInteract" unique_id=273895951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024223268, 0.872578, -0.07635472)
+shape = SubResource("BoxShape3D_r5iys")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CoverVertex/CoverInteract" unique_id=2068081884]
+
+[node name="Positive" type="CSGBox3D" parent="CoverVertex/CoverInteract/CSGCombiner3D" unique_id=1849180554]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033839285, 0.8842513, -0.08169693)
 material_override = SubResource("ShaderMaterial_15ehv")
 size = Vector3(1.6525879, 1.7687073, 0.16687012)
 material = SubResource("StandardMaterial3D_7cjmy")
 
-[node name="Negative" type="CSGBox3D" parent="CoverVertex/CSGCombiner3D" unique_id=436013196]
+[node name="Negative" type="CSGBox3D" parent="CoverVertex/CoverInteract/CSGCombiner3D" unique_id=436013196]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04577166, 0.8810584, -0.069764555)
 operation = 2
 size = Vector3(1.612854, 1.6968155, 0.14300537)

@@ -16,10 +16,6 @@ enum KeypadType{
 var entered_code := ""
 @export var correct_code : String
 
-@export_group("Cover")
-@export var keypad_cover: Node3D
-@export var cover_fade_duration: float = 0.5
-
 #endregion
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +27,8 @@ func _ready() -> void:
 func interact() -> void:
 	match keypad_type:
 		KeypadType.BUTTON_KEYPAD:
+			if !can_interact:
+				return
 			object_ref.enter_button_keypad()
 
 
@@ -42,43 +40,13 @@ func ready_button_keypad() -> void:
 func enter_button_keypad() -> void:
 	if is_interacting or is_transitioning:
 		return
-
-	if not Inventory.has_item("tutorial_key"):
-		print("You need to find the key to access the keypad!")
-		return
-
-	# Lock interaction immediately
-	is_interacting = true
+	
+	# prevent player from moving if they can open 
+	is_interacting = !is_interacting
 	player.disable_controls()
-
-	# Open cover and perform camera whiplash
-	open_keypad_cover()
-	#await open_keypad_cover()
-	await get_tree().create_timer(0.2).timeout
-	#await whiplash()
-
 	# Transition into keypad view
 	player.visible = false
 	await transition(player_camera, keypad_camera)
-
-func open_keypad_cover() -> void:
-	if keypad_cover == null:
-		print("Error keypad_cover == null")
-		return
-
-	var tween := create_tween()
-
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_IN_OUT)
-
-	tween.tween_property(
-		keypad_cover,
-		"rotation:x",
-		deg_to_rad(-160.0),
-		cover_fade_duration
-	)
-
-	await tween.finished
 
 func exit_button_keypad() -> void:
 	if not is_interacting or is_transitioning:
@@ -91,33 +59,6 @@ func exit_button_keypad() -> void:
 	await transition(keypad_camera, player_camera)
 	player.visible = true
 
-func whiplash() -> void:
-	print("Whiplash!")
-
-	var original_rotation := player_camera.rotation.x
-
-	var tween := create_tween()
-
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_IN_OUT)
-
-	# Quickly look down
-	tween.tween_property(
-		player_camera,
-		"rotation:x",
-		original_rotation + deg_to_rad(10.0),
-		0.15
-	)
-
-	# Return to the original rotation
-	tween.tween_property(
-		player_camera,
-		"rotation:x",
-		original_rotation,
-		0.4
-	)
-
-	await tween.finished
 
 func get_button_under_mouse() -> Object:
 	var mouse_position := get_viewport().get_mouse_position()
@@ -208,14 +149,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("ui_cancel"):
 		
-		match interaction_type:
-			InteractionType.KEYPAD:
+		match keypad_type:
+			KeypadType.BUTTON_KEYPAD:
 				exit_button_keypad()
 				get_viewport().set_input_as_handled()
 		
 		return
 	# Mouse clicking is only needed for keypad
-	if interaction_type == InteractionType.KEYPAD:
+	if keypad_type == KeypadType.BUTTON_KEYPAD:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				click_keypad_button()
