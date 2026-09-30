@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cd8d230r2wpe4"]
+
+[ext_resource type="Script" uid="uid://dlofw6ffiyve0" path="res://src/2d/Scripts/inventory_ui.gd" id="1_urixn"]
+
+[node name="InventoryUI" type="Control" unique_id=1243524911]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_urixn")
+
+[node name="Panel" type="Panel" parent="." unique_id=1690074922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=242237776]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+accessibility_region = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1622176931]
+layout_mode = 2
+
+[node name="GridSection" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=1492759775]
+layout_mode = 2
+
+[node name="ItemGrid" type="GridContainer" parent="Panel/MarginContainer/HBoxContainer/GridSection" unique_id=506769375]
+layout_mode = 2
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 150
+columns = 6
+
+[node name="Label" type="Label" parent="." unique_id=2074652358]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 50.0
+offset_right = 596.0
+offset_bottom = 91.875
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Inventory"

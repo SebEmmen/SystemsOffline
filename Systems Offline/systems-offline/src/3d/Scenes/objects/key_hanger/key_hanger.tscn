@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://deinepjyf5q2s"]
+
+[ext_resource type="PackedScene" uid="uid://dxov2npyjd56m" path="res://src/3d/Scenes/objects/key_hanger/coat_hanger.glb" id="1_dhbvk"]
+[ext_resource type="PackedScene" uid="uid://bhdrlutw7sajr" path="res://src/3d/Assets/Keypad/False key 1.glb" id="2_djulq"]
+[ext_resource type="PackedScene" uid="uid://qowusn4uwf38" path="res://src/3d/Assets/Keypad/False key 2.glb" id="3_ogbio"]
+[ext_resource type="PackedScene" uid="uid://bogvjt5vkhsym" path="res://src/3d/Assets/Keypad/False key 3.glb" id="4_6tto8"]
+
+[node name="key_hanger" type="Node3D" unique_id=1598884683]
+
+[node name="coat_hanger" parent="." unique_id=843989947 instance=ExtResource("1_dhbvk")]
+
+[node name="False key 1" parent="." unique_id=1607585834 instance=ExtResource("2_djulq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7323954, -0.27667934, 0)
+
+[node name="False key 2" parent="." unique_id=755172310 instance=ExtResource("3_ogbio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2782029, -0.26937923, 0)
+
+[node name="False key 3" parent="." unique_id=1467184383 instance=ExtResource("4_6tto8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3231273, -0.27903938, 0)

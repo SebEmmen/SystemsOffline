@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cutwb5r3chx52"]
+
+[ext_resource type="Script" uid="uid://cehvuehs53qqp" path="res://src/3d/Scripts/item_inspector.gd" id="1_mk37s"]
+
+[node name="ItemInspector" type="Control" unique_id=932326988]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mk37s")
+rotation_sensitivity = 0.01
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=653074130]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25321588, 0.17987883, 0.30897, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1666676080]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=353244158]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(800, 500)
+render_target_update_mode = 4
+
+[node name="PivotNode" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=786770674]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=297522801]
+transform = Transform3D(1, 1.4901161e-08, 1.4901161e-08, -1.4901161e-08, 1, 0, -1.4901161e-08, -4.440892e-16, 1, -2.9802322e-08, 0, 1.1435462)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=508792986]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="DescriptionLabel" type="Label" parent="." unique_id=1601276872]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -23.0
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ItemName" type="Label" parent="." unique_id=1252889494]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30

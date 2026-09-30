@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dlsafydximrtk"]
+
+[ext_resource type="PackedScene" uid="uid://ctesq5fnkxmuf" path="res://src/3d/Assets/Keypad/Correct key.glb" id="1_uee51"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uee51"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_u85c0"]
+sky_material = SubResource("ProceduralSkyMaterial_uee51")
+
+[sub_resource type="Environment" id="Environment_dvba1"]
+background_mode = 2
+sky = SubResource("Sky_u85c0")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(0.2, 0.422, 0.15)
+
+[node name="Tutorial Key" type="Node3D" unique_id=466876124]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=259460590]
+environment = SubResource("Environment_dvba1")
+
+[node name="Correct key" parent="." unique_id=164125829 instance=ExtResource("1_uee51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7914717, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=236518752]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=95298466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03918457, 0)
+shape = SubResource("BoxShape3D_r5iys")

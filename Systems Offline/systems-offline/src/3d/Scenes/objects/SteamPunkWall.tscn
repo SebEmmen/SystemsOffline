@@ -9,8 +9,8 @@ size = Vector3(2.8475573, 2, 2)
 
 [node name="Metal steampunk wall" parent="." unique_id=2059803143 instance=ExtResource("1_o4eyu")]
 
-[node name="Cube" parent="Metal steampunk wall" index="0" unique_id=1732135516]
-transform = Transform3D(-8.7422775e-10, -1, 0, -8.7422775e-10, 1.9106855e-15, -2.5, 0.02, -4.371139e-08, -1.09278474e-07, 0, 0, 0)
+[node name="Cube" parent="Metal steampunk wall" index="0" unique_id=747451337]
+transform = Transform3D(-8.7422775e-10, 0, -8, 0, 4, 0, 0.02, 0, -3.496911e-07, 0, 0, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Metal steampunk wall/Cube" index="0" unique_id=1230248138]
 

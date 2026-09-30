@@ -12,6 +12,9 @@ extends CharacterBody3D
 @export var can_sprint: bool = true
 @export var can_shrink: bool = false
 @export var is_shrunk: bool = false
+@export var can_gravity_invert: bool = true
+@export var gravity_invert: bool = false
+
 
 #region Speeds
 @export_group("Speeds")
@@ -29,11 +32,83 @@ extends CharacterBody3D
 @export var input_back: String = "move_back"
 @export var input_sprint: String = "sprint"
 #endregion
+#region Save System
 
+func get_save_data() -> Dictionary:
+	return {
+		"position": [
+			global_position.x,
+			global_position.y,
+			global_position.z
+		],
+
+		"rotation": [
+			rotation.x,
+			rotation.y,
+			rotation.z
+		],
+
+		"head_rotation": [
+			head.rotation.x,
+			head.rotation.y,
+			head.rotation.z
+		],
+
+		"is_shrunk": is_shrunk,
+		"gravity_invert": gravity_invert
+	}
+
+
+func load_save_data(data: Dictionary) -> void:
+
+	# Restore position
+	var pos = data.get("position", [0, 0, 0])
+	global_position = Vector3(pos[0], pos[1], pos[2])
+
+	# Restore player rotation
+	var rot = data.get("rotation", [0, 0, 0])
+	rotation = Vector3(rot[0], rot[1], rot[2])
+
+	# Restore head rotation
+	var head_rot = data.get("head_rotation", [0, 0, 0])
+	head.rotation = Vector3(head_rot[0], head_rot[1], head_rot[2])
+
+	# Synchronize mouse movement
+	look_rotation.y = rotation.y
+	look_rotation.x = head.rotation.x
+
+	# Restore shrinking
+	is_shrunk = data.get("is_shrunk", false)
+
+	if is_shrunk:
+		scale = Vector3.ONE * 0.1
+		camera.fov = 110
+		ray.scale = Vector3.ONE * 0.2
+	else:
+		scale = Vector3.ONE
+		camera.fov = 75
+		ray.scale = Vector3.ONE * 2.0
+
+	# Restore gravity
+	gravity_invert = data.get("gravity_invert", false)
+
+	if gravity_invert:
+		up_direction = Vector3.DOWN
+	else:
+		up_direction = Vector3.UP
+
+	velocity = Vector3.ZERO
+	gravity_flipping = false
+	left_surface = false
+	controls_enabled = true
+
+#endregion
 
 var mouse_captured: bool = false
 var look_rotation: Vector2
 var move_speed: float = 0.0
+var gravity_flipping := false
+var left_surface := false
 
 var controls_enabled := true
 
@@ -74,10 +149,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 
+
 	# Apply gravity
-	if has_gravity:
+	if has_gravity and not gravity_invert:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+			
+	if has_gravity and gravity_invert:
+		if not is_on_ceiling():
+			velocity += get_gravity() * delta * -1
 
 	# Shrinking
 	if can_shrink and controls_enabled and Input.is_action_just_pressed("shrink"):
@@ -94,7 +174,17 @@ func _physics_process(delta: float) -> void:
 			tween.tween_property(camera, "fov", 75, 0.2)
 			tween.tween_property(ray, "scale", Vector3(2.0, 2.0, 2.0), 0.2)
 
+	# Gravity invert
+	if can_gravity_invert and controls_enabled and Input.is_action_just_pressed("gravity_invert"):
+		if is_on_floor() or is_on_ceiling():
+			gravity_invert = !gravity_invert
+			up_direction = Vector3.DOWN if gravity_invert else Vector3.UP
 
+			gravity_flipping = true
+			left_surface = false
+			controls_enabled = false
+		else:
+			print("Must be on floor or ceiling!")
 
 	# Sprinting
 	if can_sprint and controls_enabled and Input.is_action_pressed(input_sprint):
@@ -144,14 +234,28 @@ func _physics_process(delta: float) -> void:
 	# Actually move the player
 	move_and_slide()
 
+	# Regain controls after gravity flip
+	if gravity_flipping:
+		# First wait until we've actually left the old surface
+		if not is_on_floor() and not is_on_ceiling():
+			left_surface = true
+
+		# Only restore controls after leaving and landing again
+		if left_surface and (is_on_floor() or is_on_ceiling()):
+			gravity_flipping = false
+			left_surface = false
+			controls_enabled = true
+		
 func rotate_look(rot_input: Vector2) -> void:
 
 	look_rotation.x -= rot_input.y * look_speed
 
 	look_rotation.x = clamp(
 		look_rotation.x,
-		deg_to_rad(-85),
-		deg_to_rad(85)
+		#deg_to_rad(-85),
+		#deg_to_rad(85)
+		deg_to_rad(-50),
+		deg_to_rad(100)
 	)
 
 	look_rotation.y -= rot_input.x * look_speed
@@ -204,7 +308,7 @@ func enable_controls() -> void:
 
 
 	capture_mouse()
-	
+
 func toggle_controls() -> void:
 	controls_enabled = !controls_enabled
 	toggle_mouse()

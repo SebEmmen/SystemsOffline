@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cat6kxhhytckm"]
+
+[sub_resource type="Shader" id="Shader_71ovv"]
+code = "
+shader_type spatial;
+render_mode blend_mix, depth_prepass_alpha, cull_disabled;
+
+uniform vec4 glass_color : source_color = vec4(0.5, 0.8, 1.0, 0.15);
+uniform vec4 edge_color : source_color = vec4(0.0, 0.8, 1.0, 0.15);
+
+uniform float edge_width : hint_range(0.001, 0.2) = 0.01;
+uniform float glow_strength : hint_range(0.0, 10.0) = 1.0;
+
+void fragment() {
+    vec2 edge_distance = min(UV, vec2(1.0) - UV);
+
+    float edge = 1.0 - smoothstep(
+        0.0,
+        edge_width,
+        min(edge_distance.x, edge_distance.y)
+    );
+
+    ALBEDO = glass_color.rgb;
+    ALPHA = mix(glass_color.a, 0.9, edge);
+    EMISSION = edge_color.rgb * edge * glow_strength;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_71ovv")
+shader_parameter/glass_color = Color(0.5, 0.8, 1, 0.15)
+shader_parameter/edge_color = Color(0, 0.8, 1, 0.15)
+shader_parameter/edge_width = 0.01
+shader_parameter/glow_strength = 1.0

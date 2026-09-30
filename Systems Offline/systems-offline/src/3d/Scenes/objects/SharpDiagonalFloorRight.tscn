@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://rdih2idec2r6"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_71i0y"]
+left_to_right = 0.0
+size = Vector3(2, 4, 0.01)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7wuft"]
+points = PackedVector3Array(-1, -1, -0.005, -1, -1, 0.005, -1, 1, -0.005, -1, 1, 0.005, 1, -1, -0.005, 1, -1, 0.005)
+
+[node name="SharpDiagonalFloorRight" type="Node3D" unique_id=677300496]
+
+[node name="SharpDiagonalFloorRightMesh" type="MeshInstance3D" parent="." unique_id=1819027266]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 1, 0, 0)
+mesh = SubResource("PrismMesh_71i0y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SharpDiagonalFloorRightMesh" unique_id=1544251466]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SharpDiagonalFloorRightMesh/StaticBody3D" unique_id=403021872]
+shape = SubResource("ConvexPolygonShape3D_7wuft")
