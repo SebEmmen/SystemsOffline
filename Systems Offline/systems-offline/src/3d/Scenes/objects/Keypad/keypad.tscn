@@ -1034,7 +1034,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ovu3a")
 transform = Transform3D(-0.20894061, 1.0310032e-08, -1.8044375e-08, 5.156471e-08, 0.1738921, -4.656613e-09, 3.0500814e-08, -4.1909516e-09, -0.12, -0.009146702, 0.1235176, -0.042796664)
 text = "
 view
-key"
+door"
 font = ExtResource("4_rhii3")
 font_size = 250
 line_spacing = 100.0

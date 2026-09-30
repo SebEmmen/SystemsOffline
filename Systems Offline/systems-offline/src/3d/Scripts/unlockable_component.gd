@@ -70,7 +70,7 @@ func open_cover() -> void:
 	if locked and not Inventory.has_item("tutorial_key"):
 		print("You need to find the key to access the keypad!")
 		return
-	
+	locked = !locked
 	# prevent player from moving if they can open 
 	is_interacting = !is_interacting
 	player.disable_controls()
