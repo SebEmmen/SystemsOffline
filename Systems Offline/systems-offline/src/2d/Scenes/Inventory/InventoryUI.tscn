@@ -47,7 +47,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/h_separation = 150
 theme_override_constants/v_separation = 150
-columns = 5
+columns = 6
 
 [node name="Label" type="Label" parent="." unique_id=2074652358]
 layout_mode = 0
