@@ -23,7 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://taolt75ubi48" path="res://src/3d/Scenes/objects/Whitebox/Cilinder.tscn" id="14_5jc6v"]
 [ext_resource type="PackedScene" uid="uid://mcgtnsxl7lum" path="res://src/3d/Scenes/objects/Whitebox/Box.tscn" id="15_2pe5o"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
-[ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/Crate.tscn" id="16_2pe5o"]
+[ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/OpenableCrate.tscn" id="16_2pe5o"]
+[ext_resource type="PackedScene" uid="uid://by2av6ruws1r5" path="res://src/3d/Scenes/objects/BasicCrate.tscn" id="16_o4tcg"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="17_wvn26"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
@@ -128,7 +129,7 @@ pickup_message = NodePath("../HUD/ItemPickupMessage")
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
 [node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.728695, 0, 2.4009871)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.3247814, 0, 4.4502735)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -183,21 +184,17 @@ player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
-[node name="Dummy Crate" parent="Tutorial Room/Crates" unique_id=598063724 instance=ExtResource("16_2pe5o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.592899, 0, -4.4651003)
-script = null
+[node name="DummyCrate" parent="Tutorial Room/Crates" unique_id=659222280 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -3.4066978, 0.0050001144, 4.245779)
 
-[node name="Dummy Crate2" parent="Tutorial Room/Crates" unique_id=942068161 instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -4.18021, 0, 0.27536035)
-script = null
+[node name="DummyCrate3" parent="Tutorial Room/Crates" unique_id=1772026193 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.9246874, 0.0050001144, 1.9155247)
 
-[node name="Dummy Crate3" parent="Tutorial Room/Crates" unique_id=2080419806 instance=ExtResource("16_2pe5o")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.4360442, 0, -1.5766749)
-script = null
+[node name="DummyCrate4" parent="Tutorial Room/Crates" unique_id=948350991 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.374361, 0.0050001144, -0.11301565)
 
-[node name="Dummy Crate4" parent="Tutorial Room/Crates" unique_id=61901682 instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.1355565, 0, 3.2203188)
-script = null
+[node name="DummyCrate2" parent="Tutorial Room/Crates" unique_id=1818429161 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -7.12776, 0.0050001144, -3.4374166)
 
 [node name="SlidingDoor" parent="Tutorial Room" unique_id=212972216 node_paths=PackedStringArray("player", "player_camera") instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0454178, 2.005, -7.967153)
@@ -368,14 +365,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 
 [editable path="Tutorial Room/Crates/CrateCode(2)/Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(9)"]
 [editable path="Tutorial Room/Crates/CrateCode(9)/Crate base"]
-[editable path="Tutorial Room/Crates/Dummy Crate"]
-[editable path="Tutorial Room/Crates/Dummy Crate/Crate base"]
-[editable path="Tutorial Room/Crates/Dummy Crate2"]
-[editable path="Tutorial Room/Crates/Dummy Crate2/Crate base"]
-[editable path="Tutorial Room/Crates/Dummy Crate3"]
-[editable path="Tutorial Room/Crates/Dummy Crate3/Crate base"]
-[editable path="Tutorial Room/Crates/Dummy Crate4"]
-[editable path="Tutorial Room/Crates/Dummy Crate4/Crate base"]
 [editable path="Tutorial Room/SlidingDoor"]
 [editable path="Tutorial Room/Keypad"]
 [editable path="Tutorial Room/MediumPoster"]
