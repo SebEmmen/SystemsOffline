@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfsx3afw4c5co"
-path.s3tc="res://.godot/imported/stamp 3_Ucupaint Cube.png-a4ebf6df9539a48d24422ff501f1054c.s3tc.ctex"
+uid="uid://dpfabh5errwnw"
+path.s3tc="res://.godot/imported/Keypad base_Ucupaint keypad base_1.png-ab731cf72d5f0257463af8113c418b02.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "61ec1381d9965ffba4b4411fc4d6fccb"
+"md5": "4b09153638b33767f5549424362ea8ab"
 }
 
 [deps]
 
-source_file="res://src/3d/Assets/Stamp+stampholder/stamp 3_Ucupaint Cube.png"
-dest_files=["res://.godot/imported/stamp 3_Ucupaint Cube.png-a4ebf6df9539a48d24422ff501f1054c.s3tc.ctex"]
+source_file="res://src/3d/Assets/Keypad/Keypad base_Ucupaint keypad base_1.png"
+dest_files=["res://.godot/imported/Keypad base_Ucupaint keypad base_1.png-ab731cf72d5f0257463af8113c418b02.s3tc.ctex"]
 
 [params]
 

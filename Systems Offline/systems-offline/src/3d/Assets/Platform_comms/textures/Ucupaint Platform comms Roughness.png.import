@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4up8ii0nkxpa"
-path.s3tc="res://.godot/imported/stamp 3_Ucupaint Stampholder Gabor.png-173ea050bf8ce2e1253919afecea2d7b.s3tc.ctex"
+uid="uid://cxlh1owjlnw7l"
+path.s3tc="res://.godot/imported/Ucupaint Platform comms Roughness.png-5b455bdbb220d7a948215c4cd0fa03e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "831bdc04383fd5b9f8904863fa71d289"
-}
 
 [deps]
 
-source_file="res://src/3d/Assets/Stamp+stampholder/stamp 3_Ucupaint Stampholder Gabor.png"
-dest_files=["res://.godot/imported/stamp 3_Ucupaint Stampholder Gabor.png-173ea050bf8ce2e1253919afecea2d7b.s3tc.ctex"]
+source_file="res://src/3d/Assets/Platform_comms/textures/Ucupaint Platform comms Roughness.png"
+dest_files=["res://.godot/imported/Ucupaint Platform comms Roughness.png-5b455bdbb220d7a948215c4cd0fa03e5.s3tc.ctex"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lxn0ar2qers"
-path.s3tc="res://.godot/imported/stamp 3_Ucupaint Cylinder Roughness.png-15065c23662e91d16ac5f94e825172d7.s3tc.ctex"
+uid="uid://cqioil8m7h451"
+path.s3tc="res://.godot/imported/Keypad base_Ucupaint keypad base.png-5fd01e8729397ff841a33aedcb50d09b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "9f71773cf03e376468e9be6df03af228"
+"md5": "dedcc96bc08f93633afd3966b267108a"
 }
 
 [deps]
 
-source_file="res://src/3d/Assets/Stamp+stampholder/stamp 3_Ucupaint Cylinder Roughness.png"
-dest_files=["res://.godot/imported/stamp 3_Ucupaint Cylinder Roughness.png-15065c23662e91d16ac5f94e825172d7.s3tc.ctex"]
+source_file="res://src/3d/Assets/Keypad/Keypad base_Ucupaint keypad base.png"
+dest_files=["res://.godot/imported/Keypad base_Ucupaint keypad base.png-5fd01e8729397ff841a33aedcb50d09b.s3tc.ctex"]
 
 [params]
 

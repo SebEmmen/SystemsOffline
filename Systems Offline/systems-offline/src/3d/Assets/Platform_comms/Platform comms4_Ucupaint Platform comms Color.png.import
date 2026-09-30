@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl51qx5js738"
-path.s3tc="res://.godot/imported/stamp 3_Ucupaint Cube_3.png-9a12560fa99ad3cb80c5a0c9ea991312.s3tc.ctex"
+uid="uid://cb3mytelm0xmb"
+path.s3tc="res://.godot/imported/Platform comms4_Ucupaint Platform comms Color.png-ef7b0200ed75b99610c2fd03a1bc9286.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c0eec4ae2bb88e50e9ff040a039ee4c5"
+"md5": "1e2f40f0b6aa9510b1f22c825f38c383"
 }
 
 [deps]
 
-source_file="res://src/3d/Assets/Stamp+stampholder/stamp 3_Ucupaint Cube_3.png"
-dest_files=["res://.godot/imported/stamp 3_Ucupaint Cube_3.png-9a12560fa99ad3cb80c5a0c9ea991312.s3tc.ctex"]
+source_file="res://src/3d/Assets/Platform_comms/Platform comms4_Ucupaint Platform comms Color.png"
+dest_files=["res://.godot/imported/Platform comms4_Ucupaint Platform comms Color.png-ef7b0200ed75b99610c2fd03a1bc9286.s3tc.ctex"]
 
 [params]
 

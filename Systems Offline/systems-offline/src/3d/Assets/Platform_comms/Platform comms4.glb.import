@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qjpcoiur2plx"
-path="res://.godot/imported/stamp 3.glb-efdd06839f9048203afc0e33656a2a13.scn"
+uid="uid://u2ftwu5ksoue"
+path="res://.godot/imported/Platform comms4.glb-dd40f98af7b08cb13069d5ff9f083d0f.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Stamp+stampholder/stamp 3.glb"
-dest_files=["res://.godot/imported/stamp 3.glb-efdd06839f9048203afc0e33656a2a13.scn"]
+source_file="res://src/3d/Assets/Platform_comms/Platform comms4.glb"
+dest_files=["res://.godot/imported/Platform comms4.glb-dd40f98af7b08cb13069d5ff9f083d0f.scn"]
 
 [params]
 

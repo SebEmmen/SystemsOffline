@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c88kusrmn88sp"
-path="res://.godot/imported/stamp.blend-e043334af5e19124699cea6e4615a932.scn"
+uid="uid://jeheosgikeon"
+path="res://.godot/imported/Platform comms.blend-57c189532f41a0698f6ff1dc7db26aad.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Stamp+stampholder/stamp.blend"
-dest_files=["res://.godot/imported/stamp.blend-e043334af5e19124699cea6e4615a932.scn"]
+source_file="res://src/3d/Assets/Platform_comms/Platform comms.blend"
+dest_files=["res://.godot/imported/Platform comms.blend-57c189532f41a0698f6ff1dc7db26aad.scn"]
 
 [params]
 

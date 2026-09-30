@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bo0ee0b7xfwbc"
-path="res://.godot/imported/Platform comms.glb-28ed3098dd12fcd96d0c7fe2d2360c46.scn"
+uid="uid://c3m3dv7bbh1oo"
+path="res://.godot/imported/Hallway floor.glb-4bfb0507754731e1e2c3705e18c569b8.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Platform_comms/Platform comms.glb"
-dest_files=["res://.godot/imported/Platform comms.glb-28ed3098dd12fcd96d0c7fe2d2360c46.scn"]
+source_file="res://src/3d/Assets/Hallway floor.glb"
+dest_files=["res://.godot/imported/Hallway floor.glb-4bfb0507754731e1e2c3705e18c569b8.scn"]
 
 [params]
 

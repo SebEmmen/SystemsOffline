@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpjn5g0e58qef"
-path.s3tc="res://.godot/imported/stamp 3_Ucupaint Stampholder Color.png-46a8adf22370ab45692a116c729bfa57.s3tc.ctex"
+uid="uid://b71ddurq8l1pe"
+path.s3tc="res://.godot/imported/Platform comms4_Ucupaint Platform comms Roughness.png-004a827cca3cbd115b27291e5df658fd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "157778eff48489d7b5d4d85987c20815"
+"md5": "4cac0f4e5fb1c400f529ab860389f7fd"
 }
 
 [deps]
 
-source_file="res://src/3d/Assets/Stamp+stampholder/stamp 3_Ucupaint Stampholder Color.png"
-dest_files=["res://.godot/imported/stamp 3_Ucupaint Stampholder Color.png-46a8adf22370ab45692a116c729bfa57.s3tc.ctex"]
+source_file="res://src/3d/Assets/Platform_comms/Platform comms4_Ucupaint Platform comms Roughness.png"
+dest_files=["res://.godot/imported/Platform comms4_Ucupaint Platform comms Roughness.png-004a827cca3cbd115b27291e5df658fd.s3tc.ctex"]
 
 [params]
 
