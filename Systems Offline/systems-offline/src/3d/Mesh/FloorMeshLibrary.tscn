@@ -11,6 +11,6 @@
 
 [node name="DiagonalFloor" parent="." unique_id=677300496 instance=ExtResource("2_dbbc4")]
 
-[node name="SharpDiagonalFloor" parent="." unique_id=569979882 instance=ExtResource("3_fsg8o")]
+[node name="SharpDiagonalFloorLeft" parent="." unique_id=1024762898 instance=ExtResource("3_fsg8o")]
 
-[node name="SharpDiagonalFloorRight" parent="." unique_id=1919797804 instance=ExtResource("4_nscd0")]
+[node name="SharpDiagonalFloorRight2" parent="." unique_id=2062802094 instance=ExtResource("4_nscd0")]
