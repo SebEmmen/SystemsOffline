@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cd2lrwfe8uw4o"]
+
+[ext_resource type="Texture2D" uid="uid://cl3inku47rnwh" path="res://src/3d/Assets/vent/Hallway floor_Ucupaint Plane Color.png" id="1_txvd6"]
+
+[resource]
+albedo_texture = ExtResource("1_txvd6")

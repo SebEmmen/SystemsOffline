@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dypb3bacuc1tx"]
+
+[ext_resource type="Texture2D" uid="uid://d4binlte4plum" path="res://src/3d/Assets/Metal steampunk wall/Metal steampunk wall_Ucupaint Material Color.png" id="1_hysqh"]
+[ext_resource type="Texture2D" uid="uid://cdct0vporrcqw" path="res://src/3d/Assets/Metal steampunk wall/Metal steampunk wall_Ucupaint Material Roughness.png" id="2_8mqag"]
+[ext_resource type="Texture2D" uid="uid://bex6l7fnl7qwr" path="res://src/3d/Assets/Metal steampunk wall/Metal steampunk wall_Ucupaint Material Normal.png" id="3_828mm"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_hysqh")
+metallic = 0.95
+metallic_texture = ExtResource("2_8mqag")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_8mqag")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_828mm")
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_offset = Vector3(0.415, 0.695, 0)
+metadata/_gltf_primary_texture_coord = 0
