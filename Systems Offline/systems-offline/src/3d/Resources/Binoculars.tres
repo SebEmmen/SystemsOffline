@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bkkgxtmdb8ftb"]
 
-[ext_resource type="Texture2D" uid="uid://j635t4phi56f" path="res://src/2d/Assets/binoculars.png" id="1_kmrtl"]
 [ext_resource type="Script" uid="uid://4tb0pxmych06" path="res://src/3d/Scripts/itemdata.gd" id="2_cksjv"]
+
+[sub_resource type="Resource" id="Resource_4nu6k"]
+metadata/__load_path__ = "res://src/2d/Assets/binoculars.png"
 
 [resource]
 script = ExtResource("2_cksjv")
 item_id = "binoculars"
 item_name = "Binoculars"
 description = "This is to help see further"
-inventory_icon = ExtResource("1_kmrtl")
+inventory_icon = SubResource("Resource_4nu6k")
