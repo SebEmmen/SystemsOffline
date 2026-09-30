@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_rhii3"]
 [ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="2_2aojk"]
 [ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="4_rhii3"]
+[ext_resource type="Material" uid="uid://cat6kxhhytckm" path="res://src/3d/Materials/glass.tres" id="5_7cjmy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p36h5"]
 resource_name = "mat21"
@@ -816,44 +817,10 @@ size = Vector3(1.6799998, 1.7700002, 0.20500046)
 [sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
 size = Vector3(1.7, 1.8, 0.15)
 
-[sub_resource type="Shader" id="Shader_71ovv"]
-code = "
-shader_type spatial;
-render_mode blend_mix, depth_prepass_alpha, cull_disabled;
-
-uniform vec4 glass_color : source_color = vec4(0.5, 0.8, 1.0, 0.15);
-uniform vec4 edge_color : source_color = vec4(0.0, 0.8, 1.0, 0.15);
-
-uniform float edge_width : hint_range(0.001, 0.2) = 0.01;
-uniform float glow_strength : hint_range(0.0, 10.0) = 1.0;
-
-void fragment() {
-    vec2 edge_distance = min(UV, vec2(1.0) - UV);
-
-    float edge = 1.0 - smoothstep(
-        0.0,
-        edge_width,
-        min(edge_distance.x, edge_distance.y)
-    );
-
-    ALBEDO = glass_color.rgb;
-    ALPHA = mix(glass_color.a, 0.9, edge);
-    EMISSION = edge_color.rgb * edge * glow_strength;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_15ehv"]
-render_priority = 0
-shader = SubResource("Shader_71ovv")
-shader_parameter/glass_color = Color(0.7, 0.9, 1, 0.15)
-shader_parameter/edge_color = Color(0, 0.8, 1, 1)
-shader_parameter/edge_width = 0.04
-shader_parameter/glow_strength = 4.0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cjmy"]
 transparency = 1
 cull_mode = 2
-albedo_color = Color(0.8352941, 0.9490196, 1, 0.11764706)
+albedo_color = Color(0.8352941, 0.9490196, 1, 0.23529412)
 metallic_specular = 0.8
 roughness = 0.05
 
@@ -868,6 +835,12 @@ emission = Color(0.39607844, 0.8745098, 1, 1)
 emission_energy_multiplier = 0.1
 refraction_enabled = true
 refraction_scale = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhpw2"]
+albedo_color = Color(0.9215771, 0, 0.45372748, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1e202"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
 script = ExtResource("1_rhii3")
@@ -1091,8 +1064,8 @@ shape = SubResource("BoxShape3D_r5iys")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="CoverVertex/CoverInteract" unique_id=2068081884]
 
 [node name="Positive" type="CSGBox3D" parent="CoverVertex/CoverInteract/CSGCombiner3D" unique_id=1849180554]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033839285, 0.8842513, -0.08169693)
-material_override = SubResource("ShaderMaterial_15ehv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03222853, 0.8842513, -0.08186191)
+material_override = ExtResource("5_7cjmy")
 size = Vector3(1.6525879, 1.7687073, 0.16687012)
 material = SubResource("StandardMaterial3D_7cjmy")
 
@@ -1101,3 +1074,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04577166, 0.8810584, -0.069
 operation = 2
 size = Vector3(1.612854, 1.6968155, 0.14300537)
 material = SubResource("StandardMaterial3D_rhii3")
+
+[node name="Keyhole" type="CSGSphere3D" parent="CoverVertex/CoverInteract/CSGCombiner3D" unique_id=1775641303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.489511, -0.15994269)
+material_override = SubResource("StandardMaterial3D_fhpw2")
+operation = 2
+radius = 0.1
+radial_segments = 10
+rings = 10
+smooth_faces = false
+
+[node name="Positive" type="CSGBox3D" parent="CoverVertex/CoverInteract/CSGCombiner3D/Keyhole" unique_id=742527639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048366636, 0.065303564, -0.010380171)
+material_override = ExtResource("5_7cjmy")
+operation = 2
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Backside" type="CSGBox3D" parent="CoverVertex/CoverInteract/CSGCombiner3D/Keyhole" unique_id=157561657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017666668, -0.0041788816, 0.029481739)
+operation = 2
+size = Vector3(0.26240236, 0.23896484, 0.024121094)
+material = SubResource("StandardMaterial3D_1e202")
