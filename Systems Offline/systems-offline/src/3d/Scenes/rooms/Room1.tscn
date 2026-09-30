@@ -57,6 +57,7 @@ shadow_enabled = true
 transform = Transform3D(0.9463729, 0.0030779685, -0.32306215, 0, 0.99995464, 0.009527049, 0.3230768, -0.00901614, 0.94632995, -1.517086, 0.008810878, -2.8353195)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
+has_gravity = false
 can_shrink = true
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
