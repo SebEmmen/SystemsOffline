@@ -6,7 +6,7 @@ extends StaticBody3D
 
 
 func interact() -> void:
-	var keypad = get_parent().get_parent()
+	var keypad = get_parent()
 
 	# Buttons only work while we're in keypad view mode
 	if not keypad.is_interacting:
