@@ -6,7 +6,7 @@ enum InteractionType{
 	INSPECT,
 	UNLOCKABLE,
 	KEYPAD,
-	KNOB
+	TURNABLE
 }
 
 # Select specific object reference and interaction type (set to pickup)

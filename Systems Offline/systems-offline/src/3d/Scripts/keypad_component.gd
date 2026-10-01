@@ -94,7 +94,7 @@ func press_key(key: String) -> void:
 		check_code()
 		return
 
-	elif entered_code.length() < 5:
+	elif entered_code.length() < correct_code.length():
 		entered_code += key
 
 	update_screen()
