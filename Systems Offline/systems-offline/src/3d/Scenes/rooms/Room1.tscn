@@ -89,6 +89,20 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
+<<<<<<< Updated upstream
+=======
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray") groups=["player"] instance=ExtResource("1_alw4e")]
+transform = Transform3D(0.98832566, -0.042517338, 0.14630324, 0, 0.960272, 0.27906573, -0.15235601, -0.2758078, 0.9490615, -2.8276691, 0.116626024, 7.0171127)
+camera = NodePath("Head/Camera3D")
+ray = NodePath("Head/Camera3D/RayCast3D")
+
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
+interaction_label = NodePath("../../../../HUD/InteractionLabel")
+crosshair = NodePath("../../../../HUD/Crosshair")
+crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
+view_label = NodePath("../../../../HUD/ViewLabel")
+
+>>>>>>> Stashed changes
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
 [node name="ItemPickupMessage" parent="HUD" index="2" unique_id=39127657]

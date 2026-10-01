@@ -23,6 +23,9 @@ SaveManager="*uid://bl27jibd7no3x"
 
 [display]
 
+window/size/viewport_width=1400
+window/size/viewport_height=700
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
