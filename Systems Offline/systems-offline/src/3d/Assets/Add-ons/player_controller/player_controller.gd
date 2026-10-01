@@ -237,8 +237,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 
-
-	# Actually move the player
+			
+	_snap_up_stairs_check(delta)
 	move_and_slide()
 	_snap_down_to_stairs_check()
 
