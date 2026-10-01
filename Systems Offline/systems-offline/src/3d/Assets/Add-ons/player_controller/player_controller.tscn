@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b0wgwuupgjh14" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.gd" id="1_ucva2"]
 [ext_resource type="Script" uid="uid://c0qp0g35mplfs" path="res://src/3d/Assets/Add-ons/player_controller/ray_cast.gd" id="2_1ae3g"]
-[ext_resource type="PackedScene" uid="uid://dtqmmf10dotwl" path="res://src/3d/Assets/Add-ons/Creative Character/creative_character_free.tscn" id="3_j2dax"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6kskv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -16,9 +17,9 @@ script = ExtResource("1_ucva2")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1438870549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_iof21")
 cast_shadow = 0
+mesh = SubResource("CapsuleMesh_6kskv")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=672160718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -35,5 +36,11 @@ current = true
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
 script = ExtResource("2_1ae3g")
 
-[node name="Creative_Character_free" parent="." unique_id=1940061653 instance=ExtResource("3_j2dax")]
-transform = Transform3D(-0.99999905, 0, -0.0013921191, 0, 1, 0, 0.0013921191, 0, -0.99999905, 0, 0.0722096, 0)
+[node name="StairsAheadRayCast3D" type="RayCast3D" parent="." unique_id=1955223396]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54881775, -1.2075741)
+target_position = Vector3(0, -0.55, 0)
+
+[node name="StairsBelowRayCast3D" type="RayCast3D" parent="." unique_id=954293943]
+unique_name_in_owner = true
+target_position = Vector3(0, -0.75, 0)

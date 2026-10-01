@@ -29,10 +29,9 @@
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu4h0ct1q0f0m" path="res://src/3d/Scenes/objects/elevator/elevator.tscn" id="31_o4tcg"]
-[ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
+[ext_resource type="PackedScene" uid="uid://bybba5q40e3rs" path="res://src/3d/Scenes/objects/stepupbox.tscn" id="32_20ssf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -55,6 +54,25 @@ environment = SubResource("Environment_a7dbj")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
+transform = Transform3D(0.07864083, -0.08767606, -0.99304014, 0, 0.99612504, -0.08794843, 0.9969031, 0.006916338, 0.078336105, 5.0156603, 0.040179253, -55.55912)
+camera = NodePath("Head/Camera3D")
+ray = NodePath("Head/Camera3D/RayCast3D")
+has_gravity = false
+can_shrink = true
+step_height = 1.0
+my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
+my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
+
+[node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
+visible = true
+
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
+interaction_label = NodePath("../../../../HUD/InteractionLabel")
+crosshair = NodePath("../../../../HUD/Crosshair")
+crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
+view_label = NodePath("../../../../HUD/ViewLabel")
+
 [node name="FloorGridMap2" type="GridMap" parent="." unique_id=382107592]
 mesh_library = ExtResource("2_1ds61")
 cell_size = Vector3(2, 5, 2)
@@ -71,18 +89,6 @@ data = {
 "cells": PackedInt32Array(0, 65522, 3, 0, 65523, 1441792, 0, 65524, 1441792, 0, 65525, 1441792, 0, 65526, 1441792, 65533, 65522, 1441795, 65533, 65523, 1048576, 65533, 65524, 1048576, 65533, 65525, 1048576, 65533, 65526, 1048576, 65526, 65512, 0, 65529, 65512, 0, 65530, 65512, 0, 65531, 65512, 0, 65532, 65512, 0, 65533, 65512, 0, 0, 65512, 0, 1, 65512, 0, 2, 65512, 0, 3, 65512, 0, 5, 65512, 0, 4, 65512, 0, 6, 65512, 0, 7, 65512, 0, 65525, 65512, 1048576, 65525, 65511, 1048576, 65525, 65510, 1048576, 65525, 65509, 1048576, 65525, 65508, 1048576, 65525, 65507, 1048576, 65525, 65506, 1048576, 65525, 65505, 1048576, 65525, 65504, 1048576, 65525, 65503, 1048576, 65525, 65502, 1048576, 65525, 65501, 1048576, 65525, 65500, 1048576, 65525, 65499, 1048576, 65525, 65498, 1048576, 65525, 65497, 1048576, 65525, 65496, 1048576, 65525, 65495, 1048576, 8, 65497, 1441792, 8, 65498, 1441792, 8, 65499, 1441792, 8, 65500, 1441792, 8, 65501, 1441792, 8, 65502, 1441792, 8, 65503, 1441792, 8, 65504, 1441792, 8, 65505, 1441792, 8, 65506, 1441792, 8, 65507, 1441792, 8, 65508, 1441792, 8, 65509, 1441792, 8, 65510, 1441792, 8, 65511, 1441792, 8, 65512, 1441792, 65528, 65511, 1441792, 65528, 65513, 655360, 65528, 65510, 1441792, 65528, 65509, 1441792, 65528, 65508, 1441792, 65528, 65507, 1441792, 65528, 65506, 1441792, 65528, 65505, 1441792, 65528, 65504, 1441792, 65528, 65503, 1441792, 65528, 65502, 1441792, 65528, 65501, 1441792, 65528, 65500, 1441792, 65528, 65499, 1441792, 65528, 65498, 1441792, 65528, 65497, 1441792, 65528, 65496, 1441792, 65528, 65495, 1441792, 65528, 65494, 0, 65529, 65494, 0, 65530, 65494, 0, 65531, 65494, 0, 65532, 65494, 1441792, 65532, 65493, 0, 65533, 65493, 0, 65534, 65493, 0, 65535, 65493, 0, 0, 65493, 0, 1, 65493, 0, 2, 65493, 0, 3, 65493, 0, 4, 65493, 0, 5, 65494, 1441795, 6, 65495, 1441795, 7, 65496, 1441795, 65527, 65512, 0, 5, 65487, 1048579, 4, 65487, 0, 1, 65487, 0, 0, 65487, 0, 65535, 65487, 0, 65534, 65487, 0, 65533, 65487, 0, 65530, 65487, 0, 65525, 65514, 1048576, 8, 65513, 1441792, 8, 65514, 1441792, 65525, 65513, 1048576, 65526, 65515, 1441795, 65527, 65516, 1441795, 65528, 65517, 1441795, 65529, 65518, 1441795, 65530, 65519, 1441795, 65531, 65520, 1441795, 65532, 65521, 1441795, 1, 65521, 3, 2, 65520, 3, 3, 65519, 3, 4, 65518, 3, 5, 65517, 3, 6, 65516, 3, 7, 65515, 3, 65528, 65531, 0, 65529, 65532, 655360, 65530, 65531, 0, 65531, 65531, 0, 65532, 65531, 0, 65533, 65531, 0, 65534, 65531, 1441792, 0, 65531, 1441792, 0, 65532, 655360, 1, 65532, 655360, 2, 65532, 655360, 3, 65532, 655360, 4, 65532, 655360, 5, 65531, 0, 65527, 65529, 1441795, 65526, 65522, 1441795, 6, 65529, 655363, 7, 65522, 655363, 65527, 65531, 1048576, 65527, 65530, 1048576, 65526, 65528, 1048576, 65526, 65527, 1048576, 65526, 65526, 1048576, 65526, 65525, 1048576, 65526, 65523, 1048576, 65526, 65524, 1048576, 65525, 65521, 1048576, 65525, 65520, 1048576, 65525, 65519, 1048576, 65525, 65518, 1048576, 65525, 65517, 1048576, 65525, 65516, 1048576, 65525, 65515, 1048576, 6, 65531, 1441792, 6, 65530, 1441792, 7, 65528, 1441792, 7, 65527, 1441792, 7, 65526, 1441792, 7, 65525, 1441792, 7, 65524, 1441792, 7, 65523, 1441792, 8, 65521, 1441792, 8, 65520, 1441792, 8, 65519, 1441792, 8, 65518, 1441792, 8, 65517, 1441792, 8, 65516, 1441792, 8, 65515, 1441792, 65534, 65530, 1441792, 0, 65530, 1441792, 65534, 65529, 1441792, 0, 65529, 1441792, 65534, 9, 1048580, 65533, 7, 1048580, 65531, 3, 1048580, 65530, 1, 1048580, 65529, 65535, 1048580, 65528, 65533, 1048580, 65535, 9, 1179652, 0, 7, 1179652, 1, 5, 1179652, 2, 3, 1179652, 3, 1, 1179652, 4, 65535, 1179652, 5, 65533, 1179652, 65531, 65487, 0, 65532, 65487, 0, 65526, 65493, 1310724, 65527, 65488, 1310724, 7, 65493, 1441796, 6, 65488, 1441796, 8, 65496, 1441792, 8, 65495, 1441792, 7, 65492, 1441792, 7, 65491, 1441792, 7, 65490, 1441792, 65526, 65492, 1048576, 65526, 65491, 1048576, 65526, 65490, 1048576, 65529, 65487, 0, 65528, 65488, 655360, 5, 65488, 655360, 65528, 65487, 3, 65529, 65486, 655363, 4, 65486, 1048579, 3, 65487, 0, 2, 65487, 0, 3, 65485, 0, 2, 65485, 0, 65530, 65485, 0, 65531, 65485, 0, 65532, 65485, 3, 65533, 65484, 3, 1, 65485, 1441795, 0, 65484, 1441795, 65535, 65483, 1441795, 65534, 65483, 655363, 65582, 65495, 1310720, 65582, 65496, 1310720, 65582, 65497, 1310720, 65582, 65498, 1310720, 65582, 65499, 1310720, 65582, 65500, 1310720, 65582, 65501, 1310720, 65582, 65502, 1310720, 65582, 65503, 1048576, 65582, 65504, 1048576, 65582, 65505, 1048576, 65582, 65506, 1048576, 65582, 65507, 1048576, 65582, 65508, 1048576, 65582, 65509, 1048576, 65582, 65510, 1048576, 65582, 65511, 1048576, 65582, 65512, 1048576, 65582, 65513, 1310720, 65582, 65515, 1310720, 65583, 65490, 1310720, 65583, 65491, 1310720, 65583, 65492, 1310720, 65583, 65493, 1310724, 65583, 65502, 0, 65583, 65513, 524288, 65583, 65514, 1179648, 65583, 65515, 524291, 65583, 65516, 1179648, 65583, 65517, 1179648, 65583, 65518, 1179648, 65583, 65519, 1179648, 65583, 65520, 1179648, 65583, 65521, 1179648, 65583, 65522, 131075, 65583, 65523, 1048576, 65583, 65524, 1048576, 65583, 65525, 1048576, 65583, 65526, 1048576, 65583, 65527, 1048576, 65583, 65528, 1048576, 65584, 65489, 1179652, 65584, 65492, 0, 65584, 65502, 0, 65584, 65513, 524288, 65584, 65516, 524291, 65584, 65526, 655360, 65584, 65529, 1048579, 65584, 65530, 1048576, 65584, 65531, 1048576, 65584, 65532, 1048576, 65584, 65533, 1048576, 65584, 65534, 1048576, 65585, 65487, 3, 65585, 65488, 655360, 65585, 65513, 524288, 65585, 65517, 524291, 65585, 65526, 655360, 65585, 65535, 655360, 65586, 65486, 3, 65586, 65487, 0, 65586, 65493, 131076, 65586, 65513, 524288, 65586, 65518, 131075, 65586, 65526, 655360, 65586, 65535, 655360, 65587, 65486, 655360, 65587, 65487, 0, 65587, 65493, 0, 65587, 65502, 0, 65587, 65513, 524288, 65587, 65519, 131075, 65587, 65526, 655360, 65587, 65535, 655360, 65588, 65486, 655360, 65588, 65487, 0, 65588, 65493, 0, 65588, 65502, 0, 65588, 65513, 524288, 65588, 65520, 131075, 65588, 65526, 655360, 65588, 65535, 655360, 65589, 65485, 655363, 65589, 65487, 0, 65589, 65493, 0, 65589, 65502, 0, 65589, 65513, 524288, 65589, 65521, 131075, 65589, 65526, 655360, 65589, 65535, 655360, 65590, 65484, 655363, 65590, 65487, 0, 65590, 65493, 0, 65590, 65502, 0, 65590, 65513, 524288, 65590, 65522, 131075, 65590, 65526, 655360, 65590, 65535, 655360, 65591, 65483, 655363, 65591, 65487, 0, 65591, 65502, 0, 65591, 65513, 524288, 65591, 65523, 1179648, 65591, 65526, 655360, 65591, 65535, 655360, 65592, 65483, 1441795, 65592, 65487, 0, 65592, 65502, 0, 65592, 65513, 524288, 65592, 65526, 655360, 65592, 65535, 655360, 65593, 65484, 1441795, 65593, 65487, 0, 65593, 65493, 0, 65593, 65502, 0, 65593, 65513, 524288, 65593, 65526, 655360, 65593, 65535, 655360, 65594, 65485, 1441795, 65594, 65487, 0, 65594, 65493, 0, 65594, 65502, 0, 65594, 65513, 524288, 65594, 65526, 655360, 65594, 65535, 655360, 65595, 65486, 655360, 65595, 65487, 0, 65595, 65493, 0, 65595, 65502, 0, 65595, 65513, 524288, 65595, 65526, 655360, 65595, 65535, 655360, 65596, 65486, 655360, 65596, 65487, 0, 65596, 65493, 0, 65596, 65502, 0, 65596, 65526, 655360, 65596, 65535, 655360, 65597, 65486, 1441795, 65597, 65487, 0, 65597, 65493, 4, 65597, 65502, 0, 65597, 65526, 655360, 65597, 65535, 655360, 65598, 65487, 1441795, 65598, 65488, 655360, 65598, 65502, 0, 65598, 65513, 524288, 65598, 65526, 655360, 65598, 65535, 655360, 65599, 65489, 1048580, 65599, 65492, 0, 65599, 65502, 0, 65599, 65513, 524288, 65599, 65526, 655360, 65599, 65529, 3, 65599, 65530, 1441792, 65599, 65531, 1441792, 65599, 65532, 1441792, 65599, 65533, 1441792, 65599, 65534, 1441792, 65600, 65490, 1179648, 65600, 65491, 1179648, 65600, 65492, 1179648, 65600, 65493, 1441796, 65600, 65502, 0, 65600, 65513, 524288, 65600, 65522, 1179651, 65600, 65523, 1441792, 65600, 65524, 1441792, 65600, 65525, 1441792, 65600, 65526, 1441792, 65600, 65527, 1441792, 65600, 65528, 1441792, 65601, 65495, 1179648, 65601, 65496, 1179648, 65601, 65497, 1179648, 65601, 65498, 1179648, 65601, 65499, 1179648, 65601, 65500, 1179648, 65601, 65501, 1179648, 65601, 65502, 1179648, 65601, 65503, 1441792, 65601, 65504, 1441792, 65601, 65505, 1441792, 65601, 65506, 1441792, 65601, 65507, 1441792, 65601, 65508, 1441792, 65601, 65509, 1441792, 65601, 65510, 1441792, 65601, 65511, 1441792, 65601, 65512, 1441792, 65601, 65513, 1179648, 65601, 65514, 1179648, 65601, 65515, 1179648, 65601, 65516, 1179648, 65601, 65517, 1179648, 65601, 65518, 1179648, 65601, 65519, 1179648, 65601, 65520, 1179648, 65601, 65521, 1179648, 65591, 65525, 1441792, 65535, 65532, 655361, 65532, 5, 1048580)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.98832566, -0.042517338, 0.14630324, 0, 0.960272, 0.27906573, -0.15235601, -0.2758078, 0.9490615, -2.8276691, 0.116626024, 7.0171127)
-camera = NodePath("Head/Camera3D")
-ray = NodePath("Head/Camera3D/RayCast3D")
-can_sprint = false
-
-[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
-interaction_label = NodePath("../../../../HUD/InteractionLabel")
-crosshair = NodePath("../../../../HUD/Crosshair")
-crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
-view_label = NodePath("../../../../HUD/ViewLabel")
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
@@ -108,21 +114,16 @@ slot_scene = ExtResource("9_r31ku")
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
 
-[node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "pickup_message") instance=ExtResource("8_yy3xw")]
+[node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref", "player", "pickup_message") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2816501, 0.5248313, -15.096613)
 object_ref = NodePath(".")
 player = NodePath("../ProtoController")
-player_camera = NodePath("../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../TransitionCamera")
 item_data = ExtResource("9_cj18i")
 pickup_message = NodePath("../HUD/ItemPickupMessage")
 
-[node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "pickup_message") instance=ExtResource("8_yy3xw")]
+[node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref", "pickup_message") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2615054, 0.5518472, -13.054988)
 object_ref = NodePath(".")
-player = NodePath("../ProtoController")
-player_camera = NodePath("../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../TransitionCamera")
 item_data = ExtResource("10_5jc6v")
 pickup_message = NodePath("../HUD/ItemPickupMessage")
 
@@ -131,7 +132,7 @@ pickup_message = NodePath("../HUD/ItemPickupMessage")
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
 [node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.2899005, 0, 5.0481005)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.3247814, 0, 4.4502735)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -145,7 +146,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.187401, 0, -5.1251807)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9.825105, 0, -1.1789532)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -159,7 +160,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.75141543, 0, -0.27454495, 0, 0.8, 0, 0.27454495, 0, 0.75141543, -6.84507, 0, 3.2681332)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.4502897, 0, -5.308497)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -173,7 +174,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.7830106, 0, 0.6220084, 0, 1, 0, -0.6220084, 0, 0.7830106, 0.6550064, 0, 2.7101963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0146966, 0, 2.7101963)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -187,18 +188,18 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="DummyCrate" parent="Tutorial Room/Crates" unique_id=659222280 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.4611652, 0.0050001144, -5.2599506)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -3.4066978, 0.0050001144, 4.245779)
 
 [node name="DummyCrate3" parent="Tutorial Room/Crates" unique_id=1772026193 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.5756297, 0, -0.16926433, 0, 0.59999996, 0, 0.16926433, 0, 0.5756297, -5.9246874, 0.0050001144, 0.7888675)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.9246874, 0.0050001144, 1.9155247)
 
 [node name="DummyCrate4" parent="Tutorial Room/Crates" unique_id=948350991 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.1544487, 0.0050001144, -0.16868424)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.374361, 0.0050001144, -0.11301565)
 
 [node name="DummyCrate2" parent="Tutorial Room/Crates" unique_id=1818429161 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.57009465, 0, 0.82157886, 0, 1, 0, -0.82157886, 0, 0.57009465, -7.8819637, 0.0050001144, -2.056006)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -7.12776, 0.0050001144, -3.4374166)
 
-[node name="SlidingDoor" parent="Tutorial Room" unique_id=212972216 node_paths=PackedStringArray("player", "player_camera", "transition_camera") instance=ExtResource("6_b3d3a")]
+[node name="SlidingDoor" parent="Tutorial Room" unique_id=212972216 node_paths=PackedStringArray("player", "player_camera") instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0454178, 2.005, -7.967153)
 script = ExtResource("13_j4nu1")
 unlockable_type = 0
@@ -206,7 +207,6 @@ locked = true
 cover_fade_duration = 0.5
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../TransitionCamera")
 
 [node name="SlidingDoorMesh" parent="Tutorial Room/SlidingDoor/SlidingDoorBody" parent_id_path=PackedInt32Array(212972216, 1063624797) index="0" unique_id=1913860126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044916928, 0, 0)
@@ -244,7 +244,7 @@ transform = Transform3D(0.9999935, 0, -2.060574e-13, 0, 1, 0, 2.060574e-13, 0, 0
 material_override = null
 
 [node name="Tutorial Key" parent="Tutorial Room" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "pickup_message") instance=ExtResource("24_crb2e")]
-transform = Transform3D(-0.4146354, 0.9091149, 0.03984372, -0.010515877, -0.04856894, 0.9987645, 0.909927, 0.41370407, 0.029698556, 3.9337125, 0.050203778, -5.8766875)
+transform = Transform3D(0.39414543, -0.918657, -0.026810184, -0.06593404, -0.057361126, 0.996174, -0.91668, -0.3908697, -0.0831794, 3.9157782, 0.043127708, -5.835735)
 script = ExtResource("24_70r7a")
 object_ref = NodePath(".")
 player = NodePath("../../ProtoController")
@@ -314,55 +314,6 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.997459, 4.330809, -7
 
 [node name="HintObject4" parent="Tutorial Room/Hint" unique_id=941298832 instance=ExtResource("25_354s1")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -7.8249993)
-
-[node name="Shelves" type="Node" parent="Tutorial Room" unique_id=763259974]
-
-[node name="Storage Shelves" parent="Tutorial Room/Shelves" unique_id=564834875 instance=ExtResource("27_20ssf")]
-transform = Transform3D(0.46769047, 0, -0.8838923, 0, 1, 0, 0.8838923, 0, 0.46769047, -9.918685, 2.505, -0.64793646)
-
-[node name="Storage Shelves2" parent="Tutorial Room/Shelves" unique_id=4371683 instance=ExtResource("27_20ssf")]
-transform = Transform3D(0.46769047, 0, -0.8838923, 0, 1, 0, 0.8838923, 0, 0.46769047, -12.694332, 2.505, -5.8936567)
-
-[node name="Storage Shelves3" parent="Tutorial Room/Shelves" unique_id=1961374500 instance=ExtResource("27_20ssf")]
-transform = Transform3D(-0.44564778, 0, -0.89520836, 0, 1, 0, 0.89520836, 0, -0.44564778, 7.6349707, 2.505, 0.008288212)
-
-[node name="Storage Shelves4" parent="Tutorial Room/Shelves" unique_id=191715069 instance=ExtResource("27_20ssf")]
-transform = Transform3D(-0.44564778, 0, -0.89520836, 0, 1, 0, 0.89520836, 0, -0.44564778, 10.3299465, 2.505, -5.4053264)
-
-[node name="Crates" type="Node" parent="Tutorial Room/Shelves" unique_id=1136395411]
-
-[node name="Crate" parent="Tutorial Room/Shelves/Crates" unique_id=1004888323 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.36775732, 0, 0.9299218, 0, 1, 0, -0.9299218, 0, 0.36775732, 6.2508802, 0.52284086, 0.4522942)
-
-[node name="Crate7" parent="Tutorial Room/Shelves/Crates" unique_id=2080784970 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(1.1665258, 0, 0.281456, 0, 1.2, 0, -0.281456, 0, 1.1665258, 4.6366878, 2.2436051, 2.6133735)
-
-[node name="Crate6" parent="Tutorial Room/Shelves/Crates" unique_id=1627482378 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.44331768, 0, 0.4043136, 0, 0.6, 0, -0.4043136, 0, 0.44331768, 5.2197914, 3.9290056, 1.7778189)
-
-[node name="Crate2" parent="Tutorial Room/Shelves/Crates" unique_id=1254957396 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.5911898, 0, 0.5389756, 0, 0.8, 0, -0.5389756, 0, 0.5911898, 7.4501987, 0.53501314, -2.327317)
-
-[node name="Crate5" parent="Tutorial Room/Shelves/Crates" unique_id=520417355 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.7934685, 0, 0.102018386, 0, 0.8, 0, -0.102018386, 0, 0.7934685, 8.608082, 2.2432024, -4.993163)
-
-[node name="Crate3" parent="Tutorial Room/Shelves/Crates" unique_id=777389932 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491, 7.4501987, 2.2517698, -2.327317)
-
-[node name="Crate8" parent="Tutorial Room/Shelves/Crates" unique_id=2050260710 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491, -10.014477, 2.2517698, 0.9251287)
-
-[node name="Crate10" parent="Tutorial Room/Shelves/Crates" unique_id=1652096655 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(-0.41358322, 0, 0.68479824, 0, 0.79999983, 0, -0.68479824, 0, -0.41358322, -11.354117, 2.2517698, -1.9453046)
-
-[node name="Crate11" parent="Tutorial Room/Shelves/Crates" unique_id=2095293698 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(-0.07371247, 0, 1.1977339, 0, 1.1999999, 0, -1.1977339, 0, -0.07371247, -11.217887, 0.57926273, -1.9453046)
-
-[node name="Crate9" parent="Tutorial Room/Shelves/Crates" unique_id=653723530 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745, 0, -0.11346096, -8.408979, 3.927218, 2.9423363)
-
-[node name="Crate4" parent="Tutorial Room/Shelves/Crates" unique_id=996277234 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.206768, 2.2517698, -3.7755368)
 
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
@@ -435,10 +386,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 
 [node name="Elevator" parent="." unique_id=1746680253 instance=ExtResource("31_o4tcg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.0511408, 5.031267, -35.138844)
 
-[node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
-size = Vector3(6.574856, 4.7030334, 2.3808594)
-num_stairs = 10
+[node name="Node3D" parent="." unique_id=1147197378 instance=ExtResource("32_20ssf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0001907, -0.48900676, -55.650017)
 
 [editable path="ProtoController"]
 [editable path="HUD"]
