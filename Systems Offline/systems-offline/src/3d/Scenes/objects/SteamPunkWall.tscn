@@ -9,12 +9,12 @@ size = Vector3(2.8475573, 2, 2)
 
 [node name="Metal steampunk wall" parent="." unique_id=2059803143 instance=ExtResource("1_o4eyu")]
 
-[node name="Cube" parent="Metal steampunk wall" index="0" unique_id=747451337]
+[node name="Cube" parent="Metal steampunk wall" index="0" unique_id=1887257887]
 transform = Transform3D(-8.7422775e-10, 0, -8, 0, 4, 0, 0.02, 0, -3.496911e-07, 0, 0, 1)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Metal steampunk wall/Cube" index="0" unique_id=1230248138]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Metal steampunk wall/Cube" index="0" unique_id=1230248138]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Metal steampunk wall/Cube/StaticBody3D" unique_id=1703493500]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Metal steampunk wall/Cube/StaticBody3D" parent_id_path=PackedInt32Array(2059803143, 1644792762) index="1" unique_id=1703493500]
 transform = Transform3D(1.0000001, -1.1368684e-13, 0, 0, 1, 0, 0, -5.293956e-23, 1.0000001, 0.10594465, 0, 3.469447e-18)
 shape = SubResource("BoxShape3D_o4eyu")
 
