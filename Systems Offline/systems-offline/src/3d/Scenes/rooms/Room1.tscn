@@ -159,7 +159,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.4502897, 0, -5.308497)
+transform = Transform3D(0.75141543, 0, -0.27454495, 0, 0.8, 0, 0.27454495, 0, 0.75141543, -6.84507, 0, 3.2681332)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -187,7 +187,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="DummyCrate" parent="Tutorial Room/Crates" unique_id=659222280 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -5.6438875, 0.0050001144, 4.245779)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.4611652, 0.0050001144, -5.2599506)
 
 [node name="DummyCrate3" parent="Tutorial Room/Crates" unique_id=1772026193 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.5756297, 0, -0.16926433, 0, 0.59999996, 0, 0.16926433, 0, 0.5756297, -5.9246874, 0.0050001144, 0.7888675)
