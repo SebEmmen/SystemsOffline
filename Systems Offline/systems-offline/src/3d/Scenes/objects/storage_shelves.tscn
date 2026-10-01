@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dvshsjpehyur0"]
+
+[ext_resource type="Material" uid="uid://c2iccg118yex7" path="res://src/3d/Materials/Plane.tres" id="1_mwt7x"]
+[ext_resource type="Material" uid="uid://dypb3bacuc1tx" path="res://src/3d/Materials/wall.tres" id="2_8ykhj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
+material = ExtResource("1_mwt7x")
+size = Vector3(0.2, 5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
+material = ExtResource("2_8ykhj")
+size = Vector3(5.2, 0.05, 2.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(5.4, 5, 2.4)
+
+[node name="Storage Shelves" type="Node3D" unique_id=564834875]
+
+[node name="Pillar" type="MeshInstance3D" parent="." unique_id=1602783224]
+mesh = SubResource("BoxMesh_r5iys")
+
+[node name="Pillar2" type="MeshInstance3D" parent="." unique_id=415575190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("BoxMesh_r5iys")
+
+[node name="Pillar3" type="MeshInstance3D" parent="." unique_id=1803056271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+mesh = SubResource("BoxMesh_r5iys")
+
+[node name="pillar" type="MeshInstance3D" parent="." unique_id=1267191717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+mesh = SubResource("BoxMesh_r5iys")
+
+[node name="Shelf" type="MeshInstance3D" parent="." unique_id=44558060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2, 1)
+mesh = SubResource("BoxMesh_ojbw0")
+
+[node name="Shelf2" type="MeshInstance3D" parent="." unique_id=1119223909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.3, 1)
+mesh = SubResource("BoxMesh_ojbw0")
+
+[node name="Shelf3" type="MeshInstance3D" parent="." unique_id=1469201833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.4, 1)
+mesh = SubResource("BoxMesh_ojbw0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=390754584]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=840059142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1)
+shape = SubResource("BoxShape3D_r5iys")
