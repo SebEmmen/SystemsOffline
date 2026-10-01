@@ -227,10 +227,11 @@ transition_camera = NodePath("../../TransitionCamera")
 [node name="KeypadCamera" parent="Tutorial Room/Keypad" index="15" unique_id=497401612]
 transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
 
-[node name="CoverVertex" parent="Tutorial Room/Keypad" index="17" unique_id=1718145220 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
+[node name="CoverVertex" parent="Tutorial Room/Keypad" index="17" unique_id=1718145220 node_paths=PackedStringArray("keypad", "key", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
 unlockable_type = 1
 keypad = NodePath("..")
+key = NodePath("")
 object_ref = NodePath(".")
 interaction_type = 2
 player = NodePath("../../../ProtoController")
@@ -242,7 +243,7 @@ transform = Transform3D(0.9999935, 0, -2.060574e-13, 0, 1, 0, 2.060574e-13, 0, 0
 material_override = null
 
 [node name="Tutorial Key" parent="Tutorial Room" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "pickup_message") instance=ExtResource("24_crb2e")]
-transform = Transform3D(0.39414543, -0.918657, -0.026810184, -0.06593404, -0.057361126, 0.996174, -0.91668, -0.3908697, -0.0831794, 3.9157782, 0.043127708, -5.835735)
+transform = Transform3D(-0.4146354, 0.9091149, 0.03984372, -0.010515877, -0.04856894, 0.9987645, 0.909927, 0.41370407, 0.029698556, 3.9337125, 0.050203778, -5.8766875)
 script = ExtResource("24_70r7a")
 object_ref = NodePath(".")
 player = NodePath("../../ProtoController")

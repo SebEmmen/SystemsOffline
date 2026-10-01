@@ -18,6 +18,7 @@ enum UnlockableType{
 @export_group("Cover")
 @export var cover_fade_duration: float = 0.5
 @export var keypad: KeypadComponent
+@export var key: Node3D
 #endregion
 
 # Called when the node enters the scene tree for the first time.
@@ -70,6 +71,7 @@ func open_cover() -> void:
 	if locked and not Inventory.has_item("tutorial_key"):
 		print("You need to find the key to access the keypad!")
 		return
+	
 	locked = !locked
 	# prevent player from moving if they can open 
 	is_interacting = !is_interacting
@@ -80,10 +82,11 @@ func open_cover() -> void:
 		return
 
 	var tween := create_tween()
-
+	
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_IN_OUT)
-
+	
+	
 	tween.tween_property(
 		object_ref,
 		"rotation:x",

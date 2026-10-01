@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlsafydximrtk"]
 
-[ext_resource type="PackedScene" uid="uid://ctesq5fnkxmuf" path="res://src/3d/Assets/Keypad/Correct key.glb" id="1_uee51"]
+[ext_resource type="PackedScene" uid="uid://de0y2t1oq5ihe" path="res://src/3d/Assets/Keypad/Correct key.glb" id="1_uee51"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uee51"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
