@@ -229,12 +229,14 @@ transition_camera = NodePath("../../TransitionCamera")
 [node name="KeypadCamera" parent="Tutorial Room/Keypad" index="15" unique_id=497401612]
 transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
 
-[node name="CoverVertex" parent="Tutorial Room/Keypad" index="17" unique_id=1718145220 node_paths=PackedStringArray("keypad", "object_ref", "transition_camera")]
+[node name="CoverVertex" parent="Tutorial Room/Keypad" index="17" unique_id=1718145220 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
 unlockable_type = 1
 keypad = NodePath("..")
 object_ref = NodePath(".")
 interaction_type = 2
+player = NodePath("../../../ProtoController")
+player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Positive" parent="Tutorial Room/Keypad/CoverVertex/CoverInteract/CSGCombiner3D" parent_id_path=PackedInt32Array(1609901091, 2068081884) index="0" unique_id=1849180554]
