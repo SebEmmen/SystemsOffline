@@ -47,7 +47,7 @@ func enter_inspect() -> void:
 	if is_interacting or is_transitioning:
 		return
 
-	is_interacting = true
+	is_interacting = !is_interacting
 
 	player.disable_controls()
 
@@ -119,6 +119,7 @@ func enter_crate() -> void:
 	crate_lid.visible = false
 	place_lid_next()
 	crate_lid.visible = true
+	
 	
 
 func exit_crate() -> void:
