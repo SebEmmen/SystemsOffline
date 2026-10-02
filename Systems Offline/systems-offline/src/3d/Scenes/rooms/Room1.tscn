@@ -105,6 +105,17 @@ rotation_sensitivity = null
 [node name="InventoryUI" parent="UI_Manger" unique_id=1823256622 instance=ExtResource("5_7flw8")]
 slot_scene = ExtResource("9_r31ku")
 
+[node name="Label" parent="UI_Manger/InventoryUI" index="1" unique_id=2074652358]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 41.875
+grow_horizontal = 2
+horizontal_alignment = 1
+
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
 
