@@ -36,6 +36,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("inventory"):
+		if Inventory.tutorial > 0:
+			Notification.hide_message()
+			Inventory.tutorial = 0
 		hide()
 		get_viewport().set_input_as_handled()
 		return

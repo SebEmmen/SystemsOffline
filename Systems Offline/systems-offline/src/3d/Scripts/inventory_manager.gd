@@ -1,7 +1,7 @@
 extends Node
 
 @export var inventory: Array[ItemData]
-@onready var tutorial: bool
+@onready var tutorial: int
 
 signal inventory_update 
 
@@ -9,7 +9,7 @@ var binoculars: ItemData = preload("res://src/3d/Resources/Binoculars.tres")
 
 func _ready() -> void:
 	add_item(binoculars)
-	tutorial = true
+	tutorial = 2
 
 func add_item(item_data: ItemData) -> void:
 	if item_data:
