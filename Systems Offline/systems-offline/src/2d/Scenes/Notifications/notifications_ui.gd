@@ -6,8 +6,8 @@ extends Control
 func _ready() -> void:
 	Notification.notification.connect(show_message)
 
-func show_message() -> void:
-	message_label.text = "hello"
+func show_message(item_data: ItemData) -> void:
+	message_label.text = "You have picked up: " + item_data.item_name
 	print("Hello")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

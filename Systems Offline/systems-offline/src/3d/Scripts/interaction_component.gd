@@ -51,6 +51,7 @@ func interact() -> void:
 	match interaction_type:
 		InteractionType.PICKUP: 
 			print("Object has been picked up!")
+			Notification.show_notification(item_data)
 			Inventory.add_item(item_data)
 			if Inventory.has_item("tutorial_key"):
 				print("You found a key! Press tab and inspect it!")

@@ -6,8 +6,8 @@ signal notification
 func _ready() -> void:
 	pass # Replace with function body.
 
-func show_notification(text: String) -> void:
-	notification.emit()
+func show_notification(item_data: ItemData) -> void:
+	notification.emit(item_data)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

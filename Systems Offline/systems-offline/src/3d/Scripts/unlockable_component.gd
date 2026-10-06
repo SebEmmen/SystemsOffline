@@ -41,7 +41,6 @@ func interact() -> void:
 func interact_door() -> void:
 	if locked:
 		print("Door is locked!")
-		Notification.show_notification("hello")
 		return
 	if can_interact:
 		can_interact = false
