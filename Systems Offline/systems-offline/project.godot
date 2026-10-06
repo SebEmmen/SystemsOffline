@@ -24,8 +24,13 @@ Notification="*uid://cdco183y1hkmk"
 
 [display]
 
+<<<<<<< Updated upstream
 window/size/viewport_width=1400
 window/size/viewport_height=700
+=======
+window/size/viewport_width=1800
+window/size/viewport_height=1000
+>>>>>>> Stashed changes
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
