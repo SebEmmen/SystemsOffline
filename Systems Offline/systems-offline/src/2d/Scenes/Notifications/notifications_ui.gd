@@ -6,10 +6,10 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	message_label.visible = false
-	Notification.notification.connect(show_message)
+	Notification.notification.connect(show_pickup_notification)
 	Notification.locked.connect(locked_message)
 
-func show_message(item_data: ItemData) -> void:
+func show_pickup_notification(item_data: ItemData) -> void:
 	message_label.text = "You have picked up: " + item_data.item_name
 	message_label.visible = true
 	message_timer.start()
