@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bvgrjamb53k8l"]
+
+[ext_resource type="Script" uid="uid://b5j8nexctu6t5" path="res://src/2d/Scenes/Notifications/notifications_ui.gd" id="1_wouth"]
+
+[node name="NotificationUI" type="Control" unique_id=1484425050]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wouth")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1160187073]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 40
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=528755349]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=413616360]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

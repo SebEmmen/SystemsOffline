@@ -10,7 +10,6 @@ enum Menu {
 @onready var pause_menu: Control = $PauseMenu
 @onready var inventory_ui: Control = $InventoryUI
 
-
 var current_menu: Menu = Menu.NONE
 	
 
