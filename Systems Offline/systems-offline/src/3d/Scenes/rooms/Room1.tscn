@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cd8d230r2wpe4" path="res://src/2d/Scenes/Inventory/InventoryUI.tscn" id="5_7flw8"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
 [ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="6_b3d3a"]
+[ext_resource type="PackedScene" uid="uid://bvgrjamb53k8l" path="res://src/2d/Scenes/Notifications/NotificationsUI.tscn" id="6_fm5id"]
 [ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="6_tjnt7"]
+[ext_resource type="Script" uid="uid://b5j8nexctu6t5" path="res://src/2d/Scenes/Notifications/notifications_ui.gd" id="7_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://2vwr86remyve" path="res://src/3d/Scenes/objects/Keypad/keypad.tscn" id="7_yy3xw"]
 [ext_resource type="PackedScene" uid="uid://cutwb5r3chx52" path="res://src/3d/Scenes/objects/ItemInspector.tscn" id="8_o4t00"]
@@ -95,6 +97,13 @@ text = "Press [E] to inspect"
 [node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313]
 process_mode = 3
 script = ExtResource("6_tjnt7")
+
+[node name="NotificationUI" parent="UI_Manger" unique_id=1484425050 instance=ExtResource("6_fm5id")]
+mouse_filter = 2
+script = ExtResource("7_4qo6h")
+
+[node name="PanelContainer" parent="UI_Manger/NotificationUI" index="0" unique_id=1552918332]
+mouse_filter = 2
 
 [node name="ItemInspector" parent="UI_Manger" unique_id=928279941 instance=ExtResource("8_o4t00")]
 visible = false
@@ -442,6 +451,7 @@ num_stairs = 10
 
 [editable path="ProtoController"]
 [editable path="HUD"]
+[editable path="UI_Manger/NotificationUI"]
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
 [editable path="Tutorial Room/Crates/CrateCode(7)"]

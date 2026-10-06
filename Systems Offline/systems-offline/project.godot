@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Inventory="*uid://c3hav5wwjxupt"
 SaveManager="*uid://bl27jibd7no3x"
+Notification="*uid://cdco183y1hkmk"
 
 [display]
 
