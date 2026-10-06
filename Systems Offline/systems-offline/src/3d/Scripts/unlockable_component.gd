@@ -41,6 +41,7 @@ func interact() -> void:
 func interact_door() -> void:
 	if locked:
 		print("Door is locked!")
+		Notification.locked_notification()
 		return
 	if can_interact:
 		can_interact = false
@@ -69,6 +70,7 @@ func ready_cover() -> void:
 # Interact calls to this funtion
 func open_cover() -> void:
 	if locked and not Inventory.has_item("tutorial_key"):
+		Notification.locked_notification()
 		print("You need to find the key to access the keypad!")
 		return
 	
