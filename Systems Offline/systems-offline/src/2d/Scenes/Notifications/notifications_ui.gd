@@ -19,6 +19,8 @@ func show_pickup_notification(item_data: ItemData) -> void:
 func show_message(text: String) -> void:
 	message_label.text = text
 	message_label.visible = true
+	
+
 
 func locked_message() -> void:
 	message_label.text = "Its locked!"

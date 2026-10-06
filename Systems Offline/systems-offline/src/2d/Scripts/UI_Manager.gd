@@ -63,7 +63,7 @@ func open_menu(menu: Menu) -> void:
 
 
 func close_menu() -> void:
-	if Inventory.tutorial > 1:
+	if Inventory.tutorial > 1 and current_menu == Menu.INVENTORY:
 		Notification.hide_message()
 		Inventory.tutorial = 1
 	current_menu = Menu.NONE
