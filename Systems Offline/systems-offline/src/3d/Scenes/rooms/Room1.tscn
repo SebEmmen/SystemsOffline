@@ -52,7 +52,7 @@ glow_enabled = true
 environment = SubResource("Environment_a7dbj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1612126971]
-transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, 0.22335966, 0.112297654, 0.96824574, -0.44733718, 0.89436525, -0.0005350709, 0, 4.4364176, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
 [node name="FloorGridMap2" type="GridMap" parent="." unique_id=382107592]
@@ -99,6 +99,22 @@ script = ExtResource("6_tjnt7")
 [node name="NotificationUI" parent="UI_Manger" unique_id=1484425050 instance=ExtResource("6_fm5id")]
 mouse_filter = 2
 
+[node name="MarginContainer" parent="UI_Manger/NotificationUI" index="0" unique_id=1160187073]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
 [node name="ItemInspector" parent="UI_Manger" unique_id=928279941 instance=ExtResource("8_o4t00")]
 visible = false
 rotation_sensitivity = null
@@ -110,14 +126,14 @@ slot_scene = ExtResource("9_r31ku")
 
 [node name="Label" parent="UI_Manger/InventoryUI" index="1" unique_id=2074652358]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 0.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
 offset_top = 0.0
-offset_right = 0.0
+offset_right = 70.0
 offset_bottom = 41.875
 grow_horizontal = 2
-horizontal_alignment = 1
 
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
@@ -378,11 +394,6 @@ transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745,
 [node name="Crate4" parent="Tutorial Room/Shelves/Crates" unique_id=996277234 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.206768, 2.2517698, -3.7755368)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Tutorial Room" unique_id=1961573485]
-transform = Transform3D(-0.6527741, -0.59240395, 0.47216925, -0.0035398093, 0.62566084, 0.78008723, -0.7575445, 0.5075492, -0.41051227, 8.221804, 2.8105874, -8.053713)
-light_energy = 0.5
-sky_mode = 1
-
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
 [node name="Box5" parent="Whitebox" unique_id=1428870102 instance=ExtResource("15_2pe5o")]
@@ -444,9 +455,6 @@ transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.707
 
 [node name="Cuboid2" parent="Whitebox" unique_id=1802899301 instance=ExtResource("12_cj18i")]
 transform = Transform3D(-1.13649605e-07, 0, -0.8, 0, 0.5, 0, 2.6, 0, -3.4969112e-08, 14, -0.6613953, -62)
-
-[node name="Vent" parent="Whitebox" unique_id=154942094]
-transform = Transform3D(-0.2, 3.019916e-08, -1.3200473e-15, 0, -8.742278e-09, -0.2, -3.019916e-08, -0.2, 8.742278e-09, -5.016928, 10.098864, -48.24623)
 
 [node name="Platform" parent="Whitebox" unique_id=589354236 instance=ExtResource("11_itbdl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.25, -64.579)
