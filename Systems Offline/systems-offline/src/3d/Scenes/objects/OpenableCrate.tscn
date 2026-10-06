@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqg7cqbpvfckh"]
 
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_2tn2r"]
-[ext_resource type="PackedScene" uid="uid://bj4br3egi7tpv" path="res://src/3d/Assets/Crate/Crate base.glb" id="1_6tsuu"]
+[ext_resource type="PackedScene" uid="uid://ciah58802rskg" path="res://src/3d/Assets/General reuseable assets/Crate/Crate base.glb" id="1_6tsuu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6tsuu"]
 size = Vector3(2.1040504, 1.6965839, 2.1002707)
@@ -15,13 +15,13 @@ script = ExtResource("1_2tn2r")
 [node name="Crate base" parent="." unique_id=250827240 instance=ExtResource("1_6tsuu")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane" parent_id_path=PackedInt32Array(250827240, 336428789) index="0" unique_id=1972956691]
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane" parent_id_path=PackedInt32Array(250827240, 1882116272) index="0" unique_id=1972956691]
 
 [node name="CSCrate" type="CollisionShape3D" parent="Crate base/Plane/StaticBody3D" unique_id=1862005000]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.00018084048, 0.84829193, -8.654594e-05)
 shape = SubResource("BoxShape3D_6tsuu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane_001" parent_id_path=PackedInt32Array(250827240, 1922202703) index="0" unique_id=1317642267]
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane_001" parent_id_path=PackedInt32Array(250827240, 1655203242) index="0" unique_id=1317642267]
 
 [node name="CSLid" type="CollisionShape3D" parent="Crate base/Plane_001/StaticBody3D" unique_id=704489268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12174761, 1.1920929e-07)
