@@ -9,12 +9,10 @@ enum Menu {
 
 @onready var pause_menu: Control = $PauseMenu
 @onready var inventory_ui: Control = $InventoryUI
-
 var current_menu: Menu = Menu.NONE
 	
 
 func _ready() -> void:
-
 	pause_menu.visible = false
 	inventory_ui.visible = false
 
@@ -37,6 +35,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		match current_menu:
 			Menu.NONE:
 				open_menu(Menu.INVENTORY)
+				if Inventory.tutorial:
+					Notification.show_message("You can right click on objects to inspect them!")
 
 			Menu.INVENTORY:
 				close_menu()
@@ -63,6 +63,9 @@ func open_menu(menu: Menu) -> void:
 
 
 func close_menu() -> void:
+	if Inventory.tutorial:
+		Notification.hide_message()
+		Inventory.tutorial = false
 	current_menu = Menu.NONE
 
 	pause_menu.visible = false
