@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqbkntvgsbpto"]
 
-[ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_udo2b"]
+[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="1_j0acv"]
 [ext_resource type="Material" uid="uid://cflgda82sa6gn" path="res://src/3d/Materials/paper.tres" id="2_j0acv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
@@ -9,8 +9,11 @@ size = Vector3(0.457, 0.61, 0.005)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2rrcu"]
 size = Vector3(0.457, 0.61, 0.01)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(0.80200195, 1, 0.842041)
+
 [node name="MediumPoster" type="Node3D" unique_id=131794683]
-script = ExtResource("1_udo2b")
+script = ExtResource("1_j0acv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=45797016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.003529489)
@@ -31,3 +34,12 @@ font_size = 100
 [node name="PosterCamera" type="Camera3D" parent="." unique_id=1301412908]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.788942e-09, 0, -0.47202834)
 fov = 72.84662
+
+[node name="Area3D" type="Area3D" parent="." unique_id=165322466]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=408493409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3588467)
+shape = SubResource("BoxShape3D_r5iys")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
