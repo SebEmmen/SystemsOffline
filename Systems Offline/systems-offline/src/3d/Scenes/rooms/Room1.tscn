@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
 [ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="28_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
@@ -282,11 +283,12 @@ player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
 [node name="Label3D" parent="Tutorial Room/MediumPoster/MeshInstance3D" parent_id_path=PackedInt32Array(131794683, 45797016) index="1" unique_id=599613705]
+transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, 0, 0, -0.003)
 modulate = Color(0.051302753, 2.5862757e-06, 0.048060834, 1)
-text = "Press Tab
+text = "press tab
 to view your
 inventory"
-font_size = 16
+font = ExtResource("26_diyv0")
 outline_size = 2
 
 [node name="MediumPoster2" parent="Tutorial Room" unique_id=436732102 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
@@ -302,13 +304,14 @@ player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
 [node name="Label3D" parent="Tutorial Room/MediumPoster2/MeshInstance3D" parent_id_path=PackedInt32Array(436732102, 45797016) index="1" unique_id=599613705]
+transform = Transform3D(-0.13, 0, -1.9629454e-08, 0, 0.13, 0, 1.9629454e-08, 0, -0.13, 0, 0, -0.003)
 modulate = Color(0.10605211, 7.018065e-06, 0.10114049, 1)
-text = "Right clicking 
+text = "right clicking 
 objects in 
 inventory
  lets you
  inspect them!"
-font_size = 14
+font = ExtResource("26_diyv0")
 outline_size = 2
 
 [node name="KeyHanger" parent="Tutorial Room" unique_id=1598884683 instance=ExtResource("29_a4exi")]
