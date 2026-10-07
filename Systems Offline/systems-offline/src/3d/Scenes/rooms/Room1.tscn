@@ -119,6 +119,10 @@ rotation_sensitivity = 0.005
 top_level = true
 mouse_filter = 2
 
+[node name="Top Center label" parent="UI_Manger/NotificationUI" index="0" unique_id=528755349]
+offset_top = 36.0
+offset_bottom = 78.0
+
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
 
