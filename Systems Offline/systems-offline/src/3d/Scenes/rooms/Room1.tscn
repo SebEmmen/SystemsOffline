@@ -72,11 +72,13 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray") groups=["player"] instance=ExtResource("1_alw4e")]
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.98832566, -0.042517338, 0.14630324, 0, 0.960272, 0.27906573, -0.15235601, -0.2758078, 0.9490615, -2.8276691, 0.116626024, 7.0171127)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_sprint = false
+my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
+my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
 [node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
 interaction_label = NodePath("../../../../HUD/InteractionLabel")
@@ -86,10 +88,7 @@ view_label = NodePath("../../../../HUD/ViewLabel")
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
-[node name="ItemPickupMessage" parent="HUD" index="2" unique_id=39127657]
-visible = false
-
-[node name="ViewLabel" parent="HUD" index="4" unique_id=51349289]
+[node name="ViewLabel" parent="HUD" index="3" unique_id=51349289]
 text = "Press [E] to inspect"
 
 [node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313]
@@ -138,23 +137,21 @@ grow_horizontal = 2
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
 
-[node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "pickup_message") instance=ExtResource("8_yy3xw")]
+[node name="TempItem" parent="." unique_id=506849166 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2816501, 0.5248313, -15.096613)
 object_ref = NodePath(".")
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../TransitionCamera")
 item_data = ExtResource("9_cj18i")
-pickup_message = NodePath("../HUD/ItemPickupMessage")
 
-[node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "pickup_message") instance=ExtResource("8_yy3xw")]
+[node name="TempItem2" parent="." unique_id=95120409 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("8_yy3xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2615054, 0.5518472, -13.054988)
 object_ref = NodePath(".")
 player = NodePath("../ProtoController")
 player_camera = NodePath("../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../TransitionCamera")
 item_data = ExtResource("10_5jc6v")
-pickup_message = NodePath("../HUD/ItemPickupMessage")
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
 
@@ -273,7 +270,7 @@ transition_camera = NodePath("../../../TransitionCamera")
 transform = Transform3D(0.9999935, 0, -2.060574e-13, 0, 1, 0, 2.060574e-13, 0, 0.9999935, 0.033839226, 0.8842511, -0.08169651)
 material_override = null
 
-[node name="Tutorial Key" parent="Tutorial Room" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera", "pickup_message") instance=ExtResource("24_crb2e")]
+[node name="Tutorial Key" parent="Tutorial Room" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("24_crb2e")]
 transform = Transform3D(-0.4146354, 0.9091149, 0.03984372, -0.010515877, -0.04856894, 0.9987645, 0.909927, 0.41370407, 0.029698556, 3.9337125, 0.050203778, -5.8766875)
 script = ExtResource("24_70r7a")
 object_ref = NodePath(".")
@@ -281,7 +278,6 @@ player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 item_data = ExtResource("25_dqwws")
-pickup_message = NodePath("../../HUD/ItemPickupMessage")
 
 [node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -5.722243, 1.8267894, -7.851916)
