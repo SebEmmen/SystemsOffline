@@ -25,6 +25,5 @@ func inspect_ui(item: ItemData) -> void:
 	if item and item.inspect_scene:
 		item_inspector.setup_inspection(item)
 		item_inspector.show()
-		item_inspector.move_to_front()
 		if Inventory.tutorial > 0:
-			Notification.show_message("You can rotate by holding left mouse button and zoom with scroll wheel")
+			Notification.show_message("You can rotate by holding left mouse button and zoom with scroll wheel", false)

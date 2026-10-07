@@ -36,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Menu.NONE:
 				open_menu(Menu.INVENTORY)
 				if Inventory.tutorial > 1:
-					Notification.show_message("You can right click on objects to inspect them!")
+					Notification.show_message("You can right click on objects to inspect them!", false)
 
 			Menu.INVENTORY:
 				close_menu()

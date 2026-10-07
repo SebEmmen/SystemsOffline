@@ -11,20 +11,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wouth")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1160187073]
+[node name="Top Center label" type="Label" parent="." unique_id=528755349]
+top_level = true
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 40
-
-[node name="Label" type="Label" parent="MarginContainer" unique_id=528755349]
-layout_mode = 2
+offset_left = 575.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 74.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Bottom Center label" type="Label" parent="." unique_id=1393183833]
+top_level = true
+layout_mode = 0
+offset_left = 70.0
+offset_top = 372.0
+offset_right = 71.0
+offset_bottom = 414.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=413616360]

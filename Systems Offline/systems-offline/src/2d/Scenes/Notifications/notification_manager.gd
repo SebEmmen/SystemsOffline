@@ -15,8 +15,8 @@ func locked_notification() -> void:
 func show_pickup_notification(item_data: ItemData) -> void:
 	notification.emit(item_data)
 
-func show_message(text: String) -> void:
-	message.emit(text)
+func show_message(text: String, top: bool) -> void:
+	message.emit(text, top)
 
 func hide_message() -> void:
 	hide.emit()

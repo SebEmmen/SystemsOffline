@@ -95,29 +95,6 @@ text = "Press [E] to inspect"
 process_mode = 3
 script = ExtResource("6_tjnt7")
 
-[node name="NotificationUI" parent="UI_Manger" unique_id=1484425050 instance=ExtResource("6_fm5id")]
-mouse_filter = 2
-
-[node name="MarginContainer" parent="UI_Manger/NotificationUI" index="0" unique_id=1160187073]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="ItemInspector" parent="UI_Manger" unique_id=928279941 instance=ExtResource("8_o4t00")]
-visible = false
-rotation_sensitivity = 0.005
-
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
 [node name="InventoryUI" parent="UI_Manger" unique_id=1823256622 instance=ExtResource("5_7flw8")]
@@ -133,6 +110,14 @@ offset_top = 0.0
 offset_right = 70.0
 offset_bottom = 41.875
 grow_horizontal = 2
+
+[node name="ItemInspector" parent="UI_Manger" unique_id=928279941 instance=ExtResource("8_o4t00")]
+visible = false
+rotation_sensitivity = 0.005
+
+[node name="NotificationUI" parent="UI_Manger" unique_id=1484425050 instance=ExtResource("6_fm5id")]
+top_level = true
+mouse_filter = 2
 
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
@@ -465,9 +450,9 @@ num_stairs = 10
 
 [editable path="ProtoController"]
 [editable path="HUD"]
-[editable path="UI_Manger/NotificationUI"]
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
+[editable path="UI_Manger/NotificationUI"]
 [editable path="Tutorial Room/Crates/CrateCode(7)"]
 [editable path="Tutorial Room/Crates/CrateCode(7)/Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(4)"]
