@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
+[ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="28_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu4h0ct1q0f0m" path="res://src/3d/Scenes/objects/elevator/elevator.tscn" id="31_o4tcg"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
@@ -332,37 +333,53 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -
 
 [node name="Shelves" type="Node" parent="Tutorial Room" unique_id=763259974]
 
+[node name="Rack1" parent="Tutorial Room/Shelves" unique_id=1038319193 instance=ExtResource("28_diyv0")]
+transform = Transform3D(-0.46614006, 0, -0.8847109, 0, 1, 0, 0.8847109, 0, -0.46614006, 8.330958, 0.0049996376, -3.049398)
+
+[node name="Rack2" parent="Tutorial Room/Shelves" unique_id=862900532 instance=ExtResource("28_diyv0")]
+transform = Transform3D(-0.46614006, 0, -0.8847109, 0, 1, 0, 0.8847109, 0, -0.46614006, 1.7299433, 0.0049996376, 9.479005)
+
+[node name="Rack3" parent="Tutorial Room/Shelves" unique_id=96640154 instance=ExtResource("28_diyv0")]
+transform = Transform3D(-0.45551154, 0, 0.8902298, 0, 1, 0, -0.8902298, 0, -0.45551154, -12.307207, 0.0049996376, -2.8707662)
+
+[node name="Rack4" parent="Tutorial Room/Shelves" unique_id=533786909 instance=ExtResource("28_diyv0")]
+transform = Transform3D(-0.45551154, 0, 0.8902298, 0, 1, 0, -0.8902298, 0, -0.45551154, -8.114772, 0.0049996376, 5.322727)
+
 [node name="Storage Shelves" parent="Tutorial Room/Shelves" unique_id=564834875 instance=ExtResource("27_20ssf")]
 transform = Transform3D(0.46769047, 0, -0.8838923, 0, 1, 0, 0.8838923, 0, 0.46769047, -9.918685, 2.505, -0.64793646)
+visible = false
 
 [node name="Storage Shelves2" parent="Tutorial Room/Shelves" unique_id=4371683 instance=ExtResource("27_20ssf")]
 transform = Transform3D(0.46769047, 0, -0.8838923, 0, 1, 0, 0.8838923, 0, 0.46769047, -12.694332, 2.505, -5.8936567)
+visible = false
 
 [node name="Storage Shelves3" parent="Tutorial Room/Shelves" unique_id=1961374500 instance=ExtResource("27_20ssf")]
 transform = Transform3D(-0.44564778, 0, -0.89520836, 0, 1, 0, 0.89520836, 0, -0.44564778, 7.6349707, 2.505, 0.008288212)
+visible = false
 
 [node name="Storage Shelves4" parent="Tutorial Room/Shelves" unique_id=191715069 instance=ExtResource("27_20ssf")]
 transform = Transform3D(-0.44564778, 0, -0.89520836, 0, 1, 0, 0.89520836, 0, -0.44564778, 10.3299465, 2.505, -5.4053264)
+visible = false
 
 [node name="Crates" type="Node" parent="Tutorial Room/Shelves" unique_id=1136395411]
 
 [node name="Crate" parent="Tutorial Room/Shelves/Crates" unique_id=1004888323 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.36775732, 0, 0.9299218, 0, 1, 0, -0.9299218, 0, 0.36775732, 6.2508802, 0.52284086, 0.4522942)
+transform = Transform3D(0.36775732, 0, 0.9299218, 0, 1, 0, -0.9299218, 0, 0.36775732, 7.698328, 3.6882615, -1.5805303)
 
 [node name="Crate7" parent="Tutorial Room/Shelves/Crates" unique_id=2080784970 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(1.1665258, 0, 0.281456, 0, 1.2, 0, -0.281456, 0, 1.1665258, 4.6366878, 2.2436051, 2.6133735)
+transform = Transform3D(1.1665258, 0, 0.281456, 0, 1.2, 0, -0.281456, 0, 1.1665258, 3.8598363, 2.358266, 5.3840103)
 
 [node name="Crate6" parent="Tutorial Room/Shelves/Crates" unique_id=1627482378 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.44331768, 0, 0.4043136, 0, 0.6, 0, -0.4043136, 0, 0.44331768, 5.2197914, 3.9290056, 1.7778189)
 
 [node name="Crate2" parent="Tutorial Room/Shelves/Crates" unique_id=1254957396 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.5911898, 0, 0.5389756, 0, 0.8, 0, -0.5389756, 0, 0.5911898, 7.4501987, 0.53501314, -2.327317)
+transform = Transform3D(0.5911898, 0, 0.5389756, 0, 0.8, 0, -0.5389756, 0, 0.5911898, 7.6951494, 0.9842723, -1.7042712)
 
 [node name="Crate5" parent="Tutorial Room/Shelves/Crates" unique_id=520417355 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.7934685, 0, 0.102018386, 0, 0.8, 0, -0.102018386, 0, 0.7934685, 8.608082, 2.2432024, -4.993163)
+transform = Transform3D(0.7934685, 0, 0.102018386, 0, 0.8, 0, -0.102018386, 0, 0.7934685, 9.858244, 2.3250914, -5.1144896)
 
 [node name="Crate3" parent="Tutorial Room/Shelves/Crates" unique_id=777389932 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491, 7.4501987, 2.2517698, -2.327317)
+transform = Transform3D(0.46528533, -9.2357535e-05, 0.8851606, 0.00085307006, 0.9999996, -0.00034409718, -0.8851602, 0.00091520575, 0.46528524, 7.8963256, 2.324994, -2.1764317)
 
 [node name="Crate8" parent="Tutorial Room/Shelves/Crates" unique_id=2050260710 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491, -10.014477, 2.2517698, 0.9251287)
@@ -377,7 +394,7 @@ transform = Transform3D(-0.07371247, 0, 1.1977339, 0, 1.1999999, 0, -1.1977339, 
 transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745, 0, -0.11346096, -8.408979, 3.927218, 2.9423363)
 
 [node name="Crate4" parent="Tutorial Room/Shelves/Crates" unique_id=996277234 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.206768, 2.2517698, -3.7755368)
+transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.36992, 2.3250911, -3.5085518)
 
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
