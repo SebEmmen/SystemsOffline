@@ -116,7 +116,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="ItemInspector" parent="UI_Manger" unique_id=928279941 instance=ExtResource("8_o4t00")]
 visible = false
-rotation_sensitivity = null
+rotation_sensitivity = 0.005
 
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
