@@ -24,8 +24,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003)
 shape = SubResource("BoxShape3D_2rrcu")
 
 [node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=599613705]
-transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 0, 0, -0.003)
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 0, 0, -0.003)
 text = "Poster"
+font_size = 100
 
 [node name="PosterCamera" type="Camera3D" parent="." unique_id=1301412908]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.788942e-09, 0, -0.47202834)
