@@ -152,6 +152,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.2899005, 0, 5.0481005
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
+alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "7"
 crate_lid = NodePath("Crate base/Plane_001")
@@ -166,6 +167,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.187401, 0, -5.12518
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
+alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "4"
 crate_lid = NodePath("Crate base/Plane_001")
@@ -180,6 +182,7 @@ transform = Transform3D(0.75141543, 0, -0.27454495, 0, 0.8, 0, 0.27454495, 0, 0.
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
+alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "2"
 crate_lid = NodePath("Crate base/Plane_001")
@@ -194,6 +197,7 @@ transform = Transform3D(0.7830106, 0, 0.6220084, 0, 1, 0, -0.6220084, 0, 0.78301
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
+alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "9"
 crate_lid = NodePath("Crate base/Plane_001")
@@ -269,12 +273,10 @@ player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 item_data = ExtResource("25_dqwws")
 
-[node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
+[node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -5.722243, 1.8267894, -7.851916)
-script = ExtResource("17_wvn26")
-inspect_type = 0
 inspect_camera = NodePath("PosterCamera")
-number = "0"
+poster_text = NodePath("MeshInstance3D/Label3D")
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../ProtoController")
@@ -290,12 +292,10 @@ inventory"
 font = ExtResource("26_diyv0")
 outline_size = 2
 
-[node name="MediumPoster2" parent="Tutorial Room" unique_id=436732102 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
+[node name="MediumPoster2" parent="Tutorial Room" unique_id=436732102 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -8.19541, 1.8267894, -7.8519154)
-script = ExtResource("17_wvn26")
-inspect_type = 0
 inspect_camera = NodePath("PosterCamera")
-number = "0"
+poster_text = NodePath("MeshInstance3D/Label3D")
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../ProtoController")

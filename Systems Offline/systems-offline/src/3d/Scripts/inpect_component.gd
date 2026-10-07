@@ -13,6 +13,13 @@ enum InspectType{
 @export var inspect_camera : Camera3D
 #endregion
 
+#region Poster Variable
+@export_group("Poster")
+var default_font: Font = ThemeDB.fallback_font
+@export var alien_language: Font = preload("res://src/2d/Fonts/Systems-Offline (2).ttf")
+@export var poster_text: Label3D
+#endregion
+
 #region Crate Variables
 @export_group("Crate")
 @export var number_label: Label3D
@@ -148,3 +155,15 @@ func _unhandled_input(event: InputEvent) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		# Swap to custom font when player steps into Area3D
+		poster_text.font = default_font
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		# Swap to custom font when player steps into Area3D
+		poster_text.font = alien_language
