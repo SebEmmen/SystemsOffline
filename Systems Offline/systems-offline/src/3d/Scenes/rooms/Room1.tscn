@@ -150,7 +150,7 @@ item_data = ExtResource("10_5jc6v")
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
 [node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.2899005, 0, 5.0481005)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.9571053, 0, 5.0481005)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
