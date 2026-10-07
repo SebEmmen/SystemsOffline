@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bjp5eu4uqgtoe"]
+
+[ext_resource type="PackedScene" uid="uid://c1b2s7e8yaxfv" path="res://src/3d/Assets/Rack/Rack.glb" id="1_hdvs4"]
+
+[node name="Rack" unique_id=714693184 instance=ExtResource("1_hdvs4")]
+
+[node name="Shelf1" parent="Rack_001" parent_id_path=PackedInt32Array(1832507153) index="0" unique_id=1647429986]
+visible = false

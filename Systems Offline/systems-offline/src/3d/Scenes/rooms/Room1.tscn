@@ -31,8 +31,9 @@
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
-[ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="28_diyv0"]
+[ext_resource type="PackedScene" uid="uid://c1b2s7e8yaxfv" path="res://src/3d/Assets/Rack/Rack.glb" id="28_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
+[ext_resource type="PackedScene" uid="uid://bjp5eu4uqgtoe" path="res://src/3d/Assets/Rack/rackbottomless.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bu4h0ct1q0f0m" path="res://src/3d/Scenes/objects/elevator/elevator.tscn" id="31_o4tcg"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
 
@@ -211,7 +212,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.4611652, 0.0050001144
 transform = Transform3D(0.5756297, 0, -0.16926433, 0, 0.59999996, 0, 0.16926433, 0, 0.5756297, -5.9246874, 0.0050001144, 0.7888675)
 
 [node name="DummyCrate4" parent="Tutorial Room/Crates" unique_id=948350991 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.1544487, 0.0050001144, -0.16868424)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.6768696, 0.0050001144, -0.9902572)
 
 [node name="DummyCrate2" parent="Tutorial Room/Crates" unique_id=1818429161 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.57009465, 0, 0.82157886, 0, 1, 0, -0.82157886, 0, 0.57009465, -7.8819637, 0.0050001144, -2.056006)
@@ -340,10 +341,10 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -
 transform = Transform3D(-0.46614006, 0, -0.8847109, 0, 1, 0, 0.8847109, 0, -0.46614006, 8.330958, 0.0049996376, -3.049398)
 
 [node name="Rack2" parent="Tutorial Room/Shelves" unique_id=862900532 instance=ExtResource("28_diyv0")]
-transform = Transform3D(-0.46614006, 0, -0.8847109, 0, 1, 0, 0.8847109, 0, -0.46614006, 1.7299433, 0.0049996376, 9.479005)
+transform = Transform3D(-0.46614006, 0, -0.8847109, 0, 1, 0, 0.8847109, 0, -0.46614006, 3.5973034, 0.0049996376, 5.9348474)
 
-[node name="Rack3" parent="Tutorial Room/Shelves" unique_id=96640154 instance=ExtResource("28_diyv0")]
-transform = Transform3D(-0.45551154, 0, 0.8902298, 0, 1, 0, -0.8902298, 0, -0.45551154, -12.307207, 0.0049996376, -2.8707662)
+[node name="Rack3" parent="Tutorial Room/Shelves" unique_id=714693184 instance=ExtResource("30_4qo6h")]
+transform = Transform3D(0.45271966, 0, -0.8916529, 0, 1, 0, 0.8916529, 0, 0.45271966, -11.907788, 0, -2.4445314)
 
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=533786909 instance=ExtResource("28_diyv0")]
 transform = Transform3D(-0.45551154, 0, 0.8902298, 0, 1, 0, -0.8902298, 0, -0.45551154, -8.114772, 0.0049996376, 5.322727)
@@ -370,10 +371,10 @@ visible = false
 transform = Transform3D(0.36775732, 0, 0.9299218, 0, 1, 0, -0.9299218, 0, 0.36775732, 7.698328, 3.6882615, -1.5805303)
 
 [node name="Crate7" parent="Tutorial Room/Shelves/Crates" unique_id=2080784970 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(1.1665258, 0, 0.281456, 0, 1.2, 0, -0.281456, 0, 1.1665258, 3.8598363, 2.358266, 5.3840103)
+transform = Transform3D(1.1754782, 0, -0.24135253, 0, 1.2, 0, 0.24135253, 0, 1.1754782, 5.0443783, 0.004999876, 0.88447976)
 
 [node name="Crate6" parent="Tutorial Room/Shelves/Crates" unique_id=1627482378 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.44331768, 0, 0.4043136, 0, 0.6, 0, -0.4043136, 0, 0.44331768, 5.2197914, 3.9290056, 1.7778189)
+transform = Transform3D(0.44331768, 0, 0.4043136, 0, 0.6, 0, -0.4043136, 0, 0.44331768, 4.4754624, 3.6882617, 3.842303)
 
 [node name="Crate2" parent="Tutorial Room/Shelves/Crates" unique_id=1254957396 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.5911898, 0, 0.5389756, 0, 0.8, 0, -0.5389756, 0, 0.5911898, 7.6951494, 0.9842723, -1.7042712)
@@ -385,16 +386,16 @@ transform = Transform3D(0.7934685, 0, 0.102018386, 0, 0.8, 0, -0.102018386, 0, 0
 transform = Transform3D(0.46528533, -9.2357535e-05, 0.8851606, 0.00085307006, 0.9999996, -0.00034409718, -0.8851602, 0.00091520575, 0.46528524, 7.8963256, 2.324994, -2.1764317)
 
 [node name="Crate8" parent="Tutorial Room/Shelves/Crates" unique_id=2050260710 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491, -10.014477, 2.2517698, 0.9251287)
+transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491, -9.296937, 2.325091, 3.067841)
 
 [node name="Crate10" parent="Tutorial Room/Shelves/Crates" unique_id=1652096655 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-0.41358322, 0, 0.68479824, 0, 0.79999983, 0, -0.68479824, 0, -0.41358322, -11.354117, 2.2517698, -1.9453046)
 
 [node name="Crate11" parent="Tutorial Room/Shelves/Crates" unique_id=2095293698 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(-0.07371247, 0, 1.1977339, 0, 1.1999999, 0, -1.1977339, 0, -0.07371247, -11.217887, 0.57926273, -1.9453046)
+transform = Transform3D(-0.07371247, 0, 1.1977339, 0, 1.1999999, 0, -1.1977339, 0, -0.07371247, -11.198961, 0.004999876, -1.9400218)
 
 [node name="Crate9" parent="Tutorial Room/Shelves/Crates" unique_id=653723530 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745, 0, -0.11346096, -8.408979, 3.927218, 2.9423363)
+transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745, 0, -0.11346096, -9.072136, 3.6882617, 3.0700445)
 
 [node name="Crate4" parent="Tutorial Room/Shelves/Crates" unique_id=996277234 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.36992, 2.3250911, -3.5085518)
