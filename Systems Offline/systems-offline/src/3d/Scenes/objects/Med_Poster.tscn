@@ -10,7 +10,7 @@ size = Vector3(0.457, 0.61, 0.005)
 size = Vector3(0.457, 0.61, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
-size = Vector3(0.80200195, 1, 0.75634766)
+size = Vector3(0.80200195, 1, 0.842041)
 
 [node name="MediumPoster" type="Node3D" unique_id=131794683]
 script = ExtResource("1_j0acv")
@@ -38,7 +38,7 @@ fov = 72.84662
 [node name="Area3D" type="Area3D" parent="." unique_id=165322466]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=408493409]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020385742, 0, -0.31624883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3588467)
 shape = SubResource("BoxShape3D_r5iys")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
