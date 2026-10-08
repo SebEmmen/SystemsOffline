@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bjp5eu4uqgtoe" path="res://src/3d/Assets/Rack/rackbottomless.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bu4h0ct1q0f0m" path="res://src/3d/Scenes/objects/elevator/elevator.tscn" id="31_o4tcg"]
+[ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
@@ -48,6 +49,14 @@ sky_material = SubResource("ProceduralSkyMaterial_1e042")
 background_mode = 2
 sky = SubResource("Sky_aywg0")
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_eivic"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, -0.665, 0, 1.265, 0.7, 0, -0.055, -0.01, 0.16, 0, 0, 0, -0.722, -0.175, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
@@ -234,8 +243,8 @@ transition_camera = NodePath("../../TransitionCamera")
 [node name="SlidingDoorMesh" parent="Tutorial Room/SlidingDoor/SlidingDoorBody" parent_id_path=PackedInt32Array(212972216, 1063624797) index="0" unique_id=1913860126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044916928, 0, 0)
 
-[node name="Keypad" parent="Tutorial Room" unique_id=1609901091 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("7_yy3xw")]
-transform = Transform3D(-0.49999997, 0, -4.3711385e-08, 0, 0.5, 0, 4.3711385e-08, 0, -0.49999997, 0.52710706, 1.9278404, -7.7352214)
+[node name="Keypad" parent="Tutorial Room" unique_id=1609901091 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "connected_wire", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("7_yy3xw")]
+transform = Transform3D(-0.49999997, 0, -4.3711385e-08, 0, 0.5, 0, 4.3711385e-08, 0, -0.49999997, 1.8764817, 1.9278404, -7.7352214)
 script = ExtResource("15_71ovv")
 keypad_type = 0
 screen_label = NodePath("Screen")
@@ -243,6 +252,7 @@ keypad_camera = NodePath("KeypadCamera")
 sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
 correct_code = "2947"
+connected_wire = NodePath("../Keypad_wire")
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../../ProtoController")
@@ -250,7 +260,7 @@ player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
 [node name="KeypadCamera" parent="Tutorial Room/Keypad" index="15" unique_id=497401612]
-transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0, -2.0000002, 0, 0, -1.2016354)
+transform = Transform3D(-2, 0, -1.6391274e-07, 0, 2, 0, 1.6391274e-07, 0, -2, 2.3841858e-07, 0, -1.4226265)
 
 [node name="CoverVertex" parent="Tutorial Room/Keypad" index="17" unique_id=1718145220 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
@@ -316,7 +326,7 @@ font = ExtResource("26_diyv0")
 outline_size = 2
 
 [node name="KeyHanger" parent="Tutorial Room" unique_id=1598884683 instance=ExtResource("29_a4exi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5923966, 2.9849024, -7.7630267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9908787, 2.9849024, -7.7630267)
 
 [node name="coat_hanger" parent="Tutorial Room/KeyHanger" index="0" unique_id=843989947]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -400,6 +410,10 @@ transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745,
 [node name="Crate4" parent="Tutorial Room/Shelves/Crates" unique_id=996277234 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.36992, 2.3250911, -3.5085518)
 
+[node name="Keypad_wire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21210003, 1.3792496, -7.8499994)
+curve = SubResource("Curve3D_eivic")
+
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
 [node name="Box5" parent="Whitebox" unique_id=1428870102 instance=ExtResource("15_2pe5o")]
@@ -466,7 +480,7 @@ transform = Transform3D(-1.13649605e-07, 0, -0.8, 0, 0.5, 0, 2.6, 0, -3.4969112e
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.25, -64.579)
 
 [node name="Elevator" parent="." unique_id=1746680253 instance=ExtResource("31_o4tcg")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.0511408, 5.031267, -35.138844)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.0511408, 5.031267, -32.32921)
 
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
