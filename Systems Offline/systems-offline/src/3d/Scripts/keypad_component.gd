@@ -16,6 +16,7 @@ enum KeypadType{
 var entered_code := ""
 @export var correct_code : String
 @export var keypad_collision: CollisionShape3D
+@export var connected_wire: Path3D
 
 #endregion
 
@@ -115,6 +116,9 @@ func check_code() -> void:
 		flash_enter()
 		sliding_door.locked = false
 		update_led()
+		
+		if connected_wire != null:
+			connected_wire.set_unlocked()	
 	else:
 		flash_error()
 		#entered_code = ""
