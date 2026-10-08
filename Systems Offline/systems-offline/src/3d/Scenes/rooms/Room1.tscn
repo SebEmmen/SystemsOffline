@@ -87,7 +87,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9999361, -0.001504638, 0.011205292, 0, 0.99110466, 0.13308477, -0.011305861, -0.13307627, 0.99104136, 0.85186464, 0.058234215, -4.789212)
+transform = Transform3D(-0.7933543, -0.024383817, -0.6082718, 0, 0.9991975, -0.04005488, 0.6087603, -0.031777706, -0.7927176, -0.4776752, 0.021021843, 1.151516)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_sprint = false
@@ -205,7 +205,7 @@ player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
-[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(0.7830106, 0, 0.6220084, 0, 1, 0, -0.6220084, 0, 0.7830106, 0.6550064, 0, 2.7101963)
 script = ExtResource("17_wvn26")
 inspect_type = 1
@@ -214,6 +214,7 @@ alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "9"
 crate_lid = NodePath("Crate base/Plane_001")
+lid_target = NodePath("LidTarget")
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
