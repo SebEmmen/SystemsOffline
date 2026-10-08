@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c35qrqo7ajmic"]
 
+[ext_resource type="Texture2D" uid="uid://bay85kwwcixt0" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://cct5f4d8iimtf" path="res://src/3d/Mesh/WallMeshLibrary.meshlib" id="3_alw4e"]
@@ -37,12 +38,12 @@
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
+panorama = ExtResource("1_8gijo")
+energy_multiplier = 0.2
 
 [sub_resource type="Sky" id="Sky_aywg0"]
-sky_material = SubResource("ProceduralSkyMaterial_1e042")
+sky_material = SubResource("PanoramaSkyMaterial_4qo6h")
 
 [sub_resource type="Environment" id="Environment_a7dbj"]
 background_mode = 2
