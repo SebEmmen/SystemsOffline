@@ -31,9 +31,8 @@
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
-[ext_resource type="PackedScene" uid="uid://c1b2s7e8yaxfv" path="res://src/3d/Assets/Rack/Rack.glb" id="28_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
-[ext_resource type="PackedScene" uid="uid://bjp5eu4uqgtoe" path="res://src/3d/Assets/Rack/rackbottomless.tscn" id="30_4qo6h"]
+[ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bu4h0ct1q0f0m" path="res://src/3d/Scenes/objects/elevator/elevator.tscn" id="31_o4tcg"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
 
@@ -48,6 +47,9 @@ sky_material = SubResource("ProceduralSkyMaterial_1e042")
 background_mode = 2
 sky = SubResource("Sky_aywg0")
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(10, 7, 1)
 
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
@@ -337,16 +339,16 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -
 
 [node name="Shelves" type="Node" parent="Tutorial Room" unique_id=763259974]
 
-[node name="Rack1" parent="Tutorial Room/Shelves" unique_id=1038319193 instance=ExtResource("28_diyv0")]
+[node name="Rack1" parent="Tutorial Room/Shelves" unique_id=1038319193 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.46614006, 0, -0.8847109, 0, 1, 0, 0.8847109, 0, -0.46614006, 8.330958, 0.0049996376, -3.049398)
 
-[node name="Rack2" parent="Tutorial Room/Shelves" unique_id=862900532 instance=ExtResource("28_diyv0")]
+[node name="Rack2" parent="Tutorial Room/Shelves" unique_id=862900532 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.46614006, 0, -0.8847109, 0, 1, 0, 0.8847109, 0, -0.46614006, 3.5973034, 0.0049996376, 5.9348474)
 
 [node name="Rack3" parent="Tutorial Room/Shelves" unique_id=714693184 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(0.45271966, 0, -0.8916529, 0, 1, 0, 0.8916529, 0, 0.45271966, -11.907788, 0, -2.4445314)
 
-[node name="Rack4" parent="Tutorial Room/Shelves" unique_id=533786909 instance=ExtResource("28_diyv0")]
+[node name="Rack4" parent="Tutorial Room/Shelves" unique_id=533786909 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.45551154, 0, 0.8902298, 0, 1, 0, -0.8902298, 0, -0.45551154, -8.114772, 0.0049996376, 5.322727)
 
 [node name="Storage Shelves" parent="Tutorial Room/Shelves" unique_id=564834875 instance=ExtResource("27_20ssf")]
@@ -392,13 +394,19 @@ transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491
 transform = Transform3D(-0.41358322, 0, 0.68479824, 0, 0.79999983, 0, -0.68479824, 0, -0.41358322, -11.354117, 2.2517698, -1.9453046)
 
 [node name="Crate11" parent="Tutorial Room/Shelves/Crates" unique_id=2095293698 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(-0.07371247, 0, 1.1977339, 0, 1.1999999, 0, -1.1977339, 0, -0.07371247, -11.198961, 0.004999876, -1.9400218)
+transform = Transform3D(-0.061427087, 0, 0.99811155, 0, 1, 0, -0.99811155, 0, -0.061427087, -10.296868, 1.0368819, 0.19473994)
 
 [node name="Crate9" parent="Tutorial Room/Shelves/Crates" unique_id=653723530 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745, 0, -0.11346096, -9.072136, 3.6882617, 3.0700445)
 
 [node name="Crate4" parent="Tutorial Room/Shelves/Crates" unique_id=996277234 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.36992, 2.3250911, -3.5085518)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tutorial Room" unique_id=40584395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4070253, 3.3832936, 11.127847)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/StaticBody3D" unique_id=2059988906]
+shape = SubResource("BoxShape3D_r5iys")
 
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
