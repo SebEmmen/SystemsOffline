@@ -1,0 +1,297 @@
+[gd_scene format=4 uid="uid://vhu6tn6yl8pa"]
+
+[ext_resource type="PackedScene" uid="uid://vga7uegu0h6o" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
+[ext_resource type="PackedScene" uid="uid://cme3mrrffs0mf" path="res://src/3d/Assets/General reuseable assets/Keypad/Key enter.glb" id="2_lp0ix"]
+[ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="3_7dr1e"]
+[ext_resource type="PackedScene" uid="uid://6q3us6vhvx88" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 0.glb" id="3_lroa0"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
+[ext_resource type="PackedScene" uid="uid://cfhi670nufreq" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 1.glb" id="4_7dr1e"]
+[ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
+[ext_resource type="PackedScene" uid="uid://bsut8kf6sv588" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 2.glb" id="5_7ql5m"]
+[ext_resource type="PackedScene" uid="uid://pswmbpuhgk62" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 4.glb" id="7_rma8r"]
+[ext_resource type="PackedScene" uid="uid://wk4vi1solpfd" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 5.glb" id="8_hudfa"]
+[ext_resource type="PackedScene" uid="uid://c2uekxfn3438e" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 6.glb" id="9_fv3nj"]
+[ext_resource type="PackedScene" uid="uid://lxc2nc4mfy7y" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 7.glb" id="10_vv71i"]
+[ext_resource type="PackedScene" uid="uid://c7otv0q2usq6d" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 8.glb" id="11_uauq3"]
+[ext_resource type="PackedScene" uid="uid://382e73by4fky" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 9.glb" id="12_1ehac"]
+[ext_resource type="PackedScene" uid="uid://c3iwl62kbskbk" path="res://src/3d/Assets/General reuseable assets/Keypad/Key reset.glb" id="13_0kky4"]
+[ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
+[ext_resource type="PackedScene" uid="uid://b1155hq11wv2t" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
+[ext_resource type="PackedScene" uid="uid://ce1gd5bxddjgm" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhmgy"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.06077348
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jwyq0"]
+_surfaces = [{
+"aabb": AABB(0.17629911, 0, 0, 0.38520515, 0.10308324, 0.46687376),
+"format": 34359742465,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAgABAA0AAgANAA4ADgAAAAIADwANAAEADgANABAADwAQAA0ADgAQABEAEQAAAA4ADwABAAQAAAAEAAEACAAPAAQACAAEAAAAAAASAAgAEgAPAAgAEgAKAA8AEwAKABIAFAAPAAoAEwAUAAoAEgALABMACwAUABMAAAALABIABwAPABQABwAQAA8ABwAUAAwACwAMABQABgAHAAwABgAMAAsAFQALAAAAFQAAABEACwAFAAYABQAHAAYACwAVABYACwAWAAUABQADAAcAFgADAAUAFgAJAAMACQAHAAMAFQAJABYAFwAHAAkAFQAXAAkAEAAHABcAEQAXABUAEQAQABcA"),
+"lods": [0.025157476, PackedByteArray("AAABAAIABQAAAAIAAAAEAAEACAAEAAAAAgABAAkAAgAJAAUACgABAAQACAAKAAQAAQAHAAkABwABAAoAAAALAAgACwAKAAgABQALAAAACwAMAAoABwAKAAwABgAMAAsABgAHAAwACwAFAAYABQAHAAYACQAHAAMABQADAAcABQAJAAMA"), 0.0494173, PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABQAAAAIABgAEAAAABQAGAAAABwABAAQAAQAHAAMABgAHAAQABQADAAcABQAHAAYA")],
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("vr4PPwAAAAAAAACAFHmiPk4d0z2oSY8zFHmiPgAAAACoSY8zwYc0Pk4d0z1kF4c+vr4PP04d0z0AAACAwYc0PgAAAABkF4c+k7ifPgAAAAAUCu8+k7ifPk4d0z0UCu8+q/sMPwAAAACeWOA9gcVlPk4d0z2BxWU+m80EP04d0z0YCVw+SEnLPgAAAABIScs+SEnLPk4d0z1IScs+4lmfPk4d0z1Hk3094lmfPgAAAABHk309q/sMP04d0z2eWOA9ABuWPk4d0z34s/g9ABuWPgAAAAD4s/g9m80EPwAAAAAYCVw+FArvPgAAAACTuJ8+FArvPk4d0z2TuJ8+ZBeHPgAAAADAhzQ+gcVlPgAAAACBxWU+ZBeHPk4d0z3AhzQ+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_np6qw"]
+resource_name = "Key no 3_Circle_006"
+_surfaces = [{
+"aabb": AABB(0.17629911, 0, 0, 0.38520515, 0.10308324, 0.46687376),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAIgAVABYAIgAjABUAJAAlACYAJAAnACUAKAApABgAKAAqACkAHAAFAAYAKwAFABwALAAFACsABQAsAC0ALQAsAC4ALQAuAAQALQAEAAcABQAtAC8ALwAtAB0ABQAvAB4AMAAJAAoAMQAJADAAMgAJADEAMgAfAAkAHwAyADMAHwAzAAgAHwAIAAsACQAfADQANAAfADUACQA0ACAAEAA2ADcAEAATADYAFAAbABoAFAAXABsADAANAA4ADAAPAA0AOAARABIAOAAhABEAOQA6ADsAOQA8ADoAPQA+AD8APQBAAD4AQQAZAEIAQQBDABkARABFAEYARABHAEUA"),
+"lods": [0.025157476, PackedByteArray("AAABAAIAAAADAAEAGAAVABYAGAAZABUAGgAZABgAGgAbABkAFAAbABoAFAAXABsAHAAFAAYABAAFABwABQAEAB0AHQAEAAcABQAdAB4AHwAIAAsACAAfAAkACQAfACAACAAJAAoADAANAA4ADAAPAA0AEgAhABEAEAAhABIAEAATACEA"), 0.0494173, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABQAEAAcACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_hhmgy"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("vr4PPwAAAAAAAACAFHmiPk4d0z2oSY8zFHmiPgAAAACoSY8zvr4PP04d0z0AAACAFHmiPk4d0z2oSY8zk7ifPk4d0z0UCu8+wYc0Pk4d0z1kF4c+vr4PP04d0z0AAACAwYc0PgAAAABkF4c+vr4PPwAAAAAAAACAFHmiPgAAAACoSY8zk7ifPgAAAAAUCu8+wYc0PgAAAABkF4c+k7ifPk4d0z0UCu8+k7ifPgAAAAAUCu8+wYc0Pk4d0z1kF4c+FHmiPgAAAACoSY8zwYc0Pk4d0z1kF4c+wYc0PgAAAABkF4c+FHmiPk4d0z2oSY8zk7ifPgAAAAAUCu8+vr4PP04d0z0AAACAvr4PPwAAAAAAAACAk7ifPk4d0z0UCu8+q/sMPwAAAACeWOA9m80EP04d0z0YCVw+SEnLPgAAAABIScs+SEnLPk4d0z1IScs+gcVlPk4d0z2BxWU+m80EP04d0z0YCVw+SEnLPk4d0z1IScs+SEnLPgAAAABIScs+q/sMPwAAAACeWOA9gcVlPk4d0z2BxWU+q/sMPwAAAACeWOA9q/sMP04d0z2eWOA9ZBeHPgAAAADAhzQ+gcVlPk4d0z2BxWU+gcVlPgAAAACBxWU+ZBeHPk4d0z3AhzQ+m80EPwAAAAAYCVw+q/sMP04d0z2eWOA9m80EP04d0z0YCVw+ZBeHPk4d0z3AhzQ+ABuWPk4d0z34s/g9q/sMP04d0z2eWOA94lmfPk4d0z1Hk309FArvPk4d0z2TuJ8+4lmfPgAAAABHk309ABuWPgAAAAD4s/g9ZBeHPgAAAADAhzQ+gcVlPgAAAACBxWU+m80EPwAAAAAYCVw+FArvPgAAAACTuJ8+4lmfPk4d0z1Hk3094lmfPgAAAABHk309gcVlPgAAAACBxWU+SEnLPgAAAABIScs+FArvPk4d0z2TuJ8+FArvPgAAAACTuJ8+SEnLPk4d0z1IScs+ABuWPgAAAAD4s/g9ZBeHPk4d0z3AhzQ+ZBeHPgAAAADAhzQ+ABuWPk4d0z34s/g9FArvPgAAAACTuJ8+m80EPwAAAAAYCVw+FArvPk4d0z2TuJ8+4lmfPgAAAABHk309ABuWPk4d0z34s/g9ABuWPgAAAAD4s/g94lmfPk4d0z1Hk309/////////7//////////v/////////+//////////7//f///////v/9///////+//3///////7//f///////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+/RDP/f////z9EM/9/////P0Qz/3////8/RDP/f////z8AAHiL////vwAATMb///+/AABMxv///78AAHiL////v7G5/3////8/hfT/f////z+F9P9/////P7G5/3////8/M+L/f////z9o0/9/////P7G5/3////8/sbn/f////z//f///////v/9///////+//3///////7//fwAA////v/9/AAD///+/AABMxv///7+F9P9/////P4X0/3////8/AACxuf///78AALG5////vwAAsbn///+/AACxuf///78z4v9/////PzPi/3////8/M+L/f////z//f///////v/9///////+//3///////7//f///////v/9///////+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+/AAB4i////78AAHiL////vwAATMb///+/TMb/f////z9Mxv9/////P0zG/3////8/TMb/f////z8AAJWs////vwAAlaz///+/AACVrP///78AAJWs////v2jT/3////8/aNP/f////z9o0/9/////PwAAyp3///+/AADKnf///78AAMqd////vwAAyp3///+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jwyq0")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fy6h2"]
+data = PackedVector3Array(0.56150424, 0, 0, 0.31733, 0.10308324, 6.6723544e-08, 0.31733, 0, 6.6723544e-08, 0.56150424, 0, 0, 0.56150424, 0.10308324, 0, 0.31733, 0.10308324, 6.6723544e-08, 0.55071515, 0, 0.109544024, 0.56150424, 0.10308324, 0, 0.56150424, 0, 0, 0.55071515, 0, 0.109544024, 0.55071515, 0.10308324, 0.109544024, 0.56150424, 0.10308324, 0, 0.26385033, 0, 0.1762991, 0.22438623, 0.10308324, 0.22438623, 0.22438623, 0, 0.22438623, 0.26385033, 0, 0.1762991, 0.26385033, 0.10308324, 0.1762991, 0.22438623, 0.10308324, 0.22438623, 0.5187623, 0, 0.21487844, 0.55071515, 0.10308324, 0.109544024, 0.55071515, 0, 0.109544024, 0.5187623, 0, 0.21487844, 0.5187623, 0.10308324, 0.21487844, 0.55071515, 0.10308324, 0.109544024, 0.22438623, 0.10308324, 0.22438623, 0.31195506, 0.10308324, 0.46687376, 0.17629911, 0.10308324, 0.26385033, 0.31195506, 0.10308324, 0.46687376, 0.46687376, 0.10308324, 0.31195506, 0.39704347, 0.10308324, 0.39704347, 0.46687376, 0.10308324, 0.31195506, 0.55071515, 0.10308324, 0.109544024, 0.5187623, 0.10308324, 0.21487844, 0.55071515, 0.10308324, 0.109544024, 0.31733, 0.10308324, 6.6723544e-08, 0.56150424, 0.10308324, 0, 0.55071515, 0.10308324, 0.109544024, 0.31123263, 0.10308324, 0.061908033, 0.31733, 0.10308324, 6.6723544e-08, 0.31195506, 0.10308324, 0.46687376, 0.55071515, 0.10308324, 0.109544024, 0.46687376, 0.10308324, 0.31195506, 0.26385033, 0.10308324, 0.1762991, 0.31195506, 0.10308324, 0.46687376, 0.22438623, 0.10308324, 0.22438623, 0.55071515, 0.10308324, 0.109544024, 0.29317474, 0.10308324, 0.12143701, 0.31123263, 0.10308324, 0.061908033, 0.29317474, 0.10308324, 0.12143701, 0.31195506, 0.10308324, 0.46687376, 0.26385033, 0.10308324, 0.1762991, 0.31195506, 0.10308324, 0.46687376, 0.29317474, 0.10308324, 0.12143701, 0.55071515, 0.10308324, 0.109544024, 0.31123263, 0, 0.061908033, 0.56150424, 0, 0, 0.31733, 0, 6.6723544e-08, 0.56150424, 0, 0, 0.5187623, 0, 0.21487844, 0.55071515, 0, 0.109544024, 0.5187623, 0, 0.21487844, 0.39704347, 0, 0.39704347, 0.46687376, 0, 0.31195506, 0.39704347, 0, 0.39704347, 0.17629911, 0, 0.26385033, 0.31195506, 0, 0.46687376, 0.39704347, 0, 0.39704347, 0.22438623, 0, 0.22438623, 0.17629911, 0, 0.26385033, 0.56150424, 0, 0, 0.39704347, 0, 0.39704347, 0.5187623, 0, 0.21487844, 0.29317474, 0, 0.12143701, 0.56150424, 0, 0, 0.31123263, 0, 0.061908033, 0.39704347, 0, 0.39704347, 0.26385033, 0, 0.1762991, 0.22438623, 0, 0.22438623, 0.26385033, 0, 0.1762991, 0.56150424, 0, 0, 0.29317474, 0, 0.12143701, 0.26385033, 0, 0.1762991, 0.39704347, 0, 0.39704347, 0.56150424, 0, 0, 0.31733, 0, 6.6723544e-08, 0.31123263, 0.10308324, 0.061908033, 0.31123263, 0, 0.061908033, 0.31733, 0, 6.6723544e-08, 0.31733, 0.10308324, 6.6723544e-08, 0.31123263, 0.10308324, 0.061908033, 0.31195506, 0, 0.46687376, 0.39704347, 0.10308324, 0.39704347, 0.39704347, 0, 0.39704347, 0.31195506, 0, 0.46687376, 0.31195506, 0.10308324, 0.46687376, 0.39704347, 0.10308324, 0.39704347, 0.17629911, 0, 0.26385033, 0.31195506, 0.10308324, 0.46687376, 0.31195506, 0, 0.46687376, 0.17629911, 0, 0.26385033, 0.17629911, 0.10308324, 0.26385033, 0.31195506, 0.10308324, 0.46687376, 0.22438623, 0, 0.22438623, 0.17629911, 0.10308324, 0.26385033, 0.17629911, 0, 0.26385033, 0.22438623, 0, 0.22438623, 0.22438623, 0.10308324, 0.22438623, 0.17629911, 0.10308324, 0.26385033, 0.39704347, 0, 0.39704347, 0.46687376, 0.10308324, 0.31195506, 0.46687376, 0, 0.31195506, 0.39704347, 0, 0.39704347, 0.39704347, 0.10308324, 0.39704347, 0.46687376, 0.10308324, 0.31195506, 0.29317474, 0, 0.12143701, 0.26385033, 0.10308324, 0.1762991, 0.26385033, 0, 0.1762991, 0.29317474, 0, 0.12143701, 0.29317474, 0.10308324, 0.12143701, 0.26385033, 0.10308324, 0.1762991, 0.46687376, 0, 0.31195506, 0.5187623, 0.10308324, 0.21487844, 0.5187623, 0, 0.21487844, 0.46687376, 0, 0.31195506, 0.46687376, 0.10308324, 0.31195506, 0.5187623, 0.10308324, 0.21487844, 0.31123263, 0, 0.061908033, 0.29317474, 0.10308324, 0.12143701, 0.29317474, 0, 0.12143701, 0.31123263, 0, 0.061908033, 0.31123263, 0.10308324, 0.061908033, 0.29317474, 0.10308324, 0.12143701)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lroa0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dr1e"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ojbw0"]
+height = 0.2
+radius = 0.7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r5iys"]
+height = 0.2
+radius = 0.7
+
+[node name="KeypadTouchscreen" type="Node3D" unique_id=720174509]
+
+[node name="Key enter" parent="." unique_id=1130473175 instance=ExtResource("2_lp0ix")]
+
+[node name="StaticBody3D" parent="Key enter/Key enter" parent_id_path=PackedInt32Array(1130473175, 1163037430) index="0" unique_id=223496240 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "OK"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key enter" unique_id=365475420]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.45005208, 0.08, 0.09046888)
+modulate = Color(0, 0.92156863, 0.24705882, 1)
+text = "ok"
+font = ExtResource("3_rma8r")
+font_size = 120
+
+[node name="Key no 0" parent="." unique_id=1402672217 instance=ExtResource("3_lroa0")]
+
+[node name="StaticBody3D" parent="Key no 0/key no 0" parent_id_path=PackedInt32Array(1402672217, 423433996) index="0" unique_id=1969453950 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "0"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 0" unique_id=1287650054]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.0037745535, 0.08, 0.081)
+text = "0"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 1" parent="." unique_id=1840775714 instance=ExtResource("4_7dr1e")]
+
+[node name="StaticBody3D" parent="Key no 1/Key no 1" parent_id_path=PackedInt32Array(1840775714, 1843040795) index="0" unique_id=1241976893 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "1"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 1" unique_id=1369067820]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.185, 0.08, 0.115)
+text = "1"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 2" parent="." unique_id=661790343 instance=ExtResource("5_7ql5m")]
+
+[node name="StaticBody3D" parent="Key no 2/Key no 2" parent_id_path=PackedInt32Array(661790343, 388617722) index="0" unique_id=1011347988 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "2"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 2" unique_id=160697581]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.00588274, 0.08, 0.229)
+text = "2"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 3" type="Node3D" parent="." unique_id=152631293]
+
+[node name="Key no 3" type="MeshInstance3D" parent="Key no 3" unique_id=1585129910]
+transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.024859995, 0)
+mesh = SubResource("ArrayMesh_np6qw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Key no 3/Key no 3" unique_id=1711002066 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "3"
+button_mesh = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 3/Key no 3/StaticBody3D" unique_id=1072704786]
+shape = SubResource("ConcavePolygonShape3D_fy6h2")
+
+[node name="Label3D" type="Label3D" parent="Key no 3" unique_id=113323470]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.19983912, 0.08, 0.115)
+text = "3"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 4" parent="." unique_id=1332581290 instance=ExtResource("7_rma8r")]
+
+[node name="StaticBody3D" parent="Key no 4/Key no 4" parent_id_path=PackedInt32Array(1332581290, 1551595216) index="0" unique_id=1353054663 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "4"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 4" unique_id=1453868033]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.2666822, 0.08, 0.2058945)
+text = "4"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 5" parent="." unique_id=1025680925 instance=ExtResource("8_hudfa")]
+
+[node name="StaticBody3D" parent="Key no 5/Key no 5" parent_id_path=PackedInt32Array(1025680925, 665074584) index="0" unique_id=530945459 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "5"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 5" unique_id=836819607]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.0063792765, 0.08, 0.34903997)
+text = "5"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 6" parent="." unique_id=98556486 instance=ExtResource("9_fv3nj")]
+
+[node name="StaticBody3D" parent="Key no 6/Key no 6" parent_id_path=PackedInt32Array(98556486, 1043529101) index="0" unique_id=327813263 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "6"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 6" unique_id=1428562957]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.28054753, 0.08, 0.2060225)
+text = "6"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 7" parent="." unique_id=942843037 instance=ExtResource("10_vv71i")]
+
+[node name="StaticBody3D" parent="Key no 7/Key no 7" parent_id_path=PackedInt32Array(942843037, 1046450270) index="0" unique_id=726335998 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "7"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 7" unique_id=639950104]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.3510008, 0.08, 0.29413477)
+text = "7"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 8" parent="." unique_id=1692944113 instance=ExtResource("11_uauq3")]
+
+[node name="StaticBody3D" parent="Key no 8/Key no 8" parent_id_path=PackedInt32Array(1692944113, 1333821948) index="0" unique_id=1242666362 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "8"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 8" unique_id=1648155049]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.005882621, 0.08, 0.46277207)
+text = "8"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key no 9" parent="." unique_id=106687992 instance=ExtResource("12_1ehac")]
+
+[node name="StaticBody3D" parent="Key no 9/Key no 9" parent_id_path=PackedInt32Array(106687992, 551173232) index="0" unique_id=58685768 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "9"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 9" unique_id=21521580]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.365, 0.08, 0.296)
+text = "9"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
+[node name="Key reset" parent="." unique_id=1447826853 instance=ExtResource("13_0kky4")]
+
+[node name="StaticBody3D" parent="Key reset/Key reset" parent_id_path=PackedInt32Array(1447826853, 59182839) index="0" unique_id=2099808757 node_paths=PackedStringArray("button_mesh")]
+script = ExtResource("3_7dr1e")
+key_value = "C"
+button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key reset" unique_id=966846035]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.4431631, 0.08, 0.09804496)
+modulate = Color(0.93333334, 0, 0, 1)
+text = "c"
+font = ExtResource("3_rma8r")
+font_size = 120
+
+[node name="Screen" type="Label3D" parent="." unique_id=1440623895]
+unique_name_in_owner = true
+transform = Transform3D(0.43951428, 0, 0, 0, -2.1368145e-08, 1, 0, -0.48884618, -4.371139e-08, 0.007696092, 0.091427445, -0.18382037)
+text = "----"
+font = ExtResource("15_7dr1e")
+font_size = 100
+
+[node name="KeypadCamera" type="Camera3D" parent="." unique_id=32060921]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1370163, 0.0019608885)
+
+[node name="LockLED" type="MeshInstance3D" parent="." unique_id=381016508]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.016702777, -0.439)
+mesh = SubResource("CapsuleMesh_lroa0")
+surface_material_override/0 = SubResource("StandardMaterial3D_7dr1e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=407487087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03949994, 0)
+
+[node name="Keypad base" parent="StaticBody3D" unique_id=468678713 instance=ExtResource("1_d6o1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03949994, 0)
+
+[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=229408382]
+transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535e-08, 0, 0.6894696, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=855915867]
+shape = SubResource("CylinderShape3D_ojbw0")
+
+[node name="Cover" type="Node3D" parent="." unique_id=1531809847]
+
+[node name="keypad cover left" parent="Cover" unique_id=356316278 instance=ExtResource("16_8acnr")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="keypad cover right" parent="Cover" unique_id=1292669582 instance=ExtResource("17_rma8r")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cover" unique_id=454624637]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cover/StaticBody3D" unique_id=2110798669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05887139, 0)
+shape = SubResource("CylinderShape3D_r5iys")
+
+[editable path="Key enter"]
+[editable path="Key no 0"]
+[editable path="Key no 1"]
+[editable path="Key no 2"]
+[editable path="Key no 4"]
+[editable path="Key no 5"]
+[editable path="Key no 6"]
+[editable path="Key no 7"]
+[editable path="Key no 8"]
+[editable path="Key no 9"]
+[editable path="Key reset"]
+[editable path="StaticBody3D/Keypad base"]
+[editable path="Cover/keypad cover left"]

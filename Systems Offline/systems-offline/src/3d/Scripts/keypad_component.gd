@@ -15,6 +15,7 @@ enum KeypadType{
 @export var lock_led: MeshInstance3D
 var entered_code := ""
 @export var correct_code : String
+@export var keypad_collision: CollisionShape3D
 @export var connected_wire: Path3D
 
 #endregion
@@ -47,6 +48,8 @@ func enter_button_keypad() -> void:
 	player.disable_controls()
 	# Transition into keypad view
 	player.visible = false
+	if keypad_collision:
+		keypad_collision.disabled = true
 	await transition(player_camera, keypad_camera)
 
 func exit_button_keypad() -> void:
@@ -54,7 +57,9 @@ func exit_button_keypad() -> void:
 		return
 
 	is_interacting = false
-
+	# Re-enable the collider when exiting
+	if keypad_collision:
+		keypad_collision.disabled = false
 	player.enable_controls()
 
 	await transition(keypad_camera, player_camera)
