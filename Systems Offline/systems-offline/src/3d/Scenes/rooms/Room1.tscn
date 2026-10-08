@@ -54,10 +54,11 @@ size = Vector3(10, 7, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.365, 0.925, 0, 0, 0, 0, 0, 0, 0, -0.625, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, -0.73, 0.035, 1.33, 1.02, 0, 1.185, -0.705, 0, 1.56, -0.765, 0.045, -0.625, 0, 0, 0, 0, 0, 0, 0, 0, -0.635, 0, -0.04),
+"tilts": PackedFloat32Array(0, 0, 0)
 }
-point_count = 2
+point_count = 3
+
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=508166444]
@@ -85,7 +86,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.98832566, -0.042517338, 0.14630324, 0, 0.960272, 0.27906573, -0.15235601, -0.2758078, 0.9490615, -2.8276691, 0.116626024, 7.0171127)
+transform = Transform3D(0.9999361, -0.001504638, 0.011205292, 0, 0.99110466, 0.13308477, -0.011305861, -0.13307627, 0.99104136, 0.85186464, 0.058234215, -4.789212)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_sprint = false
@@ -243,7 +244,7 @@ transition_camera = NodePath("../../TransitionCamera")
 [node name="SlidingDoorMesh" parent="Tutorial Room/SlidingDoor/SlidingDoorBody" parent_id_path=PackedInt32Array(212972216, 1063624797) index="0" unique_id=1913860126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044916928, 0, 0)
 
-[node name="Keypad" parent="Tutorial Room" unique_id=1609901091 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("7_yy3xw")]
+[node name="Keypad" parent="Tutorial Room" unique_id=1609901091 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "connected_wire", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("7_yy3xw")]
 transform = Transform3D(-0.49999997, 0, -4.3711385e-08, 0, 0.5, 0, 4.3711385e-08, 0, -0.49999997, 1.9094493, 1.9278404, -7.7352214)
 script = ExtResource("15_71ovv")
 keypad_type = 0
@@ -252,6 +253,7 @@ keypad_camera = NodePath("KeypadCamera")
 sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
 correct_code = "2947"
+connected_wire = NodePath("../../KeypadWire")
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../../ProtoController")
@@ -264,6 +266,7 @@ transform = Transform3D(-2.0000002, 0, -1.5646219e-07, 0, 2, 0, 1.6391277e-07, 0
 [node name="CoverVertex" parent="Tutorial Room/Keypad" index="17" unique_id=1718145220 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
 unlockable_type = 1
+locked = false
 keypad = NodePath("..")
 object_ref = NodePath(".")
 interaction_type = 2
@@ -488,7 +491,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358
 size = Vector3(6.574856, 4.7030334, 2.3808594)
 num_stairs = 10
 
-[node name="Wire" parent="." unique_id=1206855643 instance=ExtResource("32_8gijo")]
+[node name="KeypadWire" parent="." unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
 
