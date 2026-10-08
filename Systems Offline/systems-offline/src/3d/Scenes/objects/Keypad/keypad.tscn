@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://2vwr86remyve"]
 
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="1_gqr5m"]
-[ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_rhii3"]
 [ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="2_2aojk"]
 [ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="4_rhii3"]
 [ext_resource type="Material" uid="uid://cat6kxhhytckm" path="res://src/3d/Materials/glass.tres" id="5_7cjmy"]
@@ -843,7 +842,6 @@ albedo_color = Color(0.9215771, 0, 0.45372748, 1)
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="MOD_Sec_keypad" type="Node3D" unique_id=1609901091]
-script = ExtResource("1_rhii3")
 
 [node name="sb00" type="StaticBody3D" parent="." unique_id=1612102591 node_paths=PackedStringArray("button_mesh")]
 collision_layer = 2
