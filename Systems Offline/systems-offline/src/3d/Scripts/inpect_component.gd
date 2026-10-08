@@ -139,6 +139,19 @@ func exit_crate() -> void:
 
 #endregion
 
+#region Poster Functions
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		# Swap to custom font when player steps into Area3D
+		poster_text.font = default_font
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		# Swap to custom font when player steps into Area3D
+		poster_text.font = alien_language
+#endregion
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
@@ -155,15 +168,3 @@ func _unhandled_input(event: InputEvent) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
-
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		# Swap to custom font when player steps into Area3D
-		poster_text.font = default_font
-
-
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		# Swap to custom font when player steps into Area3D
-		poster_text.font = alien_language
