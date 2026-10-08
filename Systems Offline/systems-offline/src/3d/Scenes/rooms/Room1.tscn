@@ -58,7 +58,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
-
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=508166444]
