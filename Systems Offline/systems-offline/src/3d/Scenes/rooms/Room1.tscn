@@ -150,6 +150,31 @@ item_data = ExtResource("10_5jc6v")
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
 
+[node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
+transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08, 0.46788168, 1.8871334, -7.854755)
+script = ExtResource("15_71ovv")
+screen_label = NodePath("Screen")
+keypad_camera = NodePath("KeypadCamera")
+sliding_door = NodePath("../SlidingDoor")
+lock_led = NodePath("LockLED")
+correct_code = "1234"
+keypad_collision = NodePath("StaticBody3D/CollisionShape3D")
+object_ref = NodePath(".")
+interaction_type = 3
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../TransitionCamera")
+
+[node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="16" unique_id=1531809847 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
+script = ExtResource("13_j4nu1")
+unlockable_type = 1
+keypad = NodePath("..")
+object_ref = NodePath(".")
+interaction_type = 2
+player = NodePath("../../../ProtoController")
+player_camera = NodePath("../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../TransitionCamera")
+
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
 [node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
@@ -238,7 +263,7 @@ transition_camera = NodePath("../../TransitionCamera")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044916928, 0, 0)
 
 [node name="Keypad" parent="Tutorial Room" unique_id=1609901091 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("7_yy3xw")]
-transform = Transform3D(-0.49999997, 0, -4.3711385e-08, 0, 0.5, 0, 4.3711385e-08, 0, -0.49999997, 0.52710706, 1.9278404, -7.7352214)
+transform = Transform3D(-0.49999997, 0, -4.3711385e-08, 0, 0.5, 0, 4.3711385e-08, 0, -0.49999997, 4.344427, 1.9278404, -7.7352214)
 script = ExtResource("15_71ovv")
 screen_label = NodePath("Screen")
 keypad_camera = NodePath("KeypadCamera")
@@ -481,25 +506,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358
 size = Vector3(6.574856, 4.7030334, 2.3808594)
 num_stairs = 10
 
-[node name="KeypadTouchscreen" parent="." unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.258029, 2.1781216, -7.854755)
-script = ExtResource("15_71ovv")
-screen_label = NodePath("Screen")
-keypad_camera = NodePath("KeypadCamera")
-sliding_door = NodePath("../Tutorial Room/SlidingDoor")
-lock_led = NodePath("LockLED")
-correct_code = "1234"
-object_ref = NodePath(".")
-interaction_type = 3
-player = NodePath("../ProtoController")
-player_camera = NodePath("../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../TransitionCamera")
-
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
 [editable path="UI_Manger/NotificationUI"]
+[editable path="Tutorial Room/KeypadTouchscreen"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key enter"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 0"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 1"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 2"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 4"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 5"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 6"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 7"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 8"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key no 9"]
+[editable path="Tutorial Room/KeypadTouchscreen/Key reset"]
+[editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/Crates/CrateCode(7)"]
 [editable path="Tutorial Room/Crates/CrateCode(7)/Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(4)"]
@@ -513,16 +537,3 @@ transition_camera = NodePath("../TransitionCamera")
 [editable path="Tutorial Room/MediumPoster"]
 [editable path="Tutorial Room/MediumPoster2"]
 [editable path="Tutorial Room/KeyHanger"]
-[editable path="KeypadTouchscreen"]
-[editable path="KeypadTouchscreen/Key enter"]
-[editable path="KeypadTouchscreen/Key no 0"]
-[editable path="KeypadTouchscreen/Key no 1"]
-[editable path="KeypadTouchscreen/Key no 2"]
-[editable path="KeypadTouchscreen/Key no 4"]
-[editable path="KeypadTouchscreen/Key no 5"]
-[editable path="KeypadTouchscreen/Key no 6"]
-[editable path="KeypadTouchscreen/Key no 7"]
-[editable path="KeypadTouchscreen/Key no 8"]
-[editable path="KeypadTouchscreen/Key no 9"]
-[editable path="KeypadTouchscreen/Key reset"]
-[editable path="KeypadTouchscreen/Keypad base"]

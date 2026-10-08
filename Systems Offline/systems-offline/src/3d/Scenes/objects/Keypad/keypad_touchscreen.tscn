@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cme3mrrffs0mf" path="res://src/3d/Assets/General reuseable assets/Keypad/Key enter.glb" id="2_lp0ix"]
 [ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="3_7dr1e"]
 [ext_resource type="PackedScene" uid="uid://6q3us6vhvx88" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 0.glb" id="3_lroa0"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="PackedScene" uid="uid://cfhi670nufreq" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 1.glb" id="4_7dr1e"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
 [ext_resource type="PackedScene" uid="uid://bsut8kf6sv588" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 2.glb" id="5_7ql5m"]
@@ -15,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://382e73by4fky" path="res://src/3d/Assets/General reuseable assets/Keypad/Key no 9.glb" id="12_1ehac"]
 [ext_resource type="PackedScene" uid="uid://c3iwl62kbskbk" path="res://src/3d/Assets/General reuseable assets/Keypad/Key reset.glb" id="13_0kky4"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
+[ext_resource type="PackedScene" uid="uid://b1155hq11wv2t" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
+[ext_resource type="PackedScene" uid="uid://ce1gd5bxddjgm" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhmgy"]
 resource_name = "Material"
@@ -63,6 +66,14 @@ data = PackedVector3Array(0.56150424, 0, 0, 0.31733, 0.10308324, 6.6723544e-08, 
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dr1e"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ojbw0"]
+height = 0.2
+radius = 0.7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r5iys"]
+height = 0.2
+radius = 0.7
+
 [node name="KeypadTouchscreen" type="Node3D" unique_id=720174509]
 
 [node name="Key enter" parent="." unique_id=1130473175 instance=ExtResource("2_lp0ix")]
@@ -71,6 +82,13 @@ data = PackedVector3Array(0.56150424, 0, 0, 0.31733, 0.10308324, 6.6723544e-08, 
 script = ExtResource("3_7dr1e")
 key_value = "OK"
 button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key enter" unique_id=365475420]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.45005208, 0.08, 0.09046888)
+modulate = Color(0, 0.92156863, 0.24705882, 1)
+text = "ok"
+font = ExtResource("3_rma8r")
+font_size = 120
 
 [node name="Key no 0" parent="." unique_id=1402672217 instance=ExtResource("3_lroa0")]
 
@@ -139,7 +157,7 @@ key_value = "4"
 button_mesh = NodePath("..")
 
 [node name="Label3D" type="Label3D" parent="Key no 4" unique_id=1453868033]
-transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.3019783, 0.08, 0.156872)
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.2666822, 0.08, 0.2058945)
 text = "4"
 font = ExtResource("4_7ql5m")
 font_size = 100
@@ -165,17 +183,23 @@ key_value = "6"
 button_mesh = NodePath("..")
 
 [node name="Label3D" type="Label3D" parent="Key no 6" unique_id=1428562957]
-transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.31192186, 0.08, 0.157)
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.28054753, 0.08, 0.2060225)
 text = "6"
 font = ExtResource("4_7ql5m")
 font_size = 100
 
 [node name="Key no 7" parent="." unique_id=942843037 instance=ExtResource("10_vv71i")]
 
-[node name="StaticBody3D" parent="Key no 7/Key no 7" parent_id_path=PackedInt32Array(942843037, 1083051386) index="0" unique_id=1691927954 node_paths=PackedStringArray("button_mesh")]
+[node name="StaticBody3D" parent="Key no 7/Key no 7" parent_id_path=PackedInt32Array(942843037, 1046450270) index="0" unique_id=726335998 node_paths=PackedStringArray("button_mesh")]
 script = ExtResource("3_7dr1e")
 key_value = "7"
 button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key no 7" unique_id=639950104]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.3510008, 0.08, 0.29413477)
+text = "7"
+font = ExtResource("4_7ql5m")
+font_size = 100
 
 [node name="Key no 8" parent="." unique_id=1692944113 instance=ExtResource("11_uauq3")]
 
@@ -184,6 +208,12 @@ script = ExtResource("3_7dr1e")
 key_value = "8"
 button_mesh = NodePath("..")
 
+[node name="Label3D" type="Label3D" parent="Key no 8" unique_id=1648155049]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.005882621, 0.08, 0.46277207)
+text = "8"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
 [node name="Key no 9" parent="." unique_id=106687992 instance=ExtResource("12_1ehac")]
 
 [node name="StaticBody3D" parent="Key no 9/Key no 9" parent_id_path=PackedInt32Array(106687992, 551173232) index="0" unique_id=58685768 node_paths=PackedStringArray("button_mesh")]
@@ -191,12 +221,25 @@ script = ExtResource("3_7dr1e")
 key_value = "9"
 button_mesh = NodePath("..")
 
+[node name="Label3D" type="Label3D" parent="Key no 9" unique_id=21521580]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0.365, 0.08, 0.296)
+text = "9"
+font = ExtResource("4_7ql5m")
+font_size = 100
+
 [node name="Key reset" parent="." unique_id=1447826853 instance=ExtResource("13_0kky4")]
 
 [node name="StaticBody3D" parent="Key reset/Key reset" parent_id_path=PackedInt32Array(1447826853, 59182839) index="0" unique_id=2099808757 node_paths=PackedStringArray("button_mesh")]
 script = ExtResource("3_7dr1e")
 key_value = "C"
 button_mesh = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Key reset" unique_id=966846035]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.4431631, 0.08, 0.09804496)
+modulate = Color(0.93333334, 0, 0, 1)
+text = "c"
+font = ExtResource("3_rma8r")
+font_size = 120
 
 [node name="Screen" type="Label3D" parent="." unique_id=1440623895]
 unique_name_in_owner = true
@@ -213,10 +256,31 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.016702777, -0.439)
 mesh = SubResource("CapsuleMesh_lroa0")
 surface_material_override/0 = SubResource("StandardMaterial3D_7dr1e")
 
-[node name="Keypad base" parent="." unique_id=468678713 instance=ExtResource("1_d6o1y")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=407487087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03949994, 0)
 
-[node name="keypad base" parent="Keypad base" index="0" unique_id=229408382]
+[node name="Keypad base" parent="StaticBody3D" unique_id=468678713 instance=ExtResource("1_d6o1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03949994, 0)
+
+[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=229408382]
 transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535e-08, 0, 0.6894696, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=855915867]
+shape = SubResource("CylinderShape3D_ojbw0")
+
+[node name="Cover" type="Node3D" parent="." unique_id=1531809847]
+
+[node name="keypad cover left" parent="Cover" unique_id=356316278 instance=ExtResource("16_8acnr")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="keypad cover right" parent="Cover" unique_id=1292669582 instance=ExtResource("17_rma8r")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cover" unique_id=454624637]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cover/StaticBody3D" unique_id=2110798669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05887139, 0)
+shape = SubResource("CylinderShape3D_r5iys")
 
 [editable path="Key enter"]
 [editable path="Key no 0"]
@@ -229,4 +293,5 @@ transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535
 [editable path="Key no 8"]
 [editable path="Key no 9"]
 [editable path="Key reset"]
-[editable path="Keypad base"]
+[editable path="StaticBody3D/Keypad base"]
+[editable path="Cover/keypad cover left"]
