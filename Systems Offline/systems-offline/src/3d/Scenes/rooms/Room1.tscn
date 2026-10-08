@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bu4h0ct1q0f0m" path="res://src/3d/Scenes/objects/elevator/elevator.tscn" id="31_o4tcg"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
+[ext_resource type="PackedScene" uid="uid://vhu6tn6yl8pa" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1e042"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -480,6 +481,15 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.0511408, 5.031267, -35.138
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
 size = Vector3(6.574856, 4.7030334, 2.3808594)
 num_stairs = 10
+
+[node name="KeypadTouchscreen" parent="." unique_id=720174509 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.258029, 2.1781216, -7.854755)
+script = ExtResource("15_71ovv")
+object_ref = NodePath(".")
+interaction_type = 3
+player = NodePath("../ProtoController")
+player_camera = NodePath("../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../TransitionCamera")
 
 [editable path="ProtoController"]
 [editable path="HUD"]

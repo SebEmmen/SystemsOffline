@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Node3D
 
 @export var key_value: String
 @export var button_mesh: MeshInstance3D
