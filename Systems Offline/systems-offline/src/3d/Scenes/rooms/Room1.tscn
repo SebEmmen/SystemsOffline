@@ -34,10 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="30_4qo6h"]
-[ext_resource type="PackedScene" uid="uid://bu4h0ct1q0f0m" path="res://src/3d/Scenes/objects/elevator/elevator.tscn" id="31_o4tcg"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
 [ext_resource type="PackedScene" uid="uid://vhu6tn6yl8pa" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
+[ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -88,12 +88,15 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9999361, -0.001504638, 0.011205292, 0, 0.99110466, 0.13308477, -0.011305861, -0.13307627, 0.99104136, 0.85186464, 0.058234215, -4.789212)
+transform = Transform3D(0.9999361, -0.001504638, 0.011205292, 0, 0.99110466, 0.13308477, -0.011305861, -0.13307627, 0.99104136, -1.9922547, 0.058234215, 2.6359367)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_sprint = false
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
+
+[node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
+transform = Transform3D(1, 1.7462298e-09, 0, 0, 1, 2.2351742e-07, 0, 0, 1, 0.0034953356, 0.9400237, -0.013009548)
 
 [node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
 interaction_label = NodePath("../../../../HUD/InteractionLabel")
@@ -166,7 +169,7 @@ screen_label = NodePath("Screen")
 keypad_camera = NodePath("KeypadCamera")
 sliding_door = NodePath("../SlidingDoor")
 lock_led = NodePath("LockLED")
-correct_code = "1234"
+correct_code = "2947"
 keypad_collision = NodePath("StaticBody3D/CollisionShape3D")
 connected_wire = NodePath("../../KeypadWire")
 object_ref = NodePath(".")
@@ -263,7 +266,7 @@ transform = Transform3D(0.57009465, 0, 0.82157886, 0, 1, 0, -0.82157886, 0, 0.57
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0454178, 2.005, -7.967153)
 script = ExtResource("13_j4nu1")
 unlockable_type = 0
-locked = true
+locked = false
 cover_fade_duration = 0.5
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
@@ -510,9 +513,6 @@ transform = Transform3D(-1.13649605e-07, 0, -0.8, 0, 0.5, 0, 2.6, 0, -3.4969112e
 [node name="Platform" parent="Whitebox" unique_id=589354236 instance=ExtResource("11_itbdl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.25, -64.579)
 
-[node name="Elevator" parent="." unique_id=1746680253 instance=ExtResource("31_o4tcg")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.0511408, 5.031267, -35.138844)
-
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
 size = Vector3(6.574856, 4.7030334, 2.3808594)
@@ -522,23 +522,15 @@ num_stairs = 10
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
 
+[node name="Elevator 1st floor" parent="." unique_id=1746680253 instance=ExtResource("38_eivic")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1176853, 2.9753919, -36.097855)
+
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
 [editable path="UI_Manger/NotificationUI"]
 [editable path="Tutorial Room/KeypadTouchscreen"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key enter"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 0"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 1"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 2"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 4"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 5"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 6"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 7"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 8"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key no 9"]
-[editable path="Tutorial Room/KeypadTouchscreen/Key reset"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/KeypadTouchscreen/Cover/keypad cover left"]
 [editable path="Tutorial Room/Crates/CrateCode(7)"]
