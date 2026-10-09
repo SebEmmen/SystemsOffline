@@ -808,7 +808,6 @@ transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535
 shape = SubResource("CylinderShape3D_ojbw0")
 
 [node name="Cover" type="Node3D" parent="." unique_id=1531809847]
-visible = false
 
 [node name="keypad cover left" parent="Cover" unique_id=356316278 instance=ExtResource("16_8acnr")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
