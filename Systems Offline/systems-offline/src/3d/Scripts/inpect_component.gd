@@ -50,10 +50,10 @@ func interact() -> void:
 			enter_inspect()
 
 		InspectType.CRATE:
-			if lid_animating:
+			if is_interacting or is_transitioning:
 				return
 
-			if not open:
+			if not open and not lid_animating:
 				open_crate()
 			else:
 				enter_crate()
@@ -71,17 +71,20 @@ func enter_inspect() -> void:
 	is_interacting = true
 
 	player.disable_controls()
-
 	player.visible = false
+
+	# Wait one frame before starting the camera transition
+	await get_tree().process_frame
+
 	await transition(player_camera, inspect_camera)
 
 func exit_inspect() -> void:
 	if not is_interacting or is_transitioning:
 		return
 
-	player.visible = true
 
 	await transition(inspect_camera, player_camera)
+	player.visible = true
 
 	is_interacting = false
 
@@ -132,7 +135,7 @@ func place_lid_next() -> void:
 
 
 func enter_crate() -> void:
-	if not open or lid_animating:
+	if not open and not lid_animating:
 		return
 
 	if is_interacting or is_transitioning:
@@ -233,6 +236,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				exit_inspect()
 				get_viewport().set_input_as_handled()		
 		return
+		
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass

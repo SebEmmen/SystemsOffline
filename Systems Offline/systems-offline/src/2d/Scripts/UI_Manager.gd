@@ -9,6 +9,9 @@ enum Menu {
 
 @onready var pause_menu: Control = $PauseMenu
 @onready var inventory_ui: Control = $InventoryUI
+
+@export var player: CharacterBody3D
+
 var current_menu: Menu = Menu.NONE
 	
 
@@ -18,6 +21,10 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_cancel"):
+		#if not player.controls_enabled:
+			#return
+			
 	# ESCAPE
 	if event.is_action_pressed("ui_cancel"):
 		match current_menu:
