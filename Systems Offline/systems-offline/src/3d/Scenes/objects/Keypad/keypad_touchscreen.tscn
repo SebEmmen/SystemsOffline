@@ -1,12 +1,12 @@
-[gd_scene format=4 uid="uid://vhu6tn6yl8pa"]
+[gd_scene format=4 uid="uid://bjmautg631hof"]
 
-[ext_resource type="PackedScene" uid="uid://vga7uegu0h6o" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
+[ext_resource type="PackedScene" uid="uid://b4rbfpy8y2tlo" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
 [ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="3_7dr1e"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
-[ext_resource type="PackedScene" uid="uid://b1155hq11wv2t" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
-[ext_resource type="PackedScene" uid="uid://ce1gd5bxddjgm" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
+[ext_resource type="PackedScene" uid="uid://eontkuidsjer" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
+[ext_resource type="PackedScene" uid="uid://bdvmdnjhcymna" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvwng"]
 resource_name = "Material"
@@ -801,13 +801,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03949994, 0)
 [node name="Keypad base" parent="StaticBody3D" unique_id=468678713 instance=ExtResource("1_d6o1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03949994, 0)
 
-[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=229408382]
+[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=1643792817]
 transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535e-08, 0, 0.6894696, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=855915867]
 shape = SubResource("CylinderShape3D_ojbw0")
 
 [node name="Cover" type="Node3D" parent="." unique_id=1531809847]
+visible = false
 
 [node name="keypad cover left" parent="Cover" unique_id=356316278 instance=ExtResource("16_8acnr")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)

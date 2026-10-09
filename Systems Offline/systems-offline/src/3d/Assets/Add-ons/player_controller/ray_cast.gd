@@ -10,33 +10,45 @@ extends RayCast3D
 @onready var player: CharacterBody3D = owner
 
 
+
 func _process(_delta: float) -> void:
 	if not player.controls_enabled:
 		interaction_label.visible = false
+		view_label.visible = false
 		return
-		
 
-	if is_colliding():
-		var hit_obj = get_collider()
-		
-		var interactable = _get_interactable_node(hit_obj)
-		
-		if interactable == null:
-			_reset_ui()
+	if not is_colliding():
+		_reset_ui()
+		return
+
+	var hit_obj := get_collider()
+	var interactable := _get_interactable_node(hit_obj)
+
+	if interactable == null:
+		_reset_ui()
+		return
+
+	# Crates have their own interaction message.
+	if interactable is InspectComponent and interactable.inspect_type == InspectComponent.InspectType.CRATE:
+		if interactable.is_interacting:
+			_hide_all_ui()
 			return
 
-		if interactable:
-			# Check if the object is set to INSPECT mode
-			if interactable.interaction_type == InteractableComponent.InteractionType.INSPECT:
-				_set_ui_state(false, true)
-			else:
-				_set_ui_state(true, false)
-		else:
-			_reset_ui()
-		if Input.is_action_just_pressed("interact") and interactable.has_method("interact"):
-					interactable.interact()
+		_set_ui_state(true, false)
+		interaction_label.text = interactable.get_interaction_message()
+
+	# Other inspectable objects keep the existing view prompt.
+	elif interactable.interaction_type == InteractableComponent.InteractionType.INSPECT:
+		_set_ui_state(false, true)
+
+	# All other interactable objects.
 	else:
-		_reset_ui()
+		_set_ui_state(true, false)
+		interaction_label.text = "Press [E] to interact"
+
+	if Input.is_action_just_pressed("interact") and interactable.has_method("interact"):
+		interactable.interact()
+
 
 # Helper function to switch UI elements
 func _set_ui_state(interact_active: bool, view_active: bool) -> void:
