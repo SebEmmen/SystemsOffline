@@ -12,7 +12,9 @@ enum UnlockableType{
 @export_group("Unlockable")
 @onready var default_position: Vector3 = object_ref.position
 @export var locked: bool = true
+@onready var open: bool = false
 #endregion
+
 
 #region Cover Specific Variables
 @export_group("Cover")
@@ -46,20 +48,29 @@ func interact_door() -> void:
 	if can_interact:
 		can_interact = false
 		is_interacting = !is_interacting
-	var tween_door = create_tween()
 	var target_pos = default_position + Vector3(2.95, 0, 0)
 	if is_interacting:
-		tween_door.tween_property(object_ref, "position", target_pos, 1.0)
+		move_door(target_pos, 1.0)
 	else:
-		tween_door.tween_property(object_ref, "position", default_position, 1.0)
+		move_door(default_position, 1.0)
 	await get_tree().create_timer(1.0).timeout
 	can_interact = true
+
+func move_door(position: Vector3, time: float) -> void:
+	var tween_door = create_tween()
+	tween_door.tween_property(object_ref, "position", position, time)
+	
 
 # Unlocks the door
 func unlock_door() -> void:
 	locked = false
 	print("Door unlocked!")
-	
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if !locked:	
+		if body.is_in_group("player"): # or your player check
+			print("player detected!")
+			interact_door()
 #endregion
 
 #region Cover Functions

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3wuqplm7lupy"]
 
-[ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_l2ed4"]
+[ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="1_l2ed4"]
 [ext_resource type="Material" uid="uid://rbm0jt7rir2c" path="res://src/3d/Materials/slidingdoortemp.tres" id="1_pa7bx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
@@ -8,6 +8,9 @@ size = Vector3(3, 4, 0.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l2ed4"]
 size = Vector3(3, 4, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ojbw0"]
+size = Vector3(4, 4, 7)
 
 [node name="SlidingDoor" type="Node3D" unique_id=212972216 node_paths=PackedStringArray("object_ref")]
 transform = Transform3D(0.9991126, 0, 0.042119164, 0, 1, 0, -0.042119164, 0, 0.9991126, 0, 0, 0)
@@ -23,3 +26,11 @@ mesh = SubResource("BoxMesh_r5iys")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="SlidingDoorBody" unique_id=1759810719]
 shape = SubResource("BoxShape3D_l2ed4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1074965813]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1534691778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8626451e-09, 0, -0.04807976)
+shape = SubResource("BoxShape3D_ojbw0")
+
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
