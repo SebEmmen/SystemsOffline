@@ -26,11 +26,15 @@
 [ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/OpenableCrate.tscn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://by2av6ruws1r5" path="res://src/3d/Scenes/objects/BasicCrate.tscn" id="16_o4tcg"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="17_wvn26"]
+[ext_resource type="AudioStream" uid="uid://dhctd8wd0u28b" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
+[ext_resource type="AudioStream" uid="uid://ekmu4n3igsy8" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
+[ext_resource type="AudioStream" uid="uid://4k6pt8y3ush8" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="AudioStream" uid="uid://bmd7rumqu8r0b" path="res://src/3d/Sound/door(open).mp3" id="26_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="30_4qo6h"]
@@ -179,6 +183,8 @@ interaction_type = 3
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+primary_se = ExtResource("18_3h5nh")
+secondary_se = ExtResource("18_io4pa")
 
 [node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
@@ -207,6 +213,7 @@ interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.187401, 0, -5.1251807)
@@ -223,6 +230,7 @@ interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(0.2749278, 0, 0.7512755, 0, 0.8, 0, -0.7512755, 0, 0.2749278, -6.84507, 0, 3.2681332)
@@ -239,6 +247,7 @@ interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.7826081, 0, -0.6225147, 0, 1, 0, 0.6225147, 0, -0.7826081, 0.6550064, 0, 2.7101963)
@@ -255,6 +264,7 @@ interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+primary_se = ExtResource("24_6lvv6")
 
 [node name="DummyCrate" parent="Tutorial Room/Crates" unique_id=659222280 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.4611652, 0.0050001144, -5.2599506)
@@ -274,6 +284,7 @@ object_ref = NodePath("SlidingDoorBody")
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+primary_se = ExtResource("26_qbvi1")
 
 [node name="SlidingDoorMesh" parent="Tutorial Room/SlidingDoor/SlidingDoorBody" parent_id_path=PackedInt32Array(212972216, 1063624797) index="0" unique_id=1913860126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044916928, 0, 0)

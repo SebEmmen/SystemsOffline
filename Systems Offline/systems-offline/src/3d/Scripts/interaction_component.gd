@@ -44,9 +44,41 @@ var tertiary_audio_player: AudioStreamPlayer3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_setup_audio_players()
 	match interaction_type:
 		InteractionType.PICKUP:
 			pass
+
+# Dynamically instantiates AudioStreamPlayer3D nodes for assigned streams
+func _setup_audio_players() -> void:
+	if primary_se:
+		primary_audio_player = AudioStreamPlayer3D.new()
+		primary_audio_player.stream = primary_se
+		add_child(primary_audio_player)
+
+	if secondary_se:
+		secondary_audio_player = AudioStreamPlayer3D.new()
+		secondary_audio_player.stream = secondary_se
+		add_child(secondary_audio_player)
+
+	if tertiary_se:
+		tertiary_audio_player = AudioStreamPlayer3D.new()
+		tertiary_audio_player.stream = tertiary_se
+		add_child(tertiary_audio_player)
+
+#region Audio Helper Functions
+func play_primary_se() -> void:
+	if primary_audio_player:
+		primary_audio_player.play()
+
+func play_secondary_se() -> void:
+	if secondary_audio_player:
+		secondary_audio_player.play()
+
+func play_tertiary_se() -> void:
+	if tertiary_audio_player:
+		tertiary_audio_player.play()
+#endregion
 
 func interact() -> void:
 	match interaction_type:

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://vga7uegu0h6o" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
 [ext_resource type="Script" uid="uid://8s360vo5ktuk" path="res://src/3d/Scripts/button_component.gd" id="1_xu8ug"]
+[ext_resource type="AudioStream" uid="uid://duxssoxa6vpet" path="res://src/3d/Sound/press(temp).mp3" id="2_1xmjy"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
@@ -569,6 +570,7 @@ mesh = SubResource("ArrayMesh_yx4vc")
 script = ExtResource("1_xu8ug")
 key_value = "0"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 0/key no 0/StaticBody3D" unique_id=1646138107]
 shape = SubResource("ConcavePolygonShape3D_y0er3")
@@ -589,6 +591,7 @@ mesh = SubResource("ArrayMesh_rha8e")
 script = ExtResource("1_xu8ug")
 key_value = "1"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 1/Key no 1/StaticBody3D" unique_id=155975988]
 shape = SubResource("ConcavePolygonShape3D_3wytq")
@@ -609,6 +612,7 @@ mesh = SubResource("ArrayMesh_3cq44")
 script = ExtResource("1_xu8ug")
 key_value = "2"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 2/Key no 2/StaticBody3D" unique_id=1309330119]
 shape = SubResource("ConcavePolygonShape3D_2onsw")
@@ -629,6 +633,7 @@ mesh = SubResource("ArrayMesh_np6qw")
 script = ExtResource("1_xu8ug")
 key_value = "3"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 3/Key no 3/StaticBody3D" unique_id=1072704786]
 shape = SubResource("ConcavePolygonShape3D_fy6h2")
@@ -649,6 +654,7 @@ mesh = SubResource("ArrayMesh_r3l1e")
 script = ExtResource("1_xu8ug")
 key_value = "4"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 4/Key no 4/StaticBody3D" unique_id=644026920]
 shape = SubResource("ConcavePolygonShape3D_ksm3f")
@@ -669,6 +675,7 @@ mesh = SubResource("ArrayMesh_g2ex2")
 script = ExtResource("1_xu8ug")
 key_value = "5"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 5/Key no 5/StaticBody3D" unique_id=701445402]
 shape = SubResource("ConcavePolygonShape3D_06mh5")
@@ -689,6 +696,7 @@ mesh = SubResource("ArrayMesh_wqrrt")
 script = ExtResource("1_xu8ug")
 key_value = "6"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 6/Key no 6/StaticBody3D" unique_id=1761006383]
 shape = SubResource("ConcavePolygonShape3D_sek3l")
@@ -709,6 +717,7 @@ mesh = SubResource("ArrayMesh_5jpb1")
 script = ExtResource("1_xu8ug")
 key_value = "7"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 7/Key no 7/StaticBody3D" unique_id=1466464486]
 shape = SubResource("ConcavePolygonShape3D_pg46f")
@@ -729,6 +738,7 @@ mesh = SubResource("ArrayMesh_2k1st")
 script = ExtResource("1_xu8ug")
 key_value = "8"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 8/Key no 8/StaticBody3D" unique_id=1588330012]
 shape = SubResource("ConcavePolygonShape3D_qmgye")
@@ -749,6 +759,7 @@ mesh = SubResource("ArrayMesh_ujscu")
 script = ExtResource("1_xu8ug")
 key_value = "9"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key no 9/Key no 9/StaticBody3D" unique_id=130228967]
 shape = SubResource("ConcavePolygonShape3D_rr6s4")
@@ -769,6 +780,7 @@ mesh = SubResource("ArrayMesh_7r5cr")
 script = ExtResource("1_xu8ug")
 key_value = "C"
 button_mesh = NodePath("..")
+primary_se = ExtResource("2_1xmjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key reset/Key reset/StaticBody3D" unique_id=908492108]
 shape = SubResource("ConcavePolygonShape3D_7e6nj")

@@ -23,6 +23,7 @@ var entered_code := "1234"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	match keypad_type:
 		KeypadType.BUTTON_KEYPAD:
 			ready_button_keypad()
@@ -113,6 +114,7 @@ func update_screen() -> void:
 func check_code() -> void:
 	if entered_code == correct_code:
 		print("Correct code!")
+		play_primary_se()
 		sliding_door.unlock_door()
 		flash_enter()
 		sliding_door.locked = false
@@ -123,6 +125,7 @@ func check_code() -> void:
 		if connected_wire != null:
 			connected_wire.set_unlocked()	
 	else:
+		play_secondary_se()
 		flash_error()
 		#entered_code = ""
 		#update_screen()

@@ -19,6 +19,7 @@ var is_moving: bool = false
 @export var hover_material: Material
 
 func _ready() -> void:
+	_setup_audio_players()
 	interaction_type = InteractionType.BUTTON
 
 func interact() -> void:
@@ -57,6 +58,7 @@ func keypad_button_interact() -> void:
 		return
 
 	print("Hit node: ", name, " | key value: ", key_value)
+	play_primary_se()
 	keypad.press_key(key_value)
 
 func set_hovered(hovered: bool) -> void:
