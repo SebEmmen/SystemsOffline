@@ -6,6 +6,7 @@ enum InteractionType{
 	INSPECT,
 	UNLOCKABLE,
 	KEYPAD,
+	BUTTON,
 	TURNABLE
 }
 
