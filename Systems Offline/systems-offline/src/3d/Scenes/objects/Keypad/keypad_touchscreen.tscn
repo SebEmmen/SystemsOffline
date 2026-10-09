@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://bjmautg631hof"]
 
-[ext_resource type="PackedScene" uid="uid://b4rbfpy8y2tlo" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
-[ext_resource type="Script" uid="uid://crbxlcphfot2s" path="res://src/3d/Scenes/objects/Keypad/keypad_button.gd" id="3_7dr1e"]
+[ext_resource type="PackedScene" uid="uid://vga7uegu0h6o" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
+[ext_resource type="Script" uid="uid://8s360vo5ktuk" path="res://src/3d/Scripts/button_component.gd" id="1_xu8ug"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
-[ext_resource type="PackedScene" uid="uid://eontkuidsjer" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
-[ext_resource type="PackedScene" uid="uid://bdvmdnjhcymna" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
+[ext_resource type="PackedScene" uid="uid://b1155hq11wv2t" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
+[ext_resource type="PackedScene" uid="uid://ce1gd5bxddjgm" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvwng"]
 resource_name = "Material"
@@ -545,7 +545,7 @@ transform = Transform3D(-0.48381102, 0, 0.20120528, 0, 0.5239815, 0, -0.20120528
 mesh = SubResource("ArrayMesh_qmcsx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key enter/Key enter" unique_id=223496240 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "OK"
 button_mesh = NodePath("..")
 
@@ -566,7 +566,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_yx4vc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 0/key no 0" unique_id=1969453950 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "0"
 button_mesh = NodePath("..")
 
@@ -586,7 +586,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_rha8e")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 1/Key no 1" unique_id=1241976893 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "1"
 button_mesh = NodePath("..")
 
@@ -606,7 +606,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_3cq44")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 2/Key no 2" unique_id=1011347988 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "2"
 button_mesh = NodePath("..")
 
@@ -626,7 +626,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_np6qw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 3/Key no 3" unique_id=1711002066 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "3"
 button_mesh = NodePath("..")
 
@@ -646,7 +646,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_r3l1e")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 4/Key no 4" unique_id=1353054663 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "4"
 button_mesh = NodePath("..")
 
@@ -666,7 +666,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_g2ex2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 5/Key no 5" unique_id=530945459 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "5"
 button_mesh = NodePath("..")
 
@@ -686,7 +686,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_wqrrt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 6/Key no 6" unique_id=327813263 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "6"
 button_mesh = NodePath("..")
 
@@ -706,7 +706,7 @@ transform = Transform3D(-0.10272579, 0, -0.51381326, 0, 0.5239815, 0, 0.51381326
 mesh = SubResource("ArrayMesh_5jpb1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 7/Key no 7" unique_id=726335998 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "7"
 button_mesh = NodePath("..")
 
@@ -726,7 +726,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_2k1st")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 8/Key no 8" unique_id=1242666362 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "8"
 button_mesh = NodePath("..")
 
@@ -746,7 +746,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, -0.00
 mesh = SubResource("ArrayMesh_ujscu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key no 9/Key no 9" unique_id=58685768 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "9"
 button_mesh = NodePath("..")
 
@@ -766,7 +766,7 @@ transform = Transform3D(0.5239815, 0, 0, 0, 0.5239815, 0, 0, 0, 0.5239815, 0, 0.
 mesh = SubResource("ArrayMesh_7r5cr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key reset/Key reset" unique_id=2099808757 node_paths=PackedStringArray("button_mesh")]
-script = ExtResource("3_7dr1e")
+script = ExtResource("1_xu8ug")
 key_value = "C"
 button_mesh = NodePath("..")
 
@@ -801,14 +801,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03949994, 0)
 [node name="Keypad base" parent="StaticBody3D" unique_id=468678713 instance=ExtResource("1_d6o1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03949994, 0)
 
-[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=1643792817]
+[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=229408382]
 transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535e-08, 0, 0.6894696, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=855915867]
 shape = SubResource("CylinderShape3D_ojbw0")
 
 [node name="Cover" type="Node3D" parent="." unique_id=1531809847]
-visible = false
 
 [node name="keypad cover left" parent="Cover" unique_id=356316278 instance=ExtResource("16_8acnr")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
