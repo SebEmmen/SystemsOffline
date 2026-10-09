@@ -165,7 +165,7 @@ item_data = ExtResource("10_5jc6v")
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
 
-[node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
+[node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "wire_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
 transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08, 1.9623103, 1.8871334, -7.854755)
 script = ExtResource("15_71ovv")
 screen_label = NodePath("Screen")
@@ -175,120 +175,12 @@ lock_led = NodePath("LockLED")
 correct_code = "2947"
 keypad_collision = NodePath("StaticBody3D/CollisionShape3D")
 connected_wire = NodePath("../../KeypadWire")
+wire_camera = NodePath("WireCamera")
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key enter/Key enter" parent_id_path=PackedInt32Array(720174509, 1163037430) index="0" unique_id=223496240]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 0/key no 0" parent_id_path=PackedInt32Array(720174509, 423433996) index="0" unique_id=1969453950]
-script = ExtResource("39_io4pa")
-button_type = 0
-interaction_type = 4
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 1/Key no 1" parent_id_path=PackedInt32Array(720174509, 1843040795) index="0" unique_id=1241976893]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 2/Key no 2" parent_id_path=PackedInt32Array(720174509, 388617722) index="0" unique_id=1011347988]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 3/Key no 3" parent_id_path=PackedInt32Array(720174509, 1585129910) index="0" unique_id=1711002066]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 4/Key no 4" parent_id_path=PackedInt32Array(720174509, 1551595216) index="0" unique_id=1353054663]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 5/Key no 5" parent_id_path=PackedInt32Array(720174509, 665074584) index="0" unique_id=530945459]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 6/Key no 6" parent_id_path=PackedInt32Array(720174509, 1043529101) index="0" unique_id=327813263]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 7/Key no 7" parent_id_path=PackedInt32Array(720174509, 1046450270) index="0" unique_id=726335998]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 8/Key no 8" parent_id_path=PackedInt32Array(720174509, 1333821948) index="0" unique_id=1242666362]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key no 9/Key no 9" parent_id_path=PackedInt32Array(720174509, 551173232) index="0" unique_id=58685768]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-
-[node name="StaticBody3D" parent="Tutorial Room/KeypadTouchscreen/Key reset/Key reset" parent_id_path=PackedInt32Array(720174509, 59182839) index="0" unique_id=2099808757]
-script = ExtResource("39_io4pa")
-button_type = 0
-item_data = null
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
 
 [node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="16" unique_id=1531809847 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")

@@ -13,10 +13,11 @@ enum KeypadType{
 @export var keypad_camera: Camera3D
 @export var sliding_door: Node3D
 @export var lock_led: MeshInstance3D
-var entered_code := ""
+var entered_code := "1234"
 @export var correct_code : String
 @export var keypad_collision: CollisionShape3D
 @export var connected_wire: Path3D
+@export var wire_camera: Camera3D
 
 #endregion
 
@@ -117,6 +118,8 @@ func check_code() -> void:
 		sliding_door.locked = false
 		update_led()
 		
+		pan_camera_left()
+		
 		if connected_wire != null:
 			connected_wire.set_unlocked()	
 	else:
@@ -149,6 +152,15 @@ func update_led() -> void:
 	else:
 		material.albedo_color = Color.GREEN
 		material.emission = Color.GREEN
+		
+func pan_camera_left() -> void:
+	if wire_camera == null:
+		return
+
+	await transition(keypad_camera, wire_camera)
+	await get_tree().create_timer(1.0).timeout
+	await transition(wire_camera, keypad_camera)
+	
 #endregion
 
 
