@@ -790,6 +790,9 @@ font_size = 100
 [node name="KeypadCamera" type="Camera3D" parent="." unique_id=32060921]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1370163, 0.0019608885)
 
+[node name="WireCamera" type="Camera3D" parent="." unique_id=100231680]
+transform = Transform3D(0.9069631, -0.011674078, 0.42104828, -0.42087626, -0.06490618, 0.90479296, 0.01676601, -0.99782306, -0.06378086, -0.27692178, 1.5503559, 0.30840084)
+
 [node name="LockLED" type="MeshInstance3D" parent="." unique_id=381016508]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.016702777, -0.439)
 mesh = SubResource("CapsuleMesh_lroa0")

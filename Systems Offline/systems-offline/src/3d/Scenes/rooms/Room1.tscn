@@ -88,7 +88,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(-0.7933543, -0.024383817, -0.6082718, 0, 0.9991975, -0.04005488, 0.6087603, -0.031777706, -0.7927176, -0.4776752, 0.021021843, 1.151516)
+transform = Transform3D(0.98555106, 0.040128466, -0.16455634, 0, 0.9715302, 0.2369159, 0.16937852, -0.23349272, 0.95749265, 1.0575309, 0.09976721, -4.6301975)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_sprint = false
@@ -160,7 +160,7 @@ item_data = ExtResource("10_5jc6v")
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
 
-[node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
+[node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "wire_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
 transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08, 1.9623103, 1.8871334, -7.854755)
 script = ExtResource("15_71ovv")
 screen_label = NodePath("Screen")
@@ -170,13 +170,14 @@ lock_led = NodePath("LockLED")
 correct_code = "1234"
 keypad_collision = NodePath("StaticBody3D/CollisionShape3D")
 connected_wire = NodePath("../../KeypadWire")
+wire_camera = NodePath("WireCamera")
 object_ref = NodePath(".")
 interaction_type = 3
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
-[node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="16" unique_id=1531809847 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
+[node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
 unlockable_type = 1
 keypad = NodePath("..")
