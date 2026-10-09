@@ -64,6 +64,7 @@ func interact() -> void:
 #func interact_inspect() -> void:
 	#object_ref.enter_inspect()
 
+
 func enter_inspect() -> void:
 	if is_interacting or is_transitioning:
 		return
@@ -73,10 +74,12 @@ func enter_inspect() -> void:
 	player.disable_controls()
 	player.visible = false
 
-	# Wait one frame before starting the camera transition
-	await get_tree().process_frame
+	# Hide mouse AFTER disabling controls
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
+	await get_tree().process_frame
 	await transition(player_camera, inspect_camera)
+
 
 func exit_inspect() -> void:
 	if not is_interacting or is_transitioning:
@@ -91,6 +94,22 @@ func exit_inspect() -> void:
 	await get_tree().process_frame
 	player.enable_controls()
 	
+	
+
+
+func get_interaction_message() -> String:
+	match inspect_type:
+		InspectType.CRATE:
+			if not open and not lid_animating:
+				return "Press [E] to move"
+			return "Press [E] to interact"
+
+		InspectType.POSTER:
+			return "Press [E] to interact"
+
+	return "Press [E] to interact"
+
+
 
 #endregion
 
@@ -141,6 +160,8 @@ func enter_crate() -> void:
 	if is_interacting or is_transitioning:
 		return
 
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+
 	await enter_inspect()
 
 
@@ -153,12 +174,7 @@ func exit_crate() -> void:
 
 	await exit_inspect()
 
-
-
-
-
-
-
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func open_crate() -> void:
 	if open or lid_animating:

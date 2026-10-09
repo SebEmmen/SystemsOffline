@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12174761, 1.1920929e-07)
 shape = SubResource("BoxShape3D_2tn2r")
 
 [node name="CrateCamera" type="Camera3D" parent="Crate base" unique_id=1477527282]
-transform = Transform3D(1.6666665, 0, 0, 0, -7.2852316e-08, 1.6666665, 0, -1.6666665, -7.2852316e-08, 0, 3.0798035, 0)
+transform = Transform3D(1.6666665, 0, 0, 0, -7.2852316e-08, 1.6666665, 0, -1.6666665, -7.2852316e-08, 0, 3.3836281, -1.32806015e-08)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=599382943]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.07381537, 0.037374347)
