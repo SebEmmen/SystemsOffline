@@ -72,7 +72,8 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if !locked:	
 		if body.is_in_group("player"): # or your player check
 			print("player detected!")
-			interact_door()
+			move_door(default_position, 0.4)
+			is_interacting = !is_interacting
 #endregion
 
 #region Cover Functions
