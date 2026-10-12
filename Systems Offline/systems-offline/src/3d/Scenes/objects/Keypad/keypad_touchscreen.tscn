@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://duxssoxa6vpet" path="res://src/3d/Sound/press(temp).mp3" id="2_1xmjy"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
+[ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="9_ex4j2"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
 [ext_resource type="PackedScene" uid="uid://b1155hq11wv2t" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
 [ext_resource type="PackedScene" uid="uid://ce1gd5bxddjgm" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
@@ -537,6 +538,12 @@ radius = 0.7
 height = 0.2
 radius = 0.7
 
+[sub_resource type="BoxMesh" id="BoxMesh_ief1d"]
+size = Vector3(0.90000004, 0.90000004, 0.060424805)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1da2m"]
+albedo_color = Color(1, 1, 0, 1)
+
 [node name="KeypadTouchscreen" type="Node3D" unique_id=720174509]
 
 [node name="Key enter" type="Node3D" parent="." unique_id=1130473175]
@@ -835,6 +842,20 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cover/StaticBody3D" unique_id=2110798669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05887139, 0)
 shape = SubResource("CylinderShape3D_r5iys")
+
+[node name="StickyNote" type="MeshInstance3D" parent="." unique_id=167511552]
+transform = Transform3D(-0.19696155, -0.034729656, 7.642742e-16, 1.5180807e-09, -8.6094625e-09, -0.2, 0.034729656, -0.19696155, 8.742278e-09, 0.48777354, 0.079999976, -0.048529193)
+mesh = SubResource("BoxMesh_ief1d")
+surface_material_override/0 = SubResource("StandardMaterial3D_1da2m")
+
+[node name="Code" type="Label3D" parent="StickyNote" unique_id=1506476036]
+transform = Transform3D(-0.20894061, 5.5879354e-09, -1.8044375e-08, 4.8428774e-08, 0.1738921, -4.6566124e-09, 3.0500814e-08, -4.1909516e-09, -0.120000005, -0.01091504, 0.15186621, -0.044017375)
+text = "
+view
+door"
+font = ExtResource("9_ex4j2")
+font_size = 250
+line_spacing = 100.0
 
 [editable path="StaticBody3D/Keypad base"]
 [editable path="Cover/keypad cover left"]
