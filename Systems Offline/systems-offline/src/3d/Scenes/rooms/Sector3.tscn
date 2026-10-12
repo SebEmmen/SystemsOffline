@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://d2dmhjaka35s"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_proto"]
+[ext_resource type="Texture2D" uid="uid://bay85kwwcixt0" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="2_sky"]
+[ext_resource type="Material" uid="uid://cd2lrwfe8uw4o" path="res://src/3d/Materials/floor.tres" id="3_floor"]
+[ext_resource type="Material" uid="uid://dypb3bacuc1tx" path="res://src/3d/Materials/wall.tres" id="4_wall"]
+[ext_resource type="Material" uid="uid://do66boy6ynkpu" path="res://src/3d/Materials/metalicwall.tres" id="5_metal"]
+[ext_resource type="PackedScene" uid="uid://by2av6ruws1r5" path="res://src/3d/Scenes/objects/BasicCrate.tscn" id="6_crate"]
+[ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/OpenableCrate.tscn" id="7_opencrate"]
+[ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="8_shelves"]
+[ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="9_door"]
+[ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="10_stairs"]
+[ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="11_hud"]
+[ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="12_uimgr"]
+[ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="13_pause"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sec3"]
+panorama = ExtResource("2_sky")
+energy_multiplier = 0.25
+
+[sub_resource type="Sky" id="Sky_sec3"]
+sky_material = SubResource("PanoramaSkyMaterial_sec3")
+
+[sub_resource type="Environment" id="Environment_sec3"]
+background_mode = 2
+sky = SubResource("Sky_sec3")
+ambient_light_source = 3
+ambient_light_color = Color(0.12, 0.18, 0.28, 1)
+ambient_light_energy = 0.5
+glow_enabled = true
+glow_intensity = 0.8
+glow_bloom = 0.15
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = ExtResource("3_floor")
+size = Vector3(20, 0.4, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(20, 0.4, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_z"]
+material = ExtResource("4_wall")
+size = Vector3(20, 6, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_z"]
+size = Vector3(20, 6, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_x"]
+material = ExtResource("4_wall")
+size = Vector3(0.5, 6, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_x"]
+size = Vector3(0.5, 6, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_platform"]
+material = ExtResource("5_metal")
+size = Vector3(8, 0.4, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_platform"]
+size = Vector3(8, 0.4, 6)
+
+[node name="Sector3" type="Node3D" unique_id=572017537]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=500130418]
+environment = SubResource("Environment_sec3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=910461733]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0.353553, -0.883883, -0.306186, 0.353553, -0.176777, 0.918559, 0, 8, 0)
+light_color = Color(1, 0.85, 0.7, 1)
+light_energy = 0.9
+shadow_enabled = true
+
+[node name="Lighting" type="Node3D" parent="." unique_id=1662945708]
+
+[node name="LightAmber" type="OmniLight3D" parent="Lighting" unique_id=471849988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -4)
+light_color = Color(1, 0.5, 0.1, 1)
+light_energy = 2.0
+omni_range = 10.0
+
+[node name="LightBlue" type="OmniLight3D" parent="Lighting" unique_id=825697593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.5, 3)
+light_color = Color(0.1, 0.7, 1, 1)
+light_energy = 1.8
+omni_range = 8.0
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1669207050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=795471975]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=968254013]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="Walls" type="Node3D" parent="." unique_id=1454791147]
+
+[node name="WallNorth" type="StaticBody3D" parent="Walls" unique_id=1690493761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallNorth" unique_id=897516912]
+mesh = SubResource("BoxMesh_wall_z")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallNorth" unique_id=279189296]
+shape = SubResource("BoxShape3D_wall_z")
+
+[node name="WallSouth" type="StaticBody3D" parent="Walls" unique_id=1610089564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallSouth" unique_id=142476579]
+mesh = SubResource("BoxMesh_wall_z")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallSouth" unique_id=824558607]
+shape = SubResource("BoxShape3D_wall_z")
+
+[node name="WallWest" type="StaticBody3D" parent="Walls" unique_id=578132227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallWest" unique_id=413868430]
+mesh = SubResource("BoxMesh_wall_x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallWest" unique_id=1427018620]
+shape = SubResource("BoxShape3D_wall_x")
+
+[node name="WallEast" type="StaticBody3D" parent="Walls" unique_id=1503426541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WallEast" unique_id=1344781246]
+mesh = SubResource("BoxMesh_wall_x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEast" unique_id=1379398970]
+shape = SubResource("BoxShape3D_wall_x")
+
+[node name="Platform" type="StaticBody3D" parent="." unique_id=1441092033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2.5, -6.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform" unique_id=2095806241]
+mesh = SubResource("BoxMesh_platform")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform" unique_id=831504085]
+shape = SubResource("BoxShape3D_platform")
+
+[node name="Stairs" parent="." unique_id=1483383648 instance=ExtResource("10_stairs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.5, 0, -2.5)
+size = Vector3(2.5, 2.5, 3)
+num_stairs = 8
+
+[node name="SlidingDoor" parent="." unique_id=2097960243 instance=ExtResource("9_door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.8)
+
+[node name="StorageShelves" parent="." unique_id=1711148085 instance=ExtResource("8_shelves")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.5, 2.5, 2)
+
+[node name="Crates" type="Node3D" parent="." unique_id=269997022]
+
+[node name="Crate1" parent="Crates" unique_id=2146169714 instance=ExtResource("6_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="Crate2" parent="Crates" unique_id=250258867 instance=ExtResource("6_crate")]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 5.2, 1.05, -4.9)
+
+[node name="Crate3" parent="Crates" unique_id=1259067476 instance=ExtResource("7_opencrate")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 6.5, 0, -5.2)
+
+[node name="CratePlatform" parent="Crates" unique_id=591705592 instance=ExtResource("6_crate")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6, 2.7, -7)
+
+[node name="ProtoController" parent="." unique_id=1243404335 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_proto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4)
+camera = NodePath("Head/Camera3D")
+ray = NodePath("Head/Camera3D/RayCast3D")
+my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
+my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
+
+[node name="HUD" parent="." unique_id=849623580 instance=ExtResource("11_hud")]
+
+[node name="UI_Manger" type="CanvasLayer" parent="." unique_id=150961016 node_paths=PackedStringArray("player")]
+process_mode = 3
+script = ExtResource("12_uimgr")
+player = NodePath("../ProtoController")
+
+[node name="PauseMenu" parent="UI_Manger" unique_id=1016779511 instance=ExtResource("13_pause")]
