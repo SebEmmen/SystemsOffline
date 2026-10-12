@@ -430,6 +430,15 @@ shape = SubResource("BoxShape3D_r5iys")
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
+[node name="Metalsheet screen" parent="CommsRoom" unique_id=417279952 instance=ExtResource("36_3h5nh")]
+transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, -4.741794, 1.393858, -83.85)
+
+[node name="Deliverytubes2" parent="CommsRoom" unique_id=1943789028 instance=ExtResource("37_qbvi1")]
+transform = Transform3D(0.28189304, 0, -0.28378925, 0, 0.38700008, 0, 0.28378925, 0, 0.28189304, 11.932007, 0.5161519, -81.01618)
+
+[node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("40_3h5nh")]
+transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.167272, -0.032430887, -70.02869)
+
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
 [node name="Box5" parent="Whitebox" unique_id=1428870102 instance=ExtResource("15_2pe5o")]
@@ -462,12 +471,6 @@ transform = Transform3D(-4.371139e-09, 0, 2.9999998, 0, 4, 0, -0.1, 0, -1.311341
 [node name="Box18" parent="Whitebox" unique_id=154637311 instance=ExtResource("15_2pe5o")]
 transform = Transform3D(-4.371139e-09, 0, 2, 0, 3, 0, -0.1, 0, -8.742278e-08, 2.7310011, 3.0388937, -45.80861)
 
-[node name="Metalsheet screen" parent="Whitebox" unique_id=417279952 instance=ExtResource("36_3h5nh")]
-transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, -4.741794, 1.393858, -83.85)
-
-[node name="Deliverytubes2" parent="Whitebox" unique_id=1943789028 instance=ExtResource("37_qbvi1")]
-transform = Transform3D(0.28189304, 0, -0.28378925, 0, 0.38700008, 0, 0.28378925, 0, 0.28189304, 11.932007, 0.5161519, -81.01618)
-
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
 size = Vector3(6.574856, 4.7030334, 2.3808594)
@@ -486,9 +489,6 @@ interaction_type = 4
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
-
-[node name="Platform" parent="." unique_id=831807862 instance=ExtResource("40_3h5nh")]
-transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.167272, -0.032430887, -72.3516)
 
 [editable path="ProtoController"]
 [editable path="HUD"]
