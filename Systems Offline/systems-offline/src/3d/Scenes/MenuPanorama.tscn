@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://cx4m8q1wa2nbk"]
+
+[ext_resource type="Script" path="res://src/3d/Scripts/menu_panorama.gd" id="1_pano"]
+[ext_resource type="Texture2D" uid="uid://862kynlp8dih" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="2_sky"]
+[ext_resource type="Material" uid="uid://cd2lrwfe8uw4o" path="res://src/3d/Materials/floor.tres" id="3_floor"]
+[ext_resource type="Material" uid="uid://dypb3bacuc1tx" path="res://src/3d/Materials/wall.tres" id="4_wall"]
+[ext_resource type="Material" uid="uid://do66boy6ynkpu" path="res://src/3d/Materials/metalicwall.tres" id="5_metal"]
+[ext_resource type="Material" uid="uid://cat6kxhhytckm" path="res://src/3d/Materials/glass.tres" id="6_glass"]
+[ext_resource type="PackedScene" uid="uid://by2av6ruws1r5" path="res://src/3d/Scenes/objects/BasicCrate.tscn" id="7_crate"]
+[ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/OpenableCrate.tscn" id="8_opencrate"]
+[ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="9_shelves"]
+[ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="10_keypad"]
+[ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="11_door"]
+[ext_resource type="PackedScene" uid="uid://dqbkntvgsbpto" path="res://src/3d/Scenes/objects/Med_Poster.tscn" id="12_poster"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sky"]
+panorama = ExtResource("2_sky")
+energy_multiplier = 0.35
+
+[sub_resource type="Sky" id="Sky_pano"]
+sky_material = SubResource("PanoramaSkyMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_pano"]
+background_mode = 2
+sky = SubResource("Sky_pano")
+ambient_light_source = 3
+ambient_light_color = Color(0.18, 0.28, 0.42, 1)
+ambient_light_energy = 0.6
+glow_enabled = true
+glow_intensity = 0.6
+glow_bloom = 0.2
+glow_blend_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = ExtResource("3_floor")
+size = Vector3(18, 0.4, 18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_back"]
+material = ExtResource("4_wall")
+size = Vector3(18, 6, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_side"]
+material = ExtResource("4_wall")
+size = Vector3(0.5, 6, 18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_beam"]
+material = ExtResource("5_metal")
+size = Vector3(0.6, 6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ceiling_frame"]
+material = ExtResource("5_metal")
+size = Vector3(18, 0.5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_glass"]
+material = ExtResource("6_glass")
+size = Vector3(12, 4.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mote"]
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.3, 0.8, 1, 0.7)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mote"]
+material = SubResource("StandardMaterial3D_mote")
+radius = 0.025
+height = 0.05
+radial_segments = 6
+rings = 4
+
+[node name="MenuPanorama" type="Node3D"]
+script = ExtResource("1_pano")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pano")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.85, -0.45, 0.27, 0.52, -0.73, 0.44, 0, 0.52, 0.85, 0, 7, 8)
+light_color = Color(0.95, 0.92, 0.85, 1)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 2.2, 3.8)
+current = true
+fov = 68.0
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="EmergencyLight" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, -4.2)
+light_color = Color(1, 0.35, 0.08, 1)
+light_energy = 2.2
+omni_range = 9.0
+omni_attenuation = 1.2
+
+[node name="TerminalCyanGlow" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1.8, 0.2)
+light_color = Color(0, 0.85, 1, 1)
+light_energy = 2.5
+omni_range = 5.5
+omni_attenuation = 1.5
+
+[node name="StorageWarmFill" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2, 0.5)
+light_color = Color(0.4, 0.65, 1, 1)
+light_energy = 1.4
+omni_range = 7.0
+omni_attenuation = 1.3
+
+[node name="AtmosphereParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+amount = 45
+lifetime = 6.0
+mesh = SubResource("SphereMesh_mote")
+emission_shape = 3
+emission_box_extents = Vector3(6, 2.5, 6)
+gravity = Vector3(0, 0.04, 0)
+initial_velocity_min = 0.05
+initial_velocity_max = 0.15
+
+[node name="EnvironmentGeometry" type="Node3D" parent="."]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_floor")
+
+[node name="WallBack" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 8)
+mesh = SubResource("BoxMesh_wall_back")
+
+[node name="WallLeft" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 0)
+mesh = SubResource("BoxMesh_wall_side")
+
+[node name="WallRight" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 0)
+mesh = SubResource("BoxMesh_wall_side")
+
+[node name="PillarLeft" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, -6)
+mesh = SubResource("BoxMesh_beam")
+
+[node name="PillarRight" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -6)
+mesh = SubResource("BoxMesh_beam")
+
+[node name="PillarCenterL" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -6)
+mesh = SubResource("BoxMesh_beam")
+
+[node name="PillarCenterR" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -6)
+mesh = SubResource("BoxMesh_beam")
+
+[node name="CeilingHeader" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -6)
+mesh = SubResource("BoxMesh_ceiling_frame")
+
+[node name="GlassWindow" type="MeshInstance3D" parent="EnvironmentGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -6.1)
+mesh = SubResource("BoxMesh_glass")
+
+[node name="SlidingDoor" parent="EnvironmentGeometry" instance=ExtResource("11_door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.8)
+
+[node name="KeypadTouchscreen" parent="EnvironmentGeometry" instance=ExtResource("10_keypad")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -3.2, 0.5, 0.5)
+
+[node name="StorageShelves" parent="EnvironmentGeometry" instance=ExtResource("9_shelves")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.5, 2.5, 1)
+
+[node name="CrateStack" type="Node3D" parent="EnvironmentGeometry"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 4.2, 0, 0.5)
+
+[node name="Crate1" parent="EnvironmentGeometry/CrateStack" instance=ExtResource("7_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Crate2" parent="EnvironmentGeometry/CrateStack" instance=ExtResource("7_crate")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0.1, 1.05, 0.05)
+
+[node name="Crate3" parent="EnvironmentGeometry/CrateStack" instance=ExtResource("8_opencrate")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 1.4, 0, -0.2)
+
+[node name="MedPoster" parent="EnvironmentGeometry" instance=ExtResource("12_poster")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.7, 2.5, -2)

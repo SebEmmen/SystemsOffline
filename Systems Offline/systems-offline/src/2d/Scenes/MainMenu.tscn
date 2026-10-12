@@ -1,72 +1,1209 @@
 [gd_scene format=3 uid="uid://chlvd08rs0oyp"]
 
-[ext_resource type="Texture2D" uid="uid://cndwsywo37flp" path="res://src/2d/Assets/title.png" id="1_gfjyt"]
-[ext_resource type="Script" uid="uid://dlvnqlqxbsvvl" path="res://src/2d/Scripts/main_menu.gd" id="1_xncyh"]
-[ext_resource type="Texture2D" uid="uid://cci1awallims1" path="res://src/2d/Assets/label_continue.png" id="2_xncyh"]
-[ext_resource type="Texture2D" uid="uid://6icefxyaraev" path="res://src/2d/Assets/label_new_game.png" id="3_uvrhp"]
-[ext_resource type="Texture2D" uid="uid://c6d5oilxjej45" path="res://src/2d/Assets/label_options.png" id="4_6lldb"]
-[ext_resource type="Texture2D" uid="uid://dpipvqmvduqc2" path="res://src/2d/Assets/version.png" id="5_l4qvw"]
-[ext_resource type="Texture2D" uid="uid://6dq48vtorkvb" path="res://src/2d/Assets/characters.png" id="6_v6vvg"]
+[ext_resource type="Script" uid="uid://dlvnqlqxbsvvl" path="res://src/2d/Scripts/main_menu.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://cx4m8q1wa2nbk" path="res://src/3d/Scenes/MenuPanorama.tscn" id="2_panorama"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_title_font"]
+[ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="4_body_font"]
+[ext_resource type="FontFile" uid="uid://bu7d0fwnhl5n4" path="res://src/2d/Fonts/MatixType/MatrixType-Bold.ttf" id="5_bold_font"]
+[ext_resource type="Texture2D" uid="uid://cww6x5l2lihss" path="res://src/2d/Assets/kitefin_logo.svg" id="6_kitefin_logo"]
+[ext_resource type="Shader" uid="uid://dc0mvyi6enjk8" path="res://src/2d/Shaders/scanline.gdshader" id="7_scanline"]
+[ext_resource type="AudioStream" uid="uid://do73p80to2008" path="res://src/3d/Sound/press(temp).mp3" id="8_sound_hover"]
+[ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="9_sound_confirm"]
+[ext_resource type="AudioStream" uid="uid://bty5575j4ueu3" path="res://src/3d/Sound/door(open).mp3" id="10_sound_trans"]
 
-[node name="MainMenu" type="MarginContainer" unique_id=132281625]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_scan"]
+shader = ExtResource("7_scanline")
+shader_parameter/scanline_count = 500.0
+shader_parameter/scanline_intensity = 0.07
+shader_parameter/vignette_intensity = 0.45
+shader_parameter/vignette_opacity = 0.6
+shader_parameter/enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_terminal_box"]
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
+bg_color = Color(0.02, 0.04, 0.08, 0.78)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.55, 0.75, 0.35)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_norm"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.04, 0.07, 0.12, 0.8)
+border_width_left = 3
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.65, 0.85, 0.5)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 24.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.28, 0.45, 0.95)
+border_width_left = 5
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 26.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.06, 0.14, 0.24, 0.9)
+border_width_left = 5
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.95, 1, 0.95)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.03, 0.05, 0.08, 0.5)
+border_width_left = 3
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.25, 0.3, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel_cyber"]
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.03, 0.06, 0.11, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.8, 0.95, 0.65)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 12
+
+[node name="MainMenu" type="Control" unique_id=1595814778]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
-script = ExtResource("1_xncyh")
+script = ExtResource("1_script")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=363369787]
+[node name="MenuPanorama" parent="." unique_id=1525851741 instance=ExtResource("2_panorama")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2111557521]
+
+[node name="ScanlineOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1217431181]
+material = SubResource("ShaderMaterial_scan")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MainMenuRoot" type="Control" parent="CanvasLayer" unique_id=256610615]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="MarginContainer" parent="CanvasLayer/MainMenuRoot" unique_id=2095607336]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/MainMenuRoot/TopBar" unique_id=286744453]
 layout_mode = 2
-mouse_filter = 0
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1259029389]
+[node name="StudioBadge" type="HBoxContainer" parent="CanvasLayer/MainMenuRoot/TopBar/HBox" unique_id=1669234152]
 layout_mode = 2
+theme_override_constants/separation = 12
 
-[node name="Logo" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1551928342]
+[node name="KitefinLogo" type="TextureRect" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StudioBadge" unique_id=1207157868]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("1_gfjyt")
-stretch_mode = 3
+texture = ExtResource("6_kitefin_logo")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=601996637]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StudioBadge" unique_id=7202604]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Continue" type="TextureButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2133214390]
+[node name="KitefinName" type="Label" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StudioBadge/VBox" unique_id=972356744]
 layout_mode = 2
-texture_normal = ExtResource("2_xncyh")
-stretch_mode = 3
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 18
+text = "K I T E F I N"
 
-[node name="NewGame" type="TextureButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=832039471]
+[node name="StudioTag" type="Label" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StudioBadge/VBox" unique_id=317986032]
 layout_mode = 2
-texture_normal = ExtResource("3_uvrhp")
-stretch_mode = 3
+theme_override_colors/font_color = Color(0.5, 0.7, 0.85, 0.7)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 10
+text = "G A M E   S T U D I O S"
 
-[node name="Options" type="TextureButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1547403125]
-layout_mode = 2
-texture_normal = ExtResource("4_6lldb")
-stretch_mode = 3
-
-[node name="Version" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=920641733]
-layout_mode = 2
-texture = ExtResource("5_l4qvw")
-stretch_mode = 3
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" unique_id=1708038909]
+[node name="Spacer" type="Control" parent="CanvasLayer/MainMenuRoot/TopBar/HBox" unique_id=1498534007]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 0
 
-[node name="Characters" type="TextureRect" parent="HBoxContainer/CenterContainer" unique_id=157510815]
+[node name="StatusPill" type="PanelContainer" parent="CanvasLayer/MainMenuRoot/TopBar/HBox" unique_id=712431358]
 layout_mode = 2
-texture = ExtResource("6_v6vvg")
-stretch_mode = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_terminal_box")
 
-[connection signal="button_down" from="HBoxContainer/VBoxContainer/VBoxContainer/Continue" to="." method="_on_continue_button_down"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StatusPill" unique_id=1051286224]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="NetStatus" type="Label" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StatusPill/HBox" unique_id=228497868]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 0.8)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 12
+text = "NET: LOCALHOST [SECURE]"
+
+[node name="Dot" type="Label" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StatusPill/HBox" unique_id=518026823]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 12
+text = "●"
+
+[node name="SysOffline" type="Label" parent="CanvasLayer/MainMenuRoot/TopBar/HBox/StatusPill/HBox" unique_id=1118825855]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 12
+text = "SYSTEMS: OFFLINE"
+
+[node name="LeftContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot" unique_id=1961227346]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 90.0
+offset_right = 440.0
+offset_bottom = -40.0
+grow_vertical = 2
+theme_override_constants/separation = 22
+
+[node name="Header" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot/LeftContainer" unique_id=1251415750]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SubTitle" type="Label" parent="CanvasLayer/MainMenuRoot/LeftContainer/Header" unique_id=1906764683]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.85, 1, 0.85)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 13
+text = "KITEFIN STUDIOS PRESENTS"
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/MainMenuRoot/LeftContainer/Header" unique_id=268443878]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.3, 0.5, 0.7)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_title_font")
+theme_override_font_sizes/font_size = 46
+text = "SYSTEMS OFFLINE"
+
+[node name="HBoxStatus" type="HBoxContainer" parent="CanvasLayer/MainMenuRoot/LeftContainer/Header" unique_id=1675307918]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OfflineTag" type="Label" parent="CanvasLayer/MainMenuRoot/LeftContainer/Header" unique_id=1490835105]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.15, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 12
+text = "[!] CORE OVERRIDE ENGAGED • FACILITY IN LOCKDOWN"
+
+[node name="MenuButtons" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot/LeftContainer" unique_id=320755025]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=1388555362]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "CONTINUE MISSION"
+alignment = 0
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=1215479091]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "NEW GAME"
+alignment = 0
+
+[node name="LevelSelectButton" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=1686980509]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "SECTOR SELECT"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=1434176809]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "SETTINGS"
+alignment = 0
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=1193004957]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "CREDITS"
+alignment = 0
+
+[node name="Separator" type="HSeparator" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=2098336066]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PanoramaButton" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=1157406086]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.95, 0.85, 0.9)
+theme_override_colors/font_hover_color = Color(0, 1, 0.85, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "EXPLORE 3D PANORAMA"
+alignment = 0
+
+[node name="ViewToggleBtn" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=1717313412]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.65, 0.8, 0.95, 0.85)
+theme_override_colors/font_hover_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "VIEW: OBSERVATION DECK"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons" unique_id=655106207]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.85, 0.7, 0.7, 0.9)
+theme_override_colors/font_hover_color = Color(1, 0.4, 0.3, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "TERMINATE SESSION"
+alignment = 0
+
+[node name="Footer" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot/LeftContainer" unique_id=681043274]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Copyright" type="Label" parent="CanvasLayer/MainMenuRoot/LeftContainer/Footer" unique_id=1853509808]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.6, 0.75, 0.7)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "© 2026 KITEFIN • ALL SYSTEMS REGISTERED"
+
+[node name="Version" type="Label" parent="CanvasLayer/MainMenuRoot/LeftContainer/Footer" unique_id=788927076]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.45, 0.6, 0.6)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 10
+text = "BUILD 1.0.4-FORWARD+ • ENGINE 4.7.2"
+
+[node name="RightTelemetry" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot" unique_id=634601890]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = 100.0
+offset_right = -48.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="StatusCard" type="PanelContainer" parent="CanvasLayer/MainMenuRoot/RightTelemetry" unique_id=1078362539]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_terminal_box")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot/RightTelemetry/StatusCard" unique_id=1165677096]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="Label" parent="CanvasLayer/MainMenuRoot/RightTelemetry/StatusCard/VBox" unique_id=69059419]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 13
+text = "// FACILITY TELEMETRY"
+
+[node name="Line1" type="Label" parent="CanvasLayer/MainMenuRoot/RightTelemetry/StatusCard/VBox" unique_id=1642357819]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 0.95, 0.8)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "LOCATION: DEEP SECTOR 01"
+
+[node name="Line2" type="Label" parent="CanvasLayer/MainMenuRoot/RightTelemetry/StatusCard/VBox" unique_id=444221482]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 0.95, 0.8)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "ATMOSPHERE: 98.4 kPa (STABLE)"
+
+[node name="Line3" type="Label" parent="CanvasLayer/MainMenuRoot/RightTelemetry/StatusCard/VBox" unique_id=1711190247]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 0.95, 0.8)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "GRAV-GRID: INVERT CAPABLE"
+
+[node name="Line4" type="Label" parent="CanvasLayer/MainMenuRoot/RightTelemetry/StatusCard/VBox" unique_id=1482086642]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45, 0.15, 0.9)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "SECURITY: PROTOCOL KITEFIN-Ω"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/MainMenuRoot/RightTelemetry" unique_id=382986778]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HintsCard" type="PanelContainer" parent="CanvasLayer/MainMenuRoot/RightTelemetry" unique_id=1362925017]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_terminal_box")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MainMenuRoot/RightTelemetry/HintsCard" unique_id=12321694]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HintTitle" type="Label" parent="CanvasLayer/MainMenuRoot/RightTelemetry/HintsCard/VBox" unique_id=8182149]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.85, 1, 0.9)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 12
+text = "// MISSION DIRECTIVE"
+
+[node name="HintBody" type="Label" parent="CanvasLayer/MainMenuRoot/RightTelemetry/HintsCard/VBox" unique_id=1729057411]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.8, 0.9, 0.75)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "Investigate terminal anomalies. Restore core subsystems. Use [E] to inspect key artifacts."
+autowrap_mode = 2
+
+[node name="PanoramaHUD" type="Control" parent="CanvasLayer" unique_id=1321744709]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HintLabel" type="Label" parent="CanvasLayer/PanoramaHUD" unique_id=937583916]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -60.0
+offset_right = 250.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.9, 1, 0.9)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 14
+text = "[ MOUSE LOOK TO EXPLORE • CLICK OR PRESS ESC TO RETURN ]"
+horizontal_alignment = 1
+
+[node name="Modals" type="Control" parent="CanvasLayer" unique_id=879601271]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="OptionsModal" type="Control" parent="CanvasLayer/Modals" unique_id=394829560]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="CanvasLayer/Modals/OptionsModal" unique_id=2133577128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.02, 0.05, 0.75)
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Modals/OptionsModal" unique_id=1812537840]
+custom_minimum_size = Vector2(640, 480)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_cyber")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Modals/OptionsModal/Panel" unique_id=1040096716]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox" unique_id=384660329]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/Header" unique_id=1443072992]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 20
+text = "// SYSTEM SETTINGS"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/Header" unique_id=1298505850]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseBtn" type="Button" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/Header" unique_id=606700262]
+custom_minimum_size = Vector2(34, 30)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "✕"
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox" unique_id=1355829935]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 14
+current_tab = 0
+
+[node name="Audio" type="MarginContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer" unique_id=122514550]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 0
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio" unique_id=104737587]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 18
+columns = 3
+
+[node name="MasterLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=1709161516]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=749168570]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.85
+
+[node name="MasterVal" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=1263957820]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "85%"
+
+[node name="MusicLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=1536104452]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=1823186137]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.75
+
+[node name="MusicVal" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=410560664]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "75%"
+
+[node name="SFXLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=184158775]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Sound Effects"
+
+[node name="SFXSlider" type="HSlider" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=1681364003]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.9
+
+[node name="SFXVal" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Audio/Grid" unique_id=1709749998]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "90%"
+
+[node name="Display" type="MarginContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer" unique_id=608843420]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 1
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display" unique_id=1365933119]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="WindowLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=715732550]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Window Mode"
+
+[node name="WindowModeBtn" type="OptionButton" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=2028662509]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_body_font")
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Exclusive"
+popup/item_2/id = 2
+
+[node name="VSyncLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=419025404]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "V-Sync (Vertical Sync)"
+
+[node name="VSyncCheck" type="CheckBox" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=1697660124]
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Enabled"
+
+[node name="ScanlineLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=712044020]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "CRT Scanline Filter"
+
+[node name="ScanlineCheck" type="CheckBox" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=1909027235]
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Enabled"
+
+[node name="GlowLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=86151796]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Bloom & Glow Effects"
+
+[node name="GlowCheck" type="CheckBox" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=1626825242]
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Enabled"
+
+[node name="Controls" type="MarginContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer" unique_id=366308966]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 2
+
+[node name="VBoxControls" type="VBoxContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls" unique_id=130429396]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls" unique_id=1460371547]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 14
+columns = 3
+
+[node name="SensLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=438733735]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Look Sensitivity"
+
+[node name="SensSlider" type="HSlider" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=1706707426]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.2
+max_value = 3.0
+step = 0.1
+value = 1.0
+
+[node name="SensVal" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=179215283]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "1.0x"
+
+[node name="InvertLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=631331948]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Invert Pitch (Y-Axis)"
+
+[node name="InvertYCheck" type="CheckBox" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=368661931]
+layout_mode = 2
+focus_mode = 0
+text = "Disabled"
+
+[node name="Empty" type="Control" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=125166925]
+layout_mode = 2
+
+[node name="FOVLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=1315790721]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Field Of View"
+
+[node name="FOVSlider" type="HSlider" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=1521462079]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 60.0
+max_value = 110.0
+value = 75.0
+
+[node name="FOVVal" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=594764772]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "75°"
+
+[node name="KeybindsHeader" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls" unique_id=63713806]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 0.9)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 12
+text = "// CONTROL MAPPINGS"
+
+[node name="Keybinds" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls" unique_id=1344706587]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.85, 0.95, 0.8)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 12
+text = "[W, A, S, D] Move  •  [SHIFT] Sprint  •  [E] Interact / View  •  [Q] Gravity Invert  •  [TAB] Inventory  •  [ESC] Pause"
+
+[node name="Footer" type="HBoxContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox" unique_id=59116123]
+layout_mode = 2
+alignment = 2
+
+[node name="SaveSettingsBtn" type="Button" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/Footer" unique_id=1127718996]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "APPLY & SAVE SETTINGS"
+
+[node name="CreditsModal" type="Control" parent="CanvasLayer/Modals" unique_id=1484783303]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="CanvasLayer/Modals/CreditsModal" unique_id=1056031170]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.02, 0.05, 0.75)
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Modals/CreditsModal" unique_id=2116902978]
+custom_minimum_size = Vector2(580, 480)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -240.0
+offset_right = 290.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_cyber")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Modals/CreditsModal/Panel" unique_id=732101984]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox" unique_id=624679377]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Header" unique_id=471364570]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 20
+text = "// CREATIVE CREDITS"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Header" unique_id=1289682638]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseBtn" type="Button" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Header" unique_id=1330400043]
+custom_minimum_size = Vector2(34, 30)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "✕"
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox" unique_id=1346426757]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="LogoHBox" type="HBoxContainer" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Content" unique_id=2079432646]
+layout_mode = 2
+alignment = 1
+
+[node name="CreditsLogo" type="TextureRect" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Content/LogoHBox" unique_id=1112926327]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("6_kitefin_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StudioTitle" type="Label" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Content" unique_id=609361569]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 24
+text = "K I T E F I N"
+horizontal_alignment = 1
+
+[node name="StudioSub" type="Label" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Content" unique_id=265605841]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.8, 0.95, 0.85)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 12
+text = "GAME DEVELOPMENT & DESIGN TEAM"
+horizontal_alignment = 1
+
+[node name="Sep" type="HSeparator" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Content" unique_id=262177514]
+layout_mode = 2
+
+[node name="Roles" type="Label" parent="CanvasLayer/Modals/CreditsModal/Panel/VBox/Content" unique_id=1134849869]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 0.95)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 13
+text = "CREATED & DIRECTED BY
+Kitefin Studios
+
+GAME DESIGN & PROGRAMMING
+Kitefin Team
+
+3D ENVIRONMENT & LIGHTING
+Kitefin Art & World Design
+
+SOUND EFFECTS & AUDIO DIRECTION
+Systems Offline Audio Lab
+
+POWERED BY
+Godot Engine 4 • Jolt Physics • Forward+"
+horizontal_alignment = 1
+
+[node name="LevelSelectModal" type="Control" parent="CanvasLayer/Modals" unique_id=992707561]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="CanvasLayer/Modals/LevelSelectModal" unique_id=1769165051]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.02, 0.05, 0.75)
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Modals/LevelSelectModal" unique_id=86569864]
+custom_minimum_size = Vector2(580, 360)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -180.0
+offset_right = 290.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_cyber")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Modals/LevelSelectModal/Panel" unique_id=1046313307]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox" unique_id=512833974]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Header" unique_id=1720002409]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 20
+text = "// SECTOR SELECTION"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Header" unique_id=457236486]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseBtn" type="Button" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Header" unique_id=1321596228]
+custom_minimum_size = Vector2(34, 30)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "✕"
+
+[node name="Grid" type="VBoxContainer" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox" unique_id=391560092]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="Level1" type="PanelContainer" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid" unique_id=250518978]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_terminal_box")
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid/Level1" unique_id=1625868812]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid/Level1/HBox" unique_id=262966775]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid/Level1/HBox/VBox" unique_id=1371184438]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 14
+text = "SECTOR 01: FACILITY TUTORIAL"
+
+[node name="Desc" type="Label" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid/Level1/HBox/VBox" unique_id=1299241650]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.8, 0.9, 0.75)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "Primary containment & puzzle testing grounds. Gravity terminals and keypads."
+
+[node name="LaunchBtn" type="Button" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid/Level1/HBox" unique_id=1087845102]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "ENTER SECTOR"
+
+[node name="Level2" type="PanelContainer" parent="CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid" unique_id=522514210]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_terminal_box")
+
+[node name="ConfirmModal" type="Control" parent="CanvasLayer/Modals" unique_id=306688370]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="CanvasLayer/Modals/ConfirmModal" unique_id=29337679]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.02, 0.05, 0.75)
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Modals/ConfirmModal" unique_id=1736353783]
+custom_minimum_size = Vector2(480, 220)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -110.0
+offset_right = 240.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_cyber")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Modals/ConfirmModal/Panel" unique_id=2102530558]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/Modals/ConfirmModal/Panel/VBox" unique_id=293256845]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.15, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 18
+text = "// SECURITY CONFIRMATION"
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer/Modals/ConfirmModal/Panel/VBox" unique_id=957417252]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 0.9)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 13
+text = "Are you sure you want to proceed?"
+autowrap_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Modals/ConfirmModal/Panel/VBox" unique_id=2050570865]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="CancelButton" type="Button" parent="CanvasLayer/Modals/ConfirmModal/Panel/VBox/HBox" unique_id=1786837324]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "ABORT"
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/Modals/ConfirmModal/Panel/VBox/HBox" unique_id=796457577]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.45, 0.3, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "CONFIRM"
+
+[node name="FadeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1009418716]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer_Modals_LevelSelectModal_Panel_VBox_Grid_Level2_HBox#HBox" type="HBoxContainer" parent="." unique_id=1841425657]
+visible = false
+layout_mode = 0
+theme_override_constants/separation = 14
+
+[node name="CanvasLayer_Modals_LevelSelectModal_Panel_VBox_Grid_Level2_HBox#VBox" type="VBoxContainer" parent="." unique_id=1913347007]
+visible = false
+layout_mode = 0
+size_flags_horizontal = 3
+
+[node name="CanvasLayer_Modals_LevelSelectModal_Panel_VBox_Grid_Level2_HBox_VBox#Name" type="Label" parent="." unique_id=887860334]
+visible = false
+layout_mode = 0
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_font_sizes/font_size = 14
+text = "SECTOR 02: EXTERIOR SURFACE"
+
+[node name="CanvasLayer_Modals_LevelSelectModal_Panel_VBox_Grid_Level2_HBox_VBox#Desc" type="Label" parent="." unique_id=762772630]
+visible = false
+layout_mode = 0
+theme_override_colors/font_color = Color(0.65, 0.8, 0.9, 0.75)
+theme_override_fonts/font = ExtResource("4_body_font")
+theme_override_font_sizes/font_size = 11
+text = "Atmospheric perimeter zone outside facility boundaries. Wide open exploration."
+
+[node name="CanvasLayer_Modals_LevelSelectModal_Panel_VBox_Grid_Level2_HBox#LaunchBtn" type="Button" parent="." unique_id=2070841054]
+visible = false
+layout_mode = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_bold_font")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_norm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "ENTER SECTOR"
+
+[node name="Audio" type="Node" parent="." unique_id=1497052085]
+
+[node name="SoundHover" type="AudioStreamPlayer" parent="Audio" unique_id=254966905]
+stream = ExtResource("8_sound_hover")
+volume_db = -12.0
+
+[node name="SoundClick" type="AudioStreamPlayer" parent="Audio" unique_id=1290765384]
+stream = ExtResource("8_sound_hover")
+volume_db = -6.0
+pitch_scale = 1.2
+
+[node name="SoundConfirm" type="AudioStreamPlayer" parent="Audio" unique_id=905089702]
+stream = ExtResource("9_sound_confirm")
+volume_db = -8.0
+
+[node name="SoundTransition" type="AudioStreamPlayer" parent="Audio" unique_id=703827836]
+stream = ExtResource("10_sound_trans")
+volume_db = -10.0
