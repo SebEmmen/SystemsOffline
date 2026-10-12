@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dqbkntvgsbpto" path="res://src/3d/Scenes/objects/Med_Poster.tscn" id="9_t4i55"]
 [ext_resource type="Resource" uid="uid://bdg4enig48wpp" path="res://src/3d/Resources/Ball.tres" id="10_5jc6v"]
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
-[ext_resource type="PackedScene" uid="uid://d3iwxakbt43un" path="res://src/3d/Scenes/objects/Whitebox/Cuboid.tscn" id="12_cj18i"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="13_j4nu1"]
 [ext_resource type="PackedScene" uid="uid://mcgtnsxl7lum" path="res://src/3d/Scenes/objects/Whitebox/Box.tscn" id="15_2pe5o"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
@@ -37,7 +36,9 @@
 [ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
+[ext_resource type="PackedScene" uid="uid://blw1ta8kvctb4" path="res://src/3d/Assets/Comm room/Typewriter screen/Metalsheet screen.glb" id="36_3h5nh"]
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
+[ext_resource type="PackedScene" uid="uid://c6hchusj5r2yl" path="res://src/3d/Assets/Comm room/Delivery tubes/Deliverytubes2.blend" id="37_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cvapm0oewmig5" path="res://src/3d/Scenes/objects/platform_comms.tscn" id="40_3h5nh"]
 
@@ -440,14 +441,8 @@ transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 5, 13.739553, 0.5050001, -54.989
 [node name="Box7" parent="Whitebox" unique_id=485549418 instance=ExtResource("15_2pe5o")]
 transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 3, 12.827923, 0.50500107, -67.015785)
 
-[node name="Box8" parent="Whitebox" unique_id=864602934 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 13.955592, 0.50499916, -75.09101)
-
 [node name="Box9" parent="Whitebox" unique_id=45700328 instance=ExtResource("15_2pe5o")]
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 2, 15.476952, 2.3248615, -52.648224)
-
-[node name="Box10" parent="Whitebox" unique_id=1508609223 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5.8933234, 1.0800805, -83.55349)
 
 [node name="Box11" parent="Whitebox" unique_id=1499086826 instance=ExtResource("15_2pe5o")]
 transform = Transform3D(1.9537215, 0, 0.42775226, 0, 2, 0, -0.42775226, 0, 1.9537215, 9.257082, 0.7476921, -50.374348)
@@ -467,14 +462,11 @@ transform = Transform3D(-4.371139e-09, 0, 2.9999998, 0, 4, 0, -0.1, 0, -1.311341
 [node name="Box18" parent="Whitebox" unique_id=154637311 instance=ExtResource("15_2pe5o")]
 transform = Transform3D(-4.371139e-09, 0, 2, 0, 3, 0, -0.1, 0, -8.742278e-08, 2.7310011, 3.0388937, -45.80861)
 
-[node name="Cuboid" parent="Whitebox" unique_id=1579249817 instance=ExtResource("12_cj18i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -81.643)
+[node name="Metalsheet screen" parent="Whitebox" unique_id=417279952 instance=ExtResource("36_3h5nh")]
+transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, -4.741794, 1.393858, -83.85)
 
-[node name="Cuboid" parent="Whitebox/Cuboid" unique_id=658524308 instance=ExtResource("12_cj18i")]
-transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, 13.4047365, 0, 2.2569962)
-
-[node name="Cuboid2" parent="Whitebox" unique_id=1802899301 instance=ExtResource("12_cj18i")]
-transform = Transform3D(-1.13649605e-07, 0, -0.8, 0, 0.5, 0, 2.6, 0, -3.4969112e-08, 14, -0.6613953, -62)
+[node name="Deliverytubes2" parent="Whitebox" unique_id=1943789028 instance=ExtResource("37_qbvi1")]
+transform = Transform3D(0.28189304, 0, -0.28378925, 0, 0.38700008, 0, 0.28378925, 0, 0.28189304, 11.932007, 0.5161519, -81.01618)
 
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
