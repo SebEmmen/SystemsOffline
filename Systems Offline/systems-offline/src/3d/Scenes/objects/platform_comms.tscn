@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cvapm0oewmig5"]
+
+[ext_resource type="PackedScene" uid="uid://bs0y7e3o0ohx0" path="res://src/3d/Assets/Comm room/Platform_comms/Platform comms.blend" id="1_4kvxa"]
+
+[node name="Platform" unique_id=831807862 instance=ExtResource("1_4kvxa")]
