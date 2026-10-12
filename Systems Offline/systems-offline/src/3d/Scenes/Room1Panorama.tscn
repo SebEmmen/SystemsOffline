@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cx4m8q1wa2nbk"]
+
+[ext_resource type="Script" path="res://src/3d/Scripts/room1_panorama.gd" id="1_script"]
+
+[node name="Room1Panorama" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.992546, 0.121869, 0, -0.121869, 0.992546, -0.5, 2.4, 3.2)
+current = true
+fov = 72.0

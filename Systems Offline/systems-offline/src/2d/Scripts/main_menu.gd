@@ -2,37 +2,25 @@ extends Control
 
 ## Main Menu Controller for Systems Offline
 ## Developed by Kitefin Studios
-## Features full audio, graphics, and controls configuration,
-## level selection, save loading, and interactive 3D panorama controls.
+## Features clean minimalist layout, 3D Room1 panoramic view,
+## and complete audio/display/controls settings.
 
 # Node References
-@onready var panorama: Node3D = $MenuPanorama
-@onready var ui_canvas: CanvasLayer = $CanvasLayer
-@onready var main_menu_panel: Control = $CanvasLayer/MainMenuRoot
-@onready var title_label: Label = $CanvasLayer/MainMenuRoot/LeftContainer/Header/GameTitle
-@onready var offline_tag: Label = $CanvasLayer/MainMenuRoot/LeftContainer/Header/OfflineTag
-
-# Navigation Buttons
-@onready var continue_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/ContinueButton
-@onready var new_game_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/NewGameButton
-@onready var level_select_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/LevelSelectButton
-@onready var options_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/OptionsButton
-@onready var credits_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/CreditsButton
-@onready var panorama_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/PanoramaButton
-@onready var view_toggle_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/ViewToggleBtn
-@onready var quit_btn: Button = $CanvasLayer/MainMenuRoot/LeftContainer/MenuButtons/QuitButton
+@onready var panorama: Node3D = $Room1Panorama
+@onready var continue_btn: Button = $CanvasLayer/MainMenuRoot/LeftLayout/Buttons/ContinueButton
+@onready var new_game_btn: Button = $CanvasLayer/MainMenuRoot/LeftLayout/Buttons/NewGameButton
+@onready var sectors_btn: Button = $CanvasLayer/MainMenuRoot/LeftLayout/Buttons/SectorsButton
+@onready var settings_btn: Button = $CanvasLayer/MainMenuRoot/LeftLayout/Buttons/SettingsButton
+@onready var quit_btn: Button = $CanvasLayer/MainMenuRoot/LeftLayout/Buttons/QuitButton
+#@onready var credits_link_btn: Button = $CanvasLayer/MainMenuRoot/BottomBar/CreditsBtn
 
 # Modals
 @onready var options_modal: Control = $CanvasLayer/Modals/OptionsModal
 @onready var credits_modal: Control = $CanvasLayer/Modals/CreditsModal
-@onready var level_modal: Control = $CanvasLayer/Modals/LevelSelectModal
+@onready var sector_modal: Control = $CanvasLayer/Modals/SectorSelectModal
 @onready var confirm_modal: Control = $CanvasLayer/Modals/ConfirmModal
 @onready var confirm_message: Label = $CanvasLayer/Modals/ConfirmModal/Panel/VBox/MessageLabel
 @onready var confirm_ok_btn: Button = $CanvasLayer/Modals/ConfirmModal/Panel/VBox/HBox/ConfirmButton
-
-# Panoramic View HUD
-@onready var panorama_hud: Control = $CanvasLayer/PanoramaHUD
-@onready var panorama_hud_label: Label = $CanvasLayer/PanoramaHUD/HintLabel
 
 # Audio Players
 @onready var sound_hover: AudioStreamPlayer = $Audio/SoundHover
@@ -54,103 +42,70 @@ extends Control
 @onready var window_mode_btn: OptionButton = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/WindowModeBtn
 @onready var vsync_check: CheckBox = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/VSyncCheck
 @onready var scanline_check: CheckBox = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/ScanlineCheck
-@onready var glow_check: CheckBox = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/GlowCheck
-@onready var sens_val_label: Label = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid/SensVal
-@onready var sens_slider: HSlider = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid/SensSlider
-@onready var invert_y_check: CheckBox = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid/InvertYCheck
-@onready var fov_slider: HSlider = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid/FOVSlider
-@onready var fov_val_label: Label = $CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid/FOVVal
 
 # State
 enum ConfirmAction { NONE, NEW_GAME_OVERWRITE, QUIT_GAME }
 var pending_confirm_action: ConfirmAction = ConfirmAction.NONE
-var is_in_panorama_mode: bool = false
 var is_loading_scene: bool = false
 var blink_timer: float = 0.0
 
 const SETTINGS_FILE = "user://settings.json"
 
 func _ready() -> void:
-	# Ensure mouse is visible and released
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	# Initial UI state
 	_update_save_state()
 	_load_settings()
 	_setup_connections()
 	_play_fade_in()
-	
-	# Update viewpoint label
-	if panorama and view_toggle_btn:
-		view_toggle_btn.text = "VIEW: %s" % panorama.get_current_view_name().to_upper()
 
 func _process(delta: float) -> void:
-	# Blink offline status indicator
 	blink_timer += delta
-	if offline_tag:
+	var dot = $CanvasLayer/MainMenuRoot/LeftLayout/Header/StatusHBox/StatusDot as Label
+	if dot:
 		var alpha = (sin(blink_timer * 3.5) + 1.0) * 0.5
-		offline_tag.modulate = Color(1.0, 0.35, 0.15, lerp(0.4, 1.0, alpha))
+		dot.modulate = Color(1.0, 0.4, 0.1, lerp(0.35, 1.0, alpha))
 
 func _input(event: InputEvent) -> void:
 	if is_loading_scene:
 		return
 
-	# Handle mouse motion for panorama parallax & free look
+	# Handle mouse motion for 3D parallax over Room1
 	if event is InputEventMouseMotion:
-		if is_in_panorama_mode:
+		var viewport_size = get_viewport_rect().size
+		if viewport_size.x > 0 and viewport_size.y > 0:
+			var center = viewport_size * 0.5
+			var normalized = (event.position - center) / center
 			if panorama:
-				panorama.handle_pan_input(event.relative)
-		else:
-			var viewport_size = get_viewport_rect().size
-			if viewport_size.x > 0 and viewport_size.y > 0:
-				var center = viewport_size * 0.5
-				var normalized = (event.position - center) / center
-				if panorama:
-					panorama.update_mouse_position(normalized)
+				panorama.update_mouse_position(normalized)
 
-	# Exit panorama mode on any key or mouse click
-	if is_in_panorama_mode:
-		if (event is InputEventMouseButton and event.pressed) or (event is InputEventKey and event.pressed):
-			_exit_panorama_mode()
-			get_viewport().set_input_as_handled()
-			return
-
-	# Escape key closes active modal
+	# Escape key closes any active modal
 	if event.is_action_pressed("ui_cancel"):
 		if _close_any_active_modal():
 			get_viewport().set_input_as_handled()
 
 func _setup_connections() -> void:
-	# Main buttons
 	continue_btn.pressed.connect(_on_continue_pressed)
 	new_game_btn.pressed.connect(_on_new_game_pressed)
-	level_select_btn.pressed.connect(_on_level_select_pressed)
-	options_btn.pressed.connect(_on_options_pressed)
-	credits_btn.pressed.connect(_on_credits_pressed)
-	panorama_btn.pressed.connect(_on_panorama_pressed)
-	view_toggle_btn.pressed.connect(_on_view_toggle_pressed)
+	sectors_btn.pressed.connect(_on_sectors_pressed)
+	settings_btn.pressed.connect(_on_settings_pressed)
 	quit_btn.pressed.connect(_on_quit_pressed)
+	#credits_link_btn.pressed.connect(_on_credits_pressed)
 
-	# Audio hover feedback on all buttons
 	_attach_sound_feedback(self)
 
-	# Modals close buttons
+	# Modal close buttons
 	$CanvasLayer/Modals/OptionsModal/Panel/VBox/Header/CloseBtn.pressed.connect(func(): _close_modal(options_modal))
 	$CanvasLayer/Modals/CreditsModal/Panel/VBox/Header/CloseBtn.pressed.connect(func(): _close_modal(credits_modal))
-	$CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Header/CloseBtn.pressed.connect(func(): _close_modal(level_modal))
+	$CanvasLayer/Modals/SectorSelectModal/Panel/VBox/Header/CloseBtn.pressed.connect(func(): _close_modal(sector_modal))
 	$CanvasLayer/Modals/ConfirmModal/Panel/VBox/HBox/CancelButton.pressed.connect(func(): _close_modal(confirm_modal))
 	confirm_ok_btn.pressed.connect(_on_confirm_ok_pressed)
 
-	# Level buttons
-	$CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid/Level1/HBox/LaunchBtn.pressed.connect(func(): _load_level("res://src/3d/Scenes/rooms/Room1.tscn"))
-	var level_2_btn := get_node_or_null(
-		"CanvasLayer/Modals/LevelSelectModal/Panel/VBox/Grid/Level2/HBox/LaunchBtn"
-	) as Button
+	# Sector launch buttons
+	$CanvasLayer/Modals/SectorSelectModal/Panel/VBox/Grid/Sector1/HBox/LaunchBtn.pressed.connect(func(): _load_level("res://src/3d/Scenes/rooms/Room1.tscn"))
+	#$CanvasLayer/Modals/SectorSelectModal/Panel/VBox/Grid/Sector2/LaunchBtn.pressed.connect(func(): _load_level("res://src/3d/Scenes/rooms/Forest.tscn"))
+	#$CanvasLayer/Modals/SectorSelectModal/Panel/VBox/Grid/Sector3/LaunchBtn.pressed.connect(func(): _load_level("res://src/3d/Scenes/rooms/Sector3.tscn"))
 
-	if level_2_btn:
-		level_2_btn.pressed.connect(
-			func(): _load_level("res://src/3d/Scenes/rooms/Forest.tscn")
-		)
 	# Settings controls
 	master_slider.value_changed.connect(_on_master_slider_changed)
 	music_slider.value_changed.connect(_on_music_slider_changed)
@@ -158,10 +113,9 @@ func _setup_connections() -> void:
 	window_mode_btn.item_selected.connect(_on_window_mode_selected)
 	vsync_check.toggled.connect(_on_vsync_toggled)
 	scanline_check.toggled.connect(_on_scanline_toggled)
-	glow_check.toggled.connect(_on_glow_toggled)
-	sens_slider.value_changed.connect(_on_sens_slider_changed)
-	invert_y_check.toggled.connect(_on_invert_y_toggled)
-	fov_slider.value_changed.connect(_on_fov_slider_changed)
+	#sens_slider.value_changed.connect(_on_sens_slider_changed)
+	#invert_y_check.toggled.connect(_on_invert_y_toggled)
+	#fov_slider.value_changed.connect(_on_fov_slider_changed)
 	$CanvasLayer/Modals/OptionsModal/Panel/VBox/Footer/SaveSettingsBtn.pressed.connect(_save_settings)
 
 func _attach_sound_feedback(node: Node) -> void:
@@ -191,11 +145,11 @@ func _update_save_state() -> void:
 	var has_save = SaveManager.has_save()
 	continue_btn.disabled = not has_save
 	if has_save:
-		continue_btn.tooltip_text = "Resume your saved progress in Systems Offline."
+		continue_btn.tooltip_text = "Resume saved progress in Systems Offline."
 		continue_btn.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	else:
-		continue_btn.tooltip_text = "No save data found. Start a new game to begin."
-		continue_btn.modulate = Color(0.65, 0.7, 0.75, 0.6)
+		continue_btn.tooltip_text = "No save data found."
+		continue_btn.modulate = Color(0.65, 0.7, 0.75, 0.5)
 
 # Button Handlers
 func _on_continue_pressed() -> void:
@@ -206,17 +160,17 @@ func _on_new_game_pressed() -> void:
 	_play_click_sound()
 	if SaveManager.has_save():
 		pending_confirm_action = ConfirmAction.NEW_GAME_OVERWRITE
-		confirm_message.text = "A saved mission already exists in memory.\nStarting a new game will overwrite your progress.\nAre you sure you want to proceed?"
+		confirm_message.text = "A saved mission already exists.\nStarting a new game will overwrite your save file.\nProceed?"
 		confirm_ok_btn.text = "START NEW GAME"
 		_open_modal(confirm_modal)
 	else:
 		_load_game_with_transition(func(): SaveManager.new_game())
 
-func _on_level_select_pressed() -> void:
+func _on_sectors_pressed() -> void:
 	_play_click_sound()
-	_open_modal(level_modal)
+	_open_modal(sector_modal)
 
-func _on_options_pressed() -> void:
+func _on_settings_pressed() -> void:
 	_play_click_sound()
 	_open_modal(options_modal)
 
@@ -224,20 +178,10 @@ func _on_credits_pressed() -> void:
 	_play_click_sound()
 	_open_modal(credits_modal)
 
-func _on_panorama_pressed() -> void:
-	_play_click_sound()
-	_enter_panorama_mode()
-
-func _on_view_toggle_pressed() -> void:
-	_play_click_sound()
-	if panorama:
-		var view_name = panorama.next_viewpoint()
-		view_toggle_btn.text = "VIEW: %s" % view_name.to_upper()
-
 func _on_quit_pressed() -> void:
 	_play_click_sound()
 	pending_confirm_action = ConfirmAction.QUIT_GAME
-	confirm_message.text = "Are you sure you want to terminate the terminal session and exit Systems Offline?"
+	confirm_message.text = "Are you sure you want to terminate session and exit Systems Offline?"
 	confirm_ok_btn.text = "EXIT GAME"
 	_open_modal(confirm_modal)
 
@@ -252,32 +196,15 @@ func _on_confirm_ok_pressed() -> void:
 	pending_confirm_action = ConfirmAction.NONE
 
 func _load_level(scene_path: String) -> void:
-	_close_modal(level_modal)
+	_close_modal(sector_modal)
 	_load_game_with_transition(func(): get_tree().change_scene_to_file(scene_path))
-
-# Panorama Mode
-func _enter_panorama_mode() -> void:
-	is_in_panorama_mode = true
-	main_menu_panel.visible = false
-	panorama_hud.visible = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	if panorama:
-		panorama.set_panoramic_mode(true)
-
-func _exit_panorama_mode() -> void:
-	is_in_panorama_mode = false
-	main_menu_panel.visible = true
-	panorama_hud.visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	if panorama:
-		panorama.set_panoramic_mode(false)
 
 # Modals
 func _open_modal(modal: Control) -> void:
 	_play_transition_sound()
 	options_modal.visible = false
 	credits_modal.visible = false
-	level_modal.visible = false
+	sector_modal.visible = false
 	confirm_modal.visible = false
 	modal.visible = true
 
@@ -292,8 +219,8 @@ func _close_any_active_modal() -> bool:
 	if credits_modal.visible:
 		_close_modal(credits_modal)
 		return true
-	if level_modal.visible:
-		_close_modal(level_modal)
+	if sector_modal.visible:
+		_close_modal(sector_modal)
 		return true
 	if confirm_modal.visible:
 		_close_modal(confirm_modal)
@@ -306,7 +233,7 @@ func _play_fade_in() -> void:
 		fade_rect.visible = true
 		fade_rect.modulate = Color(1, 1, 1, 1)
 		var tween = create_tween()
-		tween.tween_property(fade_rect, "modulate:a", 0.0, 0.6)
+		tween.tween_property(fade_rect, "modulate:a", 0.0, 0.5)
 		tween.tween_callback(func(): fade_rect.visible = false)
 
 func _load_game_with_transition(load_action: Callable) -> void:
@@ -314,11 +241,10 @@ func _load_game_with_transition(load_action: Callable) -> void:
 		return
 	is_loading_scene = true
 	_play_transition_sound()
-	
 	if fade_rect:
 		fade_rect.visible = true
 		var tween = create_tween()
-		tween.tween_property(fade_rect, "modulate:a", 1.0, 0.5)
+		tween.tween_property(fade_rect, "modulate:a", 1.0, 0.45)
 		tween.tween_callback(load_action)
 	else:
 		load_action.call()
@@ -335,7 +261,6 @@ func _on_music_slider_changed(value: float) -> void:
 func _on_sfx_slider_changed(value: float) -> void:
 	sfx_val_label.text = "%d%%" % int(value * 100)
 	_set_bus_volume("SFX", value)
-	# Sound test chirp
 	if sound_hover:
 		sound_hover.play()
 
@@ -364,22 +289,16 @@ func _on_scanline_toggled(enabled: bool) -> void:
 	if scanline_rect and scanline_rect.material is ShaderMaterial:
 		(scanline_rect.material as ShaderMaterial).set_shader_parameter("enabled", enabled)
 
-func _on_glow_toggled(enabled: bool) -> void:
-	if panorama and panorama.has_node("WorldEnvironment"):
-		var we = panorama.get_node("WorldEnvironment") as WorldEnvironment
-		if we and we.environment:
-			we.environment.glow_enabled = enabled
-
-func _on_sens_slider_changed(value: float) -> void:
-	sens_val_label.text = "%.1fx" % value
+#func _on_sens_slider_changed(value: float) -> void:
+	#sens_val_label.text = "%.1fx" % value
 
 func _on_invert_y_toggled(_enabled: bool) -> void:
 	pass
 
-func _on_fov_slider_changed(value: float) -> void:
-	fov_val_label.text = "%d°" % int(value)
-	if panorama and panorama.has_node("Camera3D"):
-		(panorama.get_node("Camera3D") as Camera3D).fov = value
+#func _on_fov_slider_changed(value: float) -> void:
+	#fov_val_label.text = "%d°" % int(value)
+	#if panorama and panorama.has_node("Camera3D"):
+		#(panorama.get_node("Camera3D") as Camera3D).fov = value
 
 func _save_settings() -> void:
 	_play_confirm_sound()
@@ -390,10 +309,9 @@ func _save_settings() -> void:
 		"window_mode": window_mode_btn.selected,
 		"vsync": vsync_check.button_pressed,
 		"scanline": scanline_check.button_pressed,
-		"glow": glow_check.button_pressed,
-		"sens": sens_slider.value,
-		"invert_y": invert_y_check.button_pressed,
-		"fov": fov_slider.value
+		#"sens": sens_slider.value,
+		#"invert_y": invert_y_check.button_pressed,
+		#"fov": fov_slider.value
 	}
 	var file = FileAccess.open(SETTINGS_FILE, FileAccess.WRITE)
 	if file:
@@ -402,17 +320,14 @@ func _save_settings() -> void:
 	_close_modal(options_modal)
 
 func _load_settings() -> void:
-	# Default control values
 	master_slider.value = 0.85
 	music_slider.value = 0.75
 	sfx_slider.value = 0.90
 	window_mode_btn.select(0)
 	vsync_check.button_pressed = true
 	scanline_check.button_pressed = true
-	glow_check.button_pressed = true
-	sens_slider.value = 1.0
-	invert_y_check.button_pressed = false
-	fov_slider.value = 75.0
+	#sens_slider.value = 1.0
+	#invert_y_check.button_pressed = false
 
 	if not FileAccess.file_exists(SETTINGS_FILE):
 		return
@@ -436,11 +351,8 @@ func _load_settings() -> void:
 		if parsed.has("scanline"):
 			scanline_check.button_pressed = parsed["scanline"]
 			_on_scanline_toggled(parsed["scanline"])
-		if parsed.has("glow"):
-			glow_check.button_pressed = parsed["glow"]
-			_on_glow_toggled(parsed["glow"])
-		if parsed.has("sens"): sens_slider.value = parsed["sens"]
-		if parsed.has("invert_y"): invert_y_check.button_pressed = parsed["invert_y"]
-		if parsed.has("fov"):
-			fov_slider.value = parsed["fov"]
-			_on_fov_slider_changed(parsed["fov"])
+		#if parsed.has("sens"): sens_slider.value = parsed["sens"]
+		#if parsed.has("invert_y"): invert_y_check.button_pressed = parsed["invert_y"]
+		#if parsed.has("fov"):
+			#fov_slider.value = parsed["fov"]
+			#_on_fov_slider_changed(parsed["fov"])
