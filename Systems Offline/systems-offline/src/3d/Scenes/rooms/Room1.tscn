@@ -428,6 +428,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4070253, 3.3832936, 11.127
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/StaticBody3D" unique_id=2059988906]
 shape = SubResource("BoxShape3D_r5iys")
 
+[node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
+
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
 [node name="Box5" parent="Whitebox" unique_id=1428870102 instance=ExtResource("15_2pe5o")]
