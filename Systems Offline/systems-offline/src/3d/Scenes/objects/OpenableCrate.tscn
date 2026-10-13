@@ -7,18 +7,18 @@
 [ext_resource type="Shader" uid="uid://crbx4rj15jxyn" path="res://src/3d/shaders/fresnel_glow.gdshader" id="5_bqdkk"]
 [ext_resource type="Script" uid="uid://cmwtpf3077m67" path="res://src/3d/Scenes/objects/fresnel_glow.gd" id="6_3v4p2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqdkk"]
-render_priority = -4
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3h5nh"]
+render_priority = 0
 shader = ExtResource("5_bqdkk")
-shader_parameter/glow_color = Color(0.2, 0.7, 1, 1)
-shader_parameter/fresnel_power = 2.0
-shader_parameter/pulse_speed = 2.0
-shader_parameter/min_intensity = 0.5
-shader_parameter/max_intensity = 2.5
+shader_parameter/glow_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/fresnel_power = 8.0
+shader_parameter/pulse_speed = 1.0
+shader_parameter/min_intensity = 0.05
+shader_parameter/max_intensity = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dnq3"]
 resource_name = "Plane"
-next_pass = SubResource("ShaderMaterial_bqdkk")
+next_pass = SubResource("ShaderMaterial_3h5nh")
 cull_mode = 2
 albedo_texture = ExtResource("2_rx8vi")
 metallic_texture = ExtResource("3_i5bot")
@@ -64,18 +64,18 @@ shadow_mesh = SubResource("ArrayMesh_ju40t")
 [sub_resource type="BoxShape3D" id="BoxShape3D_6tsuu"]
 size = Vector3(2.1040504, 1.6965839, 2.1002707)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3v4p2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqdkk"]
 render_priority = 0
 shader = ExtResource("5_bqdkk")
-shader_parameter/glow_color = Color(0.2, 0.7, 1, 1)
-shader_parameter/fresnel_power = 2.0
-shader_parameter/pulse_speed = 2.0
-shader_parameter/min_intensity = 0.5
-shader_parameter/max_intensity = 2.5
+shader_parameter/glow_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/fresnel_power = 8.0
+shader_parameter/pulse_speed = 1.0
+shader_parameter/min_intensity = 0.05
+shader_parameter/max_intensity = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thre6"]
 resource_name = "Plane.001"
-next_pass = SubResource("ShaderMaterial_3v4p2")
+next_pass = SubResource("ShaderMaterial_bqdkk")
 cull_mode = 2
 albedo_texture = ExtResource("4_bqdkk")
 metallic = 0.25333333
