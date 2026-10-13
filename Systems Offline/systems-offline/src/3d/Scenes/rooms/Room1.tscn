@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cvapm0oewmig5" path="res://src/3d/Scenes/objects/platform_comms.tscn" id="40_3h5nh"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Assets/Rack/Rack.tscn" id="40_qbvi1"]
+[ext_resource type="PackedScene" uid="uid://cnpg5j3cot40" path="res://src/3d/Scenes/objects/Security_Camera.scn" id="41_qbvi1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -164,6 +165,12 @@ transition_camera = NodePath("../TransitionCamera")
 item_data = ExtResource("10_5jc6v")
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
+
+[node name="Security Camera" parent="Tutorial Room" unique_id=719841514 instance=ExtResource("41_qbvi1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7760711, 3.993709, -7.1336308)
+
+[node name="Joint" parent="Tutorial Room/Security Camera/camera full/Sphere_005" parent_id_path=PackedInt32Array(719841514, 699344391) index="0" unique_id=1746912597 node_paths=PackedStringArray("player")]
+player = NodePath("../../../../../ProtoController")
 
 [node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "wire_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
 transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08, 1.9623103, 1.8871334, -7.854755)
@@ -487,6 +494,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.167272, -0.032430887
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
 [editable path="UI_Manger/NotificationUI"]
+[editable path="Tutorial Room/Security Camera"]
 [editable path="Tutorial Room/KeypadTouchscreen"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/KeypadTouchscreen/Cover/keypad cover left"]
