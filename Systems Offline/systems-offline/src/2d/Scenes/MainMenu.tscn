@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chlvd08rs0oyp"]
 
 [ext_resource type="Script" uid="uid://dlvnqlqxbsvvl" path="res://src/2d/Scripts/main_menu.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://cx4m8q1wa2nbk" path="res://src/3d/Scenes/Room1Panorama.tscn" id="2_panorama"]
+[ext_resource type="PackedScene" uid="uid://cxmuxrviugqx" path="res://src/3d/Scenes/Room1Panorama.tscn" id="2_panorama"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_title_font"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="4_body_font"]
 [ext_resource type="FontFile" uid="uid://bu7d0fwnhl5n4" path="res://src/2d/Fonts/MatixType/MatrixType-Bold.ttf" id="5_bold_font"]
