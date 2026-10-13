@@ -2,7 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="1_hdvs4"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdvs4"]
+size = Vector3(3.4608, 2.21178, 0.81079006)
+
 [node name="Rack" unique_id=714693184 instance=ExtResource("1_hdvs4")]
 
-[node name="Shelf1" parent="Rack_001" parent_id_path=PackedInt32Array(1832507153) index="0" unique_id=1647429986]
+[node name="Shelf1" parent="Rack_001" parent_id_path=PackedInt32Array(96850351) index="0" unique_id=510959968]
 visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1773384609]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=227823106]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -2.6226044e-07, 2.4893343, 0.0071822647)
+shape = SubResource("BoxShape3D_hdvs4")

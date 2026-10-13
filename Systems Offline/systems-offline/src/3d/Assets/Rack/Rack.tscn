@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bu8o6roi0s2ld"]
+
+[ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="1_f7xne"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7xne"]
+size = Vector3(3.4608, 2.21178, 0.81079006)
+
+[node name="Node3D" type="Node3D" unique_id=755634272]
+
+[node name="Rack" parent="." unique_id=1373474758 instance=ExtResource("1_f7xne")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rack" unique_id=256582563]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rack/StaticBody3D" unique_id=853923408]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -2.6226044e-07, 2.4893343, 0.0071822647)
+shape = SubResource("BoxShape3D_f7xne")
+
+[editable path="Rack"]
