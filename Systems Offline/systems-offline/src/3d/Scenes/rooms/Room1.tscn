@@ -279,7 +279,6 @@ transform = Transform3D(0.57009465, 0, 0.82157886, 0, 1, 0, -0.82157886, 0, 0.57
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.25, -8)
 
 [node name="SlidingDoorMesh" parent="Tutorial Room/SlidingDoor" index="0" unique_id=1913860126 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera")]
-locked = false
 object_ref = NodePath(".")
 interaction_type = 2
 player = NodePath("../../../ProtoController")
@@ -287,7 +286,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Tutorial Key" parent="Tutorial Room" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("24_crb2e")]
-transform = Transform3D(-0.4146354, 0.9091149, 0.03984372, -0.010515877, -0.04856894, 0.9987645, 0.909927, 0.41370407, 0.029698556, 3.9337125, 0.050203778, -5.8766875)
+transform = Transform3D(-0.21870723, -0.97452426, -0.049692903, -0.010515878, -0.048568938, 0.9987645, -0.9757338, 0.21895945, 0.0003743805, 3.0120127, 0.050203778, -5.9053936)
 script = ExtResource("24_70r7a")
 object_ref = NodePath(".")
 player = NodePath("../../ProtoController")

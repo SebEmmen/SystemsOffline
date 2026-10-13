@@ -13,7 +13,7 @@ enum KeypadType{
 @export var keypad_camera: Camera3D
 @export var sliding_door: Node3D
 @export var lock_led: MeshInstance3D
-var entered_code := "1234"
+var entered_code := ""
 @export var correct_code : String
 @export var keypad_collision: CollisionShape3D
 @export var connected_wire: Path3D
