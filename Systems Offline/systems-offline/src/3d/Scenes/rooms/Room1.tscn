@@ -280,6 +280,7 @@ transform = Transform3D(0.57009465, 0, 0.82157886, 0, 1, 0, -0.82157886, 0, 0.57
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.25, -8)
 
 [node name="SlidingDoorMesh" parent="Tutorial Room/SlidingDoor" index="0" unique_id=1913860126 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera")]
+locked = false
 object_ref = NodePath(".")
 interaction_type = 2
 player = NodePath("../../../ProtoController")
