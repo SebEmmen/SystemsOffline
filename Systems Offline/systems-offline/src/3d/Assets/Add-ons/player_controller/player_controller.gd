@@ -104,7 +104,8 @@ func load_save_data(data: Dictionary) -> void:
 
 #endregion
 #region Step
-const MAX_STEP_HEIGHT = 0.5 # Raycasts length should match this. StairsAhead one should be slightly longer.
+@export_group("Step Height")
+@export var MAX_STEP_HEIGHT = 0.5 # Raycasts length should match this. StairsAhead one should be slightly longer.
 var _snapped_to_stairs_last_frame := false
 var _last_frame_was_on_floor = -INF
 #endregion
@@ -121,7 +122,7 @@ var controls_enabled := true
 
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
-
+@export_group("HUD")
 @export var my_crosshairs: Array[Control]
 @export var my_HUD_labels: Array[Label]
 

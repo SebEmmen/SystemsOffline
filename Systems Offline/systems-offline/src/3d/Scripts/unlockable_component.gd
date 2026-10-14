@@ -25,6 +25,7 @@ enum UnlockableType{
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_setup_audio_players()
 	match unlockable_type:
 		UnlockableType.COVER:
 			ready_cover()
@@ -57,6 +58,7 @@ func interact_door() -> void:
 	can_interact = true
 
 func move_door(position: Vector3, time: float) -> void:
+	play_primary_se()
 	var tween_door = create_tween()
 	tween_door.tween_property(object_ref, "position", position, time)
 	
@@ -70,7 +72,8 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if !locked:	
 		if body.is_in_group("player"): # or your player check
 			print("player detected!")
-			interact_door()
+			move_door(default_position, 0.4)
+			is_interacting = !is_interacting
 #endregion
 
 #region Cover Functions

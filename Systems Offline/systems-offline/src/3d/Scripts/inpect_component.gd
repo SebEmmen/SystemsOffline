@@ -37,6 +37,7 @@ var lid_animating: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_setup_audio_players()
 	match inspect_type:
 		InspectType.POSTER:
 			pass
@@ -177,6 +178,7 @@ func exit_crate() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func open_crate() -> void:
+	play_primary_se()
 	if open or lid_animating:
 		return
 
