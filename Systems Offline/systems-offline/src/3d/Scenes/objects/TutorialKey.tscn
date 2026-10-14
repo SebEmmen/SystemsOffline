@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlsafydximrtk"]
 
 [ext_resource type="PackedScene" uid="uid://d21ujmq42yo2w" path="res://src/3d/Assets/General reuseable assets/Keypad/Correct key.glb" id="1_uee51"]
+[ext_resource type="Script" uid="uid://cmwtpf3077m67" path="res://src/3d/Scripts/fresnel_glow.gd" id="2_u85c0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uee51"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,8 +26,25 @@ environment = SubResource("Environment_dvba1")
 [node name="Correct key" parent="." unique_id=164125829 instance=ExtResource("1_uee51")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7914717, 0, 0)
 
+[node name="Circle" parent="Correct key" index="0" unique_id=831367858]
+script = ExtResource("2_u85c0")
+
+[node name="Cylinder_006" parent="Correct key" index="1" unique_id=1983190835]
+script = ExtResource("2_u85c0")
+
+[node name="Cylinder_007" parent="Correct key" index="2" unique_id=1902823866]
+script = ExtResource("2_u85c0")
+
+[node name="Cylinder_008" parent="Correct key" index="3" unique_id=35666840]
+script = ExtResource("2_u85c0")
+
+[node name="Plane_005" parent="Correct key" index="4" unique_id=920223418]
+script = ExtResource("2_u85c0")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=236518752]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=95298466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03918457, 0)
 shape = SubResource("BoxShape3D_r5iys")
+
+[editable path="Correct key"]

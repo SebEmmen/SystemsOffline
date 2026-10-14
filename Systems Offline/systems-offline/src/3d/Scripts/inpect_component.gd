@@ -18,6 +18,7 @@ enum InspectType{
 var default_font: Font = ThemeDB.fallback_font
 @export var alien_language: Font = preload("res://src/2d/Fonts/Systems-Offline (2).ttf")
 @export var poster_text: Label3D
+@export var translatable: bool = false
 #endregion
 
 #region Crate Variables
@@ -230,7 +231,7 @@ func open_crate() -> void:
 
 #region Poster Functions
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and translatable:
 		# Swap to custom font when player steps into Area3D
 		poster_text.font = default_font
 

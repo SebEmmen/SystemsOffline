@@ -22,6 +22,10 @@ Inventory="*uid://c3hav5wwjxupt"
 SaveManager="*uid://bl27jibd7no3x"
 Notification="*uid://cdco183y1hkmk"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
 [display]
 
 window/stretch/mode="canvas_items"
