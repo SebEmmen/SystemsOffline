@@ -12,10 +12,6 @@ uniform vec3 tint_color : source_color = vec3(0.0, 0.04, 0.09);
 uniform bool enabled = true;
 
 void fragment() {
-	if (!enabled) {
-		COLOR = vec4(0.0);
-		return;
-	}
 
 	vec2 uv = SCREEN_UV;
 

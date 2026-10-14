@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://chlvd08rs0oyp"]
 
 [ext_resource type="Script" uid="uid://dlvnqlqxbsvvl" path="res://src/2d/Scripts/main_menu.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://cxmuxrviugqx" path="res://src/3d/Scenes/Room1Panorama.tscn" id="2_panorama"]
+[ext_resource type="PackedScene" uid="uid://cx4m8q1wa2nbk" path="res://src/3d/Scenes/Room1Panorama.tscn" id="2_panorama"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_title_font"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="4_body_font"]
 [ext_resource type="FontFile" uid="uid://bu7d0fwnhl5n4" path="res://src/2d/Fonts/MatixType/MatrixType-Bold.ttf" id="5_bold_font"]
-[ext_resource type="Texture2D" uid="uid://cww6x5l2lihss" path="res://src/2d/Assets/kitefin_logo.svg" id="6_kitefin_logo"]
+[ext_resource type="Texture2D" uid="uid://dqnaakng5aw74" path="res://src/2d/Assets/kitefin_logo.svg" id="6_kitefin_logo"]
 [ext_resource type="Shader" uid="uid://dc0mvyi6enjk8" path="res://src/2d/Shaders/scanline.gdshader" id="7_scanline"]
 [ext_resource type="AudioStream" uid="uid://do73p80to2008" path="res://src/3d/Sound/press(temp).mp3" id="8_sound_hover"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="9_sound_confirm"]
@@ -126,6 +126,7 @@ grow_vertical = 2
 script = ExtResource("1_script")
 
 [node name="Room1Panorama" parent="." unique_id=1966042613 instance=ExtResource("2_panorama")]
+sweep_speed = 0.03
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=314319603]
 
@@ -681,67 +682,67 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="MoveLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="MoveLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1903150626]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_body_font")
 text = "Movement"
 
-[node name="MoveKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="MoveKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1705381197]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("5_bold_font")
 text = "W, A, S, D"
 
-[node name="SprintLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="SprintLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1955782708]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_body_font")
 text = "Sprint / Accelerate"
 
-[node name="SprintKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="SprintKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=276340203]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("5_bold_font")
 text = "Shift"
 
-[node name="InteractLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InteractLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1713653356]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_body_font")
 text = "Interact / Pick Up"
 
-[node name="InteractKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InteractKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1011975964]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("5_bold_font")
 text = "E"
 
-[node name="GravityLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="GravityLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1173935868]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_body_font")
 text = "Gravity Device"
 
-[node name="GravityKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="GravityKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=2087834728]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("5_bold_font")
 text = "Q"
 
-[node name="InventoryLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InventoryLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=172753199]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_body_font")
 text = "Toggle Inventory"
 
-[node name="InventoryKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InventoryKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=292705781]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("5_bold_font")
 text = "Tab"
 
-[node name="PauseLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="PauseLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=503621395]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_body_font")
 text = "Pause / Cancel"
 
-[node name="PauseKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="PauseKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1327297943]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("5_bold_font")

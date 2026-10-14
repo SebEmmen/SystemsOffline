@@ -12,6 +12,15 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_backdrop"]
 shader = ExtResource("6_backdrop_shader")
+shader_parameter/blur_amount = 2.5
+shader_parameter/darken_amount = 0.45
+shader_parameter/desaturation = 0.35
+shader_parameter/vignette_intensity = 0.55
+shader_parameter/vignette_opacity = 0.6
+shader_parameter/scanline_count = 500.0
+shader_parameter/scanline_intensity = 0.05
+shader_parameter/tint_color = Color(0, 0.04, 0.09, 1)
+shader_parameter/enabled = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_norm"]
 content_margin_left = 24.0
@@ -105,7 +114,6 @@ grow_vertical = 2
 script = ExtResource("1_script")
 
 [node name="PauseBackdrop" type="ColorRect" parent="." unique_id=1033944667]
-visible = false
 material = SubResource("ShaderMaterial_backdrop")
 layout_mode = 1
 anchors_preset = 15
@@ -519,67 +527,67 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="MoveLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="MoveLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1110047020]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_body_font")
 text = "Movement"
 
-[node name="MoveKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="MoveKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=386012596]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("4_bold_font")
 text = "W, A, S, D"
 
-[node name="SprintLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="SprintLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=2119506824]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_body_font")
 text = "Sprint / Accelerate"
 
-[node name="SprintKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="SprintKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=989937949]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("4_bold_font")
 text = "Shift"
 
-[node name="InteractLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InteractLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1906728771]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_body_font")
 text = "Interact / Pick Up"
 
-[node name="InteractKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InteractKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1025785432]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("4_bold_font")
 text = "E"
 
-[node name="GravityLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="GravityLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=660303594]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_body_font")
 text = "Gravity Device"
 
-[node name="GravityKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="GravityKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=224835739]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("4_bold_font")
 text = "Q"
 
-[node name="InventoryLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InventoryLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=1031032287]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_body_font")
 text = "Toggle Inventory"
 
-[node name="InventoryKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="InventoryKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=785427062]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("4_bold_font")
 text = "Tab"
 
-[node name="PauseLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="PauseLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=469495685]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_body_font")
 text = "Pause / Cancel"
 
-[node name="PauseKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+[node name="PauseKey" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid" unique_id=196713867]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 1)
 theme_override_fonts/font = ExtResource("4_bold_font")
