@@ -113,9 +113,6 @@ func _setup_connections() -> void:
 	window_mode_btn.item_selected.connect(_on_window_mode_selected)
 	vsync_check.toggled.connect(_on_vsync_toggled)
 	scanline_check.toggled.connect(_on_scanline_toggled)
-	#sens_slider.value_changed.connect(_on_sens_slider_changed)
-	#invert_y_check.toggled.connect(_on_invert_y_toggled)
-	#fov_slider.value_changed.connect(_on_fov_slider_changed)
 	$CanvasLayer/Modals/OptionsModal/Panel/VBox/Footer/SaveSettingsBtn.pressed.connect(_save_settings)
 
 func _attach_sound_feedback(node: Node) -> void:
@@ -289,17 +286,6 @@ func _on_scanline_toggled(enabled: bool) -> void:
 	if scanline_rect and scanline_rect.material is ShaderMaterial:
 		(scanline_rect.material as ShaderMaterial).set_shader_parameter("enabled", enabled)
 
-#func _on_sens_slider_changed(value: float) -> void:
-	#sens_val_label.text = "%.1fx" % value
-
-func _on_invert_y_toggled(_enabled: bool) -> void:
-	pass
-
-#func _on_fov_slider_changed(value: float) -> void:
-	#fov_val_label.text = "%d°" % int(value)
-	#if panorama and panorama.has_node("Camera3D"):
-		#(panorama.get_node("Camera3D") as Camera3D).fov = value
-
 func _save_settings() -> void:
 	_play_confirm_sound()
 	var data = {
@@ -309,9 +295,6 @@ func _save_settings() -> void:
 		"window_mode": window_mode_btn.selected,
 		"vsync": vsync_check.button_pressed,
 		"scanline": scanline_check.button_pressed,
-		#"sens": sens_slider.value,
-		#"invert_y": invert_y_check.button_pressed,
-		#"fov": fov_slider.value
 	}
 	var file = FileAccess.open(SETTINGS_FILE, FileAccess.WRITE)
 	if file:
@@ -326,8 +309,6 @@ func _load_settings() -> void:
 	window_mode_btn.select(0)
 	vsync_check.button_pressed = true
 	scanline_check.button_pressed = true
-	#sens_slider.value = 1.0
-	#invert_y_check.button_pressed = false
 
 	if not FileAccess.file_exists(SETTINGS_FILE):
 		return
@@ -351,8 +332,3 @@ func _load_settings() -> void:
 		if parsed.has("scanline"):
 			scanline_check.button_pressed = parsed["scanline"]
 			_on_scanline_toggled(parsed["scanline"])
-		#if parsed.has("sens"): sens_slider.value = parsed["sens"]
-		#if parsed.has("invert_y"): invert_y_check.button_pressed = parsed["invert_y"]
-		#if parsed.has("fov"):
-			#fov_slider.value = parsed["fov"]
-			#_on_fov_slider_changed(parsed["fov"])

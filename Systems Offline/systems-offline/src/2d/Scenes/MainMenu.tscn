@@ -668,78 +668,84 @@ metadata/_tab_index = 2
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Grid" type="GridContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls" unique_id=94150334]
-layout_mode = 2
-theme_override_constants/h_separation = 18
-theme_override_constants/v_separation = 12
-columns = 3
-
-[node name="SensLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=347734966]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_body_font")
-text = "Mouse Sensitivity"
-
-[node name="SensSlider" type="HSlider" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=642545627]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-min_value = 0.2
-max_value = 3.0
-step = 0.1
-value = 1.0
-
-[node name="SensVal" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=229652264]
-custom_minimum_size = Vector2(45, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_bold_font")
-text = "1.0x"
-
-[node name="InvertLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=560489072]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_body_font")
-text = "Invert Y-Axis"
-
-[node name="InvertYCheck" type="CheckBox" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=1976780265]
-layout_mode = 2
-focus_mode = 0
-text = "Disabled"
-
-[node name="Empty" type="Control" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=1899816793]
-layout_mode = 2
-
-[node name="FOVLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=36675563]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_body_font")
-text = "Field Of View"
-
-[node name="FOVSlider" type="HSlider" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=681882512]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-min_value = 60.0
-value = 72.0
-
-[node name="FOVVal" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/Grid" unique_id=431115979]
-custom_minimum_size = Vector2(45, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_bold_font")
-text = "72°"
-
 [node name="KeybindsHeader" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls" unique_id=129517365]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.9, 1, 0.9)
 theme_override_fonts/font = ExtResource("5_bold_font")
-theme_override_font_sizes/font_size = 11
-text = "// KEYBINDINGS"
+theme_override_font_sizes/font_size = 12
+text = "// SYSTEM CONTROLS & KEYBINDINGS"
 
-[node name="Keybinds" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls" unique_id=567229287]
+[node name="KeybindsGrid" type="GridContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls" unique_id=567229287]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.75, 0.85, 0.95, 0.8)
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="MoveLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_body_font")
-theme_override_font_sizes/font_size = 11
-text = "[W, A, S, D] Move  •  [SHIFT] Sprint  •  [E] Interact  •  [Q] Gravity  •  [TAB] Inventory  •  [ESC] Pause"
+text = "Movement"
+
+[node name="MoveKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "W, A, S, D"
+
+[node name="SprintLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Sprint / Accelerate"
+
+[node name="SprintKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "Shift"
+
+[node name="InteractLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Interact / Pick Up"
+
+[node name="InteractKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "E"
+
+[node name="GravityLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Gravity Device"
+
+[node name="GravityKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "Q"
+
+[node name="InventoryLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Toggle Inventory"
+
+[node name="InventoryKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "Tab"
+
+[node name="PauseLabel" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_body_font")
+text = "Pause / Cancel"
+
+[node name="PauseKey" type="Label" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox/TabContainer/Controls/VBoxControls/KeybindsGrid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("5_bold_font")
+text = "Esc"
 
 [node name="Footer" type="HBoxContainer" parent="CanvasLayer/Modals/OptionsModal/Panel/VBox" unique_id=1382064925]
 layout_mode = 2
