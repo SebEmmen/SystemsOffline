@@ -20,7 +20,6 @@ shader_parameter/vignette_opacity = 0.6
 shader_parameter/scanline_count = 500.0
 shader_parameter/scanline_intensity = 0.05
 shader_parameter/tint_color = Color(0, 0.04, 0.09, 1)
-shader_parameter/enabled = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_norm"]
 content_margin_left = 24.0

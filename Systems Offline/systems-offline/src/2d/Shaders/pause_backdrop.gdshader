@@ -9,7 +9,6 @@ uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.6;
 uniform float scanline_count : hint_range(100.0, 1000.0) = 500.0;
 uniform float scanline_intensity : hint_range(0.0, 1.0) = 0.05;
 uniform vec3 tint_color : source_color = vec3(0.0, 0.04, 0.09);
-uniform bool enabled = true;
 
 void fragment() {
 
