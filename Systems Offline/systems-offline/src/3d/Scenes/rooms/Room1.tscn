@@ -32,13 +32,22 @@
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://dvshsjpehyur0" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
+[ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="28_diyv0"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://mf5k1b8pyfnx" path="res://src/3d/Assets/Rack/Rack.glb" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cvapm0oewmig5" path="res://src/3d/Scenes/objects/platform_comms.tscn" id="40_3h5nh"]
+=======
+[ext_resource type="PackedScene" uid="uid://dvlyynm171ho4" path="res://src/3d/Assets/Comm room/Metalsheet screen no material.blend" id="37_8gijo"]
+>>>>>>> Stashed changes
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -464,6 +473,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358
 size = Vector3(6.574856, 4.7030334, 2.3808594)
 num_stairs = 10
 
+<<<<<<< Updated upstream
 [node name="KeypadWire" parent="." unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
@@ -480,6 +490,10 @@ transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Platform" parent="." unique_id=831807862 instance=ExtResource("40_3h5nh")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.167272, -0.032430887, -72.3516)
+=======
+[node name="Metalsheet screen no material" parent="." unique_id=854100510 instance=ExtResource("37_8gijo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.61069, 175.10829, 218.47057)
+>>>>>>> Stashed changes
 
 [editable path="ProtoController"]
 [editable path="HUD"]
