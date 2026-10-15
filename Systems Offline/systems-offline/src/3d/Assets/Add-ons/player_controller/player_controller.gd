@@ -145,10 +145,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			capture_mouse()
 
-	# Release mouse with Escape
-	if event.is_action_pressed("ui_cancel"):
-		release_mouse()
-
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
