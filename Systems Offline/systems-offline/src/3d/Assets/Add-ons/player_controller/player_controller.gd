@@ -321,6 +321,8 @@ func toggle_controls() -> void:
 func hide_player() -> void:
 	visible = false
 	set_physics_process(false)
+	set_process_input(false)
+	set_process_unhandled_input(false)
 	collider.set_deferred("disabled", true)
 
 
