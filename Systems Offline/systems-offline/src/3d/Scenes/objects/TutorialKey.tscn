@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlsafydximrtk"]
 
-[ext_resource type="PackedScene" uid="uid://d21ujmq42yo2w" path="res://src/3d/Assets/General reuseable assets/Keypad/Correct key.glb" id="1_uee51"]
+[ext_resource type="PackedScene" uid="uid://c1tx0a5hytr8b" path="res://src/3d/Assets/General reuseable assets/Keypad/Correct key.glb" id="1_uee51"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uee51"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -28,5 +28,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7914717, 0, 0)
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=236518752]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=95298466]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03918457, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.03918457, 0)
 shape = SubResource("BoxShape3D_r5iys")

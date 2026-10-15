@@ -295,22 +295,26 @@ func toggle_mouse() -> void:
 
 func disable_controls() -> void:
 	controls_enabled = false
-	for n in my_crosshairs:
-		n.hide()
-	for m in my_HUD_labels:
-		m.hide()
+	if ray and ray.has_method("_hide_all_ui"):
+		ray._hide_all_ui()
+	else:
+		for n in my_crosshairs:
+			if n: n.hide()
+		for m in my_HUD_labels:
+			if m: m.hide()
 	
-
 	release_mouse()
 
 
 func enable_controls() -> void:
 	controls_enabled = true
-	for n in my_crosshairs:
-		n.show()
-	for m in my_HUD_labels:
-		m.show()
-
+	if ray and ray.has_method("_reset_ui"):
+		ray._reset_ui()
+	else:
+		for n in my_crosshairs:
+			if n: n.show()
+		for m in my_HUD_labels:
+			if m: m.show()
 
 	capture_mouse()
 
