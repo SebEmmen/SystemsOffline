@@ -318,6 +318,19 @@ func toggle_controls() -> void:
 	controls_enabled = !controls_enabled
 	toggle_mouse()
 
+func hide_player() -> void:
+	visible = false
+	set_physics_process(false)
+	collider.set_deferred("disabled", true)
+
+
+func show_player() -> void:
+	visible = true
+	collider.set_deferred("disabled", false)
+	set_physics_process(true)
+	set_process_input(true)
+	set_process_unhandled_input(true)
+
 func check_input_mappings() -> void:
 
 	if can_move and not InputMap.has_action(input_left):
