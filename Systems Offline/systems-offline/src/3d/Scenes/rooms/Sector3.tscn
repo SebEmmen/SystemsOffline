@@ -169,7 +169,7 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
-my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
+my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
 [node name="HUD" parent="." unique_id=849623580 instance=ExtResource("11_hud")]

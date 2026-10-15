@@ -49,7 +49,7 @@ func enter_button_keypad() -> void:
 	is_interacting = !is_interacting
 	player.disable_controls()
 	# Transition into keypad view
-	player.visible = false
+	player.hide_player()
 	if keypad_collision:
 		keypad_collision.disabled = true
 	await transition(player_camera, keypad_camera)
@@ -65,7 +65,7 @@ func exit_button_keypad() -> void:
 	player.enable_controls()
 
 	await transition(keypad_camera, player_camera)
-	player.visible = true
+	player.show_player()
 
 
 func get_button_under_mouse() -> Object:

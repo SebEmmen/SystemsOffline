@@ -102,22 +102,23 @@ transform = Transform3D(0.9999361, -0.001504638, 0.011205292, 0, 0.99110466, 0.1
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
-my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair")]
+my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
 transform = Transform3D(1, 1.7462298e-09, 0, 0, 1, 2.2351742e-07, 0, 0, 1, 0.0034953356, 0.9400237, -0.013009548)
 
-[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "view_label")]
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "crosshair_hand", "view_label")]
 interaction_label = NodePath("../../../../HUD/InteractionLabel")
 crosshair = NodePath("../../../../HUD/Crosshair")
 crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
+crosshair_hand = NodePath("../../../../HUD/HandCrosshair")
 view_label = NodePath("../../../../HUD/ViewLabel")
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
 [node name="ViewLabel" parent="HUD" index="3" unique_id=51349289]
-text = "Press [E] to inspect"
+text = "Press [E] to view"
 
 [node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313 node_paths=PackedStringArray("player")]
 process_mode = 3

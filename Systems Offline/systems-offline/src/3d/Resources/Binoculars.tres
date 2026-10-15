@@ -13,3 +13,4 @@ item_name = "Binoculars"
 description = "This is to help see further"
 inventory_icon = SubResource("Resource_4nu6k")
 inspect_scene = ExtResource("1_kmrtl")
+category = 1
