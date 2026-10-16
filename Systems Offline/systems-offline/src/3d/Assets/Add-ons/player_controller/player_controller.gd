@@ -104,7 +104,8 @@ func load_save_data(data: Dictionary) -> void:
 
 #endregion
 #region Step
-const MAX_STEP_HEIGHT = 0.5 # Raycasts length should match this. StairsAhead one should be slightly longer.
+@export_group("Step Height")
+@export var MAX_STEP_HEIGHT = 0.5 # Raycasts length should match this. StairsAhead one should be slightly longer.
 var _snapped_to_stairs_last_frame := false
 var _last_frame_was_on_floor = -INF
 #endregion
@@ -121,7 +122,7 @@ var controls_enabled := true
 
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
-
+@export_group("HUD")
 @export var my_crosshairs: Array[Control]
 @export var my_HUD_labels: Array[Label]
 
@@ -143,10 +144,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			capture_mouse()
-
-	# Release mouse with Escape
-	if event.is_action_pressed("ui_cancel"):
-		release_mouse()
 
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
@@ -298,28 +295,47 @@ func toggle_mouse() -> void:
 
 func disable_controls() -> void:
 	controls_enabled = false
-	for n in my_crosshairs:
-		n.hide()
-	for m in my_HUD_labels:
-		m.hide()
+	if ray and ray.has_method("_hide_all_ui"):
+		ray._hide_all_ui()
+	else:
+		for n in my_crosshairs:
+			if n: n.hide()
+		for m in my_HUD_labels:
+			if m: m.hide()
 	
-
 	release_mouse()
 
 
 func enable_controls() -> void:
 	controls_enabled = true
-	for n in my_crosshairs:
-		n.show()
-	for m in my_HUD_labels:
-		m.show()
-
+	if ray and ray.has_method("_reset_ui"):
+		ray._reset_ui()
+	else:
+		for n in my_crosshairs:
+			if n: n.show()
+		for m in my_HUD_labels:
+			if m: m.show()
 
 	capture_mouse()
 
 func toggle_controls() -> void:
 	controls_enabled = !controls_enabled
 	toggle_mouse()
+
+func hide_player() -> void:
+	visible = false
+	set_physics_process(false)
+	set_process_input(false)
+	set_process_unhandled_input(false)
+	collider.set_deferred("disabled", true)
+
+
+func show_player() -> void:
+	visible = true
+	collider.set_deferred("disabled", false)
+	set_physics_process(true)
+	set_process_input(true)
+	set_process_unhandled_input(true)
 
 func check_input_mappings() -> void:
 

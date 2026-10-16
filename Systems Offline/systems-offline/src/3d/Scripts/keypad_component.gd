@@ -15,11 +15,15 @@ enum KeypadType{
 @export var lock_led: MeshInstance3D
 var entered_code := ""
 @export var correct_code : String
+@export var keypad_collision: CollisionShape3D
+@export var connected_wire: Path3D
+@export var wire_camera: Camera3D
 
 #endregion
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	match keypad_type:
 		KeypadType.BUTTON_KEYPAD:
 			ready_button_keypad()
@@ -45,7 +49,9 @@ func enter_button_keypad() -> void:
 	is_interacting = !is_interacting
 	player.disable_controls()
 	# Transition into keypad view
-	player.visible = false
+	player.hide_player()
+	if keypad_collision:
+		keypad_collision.disabled = true
 	await transition(player_camera, keypad_camera)
 
 func exit_button_keypad() -> void:
@@ -53,11 +59,13 @@ func exit_button_keypad() -> void:
 		return
 
 	is_interacting = false
-
+	# Re-enable the collider when exiting
+	if keypad_collision:
+		keypad_collision.disabled = false
 	player.enable_controls()
 
 	await transition(keypad_camera, player_camera)
-	player.visible = true
+	player.show_player()
 
 
 func get_button_under_mouse() -> Object:
@@ -106,11 +114,18 @@ func update_screen() -> void:
 func check_code() -> void:
 	if entered_code == correct_code:
 		print("Correct code!")
+		play_primary_se()
 		sliding_door.unlock_door()
 		flash_enter()
 		sliding_door.locked = false
 		update_led()
+		
+		pan_camera_left()
+		
+		if connected_wire != null:
+			connected_wire.set_unlocked()	
 	else:
+		play_secondary_se()
 		flash_error()
 		#entered_code = ""
 		#update_screen()
@@ -140,6 +155,15 @@ func update_led() -> void:
 	else:
 		material.albedo_color = Color.GREEN
 		material.emission = Color.GREEN
+		
+func pan_camera_left() -> void:
+	if wire_camera == null:
+		return
+
+	await transition(keypad_camera, wire_camera)
+	await get_tree().create_timer(1.0).timeout
+	await transition(wire_camera, keypad_camera)
+	
 #endregion
 
 

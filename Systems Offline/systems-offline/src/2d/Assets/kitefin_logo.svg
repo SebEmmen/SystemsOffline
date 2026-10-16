@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="finGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff" />
+      <stop offset="50%" stop-color="#0099ff" />
+      <stop offset="100%" stop-color="#0033aa" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#7000ff" stop-opacity="0.3" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Hexagonal background shield -->
+  <polygon points="256,24 456,136 456,376 256,488 56,376 56,136" fill="#060c18" stroke="#00d4ff" stroke-width="6" stroke-opacity="0.6" />
+  <polygon points="256,40 440,146 440,366 256,472 72,366 72,146" fill="none" stroke="#00ffff" stroke-width="1.5" stroke-opacity="0.25" stroke-dasharray="12,8" />
+
+  <!-- Cybernetic Grid Lines -->
+  <line x1="120" y1="256" x2="392" y2="256" stroke="#00ffff" stroke-width="1" stroke-opacity="0.15" />
+  <line x1="256" y1="90" x2="256" y2="420" stroke="#00ffff" stroke-width="1" stroke-opacity="0.15" />
+
+  <!-- Kitefin Shark Fin Shape - Primary Geometric Polygon -->
+  <!-- Glowing back silhouette -->
+  <path d="M 170,390 C 210,390 280,350 330,260 C 370,185 365,110 365,110 C 365,110 300,165 240,240 C 200,290 170,335 170,390 Z" 
+        fill="url(#accentGrad)" filter="url(#glow)" />
+
+  <!-- Main Fin blade -->
+  <path d="M 160,380 C 205,380 270,335 320,250 C 355,185 355,120 355,120 C 355,120 295,170 235,245 C 190,300 160,340 160,380 Z" 
+        fill="url(#finGrad)" stroke="#00ffff" stroke-width="3" />
+
+  <!-- Tech Wing / Secondary Fin Accent -->
+  <path d="M 175,370 C 210,340 250,285 275,230 L 295,250 C 265,310 225,355 185,380 Z" 
+        fill="#00ffff" fill-opacity="0.8" />
+
+  <!-- Circuit notches / Energy conduits -->
+  <circle cx="355" cy="120" r="6" fill="#ffffff" filter="url(#glow)" />
+  <circle cx="320" cy="250" r="4" fill="#00ffff" />
+  <circle cx="235" cy="245" r="4" fill="#00e5ff" />
+  <line x1="320" y1="250" x2="350" y2="280" stroke="#00ffff" stroke-width="2" stroke-linecap="round" />
+  <circle cx="350" cy="280" r="3" fill="#ffffff" />
+</svg>

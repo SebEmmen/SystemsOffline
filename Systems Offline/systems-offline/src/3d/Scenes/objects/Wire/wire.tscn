@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cop5px3uuwsk6"]
+
+[ext_resource type="Script" uid="uid://bfeaoo0j1vb1x" path="res://src/3d/Scenes/objects/Wire/wire.gd" id="1_vuxky"]
+[ext_resource type="Shader" uid="uid://dk267l3x42lrj" path="res://src/3d/Scenes/objects/Wire/wire_shader.gdshader" id="2_5auut"]
+
+[sub_resource type="Curve3D" id="Curve3D_8gijo"]
+
+[node name="Wire" type="Path3D" unique_id=1206855643]
+curve = SubResource("Curve3D_8gijo")
+script = ExtResource("1_vuxky")
+animation_duration = 1.5
+wire_shader = ExtResource("2_5auut")
+
+[node name="WireMesh" type="MeshInstance3D" parent="." unique_id=701416697]
