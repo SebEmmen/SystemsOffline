@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dlvnqlqxbsvvl" path="res://src/2d/Scripts/main_menu.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://cx4m8q1wa2nbk" path="res://src/3d/Scenes/Room1Panorama.tscn" id="2_panorama"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_title_font"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_title_font"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="4_body_font"]
 [ext_resource type="FontFile" uid="uid://bu7d0fwnhl5n4" path="res://src/2d/Fonts/MatixType/MatrixType-Bold.ttf" id="5_bold_font"]
-[ext_resource type="Texture2D" uid="uid://dqnaakng5aw74" path="res://src/2d/Assets/kitefin_logo.svg" id="6_kitefin_logo"]
+[ext_resource type="Texture2D" uid="uid://cww6x5l2lihss" path="res://src/2d/Assets/kitefin_logo.svg" id="6_kitefin_logo"]
 [ext_resource type="Shader" uid="uid://dc0mvyi6enjk8" path="res://src/2d/Shaders/scanline.gdshader" id="7_scanline"]
 [ext_resource type="AudioStream" uid="uid://do73p80to2008" path="res://src/3d/Sound/press(temp).mp3" id="8_sound_hover"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="9_sound_confirm"]
