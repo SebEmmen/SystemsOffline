@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvapm0oewmig5"]
 
 [ext_resource type="PackedScene" uid="uid://bs0y7e3o0ohx0" path="res://src/3d/Assets/Comm room/Platform_comms/Platform comms.blend" id="1_4kvxa"]
-[ext_resource type="PackedScene" uid="uid://bgsjwx1ff2u4s" path="res://src/3d/Assets/Comm room/Objects platform comms/Table middle console part.blend" id="2_trcdt"]
+[ext_resource type="PackedScene" uid="uid://bs0y7e3o0ohx0" path="res://src/3d/Assets/Comm room/Platform_comms/Platform comms.blend" id="2_trcdt"]
 
 [node name="Platform" unique_id=831807862 instance=ExtResource("1_4kvxa")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, 0, 0, 0)
