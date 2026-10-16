@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://bjmautg631hof"]
 
-[ext_resource type="PackedScene" uid="uid://vga7uegu0h6o" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
+[ext_resource type="PackedScene" uid="uid://b4rbfpy8y2tlo" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
 [ext_resource type="Script" uid="uid://8s360vo5ktuk" path="res://src/3d/Scripts/button_component.gd" id="1_xu8ug"]
 [ext_resource type="AudioStream" uid="uid://do73p80to2008" path="res://src/3d/Sound/press(temp).mp3" id="2_1xmjy"]
-[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
 [ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="9_ex4j2"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
-[ext_resource type="PackedScene" uid="uid://b1155hq11wv2t" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
-[ext_resource type="PackedScene" uid="uid://ce1gd5bxddjgm" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
+[ext_resource type="PackedScene" uid="uid://eontkuidsjer" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
+[ext_resource type="PackedScene" uid="uid://bdvmdnjhcymna" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvwng"]
 resource_name = "Material"
@@ -823,7 +823,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03949994, 0)
 [node name="Keypad base" parent="StaticBody3D" unique_id=468678713 instance=ExtResource("1_d6o1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03949994, 0)
 
-[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=234628229]
+[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=1199236964]
 transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535e-08, 0, 0.6894696, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=855915867]
@@ -831,17 +831,23 @@ shape = SubResource("CylinderShape3D_ojbw0")
 
 [node name="Cover" type="Node3D" parent="." unique_id=1531809847]
 
-[node name="keypad cover left" parent="Cover" unique_id=356316278 instance=ExtResource("16_8acnr")]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="keypad cover right" parent="Cover" unique_id=1292669582 instance=ExtResource("17_rma8r")]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Cover" unique_id=454624637]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cover/StaticBody3D" unique_id=2110798669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05887139, 0)
 shape = SubResource("CylinderShape3D_r5iys")
+
+[node name="PivotLeft" type="Node3D" parent="Cover" unique_id=409105454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6699111, 0.13304222, 0)
+
+[node name="keypad cover left" parent="Cover/PivotLeft" unique_id=356316278 instance=ExtResource("16_8acnr")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0.6699111, -0.13304222, 0)
+
+[node name="PivotRight" type="Node3D" parent="Cover" unique_id=111106703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6350107, 0.12860757, 0)
+
+[node name="keypad cover right" parent="Cover/PivotRight" unique_id=1292669582 instance=ExtResource("17_rma8r")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.6350107, -0.12860757, 0)
 
 [node name="StickyNote" type="MeshInstance3D" parent="." unique_id=167511552]
 transform = Transform3D(-0.19696155, -0.034729656, 7.642742e-16, 1.5180807e-09, -8.6094625e-09, -0.2, 0.034729656, -0.19696155, 8.742278e-09, 0.48777354, 0.079999976, -0.048529193)
@@ -859,4 +865,4 @@ font_size = 250
 line_spacing = 100.0
 
 [editable path="StaticBody3D/Keypad base"]
-[editable path="Cover/keypad cover left"]
+[editable path="Cover/PivotLeft/keypad cover left"]

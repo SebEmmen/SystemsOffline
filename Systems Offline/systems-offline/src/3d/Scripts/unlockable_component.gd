@@ -21,6 +21,8 @@ enum UnlockableType{
 @export var cover_fade_duration: float = 0.5
 @export var keypad: KeypadComponent
 @export var key: Node3D
+@export var pivot_left: Node3D
+@export var pivot_right: Node3D
 #endregion
 
 # Called when the node enters the scene tree for the first time.
@@ -87,34 +89,39 @@ func open_cover() -> void:
 		Notification.locked_notification()
 		print("You need to find the key to access the keypad!")
 		return
-	
-	locked = !locked
-	# prevent player from moving if they can open 
-	is_interacting = !is_interacting
-	player.disable_controls()
-	
-	if object_ref == null:
-		print("Error keypad_cover == null")
+
+	if is_interacting:
 		return
 
+	locked = false
+	is_interacting = true
+	player.disable_controls()
+
 	var tween := create_tween()
-	
+	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	
-	
+
+	# Rotate left pivot
 	tween.tween_property(
-		object_ref,
-		"rotation:x",
+		pivot_left,
+		"rotation:z",
+		deg_to_rad(160.0),
+		cover_fade_duration
+	)
+
+	# Rotate right pivot
+	tween.tween_property(
+		pivot_right,
+		"rotation:z",
 		deg_to_rad(-160.0),
 		cover_fade_duration
 	)
 
 	await tween.finished
-	
-	is_interacting = !is_interacting
+
+	is_interacting = false
 	player.enable_controls()
-	
 	keypad.can_interact = true
 
 
