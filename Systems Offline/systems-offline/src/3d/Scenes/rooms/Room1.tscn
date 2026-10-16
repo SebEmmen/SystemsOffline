@@ -427,7 +427,7 @@ shape = SubResource("BoxShape3D_r5iys")
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("40_3h5nh")]
-transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.167272, -0.032430887, -72.3516)
+transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -14.937835, -0.032430887, -74.808655)
 
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
