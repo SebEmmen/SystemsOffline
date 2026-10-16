@@ -23,6 +23,7 @@ enum UnlockableType{
 @export var key: Node3D
 @export var pivot_left: Node3D
 @export var pivot_right: Node3D
+@export var cover_body: StaticBody3D
 #endregion
 
 # Called when the node enters the scene tree for the first time.
@@ -117,6 +118,9 @@ func open_cover() -> void:
 		deg_to_rad(-160.0),
 		cover_fade_duration
 	)
+	
+	cover_body.set_deferred("collision_layer", 0)
+	cover_body.set_deferred("collision_mask", 0)
 
 	await tween.finished
 

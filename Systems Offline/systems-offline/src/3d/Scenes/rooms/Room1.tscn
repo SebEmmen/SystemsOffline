@@ -169,12 +169,13 @@ transition_camera = NodePath("../../TransitionCamera")
 primary_se = ExtResource("18_3h5nh")
 secondary_se = ExtResource("18_io4pa")
 
-[node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "pivot_left", "pivot_right", "object_ref", "player", "player_camera", "transition_camera")]
+[node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "pivot_left", "pivot_right", "cover_body", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
 unlockable_type = 1
 keypad = NodePath("..")
 pivot_left = NodePath("PivotLeft")
 pivot_right = NodePath("PivotRight")
+cover_body = NodePath("StaticBody3D")
 object_ref = NodePath(".")
 interaction_type = 2
 player = NodePath("../../../ProtoController")
@@ -485,7 +486,6 @@ transition_camera = NodePath("../../../TransitionCamera")
 [editable path="UI_Manger/NotificationUI"]
 [editable path="Tutorial Room/KeypadTouchscreen"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
-[editable path="Tutorial Room/KeypadTouchscreen/Cover/PivotLeft/keypad cover left"]
 [editable path="Tutorial Room/Crates/CrateCode(7)"]
 [editable path="Tutorial Room/Crates/CrateCode(7)/Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(4)"]
