@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
+[ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://cvapm0oewmig5" path="res://src/3d/Scenes/objects/platform_comms.tscn" id="40_3h5nh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
@@ -72,7 +73,7 @@ point_count = 3
 environment = SubResource("Environment_a7dbj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1612126971]
-transform = Transform3D(-0.85648465, -0.5140629, -0.046624105, 0.5143893, -0.85753846, 0.00562229, -0.042872183, -0.019167539, 0.9988968, -2.261508, 2.9415433, 19.192448)
+transform = Transform3D(-0.84673446, -0.49288437, -0.20026435, 0.4925699, -0.86853427, 0.054982826, -0.20103663, -0.05208833, 0.97819793, -2.261508, 2.9415433, 19.192448)
 shadow_enabled = true
 
 [node name="FloorGridMap2" type="GridMap" parent="." unique_id=382107592]
@@ -406,6 +407,7 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4070253, 3.3832936, 11.127847)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/StaticBody3D" unique_id=2059988906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49624074, 0, 0)
 shape = SubResource("BoxShape3D_r5iys")
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
@@ -478,6 +480,9 @@ interaction_type = 4
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+
+[node name="BrokenWall" parent="." unique_id=1554696659 instance=ExtResource("38_io4pa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
 
 [editable path="ProtoController"]
 [editable path="HUD"]
