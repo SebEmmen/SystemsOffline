@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://bjmautg631hof"]
 
-[ext_resource type="PackedScene" uid="uid://b4rbfpy8y2tlo" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
+[ext_resource type="PackedScene" uid="uid://vga7uegu0h6o" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
 [ext_resource type="Script" uid="uid://8s360vo5ktuk" path="res://src/3d/Scripts/button_component.gd" id="1_xu8ug"]
 [ext_resource type="AudioStream" uid="uid://do73p80to2008" path="res://src/3d/Sound/press(temp).mp3" id="2_1xmjy"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
 [ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="9_ex4j2"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
-[ext_resource type="PackedScene" uid="uid://eontkuidsjer" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
-[ext_resource type="PackedScene" uid="uid://bdvmdnjhcymna" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
+[ext_resource type="PackedScene" uid="uid://b1155hq11wv2t" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left.glb" id="16_8acnr"]
+[ext_resource type="PackedScene" uid="uid://ce1gd5bxddjgm" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right.glb" id="17_rma8r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvwng"]
 resource_name = "Material"
@@ -823,13 +823,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03949994, 0)
 [node name="Keypad base" parent="StaticBody3D" unique_id=468678713 instance=ExtResource("1_d6o1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03949994, 0)
 
-[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=1165380939]
+[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=234628229]
 transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535e-08, 0, 0.6894696, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=855915867]
 shape = SubResource("CylinderShape3D_ojbw0")
 
 [node name="Cover" type="Node3D" parent="." unique_id=1531809847]
+visible = false
 
 [node name="keypad cover left" parent="Cover" unique_id=356316278 instance=ExtResource("16_8acnr")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
@@ -849,10 +850,11 @@ mesh = SubResource("BoxMesh_ief1d")
 surface_material_override/0 = SubResource("StandardMaterial3D_1da2m")
 
 [node name="Code" type="Label3D" parent="StickyNote" unique_id=1506476036]
-transform = Transform3D(-0.20894061, 5.5879354e-09, -1.8044375e-08, 4.8428774e-08, 0.1738921, -4.6566124e-09, 3.0500814e-08, -4.1909516e-09, -0.120000005, -0.01091504, 0.15186621, -0.044017375)
+transform = Transform3D(-0.19, 3.6621632e-08, -1.6458541e-08, 4.403867e-08, 0.158, -2.6269946e-09, 2.8689202e-08, -3.807943e-09, -0.109, -0.01091504, 0.15186621, -0.044017375)
+modulate = Color(0, 0, 0, 1)
 text = "
-view
-door"
+ABOVE
+DOOR"
 font = ExtResource("9_ex4j2")
 font_size = 250
 line_spacing = 100.0

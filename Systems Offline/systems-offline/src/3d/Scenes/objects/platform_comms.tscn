@@ -1,16 +1,6 @@
 [gd_scene format=3 uid="uid://cvapm0oewmig5"]
 
-[ext_resource type="PackedScene" uid="uid://bs0y7e3o0ohx0" path="res://src/3d/Assets/Comm room/Platform_comms/Platform comms.blend" id="1_4kvxa"]
 [ext_resource type="PackedScene" uid="uid://bs0y7e3o0ohx0" path="res://src/3d/Assets/Comm room/Platform_comms/Platform comms.blend" id="2_trcdt"]
 
-[node name="Platform" unique_id=831807862 instance=ExtResource("1_4kvxa")]
+[node name="Platform" unique_id=831807862 instance=ExtResource("2_trcdt")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, 0, 0, 0)
-
-[node name="Table middle console part" parent="." index="1" unique_id=1783005090 instance=ExtResource("2_trcdt")]
-transform = Transform3D(0.23086458, 0, 0.09592468, 0, 0.3, 0, -0.09592468, 0, 0.23086458, 9.722641, 2.119735, 12.740468)
-
-[node name="Table middle console part2" parent="." index="2" unique_id=817461964 instance=ExtResource("2_trcdt")]
-transform = Transform3D(-0.109427534, 0, 0.19780555, 0, 0.3, 0, -0.22477904, 0, -0.09629623, 11.477082, 2.119735, 14.009309)
-
-[node name="Table middle console part3" parent="." index="3" unique_id=748217529 instance=ExtResource("2_trcdt")]
-transform = Transform3D(0.05765567, 0, -0.21406955, 0, 0.3, 0, 0.24326077, 0, 0.050736986, 11.366376, 2.119735, 9.322749)

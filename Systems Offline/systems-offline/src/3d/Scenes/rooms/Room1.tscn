@@ -32,8 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
-[ext_resource type="PackedScene" path="res://src/3d/Scenes/objects/storage_shelves.tscn" id="27_20ssf"]
-[ext_resource type="PackedScene" uid="uid://c1b2s7e8yaxfv" path="res://src/3d/Assets/Rack/Rack.glb" id="28_diyv0"]
+[ext_resource type="PackedScene" uid="uid://ciah58802rskg" path="res://src/3d/Assets/General reuseable assets/Crate/Crate base.glb" id="26_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://c1b2s7e8yaxfv" path="res://src/3d/Assets/Rack/Rack.glb" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
@@ -41,7 +40,6 @@
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cvapm0oewmig5" path="res://src/3d/Scenes/objects/platform_comms.tscn" id="40_3h5nh"]
-[ext_resource type="PackedScene" uid="uid://csdcnc00shmag" path="res://src/3d/Assets/Comm room/Typewriter screen/Final_Metalsheet screen.blend" id="37_8gijo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -54,6 +52,12 @@ sky_material = SubResource("PanoramaSkyMaterial_4qo6h")
 background_mode = 2
 sky = SubResource("Sky_aywg0")
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6tsuu"]
+size = Vector3(2.1040504, 1.6965839, 2.1002707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2tn2r"]
+size = Vector3(2.4168634, 0.41525948, 2.4168634)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
 size = Vector3(10, 7, 1)
@@ -71,7 +75,7 @@ point_count = 3
 environment = SubResource("Environment_a7dbj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1612126971]
-transform = Transform3D(-0.8585095, -0.51259685, 0.014361202, 0.51024383, -0.8511065, 0.12356883, -0.05111807, 0.11341274, 0.9922322, -1.5997598, 3.9905531, 19.192448)
+transform = Transform3D(-0.85648465, -0.5140629, -0.046624105, 0.5143893, -0.85753846, 0.00562229, -0.042872183, -0.019167539, 0.9988968, -2.261508, 2.9415433, 19.192448)
 shadow_enabled = true
 
 [node name="FloorGridMap2" type="GridMap" parent="." unique_id=382107592]
@@ -110,9 +114,6 @@ crosshair_hand = NodePath("../../../../HUD/HandCrosshair")
 view_label = NodePath("../../../../HUD/ViewLabel")
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
-
-[node name="ViewLabel" parent="HUD" index="3" unique_id=51349289]
-text = "Press [E] to view"
 
 [node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313 node_paths=PackedStringArray("player")]
 process_mode = 3
@@ -200,7 +201,7 @@ transition_camera = NodePath("../../../TransitionCamera")
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
 [node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(-0.6, 0, -5.2453668e-08, 0, 0.6, 0, 5.2453668e-08, 0, -0.6, 1.3568116, 0, 5.0481005)
+transform = Transform3D(-0.6, 0, -5.2453668e-08, 0, 0.6, 0, 5.2453668e-08, 0, -0.6, 4.1269445, 0, 1.3285301)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -217,7 +218,7 @@ transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.187401, 0, -5.1251807)
+transform = Transform3D(-0.45346525, 0, 1.1110216, 0, 1.1999999, 0, -1.1110216, 0, -0.45346525, -7.7599645, 0, 0.7765262)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -234,7 +235,7 @@ transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(0.2749278, 0, 0.7512755, 0, 0.8, 0, -0.7512755, 0, 0.2749278, -6.84507, 0, 3.2681332)
+transform = Transform3D(0.2749278, 0, 0.7512755, 0, 0.8, 0, -0.7512755, 0, 0.2749278, -7.211203, 0, -2.666003)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -251,7 +252,7 @@ transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(-0.7826081, 0, -0.6225147, 0, 1, 0, 0.6225147, 0, -0.7826081, 0.6550064, 0, 2.7101963)
+transform = Transform3D(-0.7826081, 0, -0.6225147, 0, 1, 0, 0.6225147, 0, -0.7826081, 4.1910243, 0, -0.80292845)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("Crate base/CrateCamera")
@@ -267,17 +268,26 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
-[node name="DummyCrate" parent="Tutorial Room/Crates" unique_id=659222280 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.4611652, 0.0050001144, -5.2599506)
+[node name="Fallen Crate With key" type="Node3D" parent="Tutorial Room/Crates" unique_id=948350991]
+transform = Transform3D(-5.2453647e-08, -1.1999997, 0, 1.1999996, -5.2453654e-08, 0, 0, 0, 1.1999996, 7.1691065, 0.86112714, -4.108326)
 
-[node name="DummyCrate3" parent="Tutorial Room/Crates" unique_id=1772026193 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.5756297, 0, -0.16926433, 0, 0.59999996, 0, 0.16926433, 0, 0.5756297, -5.9246874, 0.0050001144, 0.7888675)
+[node name="Crate base" parent="Tutorial Room/Crates/Fallen Crate With key" unique_id=250827240 instance=ExtResource("26_qbvi1")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="DummyCrate4" parent="Tutorial Room/Crates" unique_id=948350991 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.6768696, 0.0050001144, -1.6698633)
+[node name="StaticBody3D" type="StaticBody3D" parent="Tutorial Room/Crates/Fallen Crate With key/Crate base/Plane" parent_id_path=PackedInt32Array(250827240, 166422760) index="0" unique_id=1972956691]
 
-[node name="DummyCrate2" parent="Tutorial Room/Crates" unique_id=1818429161 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(0.57009465, 0, 0.82157886, 0, 1, 0, -0.82157886, 0, 0.57009465, -7.8819637, 0.0050001144, -2.056006)
+[node name="CSCrate" type="CollisionShape3D" parent="Tutorial Room/Crates/Fallen Crate With key/Crate base/Plane/StaticBody3D" unique_id=1862005000]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.00018084048, 0.84829193, -8.654594e-05)
+shape = SubResource("BoxShape3D_6tsuu")
+
+[node name="Plane_001" parent="Tutorial Room/Crates/Fallen Crate With key/Crate base" index="1" unique_id=809843216]
+transform = Transform3D(0.028706836, -0.8690405, 9.525072e-09, 0.841308, 0.027790774, 0.21790825, -0.2177895, -0.0071941917, 0.8417666, -0.9353606, 3.2608895, -0.7018132)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tutorial Room/Crates/Fallen Crate With key/Crate base/Plane_001" index="0" unique_id=1317642267]
+
+[node name="CSLid" type="CollisionShape3D" parent="Tutorial Room/Crates/Fallen Crate With key/Crate base/Plane_001/StaticBody3D" unique_id=704489268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12174761, 1.1920929e-07)
+shape = SubResource("BoxShape3D_2tn2r")
 
 [node name="SlidingDoor" parent="Tutorial Room" unique_id=212972216 instance=ExtResource("6_b3d3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.25, -8)
@@ -290,7 +300,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Tutorial Key" parent="Tutorial Room" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("24_crb2e")]
-transform = Transform3D(-0.21870723, -0.97452426, -0.049692903, -0.010515878, -0.048568938, 0.9987645, -0.9757338, 0.21895945, 0.0003743805, 3.0120127, 0.050203778, -5.9053936)
+transform = Transform3D(-0.21870723, -0.97452426, -0.049692903, -0.010515878, -0.048568938, 0.9987645, -0.9757338, 0.21895945, 0.0003743805, 6.0781317, 0.31731266, -3.7096212)
 script = ExtResource("24_70r7a")
 object_ref = NodePath(".")
 player = NodePath("../../ProtoController")
@@ -299,7 +309,7 @@ transition_camera = NodePath("../../TransitionCamera")
 item_data = ExtResource("25_dqwws")
 
 [node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
-transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -5.722243, 1.8267894, -7.851916)
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -3.8615015, 1.8267894, -24.330303)
 inspect_camera = NodePath("PosterCamera")
 poster_text = NodePath("MeshInstance3D/Label3D")
 object_ref = NodePath(".")
@@ -318,7 +328,7 @@ font = ExtResource("26_diyv0")
 outline_size = 2
 
 [node name="MediumPoster2" parent="Tutorial Room" unique_id=436732102 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
-transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -8.19541, 1.8267894, -7.8519154)
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -3.855633, 1.8267894, -21.858341)
 inspect_camera = NodePath("PosterCamera")
 poster_text = NodePath("MeshInstance3D/Label3D")
 object_ref = NodePath(".")
@@ -361,39 +371,39 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -
 
 [node name="Shelves" type="Node" parent="Tutorial Room" unique_id=763259974]
 
-[node name="Crates" type="Node" parent="Tutorial Room/Shelves" unique_id=1136395411]
+[node name="Crates Dummies" type="Node" parent="Tutorial Room/Shelves" unique_id=1136395411]
 
-[node name="Crate" parent="Tutorial Room/Shelves/Crates" unique_id=1004888323 instance=ExtResource("16_o4tcg")]
+[node name="Crate" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=1004888323 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.36775732, 0, 0.9299218, 0, 1, 0, -0.9299218, 0, 0.36775732, 7.4440722, 4.056588, -1.4034159)
 
-[node name="Crate7" parent="Tutorial Room/Shelves/Crates" unique_id=2080784970 instance=ExtResource("16_o4tcg")]
-transform = Transform3D(1.1754782, 0, -0.24135253, 0, 1.2, 0, 0.24135253, 0, 1.1754782, 3.6410313, 0.0049998164, 1.3349334)
+[node name="Crate7" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=2080784970 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(0.6760194, 0, -0.7368838, 0, 1, 0, 0.7368838, 0, 0.6760194, 4.578563, 1.174365, 3.7848258)
 
-[node name="Crate6" parent="Tutorial Room/Shelves/Crates" unique_id=1627482378 instance=ExtResource("16_o4tcg")]
+[node name="Crate6" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=1627482378 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.44331768, 0, 0.4043136, 0, 0.6, 0, -0.4043136, 0, 0.44331768, 4.4754624, 4.056588, 3.4469857)
 
-[node name="Crate2" parent="Tutorial Room/Shelves/Crates" unique_id=1254957396 instance=ExtResource("16_o4tcg")]
+[node name="Crate2" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=1254957396 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.5911898, 0, 0.5389756, 0, 0.8, 0, -0.5389756, 0, 0.5911898, 7.6951494, 1.0822, -1.889836)
 
-[node name="Crate5" parent="Tutorial Room/Shelves/Crates" unique_id=520417355 instance=ExtResource("16_o4tcg")]
+[node name="Crate5" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=520417355 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.7934685, 0, 0.102018386, 0, 0.8, 0, -0.102018386, 0, 0.7934685, 9.126507, 2.5571008, -5.1144896)
 
-[node name="Crate3" parent="Tutorial Room/Shelves/Crates" unique_id=777389932 instance=ExtResource("16_o4tcg")]
+[node name="Crate3" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=777389932 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.46528533, -9.2357535e-05, 0.8851606, 0.00085307006, 0.9999996, -0.00034409718, -0.8851602, 0.00091520575, 0.46528524, 7.7973247, 2.5578558, -2.1764317)
 
-[node name="Crate8" parent="Tutorial Room/Shelves/Crates" unique_id=2050260710 instance=ExtResource("16_o4tcg")]
+[node name="Crate8" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=2050260710 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.46491, 0, 0.88535786, 0, 1, 0, -0.88535786, 0, 0.46491, -9.296937, 2.5571008, 3.067841)
 
-[node name="Crate10" parent="Tutorial Room/Shelves/Crates" unique_id=1652096655 instance=ExtResource("16_o4tcg")]
+[node name="Crate10" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=1652096655 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-0.41358322, 0, 0.68479824, 0, 0.79999983, 0, -0.68479824, 0, -0.41358322, -11.354117, 2.5571008, -1.9453046)
 
-[node name="Crate11" parent="Tutorial Room/Shelves/Crates" unique_id=2095293698 instance=ExtResource("16_o4tcg")]
+[node name="Crate11" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=2095293698 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-0.061427087, 0, 0.99811155, 0, 1, 0, -0.99811155, 0, -0.061427087, -10.65322, 4.056588, -0.076830864)
 
-[node name="Crate9" parent="Tutorial Room/Shelves/Crates" unique_id=653723530 instance=ExtResource("16_o4tcg")]
+[node name="Crate9" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=653723530 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-0.11346096, 0, 0.5891745, 0, 0.59999996, 0, -0.5891745, 0, -0.11346096, -9.072136, 4.056588, 3.0700445)
 
-[node name="Crate4" parent="Tutorial Room/Shelves/Crates" unique_id=996277234 instance=ExtResource("16_o4tcg")]
+[node name="Crate4" parent="Tutorial Room/Shelves/Crates Dummies" unique_id=996277234 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(0.35997885, 0, 0.4800159, 0, 0.6, 0, -0.4800159, 0, 0.35997885, 8.36992, 2.5571008, -3.5085518)
 
 [node name="Rack" parent="Tutorial Room/Shelves" unique_id=483680037 instance=ExtResource("30_4qo6h")]
@@ -415,6 +425,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4070253, 3.3832936, 11.127
 shape = SubResource("BoxShape3D_r5iys")
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
+
+[node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("40_3h5nh")]
+transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.167272, -0.032430887, -72.3516)
 
 [node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
 
@@ -482,11 +495,6 @@ player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
-[node name="Platform" parent="." unique_id=831807862 instance=ExtResource("40_3h5nh")]
-transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.167272, -0.032430887, -72.3516)
-[node name="Metalsheet screen no material" parent="." unique_id=854100510 instance=ExtResource("37_8gijo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.61069, 175.10829, 218.47057)
-
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
@@ -503,6 +511,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.61069, 175.10829, 218.47
 [editable path="Tutorial Room/Crates/CrateCode(2)/Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(9)"]
 [editable path="Tutorial Room/Crates/CrateCode(9)/Crate base"]
+[editable path="Tutorial Room/Crates/Fallen Crate With key/Crate base"]
 [editable path="Tutorial Room/SlidingDoor"]
 [editable path="Tutorial Room/SlidingDoor/SingleDoorWall"]
 [editable path="Tutorial Room/MediumPoster"]
