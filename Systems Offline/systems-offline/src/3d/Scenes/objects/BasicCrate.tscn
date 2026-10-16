@@ -19,10 +19,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.00018084048, 0.84829193, -8.654594e-05)
 shape = SubResource("BoxShape3D_6tsuu")
 
-[node name="Plane_001" parent="Crate base" index="1" unique_id=809843216]
-visible = false
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane_001" index="0" unique_id=1317642267]
+[node name="StaticBody3D" type="StaticBody3D" parent="Crate base/Plane_001" parent_id_path=PackedInt32Array(250827240, 809843216) index="0" unique_id=1317642267]
 
 [node name="CSLid" type="CollisionShape3D" parent="Crate base/Plane_001/StaticBody3D" unique_id=704489268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12174761, 1.1920929e-07)
