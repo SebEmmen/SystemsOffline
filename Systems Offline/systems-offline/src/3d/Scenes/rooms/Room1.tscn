@@ -72,9 +72,9 @@ environment = SubResource("Environment_a7dbj")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1612126971]
 transform = Transform3D(-0.84673446, -0.49288437, -0.20026435, 0.4925699, -0.86853427, 0.054982826, -0.20103663, -0.05208833, 0.97819793, -2.261508, 2.9415433, 19.192448)
 light_color = Color(1, 1, 0.59607846, 1)
-light_energy = 0.2
+light_energy = 0.4
 shadow_enabled = true
-shadow_opacity = 0.4
+shadow_opacity = 0.8
 
 [node name="FloorGridMap2" type="GridMap" parent="." unique_id=382107592]
 mesh_library = ExtResource("2_1ds61")
