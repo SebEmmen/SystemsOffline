@@ -295,28 +295,47 @@ func toggle_mouse() -> void:
 
 func disable_controls() -> void:
 	controls_enabled = false
-	for n in my_crosshairs:
-		n.hide()
-	for m in my_HUD_labels:
-		m.hide()
+	if ray and ray.has_method("_hide_all_ui"):
+		ray._hide_all_ui()
+	else:
+		for n in my_crosshairs:
+			if n: n.hide()
+		for m in my_HUD_labels:
+			if m: m.hide()
 	
-
 	release_mouse()
 
 
 func enable_controls() -> void:
 	controls_enabled = true
-	for n in my_crosshairs:
-		n.show()
-	for m in my_HUD_labels:
-		m.show()
-
+	if ray and ray.has_method("_reset_ui"):
+		ray._reset_ui()
+	else:
+		for n in my_crosshairs:
+			if n: n.show()
+		for m in my_HUD_labels:
+			if m: m.show()
 
 	capture_mouse()
 
 func toggle_controls() -> void:
 	controls_enabled = !controls_enabled
 	toggle_mouse()
+
+func hide_player() -> void:
+	visible = false
+	set_physics_process(false)
+	set_process_input(false)
+	set_process_unhandled_input(false)
+	collider.set_deferred("disabled", true)
+
+
+func show_player() -> void:
+	visible = true
+	collider.set_deferred("disabled", false)
+	set_physics_process(true)
+	set_process_input(true)
+	set_process_unhandled_input(true)
 
 func check_input_mappings() -> void:
 

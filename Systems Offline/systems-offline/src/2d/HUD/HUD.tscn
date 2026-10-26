@@ -47,3 +47,14 @@ grow_vertical = 2
 text = "Press [E] to view"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HandCrosshair" type="Label" parent="." unique_id=987123456]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "✋"
+horizontal_alignment = 1
+vertical_alignment = 1

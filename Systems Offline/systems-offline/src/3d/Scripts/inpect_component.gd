@@ -103,10 +103,10 @@ func get_interaction_message() -> String:
 		InspectType.CRATE:
 			if not open and not lid_animating:
 				return "Press [E] to move"
-			return "Press [E] to interact"
+			return "Press [E] to view"
 
 		InspectType.POSTER:
-			return "Press [E] to interact"
+			return "Press [E] to view"
 
 	return "Press [E] to interact"
 
@@ -185,6 +185,7 @@ func open_crate() -> void:
 	if crate_lid == null or lid_target == null:
 		return
 
+	open = true
 	lid_animating = true
 
 	# Position tween: X first, then Y.
@@ -222,7 +223,6 @@ func open_crate() -> void:
 	await position_tween.finished
 	await rotation_tween.finished
 
-	open = true
 	lid_animating = false
 
 
