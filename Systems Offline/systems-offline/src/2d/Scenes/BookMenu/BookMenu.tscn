@@ -1,0 +1,340 @@
+[gd_scene format=3 uid="uid://0tx7pa207d8t"]
+
+[ext_resource type="Script" uid="uid://crpdr030qmq8o" path="res://src/2d/Scenes/BookMenu/book_menu.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://b11v3fyr6tmsf" path="res://src/3d/Scenes/book.tscn" id="2_book"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2ky7"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+bg_color = Color(1, 0.019607844, 0.15686275, 0.9019608)
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0.32, 0.46, 0.62, 0.65)
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_hover"]
+content_margin_left = 12.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+bg_color = Color(0.15, 0.22, 0.32, 0.95)
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0.5, 0.7, 0.95, 0.85)
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlqha"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+bg_color = Color(0.23921569, 1, 0.15686275, 0.9019608)
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0.32, 0.46, 0.62, 0.65)
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q0jc"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+bg_color = Color(0.23921569, 0.019607844, 1, 0.9019608)
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0.32, 0.46, 0.62, 0.65)
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+bg_color = Color(1, 1, 0.15686275, 0.9019608)
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0.32, 0.46, 0.62, 0.65)
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2ky7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5imu4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlqha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxfb4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4q0jc"]
+
+[node name="BookMenu" type="Control" unique_id=1103648872]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=693397887]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.03, 0.05, 0.65)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1132396631]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2109533654]
+process_mode = 3
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=427396914]
+transform = Transform3D(0.965926, -0.183013, 0.183013, 0, 0.707107, 0.707107, -0.258819, -0.683013, 0.683013, 0, 2, 0.5)
+light_color = Color(1, 0.96, 0.9, 1)
+light_energy = 1.5
+
+[node name="Book" parent="SubViewportContainer/SubViewport" unique_id=1817170415 instance=ExtResource("2_book")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011143103, -2.3841858e-07, -0.035192147)
+
+[node name="PageOverlay" type="Control" parent="." unique_id=591429790]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopContainer" type="Control" parent="PageOverlay" unique_id=595328624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BookmarkContainer" type="VBoxContainer" parent="PageOverlay/TopContainer" unique_id=1016693332]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 369.81
+offset_top = -139.67
+offset_right = 487.8103
+offset_bottom = 123.33002
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="TabLogs" type="Button" parent="PageOverlay/TopContainer/BookmarkContainer" unique_id=404920739]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2ky7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_hover")
+text = "📑 LOGS"
+alignment = 0
+
+[node name="TabResearch" type="Button" parent="PageOverlay/TopContainer/BookmarkContainer" unique_id=2021688851]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_qlqha")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_hover")
+text = "🔬 RESEARCH"
+alignment = 0
+
+[node name="TabMaintenance" type="Button" parent="PageOverlay/TopContainer/BookmarkContainer" unique_id=764484875]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_4q0jc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_hover")
+text = "🔧 MAINTENANCE"
+alignment = 0
+
+[node name="TabNotes" type="Button" parent="PageOverlay/TopContainer/BookmarkContainer" unique_id=1936798467]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_hover")
+text = "📝 NOTES"
+alignment = 0
+
+[node name="CloseButton" type="Button" parent="PageOverlay/TopContainer" unique_id=866216582]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 214.0
+offset_top = -249.0
+offset_right = 364.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h2ky7")
+text = "✕ Close [ESC / TAB]"
+
+[node name="PagesContainer" type="HBoxContainer" parent="PageOverlay" unique_id=218411756]
+custom_maximum_size = Vector2(712.745, 515.425)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 241.225
+offset_top = 123.25
+offset_right = 953.97
+offset_bottom = 513.2503
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="LeftPage" type="PanelContainer" parent="PageOverlay/PagesContainer" unique_id=936643507]
+custom_minimum_size = Vector2(340, 390)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5imu4")
+
+[node name="Margin" type="MarginContainer" parent="PageOverlay/PagesContainer/LeftPage" unique_id=152532225]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="PageOverlay/PagesContainer/LeftPage/Margin" unique_id=1344515355]
+custom_minimum_size = Vector2(0, 430)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="PageOverlay/PagesContainer/LeftPage/Margin/VBox" unique_id=306279707]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+text = "FACILITY LOG // SECTION 01"
+
+[node name="HSeparator" type="HSeparator" parent="PageOverlay/PagesContainer/LeftPage/Margin/VBox" unique_id=2037387829]
+layout_mode = 2
+
+[node name="BodyLabel" type="RichTextLabel" parent="PageOverlay/PagesContainer/LeftPage/Margin/VBox" unique_id=617544087]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "Body text placeholder"
+scroll_active = false
+
+[node name="BottomRow" type="HBoxContainer" parent="PageOverlay/PagesContainer/LeftPage/Margin/VBox" unique_id=1519461060]
+layout_mode = 2
+
+[node name="LeftCornerBtn" type="Button" parent="PageOverlay/PagesContainer/LeftPage/Margin/VBox/BottomRow" unique_id=293156954]
+layout_mode = 2
+tooltip_text = "Click to turn to previous page"
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlqha")
+text = "◺ Turn"
+
+[node name="PageNumLabel" type="Label" parent="PageOverlay/PagesContainer/LeftPage/Margin/VBox/BottomRow" unique_id=1830582694]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.7, 0.8, 0.8)
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+
+[node name="RightPage" type="PanelContainer" parent="PageOverlay/PagesContainer" unique_id=150510930]
+custom_minimum_size = Vector2(340, 390)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mxfb4")
+
+[node name="Margin" type="MarginContainer" parent="PageOverlay/PagesContainer/RightPage" unique_id=1987794783]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="PageOverlay/PagesContainer/RightPage/Margin" unique_id=411824059]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="PageOverlay/PagesContainer/RightPage/Margin/VBox" unique_id=1937545746]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+text = "FACILITY LOG // SECTION 01"
+
+[node name="HSeparator" type="HSeparator" parent="PageOverlay/PagesContainer/RightPage/Margin/VBox" unique_id=1699427216]
+layout_mode = 2
+
+[node name="BodyLabel" type="RichTextLabel" parent="PageOverlay/PagesContainer/RightPage/Margin/VBox" unique_id=741184360]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "Body text placeholder"
+scroll_active = false
+
+[node name="BottomRow" type="HBoxContainer" parent="PageOverlay/PagesContainer/RightPage/Margin/VBox" unique_id=905633987]
+layout_mode = 2
+
+[node name="PageNumLabel" type="Label" parent="PageOverlay/PagesContainer/RightPage/Margin/VBox/BottomRow" unique_id=1477256515]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.7, 0.8, 0.8)
+theme_override_font_sizes/font_size = 11
+text = "2"
+horizontal_alignment = 1
+
+[node name="RightCornerBtn" type="Button" parent="PageOverlay/PagesContainer/RightPage/Margin/VBox/BottomRow" unique_id=819800407]
+layout_mode = 2
+tooltip_text = "Click to turn to next page"
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4q0jc")
+text = "Turn ◿"
