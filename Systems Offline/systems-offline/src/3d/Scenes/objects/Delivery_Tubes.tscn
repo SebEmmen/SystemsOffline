@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwwdt0ekwbfyd"]
+
+[ext_resource type="PackedScene" uid="uid://dkq2we6vb1uog" path="res://src/3d/Assets/Comm room/Final_Delivery tubes.blend" id="1_n7ojd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(10, 15.2, 3.2)
+
+[node name="Delivery Tubes" type="Node3D" unique_id=1631719345]
+
+[node name="Final_Delivery tubes" parent="." unique_id=107249376 instance=ExtResource("1_n7ojd")]
+transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Delivery tubes" unique_id=456471192]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Final_Delivery tubes/StaticBody3D" unique_id=1853411717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1965418, 7.4495916, 0)
+shape = SubResource("BoxShape3D_r5iys")
+
+[editable path="Final_Delivery tubes"]
