@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
+[ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -446,17 +447,12 @@ transform = Transform3D(-4.371139e-09, 0, 2.9999998, 0, 4, 0, -0.1, 0, -1.311341
 [node name="Box18" parent="Whitebox" unique_id=154637311 instance=ExtResource("15_2pe5o")]
 transform = Transform3D(-4.371139e-09, 0, 2, 0, 3, 0, -0.1, 0, -8.742278e-08, 2.7310011, 3.0388937, -45.80861)
 
-[node name="Cuboid" parent="Whitebox" unique_id=1579249817 instance=ExtResource("12_cj18i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -81.643)
-
-[node name="Cuboid" parent="Whitebox/Cuboid" unique_id=658524308 instance=ExtResource("12_cj18i")]
-transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, 13.4047365, 0, 2.2569962)
-
 [node name="Cuboid2" parent="Whitebox" unique_id=1802899301 instance=ExtResource("12_cj18i")]
 transform = Transform3D(-1.13649605e-07, 0, -0.8, 0, 0.5, 0, 2.6, 0, -3.4969112e-08, 14, -0.6613953, -62)
 
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
+visible = false
 size = Vector3(6.574856, 4.7030334, 2.3808594)
 num_stairs = 10
 
@@ -476,6 +472,9 @@ transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="BrokenWall" parent="." unique_id=1554696659 instance=ExtResource("38_io4pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
+
+[node name="TypeWriterScreen" parent="." unique_id=215861176 instance=ExtResource("39_io4pa")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 2.5576553, 0.017966509, -80.85914)
 
 [editable path="ProtoController"]
 [editable path="HUD"]

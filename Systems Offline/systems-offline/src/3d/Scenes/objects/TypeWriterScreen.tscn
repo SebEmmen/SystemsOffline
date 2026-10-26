@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c36xluf64wa0p"]
+
+[ext_resource type="PackedScene" uid="uid://cmttq2cp71rt" path="res://src/3d/Assets/Comm room/Final_Metalsheet screen.blend" id="1_vfxhu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vfxhu"]
+size = Vector3(470, 60, 280)
+
+[node name="TypeWriterScreen" type="Node3D" unique_id=215861176]
+
+[node name="Final_Metalsheet screen" parent="." unique_id=1770024825 instance=ExtResource("1_vfxhu")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Metalsheet screen/Metalsheet holder" parent_id_path=PackedInt32Array(1770024825, 537432300) index="0" unique_id=1964885474]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Metalsheet screen/Metalsheet holder/StaticBody3D" unique_id=2128960995]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.42481995, -18.337152, -0.05722046)
+shape = SubResource("BoxShape3D_vfxhu")
+
+[editable path="Final_Metalsheet screen"]
