@@ -11,6 +11,7 @@ enum Menu {
 @onready var pause_menu: Control = $PauseMenu
 @onready var inventory_ui: Control = get_node_or_null("InventoryUI")
 @export var book_menu: Control
+@export var book_anchor: Node3D
 
 @export var player: CharacterBody3D
 
@@ -36,6 +37,9 @@ func _ready() -> void:
 		book_menu.visible = false
 		if book_menu.has_signal("close_requested"):
 			book_menu.close_requested.connect(close_menu)
+			
+	if book_anchor:
+		book_anchor.hide()
 
 
 func _get_player() -> CharacterBody3D:
@@ -90,6 +94,8 @@ func open_menu(menu: Menu) -> void:
 		inventory_ui.visible = (menu == Menu.INVENTORY)
 	if book_menu:
 		book_menu.visible = (menu == Menu.BOOK)
+	if book_anchor:
+		book_anchor.visible = (menu == Menu.BOOK)
 
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -113,6 +119,8 @@ func close_menu() -> void:
 		inventory_ui.visible = false
 	if book_menu:
 		book_menu.visible = false
+	if book_anchor:
+		book_anchor.visible = false
 
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

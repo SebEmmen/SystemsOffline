@@ -1,7 +1,10 @@
+@tool
 class_name BookMenu
 extends Control
 
 signal close_requested
+
+
 
 @onready var sub_viewport: SubViewport = $SubViewportContainer/SubViewport
 @onready var page_content_container: Control = $PageOverlay/PagesContainer
@@ -20,9 +23,27 @@ signal close_requested
 
 @onready var tab_logs: Button = $PageOverlay/TopContainer/BookmarkContainer/TabLogs
 @onready var tab_research: Button = $PageOverlay/TopContainer/BookmarkContainer/TabResearch
-@onready var tab_maintenance: Button = $PageOverlay/TopContainer/BookmarkContainer/TabMaintenance
+@onready var tab_birds: Button = $PageOverlay/TopContainer/BookmarkContainer/TabBirds
 @onready var tab_notes: Button = $PageOverlay/TopContainer/BookmarkContainer/TabNotes
 @onready var close_button: Button = $PageOverlay/TopContainer/CloseButton
+
+@onready var left_bird_content: HBoxContainer = $PageOverlay/PagesContainer/LeftPage/Margin/VBox/BirdContent
+@onready var left_bird_image: TextureRect = $PageOverlay/PagesContainer/LeftPage/Margin/VBox/BirdContent/BirdImage
+@onready var left_text_1: RichTextLabel = $PageOverlay/PagesContainer/LeftPage/Margin/VBox/BirdContent/LeftText
+@onready var left_text_2: RichTextLabel = $PageOverlay/PagesContainer/LeftPage/Margin/VBox/BirdContent/RightText
+
+@onready var right_bird_content: HBoxContainer = $PageOverlay/PagesContainer/RightPage/Margin/VBox/BirdContent
+@onready var right_bird_image: TextureRect = $PageOverlay/PagesContainer/RightPage/Margin/VBox/BirdContent/BirdImage
+@onready var right_text_1: RichTextLabel = $PageOverlay/PagesContainer/RightPage/Margin/VBox/BirdContent/LeftText
+@onready var right_text_2: RichTextLabel = $PageOverlay/PagesContainer/RightPage/Margin/VBox/BirdContent/RightText
+
+@export_enum("Logs", "Research", "Birds", "Notes")
+var preview_spread: int = 0:
+	set(value):
+		preview_spread = value
+
+		if Engine.is_editor_hint():
+			call_deferred("_refresh_editor_preview")
 
 var current_spread: int = 0
 var is_turning_page: bool = false
@@ -47,17 +68,25 @@ const SPREADS = [
 		"left_page": "3",
 		"right_title": "RESEARCH LAB // ANOMALIES",
 		"right_body": "[b]SPECTRAL DEVIATION NOTE[/b]\n[color=#8fa4b8]Lead Researcher Dr. K. Aris[/color]\n\nThe alien script uncovered on bulkhead placards matches transmission bursts captured by deep-space array Kitefin.\n\nAutomated translation matrices remain inconclusive. Visual recognition apparatus suggests symbolic logic tied to optical triangulation.",
-		"right_page": "4d4"
+		"right_page": "4"
 	},
 	{
 		"section": 2,
-		"section_name": "Maintenance",
-		"left_title": "MAINTENANCE DIRECTIVE",
-		"left_body": "[b]WORK ORDER #1089-C[/b]\n[color=#8fa4b8]Facility Engineering Department[/color]\n\nScheduled maintenance on pneumatic sliding doors overdue by 72 cycles. Magnetic locks drawing 140% nominal current.\n\nHydraulic lift platform comms require manual lubrication. Do not bypass security interlocks without lead engineer signoff.",
-		"left_page": "PAGE 5",
-		"right_title": "MAINTENANCE DIRECTIVE",
-		"right_body": "[b]CRATE LOCKING MECHANISM SPEC[/b]\n[color=#8fa4b8]Revision 4.2 Standard[/color]\n\nStorage container lids utilize mechanical counterweight servos. In the event of primary power loss, lids can be manually slid along the guide rails.\n\nInspect inside interior compartment floor for stencil identification markings.",
-		"right_page": "PAGE 6"
+		"section_name": "Birds",
+
+		"left_title": "COMMON KINGFISHER",
+		"left_image": "res://src/3d/Assets/book/bird_images/kingfisher.png",
+		"left_body": "",
+		"left_text_1": "[b]Habitat[/b]\nRivers, lakes and streams.",
+		"left_text_2": "[b]Diet[/b]\nSmall fish and aquatic insects.",
+		"left_page": "5",
+
+		"right_title": "COMMON CHAFFINCH",
+		"right_image": "res://src/3d/Assets/book/bird_images/vink.png",
+		"right_body": "",
+		"right_text_1": "[b]Habitat[/b]\nWoodlands, parks and gardens.",
+		"right_text_2": "[b]Diet[/b]\nSeeds, berries and insects.",
+		"right_page": "6"
 	},
 	{
 		"section": 3,
@@ -67,12 +96,17 @@ const SPREADS = [
 		"left_page": "PAGE 7",
 		"right_title": "EVACUATION PROTOCOL",
 		"right_body": "[b]EMERGENCY STATION PROCEDURES[/b]\n[color=#8fa4b8]Facility Safety Division[/color]\n\nIn case of full systems offline status:\n1. Proceed to nearest illuminated exit.\n2. Secure facility logbook for incident review.\n3. Verify communications terminal status before entering elevator shaft.\n\n[i]'Stay calm. The facility failsafe systems operate independently of central AI.'[/i]",
-		"right_page": "PAGE 8"
+		"right_page": "8"
 	}
 ]
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		_refresh_editor_preview()
+		return
+
+	# Keep your existing runtime _ready() code here.
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	if sub_viewport:
 		sub_viewport.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -80,7 +114,7 @@ func _ready() -> void:
 	# Prevent buttons from stealing keyboard focus so ESC / TAB / arrow keys always work
 	var buttons: Array[Button] = [
 		left_corner_btn, right_corner_btn,
-		tab_logs, tab_research, tab_maintenance, tab_notes, close_button
+		tab_logs, tab_research, tab_birds, tab_notes, close_button
 	]
 	for btn in buttons:
 		if btn:
@@ -93,7 +127,7 @@ func _ready() -> void:
 
 	tab_logs.pressed.connect(func(): go_to_section(0))
 	tab_research.pressed.connect(func(): go_to_section(1))
-	tab_maintenance.pressed.connect(func(): go_to_section(2))
+	tab_birds.pressed.connect(func(): go_to_section(2))
 	tab_notes.pressed.connect(func(): go_to_section(3))
 
 	close_button.pressed.connect(func(): close_requested.emit())
@@ -120,10 +154,7 @@ func _notification(what: int) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_visible_in_tree():
 		return
-	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("inventory"):
-		get_viewport().set_input_as_handled()
-		close_requested.emit()
-	elif event.is_action_pressed("ui_left") or (event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_LEFT):
+	if event.is_action_pressed("ui_left") or (event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_LEFT):
 		get_viewport().set_input_as_handled()
 		prev_page()
 	elif event.is_action_pressed("ui_right") or (event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_RIGHT):
@@ -261,14 +292,48 @@ func _reset_page_visuals() -> void:
 
 
 func _apply_spread_content(idx: int) -> void:
-	var data = SPREADS[idx]
+	var data: Dictionary = SPREADS[idx]
 	left_title.text = data["left_title"]
 	left_body.text = data["left_body"]
 	left_page_num.text = data["left_page"]
-
 	right_title.text = data["right_title"]
 	right_body.text = data["right_body"]
 	right_page_num.text = data["right_page"]
+
+	_update_bird_page(left_bird_content, left_bird_image, left_text_1, left_text_2, data, "left")
+	_update_bird_page(right_bird_content, right_bird_image, right_text_1, right_text_2, data, "right")
+	left_body.visible = not left_bird_content.visible
+	right_body.visible = not right_bird_content.visible
+
+
+func _update_bird_page(
+	content: HBoxContainer,
+	image: TextureRect,
+	text_1: RichTextLabel,
+	text_2: RichTextLabel,
+	data: Dictionary,
+	prefix: String
+) -> void:
+	var path: String = data.get(prefix + "_image", "")
+	content.visible = false
+	image.texture = null
+	if path.is_empty():
+		return
+
+	var texture: Texture2D = load(path) as Texture2D
+	if texture == null:
+		push_warning("Could not load bird image: " + path)
+		return
+
+	image.texture = texture
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	image.custom_minimum_size = Vector2(130.0, 180.0)
+	image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	text_1.text = data.get(prefix + "_text_1", "")
+	text_2.text = data.get(prefix + "_text_2", "")
+	content.visible = true
 
 
 func _update_nav_buttons() -> void:
@@ -278,7 +343,7 @@ func _update_nav_buttons() -> void:
 
 func _update_bookmark_tabs() -> void:
 	var active_section = SPREADS[current_spread]["section"]
-	var tabs = [tab_logs, tab_research, tab_maintenance, tab_notes]
+	var tabs = [tab_logs, tab_research, tab_birds, tab_notes]
 
 	for i in range(tabs.size()):
 		var tab: Button = tabs[i]
@@ -286,3 +351,12 @@ func _update_bookmark_tabs() -> void:
 			tab.modulate = Color(1.2, 1.1, 0.7, 1.0) # Highlight active tab
 		else:
 			tab.modulate = Color(0.7, 0.75, 0.85, 0.8)
+
+func _refresh_editor_preview() -> void:
+	if not Engine.is_editor_hint():
+		return
+
+	if not is_node_ready():
+		return
+
+	_apply_spread_content(preview_spread)

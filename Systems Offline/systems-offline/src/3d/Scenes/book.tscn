@@ -1,6 +1,36 @@
 [gd_scene format=3 uid="uid://b11v3fyr6tmsf"]
 
 [ext_resource type="PackedScene" uid="uid://cdr7bxfupr2qv" path="res://src/3d/Assets/book/book.glb" id="1_xqi8b"]
+[ext_resource type="Texture2D" uid="uid://cel5ra5vx51v0" path="res://src/3d/Assets/book/bird_images/kingfisher.png" id="2_15ohh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vb2t8"]
+viewport_path = NodePath("LeftPageViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cg0m"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_vb2t8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1cg0m"]
+size = Vector2(0.405, 0.63)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4rn"]
+shading_mode = 0
+albedo_color = Color(0.54488885, 0.38193694, 0.05230193, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x5mlg"]
+viewport_path = NodePath("RightPageViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwu7m"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_x5mlg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kejbo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkvcv"]
 
 [node name="Book" type="Node3D" unique_id=1817170415]
 
@@ -9,3 +39,191 @@
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1287410556]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.040153623, 0.88712287, 0.031818688)
 keep_aspect = 0
+
+[node name="LeftPageSurface" type="MeshInstance3D" parent="." unique_id=370908052]
+transform = Transform3D(0.975, 0, 0, 0, 0.975, 0, 0, 0, 0.975, -0.1467449, 0.0440771, 0.034268856)
+material_override = SubResource("StandardMaterial3D_1cg0m")
+mesh = SubResource("PlaneMesh_1cg0m")
+surface_material_override/0 = SubResource("StandardMaterial3D_3q4rn")
+
+[node name="RightPageSurface" type="MeshInstance3D" parent="." unique_id=152518387]
+transform = Transform3D(0.975, 0, 0, 0, 0.975, 0, 0, 0, 0.975, 0.27859983, 0.0440771, 0.034268856)
+material_override = SubResource("StandardMaterial3D_dwu7m")
+mesh = SubResource("PlaneMesh_1cg0m")
+surface_material_override/0 = SubResource("StandardMaterial3D_3q4rn")
+
+[node name="LeftPageViewport" type="SubViewport" parent="." unique_id=45644503]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(337, 452)
+render_target_update_mode = 4
+
+[node name="LeftPageUI" type="PanelContainer" parent="LeftPageViewport" unique_id=1183161191]
+custom_minimum_size = Vector2(340, 390)
+custom_maximum_size = Vector2(350, 450)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kejbo")
+
+[node name="Margin" type="MarginContainer" parent="LeftPageViewport/LeftPageUI" unique_id=1437572764]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="LeftPageViewport/LeftPageUI/Margin" unique_id=624222508]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="LeftPageViewport/LeftPageUI/Margin/VBox" unique_id=712798427]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+theme_override_font_sizes/font_size = 33
+text = "TEST LEFT PAGE"
+
+[node name="HSeparator" type="HSeparator" parent="LeftPageViewport/LeftPageUI/Margin/VBox" unique_id=1883350286]
+layout_mode = 2
+
+[node name="BirdContent" type="HBoxContainer" parent="LeftPageViewport/LeftPageUI/Margin/VBox" unique_id=668418533]
+layout_mode = 2
+
+[node name="LeftText" type="RichTextLabel" parent="LeftPageViewport/LeftPageUI/Margin/VBox/BirdContent" unique_id=513432731]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 64
+
+[node name="BirdImage" type="TextureRect" parent="LeftPageViewport/LeftPageUI/Margin/VBox/BirdContent" unique_id=1944005982]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_15ohh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RightText" type="RichTextLabel" parent="LeftPageViewport/LeftPageUI/Margin/VBox/BirdContent" unique_id=1384843985]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+
+[node name="BodyLabel" type="RichTextLabel" parent="LeftPageViewport/LeftPageUI/Margin/VBox" unique_id=184836298]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_font_sizes/normal_font_size = 120
+theme_override_font_sizes/bold_font_size = 120
+bbcode_enabled = true
+text = "[b]Common Kingfisher[/b]\\n[i]Alcedo atthis[/i]\\n\\nThe kingfisher is a small, brightly colored bird commonly found near rivers, lakes, and streams.\\n\\nIts brilliant blue and orange plumage makes it one of Europe's most recognizable birds.\\n\\n[b]Diet:[/b] Small fish and aquatic insects.\\n[b]Habitat:[/b] Rivers, streams, and wetlands.\\n[b]Fun fact:[/b] Kingfishers can dive underwater to catch fish.\",
+	\"left_page\": \"5\""
+scroll_active = false
+
+[node name="BottomRow" type="HBoxContainer" parent="LeftPageViewport/LeftPageUI/Margin/VBox" unique_id=229212802]
+layout_mode = 2
+
+[node name="LeftCornerBtn" type="Button" parent="LeftPageViewport/LeftPageUI/Margin/VBox/BottomRow" unique_id=1383135217]
+layout_mode = 2
+tooltip_text = "Click to turn to previous page"
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qkvcv")
+text = "◺ Turn"
+
+[node name="PageNumLabel" type="Label" parent="LeftPageViewport/LeftPageUI/Margin/VBox/BottomRow" unique_id=1422782551]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.7, 0.8, 0.8)
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+
+[node name="RightPageViewport" type="SubViewport" parent="." unique_id=1837500424]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1024, 1536)
+render_target_update_mode = 4
+
+[node name="RightPageUI" type="PanelContainer" parent="RightPageViewport" unique_id=747982736]
+custom_minimum_size = Vector2(340, 390)
+custom_maximum_size = Vector2(350, 450)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kejbo")
+
+[node name="Margin" type="MarginContainer" parent="RightPageViewport/RightPageUI" unique_id=1583430652]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="RightPageViewport/RightPageUI/Margin" unique_id=1423553477]
+custom_minimum_size = Vector2(0, 430)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="RightPageViewport/RightPageUI/Margin/VBox" unique_id=2144841691]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+text = "FACILITY LOG // SECTION 01"
+
+[node name="HSeparator" type="HSeparator" parent="RightPageViewport/RightPageUI/Margin/VBox" unique_id=1340175938]
+layout_mode = 2
+
+[node name="BirdContent" type="HBoxContainer" parent="RightPageViewport/RightPageUI/Margin/VBox" unique_id=49859968]
+layout_mode = 2
+
+[node name="LeftText" type="RichTextLabel" parent="RightPageViewport/RightPageUI/Margin/VBox/BirdContent" unique_id=58476066]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BirdImage" type="TextureRect" parent="RightPageViewport/RightPageUI/Margin/VBox/BirdContent" unique_id=134401072]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_15ohh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RightText" type="RichTextLabel" parent="RightPageViewport/RightPageUI/Margin/VBox/BirdContent" unique_id=883837151]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BodyLabel" type="RichTextLabel" parent="RightPageViewport/RightPageUI/Margin/VBox" unique_id=2003913304]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[b]Common Kingfisher[/b]\\n[i]Alcedo atthis[/i]\\n\\nThe kingfisher is a small, brightly colored bird commonly found near rivers, lakes, and streams.\\n\\nIts brilliant blue and orange plumage makes it one of Europe's most recognizable birds.\\n\\n[b]Diet:[/b] Small fish and aquatic insects.\\n[b]Habitat:[/b] Rivers, streams, and wetlands.\\n[b]Fun fact:[/b] Kingfishers can dive underwater to catch fish.\",
+	\"left_page\": \"5\""
+scroll_active = false
+
+[node name="BottomRow" type="HBoxContainer" parent="RightPageViewport/RightPageUI/Margin/VBox" unique_id=1171943097]
+layout_mode = 2
+
+[node name="LeftCornerBtn" type="Button" parent="RightPageViewport/RightPageUI/Margin/VBox/BottomRow" unique_id=232495066]
+layout_mode = 2
+tooltip_text = "Click to turn to previous page"
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qkvcv")
+text = "◺ Turn"
+
+[node name="PageNumLabel" type="Label" parent="RightPageViewport/RightPageUI/Margin/VBox/BottomRow" unique_id=608228511]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.7, 0.8, 0.8)
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1

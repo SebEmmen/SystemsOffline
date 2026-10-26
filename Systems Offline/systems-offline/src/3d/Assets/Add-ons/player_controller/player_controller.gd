@@ -136,6 +136,7 @@ func _ready() -> void:
 	capture_mouse()
 
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not controls_enabled:
 		return
@@ -143,11 +144,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Capture mouse when clicking inside the game
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			capture_mouse()
+			if Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
+				capture_mouse()
 
-	# Look around
-	if mouse_captured and event is InputEventMouseMotion:
+	# Look around only when mouse is captured
+	if event is InputEventMouseMotion:
+		if not mouse_captured:
+			return
+
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			return
+
 		rotate_look(event.relative)
+
 
 
 
