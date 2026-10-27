@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BookSpreadData" format=3 uid="uid://bnsrjibt8py2n"]
+
+[ext_resource type="PackedScene" uid="uid://qtlbetcigqyl" path="res://src/3d/Assets/book/Pages/ResearchLeft.tscn" id="1_im2qt"]
+[ext_resource type="Script" uid="uid://d33tdo1ss7v16" path="res://src/3d/Assets/book/BookSpreadData.gd" id="1_jc1mu"]
+[ext_resource type="PackedScene" uid="uid://c1c4h31i4nt1y" path="res://src/3d/Assets/book/Pages/ResearchRight.tscn" id="2_m0n0f"]
+
+[resource]
+script = ExtResource("1_jc1mu")
+left_page = ExtResource("1_im2qt")
+right_page = ExtResource("2_m0n0f")
+metadata/_custom_type_script = "uid://d33tdo1ss7v16"

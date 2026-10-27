@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0wgwuupgjh14" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.gd" id="1_ucva2"]
 [ext_resource type="Script" uid="uid://c0qp0g35mplfs" path="res://src/3d/Assets/Add-ons/player_controller/ray_cast.gd" id="2_1ae3g"]
-[ext_resource type="PackedScene" uid="uid://b11v3fyr6tmsf" path="res://src/3d/Scenes/book.tscn" id="3_j2dax"]
+[ext_resource type="PackedScene" uid="uid://bccpr258cfhhd" path="res://src/3d/Assets/book/book3D.tscn" id="3_j2dax"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -30,7 +30,7 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1159036928]
-transform = Transform3D(1, 0, 0, 0, 0.95516866, 0.29606232, 0, -0.29606232, 0.9551686, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9992486, 0.038758412, 0, -0.038758397, 0.9992486, 0, 0, 0)
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=428450941]
@@ -38,12 +38,11 @@ transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0
 target_position = Vector3(0, -1.5, 0)
 script = ExtResource("2_1ae3g")
 
-[node name="BookAnchor" type="Node3D" parent="Head/Camera3D" unique_id=1087990834]
-process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0043822527, -0.0141381025)
+[node name="BookAnchor" type="Node3D" parent="Head/Camera3D" unique_id=485707634]
+transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, -1, 0, 1, -4.4703484e-08, 0, -0.004555583, -0.68255264)
 
-[node name="Book" parent="Head/Camera3D/BookAnchor" unique_id=1817170415 instance=ExtResource("3_j2dax")]
-transform = Transform3D(1, 0, 0, 0, 0.21709359, -0.9761508, 0, 0.9761508, 0.21709359, -0.0684264, 0.069000125, -0.49100003)
+[node name="Book3D" parent="Head/Camera3D/BookAnchor" unique_id=1483509207 instance=ExtResource("3_j2dax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061350506, 0.12367052, -0.033817172)
 
 [node name="StairsAheadRayCast3D" type="RayCast3D" parent="." unique_id=1955223396]
 unique_name_in_owner = true

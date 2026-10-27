@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BookSpreadData" format=3 uid="uid://bd2kabh4ke38k"]
+
+[ext_resource type="PackedScene" uid="uid://cbmfrbh5ygx1" path="res://src/3d/Assets/book/Pages/LogsLeft.tscn" id="1_47l6v"]
+[ext_resource type="Script" uid="uid://bd2kabh4ke38k" path="res://src/3d/Assets/book/Spreads/LogsSpread.tres" id="1_xoyg1"]
+[ext_resource type="PackedScene" uid="uid://be7mabr7ra81p" path="res://src/3d/Assets/book/Pages/LogsRight.tscn" id="2_nvp1l"]
+
+[resource]
+script = ExtResource("1_xoyg1")
+section_name = "Logs"
+left_page = ExtResource("1_47l6v")
+right_page = ExtResource("2_nvp1l")
+metadata/_custom_type_script = "uid://d33tdo1ss7v16"

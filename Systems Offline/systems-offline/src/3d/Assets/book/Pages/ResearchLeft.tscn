@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://qtlbetcigqyl"]
+
+[ext_resource type="PackedScene" uid="uid://cb5ab0oo1gk7j" path="res://src/3d/Assets/book/BookPage.tscn" id="1_828sb"]
+
+[node name="ResearchLeft" unique_id=222881741 instance=ExtResource("1_828sb")]
+offset_top = 0.0
+offset_bottom = 888.0
+
+[node name="TitleLabel" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1421612426) index="0" unique_id=1176541892]
+text = "RESEARCH LAB"
+
+[node name="BodyLabel" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1421612426) index="2" unique_id=1138092559]
+text = "[b]PROJECT RESONANCE[/b]
+
+Classification: Level 3 Restricted
+
+Initial experiments have revealed
+localized gravitational anomalies
+within the facility.
+
+When exposed to high-frequency
+resonance, certain objects appear
+to reverse their gravitational
+direction.
+
+Further testing is required to
+determine the source of this
+phenomenon.
+
+[b]WARNING:[/b]
+Containment procedures must remain
+active during all experiments."
+
+[node name="PageNumber" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1421612426) index="3" unique_id=759787519]
+text = "3"

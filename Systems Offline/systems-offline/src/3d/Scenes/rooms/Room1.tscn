@@ -5,6 +5,7 @@
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://cct5f4d8iimtf" path="res://src/3d/Mesh/WallMeshLibrary.meshlib" id="3_alw4e"]
 [ext_resource type="PackedScene" uid="uid://cd8d230r2wpe4" path="res://src/2d/Scenes/Inventory/InventoryUI.tscn" id="5_7flw8"]
+[ext_resource type="Script" uid="uid://d33tdo1ss7v16" path="res://src/3d/Assets/book/BookSpreadData.gd" id="5_io4pa"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
 [ext_resource type="PackedScene" uid="uid://b3wuqplm7lupy" path="res://src/3d/Scenes/objects/SlidingDoor.tscn" id="6_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://bvgrjamb53k8l" path="res://src/2d/Scenes/Notifications/NotificationsUI.tscn" id="6_fm5id"]
@@ -111,11 +112,15 @@ crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
 crosshair_hand = NodePath("../../../../HUD/HandCrosshair")
 view_label = NodePath("../../../../HUD/ViewLabel")
 
+[node name="Book3D" parent="ProtoController/Head/Camera3D/BookAnchor" parent_id_path=PackedInt32Array(1779789665, 485707634) index="0" unique_id=1483509207]
+spreads = Array[ExtResource("5_io4pa")]([])
+
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
-[node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313 node_paths=PackedStringArray("player")]
+[node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313 node_paths=PackedStringArray("book_anchor", "player")]
 process_mode = 3
 script = ExtResource("6_tjnt7")
+book_anchor = NodePath("../ProtoController/Head/Camera3D/BookAnchor")
 player = NodePath("../ProtoController")
 
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]

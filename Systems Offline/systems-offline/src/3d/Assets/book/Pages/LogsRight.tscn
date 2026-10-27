@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://be7mabr7ra81p"]
+
+[ext_resource type="PackedScene" uid="uid://cb5ab0oo1gk7j" path="res://src/3d/Assets/book/BookPage.tscn" id="1_mqw4c"]
+
+[node name="LogsRight" unique_id=222881741 instance=ExtResource("1_mqw4c")]
+offset_top = 0.0
+offset_bottom = 888.0
+
+[node name="TitleLabel" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1421612426) index="0" unique_id=1176541892]
+text = "RIGHT TEST RIGHT TEST"
+
+[node name="BodyLabel" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1421612426) index="2" unique_id=1138092559]
+theme_override_font_sizes/normal_font_size = 32
+text = "LogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRightLogsRight"
+
+[node name="PageNumber" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1421612426) index="3" unique_id=759787519]
+text = "2"

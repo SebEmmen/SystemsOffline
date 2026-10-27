@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bccpr258cfhhd"]
+
+[ext_resource type="PackedScene" uid="uid://cdr7bxfupr2qv" path="res://src/3d/Assets/book/book.glb" id="1_bh8q7"]
+[ext_resource type="Script" uid="uid://c2cqhsfr6p0sq" path="res://src/3d/Assets/book/BookController.gd" id="1_q5825"]
+[ext_resource type="PackedScene" uid="uid://cbmfrbh5ygx1" path="res://src/3d/Assets/book/Pages/LogsLeft.tscn" id="2_0fote"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4rn"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1cg0m"]
+material = SubResource("StandardMaterial3D_3q4rn")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3q4rn"]
+viewport_path = NodePath("LeftPageViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cg0m"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_3q4rn")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dwu7m"]
+viewport_path = NodePath("RightPageViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb2t8"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_dwu7m")
+
+[node name="Book3D" type="Node3D" unique_id=1483509207]
+script = ExtResource("1_q5825")
+
+[node name="VisualRoot" type="Node3D" parent="." unique_id=250605801]
+
+[node name="BookModel" parent="VisualRoot" unique_id=798499647 instance=ExtResource("1_bh8q7")]
+
+[node name="LeftPageSurface" type="MeshInstance3D" parent="VisualRoot" unique_id=2020370082]
+transform = Transform3D(0.18043745, 0, 0, 0, 1, 0, 0, 0, 0.30162746, -0.13415228, 0.04755214, 0.02717191)
+layers = 2
+mesh = SubResource("PlaneMesh_1cg0m")
+surface_material_override/0 = SubResource("StandardMaterial3D_1cg0m")
+
+[node name="RightPageSurface" type="MeshInstance3D" parent="VisualRoot" unique_id=1651320568]
+transform = Transform3D(0.18043745, 0, 0, 0, 1, 0, 0, 0, 0.30162746, 0.27305758, 0.04755214, 0.02717191)
+mesh = SubResource("PlaneMesh_1cg0m")
+surface_material_override/0 = SubResource("StandardMaterial3D_vb2t8")
+
+[node name="LeftPageViewport" type="SubViewport" parent="." unique_id=1591891851]
+process_mode = 3
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1024, 1536)
+render_target_update_mode = 4
+
+[node name="LogsLeft" parent="LeftPageViewport" unique_id=222881741 instance=ExtResource("2_0fote")]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="RightPageViewport" type="SubViewport" parent="." unique_id=1930927624]
+process_mode = 3
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1024, 1536)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="RightPageViewport" unique_id=1411344189]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 1536.0
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPageViewport/Control" unique_id=1338780303]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 120
+
+[node name="Label" type="Label" parent="RightPageViewport/Control/MarginContainer" unique_id=100208063]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "TEST RIGHT  PAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

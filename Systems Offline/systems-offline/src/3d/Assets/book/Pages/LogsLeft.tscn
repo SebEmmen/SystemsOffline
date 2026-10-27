@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cbmfrbh5ygx1"]
+
+[ext_resource type="PackedScene" uid="uid://cb5ab0oo1gk7j" path="res://src/3d/Assets/book/BookPage.tscn" id="1_vk643"]
+
+[node name="LogsLeft" unique_id=222881741 instance=ExtResource("1_vk643")]
+offset_top = 0.0
+offset_bottom = 888.0
+
+[node name="MarginContainer" parent="." index="0" unique_id=1144998275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" parent="MarginContainer" index="0" unique_id=1421612426]
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" parent="MarginContainer/VBoxContainer" index="0" unique_id=1176541892]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "FACILITY LOG // SECTION 01"
+
+[node name="BodyLabel" parent="MarginContainer/VBoxContainer" index="2" unique_id=1138092559]
+custom_minimum_size = Vector2(0, 400)
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+text = "TEST INCIDENT REPORTv NEW
+"
+
+[node name="PageNumber" parent="MarginContainer/VBoxContainer" index="3" unique_id=759787519]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "1"
