@@ -17,8 +17,8 @@
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="13_j4nu1"]
 [ext_resource type="PackedScene" uid="uid://mcgtnsxl7lum" path="res://src/3d/Scenes/objects/Whitebox/Box.tscn" id="15_2pe5o"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
-[ext_resource type="PackedScene" uid="uid://doakqy0iio7e1" path="res://src/3d/Scenes/objects/OpenableCrate.tscn" id="16_2pe5o"]
-[ext_resource type="PackedScene" uid="uid://by2av6ruws1r5" path="res://src/3d/Scenes/objects/BasicCrate.tscn" id="16_o4tcg"]
+[ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
+[ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
@@ -180,10 +180,11 @@ transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
-[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.6, 0, -5.2453668e-08, 0, 0.6, 0, 5.2453668e-08, 0, -0.6, 4.1269445, 0, 1.3285301)
 script = ExtResource("17_wvn26")
 inspect_type = 1
+inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "7"
@@ -196,14 +197,15 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
-[node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.45346525, 0, 1.1110216, 0, 1.1999999, 0, -1.1110216, 0, -0.45346525, -7.7599645, 0, 0.7765262)
 script = ExtResource("17_wvn26")
 inspect_type = 1
+inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "4"
-crate_lid = NodePath("../CrateCode(7)/Plane_002")
+crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 object_ref = NodePath(".")
 interaction_type = 1
