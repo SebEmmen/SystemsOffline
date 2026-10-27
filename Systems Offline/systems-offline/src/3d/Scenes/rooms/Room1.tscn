@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://bqg7cqbpvfckh" path="res://src/3d/Scenes/objects/OpenableCrate.tscn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://by2av6ruws1r5" path="res://src/3d/Scenes/objects/BasicCrate.tscn" id="16_o4tcg"]
-[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inpect_component.gd" id="17_wvn26"]
+[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
 [ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
@@ -191,11 +191,11 @@ transition_camera = NodePath("../../../TransitionCamera")
 transform = Transform3D(-0.6, 0, -5.2453668e-08, 0, 0.6, 0, 5.2453668e-08, 0, -0.6, 4.1269445, 0, 1.3285301)
 script = ExtResource("17_wvn26")
 inspect_type = 1
-inspect_camera = NodePath("Crate base/CrateCamera")
+inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "7"
-crate_lid = NodePath("Crate base/Plane_001")
+crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 object_ref = NodePath(".")
 interaction_type = 1
@@ -208,11 +208,11 @@ primary_se = ExtResource("24_6lvv6")
 transform = Transform3D(-0.45346525, 0, 1.1110216, 0, 1.1999999, 0, -1.1110216, 0, -0.45346525, -7.7599645, 0, 0.7765262)
 script = ExtResource("17_wvn26")
 inspect_type = 1
-inspect_camera = NodePath("Crate base/CrateCamera")
+inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "4"
-crate_lid = NodePath("Crate base/Plane_001")
+crate_lid = NodePath("../CrateCode(7)/Plane_002")
 lid_target = NodePath("LidTarget")
 object_ref = NodePath(".")
 interaction_type = 1
@@ -225,11 +225,11 @@ primary_se = ExtResource("24_6lvv6")
 transform = Transform3D(0.2749278, 0, 0.7512755, 0, 0.8, 0, -0.7512755, 0, 0.2749278, -7.211203, 0, -2.666003)
 script = ExtResource("17_wvn26")
 inspect_type = 1
-inspect_camera = NodePath("Crate base/CrateCamera")
+inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "2"
-crate_lid = NodePath("Crate base/Plane_001")
+crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 object_ref = NodePath(".")
 interaction_type = 1
@@ -242,11 +242,11 @@ primary_se = ExtResource("24_6lvv6")
 transform = Transform3D(-0.7826081, 0, -0.6225147, 0, 1, 0, 0.6225147, 0, -0.7826081, 4.1910243, 0, -0.80292845)
 script = ExtResource("17_wvn26")
 inspect_type = 1
-inspect_camera = NodePath("Crate base/CrateCamera")
+inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
 number_label = NodePath("Label3D")
 number = "9"
-crate_lid = NodePath("Crate base/Plane_001")
+crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 object_ref = NodePath(".")
 interaction_type = 1
@@ -467,13 +467,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
 [editable path="Tutorial Room/KeypadTouchscreen"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/Crates/CrateCode(7)"]
-[editable path="Tutorial Room/Crates/CrateCode(7)/Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(7)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(4)"]
-[editable path="Tutorial Room/Crates/CrateCode(4)/Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(4)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(2)"]
-[editable path="Tutorial Room/Crates/CrateCode(2)/Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(2)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(9)"]
-[editable path="Tutorial Room/Crates/CrateCode(9)/Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(9)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/Fallen Crate With key/Crate base"]
 [editable path="Tutorial Room/SlidingDoor"]
 [editable path="Tutorial Room/SlidingDoor/SingleDoorWall"]
