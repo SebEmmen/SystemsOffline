@@ -176,61 +176,61 @@ transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0, 0
 shape = SubResource("ConcavePolygonShape3D_6h83b")
 
 [node name="TypeWriter Key 1" parent="." unique_id=1799067370 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.97022474, 0, -0.24220872, 0, 1, 0, 0.24220872, 0, -0.97022474, 47.94603, 8.095303, -4.8747673)
+transform = Transform3D(-0.9702248, 0, -0.24220878, 0, 1, 0, 0.24220878, 0, -0.9702248, 47.94603, 6.785435, -4.874771)
 
 [node name="TypeWriter Key 2" parent="." unique_id=989670770 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.9951055, 0, -0.09882289, 0, 1, 0, 0.09882289, 0, -0.9951055, 48.849236, 8.095303, 2.3652325)
+transform = Transform3D(-0.9951055, 0, -0.09882292, 0, 1, 0, 0.09882292, 0, -0.9951055, 48.849236, 6.785435, 2.3652325)
 
 [node name="TypeWriter Key 3" parent="." unique_id=1898620956 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.99151313, 0, 0.13001496, 0, 1, 0, -0.13001496, 0, -0.99151313, 48.34925, 8.095303, 10.035407)
+transform = Transform3D(-0.99151313, 0, 0.13001496, 0, 1, 0, -0.13001496, 0, -0.99151313, 48.34925, 6.785435, 10.035407)
 
 [node name="TypeWriter Key 4" parent="." unique_id=1042598552 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.95485264, 0, 0.29708105, 0, 1, 0, -0.29708105, 0, -0.95485264, 47.14316, 8.095303, 18.093147)
+transform = Transform3D(-0.95485264, 0, 0.29708105, 0, 1, 0, -0.29708105, 0, -0.95485264, 47.14316, 6.785435, 18.093147)
 
 [node name="TypeWriter Key 5" parent="." unique_id=1895286916 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.90162265, 0, 0.4325252, 0, 1, 0, -0.4325252, 0, -0.90162265, 44.153687, 8.095303, 24.748713)
+transform = Transform3D(-0.90162265, 0, 0.4325252, 0, 1, 0, -0.4325252, 0, -0.90162265, 44.153687, 6.785435, 24.748713)
 
 [node name="TypeWriter Key 6" parent="." unique_id=1000071490 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.7796697, 0, 0.6261929, 0, 1, 0, -0.6261929, 0, -0.7796697, 39.74176, 8.095303, 31.042858)
+transform = Transform3D(-0.7796697, 0, 0.6261929, 0, 1, 0, -0.6261929, 0, -0.7796697, 39.74176, 6.785435, 31.042858)
 
 [node name="TypeWriter Key 7" parent="." unique_id=1055460773 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.69173354, 0, 0.72215366, 0, 1, 0, -0.72215366, 0, -0.69173354, 34.269745, 8.095303, 36.796497)
+transform = Transform3D(-0.6917336, 0, 0.72215366, 0, 1, 0, -0.72215366, 0, -0.6917336, 34.269745, 6.785435, 36.796497)
 
 [node name="TypeWriter Key 8" parent="." unique_id=1313588630 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.5795933, 0, 0.81490695, 0, 1, 0, -0.81490695, 0, -0.5795933, 28.432209, 8.095303, 41.17332)
+transform = Transform3D(-0.5795933, 0, 0.81490695, 0, 1, 0, -0.81490695, 0, -0.5795933, 28.432209, 6.785435, 41.17332)
 
 [node name="TypeWriter Key 9" parent="." unique_id=1751592981 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.37913457, 0, 0.9253431, 0, 1, 0, -0.9253431, 0, -0.37913457, 21.524895, 8.095303, 44.54538)
+transform = Transform3D(-0.37913457, 0, 0.9253431, 0, 1, 0, -0.9253431, 0, -0.37913457, 21.524895, 6.785435, 44.54538)
 
 [node name="TypeWriter Key 10" parent="." unique_id=1652395478 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.9464425, 0, -0.32287478, 0, 1, 0, 0.32287478, 0, -0.9464425, 46.552498, 4.5121555, -8.65057)
+transform = Transform3D(-0.9464425, 0, -0.32287478, 0, 1, 0, 0.32287478, 0, -0.9464425, 46.552498, 3.0358691, -8.65057)
 
 [node name="TypeWriter Key 11" parent="." unique_id=254700836 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.9832832, 0, -0.18208674, 0, 1, 0, 0.18208674, 0, -0.9832832, 48.060844, 4.5121555, -1.5120678)
+transform = Transform3D(-0.9832832, 0, -0.18208674, 0, 1, 0, 0.18208674, 0, -0.9832832, 48.060844, 3.0358691, -1.5120697)
 
 [node name="TypeWriter Key 12" parent="." unique_id=2065260193 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.99893135, 0, 0.046243608, 0, 1, 0, -0.046243608, 0, -0.99893135, 48.207108, 4.5121555, 6.1729984)
+transform = Transform3D(-0.9989314, 0, 0.046243608, 0, 1, 0, -0.046243608, 0, -0.9989314, 48.207108, 3.0358691, 6.1729984)
 
 [node name="TypeWriter Key 13" parent="." unique_id=1632697363 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.97643805, 0, 0.2157995, 0, 1, 0, -0.2157995, 0, -0.97643805, 47.68232, 4.5121555, 14.303573)
+transform = Transform3D(-0.97643805, 0, 0.2157995, 0, 1, 0, -0.2157995, 0, -0.97643805, 47.68232, 3.0358691, 14.303572)
 
 [node name="TypeWriter Key 14" parent="." unique_id=975620769 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.93477726, 0, 0.35523757, 0, 1, 0, -0.35523757, 0, -0.93477726, 45.262672, 4.5121555, 21.186804)
+transform = Transform3D(-0.93477726, 0, 0.35523757, 0, 1, 0, -0.35523757, 0, -0.93477726, 45.262676, 3.0358691, 21.186804)
 
 [node name="TypeWriter Key 15" parent="." unique_id=696669047 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.8295284, 0, 0.5584675, 0, 1, 0, -0.5584675, 0, -0.8295284, 41.3952, 4.5121555, 27.829391)
+transform = Transform3D(-0.8295284, 0, 0.5584675, 0, 1, 0, -0.5584675, 0, -0.8295284, 41.3952, 3.0358691, 27.829391)
 
 [node name="TypeWriter Key 16" parent="." unique_id=842761094 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.74996614, 0, 0.66147774, 0, 1, 0, -0.66147774, 0, -0.74996614, 36.42595, 4.5121555, 34.022476)
+transform = Transform3D(-0.74996614, 0, 0.66147774, 0, 1, 0, -0.66147774, 0, -0.74996614, 36.42595, 3.0358691, 34.022476)
 
 [node name="TypeWriter Key 17" parent="." unique_id=161469351 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.6460159, 0, 0.7633255, 0, 1, 0, -0.7633255, 0, -0.6460159, 30.976824, 4.5121555, 38.87433)
+transform = Transform3D(-0.64601594, 0, 0.76332545, 0, 1, 0, -0.76332545, 0, -0.64601594, 30.976824, 3.0358691, 38.87433)
 
 [node name="TypeWriter Key 18" parent="." unique_id=1274107579 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.45554596, 0, 0.89021426, 0, 1, 0, -0.89021426, 0, -0.45554596, 24.377285, 4.5121555, 42.81482)
+transform = Transform3D(-0.45554596, 0, 0.89021426, 0, 1, 0, -0.89021426, 0, -0.45554596, 24.377285, 3.0358691, 42.81482)
 
 [node name="TypeWriter Key 19" parent="." unique_id=537139838 instance=ExtResource("3_8a6up")]
-transform = Transform3D(-0.384251, 0, 0.92323065, 0, 1, 0, -0.92323065, 0, -0.384251, 18.807518, 4.6411896, 45.089355)
+transform = Transform3D(-0.384251, 0, 0.92323065, 0, 1, 0, -0.92323065, 0, -0.384251, 18.807518, 3.1649034, 45.089355)
 
 [editable path="TypeWriter Key 1"]
 [editable path="TypeWriter Key 2"]

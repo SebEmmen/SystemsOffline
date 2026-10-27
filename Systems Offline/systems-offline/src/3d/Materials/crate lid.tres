@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bohr3l1u6qq1r"]
+
+[ext_resource type="Texture2D" uid="uid://d0p60v2wm3es6" path="res://src/3d/Assets/General reuseable assets/Crate/Crate lid_Ucupaint Plane.png" id="2_wbi2n"]
+[ext_resource type="Texture2D" uid="uid://dtf7nepygpktp" path="res://src/3d/Assets/General reuseable assets/Crate/Crate lid_Ucupaint Plane Roughness.png" id="3_if8e1"]
+
+[resource]
+albedo_color = Color(0.9830423, 0.5797596, 0.28899384, 1)
+albedo_texture = ExtResource("2_wbi2n")
+roughness_texture = ExtResource("3_if8e1")
+normal_texture = ExtResource("3_if8e1")
