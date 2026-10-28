@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c35qrqo7ajmic"]
 
-[ext_resource type="Texture2D" uid="uid://bay85kwwcixt0" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
+[ext_resource type="Texture2D" uid="uid://862kynlp8dih" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://cct5f4d8iimtf" path="res://src/3d/Mesh/WallMeshLibrary.meshlib" id="3_alw4e"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="40_3h5nh"]
+[ext_resource type="PackedScene" uid="uid://cyggylsu2lkj6" path="res://src/3d/Scenes/objects/DoubleSlidingDoor.tscn" id="40_qbvi1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -436,6 +437,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874
 
 [node name="Cubicle" parent="." unique_id=1899239903 instance=ExtResource("40_3h5nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
+
+[node name="DoubleSlidingDoor" parent="." unique_id=1587733908 instance=ExtResource("40_qbvi1")]
+transform = Transform3D(-0.21960339, 3.49061, -1.525794e-07, 0, -1.5298984e-07, -3.4999998, -2.9919515, -0.25620395, 1.119903e-08, -12.164857, 1.2419757, -15.321442)
 
 [editable path="ProtoController"]
 [editable path="HUD"]

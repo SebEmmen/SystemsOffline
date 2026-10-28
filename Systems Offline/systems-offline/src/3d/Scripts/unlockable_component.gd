@@ -3,7 +3,8 @@ extends InteractableComponent
 
 enum UnlockableType{
 	DOOR,
-	COVER
+	COVER,
+	DOUBLE_DOOR
 }
 
 @export var unlockable_type: UnlockableType
@@ -15,6 +16,12 @@ enum UnlockableType{
 @onready var open: bool = false
 #endregion
 
+#region Door Specific Variables
+@export_group("Door")
+@export var left_door: Node3D
+@export var right_door: Node3D
+@export var door_handle: Node3D
+#endregion
 
 #region Cover Specific Variables
 @export_group("Cover")
@@ -78,6 +85,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 			move_door(default_position, 0.4)
 			is_interacting = !is_interacting
 #endregion
+
 
 #region Cover Functions
 
