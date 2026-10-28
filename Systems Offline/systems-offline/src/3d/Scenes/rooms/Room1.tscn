@@ -386,12 +386,19 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle") instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(4.0482333e-09, -0.09261279, 0.03772099, -0.10000001, -4.371139e-09, -4.2351648e-23, 1.6488368e-09, -0.037720993, -0.09261278, -7.5541897, 1.495242, -68.33988)
 script = ExtResource("17_wvn26")
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
-puzzle = NodePath(".")
+puzzle = NodePath("Wire Puzzle Comms")
+object_ref = NodePath("Wire Puzzle Comms")
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../TransitionCamera")
+
+[node name="Lid Wire space small" parent="CommsRoom/WirePuzzleTest/Wire Puzzle Comms" parent_id_path=PackedInt32Array(2100949581, 918281047) index="0" unique_id=1403064336]
+visible = false
 
 [node name="Delivery Tubes" parent="CommsRoom" unique_id=1631719345 instance=ExtResource("32_io4pa")]
 transform = Transform3D(0.71447104, 0, -0.69966507, 0, 1, 0, 0.69966507, 0, 0.71447104, 11.919254, 0.06365895, -80.75128)
