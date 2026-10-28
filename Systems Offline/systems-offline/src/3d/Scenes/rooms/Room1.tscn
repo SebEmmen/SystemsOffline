@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="40_3h5nh"]
+[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn" id="40_qbvi1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -385,6 +386,13 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle") instance=ExtResource("40_qbvi1")]
+transform = Transform3D(4.0482333e-09, -0.09261279, 0.03772099, -0.10000001, -4.371139e-09, -4.2351648e-23, 1.6488368e-09, -0.037720993, -0.09261278, -7.5541897, 1.495242, -68.33988)
+script = ExtResource("17_wvn26")
+inspect_type = 2
+inspect_camera = NodePath("Camera3D")
+puzzle = NodePath(".")
+
 [node name="Delivery Tubes" parent="CommsRoom" unique_id=1631719345 instance=ExtResource("32_io4pa")]
 transform = Transform3D(0.71447104, 0, -0.69966507, 0, 1, 0, 0.69966507, 0, 0.71447104, 11.919254, 0.06365895, -80.75128)
 
@@ -459,4 +467,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
 [editable path="Tutorial Room/MediumPoster"]
 [editable path="Tutorial Room/MediumPoster2"]
 [editable path="Tutorial Room/KeyHanger"]
+[editable path="CommsRoom/WirePuzzleTest"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Lid Wire space small"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Wire2"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/WireSocket2"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning On"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Beginning Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/End Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/stationary part bend"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Beginning"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/End"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Full short wire"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Wire1"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
 [editable path="Elevator 1st floor"]

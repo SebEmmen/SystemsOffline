@@ -4,7 +4,8 @@ extends InteractableComponent
 
 enum InspectType{
 	POSTER,
-	CRATE
+	CRATE,
+	WIRES_PUZZLE
 	}
 	
 @export var inspect_type: InspectType
@@ -31,10 +32,13 @@ var default_font: Font = ThemeDB.fallback_font
 @onready var lid_rotation: Vector3
 @onready var open:= false
 
-
 var lid_animating: bool = false
 #endregion
 
+#region Wires_Puzzle Variable
+@export_group("Wires_Puzzle")
+@export var puzzle: Node3D
+#endregion
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_audio_players()
