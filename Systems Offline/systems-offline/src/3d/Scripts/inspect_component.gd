@@ -55,6 +55,9 @@ func _ready() -> void:
 
 
 func interact() -> void:
+	if not can_interact:
+		return
+
 	match inspect_type:
 		InspectType.POSTER:
 			enter_inspect()
@@ -257,11 +260,15 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 #region Wires Puzzle Functions
 func enter_puzzle() -> void:
-	if cover_removed:
+	if is_interacting or is_transitioning:
 		return
 
-	cover_removed = true
-	wire_cover.fall_off()
+	if not cover_removed:
+		cover_removed = true
+		wire_cover.fall_off()
+		return
+
+	enter_inspect()
 #endregion
 
 
