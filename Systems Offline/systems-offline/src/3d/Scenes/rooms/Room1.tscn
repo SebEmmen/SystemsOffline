@@ -405,6 +405,9 @@ transition_camera = NodePath("../../TransitionCamera")
 [node name="Camera3D" parent="CommsRoom/WirePuzzleTest" index="1" unique_id=1855915035]
 transform = Transform3D(-1.4210855e-14, -12.499999, -5.4639236e-07, 4.7683716e-07, -5.463923e-07, 12.500001, -12.500001, 1.3552527e-14, 4.7683716e-07, 0, 5.496002, -6.1035156e-05)
 
+[node name="StaticBody3D" parent="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small" parent_id_path=PackedInt32Array(2100949581, 918281047, 440158568) index="1" unique_id=301847483]
+collision_layer = 2
+
 [node name="Delivery Tubes" parent="CommsRoom" unique_id=1631719345 instance=ExtResource("32_io4pa")]
 transform = Transform3D(0.71447104, 0, -0.69966507, 0, 1, 0, 0.69966507, 0, 0.71447104, 11.919254, 0.06365895, -80.75128)
 

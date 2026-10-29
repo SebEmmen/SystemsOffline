@@ -68,7 +68,7 @@ func interact() -> void:
 				enter_crate()
 		
 		InspectType.WIRES_PUZZLE:
-			if fixed:
+			if SaveManager.wire_puzzle_solved:
 				return
 			enter_puzzle()
 
