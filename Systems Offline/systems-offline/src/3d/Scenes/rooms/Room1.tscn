@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c35qrqo7ajmic"]
 
-[ext_resource type="Texture2D" uid="uid://bay85kwwcixt0" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
+[ext_resource type="Texture2D" uid="uid://862kynlp8dih" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://cct5f4d8iimtf" path="res://src/3d/Mesh/WallMeshLibrary.meshlib" id="3_alw4e"]
@@ -20,9 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
-[ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
-[ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
-[ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
+[ext_resource type="AudioStream" uid="uid://dh6rlkdtawuur" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
+[ext_resource type="AudioStream" uid="uid://wctftf75ar4d" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
+[ext_resource type="AudioStream" uid="uid://b2wi5sp11hf6d" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="40_3h5nh"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn" id="40_qbvi1"]
+[ext_resource type="PackedScene" uid="uid://dxov4b5hw02ya" path="res://src/3d/Scenes/objects/Beachball/BeachBall.tscn" id="41_qbvi1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -90,7 +91,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9999361, -0.001504638, 0.011205292, 0, 0.99110466, 0.13308477, -0.011305861, -0.13307627, 0.99104136, -1.9922547, 0.058234215, 9.214317)
+transform = Transform3D(-0.7163025, 0.08559013, -0.69252086, 0, 0.9924489, 0.12265888, 0.69778997, 0.08786086, -0.71089363, -12.471015, 0.05406332, -70.454254)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -396,6 +397,7 @@ script = ExtResource("17_wvn26")
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
 puzzle = NodePath(".")
+wire_cover = NodePath("Wire Puzzle Comms/WireCover")
 object_ref = NodePath("Wire Puzzle Comms")
 interaction_type = 1
 player = NodePath("../../ProtoController")
@@ -459,6 +461,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874
 
 [node name="Cubicle" parent="." unique_id=1899239903 instance=ExtResource("40_3h5nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
+
+[node name="BeachBall" parent="." unique_id=54602701 instance=ExtResource("41_qbvi1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.832644, 2.628159, -74.23076)
 
 [editable path="ProtoController"]
 [editable path="HUD"]

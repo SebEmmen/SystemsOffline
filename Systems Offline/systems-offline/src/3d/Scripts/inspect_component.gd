@@ -40,6 +40,8 @@ var lid_animating: bool = false
 @export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
 @onready var fixed: bool = false
 @export var puzzle: Node3D
+@export var wire_cover = RigidBody3D
+var cover_removed: bool = false
 #endregion
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,6 +56,9 @@ func _ready() -> void:
 
 
 func interact() -> void:
+	if not can_interact:
+		return
+
 	match inspect_type:
 		InspectType.POSTER:
 			enter_inspect()
@@ -258,6 +263,10 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
 		return
+	if not cover_removed:
+		cover_removed = true
+		wire_cover.fall_off()
+		return
 	
 	# prevent player from moving if they can open 
 	is_interacting = !is_interacting
@@ -267,6 +276,8 @@ func enter_puzzle() -> void:
 	SaveManager.save_game()
 	get_tree().change_scene_to_file(puzzle_scene)
 #endregion
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
