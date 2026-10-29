@@ -37,6 +37,7 @@ var lid_animating: bool = false
 
 #region Wires_Puzzle Variable
 @export_group("Wires_Puzzle")
+@onready var fixed: bool = false
 @export var puzzle: Node3D
 #endregion
 # Called when the node enters the scene tree for the first time.
@@ -47,6 +48,8 @@ func _ready() -> void:
 			pass
 		InspectType.CRATE:
 			ready_crate()
+		InspectType.WIRES_PUZZLE:
+			pass
 
 
 func interact() -> void:
@@ -62,6 +65,11 @@ func interact() -> void:
 				open_crate()
 			else:
 				enter_crate()
+		
+		InspectType.WIRES_PUZZLE:
+			if fixed:
+				return
+			enter_puzzle()
 
 
 #region Inspect Functions
@@ -245,6 +253,11 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		poster_text.font = alien_language
 #endregion
 
+#region Wires Puzzle Functions
+func enter_puzzle() -> void:
+	print("Enter Puzzle")
+	pass
+#endregion
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
