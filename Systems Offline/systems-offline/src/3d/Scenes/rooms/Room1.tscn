@@ -191,6 +191,7 @@ number_label = NodePath("Label3D")
 number = "7"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -208,6 +209,7 @@ number_label = NodePath("Label3D")
 number = "4"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -225,6 +227,7 @@ number_label = NodePath("Label3D")
 number = "2"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -242,6 +245,7 @@ number_label = NodePath("Label3D")
 number = "9"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -387,7 +391,7 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
 [node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
-transform = Transform3D(4.0482333e-09, -0.09261279, 0.03772099, -0.10000001, -4.371139e-09, -4.2351648e-23, 1.6488368e-09, -0.037720993, -0.09261278, -7.5541897, 1.4380639, -68.33988)
+transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 script = ExtResource("17_wvn26")
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
@@ -397,6 +401,9 @@ interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+
+[node name="Camera3D" parent="CommsRoom/WirePuzzleTest" index="1" unique_id=1855915035]
+transform = Transform3D(-1.4210855e-14, -12.499999, -5.4639236e-07, 4.7683716e-07, -5.463923e-07, 12.500001, -12.500001, 1.3552527e-14, 4.7683716e-07, 0, 5.496002, -6.1035156e-05)
 
 [node name="Delivery Tubes" parent="CommsRoom" unique_id=1631719345 instance=ExtResource("32_io4pa")]
 transform = Transform3D(0.71447104, 0, -0.69966507, 0, 1, 0, 0.69966507, 0, 0.71447104, 11.919254, 0.06365895, -80.75128)

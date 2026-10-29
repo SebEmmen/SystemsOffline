@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c1tannb0yha17"]
+
+[ext_resource type="PackedScene" uid="uid://b8hxsl46twhj0" path="res://src/3d/Assets/Comm room/Final_Side table of middle platform.blend" id="1_way7w"]
+[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn" id="2_pxjqn"]
+
+[node name="Node3D" type="Node3D" unique_id=278063200]
+
+[node name="Final_Side table of middle platform" parent="." unique_id=491426932 instance=ExtResource("1_way7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1764437, -1.1920929e-07, 2.3832068)
+
+[node name="WirePuzzleTest" parent="." unique_id=2100949581 instance=ExtResource("2_pxjqn")]
+transform = Transform3D(-0.001666338, 0.48656446, 0.5032418, -0.69999593, -0.0023972774, 1.3576328e-10, 0.0017234426, -0.5032388, 0.4865673, 38.06839, 3.4228187, -28.286568)

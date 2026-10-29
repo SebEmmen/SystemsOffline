@@ -37,6 +37,7 @@ var lid_animating: bool = false
 
 #region Wires_Puzzle Variable
 @export_group("Wires_Puzzle")
+@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
 @onready var fixed: bool = false
 @export var puzzle: Node3D
 #endregion
@@ -255,8 +256,16 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 #region Wires Puzzle Functions
 func enter_puzzle() -> void:
-	print("Enter Puzzle")
-	pass
+	if is_interacting or is_transitioning:
+		return
+	
+	# prevent player from moving if they can open 
+	is_interacting = !is_interacting
+	player.disable_controls()
+	# Transition into keypad view
+	#player.hide_player()
+	SaveManager.save_game()
+	get_tree().change_scene_to_file(puzzle_scene)
 #endregion
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:

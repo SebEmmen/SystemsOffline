@@ -4,7 +4,7 @@ const SAVE_PATH = "user://savegame.json"
 const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 
 var save_data: Dictionary = {}
-
+var wire_puzzle_solved: bool = false
 
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
