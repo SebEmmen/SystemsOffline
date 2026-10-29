@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dxov4b5hw02ya"]
+
+[ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="1_pw1oi"]
+[ext_resource type="PackedScene" uid="uid://bcyrdm0tllm1h" path="res://src/3d/Assets/beachball/beach ball by the_ normalgamer - 4IwPTeOmq6c.glb" id="1_tsbex"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q4rn"]
+friction = 0.4
+bounce = 0.7
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1cg0m"]
+radius = 0.9912457
+
+[node name="BeachBall" type="RigidBody3D" unique_id=54602701]
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_3q4rn")
+contact_monitor = true
+max_contacts_reported = 4
+linear_damp_mode = 1
+linear_damp = 0.2
+angular_damp_mode = 1
+angular_damp = 0.2
+script = ExtResource("1_pw1oi")
+
+[node name="beach ball by the_ normalgamer - 4IwPTeOmq6c" parent="." unique_id=773134882 instance=ExtResource("1_tsbex")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1048776730]
+shape = SubResource("SphereShape3D_1cg0m")
