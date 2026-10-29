@@ -129,11 +129,6 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
 
-	#if event.is_action_pressed("ui_cancel") and InteractionType.INSPECT:
-		#exit_inspect()
-		#get_viewport().set_input_as_handled()
-		#return
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
