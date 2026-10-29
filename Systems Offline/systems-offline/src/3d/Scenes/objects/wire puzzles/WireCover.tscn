@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://s6rxqriyfkfa"]
+
+[ext_resource type="Script" uid="uid://ewmi8sbnktcy" path="res://src/3d/Scenes/objects/wire puzzles/wire_cover.gd" id="1_coakj"]
+[ext_resource type="PackedScene" uid="uid://y6w4j4j16b00" path="res://src/3d/Assets/Wires puzzle/Lid Wire space small.blend" id="1_cpyb6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cg0m"]
+size = Vector3(8.470337, 0.35876465, 12.214233)
+
+[node name="WireCover" type="RigidBody3D" unique_id=396484773]
+freeze = true
+script = ExtResource("1_coakj")
+
+[node name="Lid Wire space small" parent="." unique_id=1589185571 instance=ExtResource("1_cpyb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1269908)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=686477776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15777588, 1.2039185, -0.055480957)
+shape = SubResource("BoxShape3D_1cg0m")
+
+[editable path="Lid Wire space small"]

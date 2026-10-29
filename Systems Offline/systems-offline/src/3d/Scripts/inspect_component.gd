@@ -39,6 +39,8 @@ var lid_animating: bool = false
 @export_group("Wires_Puzzle")
 @onready var fixed: bool = false
 @export var puzzle: Node3D
+@export var wire_cover = RigidBody3D
+var cover_removed: bool = false
 #endregion
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -255,9 +257,14 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 #region Wires Puzzle Functions
 func enter_puzzle() -> void:
-	print("Enter Puzzle")
-	pass
+	if cover_removed:
+		return
+
+	cover_removed = true
+	wire_cover.fall_off()
 #endregion
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
