@@ -1,36 +1,59 @@
 [gd_scene format=3 uid="uid://cb5ab0oo1gk7j"]
 
+[ext_resource type="Script" uid="uid://bsagd0a5ps01p" path="res://src/3d/Assets/book/BookPage.gd" id="1_page_base"]
+
 [node name="BookPage" type="Control" unique_id=222881741]
 custom_minimum_size = Vector2(1024, 1536)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -444.0
-offset_right = -128.0
-offset_bottom = 444.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_page_base")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1144998275]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1421612426]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1176541892]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/font_size = 40
+text = "PAGE TITLE"
+horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1172677754]
 layout_mode = 2
+theme_override_constants/separation = 12
 
 [node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1138092559]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
-vertical_alignment = 3
+text = "Body text goes here."
 
 [node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=759787519]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1

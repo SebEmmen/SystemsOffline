@@ -1,0 +1,117 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_dgtrc"]
+[ext_resource type="Texture2D" path="res://src/3d/Assets/book/bird_images/vink.png" id="2_qwvy2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_image_frame"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.85098, 0.796078, 0.709804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.662745, 0.607843, 0.517647, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="FinchObservation" type="Control" unique_id=1481463477]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_dgtrc")
+page_number = 13
+
+[node name="Background" type="ColorRect" parent="." unique_id=447495863]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.909804, 0.862745, 0.784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1492774882]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=268122700]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=576591193]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+text = "EURASIAN CHAFFINCH"
+autowrap_mode = 2
+
+[node name="SubtitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1399929131]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "Fringilla coelebs // Biological Survey"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1447852010]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ImageFrame" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=2139154486]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_image_frame")
+
+[node name="ImageRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ImageFrame" unique_id=66439060]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 520)
+layout_mode = 2
+texture = ExtResource("2_qwvy2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CaptionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=34097487]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "Figure 2.1: Specimen roosting near exterior cable raceway junction."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="NotesLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=818738011]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 26
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "A breeding pair has established nesting material inside the decommissioned cable duct on the western facade. Highly habituated to facility machinery cycles."
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1249504526]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1

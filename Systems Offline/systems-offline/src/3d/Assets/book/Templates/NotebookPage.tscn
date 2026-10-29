@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://c7k0w5mqx1004"]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_notebook_base"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scratch"]
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.882353, 0.819608, 0.690196, 1)
+border_width_left = 3
+border_color = Color(0.470588, 0.396078, 0.309804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="NotebookPage" type="Control"]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_notebook_base")
+paper_color = Color(0.941176, 0.882353, 0.74902, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.941176, 0.882353, 0.74902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/separation = 16
+
+[node name="HeaderBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/font_size = 38
+text = "FIELD NOTEBOOK"
+autowrap_mode = 2
+
+[node name="DateLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+theme_override_font_sizes/font_size = 22
+text = "Day 14 // 19:40"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="NotesLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "Field notes and informal observations."
+
+[node name="ScratchBox" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scratch")
+
+[node name="ScratchLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScratchBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]KEYPAD / CODES:[/b]
+Check sector posters for sequence!"
+fit_content = true
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+theme_override_font_sizes/font_size = 24
+text = "1"
+horizontal_alignment = 1

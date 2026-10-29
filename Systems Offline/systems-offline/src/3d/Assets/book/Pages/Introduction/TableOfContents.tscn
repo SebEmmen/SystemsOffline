@@ -1,0 +1,132 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_t5jjt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_schematic"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+bg_color = Color(0.85098, 0.796078, 0.709804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.662745, 0.607843, 0.517647, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="TableOfContents" type="Control" unique_id=83528052]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_t5jjt")
+page_number = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=563851253]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.909804, 0.862745, 0.784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=725155838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1355574664]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SystemTag" type="Label" parent="MarginContainer/VBoxContainer" unique_id=442065019]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "VOLUME INDEX // SYSTEMS OFFLINE"
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1374697776]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+text = "TABLE OF CONTENTS"
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=2066246228]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=16237300]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 26
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "Use keyboard [b]LEFT/RIGHT[/b] arrows, on-screen navigation buttons, or clickable bookmark tabs to navigate directly to sections."
+fit_content = true
+
+[node name="SchematicBox" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1644625665]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_schematic")
+
+[node name="SchematicLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/SchematicBox" unique_id=1875744370]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 22
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "[b]SECTION DIRECTORY[/b]
+  01. INTRODUCTION ............ Spread 1 (Pages 1-2)
+  02. LOGS & REPORTS .......... Spreads 2-3 (Pages 3-6)
+  03. RESEARCH & ANOMALIES .... Spreads 4-5 (Pages 7-10)
+  04. AVIAN OBSERVATIONS ...... Spreads 6-7 (Pages 11-14)
+  05. FIELD NOTES & GRID ...... Spreads 8-9 (Pages 15-18)
+  06. DECOMMISSION ARCHIVE .... Spread 10 (Pages 19-20)"
+fit_content = true
+
+[node name="LogsLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1955783985]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]QUICK ACCESS BOOKMARKS:[/b]
+• [b]LOGS:[/b] Jump to incident and maintenance logs
+• [b]RESEARCH:[/b] Jump to Project Resonance & inversion data
+• [b]BIRDS:[/b] Jump to biological and acoustic surveys
+• [b]NOTES:[/b] Jump to operator scratchpad and keypad hints"
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=949260777]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1

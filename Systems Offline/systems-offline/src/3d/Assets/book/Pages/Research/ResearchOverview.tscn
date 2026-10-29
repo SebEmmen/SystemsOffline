@@ -1,0 +1,156 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_s6t4d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_data"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+bg_color = Color(0.85098, 0.796078, 0.709804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.662745, 0.607843, 0.517647, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caution"]
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+bg_color = Color(0.819608, 0.74902, 0.658824, 1)
+border_width_left = 4
+border_color = Color(0.470588, 0.396078, 0.309804, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="ResearchOverview" type="Control" unique_id=1988059412]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_s6t4d")
+page_number = 7
+
+[node name="Background" type="ColorRect" parent="." unique_id=1261899926]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.909804, 0.862745, 0.784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=929367575]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=936317654]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SectionTag" type="Label" parent="MarginContainer/VBoxContainer" unique_id=533994938]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "RESEARCH LAB // SECTION 02"
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1456037695]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+text = "PROJECT RESONANCE"
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1441831229]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OverviewLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1802716514]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 26
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "[b]CLASSIFICATION: RESTRICTED LEVEL 3[/b]
+
+Initial experiments have revealed localized gravitational anomalies within the facility testing chambers. When exposed to specific high-frequency harmonic waveforms, matter exhibits reversed gravitational acceleration."
+fit_content = true
+
+[node name="DataPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=920586989]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_data")
+
+[node name="DataLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/DataPanel" unique_id=822403916]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]RESONANCE COHERENCE METRICS[/b]
+  Harmonic Frequency: 440.2 MHz
+  Field Strength: 1.42 Tesla
+  Inversion Threshold: 92.4% Stability"
+fit_content = true
+
+[node name="FindingsLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2106534448]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 26
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "Further testing is required to determine the exact boundary conditions of this phenomenon. Objects in the active volume transition smoothly from 1.0G down to -1.0G without inertial damage."
+
+[node name="CautionPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=368567728]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_caution")
+
+[node name="CautionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CautionPanel" unique_id=1058490490]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 22
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "[b]WARNING:[/b] Containment protocols must remain active during all energized phases."
+fit_content = true
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1978814064]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1

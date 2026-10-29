@@ -1,0 +1,118 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_3nwg2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scratch"]
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.882353, 0.819608, 0.690196, 1)
+border_width_left = 3
+border_color = Color(0.470588, 0.396078, 0.309804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="ResearchNotes" type="Control" unique_id=959825593]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_3nwg2")
+paper_color = Color(0.941176, 0.882353, 0.74902, 1)
+page_number = 10
+
+[node name="Background" type="ColorRect" parent="." unique_id=1998425541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.941176, 0.882353, 0.74902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=435472947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=335201297]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=743732559]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=610418050]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+text = "LAB NOTES // FIELD COHERENCE"
+autowrap_mode = 2
+
+[node name="DateLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=1598536512]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "Cycle 45.02 // 03:15"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1903157230]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="NotesLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=214890536]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 28
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "Field stability remains within 3% tolerance so long as the junction bridges are closed.
+
+We noticed that birds outside the ventilation shafts react before our instruments even register the frequency build-up. Their chirp frequencies match our sub-harmonic wave exactly.
+
+Need to check whether acoustic resonance can be harnessed directly."
+
+[node name="ScratchBox" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=441722662]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scratch")
+
+[node name="ScratchLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScratchBox" unique_id=52758931]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]SCRATCHPAD:[/b]
+Frequency multiplier: 440 Hz x 1000 = 440 kHz carrier wave."
+fit_content = true
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=431398830]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1

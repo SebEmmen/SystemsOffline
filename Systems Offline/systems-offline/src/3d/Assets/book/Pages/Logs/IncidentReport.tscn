@@ -1,0 +1,147 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_mkrux"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+bg_color = Color(0.470588, 0.396078, 0.309804, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stamp"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+bg_color = Color(0.85098, 0.796078, 0.709804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.662745, 0.607843, 0.517647, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="IncidentReport" type="Control" unique_id=144546399]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_mkrux")
+page_number = 3
+
+[node name="Background" type="ColorRect" parent="." unique_id=565729060]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.909804, 0.862745, 0.784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1027986495]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=665547603]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=624265753]
+layout_mode = 2
+
+[node name="DocId" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=1976603872]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "INCIDENT // INC-0492-A"
+
+[node name="Badge" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=1266395473]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_badge")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.960784, 0.941176, 0.901961, 1)
+text = "INCIDENT"
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=904917809]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+text = "POWER ROUTING FAILURE"
+autowrap_mode = 2
+
+[node name="MetaLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=425083909]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "Date: Cycle 44.12 | Sector: Tutorial Sub-level | Priority: High"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=249875238]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=105687682]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 26
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "[b]SUMMARY:[/b]
+At 05:44, a localized power surge tripped the primary routing bus leading to the security airlock.
+
+[b]IMPACT:[/b]
+• Sliding blast door failed into sealed locked state.
+• Keypad touchscreen unit defaulted to diagnostic mode.
+• Protective cover locked over input interface.
+
+[b]REMEDIATION:[/b]
+Operator must manually release the keypad latch, enter the 4-digit sequence, and bridge the wire connection to restore door actuation."
+
+[node name="StampPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1210417273]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stamp")
+
+[node name="StampLabel" type="Label" parent="MarginContainer/VBoxContainer/StampPanel" unique_id=1368529435]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "STATUS: RESOLVED PENDING FIELD VERIFICATION"
+horizontal_alignment = 1
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=411454940]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1

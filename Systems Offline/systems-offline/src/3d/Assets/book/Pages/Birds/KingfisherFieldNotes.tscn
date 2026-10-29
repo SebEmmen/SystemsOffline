@@ -1,0 +1,119 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_v76hv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scratch"]
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.882353, 0.819608, 0.690196, 1)
+border_width_left = 3
+border_color = Color(0.470588, 0.396078, 0.309804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="KingfisherFieldNotes" type="Control" unique_id=1859448153]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_v76hv")
+paper_color = Color(0.941176, 0.882353, 0.74902, 1)
+page_number = 12
+
+[node name="Background" type="ColorRect" parent="." unique_id=1543146241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.941176, 0.882353, 0.74902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=718071602]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1969030483]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=24847779]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=583745751]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+text = "AVIAN FIELD NOTES"
+autowrap_mode = 2
+
+[node name="DateLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=392166028]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "Cycle 45.08 // 07:45"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1728071278]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="NotesLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=684342803]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 28
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "Observed three distinct dives into the cooling canal. The water temperature was recorded at 24°C due to heat exchanger discharge.
+
+Diving angle was consistently between 75° and 85°. Rapid acceleration despite air turbulence from the ventilation exhaust fans.
+
+Acoustic mimicry: Territorial trill aligns with the 5.2 kHz harmonic spike from Transformer 3."
+
+[node name="ScratchBox" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1996664638]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scratch")
+
+[node name="ScratchLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScratchBox" unique_id=512439325]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]ACOUSTIC MATCH:[/b]
+Recorded trill: 5,180 Hz
+Transformer hum: 5,200 Hz"
+fit_content = true
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=979656309]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1

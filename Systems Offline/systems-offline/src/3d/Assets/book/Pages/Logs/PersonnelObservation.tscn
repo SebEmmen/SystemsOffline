@@ -1,0 +1,118 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/3d/Assets/book/BookPage.gd" id="1_gkmun"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scratch"]
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.882353, 0.819608, 0.690196, 1)
+border_width_left = 3
+border_color = Color(0.470588, 0.396078, 0.309804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="PersonnelObservation" type="Control" unique_id=456967474]
+custom_minimum_size = Vector2(1024, 1536)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_gkmun")
+paper_color = Color(0.941176, 0.882353, 0.74902, 1)
+page_number = 6
+
+[node name="Background" type="ColorRect" parent="." unique_id=268606873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.941176, 0.882353, 0.74902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=356769578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1452755676]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=972117650]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=476792825]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(0.160784, 0.145098, 0.121569, 1)
+text = "SHIFT LOG // DR. ARIS"
+autowrap_mode = 2
+
+[node name="DateLabel" type="Label" parent="MarginContainer/VBoxContainer/HeaderBox" unique_id=1348943383]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "Cycle 44.16 // 21:30"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=400815919]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="NotesLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1610105175]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 28
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "The low-frequency hum from the substation hasn't stopped for three solid days.
+
+The maintenance crew swears the wiring was checked, but the readouts on the monitor keep drifting. Every time the resonance kicks in, loose bolts on the floor start lifting slightly.
+
+If the power fluctuates during the next test cycle, the magnetic locks will release."
+
+[node name="ScratchBox" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=144821820]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scratch")
+
+[node name="ScratchLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScratchBox" unique_id=75485183]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(0.160784, 0.145098, 0.121569, 1)
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]REMINDER:[/b]
+Master key was placed in the supervisor's desk drawer. Don't leave without it."
+fit_content = true
+
+[node name="PageNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=824475715]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.396078, 0.360784, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1
