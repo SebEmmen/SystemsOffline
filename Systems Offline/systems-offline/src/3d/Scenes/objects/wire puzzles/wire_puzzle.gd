@@ -4,6 +4,7 @@ extends Path3D
 signal wire_connected(socket: WireSocket)
 signal wire_disconnected
 
+
 @export_group("Appearance")
 @export var sag_amount := 0.12
 @export var sag_direction := Vector3.FORWARD
@@ -44,6 +45,9 @@ signal wire_disconnected
 
 @export_group("Animation")
 @export var animation_duration := 2.0
+## How long the core takes to fade out when the wire is unplugged
+## (as a fraction of animation_duration).
+@export_range(0.0, 1.0) var lock_fade_ratio := 0.5
 
 @export_group("Layered Wire")
 @export_range(0.001, 1.0, 0.001) var glass_radius: float = 0.10
@@ -109,10 +113,16 @@ func _ready() -> void:
 		core_material = ShaderMaterial.new()
 		core_material.shader = core_shader
 		core_material.set_shader_parameter("progress", 0.0)
+		# Draw the core before the (transparent) glass so sorting looks right.
+		core_material.render_priority = -1
 
 	_update_curve_shape()
 	_rebuild_mesh()
 	_update_connector_rotation(1.0, true)
+
+	# Core starts invisible (shader alpha is 0 at progress 0 anyway,
+	# this just skips rendering a fully transparent mesh).
+	wire_core_mesh.visible = false
 
 
 func _process(delta: float) -> void:
@@ -551,12 +561,19 @@ func set_unlocked() -> void:
 		unlock_tween.kill()
 
 	is_unlocked = true
+	wire_core_mesh.visible = true
 	if core_material == null:
 		return
 
 	var current: float = float(core_material.get_shader_parameter("progress"))
 	unlock_tween = create_tween()
 	unlock_tween.tween_method(_set_wire_progress, current, 1.0, animation_duration)
+	unlock_tween.tween_callback(_on_unlock_finished)
+
+
+func _on_unlock_finished() -> void:
+	if connected_socket != null and connected_socket.light_socket != null:
+		connected_socket.light_socket.visible = true
 
 
 func _set_wire_progress(value: float) -> void:
@@ -569,4 +586,13 @@ func set_locked() -> void:
 		unlock_tween.kill()
 
 	is_unlocked = false
-	_set_wire_progress(0.0)
+	if core_material == null or lock_fade_ratio <= 0.0:
+		_set_wire_progress(0.0)
+		wire_core_mesh.visible = false
+		return
+
+	# The glow retracts along the wire, then the mesh is hidden once it is invisible.
+	var current: float = float(core_material.get_shader_parameter("progress"))
+	unlock_tween = create_tween()
+	unlock_tween.tween_method(_set_wire_progress, current, 0.0, animation_duration * lock_fade_ratio)
+	unlock_tween.tween_callback(func(): wire_core_mesh.visible = false)

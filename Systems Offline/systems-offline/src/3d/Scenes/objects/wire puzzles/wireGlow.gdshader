@@ -1,10 +1,12 @@
-
 shader_type spatial;
 render_mode cull_disabled, diffuse_burley, specular_schlick_ggx;
 
-// Disconnected wire
+// Disconnected wire (only visible if disconnected_alpha > 0)
 uniform vec4 disconnected_color : source_color =
     vec4(0.95, 0.97, 1.0, 1.0);
+
+// Opacity of the core while disconnected (0 = fully invisible)
+uniform float disconnected_alpha : hint_range(0.0, 1.0) = 0.0;
 
 // Very light cyan body
 uniform vec4 connected_body_color : source_color =
@@ -25,21 +27,33 @@ uniform float core_brightness : hint_range(0.0, 5.0) = 1.4;
 // Controls how much of the wire appears white
 uniform float core_width : hint_range(0.0, 1.0) = 0.75;
 
+// true  = core is centred in the view and fades at the silhouette
+// false = original UV.x stripe along one side of the tube
+uniform bool fresnel_core = true;
+
 // Subtle edge shading
 uniform float edge_darkness : hint_range(0.0, 1.0) = 0.08;
 
 void fragment() {
 
-    // Electricity travels along the wire
+    // Electricity travels along the wire.
+    // Range is stretched so progress = 1.0 fully covers the tip (UV.y = 1.0).
+    float p = progress * (1.0 + transition_width);
     float activation = 1.0 - smoothstep(
-        progress - transition_width,
-        progress,
+        p - transition_width,
+        p,
         UV.y
     );
 
-    // Bright white core with slightly cyan edges
-    float centered_u = abs(UV.x - 0.5) * 2.0;
+    // 0 in the middle of the tube, 1 at the edges
+    float centered_u;
+    if (fresnel_core) {
+        centered_u = 1.0 - clamp(abs(dot(normalize(NORMAL), normalize(VIEW))), 0.0, 1.0);
+    } else {
+        centered_u = abs(UV.x - 0.5) * 2.0;
+    }
 
+    // Bright white core with slightly cyan edges
     float core_mask = 1.0 - smoothstep(
         core_width * 0.5,
         core_width,
@@ -62,6 +76,9 @@ void fragment() {
         connected_color,
         activation
     );
+
+    // See-through when disconnected, solid where the electricity has reached
+    ALPHA = mix(disconnected_alpha, 1.0, activation);
 
     METALLIC = 0.0;
     ROUGHNESS = 0.12;
