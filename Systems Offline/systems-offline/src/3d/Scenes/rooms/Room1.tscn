@@ -40,7 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="40_3h5nh"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn" id="40_qbvi1"]
-[ext_resource type="PackedScene" uid="uid://dxov4b5hw02ya" path="res://src/3d/Scenes/objects/Beachball/BeachBall.tscn" id="41_qbvi1"]
+[ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="41_qbvi1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -452,8 +452,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874
 [node name="Cubicle" parent="." unique_id=1899239903 instance=ExtResource("40_3h5nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
 
-[node name="BeachBall" parent="." unique_id=54602701 instance=ExtResource("41_qbvi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.832644, 2.628159, -74.23076)
+[node name="Door" parent="." unique_id=2000211477 instance=ExtResource("41_qbvi1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5149078, 2.4346833, -45.821747)
 
 [editable path="ProtoController"]
 [editable path="HUD"]
