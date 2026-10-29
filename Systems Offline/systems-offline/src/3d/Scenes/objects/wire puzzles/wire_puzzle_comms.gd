@@ -2,7 +2,6 @@ extends Node3D
 
 # Dictionary to track state: Key = WireSocket, Value = PuzzleWire (or null if empty)
 var socket_state_map := {}
-
 func _ready() -> void:
 	# Ensure the mouse is visible for the puzzle UI
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
