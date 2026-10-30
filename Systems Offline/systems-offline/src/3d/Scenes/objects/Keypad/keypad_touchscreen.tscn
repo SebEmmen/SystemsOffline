@@ -1,17 +1,17 @@
 [gd_scene format=4 uid="uid://bjmautg631hof"]
 
-[ext_resource type="PackedScene" uid="uid://b4rbfpy8y2tlo" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
+[ext_resource type="PackedScene" uid="uid://bx1y75y10ygge" path="res://src/3d/Assets/General reuseable assets/Keypad/Keypad base.glb" id="1_d6o1y"]
 [ext_resource type="Script" uid="uid://8s360vo5ktuk" path="res://src/3d/Scripts/button_component.gd" id="1_xu8ug"]
-[ext_resource type="AudioStream" uid="uid://do73p80to2008" path="res://src/3d/Sound/press(temp).mp3" id="2_1xmjy"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
+[ext_resource type="AudioStream" uid="uid://dfwtqtd6wvjh3" path="res://src/3d/Sound/press(temp).mp3" id="2_1xmjy"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_rma8r"]
 [ext_resource type="FontFile" uid="uid://bpx3wnhngxfnm" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Regular.ttf" id="4_7ql5m"]
-[ext_resource type="Texture2D" uid="uid://bnva4b4aoyo8c" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left_Ucupaint keypad base Color.png" id="7_lp0ix"]
-[ext_resource type="Texture2D" uid="uid://c8x8vi3nt5sdh" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left_Ucupaint keypad base Roughness.png" id="8_lroa0"]
-[ext_resource type="Texture2D" uid="uid://dspxl5kvr4lcp" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left_Ucupaint keypad base Normal.png" id="9_7dr1e"]
+[ext_resource type="Texture2D" uid="uid://du7hbhtn8rrlf" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left_Ucupaint keypad base Color.png" id="7_lp0ix"]
+[ext_resource type="Texture2D" uid="uid://cnpe0ut3cted8" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left_Ucupaint keypad base Roughness.png" id="8_lroa0"]
+[ext_resource type="Texture2D" uid="uid://crmyi1v1xvtji" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover left_Ucupaint keypad base Normal.png" id="9_7dr1e"]
 [ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="9_ex4j2"]
-[ext_resource type="Texture2D" uid="uid://iipgegla8tli" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right_Ucupaint keypad base Color.png" id="10_7ql5m"]
-[ext_resource type="Texture2D" uid="uid://dpnfdojfsxsjj" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right_Ucupaint keypad base Roughness.png" id="11_8acnr"]
-[ext_resource type="Texture2D" uid="uid://bnehphsatq6ex" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right_Ucupaint keypad base Normal.png" id="12_rma8r"]
+[ext_resource type="Texture2D" uid="uid://drjvxfc7iogk6" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right_Ucupaint keypad base Color.png" id="10_7ql5m"]
+[ext_resource type="Texture2D" uid="uid://cmhp1475idrpd" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right_Ucupaint keypad base Roughness.png" id="11_8acnr"]
+[ext_resource type="Texture2D" uid="uid://b8k5ka3n2e44s" path="res://src/3d/Assets/General reuseable assets/Keypad/keypad cover right_Ucupaint keypad base Normal.png" id="12_rma8r"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="15_7dr1e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvwng"]
@@ -921,7 +921,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03949994, 0)
 [node name="Keypad base" parent="StaticBody3D" unique_id=468678713 instance=ExtResource("1_d6o1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03949994, 0)
 
-[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=1199236964]
+[node name="keypad base" parent="StaticBody3D/Keypad base" index="0" unique_id=536399769]
 transform = Transform3D(0.6894696, 0, -6.027535e-08, 0, -0.02194421, 0, 6.027535e-08, 0, 0.6894696, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=855915867]

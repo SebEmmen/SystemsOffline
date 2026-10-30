@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://74jh74isiibj" path="res://src/2d/Scenes/Inventory/InventorySlot.tscn" id="9_r31ku"]
 [ext_resource type="PackedScene" uid="uid://dqbkntvgsbpto" path="res://src/3d/Scenes/objects/Med_Poster.tscn" id="9_t4i55"]
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
+[ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="13_j4nu1"]
 [ext_resource type="PackedScene" uid="uid://mcgtnsxl7lum" path="res://src/3d/Scenes/objects/Whitebox/Box.tscn" id="15_2pe5o"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
@@ -34,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://src/3d/Scenes/objects/Stairs/CSGStairMaker3D.tscn" id="32_20ssf"]
 [ext_resource type="PackedScene" uid="uid://cwjy3vgjfdqli" path="res://src/3d/Scenes/objects/platform.scn" id="32_eivic"]
 [ext_resource type="PackedScene" uid="uid://cwwdt0ekwbfyd" path="res://src/3d/Scenes/objects/Delivery_Tubes.tscn" id="32_io4pa"]
+[ext_resource type="Script" uid="uid://ni6vx5y34e64" path="res://src/3d/Scenes/rooms/key_cinematic_preview.gd" id="32_tbpsc"]
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
@@ -91,7 +93,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(-0.7163025, 0.08559013, -0.69252086, 0, 0.9924489, 0.12265888, 0.69778997, 0.08786086, -0.71089363, -12.471015, 0.05406332, -70.454254)
+transform = Transform3D(0.8027947, 0.11528123, -0.58500504, 0, 0.98113143, 0.19334199, 0.59625554, -0.15521392, 0.7876471, -4.713516, 0.0823369, 1.6028384)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -143,6 +145,8 @@ mouse_filter = 2
 offset_top = 36.0
 offset_bottom = 78.0
 
+[node name="KeyHandUI" parent="." unique_id=973326925 instance=ExtResource("12_6lvv6")]
+
 [node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("10_8wb82")]
 visible = false
 
@@ -167,13 +171,18 @@ transition_camera = NodePath("../../TransitionCamera")
 primary_se = ExtResource("18_3h5nh")
 secondary_se = ExtResource("18_io4pa")
 
-[node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "pivot_left", "pivot_right", "cover_body", "object_ref", "player", "player_camera", "transition_camera")]
+[node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "key", "pivot_left", "pivot_right", "cover_body", "key_start", "key_insert", "key_turn", "key_hanger_target", "object_ref", "player", "player_camera", "transition_camera")]
 script = ExtResource("13_j4nu1")
 unlockable_type = 1
 keypad = NodePath("..")
+key = NodePath("../../../KeyCinematic/AnimatedKey")
 pivot_left = NodePath("PivotLeft")
 pivot_right = NodePath("PivotRight")
 cover_body = NodePath("StaticBody3D")
+key_start = NodePath("../../../KeyCinematic/KeyStart")
+key_insert = NodePath("../../../KeyCinematic/KeyInsert")
+key_turn = NodePath("../../../KeyCinematic/KeyTurn")
+key_hanger_target = NodePath("../../../KeyCinematic/KeyHangerTarget")
 object_ref = NodePath(".")
 interaction_type = 2
 player = NodePath("../../../ProtoController")
@@ -384,6 +393,26 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0.5024927, 3.5044916, 0.0050001144, 6.0085335)
+
+[node name="KeyCinematic" type="Node3D" parent="." unique_id=1614205145]
+script = ExtResource("32_tbpsc")
+preview_enabled = true
+preview_position = 3
+
+[node name="AnimatedKey" parent="KeyCinematic" unique_id=178436405 instance=ExtResource("24_crb2e")]
+transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 0.12875941, -0.02795889, 0.12870908, -0.9912882, 2.0320325, 2.7144423, -7.7935038)
+
+[node name="KeyStart" type="Marker3D" parent="KeyCinematic" unique_id=18037445]
+transform = Transform3D(0.66521925, 0.096138015, -0.740433, -0.7466482, 0.08565327, -0.6596819, 2.8512992e-09, 0.991676, 0.12875947, 1.9125816, 1.8956289, -6.928626)
+
+[node name="KeyInsert" type="Marker3D" parent="KeyCinematic" unique_id=1101536474]
+transform = Transform3D(0.70920724, -0.037751786, -0.70398855, -0.68340975, 0.20841715, -0.6996524, 0.17313638, 0.97731143, 0.12201105, 1.9561572, 1.9112196, -7.619823)
+
+[node name="KeyTurn" type="Marker3D" parent="KeyCinematic" unique_id=803461020]
+transform = Transform3D(0.49653062, -0.03880456, 0.86715144, 0.852662, 0.2088916, -0.47888613, -0.16255769, 0.97716874, 0.13680819, 1.956, 1.911, -7.62)
+
+[node name="KeyHangerTarget" type="Marker3D" parent="KeyCinematic" unique_id=693830836]
+transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 0.12875941, -0.02795889, 0.12870908, -0.9912882, 2.0320325, 2.7144423, -7.7935038)
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
