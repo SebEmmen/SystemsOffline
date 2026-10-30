@@ -9,7 +9,7 @@ extends Area3D
 @export var light_on: bool = false
 @export var has_connector: bool = false
 
-@onready var snap_point: Marker3D = $SnapPoint
+@onready var snap_point: Marker3D = get_node_or_null("SnapPoint")
 
 var occupied: bool = false
 
@@ -17,13 +17,15 @@ var occupied: bool = false
 func _ready() -> void:
 	if light_socket != null && !light_on:
 		light_socket.visible = false
-	if !has_connector:
+	if connector != null && !has_connector:
 		connector.visible = false
 	add_to_group("wire_sockets")
 
 
 func get_snap_position() -> Vector3:
-	return snap_point.global_position
+	if snap_point != null:
+		return snap_point.global_position
+	return global_position
 
 
 func can_connect(wire_id: int) -> bool:

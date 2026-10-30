@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://0u4neuukgjki"]
 
 [ext_resource type="PackedScene" uid="uid://c6674s2oty24n" path="res://src/3d/Assets/Wires puzzle/Wire space small.blend" id="1_7dhd8"]
-[ext_resource type="PackedScene" uid="uid://7377b2yht81h" path="res://src/3d/Assets/Wires puzzle/Connector long length.blend" id="2_d1si2"]
-[ext_resource type="PackedScene" uid="uid://wc8nhajgurgf" path="res://src/3d/Assets/Wires puzzle/stationary part.blend" id="3_tb3vw"]
+[ext_resource type="PackedScene" uid="uid://cafo57wpjwvra" path="res://src/3d/Scenes/objects/wire puzzles/puzzle_bridge_medium.scn" id="1_slo3t"]
+[ext_resource type="PackedScene" uid="uid://bdiq02uhgsvgr" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_stationary.scn" id="3_slo3t"]
 [ext_resource type="PackedScene" uid="uid://cac8kribmupud" path="res://src/3d/Scenes/objects/wire puzzles/wire_socket.scn" id="3_w6fvn"]
 [ext_resource type="PackedScene" uid="uid://dkig0wfe6b3qk" path="res://src/3d/Assets/Wires puzzle/Broken wire part.blend" id="4_d1si2"]
+[ext_resource type="PackedScene" uid="uid://bph2hdbnppk6f" path="res://src/3d/Scenes/objects/wire puzzles/SingleStationarySocket.tscn" id="5_lt6rf"]
 [ext_resource type="PackedScene" uid="uid://b0maatrdbsk5s" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle.scn" id="6_w6fvn"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w6fvn"]
@@ -13,12 +14,19 @@ data = PackedVector3Array(-2.2968, -0.52279997, 5.46, -3.6764, 0.52279997, 4.080
 [node name="WirePuzzleElevator" type="Node3D" unique_id=1690951740]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=517492563]
-transform = Transform3D(1, 0, 0, 0, -0.012636966, 0.9999202, 0, -0.9999202, -0.012636966, 0, 0, 0)
+transform = Transform3D(0.80574876, 0.0045664567, 0.5922399, -0.59225744, 0.0062125283, 0.8057248, 0, -0.99997026, 0.0077102548, -1.7555385, 0, 2.136846)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=425965437]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 4.983523, 0)
+transform = Transform3D(1.3113416e-07, -1, 4.371139e-08, -3.821371e-15, 4.371139e-08, 1, -1, -1.3113416e-07, 1.9106855e-15, -0.07761264, 4.8465347, 0)
 
 [node name="ElevatorPuzzle" type="Node3D" parent="." unique_id=728251535]
+
+[node name="PuzzleBridgeMedium" parent="ElevatorPuzzle" unique_id=495846276 node_paths=PackedStringArray("puzzle_camera") instance=ExtResource("1_slo3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0054932, 0.06782168, 1.9973816)
+puzzle_camera = NodePath("../../Camera3D")
+snap_distance = 2.0
+required_id_1 = 2
+required_id_2 = 2
 
 [node name="Wire space small" parent="ElevatorPuzzle" unique_id=440158568 instance=ExtResource("1_7dhd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089818716, 0, -0.079287395)
@@ -29,19 +37,26 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorPuzzle/Wire space small/StaticBody3D" unique_id=681602656]
 shape = SubResource("ConcavePolygonShape3D_w6fvn")
 
-[node name="Connector long length" parent="ElevatorPuzzle" unique_id=1350849467 instance=ExtResource("2_d1si2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7591076, 0, 3.0870314)
-
-[node name="Cube_012" parent="ElevatorPuzzle/Connector long length" index="0" unique_id=2098773840]
-transform = Transform3D(0.40030628, 0, 0, 0, 0.33100474, 0, 0, 0, 0.40030628, 0, 0, -1.4053633)
-
-[node name="Cube_013" parent="ElevatorPuzzle/Connector long length" index="1" unique_id=979389080]
-transform = Transform3D(0.40030628, 0, 0, 0, 0.33100474, 0, 0, 0, 0.40030628, 0, 0, -1.4114794)
-
-[node name="Cube_014" parent="ElevatorPuzzle/Connector long length" index="2" unique_id=1074401808]
-transform = Transform3D(-0.40030628, 0, -3.4995885e-08, 0, 0.33100474, 0, 3.4995885e-08, 0, -0.40030628, 0, 0, 3.230475)
-
 [node name="Broken part" type="Node3D" parent="ElevatorPuzzle" unique_id=95569996]
+
+[node name="WireBeginning" parent="ElevatorPuzzle/Broken part" unique_id=2140616796 instance=ExtResource("3_slo3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9840846)
+core_on_by_default = true
+
+[node name="StartPoint" parent="ElevatorPuzzle/Broken part/WireBeginning" index="0" unique_id=1458936218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8056278)
+
+[node name="EndPoint" parent="ElevatorPuzzle/Broken part/WireBeginning" index="1" unique_id=1643245871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4035946)
+
+[node name="WireEnd" parent="ElevatorPuzzle/Broken part" unique_id=1565473419 instance=ExtResource("3_slo3t")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -3.5770419)
+
+[node name="StartPoint" parent="ElevatorPuzzle/Broken part/WireEnd" index="0" unique_id=1458936218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.504772e-08, 0, 0.4047289)
+
+[node name="EndPoint" parent="ElevatorPuzzle/Broken part/WireEnd" index="1" unique_id=1643245871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.901701e-08, 0, -1.6465131)
 
 [node name="WireSocketEnd" parent="ElevatorPuzzle/Broken part" unique_id=1500759308 instance=ExtResource("3_w6fvn")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -5.0056305)
@@ -55,47 +70,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.809)
 light_on = true
 has_connector = true
 
-[node name="stationary part 1" parent="ElevatorPuzzle/Broken part" unique_id=1857727017 instance=ExtResource("3_tb3vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.048115)
+[node name="SingleStationarySocket1" parent="ElevatorPuzzle/Broken part" unique_id=1266361463 instance=ExtResource("5_lt6rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5015411)
+socket_id = 2
 
-[node name="Cube_001" parent="ElevatorPuzzle/Broken part/stationary part 1" index="0" unique_id=487012470]
-transform = Transform3D(0.40030628, 0, 0, 0, 0.33100474, 0, 0, 0, 0.40030628, 0, 0, 0)
+[node name="SnapPoint" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1" index="2" unique_id=1788623267]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.281)
 
-[node name="Cube_021" parent="ElevatorPuzzle/Broken part/stationary part 1" index="1" unique_id=275060534]
-transform = Transform3D(0.40030628, 0, 0, 0, 0.33100474, 0, 0, 0, 0.40030628, 0, 0, 0)
+[node name="Broken wire part" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1" unique_id=1217618827 instance=ExtResource("4_d1si2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.03283608, -0.017964035, -0.84884524)
 
-[node name="Broken wire part" parent="ElevatorPuzzle/Broken part/stationary part 1" unique_id=1217618827 instance=ExtResource("4_d1si2")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.03283608, -0.017964035, -0.6434629)
-
-[node name="Cylinder_001" parent="ElevatorPuzzle/Broken part/stationary part 1/Broken wire part" index="0" unique_id=1744632799]
+[node name="Cylinder_001" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part" index="0" unique_id=1744632799]
 transform = Transform3D(0.25403175, 0, 0, 0, 0, -0.25403175, 0, 0.25403175, 0, 0, 0, 0)
 
-[node name="stationary part 2" parent="ElevatorPuzzle/Broken part" unique_id=1702230569 instance=ExtResource("3_tb3vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.6260855)
+[node name="SingleStationarySocket2" parent="ElevatorPuzzle/Broken part" unique_id=1883451329 instance=ExtResource("5_lt6rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3534359)
+socket_id = 2
 
-[node name="Cube_001" parent="ElevatorPuzzle/Broken part/stationary part 2" index="0" unique_id=487012470]
-transform = Transform3D(0.40030628, 0, 0, 0, 0.33100474, 0, 0, 0, 0.40030628, 0, 0, 0)
+[node name="SnapPoint" parent="ElevatorPuzzle/Broken part/SingleStationarySocket2" index="2" unique_id=1788623267]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.272)
 
-[node name="Cube_021" parent="ElevatorPuzzle/Broken part/stationary part 2" index="1" unique_id=275060534]
-transform = Transform3D(0.40030628, 0, 0, 0, 0.33100474, 0, 0, 0, 0.40030628, 0, 0, 0)
+[node name="Broken wire part" parent="ElevatorPuzzle/Broken part/SingleStationarySocket2" unique_id=1424992001 instance=ExtResource("4_d1si2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019699335, -0.017964035, 0.35770392)
 
-[node name="Broken wire part" parent="ElevatorPuzzle/Broken part/stationary part 2" unique_id=1424992001 instance=ExtResource("4_d1si2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019699335, -0.017964035, 0.6279994)
-
-[node name="Cylinder_001" parent="ElevatorPuzzle/Broken part/stationary part 2/Broken wire part" index="0" unique_id=1744632799]
+[node name="Cylinder_001" parent="ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part" index="0" unique_id=1744632799]
 transform = Transform3D(0.25403175, 0, 0, 0, 0, -0.25403175, 0, 0.25403175, 0, 0, 0, 0)
 
 [node name="Draggable part" type="Node3D" parent="ElevatorPuzzle" unique_id=933116507]
 
 [node name="Wire" parent="ElevatorPuzzle/Draggable part" unique_id=1206855643 instance=ExtResource("6_w6fvn")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.721, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2814741, 0, 0)
 correct_socket_id = 1
 
 [node name="StartPoint" parent="ElevatorPuzzle/Draggable part/Wire" index="0" unique_id=1645596918]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.308615e-08, 0, 1.6663496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3020527e-08, 0, 0.74975514)
 
 [node name="BendPoint" parent="ElevatorPuzzle/Draggable part/Wire" index="1" unique_id=68746606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4949627e-08, 0, 0.34200758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8654951e-08, 0, 0.42677546)
+
+[node name="WireEnd" parent="ElevatorPuzzle/Draggable part/Wire" index="4" unique_id=493713022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4009454e-09, 0, 0.10068184)
 
 [node name="WireSocketEnd" parent="ElevatorPuzzle/Draggable part" unique_id=1601582758 instance=ExtResource("3_w6fvn")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.2012796, 0, -0.8136798)
@@ -110,13 +124,14 @@ light_on = true
 has_connector = true
 
 [editable path="ElevatorPuzzle/Wire space small"]
-[editable path="ElevatorPuzzle/Connector long length"]
+[editable path="ElevatorPuzzle/Broken part/WireBeginning"]
+[editable path="ElevatorPuzzle/Broken part/WireEnd"]
 [editable path="ElevatorPuzzle/Broken part/WireSocketEnd"]
 [editable path="ElevatorPuzzle/Broken part/WireSocketEnd/wire connection part"]
-[editable path="ElevatorPuzzle/Broken part/stationary part 1"]
-[editable path="ElevatorPuzzle/Broken part/stationary part 1/Broken wire part"]
-[editable path="ElevatorPuzzle/Broken part/stationary part 2"]
-[editable path="ElevatorPuzzle/Broken part/stationary part 2/Broken wire part"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket1"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket2"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part"]
 [editable path="ElevatorPuzzle/Draggable part/Wire"]
 [editable path="ElevatorPuzzle/Draggable part/WireSocketEnd"]
 [editable path="ElevatorPuzzle/Draggable part/WireSocketEnd/wire connection part"]
