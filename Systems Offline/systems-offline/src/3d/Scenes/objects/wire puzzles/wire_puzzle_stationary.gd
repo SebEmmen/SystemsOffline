@@ -20,6 +20,8 @@ extends Path3D
 @export_range(3, 16) var wire_sides: int = 10
 @export var glass_material: Material
 @export var core_shader: Shader
+@export_group("Socket Feedback")
+@export var socket_light_mesh: MeshInstance3D # Drag the end cap/light mesh here if this block has one
 
 @onready var start_point: Marker3D = $StartPoint
 @onready var end_point: Marker3D = $EndPoint
@@ -123,9 +125,14 @@ func light_up() -> void:
 	var current: float = float(core_material.get_shader_parameter("progress"))
 	animation_tween = create_tween()
 	animation_tween.tween_method(_set_wire_progress, current, 1.0, animation_duration)
+	
+	# Turn on the socket/cap light ONLY when the wire progress finishes filling
+	animation_tween.tween_callback(func():
+		if socket_light_mesh != null:
+			socket_light_mesh.visible = true
+	)
 
 
-## Turns off the wire core with a fade-out animation.
 func turn_off() -> void:
 	if not is_lit:
 		return
@@ -134,6 +141,10 @@ func turn_off() -> void:
 	if animation_tween and animation_tween.is_running():
 		animation_tween.kill()
 
+	# Hide socket light immediately when turning off
+	if socket_light_mesh != null:
+		socket_light_mesh.visible = false
+
 	if core_material == null:
 		wire_core_mesh.visible = false
 		return
@@ -141,8 +152,9 @@ func turn_off() -> void:
 	var current: float = float(core_material.get_shader_parameter("progress"))
 	animation_tween = create_tween()
 	animation_tween.tween_method(_set_wire_progress, current, 0.0, animation_duration * 0.5)
-	animation_tween.tween_callback(func(): wire_core_mesh.visible = false)
-
+	animation_tween.tween_callback(func(): 
+		wire_core_mesh.visible = false
+	)
 
 func _set_wire_progress(value: float) -> void:
 	if core_material != null:

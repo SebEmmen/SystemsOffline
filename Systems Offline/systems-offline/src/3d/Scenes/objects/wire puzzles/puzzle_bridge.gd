@@ -89,7 +89,15 @@ func _on_end_input_event(
 	if is_connected:
 		if not allow_unplug:
 			return
+		
+		# 1. Unplug first (clears sockets, turns off lights, emits signal)
 		unplug()
+		
+		# 2. Immediately grab and start dragging it!
+		var hit = _mouse_plane_hit()
+		_grab_offset = (global_position - (hit as Vector3)) if hit != null else Vector3.ZERO
+		is_dragging = true
+		is_returning = false
 		return
 
 	var hit = _mouse_plane_hit()
@@ -97,7 +105,6 @@ func _on_end_input_event(
 
 	is_dragging = true
 	is_returning = false
-
 
 func _input(event: InputEvent) -> void:
 	if not is_dragging:
