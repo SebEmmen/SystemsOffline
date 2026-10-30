@@ -26,6 +26,8 @@ enum UnlockableType{
 @export var cover_body: StaticBody3D
 #endregion
 
+@export var sliding_door: Node3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_audio_players()

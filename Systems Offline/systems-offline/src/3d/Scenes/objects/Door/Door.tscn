@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://1njvtejaktv4"]
 
 [ext_resource type="PackedScene" uid="uid://cq4311fnvpfe7" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="1_b6f85"]
+[ext_resource type="Script" uid="uid://cs0dwtwxtxncq" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="1_p2h88"]
 [ext_resource type="PackedScene" uid="uid://b7fnikvqjlpsv" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="2_o4ugl"]
 [ext_resource type="PackedScene" uid="uid://17e1l2knwo6t" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="3_8k0rg"]
 [ext_resource type="PackedScene" uid="uid://bthcc0rgn11ki" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="4_8k0rg"]
 
-[node name="Door" type="Node3D" unique_id=2000211477]
+[node name="Door" type="Node3D" unique_id=2000211477 node_paths=PackedStringArray("left_door", "right_door")]
+script = ExtResource("1_p2h88")
+left_door = NodePath("Final_Door left")
+right_door = NodePath("Final_Door right")
+slide_distance = 3.0
 
 [node name="Final_Door frame" parent="." unique_id=1592204761 instance=ExtResource("1_b6f85")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -13,11 +18,11 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door left" parent="." unique_id=955614823 instance=ExtResource("2_o4ugl")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
 
+[node name="Final_Door handle2" parent="Final_Door left" unique_id=2041671739 instance=ExtResource("4_8k0rg")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -8.4703295e-22, 0, 1, -0.107963584, -0.19813204, 8.660626e-09)
+
 [node name="Final_Door right" parent="." unique_id=1135323037 instance=ExtResource("3_8k0rg")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
 
-[node name="Final_Door handle" parent="." unique_id=891471535 instance=ExtResource("4_8k0rg")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, -0.15662205)
-
-[node name="Final_Door handle2" parent="." unique_id=2041671739 instance=ExtResource("4_8k0rg")]
-transform = Transform3D(-3, 2.6226832e-07, 0, 1.1464113e-14, 1.3113416e-07, -3, -2.6226832e-07, -3, -1.3113416e-07, -0.32389075, 0, -0.5943961)
+[node name="Final_Door handle" parent="Final_Door right" unique_id=891471535 instance=ExtResource("4_8k0rg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05220735, 2.2820557e-09)
