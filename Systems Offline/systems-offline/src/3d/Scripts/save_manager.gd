@@ -4,6 +4,7 @@ const SAVE_PATH = "user://savegame.json"
 const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 
 var save_data: Dictionary = {}
+var tutorial_puzzle_solved: bool = false
 var wire_puzzle_solved: bool = false
 
 func has_save() -> bool:
@@ -23,7 +24,9 @@ func save_game() -> void:
 	
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
-		"player": player.get_save_data()
+		"player": player.get_save_data(),
+		"tutorial_puzzle_solved": tutorial_puzzle_solved,
+		"wire_puzzle_solved": wire_puzzle_solved
 	}
 	print(save_data)
 
@@ -68,6 +71,10 @@ func load_game() -> void:
 
 	# Load the saved room
 	var error = get_tree().change_scene_to_file(scene_path)
+	
+	# Restore global puzzle/game states
+	tutorial_puzzle_solved = save_data.get("tutorial_puzzle_solved", false)
+	wire_puzzle_solved = save_data.get("wire_puzzle_solved", false)
 
 	if error != OK:
 		push_error("SaveManager: Could not load saved scene!")
@@ -86,6 +93,7 @@ func load_game() -> void:
 	player.load_save_data(save_data["player"])
 
 	print("Game loaded!")
+	
 
 
 func new_game() -> void:
