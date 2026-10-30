@@ -3,8 +3,11 @@ extends Area3D
 
 @export_category("Socket Settings")
 @export var light_socket: MeshInstance3D
+@export var connector: MeshInstance3D
 @export var socket_id: int = 0
 @export var snap_distance: float = 0.3
+@export var light_on: bool = false
+@export var has_connector: bool = false
 
 @onready var snap_point: Marker3D = $SnapPoint
 
@@ -12,8 +15,10 @@ var occupied: bool = false
 
 
 func _ready() -> void:
-	if light_socket != null:
+	if light_socket != null && !light_on:
 		light_socket.visible = false
+	if !has_connector:
+		connector.visible = false
 	add_to_group("wire_sockets")
 
 
