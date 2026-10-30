@@ -396,11 +396,10 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="KeyCinematic" type="Node3D" parent="." unique_id=1614205145]
 script = ExtResource("32_tbpsc")
-preview_enabled = true
-preview_position = 3
 
 [node name="AnimatedKey" parent="KeyCinematic" unique_id=178436405 instance=ExtResource("24_crb2e")]
 transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 0.12875941, -0.02795889, 0.12870908, -0.9912882, 2.0320325, 2.7144423, -7.7935038)
+visible = false
 
 [node name="KeyStart" type="Marker3D" parent="KeyCinematic" unique_id=18037445]
 transform = Transform3D(0.66521925, 0.096138015, -0.740433, -0.7466482, 0.08565327, -0.6596819, 2.8512992e-09, 0.991676, 0.12875947, 1.9125816, 1.8956289, -6.928626)

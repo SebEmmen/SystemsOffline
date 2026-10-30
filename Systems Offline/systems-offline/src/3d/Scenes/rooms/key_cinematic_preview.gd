@@ -18,6 +18,9 @@ func _process(_delta: float) -> void:
 		return
 
 	if not preview_enabled:
+		var key := get_node_or_null("AnimatedKey")
+		if key:
+			key.hide()
 		return
 
 	var key: Node3D = get_node_or_null("AnimatedKey")

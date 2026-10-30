@@ -108,7 +108,8 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func ready_cover() -> void:
 	keypad.can_interact = false
-
+	if key:
+		key.hide()
 # Interact calls to this funtion
 
 
