@@ -391,7 +391,7 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") groups=["WirePuzzle"] instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 script = ExtResource("17_wvn26")
 inspect_type = 2
@@ -495,6 +495,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.832644, 2.628159, -74.230
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Wire2"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/WireSocket2"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/WireSocket2/wire connection part"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning On"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Beginning Connection"]
@@ -506,6 +507,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.832644, 2.628159, -74.230
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Lid Wire space small"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Wire1"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1/wire connection part"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
 [editable path="Elevator 1st floor"]

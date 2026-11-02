@@ -14,9 +14,12 @@ func has_save() -> bool:
 func get_player() -> CharacterBody3D:
 	return get_tree().get_first_node_in_group("player") as CharacterBody3D
 
+func get_object() -> Node3D:
+	return get_tree().get_first_node_in_group("WirePuzzle") as Node3D
 
 func save_game() -> void:
 	var player = get_player()
+	var wire_puzzle_comms = get_object()
 
 	if player == null:
 		push_error("SaveManager: Player not found!")
@@ -25,8 +28,7 @@ func save_game() -> void:
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data(),
-		"tutorial_puzzle_solved": tutorial_puzzle_solved,
-		"wire_puzzle_solved": wire_puzzle_solved
+		"wire_puzzle_solved": wire_puzzle_comms.get_save_data()
 	}
 	print(save_data)
 

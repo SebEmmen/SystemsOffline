@@ -17,7 +17,7 @@ data = PackedVector3Array(-2.2968, -0.52279997, 5.46, -3.6764, 0.52279997, 4.080
 transform = Transform3D(0.80574876, 0.0045664567, 0.5922399, -0.59225744, 0.0062125283, 0.8057248, 0, -0.99997026, 0.0077102548, -1.7555385, 0, 2.136846)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=425965437]
-transform = Transform3D(1.3113416e-07, -1, 4.371139e-08, -3.821371e-15, 4.371139e-08, 1, -1, -1.3113416e-07, 1.9106853e-15, 0, 5.2, 0)
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 3.821371e-15, 4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 5.380005, 0)
 
 [node name="ElevatorPuzzle" type="Node3D" parent="." unique_id=728251535]
 
@@ -29,7 +29,6 @@ required_id_1 = 2
 required_id_2 = 2
 
 [node name="Wire space small" parent="ElevatorPuzzle" unique_id=440158568 instance=ExtResource("1_7dhd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089818716, 0, -0.079287395)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ElevatorPuzzle/Wire space small" unique_id=1698536968]
 collision_layer = 2
@@ -67,7 +66,7 @@ has_connector = true
 visible = false
 
 [node name="WireSocketBeginning" parent="ElevatorPuzzle/Broken part" unique_id=2030339895 instance=ExtResource("3_w6fvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.928736)
 light_on = true
 has_connector = true
 
@@ -76,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5015411)
 socket_id = 2
 
 [node name="SnapPoint" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1" index="2" unique_id=1788623267]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.281)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.06888062, -0.19999766)
 
 [node name="Broken wire part" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1" unique_id=1217618827 instance=ExtResource("4_d1si2")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.03283608, -0.017964035, -0.84884524)

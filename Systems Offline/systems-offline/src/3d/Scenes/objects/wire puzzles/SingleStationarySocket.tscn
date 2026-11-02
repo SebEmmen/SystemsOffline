@@ -140,4 +140,4 @@ transform = Transform3D(-0.3910228, -2.6609818e-08, 0, 0, 0, -0.30438083, 3.4184
 shape = SubResource("BoxShape3D_qgagd")
 
 [node name="SnapPoint" type="Marker3D" parent="." unique_id=1788623267]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.13592117, -0.30175203)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.11332503, 0.13592117, -0.30175203)
