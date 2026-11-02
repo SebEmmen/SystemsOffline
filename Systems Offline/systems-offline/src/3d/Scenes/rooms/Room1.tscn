@@ -423,7 +423,7 @@ transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") groups=["WirePuzzle"] instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
@@ -498,6 +498,26 @@ interaction_type = 4
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+
+[node name="WirePuzzleElevator" parent="Elevator 1st floor" index="3" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera")]
+script = ExtResource("17_wvn26")
+inspect_type = 2
+puzzle_scene = "uid://0u4neuukgjki"
+power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
+power_on = NodePath("../../CommsRoom/WirePuzzleTest/Wire Puzzle Comms/WireCover/Green lightning bolt")
+wire_cover = NodePath("ElevatorPuzzle/WireCover")
+object_ref = NodePath(".")
+interaction_type = 1
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../TransitionCamera")
+
+[node name="PuzzleBridgeMedium" parent="Elevator 1st floor/WirePuzzleElevator/ElevatorPuzzle" parent_id_path=PackedInt32Array(1746680253, 1690951740, 728251535) index="0" unique_id=495846276]
+transform = Transform3D(1, 0, 0, 0, 1, 3.5527137e-15, -1.0587912e-22, -3.5527137e-15, 1, 3.0054932, -0.68292236, 1.9973812)
+script = null
+
+[node name="WireCover" parent="Elevator 1st floor/WirePuzzleElevator/ElevatorPuzzle" parent_id_path=PackedInt32Array(1746680253, 1690951740, 728251535) index="4" unique_id=396484773]
+visible = true
 
 [node name="BrokenWall" parent="." unique_id=1554696659 instance=ExtResource("38_io4pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
