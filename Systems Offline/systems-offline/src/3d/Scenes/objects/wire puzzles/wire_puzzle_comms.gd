@@ -2,7 +2,7 @@ extends Node3D
 
 # Key = WireSocket, Value = PuzzleWire (or null if empty)
 var socket_state_map := {}
-var _completing := false
+var completed: bool = false
 
 
 func _ready() -> void:
@@ -55,10 +55,10 @@ func _is_puzzle_correct() -> bool:
 
 
 func check_puzzle_completion() -> void:
-	if _completing or not _is_puzzle_correct():
+	if completed or not _is_puzzle_correct():
 		return
 
-	_completing = true
+	completed = true
 	print("SUCCESS: All sockets correctly connected!")
 
 	# Short delay so the player can see the final connected state
@@ -66,14 +66,10 @@ func check_puzzle_completion() -> void:
 
 	# The player may have unplugged a wire during the delay
 	if not _is_puzzle_correct():
-		_completing = false
+		completed = false
 		return
 
-	SaveManager.wire_puzzle_solved = true
-	SaveManager.save_game()
-
+	SaveManager.wire_puzzle_completed = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-	var return_scene = SaveManager.save_data.get("previous_scene", "res://src/3d/Scenes/rooms/Room1.tscn")
-	#get_tree().change_scene_to_file(return_scene)
-	SaveManager.load_game()
+	SaveManager.return_from_subscene()
+	

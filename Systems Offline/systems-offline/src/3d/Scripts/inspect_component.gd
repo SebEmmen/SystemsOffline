@@ -52,8 +52,25 @@ func _ready() -> void:
 		InspectType.CRATE:
 			ready_crate()
 		InspectType.WIRES_PUZZLE:
-			pass
+			fixed = SaveManager.wire_puzzle_completed
 
+func get_save_data() -> Dictionary:
+	match inspect_type:
+		InspectType.WIRES_PUZZLE:
+			return {
+		"progress": [
+			puzzle.completed
+		]
+	}
+	return {}
+
+func load_save_data(data: Dictionary) -> void:
+	match inspect_type:
+		InspectType.WIRES_PUZZLE:
+			var prog = data.get("progress", false)
+			fixed = prog[0]
+			print("The Progress is: ", fixed)
+	pass
 
 func interact() -> void:
 	if not can_interact:
@@ -73,7 +90,8 @@ func interact() -> void:
 				enter_crate()
 		
 		InspectType.WIRES_PUZZLE:
-			if SaveManager.wire_puzzle_solved:
+			if fixed:
+				print("Its already been solved")
 				return
 			enter_puzzle()
 
@@ -112,8 +130,7 @@ func exit_inspect() -> void:
 
 	await get_tree().process_frame
 	player.enable_controls()
-	
-	
+
 
 
 func get_interaction_message() -> String:
@@ -273,8 +290,22 @@ func enter_puzzle() -> void:
 	player.disable_controls()
 	# Transition into keypad view
 	#player.hide_player()
+	SaveManager.enter_subscene(puzzle_scene)
+
+
+func exit_wires_puzzle() -> void:
+	if not is_interacting or is_transitioning:
+		return
+
+	if puzzle._completing == true:
+		fixed = true
+	is_interacting = false
 	SaveManager.save_game()
-	get_tree().change_scene_to_file(puzzle_scene)
+	SaveManager.load_game()
+	await get_tree().process_frame
+	player.enable_controls()
+
+
 #endregion
 
 
@@ -289,7 +320,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 			InspectType.POSTER:
 				exit_inspect()
-				get_viewport().set_input_as_handled()		
+				get_viewport().set_input_as_handled()
+			InspectType.WIRES_PUZZLE:
+				exit_wires_puzzle()
 		return
 		
 		

@@ -3,9 +3,12 @@ extends Node
 const SAVE_PATH = "user://savegame.json"
 const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 
+var wire_puzzle_completed: bool = false
+var return_scene: String = ""
+var return_player_state: Dictionary = {}
+
 var save_data: Dictionary = {}
-var tutorial_puzzle_solved: bool = false
-var wire_puzzle_solved: bool = false
+
 
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
@@ -14,24 +17,19 @@ func has_save() -> bool:
 func get_player() -> CharacterBody3D:
 	return get_tree().get_first_node_in_group("player") as CharacterBody3D
 
-func get_object() -> Node3D:
-	return get_tree().get_first_node_in_group("WirePuzzle") as Node3D
 
 func save_game() -> void:
 	var player = get_player()
-	var wire_puzzle_comms = get_object()
 
 	if player == null:
 		push_error("SaveManager: Player not found!")
 		return
-	
+
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data(),
-		"wire_puzzle_solved": wire_puzzle_comms.get_save_data()
+		"wire_puzzle_completed": wire_puzzle_completed
 	}
-	print(save_data)
-
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 
@@ -69,20 +67,15 @@ func load_game() -> void:
 
 	save_data = loaded_data
 
-	var scene_path: String = save_data["scene"]
+	# Restore the flag BEFORE changing scene, so the room's _ready() sees it
+	wire_puzzle_completed = save_data.get("wire_puzzle_completed", false)
 
-	# Load the saved room
-	var error = get_tree().change_scene_to_file(scene_path)
-	
-	# Restore global puzzle/game states
-	tutorial_puzzle_solved = save_data.get("tutorial_puzzle_solved", false)
-	wire_puzzle_solved = save_data.get("wire_puzzle_solved", false)
+	var error = get_tree().change_scene_to_file(save_data["scene"])
 
 	if error != OK:
 		push_error("SaveManager: Could not load saved scene!")
 		return
 
-	# Wait until the new scene is ready
 	await get_tree().scene_changed
 
 	var player = get_player()
@@ -91,16 +84,53 @@ func load_game() -> void:
 		push_error("SaveManager: Player not found after loading!")
 		return
 
-	# Restore player state
 	player.load_save_data(save_data["player"])
 
 	print("Game loaded!")
-	
+
+
+# Call this before leaving the room for a sub-scene (puzzle)
+func enter_subscene(scene_path: String) -> void:
+	var player = get_player()
+
+	if player == null:
+		push_error("SaveManager: Player not found!")
+		return
+
+	return_scene = get_tree().current_scene.scene_file_path
+	return_player_state = player.get_save_data()
+	get_tree().change_scene_to_file(scene_path)
+
+
+# Call this from the puzzle when the player leaves or finishes
+func return_from_subscene() -> void:
+	if return_scene == "":
+		push_error("SaveManager: No scene to return to!")
+		return
+
+	var error = get_tree().change_scene_to_file(return_scene)
+
+	if error != OK:
+		push_error("SaveManager: Could not return to scene!")
+		return
+
+	await get_tree().scene_changed
+
+	var player = get_player()
+
+	if player == null:
+		push_error("SaveManager: Player not found after returning!")
+		return
+
+	player.load_save_data(return_player_state)
+
+	# Persist to disk only now, with everything up to date
+	save_game()
 
 
 func new_game() -> void:
-	# Clear previous save data
 	save_data.clear()
+	wire_puzzle_completed = false
 
 	var error = get_tree().change_scene_to_file(START_SCENE)
 
@@ -110,5 +140,4 @@ func new_game() -> void:
 
 	await get_tree().scene_changed
 
-	# Create a new save using the starting state
 	save_game()
