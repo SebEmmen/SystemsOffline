@@ -6,8 +6,8 @@ extends Node3D
 @export var left_handle: Node3D
 @export var right_handle: Node3D
 
-@export var slide_distance: float = 1.5
-@export var slide_duration: float = 1.0
+@export var slide_distance: float = 5
+@export var slide_duration: float = 2
 @export var handle_push_distance: float = -0.045
 @export var handle_duration: float = 0.25
 @export var handle_hide_delay: float = 1.0
