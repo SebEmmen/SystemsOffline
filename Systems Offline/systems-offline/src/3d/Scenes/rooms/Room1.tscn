@@ -187,17 +187,18 @@ transform = Transform3D(-0.6, 0, -5.2453668e-08, 0, 0.6, 0, 5.2453668e-08, 0, -0
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("CrateCamera")
-alien_language = ExtResource("26_diyv0")
+alien_language = null
 number_label = NodePath("Label3D")
 number = "7"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_scene = null
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+rotation_speed = null
 primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
@@ -205,17 +206,18 @@ transform = Transform3D(-0.45346525, 0, 1.1110216, 0, 1.1999999, 0, -1.1110216, 
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("CrateCamera")
-alien_language = ExtResource("26_diyv0")
+alien_language = null
 number_label = NodePath("Label3D")
 number = "4"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_scene = null
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+rotation_speed = null
 primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
@@ -223,17 +225,18 @@ transform = Transform3D(0.2749278, 0, 0.7512755, 0, 0.8, 0, -0.7512755, 0, 0.274
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("CrateCamera")
-alien_language = ExtResource("26_diyv0")
+alien_language = null
 number_label = NodePath("Label3D")
 number = "2"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_scene = null
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+rotation_speed = null
 primary_se = ExtResource("24_6lvv6")
 
 [node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
@@ -241,17 +244,18 @@ transform = Transform3D(-0.7826081, 0, -0.6225147, 0, 1, 0, 0.6225147, 0, -0.782
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("CrateCamera")
-alien_language = ExtResource("26_diyv0")
+alien_language = null
 number_label = NodePath("Label3D")
 number = "9"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_scene = null
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+rotation_speed = null
 primary_se = ExtResource("24_6lvv6")
 
 [node name="Fallen Crate With Key" parent="Tutorial Room/Crates" unique_id=1418094132 instance=ExtResource("16_o4tcg")]
@@ -281,13 +285,18 @@ item_data = ExtResource("25_dqwws")
 
 [node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -3.8615015, 1.8267894, -24.330303)
+inspect_type = null
 inspect_camera = NodePath("PosterCamera")
+alien_language = null
 poster_text = NodePath("MeshInstance3D/Label3D")
+number = null
+puzzle_scene = null
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+rotation_speed = null
 
 [node name="Label3D" parent="Tutorial Room/MediumPoster/MeshInstance3D" parent_id_path=PackedInt32Array(131794683, 45797016) index="1" unique_id=599613705]
 transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, 0, 0, -0.003)
@@ -300,13 +309,18 @@ outline_size = 2
 
 [node name="MediumPoster2" parent="Tutorial Room" unique_id=436732102 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -3.855633, 1.8267894, -21.858341)
+inspect_type = null
 inspect_camera = NodePath("PosterCamera")
+alien_language = null
 poster_text = NodePath("MeshInstance3D/Label3D")
+number = null
+puzzle_scene = null
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+rotation_speed = null
 
 [node name="Label3D" parent="Tutorial Room/MediumPoster2/MeshInstance3D" parent_id_path=PackedInt32Array(436732102, 45797016) index="1" unique_id=599613705]
 transform = Transform3D(-0.13, 0, -1.9629454e-08, 0, 0.13, 0, 1.9629454e-08, 0, -0.13, 0, 0, -0.003)
@@ -391,11 +405,13 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") groups=["WirePuzzle"] instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") groups=["WirePuzzle"] instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
-puzzle = NodePath("Wire Puzzle Comms")
+alien_language = null
+number = null
+puzzle_scene = null
 power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
 power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
 wire_cover = NodePath("Wire Puzzle Comms/WireCover")
@@ -404,6 +420,7 @@ interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+rotation_speed = null
 
 [node name="Camera3D" parent="CommsRoom/WirePuzzleTest" index="1" unique_id=1855915035]
 transform = Transform3D(-1.4210855e-14, -12.499999, -5.4639236e-07, 4.7683716e-07, -5.463923e-07, 12.500001, -12.500001, 1.3552527e-14, 4.7683716e-07, 0, 5.496002, -6.1035156e-05)

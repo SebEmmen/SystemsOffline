@@ -38,12 +38,12 @@ var lid_animating: bool = false
 #region Wires_Puzzle Variable
 @export_group("Wires_Puzzle")
 @export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
-@onready var fixed: bool = false
-@export var puzzle: Node3D
 @export var power_off: Node3D
 @export var power_on: Node3D
-@export var wire_cover = RigidBody3D
+@export var wire_cover: RigidBody3D   # ":" not "="
+var fixed: bool = false
 var cover_removed: bool = false
+var cover_drop_time: float = 0.0
 #endregion
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,6 +55,20 @@ func _ready() -> void:
 			ready_crate()
 		InspectType.WIRES_PUZZLE:
 			fixed = SaveManager.wire_puzzle_completed
+			cover_removed = SaveManager.wire_cover_removed
+
+			if wire_cover:
+				var start_transform := wire_cover.global_transform  # where it sits in the .tscn
+
+				if fixed:
+					# Puzzle solved: cover stays on its mount
+					wire_cover.global_transform = start_transform
+					wire_cover.freeze = true
+					cover_removed = false
+				elif cover_removed:
+					wire_cover.global_transform = SaveManager.wire_cover_transform
+					wire_cover.freeze = true
+
 			if fixed:
 				can_interact = false
 				power_on.visible = true
@@ -67,8 +81,8 @@ func get_save_data() -> Dictionary:
 	match inspect_type:
 		InspectType.WIRES_PUZZLE:
 			return {
-		"progress": [
-			puzzle.completed
+		"lid_pos": [
+			wire_cover.position
 		]
 	}
 	return {}
@@ -288,16 +302,21 @@ func enter_puzzle() -> void:
 		return
 	if not cover_removed:
 		cover_removed = true
+		cover_drop_time = Time.get_ticks_msec() / 1000.0
 		wire_cover.fall_off()
 		return
-	
-	# prevent player from moving if they can open 
-	is_interacting = !is_interacting
-	player.disable_controls()
-	# Transition into keypad view
-	#player.hide_player()
-	SaveManager.enter_subscene(puzzle_scene)
 
+	# Cover still falling: ignore the press
+	if not _cover_is_settled():
+		return
+
+	is_interacting = true
+	player.disable_controls()
+	SaveManager.enter_subscene(puzzle_scene, wire_cover)
+
+func _cover_is_settled() -> bool:
+	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
+	return elapsed > 0.5 and (wire_cover.sleeping or wire_cover.linear_velocity.length() < 0.05)
 
 func exit_wires_puzzle() -> void:
 	if not is_interacting or is_transitioning:

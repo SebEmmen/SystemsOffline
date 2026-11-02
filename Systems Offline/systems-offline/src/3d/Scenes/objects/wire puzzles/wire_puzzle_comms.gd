@@ -71,6 +71,7 @@ func check_puzzle_completion() -> void:
 		return
 
 	SaveManager.wire_puzzle_completed = true
+	SaveManager.wire_cover_removed = false
 	_exit_puzzle()
 	print("Exited to main room")
 	

@@ -5,9 +5,11 @@ const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 
 var wire_puzzle_completed: bool = false
 var return_scene: String = ""
+var wire_cover_removed: bool = false
+var wire_cover_transform: Transform3D = Transform3D.IDENTITY
+var in_subscene = false
 var return_player_state: Dictionary = {}
 # Call this before leaving the room for a sub-scene (puzzle)
-var in_subscene: bool = false
 var save_data: Dictionary = {}
 
 
@@ -29,7 +31,12 @@ func save_game() -> void:
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data(),
-		"wire_puzzle_completed": wire_puzzle_completed
+		"wire_puzzle_completed": wire_puzzle_completed,
+		"wire_cover": {
+			"removed": wire_cover_removed,
+			"position": [wire_cover_transform.origin.x, wire_cover_transform.origin.y, wire_cover_transform.origin.z],
+			"rotation": [wire_cover_transform.basis.get_euler().x, wire_cover_transform.basis.get_euler().y, wire_cover_transform.basis.get_euler().z]
+		}
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -68,8 +75,18 @@ func load_game() -> void:
 
 	save_data = loaded_data
 
-	# Restore the flag BEFORE changing scene, so the room's _ready() sees it
+	
 	wire_puzzle_completed = save_data.get("wire_puzzle_completed", false)
+
+	var cover_data: Dictionary = save_data.get("wire_cover", {})
+	wire_cover_removed = cover_data.get("removed", false)
+	if wire_cover_removed:
+		var p: Array = cover_data.get("position", [0, 0, 0])
+		var r: Array = cover_data.get("rotation", [0, 0, 0])
+		wire_cover_transform = Transform3D(
+			Basis.from_euler(Vector3(r[0], r[1], r[2])),
+			Vector3(p[0], p[1], p[2])
+		)
 
 	var error = get_tree().change_scene_to_file(save_data["scene"])
 
@@ -92,11 +109,15 @@ func load_game() -> void:
 
 
 
-func enter_subscene(scene_path: String) -> void:
+func enter_subscene(scene_path: String, cover: RigidBody3D = null) -> void:
 	var player = get_player()
 	if player == null:
 		push_error("SaveManager: Player not found!")
 		return
+
+	if cover != null:
+		wire_cover_removed = true
+		wire_cover_transform = cover.global_transform
 
 	return_scene = get_tree().current_scene.scene_file_path
 	return_player_state = player.get_save_data()
@@ -105,9 +126,6 @@ func enter_subscene(scene_path: String) -> void:
 
 
 func return_from_subscene() -> void:
-	if not in_subscene or return_scene == "":
-		return
-	in_subscene = false
 	if return_scene == "":
 		push_error("SaveManager: No scene to return to!")
 		return
