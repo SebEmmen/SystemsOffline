@@ -39,7 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="40_3h5nh"]
-[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn" id="40_qbvi1"]
+[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://dxov4b5hw02ya" path="res://src/3d/Scenes/objects/Beachball/BeachBall.tscn" id="41_qbvi1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
@@ -91,7 +91,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.4307585, 0.05406332, 8.803859)
+transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -11.616313, 0.05406332, -70.52178)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -192,7 +192,7 @@ number_label = NodePath("Label3D")
 number = "7"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -210,7 +210,7 @@ number_label = NodePath("Label3D")
 number = "4"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -228,7 +228,7 @@ number_label = NodePath("Label3D")
 number = "2"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -246,7 +246,7 @@ number_label = NodePath("Label3D")
 number = "9"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -391,12 +391,13 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") groups=["WirePuzzle"] instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") groups=["WirePuzzle"] instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
-script = ExtResource("17_wvn26")
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
 puzzle = NodePath("Wire Puzzle Comms")
+power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
+power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
 wire_cover = NodePath("Wire Puzzle Comms/WireCover")
 object_ref = NodePath("Wire Puzzle Comms")
 interaction_type = 1
@@ -407,10 +408,13 @@ transition_camera = NodePath("../../TransitionCamera")
 [node name="Camera3D" parent="CommsRoom/WirePuzzleTest" index="1" unique_id=1855915035]
 transform = Transform3D(-1.4210855e-14, -12.499999, -5.4639236e-07, 4.7683716e-07, -5.463923e-07, 12.500001, -12.500001, 1.3552527e-14, 4.7683716e-07, 0, 5.496002, -6.1035156e-05)
 
+[node name="Wire Puzzle Comms" parent="CommsRoom/WirePuzzleTest" index="2" unique_id=918281047]
+script = null
+
 [node name="StaticBody3D" parent="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small" parent_id_path=PackedInt32Array(2100949581, 918281047, 440158568) index="1" unique_id=301847483]
 collision_layer = 2
 
-[node name="WireCover" parent="CommsRoom/WirePuzzleTest/Wire Puzzle Comms" parent_id_path=PackedInt32Array(2100949581, 918281047) index="4" unique_id=396484773]
+[node name="WireCover" parent="CommsRoom/WirePuzzleTest/Wire Puzzle Comms" index="4" unique_id=396484773]
 visible = true
 
 [node name="Delivery Tubes" parent="CommsRoom" unique_id=1631719345 instance=ExtResource("32_io4pa")]

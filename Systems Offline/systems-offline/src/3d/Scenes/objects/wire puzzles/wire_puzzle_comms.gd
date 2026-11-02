@@ -3,6 +3,7 @@ extends Node3D
 # Key = WireSocket, Value = PuzzleWire (or null if empty)
 var socket_state_map := {}
 var completed: bool = false
+var _exiting: bool = false
 
 
 func _ready() -> void:
@@ -70,6 +71,23 @@ func check_puzzle_completion() -> void:
 		return
 
 	SaveManager.wire_puzzle_completed = true
+	_exit_puzzle()
+	print("Exited to main room")
+	
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _exiting:
+		return
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("interact"):
+		get_viewport().set_input_as_handled()
+		_exit_puzzle()
+
+
+func _exit_puzzle() -> void:
+	if _exiting:
+		return
+	_exiting = true
+	print("exit_puzzle called from scene: ", get_tree().current_scene.name, " node: ", get_path())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	SaveManager.return_from_subscene()
 	

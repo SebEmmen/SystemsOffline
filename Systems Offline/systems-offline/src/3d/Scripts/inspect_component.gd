@@ -37,9 +37,11 @@ var lid_animating: bool = false
 
 #region Wires_Puzzle Variable
 @export_group("Wires_Puzzle")
-@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn"
+@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 @onready var fixed: bool = false
 @export var puzzle: Node3D
+@export var power_off: Node3D
+@export var power_on: Node3D
 @export var wire_cover = RigidBody3D
 var cover_removed: bool = false
 #endregion
@@ -53,6 +55,13 @@ func _ready() -> void:
 			ready_crate()
 		InspectType.WIRES_PUZZLE:
 			fixed = SaveManager.wire_puzzle_completed
+			if fixed:
+				can_interact = false
+				power_on.visible = true
+				power_off.visible = false
+			else:
+				power_on.visible = false
+				power_off.visible = true
 
 func get_save_data() -> Dictionary:
 	match inspect_type:
@@ -90,9 +99,6 @@ func interact() -> void:
 				enter_crate()
 		
 		InspectType.WIRES_PUZZLE:
-			if fixed:
-				print("Its already been solved")
-				return
 			enter_puzzle()
 
 
@@ -297,12 +303,8 @@ func exit_wires_puzzle() -> void:
 	if not is_interacting or is_transitioning:
 		return
 
-	if puzzle._completing == true:
-		fixed = true
 	is_interacting = false
-	SaveManager.save_game()
-	SaveManager.load_game()
-	await get_tree().process_frame
+	SaveManager.return_from_subscene()
 	player.enable_controls()
 
 
@@ -322,7 +324,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				exit_inspect()
 				get_viewport().set_input_as_handled()
 			InspectType.WIRES_PUZZLE:
-				exit_wires_puzzle()
+				pass
 		return
 		
 		

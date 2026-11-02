@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1tannb0yha17"]
 
 [ext_resource type="PackedScene" uid="uid://b8hxsl46twhj0" path="res://src/3d/Assets/Comm room/Final_Side table of middle platform.blend" id="1_way7w"]
-[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn" id="2_pxjqn"]
+[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="2_pxjqn"]
 
 [node name="Node3D" type="Node3D" unique_id=278063200]
 

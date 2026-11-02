@@ -6,7 +6,8 @@ const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 var wire_puzzle_completed: bool = false
 var return_scene: String = ""
 var return_player_state: Dictionary = {}
-
+# Call this before leaving the room for a sub-scene (puzzle)
+var in_subscene: bool = false
 var save_data: Dictionary = {}
 
 
@@ -89,21 +90,24 @@ func load_game() -> void:
 	print("Game loaded!")
 
 
-# Call this before leaving the room for a sub-scene (puzzle)
+
+
 func enter_subscene(scene_path: String) -> void:
 	var player = get_player()
-
 	if player == null:
 		push_error("SaveManager: Player not found!")
 		return
 
 	return_scene = get_tree().current_scene.scene_file_path
 	return_player_state = player.get_save_data()
+	in_subscene = true
 	get_tree().change_scene_to_file(scene_path)
 
 
-# Call this from the puzzle when the player leaves or finishes
 func return_from_subscene() -> void:
+	if not in_subscene or return_scene == "":
+		return
+	in_subscene = false
 	if return_scene == "":
 		push_error("SaveManager: No scene to return to!")
 		return
