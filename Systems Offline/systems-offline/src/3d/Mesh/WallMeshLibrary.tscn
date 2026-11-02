@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://x6e73ogrivpv" path="res://src/3d/Scenes/objects/SingleDoorWall.tscn" id="2_8vnla"]
 [ext_resource type="PackedScene" uid="uid://2nhowmmja8y7" path="res://src/3d/Scenes/objects/DiagonalWall.tscn" id="4_0usri"]
 [ext_resource type="PackedScene" uid="uid://bpkqg8y448q0y" path="res://src/3d/Scenes/objects/SharpDiagonalWall.tscn" id="5_b5wgm"]
+[ext_resource type="PackedScene" uid="uid://cvmh73sk4v5j0" path="res://src/3d/Scenes/objects/door_wall_negative.tscn" id="5_umkxi"]
 
 [node name="WallMeshLibrary" type="Node3D" unique_id=337793030]
 
@@ -14,3 +15,5 @@
 [node name="DiagonalWall" parent="." unique_id=1685290533 instance=ExtResource("4_0usri")]
 
 [node name="SharpDiagonalWall" parent="." unique_id=547532173 instance=ExtResource("5_b5wgm")]
+
+[node name="DoorWallNegative" parent="." unique_id=1752770645 instance=ExtResource("5_umkxi")]

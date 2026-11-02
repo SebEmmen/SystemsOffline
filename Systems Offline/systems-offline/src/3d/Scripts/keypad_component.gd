@@ -19,6 +19,9 @@ var entered_code := ""
 @export var connected_wire: Path3D
 @export var wire_camera: Camera3D
 
+@onready var cover: UnlockableComponent = $Cover
+var is_finishing: bool = false
+
 #endregion
 
 # Called when the node enters the scene tree for the first time.
@@ -54,18 +57,24 @@ func enter_button_keypad() -> void:
 		keypad_collision.disabled = true
 	await transition(player_camera, keypad_camera)
 
+
 func exit_button_keypad() -> void:
 	if not is_interacting or is_transitioning:
 		return
 
-	is_interacting = false
-	# Re-enable the collider when exiting
+	# Keep controls disabled during transition
+	await transition(keypad_camera, player_camera)
+
+	# Restore the player
+	player.show_player()
+
 	if keypad_collision:
-		keypad_collision.disabled = false
+		keypad_collision.set_deferred("disabled", false)
+
+	is_interacting = false
+	is_finishing = false
 	player.enable_controls()
 
-	await transition(keypad_camera, player_camera)
-	player.show_player()
 
 
 func get_button_under_mouse() -> Object:
@@ -111,24 +120,31 @@ func update_screen() -> void:
 	var empty_slots := correct_code.length() - entered_code.length()
 	screen_label.text = "-".repeat(empty_slots) + entered_code
 
+
 func check_code() -> void:
+	if is_finishing:
+		return
+
 	if entered_code == correct_code:
+		is_finishing = true
+
 		print("Correct code!")
 		play_primary_se()
 		sliding_door.unlock_door()
 		flash_enter()
+
 		sliding_door.locked = false
 		update_led()
-		
-		pan_camera_left()
-		
+
 		if connected_wire != null:
-			connected_wire.set_unlocked()	
+			connected_wire.set_unlocked()
+
+		await pan_camera_left()
+
 	else:
 		play_secondary_se()
 		flash_error()
-		#entered_code = ""
-		#update_screen()
+
 	
 func flash_enter():
 	screen_label.text = "ENTER"
@@ -156,19 +172,25 @@ func update_led() -> void:
 		material.albedo_color = Color.GREEN
 		material.emission = Color.GREEN
 		
-func pan_camera_left() -> void:
-	if wire_camera == null:
-		return
 
-	await transition(keypad_camera, wire_camera)
-	await get_tree().create_timer(1.0).timeout
-	await transition(wire_camera, keypad_camera)
+func pan_camera_left() -> void:
+	if wire_camera != null:
+		await transition(keypad_camera, wire_camera)
+		await get_tree().create_timer(1.0).timeout
+		await transition(wire_camera, keypad_camera)
+
+	# Close the keypad cover
+	await cover.close_cover()
+
+	# Return control to the player
+	await exit_button_keypad()
+
 	
 #endregion
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not is_interacting or is_transitioning:
+	if not is_interacting or is_transitioning or is_finishing:
 		return
 
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("interact"):
