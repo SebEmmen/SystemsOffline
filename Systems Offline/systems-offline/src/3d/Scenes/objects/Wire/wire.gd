@@ -138,9 +138,13 @@ func update_wire() -> void:
 
 
 # Animate green color from keypad to door.
-func set_unlocked() -> void:
+func set_unlocked(instant: bool = false) -> void:
 	if Engine.is_editor_hint():
 		return
+
+	# Remember the state, so update_wire() builds the material already green
+	# if the wire wasn't ready yet.
+	is_unlocked = true
 
 	if wire_material == null:
 		return
@@ -148,21 +152,18 @@ func set_unlocked() -> void:
 	if unlock_tween and unlock_tween.is_running():
 		unlock_tween.kill()
 
-	var start_progress: float = wire_material.get_shader_parameter(
-		"progress"
-	)
+	if instant:
+		set_wire_progress(1.0)
+		return
+
+	var start_progress: float = wire_material.get_shader_parameter("progress")
 
 	unlock_tween = create_tween()
-
 	unlock_tween.tween_method(
 		set_wire_progress,
 		start_progress,
 		1.0,
 		animation_duration
-	)
-
-	unlock_tween.finished.connect(
-		func(): is_unlocked = true
 	)
 
 

@@ -110,14 +110,26 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func ready_cover() -> void:
 	keypad.can_interact = false
-	if key:
+
+	if not key:
+		return
+
+	if SaveManager.tutorial_puzzle_completed:
+		# Puzzle solved: key is already hanging on the hanger
+		key.global_transform = key_hanger_target.global_transform
+		key.show()
+		locked = false
+		can_interact = false
+	else:
 		key.hide()
-# Interact calls to this funtion
 
 
 func open_cover() -> void:
 	if is_interacting or open:
 		return
+	if keypad and keypad.fixed:
+		return
+
 
 	if locked and not Inventory.has_item("tutorial_key"):
 		Notification.locked_notification()
@@ -185,7 +197,7 @@ func open_cover() -> void:
 	open = true
 	is_interacting = false
 	can_interact = true
-	keypad.can_interact = true
+	keypad.can_interact = not keypad.fixed
 	player.enable_controls()
 
 
@@ -195,6 +207,7 @@ func close_cover() -> void:
 		return
 
 	is_interacting = true
+	can_interact = false
 	keypad.can_interact = false
 
 	tween_cover()

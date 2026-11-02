@@ -54,46 +54,7 @@ func _ready() -> void:
 		InspectType.CRATE:
 			ready_crate()
 		InspectType.WIRES_PUZZLE:
-			fixed = SaveManager.wire_puzzle_completed
-			cover_removed = SaveManager.wire_cover_removed
-
-			if wire_cover:
-				var start_transform := wire_cover.global_transform  # where it sits in the .tscn
-
-				if fixed:
-					# Puzzle solved: cover stays on its mount
-					wire_cover.global_transform = start_transform
-					wire_cover.freeze = true
-					cover_removed = false
-				elif cover_removed:
-					wire_cover.global_transform = SaveManager.wire_cover_transform
-					wire_cover.freeze = true
-
-			if fixed:
-				can_interact = false
-				power_on.visible = true
-				power_off.visible = false
-			else:
-				power_on.visible = false
-				power_off.visible = true
-
-func get_save_data() -> Dictionary:
-	match inspect_type:
-		InspectType.WIRES_PUZZLE:
-			return {
-		"lid_pos": [
-			wire_cover.position
-		]
-	}
-	return {}
-
-func load_save_data(data: Dictionary) -> void:
-	match inspect_type:
-		InspectType.WIRES_PUZZLE:
-			var prog = data.get("progress", false)
-			fixed = prog[0]
-			print("The Progress is: ", fixed)
-	pass
+			ready_puzzle()
 
 func interact() -> void:
 	if not can_interact:
@@ -297,6 +258,29 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 #endregion
 
 #region Wires Puzzle Functions
+func ready_puzzle() -> void:
+	fixed = SaveManager.wire_puzzle_completed
+	cover_removed = SaveManager.wire_cover_removed
+	if wire_cover:
+		var start_transform := wire_cover.global_transform  # where it sits in the .tscn
+
+		if fixed:
+			# Puzzle solved: cover stays on its mount
+			wire_cover.global_transform = start_transform
+			wire_cover.freeze = true
+			cover_removed = false
+		elif cover_removed:
+			wire_cover.global_transform = SaveManager.wire_cover_transform
+			wire_cover.freeze = true
+
+	if fixed:
+		can_interact = false
+		power_on.visible = true
+		power_off.visible = false
+	else:
+		power_on.visible = false
+		power_off.visible = true
+
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
 		return

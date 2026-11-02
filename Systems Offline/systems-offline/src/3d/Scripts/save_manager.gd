@@ -3,11 +3,26 @@ extends Node
 const SAVE_PATH = "user://savegame.json"
 const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 
-var wire_puzzle_completed: bool = false
+
 var return_scene: String = ""
+
+#region Comms Puzzles
+# Wires
+var wire_puzzle_completed: bool = false
 var wire_cover_removed: bool = false
 var wire_cover_transform: Transform3D = Transform3D.IDENTITY
+#endregion
+
+#region Tutorial Puzzle
+var tutorial_puzzle_completed: bool = false
+# Keypad
+
+# Key
+#endregion
+
+
 var in_subscene = false
+
 var return_player_state: Dictionary = {}
 # Call this before leaving the room for a sub-scene (puzzle)
 var save_data: Dictionary = {}
@@ -31,6 +46,7 @@ func save_game() -> void:
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data(),
+		"tutorial_puzzle_completed": tutorial_puzzle_completed,
 		"wire_puzzle_completed": wire_puzzle_completed,
 		"wire_cover": {
 			"removed": wire_cover_removed,
@@ -75,7 +91,7 @@ func load_game() -> void:
 
 	save_data = loaded_data
 
-	
+	tutorial_puzzle_completed = save_data.get("tutorial_puzzle_completed", false)
 	wire_puzzle_completed = save_data.get("wire_puzzle_completed", false)
 
 	var cover_data: Dictionary = save_data.get("wire_cover", {})
@@ -105,7 +121,7 @@ func load_game() -> void:
 	player.load_save_data(save_data["player"])
 
 	print("Game loaded!")
-
+	print("Loaded tutorial flag: ", tutorial_puzzle_completed, " raw: ", save_data.get("tutorial_puzzle_completed"))
 
 
 

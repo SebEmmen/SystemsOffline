@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="13_j4nu1"]
-[ext_resource type="PackedScene" uid="uid://mcgtnsxl7lum" path="res://src/3d/Scenes/objects/Whitebox/Box.tscn" id="15_2pe5o"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
@@ -97,7 +96,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 mesh_library = ExtResource("4_6lvv6")
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.5590601, 0.05406332, 10.588187)
+transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -2.498281, 0.05406332, 9.359192)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -156,6 +155,10 @@ visible = false
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
 
+[node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
+curve = SubResource("Curve3D_4qo6h")
+
 [node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "wire_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
 transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08, 1.9623103, 1.8871334, -7.854755)
 script = ExtResource("15_71ovv")
@@ -165,7 +168,7 @@ sliding_door = NodePath("../SlidingDoor/SlidingDoorMesh")
 lock_led = NodePath("LockLED")
 correct_code = "2947"
 keypad_collision = NodePath("StaticBody3D/CollisionShape3D")
-connected_wire = NodePath("../../KeypadWire")
+connected_wire = NodePath("../KeypadWire")
 wire_camera = NodePath("WireCamera")
 object_ref = NodePath(".")
 interaction_type = 3
@@ -290,6 +293,7 @@ object_ref = NodePath(".")
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+is_part_of_tutorial = true
 item_data = ExtResource("25_dqwws")
 
 [node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
@@ -454,31 +458,10 @@ transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
 
-[node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
-
-[node name="Box12" parent="Whitebox" unique_id=1880678594 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 3, -15.819645, 2.701836, -56.27561)
-
-[node name="Box13" parent="Whitebox" unique_id=478361404 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(0.1, 0, 0, 0, 3, 0, 0, 0, 2, -15.819811, 3.0388923, -59.743084)
-
-[node name="Box14" parent="Whitebox" unique_id=34582374 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 4, -12.894317, 0.25422668, -80.49245)
-
-[node name="Box17" parent="Whitebox" unique_id=1175278933 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(-4.371139e-09, 0, 2.9999998, 0, 4, 0, -0.1, 0, -1.3113416e-07, -10.659634, 2.7018352, -45.79525)
-
-[node name="Box18" parent="Whitebox" unique_id=154637311 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(-4.371139e-09, 0, 2, 0, 3, 0, -0.1, 0, -8.742278e-08, 2.7310011, 3.0388937, -45.80861)
-
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401493, 2.928215, -47.358948)
 size = Vector3(12.740049, 5.8464303, 2.3808594)
 num_stairs = 20
-
-[node name="KeypadWire" parent="." unique_id=1206855643 instance=ExtResource("32_8gijo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
-curve = SubResource("Curve3D_4qo6h")
 
 [node name="Elevator 1st floor" parent="." unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1176853, 2.9753919, -36.097855)
@@ -507,12 +490,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
 
 [node name="CommsDoor" parent="." unique_id=2000211477 instance=ExtResource("41_qbvi1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9766963, 2.4861362, -45.60625)
-slide_distance = 5.0
-slide_duration = 2.0
-handle_duration = 0.5
-
-[node name="StaticBody3D" parent="CommsDoor/Final_Door frame/door frame" parent_id_path=PackedInt32Array(2000211477, 1592204761, 987533986) index="0" unique_id=396179052 node_paths=PackedStringArray("sliding_door")]
-sliding_door = NodePath("../../..")
 
 [editable path="ProtoController"]
 [editable path="HUD"]
@@ -573,6 +550,3 @@ sliding_door = NodePath("../../..")
 [editable path="Elevator 1st floor/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
 [editable path="Elevator 1st floor/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
 [editable path="CommsDoor"]
-[editable path="CommsDoor/Final_Door frame"]
-[editable path="CommsDoor/Final_Door left/Final_Door handle2"]
-[editable path="CommsDoor/Final_Door right/Final_Door handle"]
