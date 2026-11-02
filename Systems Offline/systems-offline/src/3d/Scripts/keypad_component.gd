@@ -14,6 +14,7 @@ enum KeypadType{
 @export var sliding_door: Node3D
 @export var lock_led: MeshInstance3D
 var entered_code := ""
+var fixed: bool = false
 @export var correct_code : String
 @export var keypad_collision: CollisionShape3D
 @export var connected_wire: Path3D
@@ -41,13 +42,20 @@ func interact() -> void:
 
 #region Button_KeyPad Functions
 func ready_button_keypad() -> void:
+	fixed = SaveManager.tutorial_puzzle_completed
+	if fixed:
+		can_interact = false
+		cover.can_interact = false
+		sliding_door.unlock_door()
+		if connected_wire:
+			connected_wire.set_unlocked(true)
 	update_screen()
 	update_led()
 
 func enter_button_keypad() -> void:
-	if is_interacting or is_transitioning:
+	if not can_interact or is_interacting or is_transitioning:
 		return
-	
+
 	# prevent player from moving if they can open 
 	is_interacting = !is_interacting
 	player.disable_controls()
@@ -126,8 +134,12 @@ func check_code() -> void:
 		return
 
 	if entered_code == correct_code:
+		SaveManager.tutorial_puzzle_completed = true
+		print(SaveManager.tutorial_puzzle_completed)
+		fixed = true
+		can_interact = false
+		cover.can_interact = false
 		is_finishing = true
-
 		print("Correct code!")
 		play_primary_se()
 		sliding_door.unlock_door()
