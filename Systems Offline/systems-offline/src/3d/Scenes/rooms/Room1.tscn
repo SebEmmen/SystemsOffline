@@ -95,7 +95,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 mesh_library = ExtResource("4_6lvv6")
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(-0.7163025, 0.08559013, -0.69252086, 0, 0.9924489, 0.12265888, 0.69778997, 0.08786086, -0.71089363, -12.471015, 0.05406332, -70.454254)
+transform = Transform3D(-0.9996091, -0.0017788189, 0.027901465, 0, 0.9979739, 0.06362443, -0.027958112, 0.06359956, -0.9975838, -2.3326023, 0.5920053, -50.96656)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -431,10 +431,9 @@ transform = Transform3D(-4.371139e-09, 0, 2.9999998, 0, 4, 0, -0.1, 0, -1.311341
 transform = Transform3D(-4.371139e-09, 0, 2, 0, 3, 0, -0.1, 0, -8.742278e-08, 2.7310011, 3.0388937, -45.80861)
 
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7036924, 2.3565166, -47.358948)
-visible = false
-size = Vector3(6.574856, 4.7030334, 2.3808594)
-num_stairs = 10
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401493, 2.928215, -47.358948)
+size = Vector3(12.740049, 5.8464303, 2.3808594)
+num_stairs = 20
 
 [node name="KeypadWire" parent="." unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
@@ -456,8 +455,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874
 [node name="Cubicle" parent="." unique_id=1899239903 instance=ExtResource("40_3h5nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
 
-[node name="Door" parent="." unique_id=2000211477 instance=ExtResource("41_qbvi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.975549, 2.4789515, -45.6064)
+[node name="CommsDoor" parent="." unique_id=2000211477 instance=ExtResource("41_qbvi1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9766963, 2.4861362, -45.60625)
+slide_distance = 5.0
+slide_duration = 2.0
+handle_duration = 0.5
+
+[node name="StaticBody3D" parent="CommsDoor/Final_Door frame/door frame" parent_id_path=PackedInt32Array(2000211477, 1592204761, 987533986) index="0" unique_id=396179052 node_paths=PackedStringArray("sliding_door")]
+sliding_door = NodePath("../../..")
 
 [editable path="ProtoController"]
 [editable path="HUD"]
@@ -500,3 +505,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.975549, 2.4789515, -45.606
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
 [editable path="Elevator 1st floor"]
+[editable path="CommsDoor"]
+[editable path="CommsDoor/Final_Door frame"]
+[editable path="CommsDoor/Final_Door left/Final_Door handle2"]
+[editable path="CommsDoor/Final_Door right/Final_Door handle"]
