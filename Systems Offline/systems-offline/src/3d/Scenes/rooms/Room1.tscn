@@ -517,6 +517,30 @@ transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
 
+[node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
+
+[node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
+visible = true
+
+[node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
+
+[node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
+visible = true
+
+[node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
+
+[node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
+visible = true
+
+[node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
+
+[node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
+visible = true
+
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
@@ -628,30 +652,6 @@ transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -
 visible = false
 shape = SubResource("CylinderShape3D_ymcgf")
 
-[node name="Cubicle Sphere" parent="." unique_id=1899239903 instance=ExtResource("50_eueio")]
-transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
-
-[node name="Sphere" parent="Cubicle Sphere" index="3" unique_id=1328355168]
-visible = true
-
-[node name="Cubicle Prism" parent="." unique_id=2084082719 instance=ExtResource("50_eueio")]
-transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
-
-[node name="Prism" parent="Cubicle Prism" index="2" unique_id=233811967]
-visible = true
-
-[node name="Cubicle Donut" parent="." unique_id=1709922761 instance=ExtResource("50_eueio")]
-transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
-
-[node name="Donut" parent="Cubicle Donut" index="4" unique_id=626885502]
-visible = true
-
-[node name="Cubicle Hexagon" parent="." unique_id=841048580 instance=ExtResource("50_eueio")]
-transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
-
-[node name="Hexagon" parent="Cubicle Hexagon" index="5" unique_id=1147772406]
-visible = true
-
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
@@ -695,6 +695,14 @@ visible = true
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1/wire connection part"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
+[editable path="CommsRoom/Cubicle Sphere"]
+[editable path="CommsRoom/Cubicle Sphere/Final_Cubicle roof"]
+[editable path="CommsRoom/Cubicle Prism"]
+[editable path="CommsRoom/Cubicle Prism/Final_Cubicle roof"]
+[editable path="CommsRoom/Cubicle Donut"]
+[editable path="CommsRoom/Cubicle Donut/Final_Cubicle roof"]
+[editable path="CommsRoom/Cubicle Hexagon"]
+[editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
 [editable path="Elevator Room/Elevator 1st floor"]
 [editable path="Elevator Room/WirePuzzleElevator"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
@@ -715,11 +723,3 @@ visible = true
 [editable path="CommsDoor2/Final_Door frame"]
 [editable path="CommsDoor2/Final_Door left/Final_Door handle2"]
 [editable path="CommsDoor2/Final_Door right/Final_Door handle"]
-[editable path="Cubicle Sphere"]
-[editable path="Cubicle Sphere/Final_Cubicle roof"]
-[editable path="Cubicle Prism"]
-[editable path="Cubicle Prism/Final_Cubicle roof"]
-[editable path="Cubicle Donut"]
-[editable path="Cubicle Donut/Final_Cubicle roof"]
-[editable path="Cubicle Hexagon"]
-[editable path="Cubicle Hexagon/Final_Cubicle roof"]
