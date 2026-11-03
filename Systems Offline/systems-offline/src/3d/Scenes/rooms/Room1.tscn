@@ -488,6 +488,9 @@ player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
+[node name="DirectionalLight3D" parent="CommsRoom/WirePuzzleTest" index="0" unique_id=1153173323]
+visible = false
+
 [node name="Camera3D" parent="CommsRoom/WirePuzzleTest" index="1" unique_id=1855915035]
 transform = Transform3D(-1.4210855e-14, -12.499999, -5.4639236e-07, 4.7683716e-07, -5.463923e-07, 12.500001, -12.500001, 1.3552527e-14, 4.7683716e-07, 0, 5.496002, -6.1035156e-05)
 
