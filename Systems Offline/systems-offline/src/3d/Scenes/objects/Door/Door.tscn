@@ -22,7 +22,7 @@ right_handle = NodePath("Final_Door right/Final_Door handle")
 [node name="Final_Door frame" parent="." unique_id=1592204761 instance=ExtResource("1_b6f85")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
 
-[node name="StaticBody3D" parent="Final_Door frame/door frame" parent_id_path=PackedInt32Array(1592204761, 987533986) index="0" unique_id=396179052 node_paths=PackedStringArray("sliding_door")]
+[node name="StaticBody3D" parent="Final_Door frame/door frame" parent_id_path=PackedInt32Array(1592204761, 1271464723) index="0" unique_id=1342747848 node_paths=PackedStringArray("sliding_door")]
 script = ExtResource("3_vy52n")
 sliding_door = NodePath("../../..")
 
@@ -32,7 +32,7 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door handle2" parent="Final_Door left" unique_id=2041671739 instance=ExtResource("4_8k0rg")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -3.3881318e-21, 0, 1, 0, -0.21, 0)
 
-[node name="Cylinder" parent="Final_Door left/Final_Door handle2" index="1" unique_id=202778325]
+[node name="Cylinder" parent="Final_Door left/Final_Door handle2" index="1" unique_id=1437235973]
 transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="Final_Door left/Final_Door handle2" unique_id=1725699534 node_paths=PackedStringArray("sliding_door")]
@@ -43,6 +43,7 @@ sliding_door = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Door left/Final_Door handle2/MeshInstance3D" unique_id=230674604]
 transform = Transform3D(1, 0, 4.2351647e-22, 0, 1, -1.0658141e-14, -2.9646153e-21, 1.0658141e-14, 1, 0.5412657, -0.039206028, -0.019414758)
+visible = false
 shape = SubResource("CylinderShape3D_1cg0m")
 
 [node name="Final_Door right" parent="." unique_id=1135323037 instance=ExtResource("3_8k0rg")]
@@ -57,6 +58,7 @@ sliding_door = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Door right/Final_Door handle/MeshInstance3D" unique_id=745028683]
 transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
+visible = false
 shape = SubResource("CylinderShape3D_1cg0m")
 
 [editable path="Final_Door frame"]
