@@ -97,7 +97,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 mesh_library = ExtResource("4_6lvv6")
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -27.726887)
+transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, 10.161117)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -183,19 +183,38 @@ secondary_se = ExtResource("18_io4pa")
 script = ExtResource("13_j4nu1")
 unlockable_type = 1
 keypad = NodePath("..")
-key = NodePath("../../../KeyCinematic/AnimatedKey")
+key = NodePath("../../KeyCinematic/AnimatedKey")
 pivot_left = NodePath("PivotLeft")
 pivot_right = NodePath("PivotRight")
 cover_body = NodePath("StaticBody3D")
-key_start = NodePath("../../../KeyCinematic/KeyStart")
-key_insert = NodePath("../../../KeyCinematic/KeyInsert")
-key_turn = NodePath("../../../KeyCinematic/KeyTurn")
-key_hanger_target = NodePath("../../../KeyCinematic/KeyHangerTarget")
+key_start = NodePath("../../KeyCinematic/KeyStart")
+key_insert = NodePath("../../KeyCinematic/KeyInsert")
+key_turn = NodePath("../../KeyCinematic/KeyTurn")
+key_hanger_target = NodePath("../../KeyCinematic/KeyHangerTarget")
 object_ref = NodePath(".")
 interaction_type = 2
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+
+[node name="KeyCinematic" type="Node3D" parent="Tutorial Room" unique_id=1614205145]
+script = ExtResource("32_tbpsc")
+
+[node name="AnimatedKey" parent="Tutorial Room/KeyCinematic" unique_id=178436405 instance=ExtResource("24_crb2e")]
+transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 0.12875941, -0.02795889, 0.12870908, -0.9912882, 2.0320325, 2.7144423, -7.7935038)
+visible = false
+
+[node name="KeyStart" type="Marker3D" parent="Tutorial Room/KeyCinematic" unique_id=18037445]
+transform = Transform3D(0.66521925, 0.096138015, -0.740433, -0.7466482, 0.08565327, -0.6596819, 2.8512992e-09, 0.991676, 0.12875947, 1.9125816, 1.8956289, -6.928626)
+
+[node name="KeyInsert" type="Marker3D" parent="Tutorial Room/KeyCinematic" unique_id=1101536474]
+transform = Transform3D(0.70920724, -0.037751786, -0.70398855, -0.68340975, 0.20841715, -0.6996524, 0.17313638, 0.97731143, 0.12201105, 1.9561572, 1.9112196, -7.619823)
+
+[node name="KeyTurn" type="Marker3D" parent="Tutorial Room/KeyCinematic" unique_id=803461020]
+transform = Transform3D(0.49653062, -0.03880456, 0.86715144, 0.852662, 0.2088916, -0.47888613, -0.16255769, 0.97716874, 0.13680819, 1.956, 1.911, -7.62)
+
+[node name="KeyHangerTarget" type="Marker3D" parent="Tutorial Room/KeyCinematic" unique_id=693830836]
+transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 0.12875941, -0.02795889, 0.12870908, -0.9912882, 2.0320325, 2.7144423, -7.7935038)
 
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
@@ -410,25 +429,6 @@ transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0
 
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.5024927, 0, -0.97851986, 0, 1.1, 0, 0.97851986, 0, -0.5024927, 3.5044916, 0.0050001144, 6.0085335)
-
-[node name="KeyCinematic" type="Node3D" parent="." unique_id=1614205145]
-script = ExtResource("32_tbpsc")
-
-[node name="AnimatedKey" parent="KeyCinematic" unique_id=178436405 instance=ExtResource("24_crb2e")]
-transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 0.12875941, -0.02795889, 0.12870908, -0.9912882, 2.0320325, 2.7144423, -7.7935038)
-visible = false
-
-[node name="KeyStart" type="Marker3D" parent="KeyCinematic" unique_id=18037445]
-transform = Transform3D(0.66521925, 0.096138015, -0.740433, -0.7466482, 0.08565327, -0.6596819, 2.8512992e-09, 0.991676, 0.12875947, 1.9125816, 1.8956289, -6.928626)
-
-[node name="KeyInsert" type="Marker3D" parent="KeyCinematic" unique_id=1101536474]
-transform = Transform3D(0.70920724, -0.037751786, -0.70398855, -0.68340975, 0.20841715, -0.6996524, 0.17313638, 0.97731143, 0.12201105, 1.9561572, 1.9112196, -7.619823)
-
-[node name="KeyTurn" type="Marker3D" parent="KeyCinematic" unique_id=803461020]
-transform = Transform3D(0.49653062, -0.03880456, 0.86715144, 0.852662, 0.2088916, -0.47888613, -0.16255769, 0.97716874, 0.13680819, 1.956, 1.911, -7.62)
-
-[node name="KeyHangerTarget" type="Marker3D" parent="KeyCinematic" unique_id=693830836]
-transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 0.12875941, -0.02795889, 0.12870908, -0.9912882, 2.0320325, 2.7144423, -7.7935038)
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
