@@ -85,16 +85,6 @@ shader_parameter/stripe_speed = 1.5
 shader_parameter/glow_strength = 4.0
 shader_parameter/stripe_opacity = 0.3
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymcgf"]
-render_priority = 0
-shader = ExtResource("49_u2kds")
-shader_parameter/base_color = Color(0.01, 0.05, 0.03, 1)
-shader_parameter/stripe_color = Color(0, 1, 0.3, 1)
-shader_parameter/stripe_count = 12.0
-shader_parameter/stripe_speed = 1.5
-shader_parameter/glow_strength = 4.0
-shader_parameter/stripe_opacity = 0.3
-
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=508166444]
@@ -564,9 +554,6 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 
 [node name="Final_Door handle" parent="TutorialDoor/Final_Door right" unique_id=891471535 instance=ExtResource("49_2pegl")]
 transform = Transform3D(1, 0, 0, 0, 0.9, 3.681906e-15, 0, -3.3137155e-15, 1, 0, -0.02, -5.551115e-17)
-
-[node name="Cylinder" parent="TutorialDoor/Final_Door right/Final_Door handle" index="1" unique_id=1437235973]
-surface_material_override/0 = SubResource("ShaderMaterial_ymcgf")
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="TutorialDoor/Final_Door right/Final_Door handle" unique_id=1283189092 node_paths=PackedStringArray("sliding_door")]
 script = ExtResource("50_nbs5u")
