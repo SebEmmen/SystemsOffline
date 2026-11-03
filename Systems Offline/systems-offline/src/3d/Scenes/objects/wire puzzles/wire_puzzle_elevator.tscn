@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0u4neuukgjki"]
 
-[ext_resource type="Script" uid="uid://dp5g2hkfw8x2x" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_comms.gd" id="1_4u8qr"]
+[ext_resource type="Script" uid="uid://dwv6pwm2sg8lw" path="res://src/3d/Scenes/objects/wire puzzles/wires_elevator_puzzle.gd" id="1_4u8qr"]
 [ext_resource type="PackedScene" uid="uid://c6674s2oty24n" path="res://src/3d/Assets/Wires puzzle/Wire space small.blend" id="1_7dhd8"]
 [ext_resource type="PackedScene" uid="uid://cafo57wpjwvra" path="res://src/3d/Scenes/objects/wire puzzles/puzzle_bridge_medium.scn" id="1_slo3t"]
 [ext_resource type="PackedScene" uid="uid://bdiq02uhgsvgr" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_stationary.scn" id="3_slo3t"]

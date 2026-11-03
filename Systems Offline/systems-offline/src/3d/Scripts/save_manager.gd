@@ -8,9 +8,9 @@ var return_scene: String = ""
 
 #region Comms Puzzles
 # Wires
-var wire_puzzle_completed: bool = false
-var wire_cover_removed: bool = false
-var wire_cover_transform: Transform3D = Transform3D.IDENTITY
+var current_puzzle_id: String = ""
+# id -> { completed, cover_removed, cover_pos, cover_rot }
+var puzzles: Dictionary = {}
 #endregion
 
 #region Tutorial Puzzle
@@ -47,12 +47,7 @@ func save_game() -> void:
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data(),
 		"tutorial_puzzle_completed": tutorial_puzzle_completed,
-		"wire_puzzle_completed": wire_puzzle_completed,
-		"wire_cover": {
-			"removed": wire_cover_removed,
-			"position": [wire_cover_transform.origin.x, wire_cover_transform.origin.y, wire_cover_transform.origin.z],
-			"rotation": [wire_cover_transform.basis.get_euler().x, wire_cover_transform.basis.get_euler().y, wire_cover_transform.basis.get_euler().z]
-		}
+		"puzzles": _puzzles_to_json()
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -92,17 +87,7 @@ func load_game() -> void:
 	save_data = loaded_data
 
 	tutorial_puzzle_completed = save_data.get("tutorial_puzzle_completed", false)
-	wire_puzzle_completed = save_data.get("wire_puzzle_completed", false)
-
-	var cover_data: Dictionary = save_data.get("wire_cover", {})
-	wire_cover_removed = cover_data.get("removed", false)
-	if wire_cover_removed:
-		var p: Array = cover_data.get("position", [0, 0, 0])
-		var r: Array = cover_data.get("rotation", [0, 0, 0])
-		wire_cover_transform = Transform3D(
-			Basis.from_euler(Vector3(r[0], r[1], r[2])),
-			Vector3(p[0], p[1], p[2])
-		)
+	_puzzles_from_json(save_data.get("puzzles", {}))
 
 	var error = get_tree().change_scene_to_file(save_data["scene"])
 
@@ -124,16 +109,40 @@ func load_game() -> void:
 	print("Loaded tutorial flag: ", tutorial_puzzle_completed, " raw: ", save_data.get("tutorial_puzzle_completed"))
 
 
+func _puzzles_to_json() -> Dictionary:
+	var out := {}
+	for id in puzzles:
+		var p: Dictionary = puzzles[id]
+		out[id] = {
+			"completed": p["completed"],
+			"cover_removed": p["cover_removed"],
+			"cover_pos": [p["cover_pos"].x, p["cover_pos"].y, p["cover_pos"].z],
+			"cover_rot": [p["cover_rot"].x, p["cover_rot"].y, p["cover_rot"].z],
+		}
+	return out
 
-func enter_subscene(scene_path: String, cover: RigidBody3D = null) -> void:
+func _puzzles_from_json(data: Dictionary) -> void:
+	puzzles.clear()
+	for id in data:
+		var d: Dictionary = data[id]
+		var pos: Array = d.get("cover_pos", [0, 0, 0])
+		var rot: Array = d.get("cover_rot", [0, 0, 0])
+		puzzles[id] = {
+			"completed": d.get("completed", false),
+			"cover_removed": d.get("cover_removed", false),
+			"cover_pos": Vector3(pos[0], pos[1], pos[2]),
+			"cover_rot": Vector3(rot[0], rot[1], rot[2]),
+		}
+
+func enter_subscene(scene_path: String, puzzle_id: String, cover: RigidBody3D = null) -> void:
 	var player = get_player()
 	if player == null:
 		push_error("SaveManager: Player not found!")
 		return
 
+	current_puzzle_id = puzzle_id
 	if cover != null:
-		wire_cover_removed = true
-		wire_cover_transform = cover.global_transform
+		set_cover_transform(puzzle_id, cover.global_transform)
 
 	return_scene = get_tree().current_scene.scene_file_path
 	return_player_state = player.get_save_data()
@@ -168,7 +177,6 @@ func return_from_subscene() -> void:
 
 func new_game() -> void:
 	save_data.clear()
-	wire_puzzle_completed = false
 
 	var error = get_tree().change_scene_to_file(START_SCENE)
 
@@ -179,3 +187,36 @@ func new_game() -> void:
 	await get_tree().scene_changed
 
 	save_game()
+
+#region Puzzle state
+func _puzzle(id: String) -> Dictionary:
+	if not puzzles.has(id):
+		puzzles[id] = {
+			"completed": false,
+			"cover_removed": false,
+			"cover_pos": Vector3.ZERO,
+			"cover_rot": Vector3.ZERO,
+		}
+	return puzzles[id]
+
+func is_puzzle_completed(id: String) -> bool:
+	return _puzzle(id)["completed"]
+
+func complete_puzzle(id: String) -> void:
+	var p := _puzzle(id)
+	p["completed"] = true
+	p["cover_removed"] = false
+
+func is_cover_removed(id: String) -> bool:
+	return _puzzle(id)["cover_removed"]
+
+func set_cover_transform(id: String, t: Transform3D) -> void:
+	var p := _puzzle(id)
+	p["cover_removed"] = true
+	p["cover_pos"] = t.origin
+	p["cover_rot"] = t.basis.orthonormalized().get_euler()
+
+func get_cover_transform(id: String) -> Transform3D:
+	var p := _puzzle(id)
+	return Transform3D(Basis.from_euler(p["cover_rot"]), p["cover_pos"])
+#endregion

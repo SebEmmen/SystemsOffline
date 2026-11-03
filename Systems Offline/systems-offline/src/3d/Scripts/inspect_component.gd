@@ -38,10 +38,12 @@ var lid_animating: bool = false
 #region Wires_Puzzle Variable
 @export_group("Wires_Puzzle")
 @export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+@export var puzzle_id: String = ""   # unique per puzzle, e.g. "comms", "elevator"
 @export var power_off: Node3D
 @export var power_on: Node3D
 @export var wire_cover: RigidBody3D   # ":" not "="
 var fixed: bool = false
+
 var cover_removed: bool = false
 var cover_drop_time: float = 0.0
 #endregion
@@ -259,27 +261,25 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 #region Wires Puzzle Functions
 func ready_puzzle() -> void:
-	fixed = SaveManager.wire_puzzle_completed
-	cover_removed = SaveManager.wire_cover_removed
-	if wire_cover:
-		var start_transform := wire_cover.global_transform  # where it sits in the .tscn
+	if puzzle_id == "":
+		push_warning("InspectComponent: puzzle_id not set on " + name)
 
+	fixed = SaveManager.is_puzzle_completed(puzzle_id)
+	cover_removed = SaveManager.is_cover_removed(puzzle_id)
+
+	if wire_cover:
 		if fixed:
-			# Puzzle solved: cover stays on its mount
-			wire_cover.global_transform = start_transform
 			wire_cover.freeze = true
 			cover_removed = false
 		elif cover_removed:
-			wire_cover.global_transform = SaveManager.wire_cover_transform
+			var saved := SaveManager.get_cover_transform(puzzle_id)
+			var s := wire_cover.global_transform.basis.get_scale()
+			wire_cover.global_transform = Transform3D(saved.basis.scaled(s), saved.origin)
 			wire_cover.freeze = true
 
-	if fixed:
-		can_interact = false
-		power_on.visible = true
-		power_off.visible = false
-	else:
-		power_on.visible = false
-		power_off.visible = true
+	can_interact = not fixed
+	power_on.visible = fixed
+	power_off.visible = not fixed
 
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
@@ -296,7 +296,7 @@ func enter_puzzle() -> void:
 
 	is_interacting = true
 	player.disable_controls()
-	SaveManager.enter_subscene(puzzle_scene, wire_cover)
+	SaveManager.enter_subscene(puzzle_scene, puzzle_id, wire_cover)
 
 func _cover_is_settled() -> bool:
 	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
