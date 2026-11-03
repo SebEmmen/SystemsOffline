@@ -3,6 +3,28 @@ extends Node
 const SAVE_PATH = "user://savegame.json"
 const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 
+
+var return_scene: String = ""
+
+#region Comms Puzzles
+# Wires
+var current_puzzle_id: String = ""
+# id -> { completed, cover_removed, cover_pos, cover_rot }
+var puzzles: Dictionary = {}
+#endregion
+
+#region Tutorial Puzzle
+var tutorial_puzzle_completed: bool = false
+# Keypad
+
+# Key
+#endregion
+
+
+var in_subscene = false
+
+var return_player_state: Dictionary = {}
+# Call this before leaving the room for a sub-scene (puzzle)
 var save_data: Dictionary = {}
 
 
@@ -20,13 +42,13 @@ func save_game() -> void:
 	if player == null:
 		push_error("SaveManager: Player not found!")
 		return
-	
+
 	save_data = {
 		"scene": get_tree().current_scene.scene_file_path,
-		"player": player.get_save_data()
+		"player": player.get_save_data(),
+		"tutorial_puzzle_completed": tutorial_puzzle_completed,
+		"puzzles": _puzzles_to_json()
 	}
-	print(save_data)
-
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 
@@ -64,16 +86,15 @@ func load_game() -> void:
 
 	save_data = loaded_data
 
-	var scene_path: String = save_data["scene"]
+	tutorial_puzzle_completed = save_data.get("tutorial_puzzle_completed", false)
+	_puzzles_from_json(save_data.get("puzzles", {}))
 
-	# Load the saved room
-	var error = get_tree().change_scene_to_file(scene_path)
+	var error = get_tree().change_scene_to_file(save_data["scene"])
 
 	if error != OK:
 		push_error("SaveManager: Could not load saved scene!")
 		return
 
-	# Wait until the new scene is ready
 	await get_tree().scene_changed
 
 	var player = get_player()
@@ -82,14 +103,79 @@ func load_game() -> void:
 		push_error("SaveManager: Player not found after loading!")
 		return
 
-	# Restore player state
 	player.load_save_data(save_data["player"])
 
 	print("Game loaded!")
+	print("Loaded tutorial flag: ", tutorial_puzzle_completed, " raw: ", save_data.get("tutorial_puzzle_completed"))
+
+
+func _puzzles_to_json() -> Dictionary:
+	var out := {}
+	for id in puzzles:
+		var p: Dictionary = puzzles[id]
+		out[id] = {
+			"completed": p["completed"],
+			"cover_removed": p["cover_removed"],
+			"cover_pos": [p["cover_pos"].x, p["cover_pos"].y, p["cover_pos"].z],
+			"cover_rot": [p["cover_rot"].x, p["cover_rot"].y, p["cover_rot"].z],
+		}
+	return out
+
+func _puzzles_from_json(data: Dictionary) -> void:
+	puzzles.clear()
+	for id in data:
+		var d: Dictionary = data[id]
+		var pos: Array = d.get("cover_pos", [0, 0, 0])
+		var rot: Array = d.get("cover_rot", [0, 0, 0])
+		puzzles[id] = {
+			"completed": d.get("completed", false),
+			"cover_removed": d.get("cover_removed", false),
+			"cover_pos": Vector3(pos[0], pos[1], pos[2]),
+			"cover_rot": Vector3(rot[0], rot[1], rot[2]),
+		}
+
+func enter_subscene(scene_path: String, puzzle_id: String, cover: RigidBody3D = null) -> void:
+	var player = get_player()
+	if player == null:
+		push_error("SaveManager: Player not found!")
+		return
+
+	current_puzzle_id = puzzle_id
+	if cover != null:
+		set_cover_transform(puzzle_id, cover.global_transform)
+
+	return_scene = get_tree().current_scene.scene_file_path
+	return_player_state = player.get_save_data()
+	in_subscene = true
+	get_tree().change_scene_to_file(scene_path)
+
+
+func return_from_subscene() -> void:
+	if return_scene == "":
+		push_error("SaveManager: No scene to return to!")
+		return
+
+	var error = get_tree().change_scene_to_file(return_scene)
+
+	if error != OK:
+		push_error("SaveManager: Could not return to scene!")
+		return
+
+	await get_tree().scene_changed
+
+	var player = get_player()
+
+	if player == null:
+		push_error("SaveManager: Player not found after returning!")
+		return
+
+	player.load_save_data(return_player_state)
+
+	# Persist to disk only now, with everything up to date
+	save_game()
 
 
 func new_game() -> void:
-	# Clear previous save data
 	save_data.clear()
 
 	var error = get_tree().change_scene_to_file(START_SCENE)
@@ -100,5 +186,37 @@ func new_game() -> void:
 
 	await get_tree().scene_changed
 
-	# Create a new save using the starting state
 	save_game()
+
+#region Puzzle state
+func _puzzle(id: String) -> Dictionary:
+	if not puzzles.has(id):
+		puzzles[id] = {
+			"completed": false,
+			"cover_removed": false,
+			"cover_pos": Vector3.ZERO,
+			"cover_rot": Vector3.ZERO,
+		}
+	return puzzles[id]
+
+func is_puzzle_completed(id: String) -> bool:
+	return _puzzle(id)["completed"]
+
+func complete_puzzle(id: String) -> void:
+	var p := _puzzle(id)
+	p["completed"] = true
+	p["cover_removed"] = false
+
+func is_cover_removed(id: String) -> bool:
+	return _puzzle(id)["cover_removed"]
+
+func set_cover_transform(id: String, t: Transform3D) -> void:
+	var p := _puzzle(id)
+	p["cover_removed"] = true
+	p["cover_pos"] = t.origin
+	p["cover_rot"] = t.basis.orthonormalized().get_euler()
+
+func get_cover_transform(id: String) -> Transform3D:
+	var p := _puzzle(id)
+	return Transform3D(Basis.from_euler(p["cover_rot"]), p["cover_pos"])
+#endregion

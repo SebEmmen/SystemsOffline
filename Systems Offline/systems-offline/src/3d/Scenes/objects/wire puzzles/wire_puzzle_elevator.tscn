@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://0u4neuukgjki"]
+
+[ext_resource type="Script" uid="uid://dwv6pwm2sg8lw" path="res://src/3d/Scenes/objects/wire puzzles/wires_elevator_puzzle.gd" id="1_4u8qr"]
+[ext_resource type="PackedScene" uid="uid://c6674s2oty24n" path="res://src/3d/Assets/Wires puzzle/Wire space small.blend" id="1_7dhd8"]
+[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="1_dokoa"]
+[ext_resource type="PackedScene" uid="uid://cafo57wpjwvra" path="res://src/3d/Scenes/objects/wire puzzles/puzzle_bridge_medium.scn" id="1_slo3t"]
+[ext_resource type="PackedScene" uid="uid://bdiq02uhgsvgr" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_stationary.scn" id="3_slo3t"]
+[ext_resource type="PackedScene" uid="uid://cac8kribmupud" path="res://src/3d/Scenes/objects/wire puzzles/wire_socket.scn" id="3_w6fvn"]
+[ext_resource type="PackedScene" uid="uid://dkig0wfe6b3qk" path="res://src/3d/Assets/Wires puzzle/Broken wire part.blend" id="4_d1si2"]
+[ext_resource type="PackedScene" uid="uid://bph2hdbnppk6f" path="res://src/3d/Scenes/objects/wire puzzles/SingleStationarySocket.tscn" id="5_lt6rf"]
+[ext_resource type="PackedScene" uid="uid://b0maatrdbsk5s" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle.scn" id="6_w6fvn"]
+[ext_resource type="PackedScene" uid="uid://cjv652c4irmc7" path="res://src/3d/Assets/Wires puzzle/Green lightning bolt.blend" id="8_676gm"]
+[ext_resource type="PackedScene" uid="uid://s6rxqriyfkfa" path="res://src/3d/Scenes/objects/wire puzzles/WireCover.tscn" id="8_lt6rf"]
+[ext_resource type="PackedScene" uid="uid://do2v08m4rk0es" path="res://src/3d/Assets/Wires puzzle/Red lightning bolt.blend" id="9_4u8qr"]
+[ext_resource type="PackedScene" uid="uid://b111ajvr3ooae" path="res://src/3d/Assets/Wires puzzle/Lid Wire space small.blend" id="13_lrny6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w6fvn"]
+data = PackedVector3Array(-2.2968, -0.52279997, 5.46, -3.6764, 0.52279997, 4.0804, -2.2968, 0.52279997, 5.46, -2.2968, -0.52279997, 5.46, -3.6764, -0.52279997, 4.0804, -3.6764, 0.52279997, 4.0804, -2.2968, 0.52279997, -5.46, -3.6764, -0.52279997, -4.0805, -2.2968, -0.52279997, -5.46, -2.2968, 0.52279997, -5.46, -3.6764, 0.52279997, -4.0805, -3.6764, -0.52279997, -4.0805, 3.6764, 0.52279997, -4.0805, 2.2967, -0.52279997, -5.46, 3.6764, -0.52279997, -4.0805, 3.6764, 0.52279997, -4.0805, 2.2967, 0.52279997, -5.46, 2.2967, -0.52279997, -5.46, 2.2967, 0.52279997, 5.46, 3.6764, -0.52279997, 4.0804, 2.2967, -0.52279997, 5.46, 2.2967, 0.52279997, 5.46, 3.6764, 0.52279997, 4.0804, 3.6764, -0.52279997, 4.0804, -3.6764, -0.52279997, 4.0804, -2.2968, -0.52279997, -5.46, -3.6764, -0.52279997, -4.0805, -3.6764, -0.52279997, 4.0804, 3.6764, -0.52279997, -4.0805, -2.2968, -0.52279997, -5.46, -2.2968, -0.52279997, -5.46, 3.6764, -0.52279997, -4.0805, 2.2967, -0.52279997, -5.46, 3.6764, -0.52279997, -4.0805, -3.6764, -0.52279997, 4.0804, 2.2967, -0.52279997, 5.46, 2.2967, -0.52279997, 5.46, -3.6764, -0.52279997, 4.0804, -2.2968, -0.52279997, 5.46, 3.6764, -0.52279997, -4.0805, 2.2967, -0.52279997, 5.46, 3.6764, -0.52279997, 4.0804, -3.6764, -0.52279997, 4.0804, -3.6764, 0.52279997, -4.0805, -3.6764, 0.52279997, 4.0804, -3.6764, -0.52279997, 4.0804, -3.6764, -0.52279997, -4.0805, -3.6764, 0.52279997, -4.0805, 2.2967, -0.52279997, 5.46, -2.2968, 0.52279997, 5.46, 2.2967, 0.52279997, 5.46, 2.2967, -0.52279997, 5.46, -2.2968, -0.52279997, 5.46, -2.2968, 0.52279997, 5.46, 2.1659, 0.52279997, -5.1440997, -2.166, -0.3633, -5.1440997, -2.166, 0.52279997, -5.1440997, 2.1659, 0.52279997, -5.1440997, 2.1659, -0.3633, -5.1440997, -2.166, -0.3633, -5.1440997, -2.2968, -0.52279997, -5.46, 2.2967, 0.52279997, -5.46, -2.2968, 0.52279997, -5.46, -2.2968, -0.52279997, -5.46, 2.2967, -0.52279997, -5.46, 2.2967, 0.52279997, -5.46, 3.6764, -0.52279997, -4.0805, 3.6764, 0.52279997, 4.0804, 3.6764, 0.52279997, -4.0805, 3.6764, -0.52279997, -4.0805, 3.6764, -0.52279997, 4.0804, 3.6764, 0.52279997, 4.0804, -2.166, 0.52279997, 5.144, -3.6764, 0.52279997, 4.0804, -3.3604999, 0.52279997, 3.9494998, -3.3604999, 0.52279997, 3.9494998, -3.6764, 0.52279997, 4.0804, -3.6764, 0.52279997, -4.0805, -2.166, 0.52279997, 5.144, -2.2968, 0.52279997, 5.46, -3.6764, 0.52279997, 4.0804, -3.3604999, 0.52279997, 3.9494998, -3.6764, 0.52279997, -4.0805, -3.3604999, 0.52279997, -3.9496999, 2.1659, 0.52279997, 5.144, -2.2968, 0.52279997, 5.46, -2.166, 0.52279997, 5.144, -3.3604999, 0.52279997, -3.9496999, -3.6764, 0.52279997, -4.0805, -2.2968, 0.52279997, -5.46, 2.1659, 0.52279997, 5.144, 2.2967, 0.52279997, 5.46, -2.2968, 0.52279997, 5.46, -3.3604999, 0.52279997, -3.9496999, -2.2968, 0.52279997, -5.46, -2.166, 0.52279997, -5.1440997, 3.3604, 0.52279997, 3.9494998, 2.2967, 0.52279997, 5.46, 2.1659, 0.52279997, 5.144, -2.166, 0.52279997, -5.1440997, -2.2968, 0.52279997, -5.46, 2.2967, 0.52279997, -5.46, 3.3604, 0.52279997, 3.9494998, 3.6764, 0.52279997, 4.0804, 2.2967, 0.52279997, 5.46, -2.166, 0.52279997, -5.1440997, 2.2967, 0.52279997, -5.46, 2.1659, 0.52279997, -5.1440997, 3.3604, 0.52279997, -3.9496999, 3.6764, 0.52279997, 4.0804, 3.3604, 0.52279997, 3.9494998, 2.1659, 0.52279997, -5.1440997, 2.2967, 0.52279997, -5.46, 3.6764, 0.52279997, -4.0805, 3.3604, 0.52279997, -3.9496999, 3.6764, 0.52279997, -4.0805, 3.6764, 0.52279997, 4.0804, 2.1659, 0.52279997, -5.1440997, 3.6764, 0.52279997, -4.0805, 3.3604, 0.52279997, -3.9496999, 3.3604, -0.3633, 3.9494998, 2.1659, -0.3633, -5.1440997, 3.3604, -0.3633, -3.9496999, 3.3604, -0.3633, 3.9494998, -3.3604999, -0.3633, -3.9496999, 2.1659, -0.3633, -5.1440997, 2.1659, -0.3633, -5.1440997, -3.3604999, -0.3633, -3.9496999, -2.166, -0.3633, -5.1440997, -3.3604999, -0.3633, -3.9496999, 3.3604, -0.3633, 3.9494998, -2.166, -0.3633, 5.144, -2.166, -0.3633, 5.144, 3.3604, -0.3633, 3.9494998, 2.1659, -0.3633, 5.144, -3.3604999, -0.3633, -3.9496999, -2.166, -0.3633, 5.144, -3.3604999, -0.3633, 3.9494998, -2.166, 0.52279997, 5.144, 2.1659, -0.3633, 5.144, 2.1659, 0.52279997, 5.144, -2.166, 0.52279997, 5.144, -2.166, -0.3633, 5.144, 2.1659, -0.3633, 5.144, 2.1659, 0.52279997, 5.144, 3.3604, -0.3633, 3.9494998, 3.3604, 0.52279997, 3.9494998, 2.1659, 0.52279997, 5.144, 2.1659, -0.3633, 5.144, 3.3604, -0.3633, 3.9494998, -2.166, 0.52279997, -5.1440997, -3.3604999, -0.3633, -3.9496999, -3.3604999, 0.52279997, -3.9496999, -2.166, 0.52279997, -5.1440997, -2.166, -0.3633, -5.1440997, -3.3604999, -0.3633, -3.9496999, 3.3604, 0.52279997, 3.9494998, 3.3604, -0.3633, -3.9496999, 3.3604, 0.52279997, -3.9496999, 3.3604, 0.52279997, 3.9494998, 3.3604, -0.3633, 3.9494998, 3.3604, -0.3633, -3.9496999, -3.3604999, 0.52279997, -3.9496999, -3.3604999, -0.3633, 3.9494998, -3.3604999, 0.52279997, 3.9494998, -3.3604999, 0.52279997, -3.9496999, -3.3604999, -0.3633, -3.9496999, -3.3604999, -0.3633, 3.9494998, 3.3604, 0.52279997, -3.9496999, 2.1659, -0.3633, -5.1440997, 2.1659, 0.52279997, -5.1440997, 3.3604, 0.52279997, -3.9496999, 3.3604, -0.3633, -3.9496999, 2.1659, -0.3633, -5.1440997, -3.3604999, 0.52279997, 3.9494998, -2.166, -0.3633, 5.144, -2.166, 0.52279997, 5.144, -3.3604999, 0.52279997, 3.9494998, -3.3604999, -0.3633, 3.9494998, -2.166, -0.3633, 5.144)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrny6"]
+size = Vector3(7.3534875, 0.31676197, 10.920734)
+
+[node name="WirePuzzleElevator" type="Node3D" unique_id=1690951740]
+script = ExtResource("1_dokoa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=517492563]
+transform = Transform3D(0.80574876, 0.0045664567, 0.5922399, -0.59225744, 0.0062125283, 0.8057248, 0, -0.99997026, 0.0077102548, -1.7555385, 0, 2.136846)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=425965437]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 3.821371e-15, 4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 5.380005, 0)
+
+[node name="ElevatorPuzzle" type="Node3D" parent="." unique_id=728251535]
+script = ExtResource("1_4u8qr")
+
+[node name="PuzzleBridgeMedium" parent="ElevatorPuzzle" unique_id=495846276 node_paths=PackedStringArray("puzzle_camera") instance=ExtResource("1_slo3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0054932, -0.07956463, 1.9973816)
+puzzle_camera = NodePath("../../Camera3D")
+snap_distance = 2.0
+required_id_1 = 2
+required_id_2 = 2
+
+[node name="Wire space small" parent="ElevatorPuzzle" unique_id=440158568 instance=ExtResource("1_7dhd8")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ElevatorPuzzle/Wire space small" unique_id=1698536968]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorPuzzle/Wire space small/StaticBody3D" unique_id=681602656]
+shape = SubResource("ConcavePolygonShape3D_w6fvn")
+
+[node name="Broken part" type="Node3D" parent="ElevatorPuzzle" unique_id=95569996]
+
+[node name="WireBeginning" parent="ElevatorPuzzle/Broken part" unique_id=2140616796 instance=ExtResource("3_slo3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9840846)
+core_on_by_default = true
+
+[node name="StartPoint" parent="ElevatorPuzzle/Broken part/WireBeginning" index="0" unique_id=1458936218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8056278)
+
+[node name="EndPoint" parent="ElevatorPuzzle/Broken part/WireBeginning" index="1" unique_id=1643245871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4035946)
+
+[node name="WireEnd" parent="ElevatorPuzzle/Broken part" unique_id=1565473419 node_paths=PackedStringArray("socket_light_mesh") instance=ExtResource("3_slo3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5770419)
+socket_light_mesh = NodePath("../WireSocketEnd/Beginning Off/light")
+
+[node name="StartPoint" parent="ElevatorPuzzle/Broken part/WireEnd" index="0" unique_id=1458936218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.504772e-08, 0, 1.6878669)
+
+[node name="EndPoint" parent="ElevatorPuzzle/Broken part/WireEnd" index="1" unique_id=1643245871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.901701e-08, 0, -0.48022056)
+
+[node name="WireSocketEnd" parent="ElevatorPuzzle/Broken part" unique_id=1500759308 instance=ExtResource("3_w6fvn")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -5.0056305)
+has_connector = true
+
+[node name="light" parent="ElevatorPuzzle/Broken part/WireSocketEnd/Beginning Off" parent_id_path=PackedInt32Array(1500759308, 2057823895) index="2" unique_id=856071023]
+visible = false
+
+[node name="WireSocketBeginning" parent="ElevatorPuzzle/Broken part" unique_id=2030339895 instance=ExtResource("3_w6fvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.928736)
+light_on = true
+has_connector = true
+
+[node name="SingleStationarySocket1" parent="ElevatorPuzzle/Broken part" unique_id=1266361463 instance=ExtResource("5_lt6rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5015411)
+socket_id = 2
+
+[node name="SnapPoint" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1" index="2" unique_id=1788623267]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.06888062, -0.19999766)
+
+[node name="Broken wire part" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1" unique_id=1217618827 instance=ExtResource("4_d1si2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.03283608, -0.017964035, -0.84884524)
+
+[node name="Cylinder_001" parent="ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part" index="0" unique_id=1744632799]
+transform = Transform3D(0.25403175, 0, 0, 0, 0, -0.25403175, 0, 0.25403175, 0, 0, 0, 0)
+
+[node name="SingleStationarySocket2" parent="ElevatorPuzzle/Broken part" unique_id=1883451329 node_paths=PackedStringArray("connected_wire_segment") instance=ExtResource("5_lt6rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3534359)
+connected_wire_segment = NodePath("../WireEnd")
+socket_id = 2
+
+[node name="SnapPoint" parent="ElevatorPuzzle/Broken part/SingleStationarySocket2" index="2" unique_id=1788623267]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.272)
+
+[node name="Broken wire part" parent="ElevatorPuzzle/Broken part/SingleStationarySocket2" unique_id=1424992001 instance=ExtResource("4_d1si2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019699335, -0.017964035, 0.35770392)
+
+[node name="Cylinder_001" parent="ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part" index="0" unique_id=1744632799]
+transform = Transform3D(0.25403175, 0, 0, 0, 0, -0.25403175, 0, 0.25403175, 0, 0, 0, 0)
+
+[node name="Draggable part" type="Node3D" parent="ElevatorPuzzle" unique_id=933116507]
+
+[node name="Wire" parent="ElevatorPuzzle/Draggable part" unique_id=1206855643 instance=ExtResource("6_w6fvn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2814741, 0, 0)
+correct_socket_id = 1
+
+[node name="StartPoint" parent="ElevatorPuzzle/Draggable part/Wire" index="0" unique_id=1645596918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3020527e-08, 0, 0.74975514)
+
+[node name="BendPoint" parent="ElevatorPuzzle/Draggable part/Wire" index="1" unique_id=68746606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8654951e-08, 0, 0.42677546)
+
+[node name="WireEnd" parent="ElevatorPuzzle/Draggable part/Wire" index="4" unique_id=493713022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4009454e-09, 0, 0.10068184)
+
+[node name="WireSocketEnd" parent="ElevatorPuzzle/Draggable part" unique_id=1601582758 instance=ExtResource("3_w6fvn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.2012796, 0, -0.8136798)
+socket_id = 1
+
+[node name="light" parent="ElevatorPuzzle/Draggable part/WireSocketEnd/Beginning Off" parent_id_path=PackedInt32Array(1601582758, 2057823895) index="2" unique_id=856071023]
+visible = false
+
+[node name="WireSocketBeginning" parent="ElevatorPuzzle/Draggable part" unique_id=2118096238 instance=ExtResource("3_w6fvn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0763993, 0, 0)
+light_on = true
+has_connector = true
+
+[node name="Lid Wire space small" parent="ElevatorPuzzle" unique_id=939291255 instance=ExtResource("13_lrny6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5105548, 0)
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ElevatorPuzzle/Lid Wire space small" unique_id=697571311]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorPuzzle/Lid Wire space small/StaticBody3D" unique_id=95306026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0143214, 0)
+shape = SubResource("BoxShape3D_lrny6")
+
+[node name="WireCover" parent="ElevatorPuzzle" unique_id=396484773 instance=ExtResource("8_lt6rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45125437, 0.1265471)
+visible = false
+directional = "-z"
+
+[node name="Green lightning bolt" parent="ElevatorPuzzle/WireCover" unique_id=936039787 instance=ExtResource("8_676gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08935881, 1.1442708, 0.22031319)
+visible = false
+
+[node name="Red lightning bolt" parent="ElevatorPuzzle/WireCover" unique_id=1752389887 instance=ExtResource("9_4u8qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089, 1.1442544, 0.2204529)
+visible = false
+
+[editable path="ElevatorPuzzle/Wire space small"]
+[editable path="ElevatorPuzzle/Broken part/WireBeginning"]
+[editable path="ElevatorPuzzle/Broken part/WireEnd"]
+[editable path="ElevatorPuzzle/Broken part/WireSocketEnd"]
+[editable path="ElevatorPuzzle/Broken part/WireSocketEnd/wire connection part"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket1"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket2"]
+[editable path="ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part"]
+[editable path="ElevatorPuzzle/Draggable part/Wire"]
+[editable path="ElevatorPuzzle/Draggable part/WireSocketEnd"]
+[editable path="ElevatorPuzzle/Draggable part/WireSocketEnd/wire connection part"]
+[editable path="ElevatorPuzzle/Draggable part/WireSocketBeginning"]
+[editable path="ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
+[editable path="ElevatorPuzzle/Lid Wire space small"]

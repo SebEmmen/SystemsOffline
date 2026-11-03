@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c35qrqo7ajmic"]
 
-[ext_resource type="Texture2D" uid="uid://862kynlp8dih" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
+[ext_resource type="Texture2D" uid="uid://bay85kwwcixt0" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://ci4v8oty26w6d" path="res://src/3d/Mesh/WallLibrary.meshlib" id="4_6lvv6"]
@@ -16,14 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="13_j4nu1"]
-[ext_resource type="PackedScene" uid="uid://mcgtnsxl7lum" path="res://src/3d/Scenes/objects/Whitebox/Box.tscn" id="15_2pe5o"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
-[ext_resource type="AudioStream" uid="uid://dh6rlkdtawuur" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
-[ext_resource type="AudioStream" uid="uid://wctftf75ar4d" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
-[ext_resource type="AudioStream" uid="uid://b2wi5sp11hf6d" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
+[ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
+[ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
+[ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
@@ -41,7 +40,6 @@
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="40_3h5nh"]
-[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleTest.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="41_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://cq4311fnvpfe7" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
 [ext_resource type="Script" uid="uid://24ew362trsm7" path="res://src/3d/Scenes/objects/Door/tutorial_door.gd" id="46_w4g2j"]
@@ -51,6 +49,9 @@
 [ext_resource type="Shader" uid="uid://0kr0l1l3hlar" path="res://src/3d/Scenes/objects/Door/door_scan.gdshader" id="49_u2kds"]
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://17e1l2knwo6t" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
+[ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
+[ext_resource type="PackedScene" uid="uid://dxov4b5hw02ya" path="res://src/3d/Scenes/objects/Beachball/BeachBall.tscn" id="41_qbvi1"]
+[ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -182,6 +183,10 @@ visible = false
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
 
+[node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
+curve = SubResource("Curve3D_4qo6h")
+
 [node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "wire_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
 transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08, 4.783604, 2.3328893, -7.854755)
 script = ExtResource("15_71ovv")
@@ -191,7 +196,7 @@ sliding_door = NodePath("../../TutorialDoor")
 lock_led = NodePath("LockLED")
 correct_code = "2947"
 keypad_collision = NodePath("StaticBody3D/CollisionShape3D")
-connected_wire = NodePath("../../KeypadWire")
+connected_wire = NodePath("../KeypadWire")
 wire_camera = NodePath("WireCamera")
 object_ref = NodePath(".")
 interaction_type = 3
@@ -257,6 +262,8 @@ number_label = NodePath("Label3D")
 number = "7"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_id = ""
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -274,6 +281,8 @@ number_label = NodePath("Label3D")
 number = "4"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_id = ""
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -291,6 +300,8 @@ number_label = NodePath("Label3D")
 number = "2"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_id = ""
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -308,6 +319,8 @@ number_label = NodePath("Label3D")
 number = "9"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_id = ""
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -328,6 +341,7 @@ object_ref = NodePath(".")
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+is_part_of_tutorial = true
 item_data = ExtResource("25_dqwws")
 
 [node name="MediumPoster" parent="Tutorial Room" unique_id=131794683 node_paths=PackedStringArray("inspect_camera", "poster_text", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("9_t4i55")]
@@ -436,18 +450,28 @@ transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "puzzle", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
-transform = Transform3D(4.0482333e-09, -0.09261279, 0.03772099, -0.10000001, -4.371139e-09, -4.2351648e-23, 1.6488368e-09, -0.037720993, -0.09261278, -7.5541897, 1.4380639, -68.33988)
-script = ExtResource("17_wvn26")
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
+transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
-puzzle = NodePath(".")
+puzzle_id = "comms"
+power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
+power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
 wire_cover = NodePath("Wire Puzzle Comms/WireCover")
 object_ref = NodePath("Wire Puzzle Comms")
 interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+
+[node name="Camera3D" parent="CommsRoom/WirePuzzleTest" index="1" unique_id=1855915035]
+transform = Transform3D(-1.4210855e-14, -12.499999, -5.4639236e-07, 4.7683716e-07, -5.463923e-07, 12.500001, -12.500001, 1.3552527e-14, 4.7683716e-07, 0, 5.496002, -6.1035156e-05)
+
+[node name="Wire Puzzle Comms" parent="CommsRoom/WirePuzzleTest" index="2" unique_id=918281047]
+script = null
+
+[node name="WireCover" parent="CommsRoom/WirePuzzleTest/Wire Puzzle Comms" index="4" unique_id=396484773]
+visible = true
 
 [node name="Delivery Tubes" parent="CommsRoom" unique_id=1631719345 instance=ExtResource("32_io4pa")]
 transform = Transform3D(0.71447104, 0, -0.69966507, 0, 1, 0, 0.69966507, 0, 0.71447104, 11.919254, 0.06365895, -80.75128)
@@ -458,22 +482,33 @@ transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
 
-[node name="Whitebox" type="Node3D" parent="." unique_id=465361718]
+[node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
-[node name="Box12" parent="Whitebox" unique_id=1880678594 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 3, -15.819645, 2.701836, -56.27561)
+[node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
 
-[node name="Box13" parent="Whitebox" unique_id=478361404 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(0.1, 0, 0, 0, 3, 0, 0, 0, 2, -15.819811, 3.0388923, -59.743084)
+[node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
+inspect_type = 2
+puzzle_scene = "uid://0u4neuukgjki"
+puzzle_id = "elevator"
+power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
+power_on = NodePath("ElevatorPuzzle/WireCover/Green lightning bolt")
+wire_cover = NodePath("ElevatorPuzzle/WireCover")
+object_ref = NodePath("ElevatorPuzzle")
+interaction_type = 1
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../TransitionCamera")
 
-[node name="Box14" parent="Whitebox" unique_id=34582374 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 4, -12.894317, 0.25422668, -80.49245)
+[node name="ElevatorPuzzle" parent="Elevator Room/WirePuzzleElevator" index="2" unique_id=728251535]
+script = null
 
-[node name="Box17" parent="Whitebox" unique_id=1175278933 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(-4.371139e-09, 0, 2.9999998, 0, 4, 0, -0.1, 0, -1.3113416e-07, -10.659634, 2.7018352, -45.79525)
+[node name="PuzzleBridgeMedium" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="0" unique_id=495846276]
+transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5527137e-15, 0, -3.5527137e-15, 1, 3.0054927, -0.530365, 1.9973822)
 
-[node name="Box18" parent="Whitebox" unique_id=154637311 instance=ExtResource("15_2pe5o")]
-transform = Transform3D(-4.371139e-09, 0, 2, 0, 3, 0, -0.1, 0, -8.742278e-08, 2.7310011, 3.0388937, -45.80861)
+[node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
+visible = true
 
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401493, 2.928215, -47.358948)
@@ -499,9 +534,6 @@ transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="BrokenWall" parent="." unique_id=1554696659 instance=ExtResource("38_io4pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
-
-[node name="Cubicle" parent="." unique_id=1899239903 instance=ExtResource("40_3h5nh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
 
 [node name="CommsDoor" parent="." unique_id=2000211477 instance=ExtResource("41_qbvi1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9766963, 2.4861362, -45.60625)
@@ -588,6 +620,7 @@ shape = SubResource("CylinderShape3D_1cg0m")
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Wire2"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/WireSocket2"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/WireSocket2/wire connection part"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning On"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Beginning Connection"]
@@ -599,9 +632,26 @@ shape = SubResource("CylinderShape3D_1cg0m")
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Lid Wire space small"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Wire1"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1/wire connection part"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
-[editable path="Elevator 1st floor"]
+[editable path="Elevator Room/Elevator 1st floor"]
+[editable path="Elevator Room/WirePuzzleElevator"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireBeginning"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/Wire"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Lid Wire space small"]
 [editable path="CommsDoor"]
 [editable path="CommsDoor/Final_Door frame"]
 [editable path="CommsDoor/Final_Door left/Final_Door handle2"]

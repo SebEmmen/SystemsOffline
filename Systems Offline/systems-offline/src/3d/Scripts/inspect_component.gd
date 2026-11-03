@@ -37,10 +37,15 @@ var lid_animating: bool = false
 
 #region Wires_Puzzle Variable
 @export_group("Wires_Puzzle")
-@onready var fixed: bool = false
-@export var puzzle: Node3D
-@export var wire_cover = RigidBody3D
+@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+@export var puzzle_id: String = ""   # unique per puzzle, e.g. "comms", "elevator"
+@export var power_off: Node3D
+@export var power_on: Node3D
+@export var wire_cover: RigidBody3D   # ":" not "="
+var fixed: bool = false
+
 var cover_removed: bool = false
+var cover_drop_time: float = 0.0
 #endregion
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,8 +56,7 @@ func _ready() -> void:
 		InspectType.CRATE:
 			ready_crate()
 		InspectType.WIRES_PUZZLE:
-			pass
-
+			ready_puzzle()
 
 func interact() -> void:
 	if not can_interact:
@@ -72,8 +76,6 @@ func interact() -> void:
 				enter_crate()
 		
 		InspectType.WIRES_PUZZLE:
-			if fixed:
-				return
 			enter_puzzle()
 
 
@@ -111,8 +113,7 @@ func exit_inspect() -> void:
 
 	await get_tree().process_frame
 	player.enable_controls()
-	
-	
+
 
 
 func get_interaction_message() -> String:
@@ -124,7 +125,7 @@ func get_interaction_message() -> String:
 
 		InspectType.POSTER:
 			return "Press [E] to view"
-
+		
 	return "Press [E] to interact"
 
 
@@ -259,16 +260,57 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 #endregion
 
 #region Wires Puzzle Functions
+func ready_puzzle() -> void:
+	if puzzle_id == "":
+		push_warning("InspectComponent: puzzle_id not set on " + name)
+
+	fixed = SaveManager.is_puzzle_completed(puzzle_id)
+	cover_removed = SaveManager.is_cover_removed(puzzle_id)
+
+	if wire_cover:
+		if fixed:
+			wire_cover.freeze = true
+			cover_removed = false
+		elif cover_removed:
+			var saved := SaveManager.get_cover_transform(puzzle_id)
+			var s := wire_cover.global_transform.basis.get_scale()
+			wire_cover.global_transform = Transform3D(saved.basis.scaled(s), saved.origin)
+			wire_cover.freeze = true
+
+	can_interact = not fixed
+	power_on.visible = fixed
+	power_off.visible = not fixed
+
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
 		return
-
 	if not cover_removed:
 		cover_removed = true
+		cover_drop_time = Time.get_ticks_msec() / 1000.0
 		wire_cover.fall_off()
 		return
 
-	enter_inspect()
+	# Cover still falling: ignore the press
+	if not _cover_is_settled():
+		return
+
+	is_interacting = true
+	player.disable_controls()
+	SaveManager.enter_subscene(puzzle_scene, puzzle_id, wire_cover)
+
+func _cover_is_settled() -> bool:
+	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
+	return elapsed > 0.5 and (wire_cover.sleeping or wire_cover.linear_velocity.length() < 0.05)
+
+func exit_wires_puzzle() -> void:
+	if not is_interacting or is_transitioning:
+		return
+
+	is_interacting = false
+	SaveManager.return_from_subscene()
+	player.enable_controls()
+
+
 #endregion
 
 
@@ -283,7 +325,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 			InspectType.POSTER:
 				exit_inspect()
-				get_viewport().set_input_as_handled()		
+				get_viewport().set_input_as_handled()
+			InspectType.WIRES_PUZZLE:
+				pass
 		return
 		
 		

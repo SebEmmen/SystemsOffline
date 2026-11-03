@@ -6,7 +6,7 @@ signal wire_disconnected
 
 
 @export_group("Appearance")
-@export var sag_amount := 0.12
+@export var sag_amount := 0.1
 @export var sag_direction := Vector3.FORWARD
 @export_range(0.1, 1.0) var start_straightness := 0.55
 @export_range(0.05, 0.5) var end_straightness := 0.12
@@ -14,9 +14,9 @@ signal wire_disconnected
 @export_group("Interaction")
 @export var puzzle_camera: Camera3D
 @export var correct_socket_id := 0
-@export var max_wire_length := 2.0
+@export var max_wire_length := 10.0
 @export var drag_smoothing := 18.0
-@export var return_speed := 3.0
+@export var return_speed := 8.0
 ## Click a plugged-in connector to pull it back out.
 @export var allow_unplug := true
 
@@ -41,18 +41,18 @@ signal wire_disconnected
 @export_group("Connector Rotation")
 @export var rotate_connector := true
 @export var connector_rotation_offset := 0.0 # Degrees
-@export var rotation_smoothing := 12.0
+@export var rotation_smoothing := 10.0
 
 @export_group("Animation")
-@export var animation_duration := 2.0
+@export var animation_duration := 0.5
 ## How long the core takes to fade out when the wire is unplugged
 ## (as a fraction of animation_duration).
 @export_range(0.0, 1.0) var lock_fade_ratio := 0.5
 
 @export_group("Layered Wire")
-@export_range(0.001, 1.0, 0.001) var glass_radius: float = 0.10
-@export_range(0.001, 1.0, 0.001) var core_radius: float = 0.085
-@export_range(3, 16) var wire_sides: int = 12
+@export_range(0.001, 1.0, 0.001) var glass_radius: float = 0.25
+@export_range(0.001, 1.0, 0.001) var core_radius: float = 0.22
+@export_range(3, 16) var wire_sides: int = 10
 @export var glass_material: Material
 @export var core_shader: Shader
 

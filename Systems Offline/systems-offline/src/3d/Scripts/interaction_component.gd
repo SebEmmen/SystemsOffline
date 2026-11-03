@@ -22,6 +22,7 @@ var is_transitioning := false
 
 #region Pickup Variables
 @export_group("PickUp")
+@export var is_part_of_tutorial: bool = false
 @export var item_data: ItemData
 @export var pickup_message: Label
 #endregion
@@ -47,6 +48,8 @@ func _ready() -> void:
 	_setup_audio_players()
 	match interaction_type:
 		InteractionType.PICKUP:
+			if is_part_of_tutorial and SaveManager.tutorial_puzzle_completed:
+				object_ref.queue_free()
 			pass
 
 # Dynamically instantiates AudioStreamPlayer3D nodes for assigned streams

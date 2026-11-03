@@ -27,7 +27,14 @@ func _get_player() -> CharacterBody3D:
 	return get_tree().get_first_node_in_group("player") as CharacterBody3D
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		print("ESC seen in _input")
+
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		print("ESC reached _unhandled_input, current_menu=", current_menu)
+	# ...your existing code
 	# ESCAPE
 	if event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()

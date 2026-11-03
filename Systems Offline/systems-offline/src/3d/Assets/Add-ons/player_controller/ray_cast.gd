@@ -60,6 +60,11 @@ func _process(_delta: float) -> void:
 		_reset_ui()
 		return
 
+	# Disabled objects show no prompt and can't be triggered
+	if "can_interact" in interactable and not interactable.can_interact:
+		_reset_ui()
+		return
+
 	# Crates have their own interaction message and crosshairs.
 	if interactable is InspectComponent and interactable.inspect_type == InspectComponent.InspectType.CRATE:
 		if interactable.is_interacting:
