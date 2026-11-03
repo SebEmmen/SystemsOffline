@@ -19,7 +19,7 @@ height = 6.0
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_ojbw0"]
 material = ExtResource("3_hrl3n")
-radius = 3.0
+radius = 3.2
 radial_steps = 6
 section_length = 0.6
 
@@ -90,11 +90,11 @@ shape = SubResource("BoxShape3D_5bsic")
 visible = false
 
 [node name="Hexagon" type="MeshInstance3D" parent="Hexagon" unique_id=748188666]
-transform = Transform3D(0.029610593, 0.70648646, -0.70710677, -0.99912274, 0.0418757, 0, 0.029610593, 0.70648646, 0.70710677, -2.871, -1.735, -13.293)
+transform = Transform3D(-3.0908616e-08, 0.7071067, -0.7071067, -0.9999999, -4.3711385e-08, 0, -3.0908616e-08, 0.7071067, 0.7071067, -2.871, -1.2982448, -13.293)
 mesh = SubResource("TubeTrailMesh_ojbw0")
 
 [node name="Hexagon2" type="MeshInstance3D" parent="Hexagon" unique_id=1767320299]
-transform = Transform3D(0.029610591, 0.70648646, 0.7071067, -0.9991227, 0.0418757, 0, -0.029610591, -0.70648646, 0.7071067, -2.871, -1.735, -2.39)
+transform = Transform3D(-3.0908613e-08, 0.7071067, 0.7071067, -0.9999998, -4.3711385e-08, 0, 3.0908613e-08, -0.7071067, 0.7071067, -2.871, -1.3788793, -2.39)
 mesh = SubResource("TubeTrailMesh_ojbw0")
 
 [node name="SB Hexagon" type="StaticBody3D" parent="Hexagon" unique_id=1760625220]

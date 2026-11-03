@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
+[ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="PackedScene" uid="uid://bhbssj6mqwysp" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
 [ext_resource type="Script" uid="uid://24ew362trsm7" path="res://src/3d/Scenes/objects/Door/tutorial_door.gd" id="46_w4g2j"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
@@ -523,22 +524,52 @@ transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
 visible = true
 
+[node name="Chair4" parent="CommsRoom/Cubicle Sphere" unique_id=686452675 instance=ExtResource("45_u2kds")]
+transform = Transform3D(0.8104357, 0.5842482, 0.042990927, 0.05169638, 0.001774556, -0.9986613, -0.58354247, 0.8115728, -0.028765386, 0.7571869, -0.088629246, -0.5653076)
+
+[node name="Chair5" parent="CommsRoom/Cubicle Sphere" unique_id=673814805 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.48894295, -0.87190235, -0.02685977, 0.05169638, 0.0017745579, -0.9986613, 0.8707828, -0.48967668, 0.044206563, 22.570671, -0.088629246, -17.82338)
+
+[node name="Chair6" parent="CommsRoom/Cubicle Sphere" unique_id=360591222 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.9728843, 0, 0.23129226, 0, 1, 0, -0.23129226, 0, -0.9728843, 24.900963, -4.722689, 0.72473145)
+
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
+[node name="Chair2" parent="CommsRoom/Cubicle Prism" unique_id=1650044198 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.9562844, 0, -0.29243866, 0, 1, 0, 0.29243866, 0, -0.9562844, 18.29596, -4.723777, -3.4005432)
+
+[node name="Chair3" parent="CommsRoom/Cubicle Prism" unique_id=750807166 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.25863695, 0.9659038, -0.011672173, 0.051696375, 0.001774557, -0.9986612, -0.96459043, -0.25889406, -0.050392717, 12.526745, -0.08971834, -6.9012146)
+
+[node name="Prism" parent="CommsRoom/Cubicle Prism" index="4" unique_id=233811967]
 visible = true
 
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
+[node name="Chair" parent="CommsRoom/Cubicle Donut" unique_id=1678814839 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.998824, 0, -0.04848536, 0, 1, 0, 0.04848536, 0, -0.998824, 19.128803, -4.723777, -6.2727966)
+
+[node name="Chair3" parent="CommsRoom/Cubicle Donut" unique_id=2013996766 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.8611148, 0, 0.5084108, 0, 1, 0, -0.5084108, 0, -0.8611148, 15.057453, -4.723777, 5.666992)
+
+[node name="Chair2" parent="CommsRoom/Cubicle Donut" unique_id=1839018420 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9156984, 17.756348, -4.723777, -17.454956)
+
+[node name="Donut" parent="CommsRoom/Cubicle Donut" index="7" unique_id=626885502]
 visible = true
 
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
+[node name="Chair" parent="CommsRoom/Cubicle Hexagon" unique_id=21777236 instance=ExtResource("45_u2kds")]
+transform = Transform3D(-0.8849188, 0, 0.4657454, 0, 1, 0, -0.4657454, 0, -0.8849188, 16.341328, -4.723777, 0.46276855)
+
+[node name="Chair6" parent="CommsRoom/Cubicle Hexagon" unique_id=1474010390 instance=ExtResource("45_u2kds")]
+transform = Transform3D(0.62884116, -0.77690864, 0.031171886, 0.05169638, 0.001774556, -0.9986613, 0.7758137, 0.62961066, 0.04127928, 7.633198, -0.05765724, -19.390625)
+
+[node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="7" unique_id=1147772406]
 visible = true
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
