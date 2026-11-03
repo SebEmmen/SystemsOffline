@@ -98,7 +98,7 @@ func animate_handles(push: bool) -> void:
 	var right_target := right_handle_original_position
 
 	if push:
-		left_target.y += handle_push_distance
+		left_target.y -= handle_push_distance
 		right_target.y += handle_push_distance
 
 	tween.tween_property(
