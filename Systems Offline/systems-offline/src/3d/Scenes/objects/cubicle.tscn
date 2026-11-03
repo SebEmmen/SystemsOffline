@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://54xxulq8ooao"]
 
 [ext_resource type="PackedScene" uid="uid://7xusv4k0vn3b" path="res://src/3d/Assets/Comm room/Final_Cubicle roof.blend" id="1_t7734"]
+[ext_resource type="PackedScene" uid="uid://d2e5uxif5puhf" path="res://src/3d/Assets/Comm room/Final_Cubicle.blend" id="2_5bsic"]
 
 [node name="Cubicle" type="Node3D" unique_id=1899239903]
 
 [node name="Final_Cubicle roof" parent="." unique_id=1977459474 instance=ExtResource("1_t7734")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.11592555, 0, 2.504632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1850643, 5.496953, 0)
+
+[node name="Final_Cubicle" parent="." unique_id=84677000 instance=ExtResource("2_5bsic")]
+
+[editable path="Final_Cubicle roof"]

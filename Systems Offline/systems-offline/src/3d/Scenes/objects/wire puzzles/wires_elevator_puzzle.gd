@@ -12,20 +12,41 @@ func _ready() -> void:
 			node.bridge_connected.connect(_on_bridge_connected)
 			node.bridge_disconnected.connect(check_puzzle_completion)
 
-	print("Tracking bridges: ", get_tree().get_nodes_in_group("puzzle_bridges").size())
+	for node in get_tree().get_nodes_in_group("puzzle_wires"):
+		if node is PuzzleWire:
+			node.wire_connected.connect(_on_wire_connected)
+			node.wire_disconnected.connect(check_puzzle_completion)
+
+	print("Bridges: ", get_tree().get_nodes_in_group("puzzle_bridges").size(),
+		" Wires: ", get_tree().get_nodes_in_group("puzzle_wires").size())
 
 
 func _on_bridge_connected(_a: WireSocket, _b: WireSocket) -> void:
 	check_puzzle_completion()
 
 
+func _on_wire_connected(_socket: WireSocket) -> void:
+	check_puzzle_completion()
+
+
 func _is_puzzle_correct() -> bool:
 	var bridges := get_tree().get_nodes_in_group("puzzle_bridges")
-	if bridges.is_empty():
+	var wires := get_tree().get_nodes_in_group("puzzle_wires")
+	if bridges.is_empty() and wires.is_empty():
 		return false
+
 	for bridge in bridges:
-		if not (bridge is PuzzleBridge and bridge.is_connected):
+		if not (bridge is PuzzleBridge and bridge.is_bridged):
 			return false
+
+	for wire in wires:
+		if not (wire is PuzzleWire and wire.is_plugged):
+			return false
+		# Must be in the right socket, not just any socket
+		if wire.connected_socket == null \
+				or wire.connected_socket.socket_id != wire.correct_socket_id:
+			return false
+
 	return true
 
 
@@ -34,12 +55,12 @@ func check_puzzle_completion() -> void:
 		return
 
 	completed = true
-	print("SUCCESS: All bridges connected!")
+	print("SUCCESS: Bridge and wire connected!")
 
 	# Let the player see the core light animation finish
 	await get_tree().create_timer(1.0).timeout
 
-	# The player may have unplugged a bridge during the delay
+	# The player may have unplugged something during the delay
 	if not _is_puzzle_correct():
 		completed = false
 		return
