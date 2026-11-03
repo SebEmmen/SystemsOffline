@@ -74,6 +74,9 @@ point_count = 2
 height = 0.13745189
 radius = 0.08300781
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cg0m"]
+size = Vector3(1, 4.2857666, 1)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q4rn"]
 friction = 0.4
 bounce = 0.7
@@ -120,7 +123,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(-0.99976206, 0.0032072556, -0.021577794, 0, 0.9891333, 0.14702167, 0.021814851, 0.14698668, -0.9888979, -1.9565889, 0.06380844, -49.191074)
+transform = Transform3D(0.9999905, 0.00022471788, -0.0043542157, 0, 0.9986709, 0.05154068, 0.0043600104, -0.05154019, 0.9986614, -1.4381647, 0.025616646, -2.3705902)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -429,13 +432,14 @@ transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7778175, 5.841619, 0.0050001144, 6.3599706)
 
-[node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle")]
+[node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "crush_detection")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0572443, 2.4789517, -7.607033)
 script = ExtResource("46_w4g2j")
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
+crush_detection = NodePath("CrushDetection")
 
 [node name="Final_Door frame" parent="Tutorial Room/TutorialDoor" unique_id=1592204761 instance=ExtResource("46_u2kds")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -476,6 +480,13 @@ sliding_door = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle/MeshInstance3D" unique_id=123144760]
 transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
 shape = SubResource("CylinderShape3D_1cg0m")
+
+[node name="CrushDetection" type="Area3D" parent="Tutorial Room/TutorialDoor" unique_id=1304842202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22075057, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialDoor/CrushDetection" unique_id=1734039295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17254639, 0)
+shape = SubResource("BoxShape3D_1cg0m")
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 

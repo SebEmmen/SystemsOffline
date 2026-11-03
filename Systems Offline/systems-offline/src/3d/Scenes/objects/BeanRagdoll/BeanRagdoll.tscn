@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bafr7ottiv83u"]
+
+[ext_resource type="Script" uid="uid://b8wejdsqoacfi" path="res://src/3d/Scenes/objects/BeanRagdoll/bean_ragdoll.gd" id="1_ueve7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb2t8"]
+albedo_color = Color(0.91764706, 0.5764706, 0.22352941, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3q4rn"]
+material = SubResource("StandardMaterial3D_vb2t8")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eueio"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1135739475]
+mass = 5.0
+continuous_cd = true
+linear_damp = 0.2
+angular_damp = 0.5
+script = ExtResource("1_ueve7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=288206200]
+mesh = SubResource("CapsuleMesh_3q4rn")
+
+[node name="DeathCamera" type="Camera3D" parent="." unique_id=1580580302]
+transform = Transform3D(1, 0, 0, 0, 0.9112843, 0.41177765, 0, -0.41177765, 0.9112843, -0.00058043003, 2.007179, 4.996758)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1541918449]
+shape = SubResource("CapsuleShape3D_eueio")

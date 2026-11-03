@@ -20,6 +20,19 @@ extends Node3D
 @export_group("Tutorial")
 @export var requires_key: bool = false
 
+@export var crush_detection: Area3D
+@export var crush_distance: float = 1.5
+
+@export var death_ui: CanvasLayer
+
+var door_tween: Tween
+
+var is_closing: bool = false
+var player_crushed: bool = false
+
+const BEAN_RAGDOLL = preload("res://src/3d/Scenes/objects/BeanRagdoll/BeanRagdoll.tscn")
+const DEATH_CAMERA = preload("res://src/3d/Scenes/objects/BeanRagdoll/DeathCamera.tscn")
+
 var is_open: bool = false
 var is_moving: bool = false
 var is_unlocked: bool = false
@@ -45,10 +58,25 @@ func _ready() -> void:
 
 	is_unlocked = not requires_key
 
+func _physics_process(_delta: float) -> void:
+	if not is_closing or player_crushed:
+		return
+
+	# Measure the gap using the door panel positions.
+	var left_x: float = left_door.global_position.x
+	var right_x: float = right_door.global_position.x
+
+	var distance: float = absf(right_x - left_x)
+
+	# Only crush when the panels are close enough.
+	if distance > crush_distance:
+		return
+
+	check_for_crushed_player()
 
 func open_door() -> void:
 	print("open_door")
-	if is_open or is_moving:
+	if is_open or is_moving or player_crushed:
 		return
 
 	if not is_unlocked:
@@ -70,18 +98,23 @@ func open_door() -> void:
 
 
 func close_door() -> void:
-	if not is_open or is_moving:
+	if not is_open or is_moving or player_crushed:
 		return
 
 	is_moving = true
-
-	# Cancel any pending hide timer.
-	hide_timer_version += 1
+	is_closing = true
 
 	left_handle.show()
 	right_handle.show()
 
 	await animate_doors(false)
+
+	# The animation was interrupted by the player being crushed.
+	if player_crushed:
+		return
+
+	is_closing = false
+
 	await animate_handles(false)
 
 	is_open = false
@@ -119,7 +152,8 @@ func animate_handles(push: bool) -> void:
 
 
 func animate_doors(open: bool) -> void:
-	var tween := create_tween()
+	door_tween = create_tween()
+	var tween: Tween = door_tween
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -171,3 +205,68 @@ func unlock_door() -> void:
 
 func lock_door() -> void:
 	is_unlocked = false
+
+func check_for_crushed_player() -> void:
+	if not is_closing or player_crushed:
+		return
+
+	for body in crush_detection.get_overlapping_bodies():
+		if body is CharacterBody3D and body.is_in_group("player"):
+			crush_player(body)
+			return
+
+
+func crush_player(player: CharacterBody3D) -> void:
+	if player_crushed:
+		return
+
+	player_crushed = true
+	print("PLAYER CRUSHED!")
+	
+	# Stop the sliding doors at their current positions.
+	if door_tween and door_tween.is_running():
+		door_tween.kill()
+
+	# Prevent further door interactions.
+	is_closing = false
+	is_moving = false
+
+	# Remember the player's position before hiding them.
+	var player_transform: Transform3D = player.global_transform
+
+	# Disable player movement and collisions.
+	player.disable_controls()
+	player.hide()
+	player.collision_layer = 0
+	player.collision_mask = 0
+
+	# Spawn the physics-based bean.
+	var ragdoll := BEAN_RAGDOLL.instantiate() as RigidBody3D
+	get_tree().current_scene.add_child(ragdoll)
+	ragdoll.global_transform = player_transform
+	ragdoll.global_position += Vector3.UP * 1
+	ragdoll.global_position += Vector3.RIGHT * 0.5
+
+	# Spawn the third-person camera.
+	var death_camera := DEATH_CAMERA.instantiate() as Camera3D
+	get_tree().current_scene.add_child(death_camera)
+
+	death_camera.global_position = (
+		ragdoll.global_position + Vector3(0.0, 2.5, 5.0)
+	)
+
+	death_camera.set("target", ragdoll)
+	death_camera.make_current()
+
+	# Push the bean away from the closing door.
+	var push_direction: Vector3 = -global_transform.basis.z
+	ragdoll.activate_crush(push_direction)
+
+	# Wait before displaying the death message.
+	await get_tree().create_timer(1.5).timeout
+
+	if is_instance_valid(death_ui):
+		death_ui.show()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+	

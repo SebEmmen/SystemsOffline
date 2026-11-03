@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://myg5dvjn3ash"]
+
+[ext_resource type="Script" uid="uid://dmq8527b1n2kr" path="res://src/3d/Scenes/objects/BeanRagdoll/death_camera.gd" id="1_nerii"]
+
+[node name="DeathCamera" type="Camera3D" unique_id=1817282224]
+script = ExtResource("1_nerii")
