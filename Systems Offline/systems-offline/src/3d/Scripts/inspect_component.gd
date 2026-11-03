@@ -125,7 +125,7 @@ func get_interaction_message() -> String:
 
 		InspectType.POSTER:
 			return "Press [E] to view"
-
+		
 	return "Press [E] to interact"
 
 
@@ -280,6 +280,7 @@ func ready_puzzle() -> void:
 	can_interact = not fixed
 	power_on.visible = fixed
 	power_off.visible = not fixed
+	print("puzzle_id='", puzzle_id, "' fixed=", fixed, " power_on=", power_on, " power_off=", power_off)
 
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:

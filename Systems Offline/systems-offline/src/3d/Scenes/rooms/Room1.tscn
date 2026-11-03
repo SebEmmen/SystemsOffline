@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="40_3h5nh"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://dxov4b5hw02ya" path="res://src/3d/Scenes/objects/Beachball/BeachBall.tscn" id="41_qbvi1"]
+[ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
 panorama = ExtResource("1_8gijo")
@@ -463,6 +464,34 @@ transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
 
+[node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
+
+[node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
+
+[node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
+inspect_type = 2
+puzzle_scene = "uid://0u4neuukgjki"
+puzzle_id = "elevator"
+power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
+power_on = NodePath("ElevatorPuzzle/WireCover/Green lightning bolt")
+wire_cover = NodePath("ElevatorPuzzle/WireCover")
+object_ref = NodePath("ElevatorPuzzle")
+interaction_type = 1
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../TransitionCamera")
+
+[node name="ElevatorPuzzle" parent="Elevator Room/WirePuzzleElevator" index="2" unique_id=728251535]
+script = null
+
+[node name="PuzzleBridgeMedium" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="0" unique_id=495846276]
+transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5527137e-15, 0, -3.5527137e-15, 1, 3.0054927, -0.530365, 1.9973822)
+
+[node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
+visible = true
+
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401493, 2.928215, -47.358948)
 size = Vector3(12.740049, 5.8464303, 2.3808594)
@@ -476,26 +505,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.3446083, -67)
 
 [node name="CommsDoor" parent="." unique_id=2000211477 instance=ExtResource("41_qbvi1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9766963, 2.4861362, -45.60625)
-
-[node name="Elevator 1st floor" parent="." unique_id=1746680253 instance=ExtResource("38_eivic")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
-
-[node name="WirePuzzleElevator" parent="Elevator 1st floor/Elevator monitor base" parent_id_path=PackedInt32Array(1746680253, 220052432) index="4" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera")]
-script = ExtResource("17_wvn26")
-inspect_type = 2
-puzzle_scene = "uid://0u4neuukgjki"
-puzzle_id = "elevator"
-power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
-power_on = NodePath("ElevatorPuzzle/WireCover/Green lightning bolt")
-wire_cover = NodePath("ElevatorPuzzle/WireCover")
-object_ref = NodePath("ElevatorPuzzle")
-interaction_type = 1
-player = NodePath("../../../ProtoController")
-player_camera = NodePath("../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../TransitionCamera")
-
-[node name="ElevatorPuzzle" parent="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator" index="2" unique_id=728251535]
-script = null
 
 [editable path="ProtoController"]
 [editable path="HUD"]
@@ -539,20 +548,21 @@ script = null
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1/wire connection part"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
+[editable path="Elevator Room/Elevator 1st floor"]
+[editable path="Elevator Room/WirePuzzleElevator"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireBeginning"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/Wire"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Lid Wire space small"]
 [editable path="CommsDoor"]
-[editable path="Elevator 1st floor"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireBeginning"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireEnd"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd/wire connection part"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Draggable part/Wire"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd/wire connection part"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
-[editable path="Elevator 1st floor/Elevator monitor base/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]

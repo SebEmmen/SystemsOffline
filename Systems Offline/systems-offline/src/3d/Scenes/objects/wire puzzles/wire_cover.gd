@@ -10,6 +10,8 @@ func fall_off() -> void:
 	match directional:
 		"z":
 			direction = global_transform.basis.z.normalized()
+		"-z":
+			direction = -global_transform.basis.z.normalized()
 		"x": 
 			direction = global_transform.basis.x.normalized()
 	
