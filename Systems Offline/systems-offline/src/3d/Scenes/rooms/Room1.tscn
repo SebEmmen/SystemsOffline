@@ -87,7 +87,7 @@ radius = 0.08300781
 environment = SubResource("Environment_a7dbj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1612126971]
-transform = Transform3D(-0.84673446, -0.49288437, -0.20026435, 0.4925699, -0.86853427, 0.054982826, -0.20103663, -0.05208833, 0.97819793, -2.261508, 2.9415433, 19.192448)
+transform = Transform3D(-0.8078627, -0.4798266, -0.3422342, 0.49256983, -0.8685342, 0.054982815, -0.32362434, -0.12415567, 0.9380047, -2.261508, 2.9415433, 19.192448)
 light_color = Color(1, 1, 0.59607846, 1)
 light_energy = 0.4
 shadow_enabled = true
@@ -525,6 +525,9 @@ player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
+[node name="DirectionalLight3D" parent="Elevator Room/WirePuzzleElevator" index="0" unique_id=517492563]
+visible = false
+
 [node name="ElevatorPuzzle" parent="Elevator Room/WirePuzzleElevator" index="2" unique_id=728251535]
 script = null
 
@@ -543,9 +546,6 @@ num_stairs = 20
 [node name="KeypadWire" parent="." unique_id=1036713795 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17241791, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
-
-[node name="Elevator 1st floor" parent="." unique_id=1053777714 instance=ExtResource("38_eivic")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1176853, 2.9753919, -36.097855)
 
 [node name="BrokenWall" parent="." unique_id=1554696659 instance=ExtResource("38_io4pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
