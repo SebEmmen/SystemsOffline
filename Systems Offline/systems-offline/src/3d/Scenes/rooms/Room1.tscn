@@ -46,6 +46,7 @@
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
 [ext_resource type="PackedScene" uid="uid://bhuitcvlytiet" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
 [ext_resource type="PackedScene" uid="uid://cv6oy8hxjhey" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
+[ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="Script" uid="uid://cs0dwtwxtxncq" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="50_u2kds"]
 [ext_resource type="PackedScene" uid="uid://mlvlsrisovn0" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
@@ -119,7 +120,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -31.549784)
+transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -48.35362)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -181,6 +182,13 @@ visible = false
 [node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
+
+[node name="KeypadWire2" parent="Tutorial Room" unique_id=1036713795 instance=ExtResource("32_8gijo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17241791, 1.0923238, -7.85)
+curve = SubResource("Curve3D_4qo6h")
+
+[node name="BrokenWall" parent="Tutorial Room" unique_id=1554696659 instance=ExtResource("38_io4pa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
 
 [node name="KeypadTouchscreen" parent="Tutorial Room" unique_id=720174509 node_paths=PackedStringArray("screen_label", "keypad_camera", "sliding_door", "lock_led", "keypad_collision", "connected_wire", "wire_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("36_4qo6h")]
 transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08, 4.783604, 2.3328893, -7.854755)
@@ -504,7 +512,7 @@ visible = true
 transform = Transform3D(0.71447104, 0, -0.69966507, 0, 1, 0, 0.69966507, 0, 0.71447104, 11.919254, 0.06365895, -80.75128)
 
 [node name="TypeWriterScreen" parent="CommsRoom" unique_id=215861176 instance=ExtResource("39_io4pa")]
-transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, 1.774066, 1.3483517, -80.85914)
+transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, -4.9956355, 1.3483517, -80.85914)
 
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
@@ -543,15 +551,9 @@ push_force = 4.0
 
 [node name="CSGStairMaker3D" parent="." unique_id=885997584 instance=ExtResource("32_20ssf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.401493, 2.928215, -47.358948)
+visible = false
 size = Vector3(12.740049, 5.8464303, 2.3808594)
 num_stairs = 20
-
-[node name="KeypadWire" parent="." unique_id=1036713795 instance=ExtResource("32_8gijo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17241791, 1.0923238, -7.85)
-curve = SubResource("Curve3D_4qo6h")
-
-[node name="BrokenWall" parent="." unique_id=1554696659 instance=ExtResource("38_io4pa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
 
 [node name="CommsDoor" type="RigidBody3D" parent="." unique_id=2000211477]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9766963, 2.4861362, -45.60625)
@@ -626,6 +628,30 @@ transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -
 visible = false
 shape = SubResource("CylinderShape3D_ymcgf")
 
+[node name="Cubicle Sphere" parent="." unique_id=1899239903 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
+
+[node name="Sphere" parent="Cubicle Sphere" index="3" unique_id=1328355168]
+visible = true
+
+[node name="Cubicle Prism" parent="." unique_id=2084082719 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
+
+[node name="Prism" parent="Cubicle Prism" index="2" unique_id=233811967]
+visible = true
+
+[node name="Cubicle Donut" parent="." unique_id=1709922761 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
+
+[node name="Donut" parent="Cubicle Donut" index="4" unique_id=626885502]
+visible = true
+
+[node name="Cubicle Hexagon" parent="." unique_id=841048580 instance=ExtResource("50_eueio")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
+
+[node name="Hexagon" parent="Cubicle Hexagon" index="5" unique_id=1147772406]
+visible = true
+
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
@@ -689,3 +715,11 @@ shape = SubResource("CylinderShape3D_ymcgf")
 [editable path="CommsDoor2/Final_Door frame"]
 [editable path="CommsDoor2/Final_Door left/Final_Door handle2"]
 [editable path="CommsDoor2/Final_Door right/Final_Door handle"]
+[editable path="Cubicle Sphere"]
+[editable path="Cubicle Sphere/Final_Cubicle roof"]
+[editable path="Cubicle Prism"]
+[editable path="Cubicle Prism/Final_Cubicle roof"]
+[editable path="Cubicle Donut"]
+[editable path="Cubicle Donut/Final_Cubicle roof"]
+[editable path="Cubicle Hexagon"]
+[editable path="Cubicle Hexagon/Final_Cubicle roof"]
