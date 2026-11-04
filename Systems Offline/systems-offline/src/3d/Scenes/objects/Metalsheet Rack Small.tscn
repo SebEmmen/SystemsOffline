@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d3eexcvx67wsh"]
+
+[ext_resource type="PackedScene" uid="uid://coghruvnwuaf3" path="res://src/3d/Assets/Comm room/Final_Racket small metalsheets.blend" id="1_ljmbw"]
+
+[node name="MetalsheetRackSmall" type="Node3D" unique_id=623325452]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="Final_Racket small metalsheets" parent="." unique_id=1332011753 instance=ExtResource("1_ljmbw")]
