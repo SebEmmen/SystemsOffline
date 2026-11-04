@@ -50,7 +50,6 @@
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="Script" uid="uid://cs0dwtwxtxncq" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="50_u2kds"]
 [ext_resource type="PackedScene" uid="uid://mlvlsrisovn0" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
-[ext_resource type="PackedScene" uid="uid://b45y60see250r" path="res://src/3d/Assets/Comm room/Final_ Big Lamp.blend" id="52_nvwfr"]
 [ext_resource type="PackedScene" uid="uid://c4x3aa3al3ump" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://d3eexcvx67wsh" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 
@@ -702,31 +701,21 @@ shape = SubResource("CylinderShape3D_ymcgf")
 
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
 
-[node name="Final_ Big Lamp" parent="CommsRoom/Light" unique_id=2133920467 instance=ExtResource("52_nvwfr")]
-transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, -1.7577748, 5.8573666, -66.27991)
+[node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light" unique_id=292227161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -72.60526)
+shadow_enabled = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CommsRoom/Light/Final_ Big Lamp" unique_id=2101128774]
-transform = Transform3D(5, 0, 0, 0, -4.9947705, 0.22862285, 0, -0.22862285, -4.9947705, -0.061237335, 4.110443, 2.0376892)
-light_color = Color(0.11207495, 1, 1, 1)
-spot_range = 9.848432
-spot_attenuation = 1.5
-spot_angle = 58.85
+[node name="OmniLight3D2" type="OmniLight3D" parent="CommsRoom/Light" unique_id=978342115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -65.73144)
+shadow_enabled = true
 
-[node name="AreaLight3D" type="AreaLight3D" parent="CommsRoom/Light" unique_id=1952706409]
-transform = Transform3D(-2.0145551e-05, -0.9987846, -0.04928866, 0.00040822825, -0.04928863, 0.9987845, -1, 5.301545e-11, 0.000408725, 13.966356, 3.5974355, -51.126648)
-area_range = 3.0
+[node name="OmniLight3D3" type="OmniLight3D" parent="CommsRoom/Light" unique_id=403363601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -58.792896)
+shadow_enabled = true
 
-[node name="AreaLight3D2" type="AreaLight3D" parent="CommsRoom/Light" unique_id=243951557]
-transform = Transform3D(-2.0145551e-05, -0.9987846, -0.049288627, 0.00040822825, -0.04928863, 0.9987845, -1, 5.4569682e-11, 0.00040872497, 13.966356, 3.5974355, -58.6588)
-area_range = 3.0
-
-[node name="AreaLight3D3" type="AreaLight3D" parent="CommsRoom/Light" unique_id=1616893837]
-transform = Transform3D(-2.0145551e-05, -0.9987846, -0.049288627, 0.00040822825, -0.04928863, 0.9987845, -1, 5.4569682e-11, 0.00040872497, 13.966356, 3.5974355, -65.77785)
-area_range = 3.0
-
-[node name="AreaLight3D4" type="AreaLight3D" parent="CommsRoom/Light" unique_id=1879552251]
-transform = Transform3D(-2.0145551e-05, -0.9987846, -0.049288627, 0.00040822825, -0.04928863, 0.9987845, -1, 5.4569682e-11, 0.00040872497, 13.966356, 3.5974355, -72.56176)
-area_range = 3.0
+[node name="OmniLight3D4" type="OmniLight3D" parent="CommsRoom/Light" unique_id=155894199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -51.19979)
+shadow_enabled = true
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
