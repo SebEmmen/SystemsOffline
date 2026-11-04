@@ -49,9 +49,9 @@
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="Script" uid="uid://cs0dwtwxtxncq" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="50_u2kds"]
 [ext_resource type="PackedScene" uid="uid://mlvlsrisovn0" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
-[ext_resource type="PackedScene" uid="uid://bhwxxxofw83li" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://c4x3aa3al3ump" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://cykucbye25euv" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d3eexcvx67wsh" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
@@ -690,7 +690,7 @@ transform = Transform3D(4.9723177, 0.52538556, -0.005637455, 0.52538556, -4.9711
 light_color = Color(0, 1, 1, 1)
 light_energy = 0.5
 light_bake_mode = 1
-spot_range = 10.0
+spot_range = 8.0
 spot_attenuation = 0.2
 spot_angle = 70.0
 
