@@ -29,7 +29,7 @@ signal bridge_disconnected
 
 var core_material: ShaderMaterial
 var is_dragging := false
-var is_bridged := false
+var is_connected := false
 var is_returning := false
 
 var connected_socket_1: WireSocket
@@ -70,7 +70,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not is_bridged:
+	if not is_connected:
 		if is_dragging:
 			_drag_to_mouse(delta)
 		elif is_returning:
@@ -86,7 +86,7 @@ func _on_end_input_event(
 	if not (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
 		return
 	
-	if is_bridged:
+	if is_connected:
 		if not allow_unplug:
 			return
 		
@@ -200,7 +200,7 @@ func _try_connect_both() -> bool:
 func connect_bridge(socket_a: WireSocket, socket_b: WireSocket) -> void:
 	connected_socket_1 = socket_a
 	connected_socket_2 = socket_b
-	is_bridged = true
+	is_connected = true
 	is_dragging = false
 	is_returning = false
 
@@ -216,7 +216,7 @@ func connect_bridge(socket_a: WireSocket, socket_b: WireSocket) -> void:
 
 
 func unplug() -> void:
-	if not is_bridged:
+	if not is_connected:
 		return
 	if connected_socket_1 != null:
 		connected_socket_1.disconnect_wire()
@@ -225,7 +225,7 @@ func unplug() -> void:
 		connected_socket_2.disconnect_wire()
 		connected_socket_2 = null
 
-	is_bridged = false
+	is_connected = false
 	animate_core_light(false)
 	bridge_disconnected.emit()
 
