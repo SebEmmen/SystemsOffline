@@ -5,15 +5,30 @@ extends Path3D
 var connected_curve: Curve3D
 
 @export_category("Wire")
-@export var wire_radius: float = 0.025
+@export var wire_radius: float = 0.025:
+	set(value):
+		wire_radius = value
+		update_wire()
 
 @export_range(3, 16) var wire_sides: int = 8:
 	set(value):
 		wire_sides = value
 		update_wire()
 
+@export_range(0.01, 1.0, 0.01)
+var minimum_bend_radius: float = 0.1:
+	set(value):
+		minimum_bend_radius = value
+		update_wire()
+
+@export_range(2, 16) var corner_segments: int = 6:
+	set(value):
+		corner_segments = value
+		update_wire()
+
 @export_category("Animation")
 @export var animation_duration: float = 2.0
+
 @export var wire_shader: Shader:
 	set(value):
 		wire_shader = value
@@ -26,13 +41,9 @@ var is_unlocked: bool = false
 @onready var wire_mesh: MeshInstance3D = $WireMesh
 
 
-@export var minimum_diameter: float = 0.03
-@export var bend_sensitivity: float = 1.0
-
 func _ready() -> void:
 	connect_curve()
 	update_wire()
-
 
 
 func update_wire() -> void:
@@ -43,7 +54,14 @@ func update_wire() -> void:
 		wire_mesh.mesh = null
 		return
 
-	var points := curve.get_baked_points()
+	var baked_points := curve.get_baked_points()
+
+	if baked_points.size() < 2:
+		wire_mesh.mesh = null
+		return
+
+	# Round corners without modifying the original curve.
+	var points := get_smoothed_wire_points(baked_points)
 
 	if points.size() < 2:
 		wire_mesh.mesh = null
@@ -60,18 +78,17 @@ func update_wire() -> void:
 
 	var current_length := 0.0
 
-	# Keep the orientation of the previous ring.
+	# Parallel transport frame.
 	var previous_direction := Vector3.ZERO
 	var axis := Vector3.ZERO
 	var second_axis := Vector3.ZERO
 
-	# Generate wire geometry.
 	for i in range(points.size()):
 
 		if i > 0:
 			current_length += points[i - 1].distance_to(points[i])
 
-		# Calculate a smooth direction along the curve.
+		# Calculate the tangent.
 		var direction: Vector3
 
 		if i == 0:
@@ -79,9 +96,11 @@ func update_wire() -> void:
 		elif i == points.size() - 1:
 			direction = (points[i] - points[i - 1]).normalized()
 		else:
-			direction = (points[i + 1] - points[i - 1]).normalized()
+			direction = (
+				points[i + 1] - points[i - 1]
+			).normalized()
 
-		# Calculate the orientation of the circular ring.
+		# Calculate ring orientation.
 		if i == 0:
 			var reference := Vector3.UP
 
@@ -92,7 +111,6 @@ func update_wire() -> void:
 			second_axis = direction.cross(axis).normalized()
 
 		else:
-			# Transport the previous ring orientation.
 			var rotation_axis := previous_direction.cross(direction)
 			var rotation_length := rotation_axis.length()
 
@@ -104,10 +122,13 @@ func update_wire() -> void:
 					previous_direction.dot(direction)
 				)
 
-				var rotation := Basis(rotation_axis, rotation_angle)
+				var rotation := Basis(
+					rotation_axis,
+					rotation_angle
+				)
+
 				axis = rotation * axis
 
-			# Keep the ring perpendicular to the curve.
 			axis = (
 				axis - direction * axis.dot(direction)
 			).normalized()
@@ -148,7 +169,7 @@ func update_wire() -> void:
 
 	surface.generate_normals()
 
-	# Create a unique shader material for this wire.
+	# Create a unique shader material.
 	if wire_shader != null:
 		if wire_material == null or wire_material.shader != wire_shader:
 			wire_material = ShaderMaterial.new()
@@ -163,13 +184,111 @@ func update_wire() -> void:
 
 	wire_mesh.mesh = surface.commit()
 
+
+# Round sharp corners with circular arcs.
+# The original Curve3D remains unchanged.
+func get_smoothed_wire_points(
+	source_points: PackedVector3Array
+) -> PackedVector3Array:
+
+	var result := PackedVector3Array()
+
+	if source_points.size() < 3:
+		return source_points
+
+	result.append(source_points[0])
+
+	var count := source_points.size()
+
+	for i in range(1, count - 1):
+
+		var previous := source_points[i - 1]
+		var current := source_points[i]
+		var following := source_points[i + 1]
+
+		var incoming := current - previous
+		var outgoing := following - current
+
+		var incoming_length := incoming.length()
+		var outgoing_length := outgoing.length()
+
+		if incoming_length < 0.0001 or outgoing_length < 0.0001:
+			continue
+
+		var dir_in := incoming / incoming_length
+		var dir_out := outgoing / outgoing_length
+
+		var angle := dir_in.angle_to(dir_out)
+
+		# Almost straight: preserve the point.
+		if angle < 0.01:
+			result.append(current)
+			continue
+
+		# Near U-turns cannot be rounded reliably.
+		if angle > PI - 0.01:
+			result.append(current)
+			continue
+
+		var tangent_distance := (
+			minimum_bend_radius * tan(angle * 0.5)
+		)
+
+		# Prevent the arc from extending beyond the
+		# neighboring points.
+		var available_distance := minf(
+			incoming_length,
+			outgoing_length
+		) * 0.45
+
+		tangent_distance = minf(
+			tangent_distance,
+			available_distance
+		)
+
+		if tangent_distance < 0.0001:
+			result.append(current)
+			continue
+
+		var actual_radius := (
+			tangent_distance / tan(angle * 0.5)
+		)
+
+		var arc_start := current - dir_in * tangent_distance
+		var arc_end := current + dir_out * tangent_distance
+
+		var normal := dir_in.cross(dir_out).normalized()
+
+		if normal.length_squared() < 0.0001:
+			result.append(current)
+			continue
+
+		# Find the circle center.
+		var center_direction := normal.cross(dir_in)
+		var center := arc_start + center_direction * actual_radius
+
+		var radius_vector := arc_start - center
+
+		# Generate points along the circular arc.
+		for step in range(corner_segments + 1):
+			var t := float(step) / float(corner_segments)
+
+			var rotation := Basis(normal, angle * t)
+
+			var point := center + rotation * radius_vector
+
+			result.append(point)
+
+	result.append(source_points[count - 1])
+
+	return result
+
+
 # Animate green color from keypad to door.
 func set_unlocked(instant: bool = false) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	# Remember the state, so update_wire() builds the material already green
-	# if the wire wasn't ready yet.
 	is_unlocked = true
 
 	if wire_material == null:
@@ -182,7 +301,9 @@ func set_unlocked(instant: bool = false) -> void:
 		set_wire_progress(1.0)
 		return
 
-	var start_progress: float = wire_material.get_shader_parameter("progress")
+	var start_progress: float = wire_material.get_shader_parameter(
+		"progress"
+	)
 
 	unlock_tween = create_tween()
 	unlock_tween.tween_method(
@@ -193,7 +314,7 @@ func set_unlocked(instant: bool = false) -> void:
 	)
 
 
-# Update the shader's animation progress.
+# Update shader progress.
 func set_wire_progress(value: float) -> void:
 	if wire_material != null:
 		wire_material.set_shader_parameter("progress", value)
@@ -207,6 +328,8 @@ func set_locked() -> void:
 	is_unlocked = false
 	set_wire_progress(0.0)
 
+
+# Connect curve changes to mesh updates.
 func connect_curve() -> void:
 	if connected_curve == curve:
 		return
