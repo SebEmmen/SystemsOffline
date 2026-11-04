@@ -52,6 +52,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mv2aw")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovmri"]
+size = Vector3(16.047077, 11.7928, 20.971493)
+
 [node name="BigMetalsheetsRack" type="Node3D" unique_id=610385290]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
@@ -61,3 +64,9 @@ mesh = SubResource("ArrayMesh_08777")
 metadata/extras = {
 "yp_decal": {}
 }
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Kubus" unique_id=2090350627]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kubus/StaticBody3D" unique_id=484556479]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 7.327068, 6.7371254, 0)
+shape = SubResource("BoxShape3D_ovmri")

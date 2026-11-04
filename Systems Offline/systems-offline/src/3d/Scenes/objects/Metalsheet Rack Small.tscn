@@ -2,7 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://coghruvnwuaf3" path="res://src/3d/Assets/Comm room/Final_Racket small metalsheets.blend" id="1_ljmbw"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ljmbw"]
+size = Vector3(2.008028, 2.089324, 39.928905)
+
 [node name="MetalsheetRackSmall" type="Node3D" unique_id=623325452]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
 [node name="Final_Racket small metalsheets" parent="." unique_id=1332011753 instance=ExtResource("1_ljmbw")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Racket small metalsheets" unique_id=1820200271]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Racket small metalsheets/StaticBody3D" unique_id=1580420936]
+transform = Transform3D(4.201139, 0, 0, 0, 4.5563564, 0, 0, 0, 0.32544175, -0.44012418, 4.603015, -6.1463666)
+shape = SubResource("BoxShape3D_ljmbw")
+
+[editable path="Final_Racket small metalsheets"]
