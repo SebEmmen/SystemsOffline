@@ -683,20 +683,24 @@ shape = SubResource("CylinderShape3D_ymcgf")
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
 
 [node name="Final_LampBig" parent="CommsRoom/Light" unique_id=184124568 instance=ExtResource("52_2pegl")]
-transform = Transform3D(0.19972295, 0.010523491, -1.3799846e-09, 4.631467e-15, -2.6226814e-08, -0.19999994, -0.010523492, 0.19972299, -2.61905e-08, -1.4582435, 5.8283167, -66.88561)
+transform = Transform3D(0.19972295, 0.010523491, -1.3799846e-09, 4.631467e-15, -2.6226814e-08, -0.19999994, -0.010523492, 0.19972299, -2.61905e-08, -1.4385242, 5.8283167, -66.88561)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CommsRoom/Light/Final_LampBig" unique_id=1529217131]
-transform = Transform3D(4.9723177, 0.5253855, -0.0056374525, 0.5253855, -4.9711685, 0.10699059, 0.0056373174, -0.10699066, -4.998854, -0.20578003, 3.905487, 1.8349304)
+transform = Transform3D(4.9723177, 0.52538556, -0.005637455, 0.52538556, -4.9711685, 0.106990606, 0.0056373184, -0.10699067, -4.998854, 0.14009666, 3.923706, 1.8349323)
+light_color = Color(0, 1, 1, 1)
+light_energy = 0.5
 light_bake_mode = 1
 spot_range = 10.0
+spot_attenuation = 0.2
 spot_angle = 70.0
 
 [node name="Final_Light small" parent="CommsRoom/Light" unique_id=1955380608 instance=ExtResource("53_2pegl")]
 transform = Transform3D(0.19972296, -9.1998853e-10, -0.010523461, 9.187993e-16, -0.19999997, 1.7484552e-08, -0.010523461, -1.7460337e-08, -0.19972296, -15.644214, 3.9334736, -71.65959)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small" unique_id=82233780]
-transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, -0.0064926147, 1.4364872, 0.00033569336)
+transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, 0.034057617, 2.0928974, -0.0018005371)
 light_color = Color(0, 1, 1, 1)
+light_energy = 0.2
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 2.0
@@ -705,8 +709,9 @@ omni_attenuation = 2.0
 transform = Transform3D(0.19972296, -9.1998853e-10, -0.010523461, 9.187993e-16, -0.19999997, 1.7484552e-08, -0.010523461, -1.7460337e-08, -0.19972296, -15.644214, 3.9334736, -56.84802)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small2" unique_id=729689363]
-transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, 0.010478973, 1.5934334, -0.00061035156)
+transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, 0.010478973, 2.0604286, -0.00061035156)
 light_color = Color(0, 1, 1, 1)
+light_energy = 0.2
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 2.0
@@ -715,8 +720,9 @@ omni_attenuation = 2.0
 transform = Transform3D(8.742278e-09, -7.6427407e-16, -0.2, -1.7484556e-08, -0.19999997, 0, -0.2, 1.7484552e-08, -8.742278e-09, -10.274429, 3.9334736, -46.360245)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small3" unique_id=255680233]
-transform = Transform3D(4.9999995, 0, -4.2632564e-14, 0, 5.0000005, -8.526514e-14, 4.2632564e-14, 8.526513e-14, 4.9999995, 0.23410034, 1.4736423, 0.06500244)
+transform = Transform3D(4.9999995, 0, -4.2632564e-14, 0, 5.0000005, -8.526514e-14, 4.2632564e-14, 8.526513e-14, 4.9999995, 0.03642273, 2.1463852, 0.06500244)
 light_color = Color(0, 1, 1, 1)
+light_energy = 0.2
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 2.0
@@ -725,8 +731,9 @@ omni_attenuation = 2.0
 transform = Transform3D(8.742278e-09, -7.6427407e-16, -0.2, -1.7484556e-08, -0.19999997, 0, -0.2, 1.7484552e-08, -8.742278e-09, 6.554291, 3.9334736, -46.360245)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small4" unique_id=565412727]
-transform = Transform3D(4.9999995, 0, -4.2632564e-14, 0, 5.0000005, -8.526514e-14, 4.2632564e-14, 8.526513e-14, 4.9999995, 0.30047607, 1.5865402, 0.06500244)
+transform = Transform3D(4.9999995, 0, -4.2632564e-14, 0, 5.0000005, -8.526514e-14, 4.2632564e-14, 8.526513e-14, 4.9999995, 0.11657715, 2.270399, 0.06500244)
 light_color = Color(0, 1, 1, 1)
+light_energy = 0.2
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 2.0
