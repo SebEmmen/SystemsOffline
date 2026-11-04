@@ -450,6 +450,7 @@ left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
+requires_key = true
 
 [node name="Final_Door frame" parent="Tutorial Room/TutorialDoor" unique_id=1592204761 instance=ExtResource("46_u2kds")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
