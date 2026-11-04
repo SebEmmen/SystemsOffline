@@ -50,7 +50,9 @@
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="Script" uid="uid://cs0dwtwxtxncq" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="50_u2kds"]
 [ext_resource type="PackedScene" uid="uid://mlvlsrisovn0" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
+[ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://c4x3aa3al3ump" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
+[ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d3eexcvx67wsh" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
@@ -700,6 +702,51 @@ visible = false
 shape = SubResource("CylinderShape3D_ymcgf")
 
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
+
+[node name="Final_LampBig" parent="CommsRoom/Light" unique_id=184124568 instance=ExtResource("52_2pegl")]
+transform = Transform3D(0.19972295, 0.010523491, -1.3799846e-09, 4.631467e-15, -2.6226814e-08, -0.19999994, -0.010523492, 0.19972299, -2.61905e-08, -9.872797, 5.8283167, -57.972168)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CommsRoom/Light/Final_LampBig" unique_id=1529217131]
+transform = Transform3D(4.9723177, 0.5253855, -0.0056374525, 0.5253855, -4.9711685, 0.10699059, 0.0056373174, -0.10699066, -4.998854, -0.20578003, 3.905487, 1.8349304)
+light_bake_mode = 1
+spot_range = 10.0
+spot_angle = 70.0
+
+[node name="Final_Light small" parent="CommsRoom/Light" unique_id=1955380608 instance=ExtResource("53_2pegl")]
+transform = Transform3D(0.19972296, -9.1998853e-10, -0.010523461, 9.187993e-16, -0.19999997, 1.7484552e-08, -0.010523461, -1.7460337e-08, -0.19972296, -15.644214, 3.9334736, -71.65959)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small" unique_id=82233780]
+transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, -1.2339096, 0.7655258, 0.06500244)
+light_color = Color(0, 1, 1, 1)
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="Final_Light small2" parent="CommsRoom/Light" unique_id=1524957417 instance=ExtResource("53_2pegl")]
+transform = Transform3D(0.19972296, -9.1998853e-10, -0.010523461, 9.187993e-16, -0.19999997, 1.7484552e-08, -0.010523461, -1.7460337e-08, -0.19972296, -15.644214, 3.9334736, -56.84802)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small2" unique_id=729689363]
+transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, -1.2339096, 0.7655258, 0.06500244)
+light_color = Color(0, 1, 1, 1)
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="Final_Light small3" parent="CommsRoom/Light" unique_id=965773089 instance=ExtResource("53_2pegl")]
+transform = Transform3D(8.742278e-09, -7.6427407e-16, -0.2, -1.7484556e-08, -0.19999997, 0, -0.2, 1.7484552e-08, -8.742278e-09, -10.274429, 3.9334736, -46.360245)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small3" unique_id=255680233]
+transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, -1.2339096, 0.7655258, 0.06500244)
+light_color = Color(0, 1, 1, 1)
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="Final_Light small4" parent="CommsRoom/Light" unique_id=1015798416 instance=ExtResource("53_2pegl")]
+transform = Transform3D(8.742278e-09, -7.6427407e-16, -0.2, -1.7484556e-08, -0.19999997, 0, -0.2, 1.7484552e-08, -8.742278e-09, 6.554291, 3.9334736, -46.360245)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light/Final_Light small4" unique_id=565412727]
+transform = Transform3D(5, -1.9539925e-14, 0, 0, 5.0000005, -2.2737368e-13, 0, 8.526513e-14, 5, -1.2339096, 0.7655258, 0.06500244)
+light_color = Color(0, 1, 1, 1)
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light" unique_id=292227161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -72.60526)
