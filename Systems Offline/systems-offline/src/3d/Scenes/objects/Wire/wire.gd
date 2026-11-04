@@ -5,10 +5,7 @@ extends Path3D
 var connected_curve: Curve3D
 
 @export_category("Wire")
-@export var wire_radius: float = 0.025:
-	set(value):
-		wire_radius = value
-		update_wire()
+@export var wire_radius: float = 0.025
 
 @export_range(3, 16) var wire_sides: int = 8:
 	set(value):
@@ -29,9 +26,13 @@ var is_unlocked: bool = false
 @onready var wire_mesh: MeshInstance3D = $WireMesh
 
 
+@export var minimum_diameter: float = 0.03
+@export var bend_sensitivity: float = 1.0
+
 func _ready() -> void:
 	connect_curve()
 	update_wire()
+
 
 
 func update_wire() -> void:
@@ -59,35 +60,64 @@ func update_wire() -> void:
 
 	var current_length := 0.0
 
-	# Generate the wire geometry.
+	# Keep the orientation of the previous ring.
+	var previous_direction := Vector3.ZERO
+	var axis := Vector3.ZERO
+	var second_axis := Vector3.ZERO
+
+	# Generate wire geometry.
 	for i in range(points.size()):
 
 		if i > 0:
 			current_length += points[i - 1].distance_to(points[i])
 
+		# Calculate a smooth direction along the curve.
 		var direction: Vector3
 
-		if i < points.size() - 1:
-			direction = (
-				points[i + 1] - points[i]
-			).normalized()
+		if i == 0:
+			direction = (points[1] - points[0]).normalized()
+		elif i == points.size() - 1:
+			direction = (points[i] - points[i - 1]).normalized()
 		else:
-			direction = (
-				points[i] - points[i - 1]
+			direction = (points[i + 1] - points[i - 1]).normalized()
+
+		# Calculate the orientation of the circular ring.
+		if i == 0:
+			var reference := Vector3.UP
+
+			if absf(direction.dot(reference)) > 0.9:
+				reference = Vector3.RIGHT
+
+			axis = direction.cross(reference).normalized()
+			second_axis = direction.cross(axis).normalized()
+
+		else:
+			# Transport the previous ring orientation.
+			var rotation_axis := previous_direction.cross(direction)
+			var rotation_length := rotation_axis.length()
+
+			if rotation_length > 0.00001:
+				rotation_axis /= rotation_length
+
+				var rotation_angle := atan2(
+					rotation_length,
+					previous_direction.dot(direction)
+				)
+
+				var rotation := Basis(rotation_axis, rotation_angle)
+				axis = rotation * axis
+
+			# Keep the ring perpendicular to the curve.
+			axis = (
+				axis - direction * axis.dot(direction)
 			).normalized()
 
-		var axis := direction.cross(Vector3.UP)
+			second_axis = direction.cross(axis).normalized()
 
-		if axis.length_squared() < 0.001:
-			axis = direction.cross(Vector3.RIGHT)
-
-		axis = axis.normalized()
-
-		var second_axis := direction.cross(axis).normalized()
+		previous_direction = direction
 
 		# Generate circular vertices.
 		for j in range(wire_sides):
-
 			var angle := TAU * float(j) / float(wire_sides)
 
 			var offset := (
@@ -95,7 +125,6 @@ func update_wire() -> void:
 				+ second_axis * sin(angle)
 			) * wire_radius
 
-			# UV.y represents distance along the wire.
 			surface.set_uv(Vector2(
 				float(j) / float(wire_sides),
 				current_length / maxf(total_length, 0.0001)
@@ -121,7 +150,6 @@ func update_wire() -> void:
 
 	# Create a unique shader material for this wire.
 	if wire_shader != null:
-
 		if wire_material == null or wire_material.shader != wire_shader:
 			wire_material = ShaderMaterial.new()
 			wire_material.shader = wire_shader
@@ -134,7 +162,6 @@ func update_wire() -> void:
 		surface.set_material(wire_material)
 
 	wire_mesh.mesh = surface.commit()
-
 
 # Animate green color from keypad to door.
 func set_unlocked(instant: bool = false) -> void:
