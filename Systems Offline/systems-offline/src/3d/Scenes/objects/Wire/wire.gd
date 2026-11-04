@@ -2,6 +2,8 @@
 @tool
 extends Path3D
 
+var connected_curve: Curve3D
+
 @export_category("Wire")
 @export var wire_radius: float = 0.025:
 	set(value):
@@ -28,10 +30,7 @@ var is_unlocked: bool = false
 
 
 func _ready() -> void:
-	if curve != null:
-		if not curve.changed.is_connected(update_wire):
-			curve.changed.connect(update_wire)
-
+	connect_curve()
 	update_wire()
 
 
@@ -180,3 +179,22 @@ func set_locked() -> void:
 
 	is_unlocked = false
 	set_wire_progress(0.0)
+
+func connect_curve() -> void:
+	if connected_curve == curve:
+		return
+
+	if connected_curve != null:
+		if connected_curve.changed.is_connected(update_wire):
+			connected_curve.changed.disconnect(update_wire)
+
+	connected_curve = curve
+
+	if connected_curve != null:
+		if not connected_curve.changed.is_connected(update_wire):
+			connected_curve.changed.connect(update_wire)
+
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		connect_curve()

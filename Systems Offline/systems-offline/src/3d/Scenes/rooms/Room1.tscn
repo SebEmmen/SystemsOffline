@@ -74,6 +74,13 @@ point_count = 2
 height = 0.13745189
 radius = 0.08300781
 
+[sub_resource type="Curve3D" id="Curve3D_eueio"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, -0.114, 0, 0, 0.121, 0.04, -41.685, -0.065, 0, 0, -0.075, 0, 0, -0.225, 0, 57.059, -0.145, 0, 0, 0, 0, 0, 0.294, 0, 154.384, 0, 0, 0, 0, 0, 0, 0.292, 0.491, 153.787, 0, 0, 0, 0, 0, 0, 0.835, 0.499, 152.656),
+"tilts": PackedFloat32Array(0, 0, 0, 0.23, -1.97)
+}
+point_count = 5
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q4rn"]
 friction = 0.4
 bounce = 0.7
@@ -120,7 +127,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(-0.99976206, 0.0032072556, -0.021577794, 0, 0.9891333, 0.14702167, 0.021814851, 0.14698668, -0.9888979, -1.9565889, 0.06380844, -49.191074)
+transform = Transform3D(-0.3746064, 0.20390747, -0.9044843, 0, 0.97551763, 0.21992128, 0.9271839, 0.082383916, -0.36543512, -11.758313, 0.092968464, -68.135765)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -479,7 +486,7 @@ shape = SubResource("CylinderShape3D_1cg0m")
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "connected_wire", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
@@ -487,6 +494,7 @@ puzzle_id = "comms"
 power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
 power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
 wire_cover = NodePath("Wire Puzzle Comms/WireCover")
+connected_wire = NodePath("../Platform/PlatformWire")
 object_ref = NodePath("Wire Puzzle Comms")
 interaction_type = 1
 player = NodePath("../../ProtoController")
@@ -510,6 +518,10 @@ transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08
 
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
+
+[node name="PlatformWire" parent="CommsRoom/Platform" unique_id=1166124813 instance=ExtResource("32_8gijo")]
+transform = Transform3D(1.6666666, 0, 0, 0, 2, 0, 0, 0, 0.03840387, 0.6991291, 2.864084, 8.867897)
+curve = SubResource("Curve3D_eueio")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
