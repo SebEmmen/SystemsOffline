@@ -1,19 +1,56 @@
 [gd_scene format=3 uid="uid://c36xluf64wa0p"]
 
 [ext_resource type="PackedScene" uid="uid://cmttq2cp71rt" path="res://src/3d/Assets/Comm room/Final_Metalsheet screen.blend" id="1_vfxhu"]
+[ext_resource type="Material" uid="uid://c2iccg118yex7" path="res://src/3d/Materials/Plane.tres" id="3_evdgp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vfxhu"]
 size = Vector3(470, 60, 280)
 
+[sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
+material = ExtResource("3_evdgp")
+size = Vector3(3, 2, 2.858)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6hjn"]
+size = Vector3(3.1, 2.1, 12)
+
 [node name="TypeWriterScreen" type="Node3D" unique_id=215861176]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="Final_Metalsheet screen" parent="." unique_id=1770024825 instance=ExtResource("1_vfxhu")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Final_Metalsheet screen/Metalsheet holder" parent_id_path=PackedInt32Array(1770024825, 537432300) index="0" unique_id=1964885474]
+[node name="Metalsheet holder" parent="Final_Metalsheet screen" index="0" unique_id=1517564204]
+transform = Transform3D(0, -0.08244658, 0, 0, 0, -0.08244658, 0.08244658, 0, 0, 0, 0, 0.4435703)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Metalsheet screen/Metalsheet holder" index="0" unique_id=1964885474]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Metalsheet screen/Metalsheet holder/StaticBody3D" unique_id=2128960995]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.42481995, -18.337152, -0.05722046)
+transform = Transform3D(0.9999993, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, 223.48523, 15.838684, -139.10184)
 shape = SubResource("BoxShape3D_vfxhu")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=978743944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4820294, 0.45896107, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=416366575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.981375, -1.4660752, 0.347749)
+mesh = SubResource("BoxMesh_ojbw0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=390967567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.981375, -1.4660752, 3.205873)
+mesh = SubResource("BoxMesh_ojbw0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=809979559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.981375, -1.4660752, 6.059204)
+mesh = SubResource("BoxMesh_ojbw0")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D" unique_id=14549884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.981375, -1.4660752, 8.906157)
+mesh = SubResource("BoxMesh_ojbw0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D" unique_id=170652741]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D" unique_id=600414226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.981375, -1.4660752, 4.57921)
+shape = SubResource("BoxShape3D_k6hjn")
 
 [editable path="Final_Metalsheet screen"]
