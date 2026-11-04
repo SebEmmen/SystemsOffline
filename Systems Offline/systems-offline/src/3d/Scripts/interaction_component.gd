@@ -97,9 +97,6 @@ func interact() -> void:
 			pass
 		InteractionType.UNLOCKABLE:
 			pass
-		InteractionType.BUTTON:
-			if object_ref and object_ref.has_method("interact"):
-				object_ref.interact()
 
 func transition(from: Camera3D, target: Camera3D) -> void:
 	if is_transitioning:

@@ -1,8 +1,107 @@
 [gd_scene format=3 uid="uid://54xxulq8ooao"]
 
 [ext_resource type="PackedScene" uid="uid://7xusv4k0vn3b" path="res://src/3d/Assets/Comm room/Final_Cubicle roof.blend" id="1_t7734"]
+[ext_resource type="PackedScene" uid="uid://d2e5uxif5puhf" path="res://src/3d/Assets/Comm room/Final_Cubicle.blend" id="2_5bsic"]
+[ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="3_fs0ca"]
+[ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="3_hrl3n"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_r5iys"]
+material = ExtResource("3_hrl3n")
+size = Vector3(6, 6, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bsic"]
+size = Vector3(16.7, 6, 11.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_r5iys"]
+material = ExtResource("3_hrl3n")
+radius = 3.0
+height = 6.0
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_ojbw0"]
+material = ExtResource("3_hrl3n")
+radius = 3.2
+radial_steps = 6
+section_length = 0.6
 
 [node name="Cubicle" type="Node3D" unique_id=1899239903]
 
 [node name="Final_Cubicle roof" parent="." unique_id=1977459474 instance=ExtResource("1_t7734")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.11592555, 0, 2.504632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1850643, 5.496953, 0)
+
+[node name="Final_Cubicle" parent="." unique_id=84677000 instance=ExtResource("2_5bsic")]
+
+[node name="Prism" type="Node3D" parent="." unique_id=233811967]
+visible = false
+
+[node name="Triangle" type="MeshInstance3D" parent="Prism" unique_id=565440187]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.0029481924, -0.99999565, 1.2886958e-10, -0.99999565, 0.0029481924, 4.3711196e-08, -2.871, -1.735, -13.293)
+mesh = SubResource("PrismMesh_r5iys")
+
+[node name="Triangle2" type="MeshInstance3D" parent="Prism" unique_id=1569584495]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.0029481924, -0.99999565, 1.2886958e-10, -0.99999565, 0.0029481924, 4.3711196e-08, -2.871, -1.735, -2.39)
+mesh = SubResource("PrismMesh_r5iys")
+
+[node name="SB Prism" type="StaticBody3D" parent="Prism" unique_id=2063581631]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.0029481924, -0.99999565, 1.2886958e-10, -0.99999565, 0.0029481924, 4.3711196e-08, -2.871079, -1.7343066, -7.7906003)
+
+[node name="CS Prism" type="CollisionShape3D" parent="Prism/SB Prism" unique_id=1734925775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 8.881784e-14, -3.469447e-16, 1, 0, 0, -0.37021065)
+shape = SubResource("BoxShape3D_5bsic")
+
+[node name="Sphere" type="Node3D" parent="." unique_id=1328355168]
+visible = false
+
+[node name="Sphere" type="MeshInstance3D" parent="Sphere" unique_id=1329503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.871, -1.7346466, -13.293379)
+mesh = SubResource("SphereMesh_r5iys")
+
+[node name="Sphere2" type="MeshInstance3D" parent="Sphere" unique_id=1283377214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.871, -1.7346466, -2.3897605)
+mesh = SubResource("SphereMesh_r5iys")
+
+[node name="SB Sphere" type="StaticBody3D" parent="Sphere" unique_id=1247590091]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.0029481924, -0.99999565, 1.2886958e-10, -0.99999565, 0.0029481924, 4.3711196e-08, -2.871079, -1.7343066, -7.7906003)
+
+[node name="CS Sphere" type="CollisionShape3D" parent="Sphere/SB Sphere" unique_id=2050628259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 8.881784e-14, -3.469447e-16, 1, 0, 0, -0.37021065)
+shape = SubResource("BoxShape3D_5bsic")
+
+[node name="Donut" type="Node3D" parent="." unique_id=626885502]
+visible = false
+
+[node name="Donut" type="MeshInstance3D" parent="Donut" unique_id=1159569560]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -2.871, -1.735, -13.293)
+mesh = ExtResource("3_fs0ca")
+surface_material_override/0 = ExtResource("3_hrl3n")
+
+[node name="Donut2" type="MeshInstance3D" parent="Donut" unique_id=1922246258]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -2.871, -1.735, -2.39)
+mesh = ExtResource("3_fs0ca")
+surface_material_override/0 = ExtResource("3_hrl3n")
+
+[node name="SB Donut" type="StaticBody3D" parent="Donut" unique_id=624605339]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.0029481924, -0.99999565, 1.2886958e-10, -0.99999565, 0.0029481924, 4.3711196e-08, -2.871079, -1.7343066, -7.7906003)
+
+[node name="CS Donut" type="CollisionShape3D" parent="Donut/SB Donut" unique_id=440868679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 8.881784e-14, -3.469447e-16, 1, 0, 0, -0.37021065)
+shape = SubResource("BoxShape3D_5bsic")
+
+[node name="Hexagon" type="Node3D" parent="." unique_id=1147772406]
+visible = false
+
+[node name="Hexagon" type="MeshInstance3D" parent="Hexagon" unique_id=748188666]
+transform = Transform3D(-3.0908616e-08, 0.7071067, -0.7071067, -0.9999999, -4.3711385e-08, 0, -3.0908616e-08, 0.7071067, 0.7071067, -2.871, -1.2982448, -13.293)
+mesh = SubResource("TubeTrailMesh_ojbw0")
+
+[node name="Hexagon2" type="MeshInstance3D" parent="Hexagon" unique_id=1767320299]
+transform = Transform3D(-3.0908613e-08, 0.7071067, 0.7071067, -0.9999998, -4.3711385e-08, 0, 3.0908613e-08, -0.7071067, 0.7071067, -2.871, -1.3788793, -2.39)
+mesh = SubResource("TubeTrailMesh_ojbw0")
+
+[node name="SB Hexagon" type="StaticBody3D" parent="Hexagon" unique_id=1760625220]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.0029481924, -0.99999565, 1.2886958e-10, -0.99999565, 0.0029481924, 4.3711196e-08, -2.871079, -1.7343066, -7.7906003)
+
+[node name="CS Hexagon" type="CollisionShape3D" parent="Hexagon/SB Hexagon" unique_id=1512639341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 8.881784e-14, -3.469447e-16, 1, 0, 0, -0.37021065)
+shape = SubResource("BoxShape3D_5bsic")
+
+[editable path="Final_Cubicle roof"]

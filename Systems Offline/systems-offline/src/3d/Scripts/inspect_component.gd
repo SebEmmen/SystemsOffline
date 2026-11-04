@@ -43,7 +43,6 @@ var lid_animating: bool = false
 @export var power_on: Node3D
 @export var wire_cover: RigidBody3D   # ":" not "="
 var fixed: bool = false
-@export var connected_wires: Array[Path3D] = []
 
 var cover_removed: bool = false
 var cover_drop_time: float = 0.0
@@ -281,11 +280,6 @@ func ready_puzzle() -> void:
 	can_interact = not fixed
 	power_on.visible = fixed
 	power_off.visible = not fixed
-	
-	if fixed:
-		for wire in connected_wires:
-			if is_instance_valid(wire):
-				wire.call("set_unlocked", true)
 
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
