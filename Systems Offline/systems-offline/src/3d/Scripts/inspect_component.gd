@@ -54,7 +54,7 @@ var cover_drop_time: float = 0.0
 #region Monitor Variables
 @export_group("Monitor")
 ## The dial(s) on this monitor
-@export var dials: Array[TurnableComponent] = []
+@export var dials: Array[Dial2D] = []
 ## Correct index per dial, same order as `dials`
 @export var solution: Array[int] = []
 ## Optional: shown when the puzzle is solved (e.g. a "powered on" screen)
@@ -79,7 +79,8 @@ func _ready() -> void:
 		InspectType.WIRES_PUZZLE:
 			ready_puzzle()
 		InspectType.MONITOR:
-			ready_monitor()
+			#ready_monitor()
+			pass
 
 func interact() -> void:
 	if not can_interact:
@@ -339,46 +340,6 @@ func exit_wires_puzzle() -> void:
 #endregion
 
 #region Monitor Functions
-func ready_monitor() -> void:
-	refresh_monitor()
-	if SaveManager.dial_puzzle_completed:
-		return
-	for dial in dials:
-		dial.dial_snapped.connect(_on_dial_snapped)
-
-
-func refresh_monitor() -> void:
-	var solved := SaveManager.dial_puzzle_completed
-	can_interact = not solved
-	if solved_indicator:
-		solved_indicator.visible = solved
-
-
-func _on_dial_snapped(_index: int, _symbol: String) -> void:
-	if SaveManager.dial_puzzle_completed:
-		return
-
-	if _dials_are_correct():
-		SaveManager.dial_puzzle_completed = true
-		SaveManager.save_game()
-		dial_puzzle_solved.emit()
-
-		# Let the player see the dial settle, then leave the screen
-		await get_tree().create_timer(exit_delay_after_solve).timeout
-		await exit_monitor()
-		refresh_monitor()
-	else:
-		dial_puzzle_wrong.emit()
-
-
-func _dials_are_correct() -> bool:
-	if dials.size() != solution.size():
-		push_warning("InspectComponent: dials and solution sizes differ on " + name)
-		return false
-	for i in dials.size():
-		if dials[i].current_index != solution[i]:
-			return false
-	return true
 
 func enter_monitor() -> void:
 	if is_interacting or is_transitioning:

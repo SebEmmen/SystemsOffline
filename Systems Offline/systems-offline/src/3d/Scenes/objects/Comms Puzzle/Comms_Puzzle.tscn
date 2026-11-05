@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b1e7uqxjadi1j"]
+
+[ext_resource type="Script" uid="uid://cm0eulmp0dn4d" path="res://src/3d/Scenes/objects/Comms Puzzle/comms_puzzle.gd" id="1_7avjv"]
+[ext_resource type="PackedScene" uid="uid://6x3wrfusc0f1" path="res://src/3d/Scenes/objects/Comms Puzzle/Final_Dial.tscn" id="1_px62k"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="3_sfs6b"]
+[ext_resource type="Texture2D" uid="uid://byg8vt5lqthi" path="res://src/2d/Assets/Language buttons option 2.svg" id="4_p4ox6"]
+
+[node name="CommsPuzzle" type="Control" unique_id=252066882 node_paths=PackedStringArray("check_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2400.0
+offset_bottom = 1400.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_7avjv")
+check_button = NodePath("Button")
+
+[node name="Dial1" parent="." unique_id=1812789232 instance=ExtResource("1_px62k")]
+top_level = true
+position = Vector2(150, 300)
+scale = Vector2(0.5, 0.5)
+
+[node name="BottomDial" parent="Dial1" index="0" unique_id=1735967430]
+metadata/_edit_use_anchors_ = true
+
+[node name="Letter2" parent="Dial1/BottomDial" index="1" unique_id=879674400]
+text = "n"
+
+[node name="Letter3" parent="Dial1/BottomDial" index="2" unique_id=760680996]
+text = "g"
+
+[node name="Letter4" parent="Dial1/BottomDial" index="3" unique_id=1241860383]
+text = "k"
+
+[node name="Letter5" parent="Dial1/BottomDial" index="4" unique_id=1435347004]
+text = "z"
+
+[node name="Dial2" parent="." unique_id=1565661192 instance=ExtResource("1_px62k")]
+top_level = true
+position = Vector2(380, 300)
+scale = Vector2(0.5, 0.5)
+
+[node name="Correct Letter" parent="Dial2/BottomDial" parent_id_path=PackedInt32Array(1565661192, 1735967430) index="0" unique_id=615905388]
+text = "u"
+
+[node name="Letter2" parent="Dial2/BottomDial" parent_id_path=PackedInt32Array(1565661192, 1735967430) index="1" unique_id=879674400]
+text = "b"
+
+[node name="Letter3" parent="Dial2/BottomDial" parent_id_path=PackedInt32Array(1565661192, 1735967430) index="2" unique_id=760680996]
+text = "i"
+
+[node name="Letter4" parent="Dial2/BottomDial" parent_id_path=PackedInt32Array(1565661192, 1735967430) index="3" unique_id=1241860383]
+text = "c"
+
+[node name="Letter5" parent="Dial2/BottomDial" parent_id_path=PackedInt32Array(1565661192, 1735967430) index="4" unique_id=1435347004]
+text = "x"
+
+[node name="Dial3" parent="." unique_id=154555332 instance=ExtResource("1_px62k")]
+top_level = true
+position = Vector2(600, 300)
+scale = Vector2(0.5, 0.5)
+
+[node name="Correct Letter" parent="Dial3/BottomDial" parent_id_path=PackedInt32Array(154555332, 1735967430) index="0" unique_id=615905388]
+text = "m"
+
+[node name="Letter3" parent="Dial3/BottomDial" parent_id_path=PackedInt32Array(154555332, 1735967430) index="2" unique_id=760680996]
+text = "r"
+
+[node name="Dial4" parent="." unique_id=1784975922 instance=ExtResource("1_px62k")]
+top_level = true
+position = Vector2(830, 300)
+scale = Vector2(0.5, 0.5)
+
+[node name="Correct Letter" parent="Dial4/BottomDial" parent_id_path=PackedInt32Array(1784975922, 1735967430) index="0" unique_id=615905388]
+text = "a"
+
+[node name="Letter2" parent="Dial4/BottomDial" parent_id_path=PackedInt32Array(1784975922, 1735967430) index="1" unique_id=879674400]
+text = "t"
+
+[node name="Letter4" parent="Dial4/BottomDial" parent_id_path=PackedInt32Array(1784975922, 1735967430) index="3" unique_id=1241860383]
+text = "w"
+
+[node name="Letter5" parent="Dial4/BottomDial" parent_id_path=PackedInt32Array(1784975922, 1735967430) index="4" unique_id=1435347004]
+text = "q"
+
+[node name="Dial5" parent="." unique_id=1388991305 instance=ExtResource("1_px62k")]
+top_level = true
+position = Vector2(1050, 300)
+scale = Vector2(0.5, 0.5)
+
+[node name="Correct Letter" parent="Dial5/BottomDial" parent_id_path=PackedInt32Array(1388991305, 1735967430) index="0" unique_id=615905388]
+text = "n"
+
+[node name="Letter2" parent="Dial5/BottomDial" parent_id_path=PackedInt32Array(1388991305, 1735967430) index="1" unique_id=879674400]
+text = "p"
+
+[node name="Letter3" parent="Dial5/BottomDial" parent_id_path=PackedInt32Array(1388991305, 1735967430) index="2" unique_id=760680996]
+text = "l"
+
+[node name="Letter4" parent="Dial5/BottomDial" parent_id_path=PackedInt32Array(1388991305, 1735967430) index="3" unique_id=1241860383]
+text = "k"
+
+[node name="Button" type="Button" parent="." unique_id=680435854]
+top_level = true
+layout_mode = 0
+offset_left = 915.0
+offset_top = 490.0
+offset_right = 2091.0
+offset_bottom = 998.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_sfs6b")
+theme_override_font_sizes/font_size = 500
+text = "apply"
+
+[node name="LanguageButtonsOption2" type="Sprite2D" parent="." unique_id=849651858]
+position = Vector2(1188, 594)
+scale = Vector2(1.513522, 2.0675478)
+texture = ExtResource("4_p4ox6")
+
+[editable path="Dial1"]
+[editable path="Dial2"]
+[editable path="Dial3"]
+[editable path="Dial4"]
+[editable path="Dial5"]
