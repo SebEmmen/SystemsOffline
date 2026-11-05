@@ -19,6 +19,8 @@ extends Node3D
 
 @export_group("Tutorial")
 @export var requires_key: bool = false
+@export var locked_sounds: Array[AudioStream] = []
+@onready var locked_sound_player: AudioStreamPlayer3D = $LockedSoundPlayer
 
 var is_open: bool = false
 var is_moving: bool = false
@@ -30,7 +32,7 @@ var left_handle_original_position: Vector3
 var right_handle_original_position: Vector3
 
 var hide_timer_version: int = 0
-
+var locked_sound_cooldown: bool = false 
 var locked: bool:
 	get:
 		return not is_unlocked
@@ -53,6 +55,12 @@ func open_door() -> void:
 
 	if not is_unlocked:
 		print("Tutorial Door is locked. A key is required.")
+		if not locked_sound_cooldown:
+			locked_sound_cooldown = true
+			locked_sound_player.stream = locked_sounds.pick_random()
+			locked_sound_player.play()
+			await get_tree().create_timer(2.0).timeout
+			locked_sound_cooldown = false
 		return
 
 	is_moving = true

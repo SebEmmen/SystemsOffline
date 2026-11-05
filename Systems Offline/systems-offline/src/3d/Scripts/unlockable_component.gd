@@ -38,9 +38,12 @@ var closed_right_rotation: float
 
 var original_collision_layer: int
 var original_collision_mask: int
+var key_sound_cooldown: bool = false
 #endregion
 
 @export var sliding_door: Node3D
+@export var needskey_sounds: Array[AudioStream] = []
+@onready var needskey_sound_player: AudioStreamPlayer3D = $NeedsKeySoundPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -133,6 +136,13 @@ func open_cover() -> void:
 
 	if locked and not Inventory.has_item("tutorial_key"):
 		Notification.locked_notification()
+		if not key_sound_cooldown:
+			key_sound_cooldown = true
+			needskey_sound_player.stream = needskey_sounds.pick_random()
+			needskey_sound_player.play()
+			await get_tree().create_timer(2.0).timeout
+			key_sound_cooldown = false
+			
 		return
 
 	if not key or not key_start or not key_insert \
