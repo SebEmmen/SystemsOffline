@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c1g2i1vbidp4u" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
+[ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="38_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="Texture2D" uid="uid://nhde8aln2ulp" path="res://src/3d/Resources/Images/worm.png" id="43_nbs5u"]
@@ -579,8 +580,8 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("39_2pegl")]
-transform = Transform3D(-0.09961947, 0, 0.008715581, 0, 0.1, 0, -0.008715581, 0, -0.09961947, 3.4699924, 2.1616974, -65.077095)
+[node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("38_ymcgf")]
+transform = Transform3D(-0.09916503, 0, -0.012895664, 0, 0.1, 0, 0.012895664, 0, -0.09916503, 3.1905272, 2.200501, -66.05476)
 
 [node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)

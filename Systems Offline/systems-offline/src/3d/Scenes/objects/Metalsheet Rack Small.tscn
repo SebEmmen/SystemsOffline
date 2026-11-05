@@ -14,6 +14,7 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Racket small metalsheets/StaticBody3D" unique_id=1580420936]
 transform = Transform3D(4.201139, 0, 0, 0, 4.5563564, 0, 0, 0, 0.32544175, -0.44012418, 4.603015, -6.1463666)
+visible = false
 shape = SubResource("BoxShape3D_ljmbw")
 
 [editable path="Final_Racket small metalsheets"]
