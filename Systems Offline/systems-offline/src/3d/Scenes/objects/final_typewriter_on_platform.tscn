@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dtpusw4hn18ss"]
 
-[ext_resource type="Texture2D" uid="uid://joakr1qyw17m" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.001 Color.png" id="1_ac7mt"]
+[ext_resource type="Texture2D" uid="uid://bgxcxoqrppxfb" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.001 Color.png" id="1_ac7mt"]
 [ext_resource type="Texture2D" uid="uid://c3unerdvjyldq" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.001 Roughness.png" id="2_8a6up"]
 [ext_resource type="PackedScene" uid="uid://mks1ipk400qx" path="res://src/3d/Assets/Comm room/Final_Keys for typewriter on plaatform.blend" id="3_8a6up"]
 
