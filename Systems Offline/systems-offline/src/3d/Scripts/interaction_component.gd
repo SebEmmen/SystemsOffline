@@ -37,10 +37,12 @@ var is_transitioning := false
 var primary_audio_player: AudioStreamPlayer3D
 var secondary_audio_player: AudioStreamPlayer3D
 var tertiary_audio_player: AudioStreamPlayer3D
+var array_audio_player: AudioStreamPlayer3D
 
 @export var primary_se: AudioStream
 @export var secondary_se: AudioStream
 @export var tertiary_se: AudioStream
+@export var array_sounds: Array[AudioStream] = []
 #endregion
 
 # Called when the node enters the scene tree for the first time.
@@ -68,6 +70,11 @@ func _setup_audio_players() -> void:
 		tertiary_audio_player = AudioStreamPlayer3D.new()
 		tertiary_audio_player.stream = tertiary_se
 		add_child(tertiary_audio_player)
+		
+	if array_sounds:
+		array_audio_player = AudioStreamPlayer3D.new()
+		add_child(array_audio_player)
+		
 
 #region Audio Helper Functions
 func play_primary_se() -> void:
@@ -81,6 +88,12 @@ func play_secondary_se() -> void:
 func play_tertiary_se() -> void:
 	if tertiary_audio_player:
 		tertiary_audio_player.play()
+
+func random_array_se() -> void:
+	if array_audio_player:
+		array_audio_player.stream = array_sounds.pick_random()
+		array_audio_player.play()
+		
 #endregion
 
 func interact() -> void:

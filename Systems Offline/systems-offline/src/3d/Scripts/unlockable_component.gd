@@ -43,7 +43,7 @@ var right_handle_original_position: Vector3
 
 var hide_timer_version: int = 0
 #endregion
-
+var audiotimer: bool = false
 #region Cover Specific Variables
 @export_group("Cover")
 @export var cover_fade_duration: float = 0.5
@@ -66,9 +66,12 @@ var closed_right_rotation: float
 
 var original_collision_layer: int
 var original_collision_mask: int
+
 #endregion
 
 @export var sliding_door: Node3D
+@export var needskey_sounds: Array[AudioStream] = []
+@onready var needskey_sound_player: AudioStreamPlayer3D = $NeedsKeySoundPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -131,6 +134,12 @@ func open_door() -> void:
 
 	if locked:
 		print("Tutorial Door is locked. A key is required.")
+		Notification.locked_notification()
+		if not audiotimer:
+			audiotimer = true
+			random_array_se()
+			await get_tree().create_timer(2.0).timeout
+			audiotimer = false
 		return
 
 	is_moving = true
@@ -282,6 +291,11 @@ func open_cover() -> void:
 
 	if locked and not Inventory.has_item("tutorial_key"):
 		Notification.locked_notification()
+		if not audiotimer:
+			audiotimer = true
+			random_array_se()
+			await get_tree().create_timer(2.0).timeout
+			audiotimer = false
 		return
 
 	if not key or not key_start or not key_insert \

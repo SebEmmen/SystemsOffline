@@ -13,14 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://74jh74isiibj" path="res://src/2d/Scenes/Inventory/InventorySlot.tscn" id="9_r31ku"]
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
-[ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="13_j4nu1"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
-[ext_resource type="AudioStream" uid="uid://dh6rlkdtawuur" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
-[ext_resource type="AudioStream" uid="uid://wctftf75ar4d" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
-[ext_resource type="AudioStream" uid="uid://b2wi5sp11hf6d" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
+[ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
+[ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
+[ext_resource type="AudioStream" uid="uid://knq605cgr21x" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
+[ext_resource type="AudioStream" uid="uid://cg27eqvuyonof" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
+[ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
@@ -32,10 +33,15 @@
 [ext_resource type="PackedScene" uid="uid://cwjy3vgjfdqli" path="res://src/3d/Scenes/objects/platform.scn" id="32_eivic"]
 [ext_resource type="PackedScene" uid="uid://cwwdt0ekwbfyd" path="res://src/3d/Scenes/objects/Delivery_Tubes.tscn" id="32_io4pa"]
 [ext_resource type="Script" uid="uid://ni6vx5y34e64" path="res://src/3d/Scenes/rooms/key_cinematic_preview.gd" id="32_tbpsc"]
+[ext_resource type="AudioStream" uid="uid://eo1bhqvslcc1" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="33_dhx8n"]
+[ext_resource type="AudioStream" uid="uid://ch08jk5ukssuw" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="34_wkdsg"]
+[ext_resource type="AudioStream" uid="uid://ccxncw627hj0y" path="res://src/3d/Sound/random phrases/Its locked/Its locked_3.wav" id="35_sr45x"]
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
+[ext_resource type="AudioStream" uid="uid://0rumq2jkjbsv" path="res://src/3d/Sound/random phrases/Its locked/Its locked_4.wav" id="36_kc5sd"]
+[ext_resource type="AudioStream" uid="uid://gvy2mvilhvny" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="37_0prxm"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
-[ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="38_ymcgf"]
+[ext_resource type="PackedScene" uid="uid://detgk0v3fn1cy" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="Texture2D" uid="uid://nhde8aln2ulp" path="res://src/3d/Resources/Images/worm.png" id="43_nbs5u"]
@@ -56,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://17e1l2knwo6t" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
 [ext_resource type="Texture2D" uid="uid://w6wti3r5odms" path="res://src/3d/Resources/Images/flute.png" id="51_wkdsg"]
 [ext_resource type="PackedScene" uid="uid://ucrehjsyo8h3" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://be6x0nm0m4ktc" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
@@ -231,7 +238,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -56.15798)
+transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -2.5200272)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -321,7 +328,7 @@ primary_se = ExtResource("18_3h5nh")
 secondary_se = ExtResource("18_io4pa")
 
 [node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "key", "pivot_left", "pivot_right", "cover_body", "key_start", "key_insert", "key_turn", "key_hanger_target", "object_ref", "player", "player_camera", "transition_camera")]
-script = ExtResource("13_j4nu1")
+script = ExtResource("50_u2kds")
 unlockable_type = 1
 keypad = NodePath("..")
 key = NodePath("../KeyHanger/KeyCinematic/AnimatedKey")
@@ -337,6 +344,7 @@ interaction_type = 2
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
+array_sounds = Array[AudioStream]([ExtResource("21_sr45x"), ExtResource("22_kc5sd")])
 
 [node name="KeyHanger" parent="Tutorial Room/KeypadTouchscreen" unique_id=1598884683 instance=ExtResource("29_a4exi")]
 transform = Transform3D(1.1111112, 0, 0, 0, -4.8568214e-08, 1.1111112, 0, -1.1111112, -4.8568214e-08, 0.08247781, 0.10192013, -1.1959879)
@@ -507,17 +515,18 @@ transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7778175, 5.841619, 0.0050001144, 6.3599706)
 
-[node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "handle_light_on", "handle_light_off", "object_ref")]
+[node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "object_ref", "player", "player_camera", "transition_camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0572443, 2.4789517, -7.607033)
-script = ExtResource("13_j4nu1")
+script = ExtResource("50_u2kds")
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
-handle_light_on = [NodePath("Final_Door left/Final_Door handle2/Handle Light On"), NodePath("Final_Door right/Final_Door handle/Handle Light On")]
-handle_light_off = [NodePath("Final_Door left/Final_Door handle2/Handle Light Off"), NodePath("Final_Door right/Final_Door handle/Handle Light Off")]
 object_ref = NodePath(".")
-interaction_type = 2
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../TransitionCamera")
+array_sounds = Array[AudioStream]([ExtResource("33_dhx8n"), ExtResource("34_wkdsg"), ExtResource("35_sr45x"), ExtResource("36_kc5sd"), ExtResource("37_0prxm")])
 
 [node name="Final_Door frame" parent="Tutorial Room/TutorialDoor" unique_id=1592204761 instance=ExtResource("46_u2kds")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -541,15 +550,6 @@ sliding_door = NodePath("../../..")
 transform = Transform3D(1, 0, 4.2351647e-22, 0, 1, -1.0658141e-14, -2.9646153e-21, 1.0658141e-14, 1, 0.5412657, -0.039206028, -0.019414758)
 shape = SubResource("CylinderShape3D_1cg0m")
 
-[node name="Handle Light On" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1944590250]
-transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.54080504, -0.00028371997, -0.028253576)
-visible = false
-mesh = SubResource("PrismMesh_tq7yy")
-
-[node name="Handle Light Off" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1293059186]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.541, 0, -0.028)
-mesh = SubResource("PrismMesh_dhx8n")
-
 [node name="Final_Door right" parent="Tutorial Room/TutorialDoor" unique_id=1135323037 instance=ExtResource("51_nb0cd")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
 
@@ -563,15 +563,6 @@ sliding_door = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle/MeshInstance3D" unique_id=123144760]
 transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
 shape = SubResource("CylinderShape3D_1cg0m")
-
-[node name="Handle Light On" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle" unique_id=700918365]
-transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.42166737, -0.022531075, -0.028253574)
-visible = false
-mesh = SubResource("PrismMesh_nvwfr")
-
-[node name="Handle Light Off" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle" unique_id=974731433]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.422, -0.023, -0.028)
-mesh = SubResource("PrismMesh_nb0cd")
 
 [node name="Hint" type="Node3D" parent="Tutorial Room/TutorialDoor" unique_id=1125687825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0572443, -1.6599517, 7.909847)
@@ -590,8 +581,8 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
-[node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("38_ymcgf")]
-transform = Transform3D(-0.09916503, 0, -0.012895664, 0, 0.1, 0, 0.012895664, 0, -0.09916503, 3.1905272, 2.200501, -66.05476)
+[node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("39_2pegl")]
+transform = Transform3D(-0.09961947, 0, 0.008715581, 0, 0.1, 0, -0.008715581, 0, -0.09961947, 3.4699924, 2.1616974, -65.077095)
 
 [node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
@@ -974,16 +965,13 @@ angular_damp_mode = 1
 angular_damp = 0.2
 script = ExtResource("48_eueio")
 
-[node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "handle_light_on", "handle_light_off", "object_ref")]
+[node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "object_ref")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0117555, 2.4789515, -45.62468)
-script = ExtResource("13_j4nu1")
-locked = false
+script = ExtResource("50_u2kds")
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
-handle_light_on = [NodePath("Final_Door left/Final_Door handle2/Handle Light On"), NodePath("Final_Door right/Final_Door handle/Handle Light On")]
-handle_light_off = [NodePath("Final_Door left/Final_Door handle2/Handle Light Off"), NodePath("Final_Door right/Final_Door handle/Handle Light Off")]
 object_ref = NodePath(".")
 interaction_type = 2
 
@@ -1007,16 +995,8 @@ sliding_door = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2/MeshInstance3D" unique_id=230674604]
 transform = Transform3D(1, 0, 4.2351647e-22, 0, 1, -1.0658141e-14, -2.9646153e-21, 1.0658141e-14, 1, 0.5412657, -0.039206028, -0.019414758)
-shape = SubResource("CylinderShape3D_ymcgf")
-
-[node name="Handle Light On" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=895204502]
-transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.54080504, -0.00028371997, -0.028253576)
 visible = false
-mesh = SubResource("PrismMesh_tq7yy")
-
-[node name="Handle Light Off" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=1620084901]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.541, 0, -0.028)
-mesh = SubResource("PrismMesh_dhx8n")
+shape = SubResource("CylinderShape3D_ymcgf")
 
 [node name="Final_Door right" parent="CommsRoom/CommsDoor2" unique_id=2023173238 instance=ExtResource("51_nb0cd")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -1030,16 +1010,8 @@ sliding_door = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle/MeshInstance3D" unique_id=745028683]
 transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
-shape = SubResource("CylinderShape3D_ymcgf")
-
-[node name="Handle Light On" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle" unique_id=1897107431]
-transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.42166737, -0.022531075, -0.028253574)
 visible = false
-mesh = SubResource("PrismMesh_nvwfr")
-
-[node name="Handle Light Off" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle" unique_id=598157269]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.422, -0.023, -0.028)
-mesh = SubResource("PrismMesh_nb0cd")
+shape = SubResource("CylinderShape3D_ymcgf")
 
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
 
@@ -1167,7 +1139,6 @@ push_force = 4.0
 [editable path="Tutorial Room/Crates/Fallen Crate With Key/Final_Crate base"]
 [editable path="Tutorial Room/TutorialDoor/Final_Door frame"]
 [editable path="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2"]
-[editable path="Tutorial Room/TutorialDoor/Final_Door right"]
 [editable path="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle"]
 [editable path="CommsRoom/WirePuzzleTest"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms"]
