@@ -1,7 +1,13 @@
-Systems Offline/systems-offline/project.godot
-*.import
-*.png
-Systems Offline/build/projectexporttesting.console.exe
-Systems Offline/build/projectexporttesting.exe
-Systems Offline/build/projectexporttesting.pck
-Systems Offline/systems-offline/project.godot
+# Godot cache
+.godot/
+
+# Blender backups
+*.blend1
+*.blend2
+
+# Temporary files
+*.tmp
+
+# Exported builds
+Systems Offline/build/
+Systems Offline/systems-offline/build/
