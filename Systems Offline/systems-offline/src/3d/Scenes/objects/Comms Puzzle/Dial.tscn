@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://ch741f0ratfnn"]
+
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="1_7v4ac"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v4ac"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l42ft"]
+material = SubResource("StandardMaterial3D_7v4ac")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.003
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7v4ac"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.001
+radial_segments = 6
+
+[node name="Dial" type="Node3D" unique_id=351563062]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=39295914]
+mesh = SubResource("CylinderMesh_l42ft")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGMesh3D" unique_id=742759698]
+transform = Transform3D(0.70481396, 0, 0.7093922, 0, 1, 0, -0.7093922, 0, 0.70481396, 0, 0, -0.09324117)
+operation = 2
+size = Vector3(0.1, 0.02, 0.1)
+
+[node name="Rotation Dial" type="MeshInstance3D" parent="." unique_id=150685165]
+transform = Transform3D(-0.003260374, 0, -0.99999475, 0, 1, 0, 0.99999475, 0, -0.003260374, 0, 0, -0.001)
+mesh = SubResource("CylinderMesh_7v4ac")
+
+[node name="Correct letter" type="Label3D" parent="Rotation Dial" unique_id=1220917663]
+transform = Transform3D(0.017490055, -0.009700409, 0, -4.2401835e-10, -7.645146e-10, -0.02, 0.009700409, 0.017490055, -8.7422775e-10, 0.027, 0.001, -0.047)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "h"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter" type="Label3D" parent="Rotation Dial" unique_id=1421538477]
+transform = Transform3D(-0.00024280045, -0.019998526, 7.6960605e-10, -4.2401835e-10, -7.645146e-10, -0.02, 0.019998526, -0.00024280045, -4.1470594e-10, 0.056, 0.001, 0.001)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "o"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter2" type="Label3D" parent="Rotation Dial" unique_id=700008622]
+transform = Transform3D(-0.01712534, -0.010330666, 7.6960616e-10, -8.7319774e-10, -4.2427888e-11, -0.02, 0.010330666, -0.01712534, -4.1470594e-10, 0.029, 0.001, 0.046)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "v"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter3" type="Label3D" parent="Rotation Dial" unique_id=971918188]
+transform = Transform3D(-0.017295875, -0.010042546, 7.6960605e-10, -8.737856e-10, -2.780489e-11, -0.02, 0.010042546, -0.017295875, -4.1470594e-10, -0.029013086, 0.0009999978, -0.04966012)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "d"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter4" type="Label3D" parent="Rotation Dial" unique_id=150252063]
+transform = Transform3D(9.906362e-06, -0.019999998, 7.69606e-10, -4.143247e-10, -7.698111e-10, -0.02, 0.019999998, 9.906362e-06, -4.1470594e-10, -0.05703888, 0.0009999957, 0.00022601988)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "t"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter5" type="Label3D" parent="Rotation Dial" unique_id=947497575]
+transform = Transform3D(-0.01695464, 0.010608501, -4.6063875e-11, -4.240184e-10, -7.6451473e-10, -0.020000001, -0.010608501, -0.01695464, 8.730136e-10, -0.02576118, 0.0010000023, 0.047776207)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "i"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
