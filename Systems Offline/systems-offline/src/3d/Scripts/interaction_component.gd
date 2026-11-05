@@ -86,11 +86,13 @@ func play_tertiary_se() -> void:
 func interact() -> void:
 	match interaction_type:
 		InteractionType.PICKUP: 
+			play_primary_se()
 			print("Object has been picked up!")
 			Notification.show_pickup_notification(item_data)
 			Inventory.add_item(item_data)
 			if Inventory.has_item("tutorial_key"):
 				print("You found a key! Press tab and inspect it!")
+			await get_tree().create_timer(0.25).timeout
 			queue_free()
 			object_ref.visible = false
 		InteractionType.INSPECT:

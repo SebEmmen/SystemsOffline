@@ -142,6 +142,7 @@ func check_code() -> void:
 		is_finishing = true
 		print("Correct code!")
 		play_primary_se()
+		play_tertiary_se()
 		sliding_door.unlock_door()
 		flash_enter()
 
