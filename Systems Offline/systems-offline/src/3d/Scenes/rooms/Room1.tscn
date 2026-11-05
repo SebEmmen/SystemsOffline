@@ -193,7 +193,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -2.5200272)
+transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -56.15798)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -590,6 +590,18 @@ transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
 
+[node name="MonitorScreen" parent="CommsRoom/Platform/Monitor" parent_id_path=PackedInt32Array(831807862, 587283104) index="3" unique_id=366613847 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
+player = NodePath("../../../../ProtoController")
+player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../../TransitionCamera")
+
+[node name="Final_Power up device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=869677000 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera")]
+object_ref = NodePath(".")
+interaction_type = 1
+player = NodePath("../../../../ProtoController")
+player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../../TransitionCamera")
+
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
@@ -881,6 +893,7 @@ push_force = 4.0
 [editable path="Tutorial Room/Crates/Fallen Crate With Key/Final_Crate base"]
 [editable path="Tutorial Room/TutorialDoor/Final_Door frame"]
 [editable path="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2"]
+[editable path="Tutorial Room/TutorialDoor/Final_Door right"]
 [editable path="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle"]
 [editable path="CommsRoom/WirePuzzleTest"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms"]
@@ -902,6 +915,12 @@ push_force = 4.0
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1/wire connection part"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
+[editable path="CommsRoom/Platform"]
+[editable path="CommsRoom/Platform/Final_Platform comms"]
+[editable path="CommsRoom/Platform/Final_Side table of middle platform"]
+[editable path="CommsRoom/Platform/Final_Side table of middle platform2"]
+[editable path="CommsRoom/Platform/Monitor/MonitorScreen"]
+[editable path="CommsRoom/Platform/PowerUp Device/Final_Power up device"]
 [editable path="CommsRoom/Cubicle Sphere"]
 [editable path="CommsRoom/Cubicle Sphere/Final_Cubicle roof"]
 [editable path="CommsRoom/Cubicle Prism"]
