@@ -55,6 +55,9 @@
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 
+[sub_resource type="Environment" id="Environment_ojbw0"]
+ambient_light_source = 2
+
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, -0.97, 0.035, 4.603336, 0.5973165, 0, 0.185, -0.705, 0, 1.56, -0.765, 0.045, 1.3198564, 0.91041803, 0),
@@ -134,10 +137,15 @@ bounce = 0.7
 height = 0.13745189
 radius = 0.08300781
 
-[sub_resource type="Environment" id="Environment_ojbw0"]
-ambient_light_source = 2
-
 [node name="Room1" type="Node3D" unique_id=1585455230]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=394723729]
+environment = SubResource("Environment_ojbw0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=987253711]
+transform = Transform3D(0.9446295, -9.759452e-05, -0.32813883, 0.0038034138, 0.99993604, 0.010651676, 0.3281168, -0.011309936, 0.9445694, -2.4873257, 0, 14.431388)
+light_energy = 0.3
+shadow_enabled = true
 
 [node name="FloorGridMap2" type="GridMap" parent="." unique_id=382107592]
 mesh_library = ExtResource("2_1ds61")
@@ -790,9 +798,6 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 [node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
 visible = true
 push_force = 4.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=394723729]
-environment = SubResource("Environment_ojbw0")
 
 [editable path="ProtoController"]
 [editable path="HUD"]
