@@ -25,7 +25,6 @@ enum TurnType {
 var can_turn := false
 var _dragging := false
 var _last_mouse_angle := 0.0
-var _total_angle := 0.0  # radians
 
 
 @export var monitor: InspectComponent
@@ -122,18 +121,3 @@ func _mouse_on_dial() -> bool:
 	if grab_radius_px <= 0.0:
 		return true
 	return get_viewport().get_mouse_position().distance_to(_get_dial_center()) <= grab_radius_px
-
-
-func _apply_snap() -> void:
-	if snap_degrees <= 0.0:
-		return
-	var target := deg_to_rad(snappedf(rad_to_deg(_total_angle), snap_degrees))
-	var diff := target - _total_angle
-	var applied := 0.0
-	var tween := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_method(func(t: float):
-		dial_pivot.rotate_object_local(turn_axis.normalized(), t - applied)
-		applied = t
-	, 0.0, diff, 0.15)
-	_total_angle = target
-	dial_turned.emit(rad_to_deg(_total_angle))
