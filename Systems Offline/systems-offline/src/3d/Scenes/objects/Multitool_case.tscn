@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ceqfmd4emlkgo"]
+
+[ext_resource type="PackedScene" uid="uid://detgk0v3fn1cy" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="1_k3eft"]
+[ext_resource type="PackedScene" uid="uid://hirjarnptmih" path="res://src/3d/Assets/Comm room/Final_Moving valve multitoolcase.blend" id="2_w1esd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k3eft"]
+height = 3.341947
+radius = 1.1
+
+[node name="Final_Multitoolcase body" unique_id=754739194 instance=ExtResource("1_k3eft")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Glass Lid" parent="." index="0" unique_id=717662518 instance=ExtResource("2_w1esd")]
+transform = Transform3D(0.39123785, 0.9202896, 0, -0.9202896, 0.39123785, 0, 0, 0, 1, -2.7794862, 0, 0)
+
+[node name="Cylinder_001" parent="Glass Lid" index="0" unique_id=1476618084]
+transform = Transform3D(1.12133, 3.0998055e-07, 2.5813746, 2.5813746, 2.908885e-07, -1.12133, -2.6149658e-07, 4.2007537, -1.1283547e-07, 0, 0, 0)
+
+[node name="Cylinder_006" parent="Glass Lid" index="1" unique_id=1419669668]
+transform = Transform3D(1.12133, 3.0998055e-07, 2.5813746, 2.5813746, 2.908885e-07, -1.12133, -2.6149658e-07, 4.2007537, -1.1283547e-07, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1827884714]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1393970067]
+transform = Transform3D(-2.8144052, 0, 0, 0, 0, -2.8144052, 0, 4.2007537, 0, 0, 0, -0.00072321855)
+shape = SubResource("CylinderShape3D_k3eft")
+
+[editable path="Glass Lid"]
