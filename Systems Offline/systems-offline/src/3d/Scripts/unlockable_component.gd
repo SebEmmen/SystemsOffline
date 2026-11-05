@@ -15,6 +15,34 @@ enum UnlockableType{
 @onready var open: bool = false
 #endregion
 
+#region Door Specific Variables
+@export_group("Door Panels")
+@export var left_door: Node3D
+@export var right_door: Node3D
+@export var slide_distance: float = 5
+@export var slide_duration: float = 2
+
+@export_group("Door Handles")
+@export var left_handle: Node3D
+@export var right_handle: Node3D
+@export var handle_push_distance: float = -0.059
+@export var handle_duration: float = 0.25
+@export var handle_hide_delay: float = 1.0
+
+@export var left_button_mesh: MeshInstance3D
+@export var right_button_mesh: MeshInstance3D
+@export var handle_light_on: Array[MeshInstance3D]
+@export var handle_light_off: Array[MeshInstance3D]
+
+var is_open: bool = false
+var is_moving: bool = false
+var left_closed_position: Vector3
+var right_closed_position: Vector3
+var left_handle_original_position: Vector3
+var right_handle_original_position: Vector3
+
+var hide_timer_version: int = 0
+#endregion
 
 #region Cover Specific Variables
 @export_group("Cover")
@@ -59,6 +87,9 @@ func _ready() -> void:
 			original_collision_mask = cover_body.collision_mask
 
 			ready_cover()
+		
+		UnlockableType.DOOR:
+			ready_door()
 
 func interact() -> void:
 	match unlockable_type:
@@ -69,6 +100,12 @@ func interact() -> void:
 
 #region Door Functions
 
+func ready_door() -> void:
+	left_closed_position = left_door.position
+	right_closed_position = right_door.position
+	left_handle_original_position = left_handle.position
+	right_handle_original_position = right_handle.position
+	toggle_handle_light(!locked, locked)
 # Interact Function for Door
 
 func interact_door() -> void:
@@ -81,29 +118,141 @@ func interact_door() -> void:
 		is_interacting = !is_interacting
 	var target_pos = default_position + Vector3(2.95, 0, 0)
 	if is_interacting:
-		move_door(target_pos, 1.0)
+		open_door()
 	else:
-		move_door(default_position, 1.0)
+		close_door()
 	await get_tree().create_timer(1.0).timeout
 	can_interact = true
 
-func move_door(position: Vector3, time: float) -> void:
-	play_primary_se()
-	var tween_door = create_tween()
-	tween_door.tween_property(object_ref, "position", position, time)
-	
+func open_door() -> void:
+	print("open_door")
+	if is_open or is_moving:
+		return
 
-# Unlocks the door
+	if locked:
+		print("Tutorial Door is locked. A key is required.")
+		return
+
+	is_moving = true
+
+	left_handle.show()
+	right_handle.show()
+
+	await animate_handles(true)
+	await animate_doors(true)
+
+	is_open = true
+	is_moving = false
+
+	hide_handles_after_delay()
+
+
+func close_door() -> void:
+	if not is_open or is_moving:
+		return
+
+	is_moving = true
+
+	# Cancel any pending hide timer.
+	hide_timer_version += 1
+
+	left_handle.show()
+	right_handle.show()
+
+	await animate_doors(false)
+	await animate_handles(false)
+
+	is_open = false
+	is_moving = false
+
+
+func animate_handles(push: bool) -> void:
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	var left_target := left_handle_original_position
+	var right_target := right_handle_original_position
+
+	if push:
+		left_target.y -= handle_push_distance
+		right_target.y += handle_push_distance
+
+	tween.tween_property(
+		left_handle,
+		"position",
+		left_target,
+		handle_duration
+	)
+
+	tween.tween_property(
+		right_handle,
+		"position",
+		right_target,
+		handle_duration
+	)
+
+	await tween.finished
+
+
+func animate_doors(open: bool) -> void:
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	var left_target := left_closed_position
+	var right_target := right_closed_position
+
+	if open:
+		left_target += Vector3.LEFT * slide_distance
+		right_target += Vector3.RIGHT * slide_distance
+
+	tween.tween_property(
+		left_door,
+		"position",
+		left_target,
+		slide_duration
+	)
+
+	tween.tween_property(
+		right_door,
+		"position",
+		right_target,
+		slide_duration
+	)
+
+	await tween.finished
+
+
+func hide_handles_after_delay() -> void:
+	hide_timer_version += 1
+	var current_version := hide_timer_version
+
+	await get_tree().create_timer(handle_hide_delay).timeout
+
+	if current_version != hide_timer_version:
+		return
+
+	if is_open and not is_moving:
+		left_handle.hide()
+		right_handle.hide()
+
+
 func unlock_door() -> void:
 	locked = false
-	print("Door unlocked!")
+	toggle_handle_light(!locked, locked)
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if !locked:	
-		if body.is_in_group("player"): # or your player check
-			print("player detected!")
-			move_door(default_position, 0.4)
-			is_interacting = !is_interacting
+	left_handle.get_node("Cylinder").set_instance_shader_parameter("activated", 1.0)
+	right_handle.get_node("Cylinder").set_instance_shader_parameter("activated", 1.0)
+
+
+func toggle_handle_light(on: bool, off: bool) -> void:
+	for light in handle_light_on:
+		light.visible = on
+	for light in handle_light_off:
+		light.visible = off
 #endregion
 
 #region Cover Functions

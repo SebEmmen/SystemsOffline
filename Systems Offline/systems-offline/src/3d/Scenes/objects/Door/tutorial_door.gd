@@ -16,6 +16,8 @@ extends Node3D
 
 @export var left_button_mesh: MeshInstance3D
 @export var right_button_mesh: MeshInstance3D
+@export var handle_light_on: Array[MeshInstance3D]
+@export var handle_light_off: Array[MeshInstance3D]
 
 @export_group("Tutorial")
 @export var requires_key: bool = false
@@ -43,7 +45,7 @@ func _ready() -> void:
 	left_handle_original_position = left_handle.position
 	right_handle_original_position = right_handle.position
 
-	is_unlocked = not requires_key
+	toggle_handle_light(!locked, locked)
 
 
 func open_door() -> void:
@@ -164,6 +166,7 @@ func hide_handles_after_delay() -> void:
 
 func unlock_door() -> void:
 	is_unlocked = true
+	toggle_handle_light(!locked, locked)
 
 	left_handle.get_node("Cylinder").set_instance_shader_parameter("activated", 1.0)
 	right_handle.get_node("Cylinder").set_instance_shader_parameter("activated", 1.0)
@@ -171,3 +174,9 @@ func unlock_door() -> void:
 
 func lock_door() -> void:
 	is_unlocked = false
+
+func toggle_handle_light(on: bool, off: bool) -> void:
+	for light in handle_light_on:
+		light.visible = on
+	for light in handle_light_off:
+		light.visible = off

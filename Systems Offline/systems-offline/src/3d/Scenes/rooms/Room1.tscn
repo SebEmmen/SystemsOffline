@@ -41,22 +41,17 @@
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="PackedScene" uid="uid://bhbssj6mqwysp" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
-[ext_resource type="Script" uid="uid://24ew362trsm7" path="res://src/3d/Scenes/objects/Door/tutorial_door.gd" id="46_w4g2j"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
 [ext_resource type="PackedScene" uid="uid://bhuitcvlytiet" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
 [ext_resource type="PackedScene" uid="uid://cv6oy8hxjhey" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
-[ext_resource type="Script" uid="uid://cs0dwtwxtxncq" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="50_u2kds"]
 [ext_resource type="PackedScene" uid="uid://mlvlsrisovn0" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
 [ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
-
-[sub_resource type="Environment" id="Environment_ojbw0"]
-ambient_light_source = 2
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -68,6 +63,34 @@ point_count = 2
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1cg0m"]
 height = 0.13745189
 radius = 0.08300781
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvwfr"]
+albedo_color = Color(0.36396736, 0.8439394, 0.1897483, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_tq7yy"]
+material = SubResource("StandardMaterial3D_nvwfr")
+size = Vector3(0.09, 0.085, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6fu1"]
+albedo_color = Color(0.96862745, 0.18039216, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_dhx8n"]
+material = SubResource("StandardMaterial3D_e6fu1")
+size = Vector3(0.09, 0.085, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wf7d1"]
+albedo_color = Color(0.36396736, 0.8439394, 0.1897483, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_nvwfr"]
+material = SubResource("StandardMaterial3D_wf7d1")
+size = Vector3(0.09, 0.085, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l42ft"]
+albedo_color = Color(0.96862745, 0.18039216, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_nb0cd"]
+material = SubResource("StandardMaterial3D_l42ft")
+size = Vector3(0.09, 0.085, 0.01)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
 render_priority = 0
@@ -138,9 +161,6 @@ height = 0.13745189
 radius = 0.08300781
 
 [node name="Room1" type="Node3D" unique_id=1585455230]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=394723729]
-environment = SubResource("Environment_ojbw0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=987253711]
 transform = Transform3D(0.9446295, -9.759452e-05, -0.32813883, 0.0038034138, 0.99993604, 0.010651676, 0.3281168, -0.011309936, 0.9445694, -2.4873257, 0, 14.431388)
@@ -449,14 +469,17 @@ transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7778175, 5.841619, 0.0050001144, 6.3599706)
 
-[node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle")]
+[node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "handle_light_on", "handle_light_off", "object_ref")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0572443, 2.4789517, -7.607033)
-script = ExtResource("46_w4g2j")
+script = ExtResource("13_j4nu1")
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
-requires_key = true
+handle_light_on = [NodePath("Final_Door left/Final_Door handle2/Handle Light On"), NodePath("Final_Door right/Final_Door handle/Handle Light On")]
+handle_light_off = [NodePath("Final_Door left/Final_Door handle2/Handle Light Off"), NodePath("Final_Door right/Final_Door handle/Handle Light Off")]
+object_ref = NodePath(".")
+interaction_type = 2
 
 [node name="Final_Door frame" parent="Tutorial Room/TutorialDoor" unique_id=1592204761 instance=ExtResource("46_u2kds")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -480,6 +503,15 @@ sliding_door = NodePath("../../..")
 transform = Transform3D(1, 0, 4.2351647e-22, 0, 1, -1.0658141e-14, -2.9646153e-21, 1.0658141e-14, 1, 0.5412657, -0.039206028, -0.019414758)
 shape = SubResource("CylinderShape3D_1cg0m")
 
+[node name="Handle Light On" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1944590250]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.54080504, -0.00028371997, -0.028253576)
+visible = false
+mesh = SubResource("PrismMesh_tq7yy")
+
+[node name="Handle Light Off" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1293059186]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.541, 0, -0.028)
+mesh = SubResource("PrismMesh_dhx8n")
+
 [node name="Final_Door right" parent="Tutorial Room/TutorialDoor" unique_id=1135323037 instance=ExtResource("51_nb0cd")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
 
@@ -493,6 +525,15 @@ sliding_door = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle/MeshInstance3D" unique_id=123144760]
 transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
 shape = SubResource("CylinderShape3D_1cg0m")
+
+[node name="Handle Light On" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle" unique_id=700918365]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.42166737, -0.022531075, -0.028253574)
+visible = false
+mesh = SubResource("PrismMesh_nvwfr")
+
+[node name="Handle Light Off" type="MeshInstance3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle" unique_id=974731433]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.422, -0.023, -0.028)
+mesh = SubResource("PrismMesh_nb0cd")
 
 [node name="Hint" type="Node3D" parent="Tutorial Room/TutorialDoor" unique_id=1125687825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0572443, -1.6599517, 7.909847)
@@ -647,13 +688,18 @@ angular_damp_mode = 1
 angular_damp = 0.2
 script = ExtResource("48_eueio")
 
-[node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle")]
+[node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "handle_light_on", "handle_light_off", "object_ref")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0117555, 2.4789515, -45.62468)
-script = ExtResource("50_u2kds")
+script = ExtResource("13_j4nu1")
+locked = false
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
+handle_light_on = [NodePath("Final_Door left/Final_Door handle2/Handle Light On"), NodePath("Final_Door right/Final_Door handle/Handle Light On")]
+handle_light_off = [NodePath("Final_Door left/Final_Door handle2/Handle Light Off"), NodePath("Final_Door right/Final_Door handle/Handle Light Off")]
+object_ref = NodePath(".")
+interaction_type = 2
 
 [node name="Final_Door frame" parent="CommsRoom/CommsDoor2" unique_id=864311355 instance=ExtResource("46_u2kds")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -675,8 +721,16 @@ sliding_door = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2/MeshInstance3D" unique_id=230674604]
 transform = Transform3D(1, 0, 4.2351647e-22, 0, 1, -1.0658141e-14, -2.9646153e-21, 1.0658141e-14, 1, 0.5412657, -0.039206028, -0.019414758)
-visible = false
 shape = SubResource("CylinderShape3D_ymcgf")
+
+[node name="Handle Light On" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=895204502]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.54080504, -0.00028371997, -0.028253576)
+visible = false
+mesh = SubResource("PrismMesh_tq7yy")
+
+[node name="Handle Light Off" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=1620084901]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.541, 0, -0.028)
+mesh = SubResource("PrismMesh_dhx8n")
 
 [node name="Final_Door right" parent="CommsRoom/CommsDoor2" unique_id=2023173238 instance=ExtResource("51_nb0cd")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -690,8 +744,16 @@ sliding_door = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle/MeshInstance3D" unique_id=745028683]
 transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
-visible = false
 shape = SubResource("CylinderShape3D_ymcgf")
+
+[node name="Handle Light On" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle" unique_id=1897107431]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0.42166737, -0.022531075, -0.028253574)
+visible = false
+mesh = SubResource("PrismMesh_nvwfr")
+
+[node name="Handle Light Off" type="MeshInstance3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle" unique_id=598157269]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.422, -0.023, -0.028)
+mesh = SubResource("PrismMesh_nb0cd")
 
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
 
