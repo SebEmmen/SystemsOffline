@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://74jh74isiibj" path="res://src/2d/Scenes/Inventory/InventorySlot.tscn" id="9_r31ku"]
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
-[ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="13_j4nu1"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
@@ -27,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
@@ -42,27 +41,24 @@
 [ext_resource type="AudioStream" uid="uid://gvy2mvilhvny" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="37_0prxm"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
-[ext_resource type="PackedScene" uid="uid://c1g2i1vbidp4u" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
+[ext_resource type="PackedScene" uid="uid://detgk0v3fn1cy" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
-[ext_resource type="PackedScene" uid="uid://cbbwy6damv6ml" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
-[ext_resource type="PackedScene" uid="uid://cq4311fnvpfe7" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
+[ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
+[ext_resource type="PackedScene" uid="uid://bhbssj6mqwysp" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
-[ext_resource type="PackedScene" uid="uid://b7fnikvqjlpsv" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
-[ext_resource type="PackedScene" uid="uid://bthcc0rgn11ki" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
+[ext_resource type="PackedScene" uid="uid://bhuitcvlytiet" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
+[ext_resource type="PackedScene" uid="uid://cv6oy8hxjhey" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
-[ext_resource type="Script" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="50_u2kds"]
-[ext_resource type="PackedScene" uid="uid://17e1l2knwo6t" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
-[ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
+[ext_resource type="PackedScene" uid="uid://mlvlsrisovn0" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
+[ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
-
-[sub_resource type="Environment" id="Environment_ojbw0"]
-ambient_light_source = 2
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -144,9 +140,6 @@ height = 0.13745189
 radius = 0.08300781
 
 [node name="Room1" type="Node3D" unique_id=1585455230]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=394723729]
-environment = SubResource("Environment_ojbw0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=987253711]
 transform = Transform3D(0.9446295, -9.759452e-05, -0.32813883, 0.0038034138, 0.99993604, 0.010651676, 0.3281168, -0.011309936, 0.9445694, -2.4873257, 0, 14.431388)
@@ -269,7 +262,7 @@ primary_se = ExtResource("18_3h5nh")
 secondary_se = ExtResource("18_io4pa")
 
 [node name="Cover" parent="Tutorial Room/KeypadTouchscreen" index="17" unique_id=1531809847 node_paths=PackedStringArray("keypad", "key", "pivot_left", "pivot_right", "cover_body", "key_start", "key_insert", "key_turn", "key_hanger_target", "object_ref", "player", "player_camera", "transition_camera")]
-script = ExtResource("13_j4nu1")
+script = ExtResource("50_u2kds")
 unlockable_type = 1
 keypad = NodePath("..")
 key = NodePath("../KeyHanger/KeyCinematic/AnimatedKey")
@@ -458,7 +451,7 @@ transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7
 
 [node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "object_ref", "player", "player_camera", "transition_camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0572443, 2.4789517, -7.607033)
-script = ExtResource("13_j4nu1")
+script = ExtResource("50_u2kds")
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
@@ -478,7 +471,7 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door handle2" parent="Tutorial Room/TutorialDoor/Final_Door left" unique_id=2041671739 instance=ExtResource("49_2pegl")]
 transform = Transform3D(-1, 1.2079664e-07, -3.3881318e-21, -1.509958e-07, -0.8, -2.961999e-28, -3.3881318e-21, 1.7231503e-28, 1, 0, -0.21, 0)
 
-[node name="Cylinder" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" index="1" unique_id=218556724]
+[node name="Cylinder" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" index="0" unique_id=1053543655]
 transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1725699534 node_paths=PackedStringArray("sliding_door")]
@@ -563,7 +556,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=286461366]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -581,7 +574,7 @@ transform = Transform3D(-0.9728843, 0, 0.23129226, 0, 1, 0, -0.23129226, 0, -0.9
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=286461366]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -596,7 +589,7 @@ transform = Transform3D(-0.25863695, 0.9659038, -0.011672173, 0.051696375, 0.001
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=286461366]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -614,7 +607,7 @@ transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=286461366]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -658,13 +651,15 @@ angular_damp_mode = 1
 angular_damp = 0.2
 script = ExtResource("48_eueio")
 
-[node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle")]
+[node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "object_ref")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0117555, 2.4789515, -45.62468)
 script = ExtResource("50_u2kds")
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
+object_ref = NodePath(".")
+interaction_type = 2
 
 [node name="Final_Door frame" parent="CommsRoom/CommsDoor2" unique_id=864311355 instance=ExtResource("46_u2kds")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -675,7 +670,7 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door handle2" parent="CommsRoom/CommsDoor2/Final_Door left" unique_id=2113603018 instance=ExtResource("49_2pegl")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -3.3881318e-21, 0, 1, 0, -0.21, 0)
 
-[node name="Cylinder" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" index="1" unique_id=218556724]
+[node name="Cylinder" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" index="0" unique_id=1053543655]
 transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=674706864 node_paths=PackedStringArray("sliding_door")]
