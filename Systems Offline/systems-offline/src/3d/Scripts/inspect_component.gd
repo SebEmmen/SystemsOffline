@@ -288,6 +288,7 @@ func enter_puzzle() -> void:
 		cover_removed = true
 		cover_drop_time = Time.get_ticks_msec() / 1000.0
 		wire_cover.fall_off()
+		play_primary_se()
 		return
 
 	# Cover still falling: ignore the press

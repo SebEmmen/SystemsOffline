@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c35qrqo7ajmic"]
 
-[ext_resource type="Texture2D" uid="uid://bay85kwwcixt0" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
+[ext_resource type="Texture2D" uid="uid://862kynlp8dih" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://ci4v8oty26w6d" path="res://src/3d/Mesh/WallLibrary.meshlib" id="4_6lvv6"]
@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
@@ -40,16 +40,18 @@
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
-[ext_resource type="PackedScene" uid="uid://bhbssj6mqwysp" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
+[ext_resource type="PackedScene" uid="uid://cq4311fnvpfe7" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
 [ext_resource type="Script" uid="uid://24ew362trsm7" path="res://src/3d/Scenes/objects/Door/tutorial_door.gd" id="46_w4g2j"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
-[ext_resource type="PackedScene" uid="uid://bhuitcvlytiet" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
-[ext_resource type="PackedScene" uid="uid://cv6oy8hxjhey" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
+[ext_resource type="PackedScene" uid="uid://b7fnikvqjlpsv" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
+[ext_resource type="PackedScene" uid="uid://bthcc0rgn11ki" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="Script" uid="uid://cs0dwtwxtxncq" path="res://src/3d/Scenes/objects/Door/sliding_door.gd" id="50_u2kds"]
-[ext_resource type="PackedScene" uid="uid://mlvlsrisovn0" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
+[ext_resource type="PackedScene" uid="uid://17e1l2knwo6t" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
+[ext_resource type="AudioStream" uid="uid://b7qyuxw3pws8i" path="res://src/3d/Sound/big button press.mp3" id="51_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://c4x3aa3al3ump" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
+[ext_resource type="AudioStream" uid="uid://c4isfr5w6bi7q" path="res://src/3d/Sound/wire connect.mp3" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d3eexcvx67wsh" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4qo6h"]
@@ -414,7 +416,7 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door handle2" parent="Tutorial Room/TutorialDoor/Final_Door left" unique_id=2041671739 instance=ExtResource("49_2pegl")]
 transform = Transform3D(-1, 1.2079664e-07, -3.3881318e-21, -1.509958e-07, -0.8, -2.961999e-28, -3.3881318e-21, 1.7231503e-28, 1, 0, -0.21, 0)
 
-[node name="Cylinder" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" index="0" unique_id=1053543655]
+[node name="Cylinder" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" index="2" unique_id=1822062003]
 transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1725699534 node_paths=PackedStringArray("sliding_door")]
@@ -596,7 +598,7 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door handle2" parent="CommsRoom/CommsDoor2/Final_Door left" unique_id=2113603018 instance=ExtResource("49_2pegl")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -3.3881318e-21, 0, 1, 0, -0.21, 0)
 
-[node name="Cylinder" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" index="0" unique_id=1053543655]
+[node name="Cylinder" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" index="2" unique_id=1822062003]
 transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=674706864 node_paths=PackedStringArray("sliding_door")]
@@ -630,6 +632,9 @@ shape = SubResource("CylinderShape3D_ymcgf")
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
 
+[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Elevator monitor base" parent_id_path=PackedInt32Array(1746680253, 220052432) index="1" unique_id=1439739362]
+primary_se = ExtResource("51_ymcgf")
+
 [node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
 inspect_type = 2
@@ -652,6 +657,12 @@ script = null
 
 [node name="PuzzleBridgeMedium" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="0" unique_id=495846276]
 transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5527137e-15, 0, -3.5527137e-15, 1, 3.0054927, -0.530365, 1.9973822)
+
+[node name="WireBeginning" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part" parent_id_path=PackedInt32Array(1690951740, 95569996) index="0" unique_id=2140616796]
+primary_se = ExtResource("53_2pegl")
+
+[node name="WireEnd" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part" parent_id_path=PackedInt32Array(1690951740, 95569996) index="1" unique_id=1565473419]
+primary_se = ExtResource("53_2pegl")
 
 [node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
 visible = true
