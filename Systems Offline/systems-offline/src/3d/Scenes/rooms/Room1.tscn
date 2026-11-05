@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://ch741f0ratfnn" path="res://src/3d/Scenes/objects/Comms Puzzle/Dial.tscn" id="53_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
@@ -596,11 +597,16 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Final_Power up device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=869677000 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera")]
+inspect_type = 3
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
+
+[node name="Dial" parent="CommsRoom/Platform/PowerUp Device/Final_Power up device" index="0" unique_id=351563062 node_paths=PackedStringArray("monitor") instance=ExtResource("53_nbs5u")]
+transform = Transform3D(-0.124373436, -1.529994, 5.873947, -0.110577226, 6.1826496, 0.46003324, -5.553062, -0.08884621, -0.1407206, -0.15812683, 0.40843964, -0.8229065)
+monitor = NodePath("..")
 
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)

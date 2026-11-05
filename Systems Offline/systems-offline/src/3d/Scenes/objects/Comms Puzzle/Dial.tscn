@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ch741f0ratfnn"]
 
 [ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="1_7v4ac"]
+[ext_resource type="Script" uid="uid://cmcu3q64q8l0x" path="res://src/3d/Scenes/objects/Comms Puzzle/turnable_component.gd" id="1_xkbwl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v4ac"]
 albedo_color = Color(0, 0, 0, 1)
@@ -12,12 +13,16 @@ bottom_radius = 0.1
 height = 0.003
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7v4ac"]
-top_radius = 0.1
-bottom_radius = 0.1
+top_radius = 0.09
+bottom_radius = 0.09
 height = 0.001
 radial_segments = 6
 
-[node name="Dial" type="Node3D" unique_id=351563062]
+[node name="Dial" type="Node3D" unique_id=351563062 node_paths=PackedStringArray("dial_pivot", "object_ref")]
+script = ExtResource("1_xkbwl")
+dial_pivot = NodePath("Rotation Dial")
+object_ref = NodePath(".")
+interaction_type = 5
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=39295914]
 mesh = SubResource("CylinderMesh_l42ft")
@@ -84,3 +89,6 @@ text = "i"
 font = ExtResource("1_7v4ac")
 font_size = 500
 outline_size = 5
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1581201814]
+transform = Transform3D(0.9999619, 0.008725091, -0.00015924594, 0, 0.018248456, 0.99983346, 0.008726544, -0.9997954, 0.01824776, -0.002136718, 0.17456245, 0.007869348)
