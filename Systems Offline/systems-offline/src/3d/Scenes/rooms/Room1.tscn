@@ -5,6 +5,7 @@
 [ext_resource type="MeshLibrary" uid="uid://ci4v8oty26w6d" path="res://src/3d/Mesh/WallLibrary.meshlib" id="4_6lvv6"]
 [ext_resource type="MeshLibrary" uid="uid://61wowouuvern" path="res://src/3d/Mesh/DoorWallNegative.meshlib" id="4_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://cd8d230r2wpe4" path="res://src/2d/Scenes/Inventory/InventoryUI.tscn" id="5_7flw8"]
+[ext_resource type="AudioStream" uid="uid://ru84l0r2lukf" path="res://src/3d/Sound/footsteps on metal.mp3" id="5_8iy1x"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
 [ext_resource type="PackedScene" uid="uid://bvgrjamb53k8l" path="res://src/2d/Scenes/Notifications/NotificationsUI.tscn" id="6_fm5id"]
 [ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="6_tjnt7"]
@@ -15,16 +16,18 @@
 [ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
+[ext_resource type="AudioStream" uid="uid://b7qyuxw3pws8i" path="res://src/3d/Sound/big button press.mp3" id="16_i6svr"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
+[ext_resource type="AudioStream" uid="uid://bty5575j4ueu3" path="res://src/3d/Sound/door(open).mp3" id="17_nvpkd"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
-[ext_resource type="AudioStream" uid="uid://g2o2wcjmubqo" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
+[ext_resource type="AudioStream" uid="uid://bwja2h58o1j43" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
 [ext_resource type="AudioStream" uid="uid://crtn1kyqdb6p" path="res://src/3d/Sound/wire successfully connected.mp3" id="20_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://knq605cgr21x" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
-[ext_resource type="AudioStream" uid="uid://cg27eqvuyonof" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
+[ext_resource type="AudioStream" uid="uid://c1ydfekgg24uw" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
+[ext_resource type="AudioStream" uid="uid://ju56lox6s3wj" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
 [ext_resource type="AudioStream" uid="uid://dpqtcsyejop65" path="res://src/3d/Sound/keypad unlock.mp3" id="22_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://dcl7bk8txuyb" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
+[ext_resource type="AudioStream" uid="uid://dpml20gos6hgp" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
 [ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
@@ -42,18 +45,22 @@
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
+[ext_resource type="Texture2D" uid="uid://doofkxmq8g04f" path="res://src/3d/Resources/Worm.png" id="43_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
-[ext_resource type="PackedScene" uid="uid://cbbwy6damv6ml" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
+[ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
 [ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
+[ext_resource type="Texture2D" uid="uid://b5xxny7feyb5m" path="res://src/3d/Resources/Apple.png" id="49_e6fu1"]
+[ext_resource type="Texture2D" uid="uid://b3ocw8e0ecnc5" path="res://src/3d/Resources/Euro.png" id="50_dhx8n"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
 [ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
-[ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="Texture2D" uid="uid://bkhgq2eau0gak" path="res://src/3d/Resources/Flute.png" id="51_wkdsg"]
+[ext_resource type="PackedScene" uid="uid://bhwxxxofw83li" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://cykucbye25euv" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
@@ -67,32 +74,33 @@ _data = {
 point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4rn"]
+albedo_texture = ExtResource("43_nbs5u")
 
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_e6fu1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8iy1x"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_dhx8n"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_i6svr"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_e6fu1")
+albedo_texture = SubResource("ViewportTexture_8iy1x")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_wkdsg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_nvpkd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_dhx8n")
+material = SubResource("ORMMaterial3D_i6svr")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sr45x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nnjxg"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_kc5sd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_x8cbg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_sr45x")
+albedo_texture = SubResource("ViewportTexture_nnjxg")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0prxm"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_fs8bd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_kc5sd")
+material = SubResource("ORMMaterial3D_x8cbg")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -114,6 +122,7 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sr45x"]
+albedo_texture = ExtResource("49_e6fu1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nvwfr"]
 render_priority = 0
@@ -135,6 +144,7 @@ material = ExtResource("47_tq7yy")
 size = Vector3(6, 6, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kc5sd"]
+albedo_texture = ExtResource("50_dhx8n")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbs5u"]
 render_priority = 0
@@ -152,6 +162,7 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0prxm"]
+albedo_texture = ExtResource("43_nbs5u")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2pegl"]
 render_priority = 0
@@ -175,6 +186,7 @@ radial_steps = 6
 section_length = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5n46"]
+albedo_texture = ExtResource("51_wkdsg")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q4rn"]
 friction = 0.4
@@ -217,6 +229,7 @@ transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.9924
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
+primary_se = ExtResource("5_8iy1x")
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
@@ -276,6 +289,8 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.057, 2.479, -7.607)
 object_ref = NodePath(".")
 interaction_type = 2
+primary_se = ExtResource("16_i6svr")
+secondary_se = ExtResource("17_nvpkd")
 
 [node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
@@ -595,10 +610,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_wkdsg")
+mesh = SubResource("PlaneMesh_nvpkd")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_0prxm")
+mesh = SubResource("PlaneMesh_fs8bd")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -659,7 +674,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="2" unique_id=442042857]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="2" unique_id=728076317]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -727,7 +742,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="2" unique_id=442042857]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="2" unique_id=728076317]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -784,7 +799,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="2" unique_id=442042857]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="2" unique_id=728076317]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -845,7 +860,7 @@ transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="2" unique_id=442042857]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="2" unique_id=728076317]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -936,6 +951,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.012, 2.479, -45.625)
 locked = false
 object_ref = NodePath(".")
 interaction_type = 2
+primary_se = ExtResource("16_i6svr")
+secondary_se = ExtResource("17_nvpkd")
 
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
 
@@ -1015,6 +1032,9 @@ shadow_enabled = true
 
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
+
+[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Elevator monitor base" parent_id_path=PackedInt32Array(1746680253, 220052432) index="1" unique_id=1439739362]
+primary_se = ExtResource("16_i6svr")
 
 [node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
