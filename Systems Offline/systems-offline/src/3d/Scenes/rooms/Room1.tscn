@@ -77,28 +77,28 @@ albedo_texture = ExtResource("43_nbs5u")
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kc5sd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0prxm"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0prxm"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_p5n46"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_kc5sd")
+albedo_texture = SubResource("ViewportTexture_0prxm")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_p5n46"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_8iy1x"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_0prxm")
+material = SubResource("ORMMaterial3D_p5n46")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8iy1x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_i6svr"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_i6svr"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nvpkd"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_8iy1x")
+albedo_texture = SubResource("ViewportTexture_i6svr")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_nvpkd"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_nnjxg"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_i6svr")
+material = SubResource("ORMMaterial3D_nvpkd")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -619,10 +619,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_p5n46")
+mesh = SubResource("PlaneMesh_8iy1x")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_nvpkd")
+mesh = SubResource("PlaneMesh_nnjxg")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1040,13 +1040,18 @@ shadow_enabled = true
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
 
-[node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
+[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Final_monitor alien elevator" parent_id_path=PackedInt32Array(1746680253, 533998609) index="1" unique_id=992554857 node_paths=PackedStringArray("player")]
+player = NodePath("../../../../ProtoController")
+
+[node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "elevator_on", "elevator_off", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
 inspect_type = 2
 puzzle_scene = "uid://0u4neuukgjki"
 puzzle_id = "elevator"
 power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
 power_on = NodePath("ElevatorPuzzle/WireCover/Green lightning bolt")
+elevator_on = NodePath("../Elevator 1st floor/Final_monitor alien elevator/Signal light green")
+elevator_off = NodePath("../Elevator 1st floor/Final_monitor alien elevator/Signal light red_001")
 wire_cover = NodePath("ElevatorPuzzle/WireCover")
 object_ref = NodePath("ElevatorPuzzle")
 interaction_type = 1

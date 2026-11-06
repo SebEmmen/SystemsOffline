@@ -8,7 +8,10 @@ enum ButtonType{
 @export var button_type: ButtonType
 
 @export_group("Elevator Button")
-@export var elevator: Node3D
+var active := false
+var inside := false
+@export var elevator_chamber: Node3D
+@export var elevator_door: Node3D
 @export var travel_distance: float = 5.0  # Height to travel up in meters
 @export var travel_time: float = 5.0     # Time in seconds to reach top
 var is_moving: bool = false
@@ -31,13 +34,30 @@ func interact() -> void:
 
 #region Elevator Button Functions
 func elevator_button_interact() -> void:
-	if not elevator or is_moving:
-		return
+	active = true
 
+
+func _on_area_3d_body_entered(area: Node3D) -> void:
+	inside = true
+	move_elevator()
+
+	print("I'm inside ", inside, " and button is pressed ", active)
+
+
+func _on_area_3d_body_exited(area: Node3D) -> void:
+	inside = false
+	print("I'm inside ", inside, " and button is pressed ", active)
+
+
+func move_elevator() -> void:
+	if not elevator_chamber or is_moving:
+		return
+	if not active or not inside or not SaveManager.is_puzzle_completed("elevator"):
+		return
 	is_moving = true
 	play_primary_se()
 	
-	var target_y: float = elevator.position.y + travel_distance
+	var target_y: float = elevator_chamber.position.y + travel_distance
 	var tween: Tween = create_tween()
 	
 	# Smooth acceleration and deceleration for a realistic elevator feel
@@ -45,7 +65,7 @@ func elevator_button_interact() -> void:
 	tween.set_ease(Tween.EASE_IN_OUT)
 	
 	# Animate the Y position smoothly
-	tween.tween_property(elevator, "position:y", target_y, travel_time)
+	tween.tween_property(elevator_chamber, "position:y", target_y, travel_time)
 	
 	# Reset moving state once movement finishes
 	tween.finished.connect(func(): is_moving = false)
