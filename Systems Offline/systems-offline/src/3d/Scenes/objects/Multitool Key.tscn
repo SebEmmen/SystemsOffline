@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c7ghe4578584d"]
+
+[ext_resource type="PackedScene" uid="uid://dp61d3o4kqi64" path="res://src/3d/Assets/Comm room/Final_Key multitoolcase.blend" id="1_b30ba"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b30ba"]
+size = Vector3(1.8708879, 46.374546, 2.8374617)
+
+[node name="Multitool key" type="Node3D" unique_id=551226247]
+
+[node name="Final_Key multitoolcase" parent="." unique_id=1538187201 instance=ExtResource("1_b30ba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11629915, 0, 0.2525053)
+
+[node name="Cylinder_005" parent="Final_Key multitoolcase" index="0" unique_id=1707217865]
+transform = Transform3D(0, 0.0845271, 0, -0.4395951, 0, 0, 0, 0, 0.4395951, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Key multitoolcase" unique_id=1295261733]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -1.1920929e-07, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Key multitoolcase/StaticBody3D" unique_id=646640387]
+transform = Transform3D(0, 0.0845271, 0, -0.43959504, 0, 0, 0, 0, 0.43959504, 1.9970816, 0, -0.0028115213)
+shape = SubResource("BoxShape3D_b30ba")
+
+[editable path="Final_Key multitoolcase"]

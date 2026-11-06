@@ -24,7 +24,7 @@ var is_transitioning := false
 @export_group("PickUp")
 @export var is_part_of_tutorial: bool = false
 @export var item_data: ItemData
-@export var pickup_message: Label
+@export var pickup_message: String
 #endregion
 
 

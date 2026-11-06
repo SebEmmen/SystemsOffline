@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://ceqfmd4emlkgo"]
 
 [ext_resource type="PackedScene" uid="uid://detgk0v3fn1cy" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="1_k3eft"]
+[ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="2_dsdyc"]
 [ext_resource type="PackedScene" uid="uid://hirjarnptmih" path="res://src/3d/Assets/Comm room/Final_Moving valve multitoolcase.blend" id="2_w1esd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3eft"]
 height = 3.341947
 radius = 1.1
 
-[node name="Final_Multitoolcase body" unique_id=754739194 instance=ExtResource("1_k3eft")]
+[node name="Final_Multitoolcase body" unique_id=754739194 node_paths=PackedStringArray("lid", "object_ref") instance=ExtResource("1_k3eft")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("2_dsdyc")
+unlockable_type = 2
+lid = NodePath("Glass Lid")
+object_ref = NodePath(".")
 
 [node name="Glass Lid" parent="." index="0" unique_id=717662518 instance=ExtResource("2_w1esd")]
 transform = Transform3D(0.39123785, 0.9202896, 0, -0.9202896, 0.39123785, 0, 0, 0, 1, -2.7794862, 0, 0)

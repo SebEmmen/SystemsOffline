@@ -3,7 +3,8 @@ extends InteractableComponent
 
 enum UnlockableType{
 	DOOR,
-	COVER
+	COVER,
+	CASE
 }
 
 @export var unlockable_type: UnlockableType
@@ -59,6 +60,9 @@ var audiotimer: bool = false
 @export var key_turn: Marker3D
 @export var key_hanger_target: Marker3D
 @export var key_arc_height: float = 0.8
+@export var sliding_door: Node3D
+@export var needskey_sounds: Array[AudioStream] = []
+@onready var needskey_sound_player: AudioStreamPlayer3D = $NeedsKeySoundPlayer
 
 
 var closed_left_rotation: float
@@ -69,9 +73,12 @@ var original_collision_mask: int
 
 #endregion
 
-@export var sliding_door: Node3D
-@export var needskey_sounds: Array[AudioStream] = []
-@onready var needskey_sound_player: AudioStreamPlayer3D = $NeedsKeySoundPlayer
+#region Case Specific Variables
+@export_group("Case")
+@export var lid: Node3D
+#endregion
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -93,6 +100,8 @@ func _ready() -> void:
 		
 		UnlockableType.DOOR:
 			ready_door()
+		UnlockableType.CASE:
+			ready_case()
 
 func interact() -> void:
 	match unlockable_type:
@@ -100,6 +109,8 @@ func interact() -> void:
 			interact_door()
 		UnlockableType.COVER:
 			open_cover()
+		UnlockableType.CASE:
+			open_lid()
 
 #region Door Functions
 
@@ -496,7 +507,20 @@ func fly_key_to_hanger() -> void:
 
 #endregion
 
+#region Case Functions
 
+func ready_case() -> void:
+	pass
+
+func open_lid() -> void:
+	if Inventory.has_item("multitool_key"):
+		locked = false
+	if locked:
+		print("Door is locked!")
+		Notification.locked_notification()
+		return
+	
+#endregion
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

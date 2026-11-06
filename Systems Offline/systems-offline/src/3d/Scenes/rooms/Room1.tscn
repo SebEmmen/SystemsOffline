@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="Texture2D" uid="uid://c67jhhpdmqvt5" path="res://src/3d/Resources/Worm.png" id="43_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
+[ext_resource type="Resource" uid="uid://b4yq2dwbxp6qt" path="res://src/3d/Resources/Multitool Key.tres" id="45_nnjxg"]
 [ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
@@ -64,6 +65,7 @@
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
+[ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool Key.tscn" id="67_nvpkd"]
 [ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
 [ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="72_cok2s"]
 
@@ -80,28 +82,28 @@ albedo_texture = ExtResource("43_nbs5u")
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i6svr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nnjxg"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nvpkd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_x8cbg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_i6svr")
+albedo_texture = SubResource("ViewportTexture_nnjxg")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_nnjxg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_fs8bd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_nvpkd")
+material = SubResource("ORMMaterial3D_x8cbg")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_x8cbg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s5xlb"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_fs8bd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cok2s"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_x8cbg")
+albedo_texture = SubResource("ViewportTexture_s5xlb")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_s5xlb"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_gav43"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_fs8bd")
+material = SubResource("ORMMaterial3D_cok2s")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -278,6 +280,9 @@ mouse_filter = 2
 [node name="Top Center label" parent="UI_Manger/NotificationUI" index="0" unique_id=528755349]
 offset_top = 36.0
 offset_bottom = 78.0
+
+[node name="Timer" parent="UI_Manger/NotificationUI" index="2" unique_id=413616360]
+wait_time = 2.0
 
 [node name="KeyHandUI" parent="." unique_id=973326925 instance=ExtResource("12_6lvv6")]
 
@@ -565,6 +570,13 @@ transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
+[node name="Multitool key" parent="CommsRoom" unique_id=551226247 node_paths=PackedStringArray("object_ref", "player") instance=ExtResource("67_nvpkd")]
+transform = Transform3D(-0.06757629, 0, -0.07371189, -0.009402253, 0.09918315, 0.008619632, 0.073109776, 0.01275541, -0.0670243, 13.833286, 1.3447382, -64.80668)
+script = ExtResource("24_70r7a")
+object_ref = NodePath(".")
+player = NodePath("../../ProtoController")
+item_data = ExtResource("45_nnjxg")
+
 [node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
@@ -625,10 +637,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_nnjxg")
+mesh = SubResource("PlaneMesh_fs8bd")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_s5xlb")
+mesh = SubResource("PlaneMesh_gav43")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1081,7 +1093,7 @@ visible = true
 push_force = 4.0
 
 [node name="Final_Multitoolcase body" parent="." unique_id=754739194 instance=ExtResource("71_s5xlb")]
-transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.2753582, -65.17566)
+transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
 
 [node name="Multitool" parent="Final_Multitoolcase body" unique_id=51961434 instance=ExtResource("72_cok2s")]
 transform = Transform3D(2.9993582, 0.062036842, 2.7117157e-09, 0, -1.3113416e-07, 2.9999995, 0.062036842, -2.9993582, -1.3110612e-07, 0.25037384, 0.03578472, 0.19265747)
