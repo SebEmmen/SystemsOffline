@@ -227,19 +227,33 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray") groups=["player"] instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, 0.42804193, 0.05406332, -31.80042)
 camera = NodePath("Head/Camera3D")
+arm = NodePath("Head/Camera3D/Arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
+can_move = true
+has_gravity = true
+can_sprint = true
+can_shrink = false
+is_shrunk = false
 can_gravity_invert = false
+gravity_invert = false
+look_speed = 0.002
+base_speed = 5.0
+sprint_speed = 7.0
+input_left = "move_left"
+input_right = "move_right"
+input_forward = "move_forward"
+input_back = "move_back"
+input_sprint = "sprint"
 primary_se = ExtResource("5_8iy1x")
-my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
-my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
+MAX_STEP_HEIGHT = 0.5
 
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
 transform = Transform3D(1, 1.7462298e-09, 0, 0, 1, 2.2351742e-07, 0, 0, 1, 0.0034953356, 0.9400237, -0.013009548)
 
-[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "crosshair_hand", "view_label")]
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="1" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "crosshair_hand", "view_label")]
 interaction_label = NodePath("../../../../HUD/InteractionLabel")
 crosshair = NodePath("../../../../HUD/Crosshair")
 crosshair_view = NodePath("../../../../HUD/ViewCrosshair")

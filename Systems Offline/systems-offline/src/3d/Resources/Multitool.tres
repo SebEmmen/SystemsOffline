@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://brb71d7y77g0x"]
+
+[ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="1_8fvcn"]
+[ext_resource type="Script" uid="uid://4tb0pxmych06" path="res://src/3d/Scripts/itemdata.gd" id="1_xki7e"]
+[ext_resource type="Texture2D" uid="uid://cm33wn28mivar" path="res://icon.svg" id="2_r0iqa"]
+
+[resource]
+script = ExtResource("1_xki7e")
+item_id = "mutitool"
+item_name = "Multitool"
+description = "Press q to view your multitool!"
+inventory_icon = ExtResource("2_r0iqa")
+inspect_scene = ExtResource("1_8fvcn")

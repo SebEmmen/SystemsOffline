@@ -6,6 +6,8 @@
 extends CharacterBody3D
 
 @export var camera: Camera3D
+@export var arm: Node3D
+var arm_show := false 
 @export var ray: RayCast3D
 @export var can_move: bool = true
 @export var has_gravity: bool = true
@@ -138,7 +140,7 @@ var controls_enabled := true
 func _ready() -> void:
 	_setup_audio_players()
 	check_input_mappings()
-
+	arm.visible = arm_show
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 
@@ -165,7 +167,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			capture_mouse()
-
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
@@ -183,7 +184,10 @@ func _physics_process(delta: float) -> void:
 	if has_gravity and gravity_invert:
 		if not is_on_ceiling():
 			velocity += get_gravity() * delta * -1
-
+	
+	if Input.is_action_just_pressed("arms") and Inventory.has_item("multitool"):
+		arm.visible = !arm_show
+		arm_show = !arm_show
 	# Shrinking
 	if can_shrink and controls_enabled and Input.is_action_just_pressed("shrink"):
 		var tween = create_tween().set_parallel(true)
