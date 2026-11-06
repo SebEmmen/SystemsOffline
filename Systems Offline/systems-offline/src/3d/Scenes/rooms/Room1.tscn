@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="AudioStream" uid="uid://dmvlt1d30wstb" path="res://src/3d/Sound/key pickup.mp3" id="24_gav43"]
+[ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
@@ -76,28 +77,28 @@ albedo_texture = ExtResource("43_nbs5u")
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gav43"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kc5sd"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hd0mg"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0prxm"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_gav43")
+albedo_texture = SubResource("ViewportTexture_kc5sd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rwc1x"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_p5n46"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_hd0mg")
+material = SubResource("ORMMaterial3D_0prxm")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_04e8d"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8iy1x"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_i6svr"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_04e8d")
+albedo_texture = SubResource("ViewportTexture_8iy1x")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_a016q"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_nvpkd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_3kfck")
+material = SubResource("ORMMaterial3D_i6svr")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -285,6 +286,20 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.057, 2.479, -7.607)
 object_ref = NodePath(".")
 interaction_type = 2
+
+[node name="Hint Tutorial Room" type="Node" parent="Tutorial Room" unique_id=1831487568]
+
+[node name="HintObject" parent="Tutorial Room/Hint Tutorial Room" unique_id=1149939097 instance=ExtResource("25_354s1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.564278, 5.1550264, -7.512353)
+
+[node name="HintObject2" parent="Tutorial Room/Hint Tutorial Room" unique_id=459236503 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.307488, 5.1550264, -7.512353)
+
+[node name="HintObject3" parent="Tutorial Room/Hint Tutorial Room" unique_id=1799809411 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.94293344, 5.1550264, -7.5302444)
+
+[node name="HintObject4" parent="Tutorial Room/Hint Tutorial Room" unique_id=1193332617 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.9639058, 5.1550264, -7.512353)
 
 [node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
@@ -604,10 +619,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_rwc1x")
+mesh = SubResource("PlaneMesh_p5n46")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_a016q")
+mesh = SubResource("PlaneMesh_nvpkd")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
