@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dp70bgqvlx2sr"]
 
+[ext_resource type="Script" uid="uid://cu3u2v22yf152" path="res://src/3d/Scenes/objects/Hand/arms.gd" id="1_ln4ue"]
 [ext_resource type="Script" uid="uid://ckckw55p70rq0" path="res://src/3d/Scenes/objects/Hand/skeleton_3d.gd" id="1_tdqcs"]
 [ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="2_ihtda"]
 
@@ -191,7 +192,16 @@ bind/50/name = &"RightHandThumb4"
 bind/50/bone = -1
 bind/50/pose = Transform3D(34.683083, 46.557003, 81.42194, 80.1936, -59.740974, -2.1827875e-05, 48.64225, 65.29519, -58.05576, 10.286171, 53.69987, 65.13612)
 
-[node name="Arms" type="Node3D" unique_id=791901379]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5ekl"]
+albedo_color = Color(0.2994448, 0.1365954, 0.004558271, 1)
+
+[node name="Arms" type="Node3D" unique_id=791901379 node_paths=PackedStringArray("multiool", "multitool_part_1", "multitool_part_2", "multitool_part_3", "multitool_part_4")]
+script = ExtResource("1_ln4ue")
+multiool = NodePath("Multitool")
+multitool_part_1 = NodePath("Multitool/multitool piece 1 lit /Circle_006")
+multitool_part_2 = NodePath("Multitool/eye left lit/eye left")
+multitool_part_3 = NodePath("Multitool/eye right lit /eye right")
+multitool_part_4 = NodePath("Multitool/eye middle lit/eye middle")
 
 [node name="arms" type="Node3D" parent="." unique_id=887340297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11279583, -1.1920929e-07, -0.47696662)
@@ -577,9 +587,11 @@ script = ExtResource("1_tdqcs")
 mesh = SubResource("ArrayMesh_qrr6a")
 skin = SubResource("Skin_awwk3")
 skeleton = NodePath("..")
+surface_material_override/0 = SubResource("StandardMaterial3D_e5ekl")
 
 [node name="Multitool" parent="." unique_id=51961434 instance=ExtResource("2_ihtda")]
 transform = Transform3D(0.025486888, 0.09569183, 0.013910155, -0.055589993, 0.0027291588, 0.083080105, 0.07912125, -0.028907178, 0.053890653, -0.5043904, -0.04938608, -0.37211272)
+is_multitool = true
 
 [node name="eye left lit" parent="Multitool" index="1" unique_id=936582030]
 visible = false

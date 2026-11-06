@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_xki7e")
-item_id = "mutitool"
+item_id = "multitool"
 item_name = "Multitool"
 description = "Press q to view your multitool!"
 inventory_icon = ExtResource("2_r0iqa")

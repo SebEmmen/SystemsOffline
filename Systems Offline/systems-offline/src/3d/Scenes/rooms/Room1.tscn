@@ -66,6 +66,7 @@
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool Key.tscn" id="67_nvpkd"]
+[ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="69_x8cbg"]
 [ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
 [ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="72_cok2s"]
 
@@ -82,28 +83,28 @@ albedo_texture = ExtResource("43_nbs5u")
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nnjxg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fs8bd"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_x8cbg"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_s5xlb"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_nnjxg")
+albedo_texture = SubResource("ViewportTexture_fs8bd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_fs8bd"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_cok2s"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_x8cbg")
+material = SubResource("ORMMaterial3D_s5xlb")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s5xlb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gav43"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cok2s"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hd0mg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_s5xlb")
+albedo_texture = SubResource("ViewportTexture_gav43")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_gav43"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_rwc1x"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_cok2s")
+material = SubResource("ORMMaterial3D_hd0mg")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -232,23 +233,8 @@ transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.9924
 camera = NodePath("Head/Camera3D")
 arm = NodePath("Head/Camera3D/Arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
-can_move = true
-has_gravity = true
-can_sprint = true
-can_shrink = false
-is_shrunk = false
 can_gravity_invert = false
-gravity_invert = false
-look_speed = 0.002
-base_speed = 5.0
-sprint_speed = 7.0
-input_left = "move_left"
-input_right = "move_right"
-input_forward = "move_forward"
-input_back = "move_back"
-input_sprint = "sprint"
 primary_se = ExtResource("5_8iy1x")
-MAX_STEP_HEIGHT = 0.5
 
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
 transform = Transform3D(1, 1.7462298e-09, 0, 0, 1, 2.2351742e-07, 0, 0, 1, 0.0034953356, 0.9400237, -0.013009548)
@@ -652,10 +638,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_fs8bd")
+mesh = SubResource("PlaneMesh_cok2s")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_gav43")
+mesh = SubResource("PlaneMesh_rwc1x")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1111,7 +1097,9 @@ push_force = 4.0
 transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
 
 [node name="Multitool" parent="Final_Multitoolcase body" unique_id=51961434 instance=ExtResource("72_cok2s")]
-transform = Transform3D(2.9993582, 0.062036842, 2.7117157e-09, 0, -1.3113416e-07, 2.9999995, 0.062036842, -2.9993582, -1.3110612e-07, 0.25037384, 0.03578472, 0.19265747)
+transform = Transform3D(2.9993587, 0.062036842, 2.7117162e-09, 0, -1.3113416e-07, 2.9999995, 0.062036842, -2.9993587, -1.3110613e-07, -0.3503418, 0.035783768, -11.775085)
+item_data = ExtResource("69_x8cbg")
+is_multitool = true
 
 [node name="multitool piece 1 lit " parent="Final_Multitoolcase body/Multitool" index="0" unique_id=961166787]
 visible = false

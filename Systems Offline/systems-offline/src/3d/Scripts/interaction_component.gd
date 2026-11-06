@@ -25,6 +25,7 @@ var is_transitioning := false
 @export var is_part_of_tutorial: bool = false
 @export var item_data: ItemData
 @export var pickup_message: String
+@export var is_multitool:= false
 #endregion
 
 
@@ -104,9 +105,8 @@ func interact() -> void:
 			print("Object has been picked up!")
 			Notification.show_pickup_notification(item_data)
 			Inventory.add_item(item_data)
-			if Inventory.has_item("tutorial_key"):
-				print("You found a key! Press tab and inspect it!")
-			await get_tree().create_timer(0.25).timeout
+			if is_multitool:
+				Notification.show_message("Press q to view the multitool!", true)
 			queue_free()
 			
 		InteractionType.INSPECT:

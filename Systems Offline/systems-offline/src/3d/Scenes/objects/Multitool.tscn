@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="1_e5ekl"]
 [ext_resource type="PackedScene" uid="uid://vxf6h64ntutw" path="res://src/3d/Assets/Multitool/MULTITOOL MAIN BODY.blend" id="1_n3ln2"]
-[ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="2_py04d"]
 [ext_resource type="PackedScene" uid="uid://bqcm0vibgnx7n" path="res://src/3d/Assets/Multitool/multitool piece 1 lit .blend" id="2_u2qmr"]
 [ext_resource type="PackedScene" uid="uid://bb4u14wbkpjtp" path="res://src/3d/Assets/Multitool/eye left lit.blend" id="3_u2qmr"]
 [ext_resource type="PackedScene" uid="uid://dced447ypwtda" path="res://src/3d/Assets/Multitool/eye middle lit.blend" id="4_jdof4"]
@@ -27,7 +26,6 @@ data = PackedVector3Array(0.5751, -0.20099999, 0.65459996, 0.70199996, -0.148199
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_e5ekl")
 object_ref = NodePath(".")
-item_data = ExtResource("2_py04d")
 
 [node name="multitool piece 1 lit " parent="." unique_id=961166787 instance=ExtResource("2_u2qmr")]
 
