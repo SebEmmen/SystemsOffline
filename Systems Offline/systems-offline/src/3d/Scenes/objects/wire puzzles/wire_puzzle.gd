@@ -449,6 +449,8 @@ func _try_connect_to_socket() -> bool:
 			closest_distance = distance
 	if closest == null:
 		return false
+	closest.play_primary_se()
+	closest.play_secondary_se()
 	connect_to_socket(closest)
 	return true
 

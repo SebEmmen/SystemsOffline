@@ -212,6 +212,8 @@ func connect_bridge(socket_a: WireSocket, socket_b: WireSocket) -> void:
 	global_position += offset
 
 	animate_core_light(true)
+	socket_a.play_primary_se()
+	socket_a.play_secondary_se()
 	bridge_connected.emit(socket_a, socket_b)
 
 

@@ -311,6 +311,7 @@ func open_cover() -> void:
 	# 1. Show key in front of keypad
 	key.global_transform = key_start.global_transform
 	key.show()
+	play_tertiary_se()
 
 	await get_tree().create_timer(0.25).timeout
 
@@ -320,11 +321,13 @@ func open_cover() -> void:
 	await get_tree().create_timer(0.2).timeout
 
 	# 3. Turn key
+	play_secondary_se()
 	await move_key_to(key_turn, 0.5)
 
 	await get_tree().create_timer(0.25).timeout
 
 	# 4. Open cover
+	play_primary_se()
 	var tween := create_tween()
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_QUAD)

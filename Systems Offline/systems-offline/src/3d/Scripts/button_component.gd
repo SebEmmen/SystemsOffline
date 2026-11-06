@@ -35,6 +35,7 @@ func elevator_button_interact() -> void:
 		return
 
 	is_moving = true
+	play_primary_se()
 	
 	var target_y: float = elevator.position.y + travel_distance
 	var tween: Tween = create_tween()
