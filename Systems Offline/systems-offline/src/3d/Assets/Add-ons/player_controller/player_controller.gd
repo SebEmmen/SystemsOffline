@@ -254,14 +254,11 @@ func _physics_process(delta: float) -> void:
 				move_speed
 			)
 
-			if primary_audio_player.playing:
-				primary_audio_player.stop()
-
 	else:
 		velocity.x = 0
 		velocity.z = 0
-		
-		if primary_audio_player.playing:
+
+	if primary_audio_player.playing and (velocity.x == 0 and velocity.z == 0):
 			primary_audio_player.stop()
 
 			
