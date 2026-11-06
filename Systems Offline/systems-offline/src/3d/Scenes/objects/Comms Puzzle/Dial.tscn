@@ -1,0 +1,261 @@
+[gd_scene format=3 uid="uid://ch741f0ratfnn"]
+
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="1_7v4ac"]
+
+[sub_resource type="GDScript" id="GDScript_7v4ac"]
+script/source = "class_name TurnableComponent
+extends InteractableComponent
+
+signal dial_turned(angle_degrees: float)
+signal dial_snapped(index: int, symbol: String)
+
+enum TurnType {
+	DIAL
+}
+
+@export var turn_type: TurnType = TurnType.DIAL
+
+@export_group(\"Monitor\")
+## The InspectComponent (type MONITOR) on the monitor this dial belongs to
+@export var monitor: InspectComponent
+
+@export_group(\"Dial\")
+## The node that spins (your \"Rotation Dial\")
+@export var dial_pivot: Node3D
+@export var turn_axis: Vector3 = Vector3.UP
+## Number of stops around the dial
+@export var positions: int = 8
+## One entry per stop, e.g. [\"A\", \"B\", \"C\", ...]
+@export var symbols: Array[String] = []
+@export var snap_duration: float = 0.2
+@export var turn_sensitivity: float = 1.0
+## Only start a drag if the click is within this many pixels of the dial center (0 = anywhere)
+@export var grab_radius_px: float = 0.0
+
+@export_group(\"Debug\")
+## Tick to test the dial scene on its own, without a monitor
+@export var debug_always_active := false
+
+var can_turn := false
+var current_index: int = 0
+
+var _dragging := false
+var _last_mouse_angle := 0.0
+var _angle := 0.0   # radians, absolute
+var _initial_basis: Basis
+var _snap_tween: Tween
+
+
+func _ready() -> void:
+	_setup_audio_players()
+
+	if dial_pivot:
+		_initial_basis = dial_pivot.transform.basis
+	else:
+		push_warning(\"TurnableComponent: 'dial_pivot' is not assigned on \" + name)
+
+	if monitor:
+		monitor.monitor_entered.connect(_on_monitor_entered)
+		monitor.monitor_exited.connect(_on_monitor_exited)
+	elif not debug_always_active:
+		push_warning(\"TurnableComponent: 'monitor' is not assigned on \" + name)
+
+	if debug_always_active:
+		is_interacting = true
+		can_turn = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+# The monitor handles interaction, so the dial itself is never interacted with directly
+func interact() -> void:
+	pass
+
+
+func _on_monitor_entered() -> void:
+	is_interacting = true
+	can_turn = true
+
+
+func _on_monitor_exited() -> void:
+	can_turn = false
+	is_interacting = false
+	_dragging = false
+	if _snap_tween:
+		_snap_tween.kill()
+	_snap_immediately()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_interacting or not can_turn or dial_pivot == null:
+		return
+	if SaveManager.dial_puzzle_completed:
+		return   # solved, dial is locked
+
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			if _mouse_on_dial():
+				if _snap_tween:
+					_snap_tween.kill()   # grab it mid-snap
+				_dragging = true
+				_last_mouse_angle = _get_mouse_angle()
+		elif _dragging:
+			_dragging = false
+			_snap()
+
+	elif event is InputEventMouseMotion and _dragging:
+		var current := _get_mouse_angle()
+		var delta := wrapf(current - _last_mouse_angle, -PI, PI) * turn_sensitivity
+		_last_mouse_angle = current
+
+		# Flip direction depending on which way the axis faces the camera
+		var cam := get_viewport().get_camera_3d()
+		var axis_world := (dial_pivot.global_transform.basis * turn_axis).normalized()
+		if axis_world.dot(cam.global_transform.basis.z) > 0.0:
+			delta = -delta
+
+		_set_angle(_angle + delta)
+		dial_turned.emit(rad_to_deg(_angle))
+
+
+#region Rotation helpers
+func _set_angle(a: float) -> void:
+	_angle = a
+	dial_pivot.transform.basis = _initial_basis * Basis(turn_axis.normalized(), a)
+
+
+func _get_dial_center() -> Vector2:
+	return get_viewport().get_camera_3d().unproject_position(dial_pivot.global_position)
+
+
+func _get_mouse_angle() -> float:
+	return (get_viewport().get_mouse_position() - _get_dial_center()).angle()
+
+
+func _mouse_on_dial() -> bool:
+	if grab_radius_px <= 0.0:
+		return true
+	return get_viewport().get_mouse_position().distance_to(_get_dial_center()) <= grab_radius_px
+#endregion
+
+
+#region Snapping
+func _snap() -> void:
+	var step := TAU / positions
+	var target_step := roundi(_angle / step)
+	var target := target_step * step
+
+	if _snap_tween:
+		_snap_tween.kill()
+	_snap_tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_snap_tween.tween_method(_set_angle, _angle, target, snap_duration)
+	await _snap_tween.finished
+
+	current_index = wrapi(target_step, 0, positions)
+	play_primary_se()   # click sound, optional
+	dial_snapped.emit(current_index, get_current_symbol())
+
+
+# Used if the player leaves mid-snap, so the dial never rests between stops
+func _snap_immediately() -> void:
+	var step := TAU / positions
+	var target_step := roundi(_angle / step)
+	_set_angle(target_step * step)
+	current_index = wrapi(target_step, 0, positions)
+
+
+func get_current_symbol() -> String:
+	if current_index < symbols.size():
+		return symbols[current_index]
+	return str(current_index)
+#endregion
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v4ac"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l42ft"]
+material = SubResource("StandardMaterial3D_7v4ac")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.003
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7v4ac"]
+top_radius = 0.09
+bottom_radius = 0.09
+height = 0.001
+radial_segments = 6
+
+[node name="Dial" type="Node3D" unique_id=351563062 node_paths=PackedStringArray("dial_pivot", "object_ref")]
+script = SubResource("GDScript_7v4ac")
+dial_pivot = NodePath("Rotation Dial")
+object_ref = NodePath(".")
+interaction_type = 5
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=39295914]
+mesh = SubResource("CylinderMesh_l42ft")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGMesh3D" unique_id=742759698]
+transform = Transform3D(0.70481396, 0, 0.7093922, 0, 1, 0, -0.7093922, 0, 0.70481396, 0, 0, -0.09324117)
+operation = 2
+size = Vector3(0.1, 0.02, 0.1)
+
+[node name="Rotation Dial" type="MeshInstance3D" parent="." unique_id=150685165]
+transform = Transform3D(-0.003260374, 0, -0.99999475, 0, 1, 0, 0.99999475, 0, -0.003260374, 0, 0, -0.001)
+mesh = SubResource("CylinderMesh_7v4ac")
+
+[node name="Correct letter" type="Label3D" parent="Rotation Dial" unique_id=1220917663]
+transform = Transform3D(0.017490055, -0.009700409, 0, -4.2401835e-10, -7.645146e-10, -0.02, 0.009700409, 0.017490055, -8.7422775e-10, 0.027, 0.001, -0.047)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "h"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter" type="Label3D" parent="Rotation Dial" unique_id=1421538477]
+transform = Transform3D(-0.00024280045, -0.019998526, 7.6960605e-10, -4.2401835e-10, -7.645146e-10, -0.02, 0.019998526, -0.00024280045, -4.1470594e-10, 0.056, 0.001, 0.001)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "o"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter2" type="Label3D" parent="Rotation Dial" unique_id=700008622]
+transform = Transform3D(-0.01712534, -0.010330666, 7.6960616e-10, -8.7319774e-10, -4.2427888e-11, -0.02, 0.010330666, -0.01712534, -4.1470594e-10, 0.029, 0.001, 0.046)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "v"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter3" type="Label3D" parent="Rotation Dial" unique_id=971918188]
+transform = Transform3D(-0.017295875, -0.010042546, 7.6960605e-10, -8.737856e-10, -2.780489e-11, -0.02, 0.010042546, -0.017295875, -4.1470594e-10, -0.029013086, 0.0009999978, -0.04966012)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "d"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter4" type="Label3D" parent="Rotation Dial" unique_id=150252063]
+transform = Transform3D(9.906362e-06, -0.019999998, 7.69606e-10, -4.143247e-10, -7.698111e-10, -0.02, 0.019999998, 9.906362e-06, -4.1470594e-10, -0.05703888, 0.0009999957, 0.00022601988)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "t"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Letter5" type="Label3D" parent="Rotation Dial" unique_id=947497575]
+transform = Transform3D(-0.01695464, 0.010608501, -4.6063875e-11, -4.240184e-10, -7.6451473e-10, -0.020000001, -0.010608501, -0.01695464, 8.730136e-10, -0.02576118, 0.0010000023, 0.047776207)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.28485027, 0.28485027, 0.28485027, 1)
+text = "i"
+font = ExtResource("1_7v4ac")
+font_size = 500
+outline_size = 5
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1581201814]
+transform = Transform3D(0.9999619, 0.008725091, -0.00015924594, 0, 0.018248456, 0.99983346, 0.008726544, -0.9997954, 0.01824776, -0.002136718, 0.17456245, 0.007869348)
