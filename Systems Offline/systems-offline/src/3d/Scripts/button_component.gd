@@ -35,9 +35,13 @@ func interact() -> void:
 #region Elevator Button Functions
 func elevator_button_interact() -> void:
 	active = true
+	if active and SaveManager.is_puzzle_completed("elevator"):
+		Notification.show_message("The elevator is leaving soon! Step inside!", true)
 
 
 func _on_area_3d_body_entered(area: Node3D) -> void:
+	if not player.is_in_group("player"):
+		return
 	inside = true
 	move_elevator()
 
@@ -45,6 +49,8 @@ func _on_area_3d_body_entered(area: Node3D) -> void:
 
 
 func _on_area_3d_body_exited(area: Node3D) -> void:
+	if not player.is_in_group("player"):
+		return
 	inside = false
 	print("I'm inside ", inside, " and button is pressed ", active)
 
@@ -56,6 +62,7 @@ func move_elevator() -> void:
 		return
 	is_moving = true
 	play_primary_se()
+	player.disable_controls()
 	
 	var target_y: float = elevator_chamber.position.y + travel_distance
 	var tween: Tween = create_tween()
