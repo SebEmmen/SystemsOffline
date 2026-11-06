@@ -286,7 +286,8 @@ func ready_puzzle() -> void:
 	power_off.visible = not fixed
 	
 	if fixed:
-		unlock_connected_wires(true)
+		await get_tree().process_frame
+		unlock_connected_wires(false)
 
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
