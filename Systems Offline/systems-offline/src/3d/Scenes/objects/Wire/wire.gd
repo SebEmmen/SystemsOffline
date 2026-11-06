@@ -15,100 +15,174 @@ extends Path3D
 
 @export_category("Animation")
 @export var animation_duration: float = 2.0
+
 @export var wire_shader: Shader:
 	set(value):
 		wire_shader = value
 		update_wire()
 
+
 var wire_material: ShaderMaterial
 var unlock_tween: Tween
 var is_unlocked: bool = false
 
-@onready var wire_mesh: MeshInstance3D = $WireMesh
+var wire_mesh: MeshInstance3D
+var connected_curve: Curve3D
 
 
 func _ready() -> void:
-	if curve != null:
-		if not curve.changed.is_connected(update_wire):
-			curve.changed.connect(update_wire)
+	wire_mesh = get_node_or_null("WireMesh")
 
+	connect_curve()
+	set_process(true)
 	update_wire()
 
 
+func _process(_delta: float) -> void:
+	# Detect when Make Unique replaces the Curve3D resource.
+	if curve != connected_curve:
+		connect_curve()
+		update_wire()
+
+
+func _exit_tree() -> void:
+	if connected_curve != null:
+		if connected_curve.changed.is_connected(update_wire):
+			connected_curve.changed.disconnect(update_wire)
+
+	connected_curve = null
+
+
+func connect_curve() -> void:
+	# Disconnect the previous curve.
+	if connected_curve != null:
+		if connected_curve.changed.is_connected(update_wire):
+			connected_curve.changed.disconnect(update_wire)
+
+	# Connect the new curve.
+	connected_curve = curve
+
+	if connected_curve != null:
+		if not connected_curve.changed.is_connected(update_wire):
+			connected_curve.changed.connect(update_wire)
+
+
 func update_wire() -> void:
-	if not is_node_ready():
+	if not is_inside_tree():
 		return
 
+	# Retrieve the child safely, including in the editor.
+	wire_mesh = get_node_or_null("WireMesh")
+
+	if wire_mesh == null:
+		return
+
+	# Always clear the previous generated geometry.
+	wire_mesh.mesh = null
+
+	# A wire requires at least two curve points.
 	if curve == null or curve.point_count < 2:
-		wire_mesh.mesh = null
 		return
 
-	var points := curve.get_baked_points()
+	var baked_points: PackedVector3Array = curve.get_baked_points()
+
+	if baked_points.size() < 2:
+		return
+
+	# Remove duplicate consecutive points.
+	var points: Array[Vector3] = []
+
+	for point in baked_points:
+		if points.is_empty():
+			points.append(point)
+		elif points.back().distance_squared_to(point) > 0.000001:
+			points.append(point)
 
 	if points.size() < 2:
-		wire_mesh.mesh = null
+		return
+
+	# Calculate total length.
+	var total_length: float = 0.0
+
+	for i in range(1, points.size()):
+		total_length += points[i - 1].distance_to(points[i])
+
+	if total_length < 0.0001:
 		return
 
 	var surface := SurfaceTool.new()
 	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
 
-	# Calculate total wire length.
-	var total_length := 0.0
+	var current_length: float = 0.0
 
-	for i in range(1, points.size()):
-		total_length += points[i - 1].distance_to(points[i])
+	# Maintain a consistent orientation along the wire.
+	var previous_axis: Vector3 = Vector3.ZERO
 
-	var current_length := 0.0
-
-	# Generate the wire geometry.
 	for i in range(points.size()):
-
 		if i > 0:
 			current_length += points[i - 1].distance_to(points[i])
 
+		# Calculate the direction along the curve.
 		var direction: Vector3
 
 		if i < points.size() - 1:
-			direction = (
-				points[i + 1] - points[i]
-			).normalized()
+			direction = points[i + 1] - points[i]
 		else:
-			direction = (
-				points[i] - points[i - 1]
-			).normalized()
+			direction = points[i] - points[i - 1]
 
-		var axis := direction.cross(Vector3.UP)
+		if direction.length_squared() < 0.000001:
+			continue
 
-		if axis.length_squared() < 0.001:
-			axis = direction.cross(Vector3.RIGHT)
+		direction = direction.normalized()
 
-		axis = axis.normalized()
+		var axis: Vector3
 
-		var second_axis := direction.cross(axis).normalized()
+		if i == 0:
+			# Choose a reference axis perpendicular to the wire.
+			axis = direction.cross(Vector3.UP)
+
+			if axis.length_squared() < 0.0001:
+				axis = direction.cross(Vector3.RIGHT)
+
+			axis = axis.normalized()
+		else:
+			# Keep the orientation consistent between rings.
+			axis = previous_axis - direction * previous_axis.dot(direction)
+
+			if axis.length_squared() < 0.0001:
+				axis = direction.cross(Vector3.UP)
+
+				if axis.length_squared() < 0.0001:
+					axis = direction.cross(Vector3.RIGHT)
+
+			axis = axis.normalized()
+
+		var second_axis: Vector3 = direction.cross(axis).normalized()
+
+		previous_axis = axis
 
 		# Generate circular vertices.
 		for j in range(wire_sides):
+			var angle: float = TAU * float(j) / float(wire_sides)
 
-			var angle := TAU * float(j) / float(wire_sides)
-
-			var offset := (
+			var offset: Vector3 = (
 				axis * cos(angle)
 				+ second_axis * sin(angle)
 			) * wire_radius
 
-			# UV.y represents distance along the wire.
+			# UV.y represents progress along the wire.
 			surface.set_uv(Vector2(
 				float(j) / float(wire_sides),
-				current_length / maxf(total_length, 0.0001)
+				current_length / total_length
 			))
 
 			surface.add_vertex(points[i] + offset)
 
 			# Connect adjacent rings.
 			if i > 0:
-				var previous := (i - 1) * wire_sides
-				var current := i * wire_sides
-				var next_j := (j + 1) % wire_sides
+				var previous: int = (i - 1) * wire_sides
+				var current: int = i * wire_sides
+				var next_j: int = (j + 1) % wire_sides
 
 				surface.add_index(previous + j)
 				surface.add_index(previous + next_j)
@@ -120,9 +194,8 @@ func update_wire() -> void:
 
 	surface.generate_normals()
 
-	# Create a unique shader material for this wire.
+	# Give each wire its own shader material.
 	if wire_shader != null:
-
 		if wire_material == null or wire_material.shader != wire_shader:
 			wire_material = ShaderMaterial.new()
 			wire_material.shader = wire_shader
@@ -134,6 +207,7 @@ func update_wire() -> void:
 
 		surface.set_material(wire_material)
 
+	# Assign the generated mesh.
 	wire_mesh.mesh = surface.commit()
 
 
@@ -142,8 +216,6 @@ func set_unlocked(instant: bool = false) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	# Remember the state, so update_wire() builds the material already green
-	# if the wire wasn't ready yet.
 	is_unlocked = true
 
 	if wire_material == null:

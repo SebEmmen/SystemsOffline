@@ -17,56 +17,56 @@
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
-[ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
-[ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
-[ext_resource type="AudioStream" uid="uid://bwja2h58o1j43" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
+[ext_resource type="AudioStream" uid="uid://dn86x2ggmufd4" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
+[ext_resource type="AudioStream" uid="uid://bnrsdeehdcn3q" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
+[ext_resource type="AudioStream" uid="uid://g2o2wcjmubqo" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
 [ext_resource type="AudioStream" uid="uid://crtn1kyqdb6p" path="res://src/3d/Sound/wire successfully connected.mp3" id="20_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://c1ydfekgg24uw" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
-[ext_resource type="AudioStream" uid="uid://ju56lox6s3wj" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
+[ext_resource type="AudioStream" uid="uid://b1g3v516l0oj" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
+[ext_resource type="AudioStream" uid="uid://c6jyx2tgtyq4m" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
 [ext_resource type="AudioStream" uid="uid://dpqtcsyejop65" path="res://src/3d/Sound/keypad unlock.mp3" id="22_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://dpml20gos6hgp" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
-[ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
+[ext_resource type="AudioStream" uid="uid://dcl7bk8txuyb" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
+[ext_resource type="AudioStream" uid="uid://fsmay3kdlfgv" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="AudioStream" uid="uid://dmvlt1d30wstb" path="res://src/3d/Sound/key pickup.mp3" id="24_gav43"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://dj6vdnstdwjdh" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
 [ext_resource type="PackedScene" uid="uid://cwjy3vgjfdqli" path="res://src/3d/Scenes/objects/platform.scn" id="32_eivic"]
 [ext_resource type="PackedScene" uid="uid://cwwdt0ekwbfyd" path="res://src/3d/Scenes/objects/Delivery_Tubes.tscn" id="32_io4pa"]
 [ext_resource type="Script" uid="uid://ni6vx5y34e64" path="res://src/3d/Scenes/rooms/key_cinematic_preview.gd" id="32_tbpsc"]
-[ext_resource type="AudioStream" uid="uid://cetu60xrve4km" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="33_dhx8n"]
-[ext_resource type="AudioStream" uid="uid://bhgvx7fltko41" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="34_wkdsg"]
-[ext_resource type="AudioStream" uid="uid://b47cisj106gl4" path="res://src/3d/Sound/random phrases/Its locked/Its locked_3.wav" id="35_sr45x"]
+[ext_resource type="AudioStream" uid="uid://dx6skcsrxw6h8" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="33_dhx8n"]
+[ext_resource type="AudioStream" uid="uid://bo8kt4hei7obl" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="34_wkdsg"]
+[ext_resource type="AudioStream" uid="uid://1twjurietuy4" path="res://src/3d/Sound/random phrases/Its locked/Its locked_3.wav" id="35_sr45x"]
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
-[ext_resource type="AudioStream" uid="uid://b2vrlrb0oddhe" path="res://src/3d/Sound/random phrases/Its locked/Its locked_4.wav" id="36_kc5sd"]
-[ext_resource type="AudioStream" uid="uid://b4khn8rwufho7" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="37_0prxm"]
+[ext_resource type="AudioStream" uid="uid://cmwsrg56wg7fy" path="res://src/3d/Sound/random phrases/Its locked/Its locked_4.wav" id="36_kc5sd"]
+[ext_resource type="AudioStream" uid="uid://cituqjqgul4kw" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="37_0prxm"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
-[ext_resource type="PackedScene" uid="uid://dyalo2q63ur1x" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
+[ext_resource type="PackedScene" uid="uid://cd17fyvi3shoj" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
-[ext_resource type="Texture2D" uid="uid://doofkxmq8g04f" path="res://src/3d/Resources/Worm.png" id="43_nbs5u"]
+[ext_resource type="Texture2D" uid="uid://msoheyas6cxm" path="res://src/3d/Resources/Images/worm.png" id="43_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
-[ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
-[ext_resource type="PackedScene" uid="uid://cq4311fnvpfe7" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
+[ext_resource type="PackedScene" uid="uid://b1b18jjlkmy51" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
+[ext_resource type="PackedScene" uid="uid://bc82l0llub0a3" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
-[ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
+[ext_resource type="PackedScene" uid="uid://c6bwm0b2msxb3" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
-[ext_resource type="PackedScene" uid="uid://b7fnikvqjlpsv" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
-[ext_resource type="PackedScene" uid="uid://bthcc0rgn11ki" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
-[ext_resource type="Texture2D" uid="uid://b5xxny7feyb5m" path="res://src/3d/Resources/Apple.png" id="49_e6fu1"]
-[ext_resource type="Texture2D" uid="uid://b3ocw8e0ecnc5" path="res://src/3d/Resources/Euro.png" id="50_dhx8n"]
+[ext_resource type="PackedScene" uid="uid://bunl8ufn5e35o" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
+[ext_resource type="PackedScene" uid="uid://cfcjbjfyw4thd" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
+[ext_resource type="Texture2D" uid="uid://us3hmc8kh1ai" path="res://src/3d/Resources/Images/apple.png" id="49_e6fu1"]
+[ext_resource type="Texture2D" uid="uid://chkr4b4yq3xmm" path="res://src/3d/Resources/Images/euro.png" id="50_dhx8n"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
-[ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
-[ext_resource type="PackedScene" uid="uid://17e1l2knwo6t" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
-[ext_resource type="Texture2D" uid="uid://bkhgq2eau0gak" path="res://src/3d/Resources/Flute.png" id="51_wkdsg"]
+[ext_resource type="ArrayMesh" uid="uid://hycv8flav4ft" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
+[ext_resource type="PackedScene" uid="uid://c1uymnwlv7135" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
+[ext_resource type="Texture2D" uid="uid://bo6o6ybwr4p6o" path="res://src/3d/Resources/Images/flute.png" id="51_wkdsg"]
 [ext_resource type="PackedScene" uid="uid://bhwxxxofw83li" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://cykucbye25euv" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
@@ -215,7 +215,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -2.5200272)
+transform = Transform3D(-0.3947529, 0.15882546, -0.9049554, 0, 0.98494565, 0.17286424, 0.9187871, 0.06823866, -0.38881016, -11.420635, 0.07414508, -68.385155)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -552,7 +552,7 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door handle2" parent="Tutorial Room/TutorialDoor/Final_Door left" unique_id=2041671739 instance=ExtResource("49_2pegl")]
 transform = Transform3D(-1, 1.2079664e-07, -3.3881318e-21, -1.509958e-07, -0.8, -2.961999e-28, -3.3881318e-21, 1.7231503e-28, 1, 0, -0.21, 0)
 
-[node name="Cylinder" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" index="2" unique_id=1822062003]
+[node name="Cylinder" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" index="0" unique_id=1541171613]
 transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1725699534 node_paths=PackedStringArray("sliding_door")]
@@ -599,7 +599,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -
 [node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("39_2pegl")]
 transform = Transform3D(-0.09961947, 0, 0.008715581, 0, 0.1, 0, -0.008715581, 0, -0.09961947, 3.4699924, 2.1616974, -65.077095)
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "connected_wire_1", "connected_wire_2", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
@@ -607,6 +607,8 @@ puzzle_id = "comms"
 power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
 power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
 wire_cover = NodePath("Wire Puzzle Comms/WireCover")
+connected_wire_1 = NodePath("../Platform/Wire")
+connected_wire_2 = NodePath("../Platform/Wire2")
 object_ref = NodePath("Wire Puzzle Comms")
 interaction_type = 1
 player = NodePath("../../ProtoController")
@@ -708,7 +710,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=1987564711]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -776,7 +778,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=1987564711]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -833,7 +835,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=1987564711]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -894,7 +896,7 @@ transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=1987564711]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -999,7 +1001,7 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0,
 [node name="Final_Door handle2" parent="CommsRoom/CommsDoor2/Final_Door left" unique_id=2113603018 instance=ExtResource("49_2pegl")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -3.3881318e-21, 0, 1, 0, -0.21, 0)
 
-[node name="Cylinder" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" index="2" unique_id=1822062003]
+[node name="Cylinder" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" index="0" unique_id=1541171613]
 transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
 
 [node name="MeshInstance3D" type="StaticBody3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=674706864 node_paths=PackedStringArray("sliding_door")]

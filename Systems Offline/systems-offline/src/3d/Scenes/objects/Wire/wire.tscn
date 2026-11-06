@@ -4,6 +4,11 @@
 [ext_resource type="Shader" uid="uid://dk267l3x42lrj" path="res://src/3d/Scenes/objects/Wire/wire_shader.gdshader" id="2_5auut"]
 
 [sub_resource type="Curve3D" id="Curve3D_8gijo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.15103519, -0.24218225, 2.118806, 0, 0, 0, 0, 0, 0, 2.87804, -0.6110003, -0.72127724, 0, 0, 0, 0, 0, 0, 2.7962961, -0.41994715, 1.5295496, 0, 0, 0, 0, 0, 0, 7.553834, -1.738317, -3.13555, 0, 0, 0, 0, 0, 0, 14.750715, -2.313816, -5.5533133),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Wire" type="Path3D" unique_id=1206855643]
 curve = SubResource("Curve3D_8gijo")

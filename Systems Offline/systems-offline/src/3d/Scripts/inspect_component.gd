@@ -46,6 +46,10 @@ var fixed: bool = false
 
 var cover_removed: bool = false
 var cover_drop_time: float = 0.0
+
+@export_group("Connected Wires")
+@export var connected_wire_1: Path3D
+@export var connected_wire_2: Path3D
 #endregion
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -280,6 +284,9 @@ func ready_puzzle() -> void:
 	can_interact = not fixed
 	power_on.visible = fixed
 	power_off.visible = not fixed
+	
+	if fixed:
+		unlock_connected_wires(true)
 
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
@@ -303,6 +310,25 @@ func _cover_is_settled() -> bool:
 	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
 	return elapsed > 0.5 and (wire_cover.sleeping or wire_cover.linear_velocity.length() < 0.05)
 
+func unlock_connected_wires(instant: bool = false) -> void:
+	if connected_wire_1 != null:
+		connected_wire_1.set_unlocked(instant)
+
+	if connected_wire_2 != null:
+		connected_wire_2.set_unlocked(instant)
+
+func on_puzzle_completed() -> void:
+	fixed = true
+	can_interact = false
+
+	if power_on:
+		power_on.visible = true
+
+	if power_off:
+		power_off.visible = false
+
+	unlock_connected_wires(false)
+	
 func exit_wires_puzzle() -> void:
 	if not is_interacting or is_transitioning:
 		return
