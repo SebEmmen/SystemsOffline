@@ -44,6 +44,8 @@ var lid_animating: bool = false
 @export var puzzle_id: String = ""   # unique per puzzle, e.g. "comms", "elevator"
 @export var power_off: Node3D
 @export var power_on: Node3D
+@export var elevator_on: MeshInstance3D
+@export var elevator_off: MeshInstance3D
 @export var wire_cover: RigidBody3D   # ":" not "="
 var fixed: bool = false
 
@@ -302,6 +304,9 @@ func ready_puzzle() -> void:
 	power_on.visible = fixed
 	power_off.visible = not fixed
 
+	if elevator_on and elevator_off:
+			elevator_on.visible = fixed
+			elevator_off.visible = not fixed	
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
 		return
