@@ -7,6 +7,8 @@ signal wrong_attempt
 @export var dials: Array[Dial2D] = []
 @export var check_button: Button
 @export var feedback: Label   # optional
+@export var valid: Label3D
+@export var invalid: Label3D
 
 
 func _ready() -> void:
@@ -45,11 +47,16 @@ func _on_check_pressed() -> void:
 		dial.stop_and_snap()   # make sure nothing is mid-turn
 	if _is_correct():
 		SaveManager.dial_puzzle_completed = true
-		_set_feedback("ACCESS GRANTED")
+		invalid.visible = false
+		valid.visible = true
+		
 		_set_active(false)
 		solved.emit()
 	else:
 		_set_feedback("INCORRECT")
+		valid.visible = false
+		invalid.visible = true
+	
 		wrong_attempt.emit()
 		await get_tree().create_timer(1.5).timeout
 		_set_feedback("")

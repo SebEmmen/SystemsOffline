@@ -57,6 +57,7 @@ var cover_drop_time: float = 0.0
 @export var main_screen: MeshInstance3D
 @export var side_screen: MeshInstance3D
 
+
 signal monitor_entered
 signal monitor_exited
 

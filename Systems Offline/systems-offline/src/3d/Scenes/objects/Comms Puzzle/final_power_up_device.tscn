@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bmqgs6ikljsnl" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.003 Color.png" id="16_beror"]
 [ext_resource type="Script" uid="uid://csmxkn2jg1ogs" path="res://src/3d/Scenes/objects/Comms Puzzle/comms_puzzle_subviewport.gd" id="17_kxhxv"]
 [ext_resource type="PackedScene" uid="uid://336jk7iyijl8" path="res://src/3d/Scenes/objects/Comms Puzzle/Comms_Puzzle_Side_Screen.tscn" id="19_pelnl"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="20_7x3ct"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxxaa"]
 resource_name = "Cube"
@@ -732,14 +733,34 @@ disable_3d = true
 size = Vector2i(1200, 700)
 render_target_update_mode = 4
 
-[node name="CommsPuzzle" parent="MainScreen" unique_id=252066882 node_paths=PackedStringArray("dials") instance=ExtResource("2_mqd40")]
+[node name="CommsPuzzle" parent="MainScreen" unique_id=252066882 node_paths=PackedStringArray("dials", "valid", "invalid") instance=ExtResource("2_mqd40")]
 dials = [NodePath("Dial1/BottomDial"), NodePath("Dial2/BottomDial"), NodePath("Dial3/BottomDial"), NodePath("Dial4/BottomDial"), NodePath("Dial5/BottomDial")]
+valid = NodePath("../../Valid")
+invalid = NodePath("../../Invalid")
 
 [node name="SideScreen" type="SubViewport" parent="." unique_id=1290398842]
 size = Vector2i(700, 900)
 
 [node name="CommsPuzzleSideScreen" parent="SideScreen" unique_id=1424962071 instance=ExtResource("19_pelnl")]
 offset_right = -512.0
+
+[node name="Invalid" type="Label3D" parent="." unique_id=1653940139]
+transform = Transform3D(-4.3711392e-08, -1, 4.371139e-08, 3.8213714e-15, 4.371139e-08, 1, -1.0000001, 4.371139e-08, 1.9106855e-15, -3.0332792, 0.29761338, -1.6681726)
+visible = false
+modulate = Color(0.7738555, 2.23808e-06, 9.62615e-07, 1)
+text = "invalid"
+font = ExtResource("20_7x3ct")
+font_size = 150
+outline_size = 10
+
+[node name="Valid" type="Label3D" parent="." unique_id=961633458]
+transform = Transform3D(-4.3711392e-08, -1, 4.371139e-08, 3.8213714e-15, 4.371139e-08, 1, -1.0000001, 4.371139e-08, 1.9106855e-15, -3.0329225, 0.29761338, -1.6681726)
+visible = false
+modulate = Color(0, 1, 0, 1)
+text = "valid"
+font = ExtResource("20_7x3ct")
+font_size = 150
+outline_size = 10
 
 [editable path="MainScreen/CommsPuzzle"]
 [editable path="MainScreen/CommsPuzzle/Dial1"]
