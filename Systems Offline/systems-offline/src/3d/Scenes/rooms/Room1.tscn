@@ -629,8 +629,9 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Camera3D" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="2" unique_id=78234944]
 transform = Transform3D(-0.64451575, -1.0896552, 1.0839876, 0, 1.4105213, 1.4178962, -1.5370028, 0.4569282, -0.4545516, 1.5009766, 2.6826806, 2.0238495)
 
-[node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "side_screen", "player", "player_camera", "transition_camera")]
+[node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "lightning_off", "side_screen", "player", "player_camera", "transition_camera")]
 inspect_camera = NodePath("../Camera3D")
+lightning_off = NodePath("Red lightning bolt")
 side_screen = NodePath("Side Screen")
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")

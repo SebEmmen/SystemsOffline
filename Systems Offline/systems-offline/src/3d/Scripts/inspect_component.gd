@@ -56,6 +56,7 @@ var cover_drop_time: float = 0.0
 #region Monitor Variables
 @export_group("Monitor")
 ## The dial(s) on this monitor
+@export var lightning_off: Node3D
 @export var main_screen: MeshInstance3D
 @export var side_screen: MeshInstance3D
 
@@ -368,9 +369,11 @@ func update_monitor() -> void:
 	if SaveManager.is_puzzle_completed("comms"):
 		main_screen.visible = true
 		side_screen.visible = true
+		lightning_off.visible = false
 	else:
 		main_screen.visible = false
 		side_screen.visible = false
+		lightning_off.visible = true
 
 func exit_monitor() -> void:
 	if not monitor_active or is_transitioning:

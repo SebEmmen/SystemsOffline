@@ -14,12 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://0mrdpl3dpv47" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.002 Roughness.png" id="11_8y0e6"]
 [ext_resource type="Texture2D" uid="uid://byq8d72cae2wl" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane Color.png" id="12_yhnoi"]
 [ext_resource type="Texture2D" uid="uid://dwj570tgymdrp" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane Roughness.png" id="13_i576d"]
-[ext_resource type="Texture2D" uid="uid://bgxcxoqrppxfb" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.001 Color.png" id="14_ip5xa"]
+[ext_resource type="Texture2D" uid="uid://joakr1qyw17m" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.001 Color.png" id="14_ip5xa"]
 [ext_resource type="Texture2D" uid="uid://bwmnb3hiwg71p" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.003 1 Color.png" id="15_2la4y"]
 [ext_resource type="Texture2D" uid="uid://bmqgs6ikljsnl" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.003 Color.png" id="16_beror"]
 [ext_resource type="Script" uid="uid://csmxkn2jg1ogs" path="res://src/3d/Scenes/objects/Comms Puzzle/comms_puzzle_subviewport.gd" id="17_kxhxv"]
 [ext_resource type="PackedScene" uid="uid://336jk7iyijl8" path="res://src/3d/Scenes/objects/Comms Puzzle/Comms_Puzzle_Side_Screen.tscn" id="19_pelnl"]
 [ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="20_7x3ct"]
+[ext_resource type="PackedScene" uid="uid://do2v08m4rk0es" path="res://src/3d/Assets/Wires puzzle/Red lightning bolt.blend" id="21_s6n03"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxxaa"]
 resource_name = "Cube"
@@ -631,6 +632,20 @@ size = Vector2(2.7, 4.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kj6u6"]
 size = Vector3(6.112157, 0.5682341, 9.183012)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l42ft"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ojbw0"]
+material = SubResource("StandardMaterial3D_l42ft")
+size = Vector2(5.2, 4.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7u32"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l42ft"]
+material = SubResource("StandardMaterial3D_p7u32")
+size = Vector2(2.8, 4.4)
+
 [node name="PowerUp device" type="Node3D" unique_id=1235112676]
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=1490918686]
@@ -761,6 +776,17 @@ text = "valid"
 font = ExtResource("20_7x3ct")
 font_size = 150
 outline_size = 10
+
+[node name="Red lightning bolt" parent="." unique_id=1752389887 instance=ExtResource("21_s6n03")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.39056587, 0.24509257, -1.6244621)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Red lightning bolt" unique_id=666073355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.034274817, -0.47626758)
+mesh = SubResource("PlaneMesh_ojbw0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Red lightning bolt" unique_id=896786993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.437141, 0.068097115, -0.35453224)
+mesh = SubResource("PlaneMesh_l42ft")
 
 [editable path="MainScreen/CommsPuzzle"]
 [editable path="MainScreen/CommsPuzzle/Dial1"]
