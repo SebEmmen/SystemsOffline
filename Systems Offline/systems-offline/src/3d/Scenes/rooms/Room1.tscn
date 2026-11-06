@@ -47,7 +47,9 @@
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://dyalo2q63ur1x" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
+[ext_resource type="AudioStream" uid="uid://b7qyuxw3pws8i" path="res://src/3d/Sound/big button press.mp3" id="39_gav43"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
+[ext_resource type="AudioStream" uid="uid://bty5575j4ueu3" path="res://src/3d/Sound/door(open).mp3" id="40_hd0mg"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="Texture2D" uid="uid://doofkxmq8g04f" path="res://src/3d/Resources/Worm.png" id="43_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
@@ -541,6 +543,8 @@ object_ref = NodePath(".")
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
+primary_se = ExtResource("39_gav43")
+secondary_se = ExtResource("40_hd0mg")
 array_sounds = Array[AudioStream]([ExtResource("33_dhx8n"), ExtResource("34_wkdsg"), ExtResource("35_sr45x"), ExtResource("36_kc5sd"), ExtResource("37_0prxm")])
 
 [node name="Final_Door frame" parent="Tutorial Room/TutorialDoor" unique_id=1592204761 instance=ExtResource("46_u2kds")]
@@ -983,12 +987,15 @@ script = ExtResource("48_eueio")
 [node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "object_ref")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0117555, 2.4789515, -45.62468)
 script = ExtResource("50_u2kds")
+locked = false
 left_door = NodePath("Final_Door left")
 right_door = NodePath("Final_Door right")
 left_handle = NodePath("Final_Door left/Final_Door handle2")
 right_handle = NodePath("Final_Door right/Final_Door handle")
 object_ref = NodePath(".")
 interaction_type = 2
+primary_se = ExtResource("39_gav43")
+secondary_se = ExtResource("40_hd0mg")
 
 [node name="Final_Door frame" parent="CommsRoom/CommsDoor2" unique_id=864311355 instance=ExtResource("46_u2kds")]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
@@ -1106,6 +1113,9 @@ shadow_enabled = true
 
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
+
+[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Elevator monitor base" parent_id_path=PackedInt32Array(1746680253, 220052432) index="1" unique_id=1439739362]
+primary_se = ExtResource("39_gav43")
 
 [node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
