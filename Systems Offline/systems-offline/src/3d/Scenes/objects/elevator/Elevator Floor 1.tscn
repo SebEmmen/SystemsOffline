@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://mujebn5uhfek"]
+
+[ext_resource type="PackedScene" uid="uid://bd8248v8pxyb8" path="res://src/3d/Assets/Elevator/Final_1st floor elevator.blend" id="1_3e03j"]
+[ext_resource type="PackedScene" uid="uid://danp4v5ivb3op" path="res://src/3d/Assets/Elevator/Final_door alien elevator.blend" id="2_57hau"]
+[ext_resource type="PackedScene" uid="uid://dklu2tfyth2ph" path="res://src/3d/Assets/Elevator/Final_moving chamber alien elevator.blend" id="3_0s71j"]
+[ext_resource type="PackedScene" uid="uid://v8ncxsplganf" path="res://src/3d/Assets/Elevator/Final_monitor alien elevator.blend" id="4_q3t0w"]
+
+[node name="ElevatorFloor1" type="Node3D" unique_id=2093359532]
+
+[node name="Final_1st floor elevator" parent="." unique_id=1375303708 instance=ExtResource("1_3e03j")]
+
+[node name="Final_door alien elevator" parent="." unique_id=179969805 instance=ExtResource("2_57hau")]
+transform = Transform3D(0.9805059, 0, -0.19648981, 0, 1, 0, 0.19648981, 0, 0.9805059, 0, 0, 0)
+
+[node name="Final_moving chamber alien elevator" parent="." unique_id=27108960 instance=ExtResource("3_0s71j")]
+
+[node name="Final_monitor alien elevator" parent="." unique_id=533998609 instance=ExtResource("4_q3t0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.0078096)

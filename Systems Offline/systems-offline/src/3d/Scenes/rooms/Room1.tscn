@@ -16,24 +16,25 @@
 [ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
-[ext_resource type="AudioStream" uid="uid://b7qyuxw3pws8i" path="res://src/3d/Sound/big button press.mp3" id="16_i6svr"]
+[ext_resource type="AudioStream" uid="uid://dvt1g3jjdoo5d" path="res://src/3d/Sound/big button press.mp3" id="16_i6svr"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
 [ext_resource type="AudioStream" uid="uid://bty5575j4ueu3" path="res://src/3d/Sound/door(open).mp3" id="17_nvpkd"]
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
-[ext_resource type="AudioStream" uid="uid://bwja2h58o1j43" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
+[ext_resource type="AudioStream" uid="uid://g2o2wcjmubqo" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
 [ext_resource type="AudioStream" uid="uid://crtn1kyqdb6p" path="res://src/3d/Sound/wire successfully connected.mp3" id="20_s5xlb"]
 [ext_resource type="AudioStream" uid="uid://c1ydfekgg24uw" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
 [ext_resource type="AudioStream" uid="uid://ju56lox6s3wj" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
 [ext_resource type="AudioStream" uid="uid://dpqtcsyejop65" path="res://src/3d/Sound/keypad unlock.mp3" id="22_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://dpml20gos6hgp" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
+[ext_resource type="AudioStream" uid="uid://dcl7bk8txuyb" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
 [ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="AudioStream" uid="uid://dmvlt1d30wstb" path="res://src/3d/Sound/key pickup.mp3" id="24_gav43"]
+[ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
@@ -45,22 +46,22 @@
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
-[ext_resource type="Texture2D" uid="uid://doofkxmq8g04f" path="res://src/3d/Resources/Worm.png" id="43_nbs5u"]
+[ext_resource type="Texture2D" uid="uid://c67jhhpdmqvt5" path="res://src/3d/Resources/Worm.png" id="43_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
 [ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
-[ext_resource type="Texture2D" uid="uid://b5xxny7feyb5m" path="res://src/3d/Resources/Apple.png" id="49_e6fu1"]
-[ext_resource type="Texture2D" uid="uid://b3ocw8e0ecnc5" path="res://src/3d/Resources/Euro.png" id="50_dhx8n"]
+[ext_resource type="Texture2D" uid="uid://cf8gl5ew5ei1v" path="res://src/3d/Resources/Apple.png" id="49_e6fu1"]
+[ext_resource type="Texture2D" uid="uid://bnjnmw0dl016v" path="res://src/3d/Resources/Coin.png" id="50_dhx8n"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
-[ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
-[ext_resource type="Texture2D" uid="uid://bkhgq2eau0gak" path="res://src/3d/Resources/Flute.png" id="51_wkdsg"]
-[ext_resource type="PackedScene" uid="uid://bhwxxxofw83li" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="ArrayMesh" uid="uid://bor3u3b6oc0by" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
+[ext_resource type="Texture2D" uid="uid://bjjhc0l3s0qkb" path="res://src/3d/Resources/Flute.png" id="51_wkdsg"]
+[ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://cykucbye25euv" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
@@ -291,6 +292,20 @@ object_ref = NodePath(".")
 interaction_type = 2
 primary_se = ExtResource("16_i6svr")
 secondary_se = ExtResource("17_nvpkd")
+
+[node name="Hint Tutorial Room" type="Node" parent="Tutorial Room" unique_id=1831487568]
+
+[node name="HintObject" parent="Tutorial Room/Hint Tutorial Room" unique_id=1149939097 instance=ExtResource("25_354s1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.564278, 5.1550264, -7.512353)
+
+[node name="HintObject2" parent="Tutorial Room/Hint Tutorial Room" unique_id=459236503 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.307488, 5.1550264, -7.512353)
+
+[node name="HintObject3" parent="Tutorial Room/Hint Tutorial Room" unique_id=1799809411 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.94293344, 5.1550264, -7.5302444)
+
+[node name="HintObject4" parent="Tutorial Room/Hint Tutorial Room" unique_id=1193332617 instance=ExtResource("25_354s1")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.9639058, 5.1550264, -7.512353)
 
 [node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
@@ -1033,16 +1048,18 @@ shadow_enabled = true
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
 
-[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Elevator monitor base" parent_id_path=PackedInt32Array(1746680253, 220052432) index="1" unique_id=1439739362]
-primary_se = ExtResource("16_i6svr")
+[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Final_monitor alien elevator" parent_id_path=PackedInt32Array(1746680253, 533998609) index="1" unique_id=992554857 node_paths=PackedStringArray("player")]
+player = NodePath("../../../../ProtoController")
 
-[node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
+[node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "elevator_on", "elevator_off", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
 inspect_type = 2
 puzzle_scene = "uid://0u4neuukgjki"
 puzzle_id = "elevator"
 power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
 power_on = NodePath("ElevatorPuzzle/WireCover/Green lightning bolt")
+elevator_on = NodePath("../Elevator 1st floor/Final_monitor alien elevator/Signal light green")
+elevator_off = NodePath("../Elevator 1st floor/Final_monitor alien elevator/Signal light red_001")
 wire_cover = NodePath("ElevatorPuzzle/WireCover")
 object_ref = NodePath("ElevatorPuzzle")
 interaction_type = 1
