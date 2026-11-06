@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://336jk7iyijl8"]
+
+[ext_resource type="Texture2D" uid="uid://2hda46qtgymp" path="res://src/3d/Scenes/objects/Comms Puzzle/Language buttons option 1.svg" id="1_ib0x5"]
+[ext_resource type="Texture2D" uid="uid://ckeofy1jij5g8" path="res://src/3d/Scenes/objects/Comms Puzzle/human body.svg" id="2_prjca"]
+[ext_resource type="Texture2D" uid="uid://twpjxu1b21pr" path="res://src/3d/Scenes/objects/Comms Puzzle/empty boxes glow.svg" id="3_8hye8"]
+
+[node name="CommsPuzzleSideScreen" type="Control" unique_id=1424962071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -728.0
+offset_bottom = 852.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LanguageButtonsOption1" type="Sprite2D" parent="." unique_id=904704185]
+top_level = true
+position = Vector2(368.5, 345)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ib0x5")
+
+[node name="HumanBody" type="Sprite2D" parent="." unique_id=1075442060]
+top_level = true
+position = Vector2(114.5, 343.00006)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_prjca")
+
+[node name="EmptyBoxesGlow" type="Sprite2D" parent="." unique_id=819710812]
+top_level = true
+position = Vector2(413.50003, 354)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_8hye8")
+
+[node name="LanguageButtonsOption2" type="Sprite2D" parent="." unique_id=109276426]
+position = Vector2(370.5, 654)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ib0x5")
+
+[node name="LanguageButtonsOption3" type="Sprite2D" parent="." unique_id=1182657419]
+position = Vector2(370.5, 704)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ib0x5")
+
+[node name="LanguageButtonsOption4" type="Sprite2D" parent="." unique_id=1840604999]
+position = Vector2(370.5, 754)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ib0x5")
+
+[node name="LanguageButtonsOption5" type="Sprite2D" parent="." unique_id=602127201]
+position = Vector2(361.5, -88)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ib0x5")
+
+[node name="LanguageButtonsOption6" type="Sprite2D" parent="." unique_id=566687850]
+position = Vector2(361.5, -38)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ib0x5")
+
+[node name="LanguageButtonsOption7" type="Sprite2D" parent="." unique_id=589447061]
+position = Vector2(361.5, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ib0x5")

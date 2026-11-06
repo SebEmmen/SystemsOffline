@@ -85,7 +85,7 @@ albedo_texture = ExtResource("43_nbs5u")
 size = Vector2(4.92, 7.01)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_i6svr"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("MainScreen")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nvpkd"]
 resource_local_to_scene = true
@@ -94,7 +94,19 @@ albedo_texture = SubResource("ViewportTexture_i6svr")
 [sub_resource type="PlaneMesh" id="PlaneMesh_nnjxg"]
 resource_local_to_scene = true
 material = SubResource("ORMMaterial3D_nvpkd")
-size = Vector2(5, 4.1)
+size = Vector2(5.2, 4.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x8cbg"]
+viewport_path = NodePath("SideScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_fs8bd"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_x8cbg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s5xlb"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_fs8bd")
+size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
 size = Vector3(13.210489, 0.35471624, 9.712905)
@@ -358,7 +370,7 @@ transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 
 
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
-[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "dials", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.6, 0, -5.2453668e-08, 0, 0.6, 0, 5.2453668e-08, 0, -0.6, 6.4279594, 0, 0.72870445)
 script = ExtResource("17_wvn26")
 inspect_type = 1
@@ -370,9 +382,6 @@ crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-dials = []
-solution = []
-exit_delay_after_solve = 1.0
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -380,7 +389,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
-[node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "dials", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.45346525, 0, 1.1110216, 0, 1.1999999, 0, -1.1110216, 0, -0.45346525, -11.155058, 0, 2.162239)
 script = ExtResource("17_wvn26")
 inspect_type = 1
@@ -392,9 +401,6 @@ crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-dials = []
-solution = []
-exit_delay_after_solve = 1.0
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -402,7 +408,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
-[node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "dials", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(0.2749278, 0, 0.7512755, 0, 0.8, 0, -0.7512755, 0, 0.2749278, -11.861279, 0, -2.666003)
 script = ExtResource("17_wvn26")
 inspect_type = 1
@@ -414,9 +420,6 @@ crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-dials = []
-solution = []
-exit_delay_after_solve = 1.0
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -424,7 +427,7 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
-[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "dials", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.7826081, 0, -0.6225147, 0, 1, 0, 0.6225147, 0, -0.7826081, 4.8455973, 0, -0.80292845)
 script = ExtResource("17_wvn26")
 inspect_type = 1
@@ -436,9 +439,6 @@ crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-dials = []
-solution = []
-exit_delay_after_solve = 1.0
 object_ref = NodePath(".")
 interaction_type = 1
 player = NodePath("../../../ProtoController")
@@ -632,14 +632,24 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Camera3D" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="2" unique_id=78234944]
 transform = Transform3D(-0.64451575, -1.0896552, 1.0839876, 0, 1.4105213, 1.4178962, -1.5370028, 0.4569282, -0.4545516, 1.5009766, 2.6826806, 2.0238495)
 
-[node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "player", "player_camera", "transition_camera")]
+[node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "side_screen", "player", "player_camera", "transition_camera")]
 inspect_camera = NodePath("../Camera3D")
+side_screen = NodePath("Side Screen")
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
+[node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
 mesh = SubResource("PlaneMesh_nnjxg")
+
+[node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
+mesh = SubResource("PlaneMesh_s5xlb")
+
+[node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
+sub_viewport = NodePath("../MainScreen")
+screen_mesh = NodePath("../Main Screen")
+inspect = NodePath("..")
+puzzle = NodePath("../MainScreen/CommsPuzzle")
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Platform" unique_id=535870536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.261959, 3.8237305, 11.92118)
@@ -1167,12 +1177,13 @@ push_force = 4.0
 [editable path="CommsRoom/Platform/Final_Side table of middle platform2"]
 [editable path="CommsRoom/Platform/Monitor/MonitorScreen"]
 [editable path="CommsRoom/Platform/PowerUp Device/PowerUp device"]
-[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SubViewport/CommsPuzzle"]
-[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SubViewport/CommsPuzzle/Dial1"]
-[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SubViewport/CommsPuzzle/Dial2"]
-[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SubViewport/CommsPuzzle/Dial3"]
-[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SubViewport/CommsPuzzle/Dial4"]
-[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SubViewport/CommsPuzzle/Dial5"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial1"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial2"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial3"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial4"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial5"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SideScreen/CommsPuzzleSideScreen"]
 [editable path="CommsRoom/Platform/Monitor2/MonitorScreen"]
 [editable path="CommsRoom/Cubicle Sphere"]
 [editable path="CommsRoom/Cubicle Sphere/Final_Cubicle roof"]

@@ -54,17 +54,11 @@ var cover_drop_time: float = 0.0
 #region Monitor Variables
 @export_group("Monitor")
 ## The dial(s) on this monitor
-@export var dials: Array[Dial2D] = []
-## Correct index per dial, same order as `dials`
-@export var solution: Array[int] = []
-## Optional: shown when the puzzle is solved (e.g. a "powered on" screen)
-@export var solved_indicator: Node3D
-@export var exit_delay_after_solve: float = 1.0
+@export var main_screen: MeshInstance3D
+@export var side_screen: MeshInstance3D
 
 signal monitor_entered
 signal monitor_exited
-signal dial_puzzle_solved
-signal dial_puzzle_wrong
 
 var monitor_active := false
 #endregion
@@ -79,7 +73,7 @@ func _ready() -> void:
 		InspectType.WIRES_PUZZLE:
 			ready_puzzle()
 		InspectType.MONITOR:
-			#ready_monitor()
+			update_monitor()
 			pass
 
 func interact() -> void:
@@ -358,6 +352,13 @@ func enter_monitor() -> void:
 	monitor_active = true
 	monitor_entered.emit()
 
+func update_monitor() -> void:
+	if SaveManager.is_puzzle_completed("comms"):
+		main_screen.visible = true
+		side_screen.visible = true
+	else:
+		main_screen.visible = false
+		side_screen.visible = false
 
 func exit_monitor() -> void:
 	if not monitor_active or is_transitioning:

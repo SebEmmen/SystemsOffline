@@ -13,15 +13,16 @@ offset_left = -191.0
 offset_top = -192.0
 offset_right = 190.0
 offset_bottom = 189.0
+pivot_offset = Vector2(191, 192)
 texture = ExtResource("1_pv70b")
 script = ExtResource("1_708wk")
 
 [node name="Correct Letter" type="Label" parent="BottomDial" unique_id=615905388]
 layout_mode = 0
 offset_left = 155.0
-offset_top = -18.0
+offset_top = -12.0
 offset_right = 3535.0
-offset_bottom = 1377.8333
+offset_bottom = 1383.8333
 scale = Vector2(0.15, 0.15)
 offset_transform_enabled = true
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -33,10 +34,10 @@ text = "h"
 
 [node name="Letter2" type="Label" parent="BottomDial" unique_id=879674400]
 layout_mode = 0
-offset_left = 401.0
-offset_top = 90.0
-offset_right = 3781.0
-offset_bottom = 1485.8333
+offset_left = 385.3036
+offset_top = 91.01426
+offset_right = 3765.3037
+offset_bottom = 1486.8475
 rotation = 1.291605
 scale = Vector2(0.15, 0.15)
 offset_transform_enabled = true
@@ -49,11 +50,11 @@ text = "j"
 
 [node name="Letter3" type="Label" parent="BottomDial" unique_id=760680996]
 layout_mode = 0
-offset_left = 345.00003
-offset_top = 357.00003
-offset_right = 3725.0
-offset_bottom = 1752.8333
-rotation = 2.586269
+offset_left = 340.25406
+offset_top = 334.48236
+offset_right = 3720.2542
+offset_bottom = 1730.3157
+rotation = 2.523245
 scale = Vector2(0.15, 0.15)
 offset_transform_enabled = true
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -65,10 +66,10 @@ text = "e"
 
 [node name="Letter4" type="Label" parent="BottomDial" unique_id=1241860383]
 layout_mode = 0
-offset_left = 97.999985
-offset_top = 381.0
-offset_right = 3478.0
-offset_bottom = 1776.8333
+offset_left = 102.56762
+offset_top = 374.96365
+offset_right = 3482.5676
+offset_bottom = 1770.7969
 rotation = -2.507511
 scale = Vector2(0.15, 0.15)
 offset_transform_enabled = true
@@ -81,11 +82,11 @@ text = "v"
 
 [node name="Letter5" type="Label" parent="BottomDial" unique_id=1435347004]
 layout_mode = 0
-offset_left = -14.0
-offset_top = 123.000015
-offset_right = 3366.0
-offset_bottom = 1518.8333
-rotation = -0.9778063
+offset_left = -7.1497188
+offset_top = 167.57281
+offset_right = 3372.8503
+offset_bottom = 1563.406
+rotation = -1.2582095
 scale = Vector2(0.15, 0.15)
 offset_transform_enabled = true
 theme_override_colors/font_color = Color(0, 0, 0, 1)

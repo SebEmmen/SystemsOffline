@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://bgxcxoqrppxfb" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.001 Color.png" id="14_ip5xa"]
 [ext_resource type="Texture2D" uid="uid://bwmnb3hiwg71p" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.003 1 Color.png" id="15_2la4y"]
 [ext_resource type="Texture2D" uid="uid://bmqgs6ikljsnl" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.003 Color.png" id="16_beror"]
+[ext_resource type="Script" uid="uid://csmxkn2jg1ogs" path="res://src/3d/Scenes/objects/Comms Puzzle/comms_puzzle_subviewport.gd" id="17_kxhxv"]
+[ext_resource type="PackedScene" uid="uid://336jk7iyijl8" path="res://src/3d/Scenes/objects/Comms Puzzle/Comms_Puzzle_Side_Screen.tscn" id="19_pelnl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxxaa"]
 resource_name = "Cube"
@@ -602,7 +604,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_645wv")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_syskk"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("MainScreen")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_mgbfb"]
 resource_local_to_scene = true
@@ -611,7 +613,19 @@ albedo_texture = SubResource("ViewportTexture_syskk")
 [sub_resource type="PlaneMesh" id="PlaneMesh_bghlm"]
 resource_local_to_scene = true
 material = SubResource("ORMMaterial3D_mgbfb")
-size = Vector2(5, 4.1)
+size = Vector2(5.1, 4.3)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l42ft"]
+viewport_path = NodePath("SideScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_r5iys"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_l42ft")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r5iys"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_r5iys")
+size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kj6u6"]
 size = Vector3(6.112157, 0.5682341, 9.183012)
@@ -698,28 +712,39 @@ metadata/extras = {
 "yp_decal": {}
 }
 
-[node name="Screen" type="MeshInstance3D" parent="." unique_id=1813707322]
+[node name="Main Screen" type="MeshInstance3D" parent="." unique_id=1813707322]
 transform = Transform3D(-0.004700449, 0, 0.999989, 0, 1, 0, -0.999989, 0, -0.004700449, 0.015914202, 0.273, -1.7067425)
 mesh = SubResource("PlaneMesh_bghlm")
 
+[node name="Side Screen" type="MeshInstance3D" parent="." unique_id=778415305]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0.00042843784, 0.26070154, 2.8935082)
+mesh = SubResource("PlaneMesh_r5iys")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1071024214]
+script = ExtResource("17_kxhxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=385844291]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58220553, 0.045977592, 0)
 shape = SubResource("BoxShape3D_kj6u6")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1045470847]
+[node name="MainScreen" type="SubViewport" parent="." unique_id=1045470847]
 disable_3d = true
 size = Vector2i(1200, 700)
 render_target_update_mode = 4
 
-[node name="CommsPuzzle" parent="SubViewport" unique_id=252066882 node_paths=PackedStringArray("monitor", "dials") instance=ExtResource("2_mqd40")]
-monitor = NodePath("../..")
+[node name="CommsPuzzle" parent="MainScreen" unique_id=252066882 node_paths=PackedStringArray("dials") instance=ExtResource("2_mqd40")]
 dials = [NodePath("Dial1/BottomDial"), NodePath("Dial2/BottomDial"), NodePath("Dial3/BottomDial"), NodePath("Dial4/BottomDial"), NodePath("Dial5/BottomDial")]
 
-[editable path="SubViewport/CommsPuzzle"]
-[editable path="SubViewport/CommsPuzzle/Dial1"]
-[editable path="SubViewport/CommsPuzzle/Dial2"]
-[editable path="SubViewport/CommsPuzzle/Dial3"]
-[editable path="SubViewport/CommsPuzzle/Dial4"]
-[editable path="SubViewport/CommsPuzzle/Dial5"]
+[node name="SideScreen" type="SubViewport" parent="." unique_id=1290398842]
+size = Vector2i(700, 900)
+
+[node name="CommsPuzzleSideScreen" parent="SideScreen" unique_id=1424962071 instance=ExtResource("19_pelnl")]
+offset_right = -512.0
+
+[editable path="MainScreen/CommsPuzzle"]
+[editable path="MainScreen/CommsPuzzle/Dial1"]
+[editable path="MainScreen/CommsPuzzle/Dial2"]
+[editable path="MainScreen/CommsPuzzle/Dial3"]
+[editable path="MainScreen/CommsPuzzle/Dial4"]
+[editable path="MainScreen/CommsPuzzle/Dial5"]
+[editable path="SideScreen/CommsPuzzleSideScreen"]
