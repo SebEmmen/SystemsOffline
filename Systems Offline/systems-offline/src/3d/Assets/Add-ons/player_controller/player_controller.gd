@@ -32,14 +32,6 @@ extends CharacterBody3D
 @export var input_back: String = "move_back"
 @export var input_sprint: String = "sprint"
 #endregion
-
-#region Sound Effects Variables
-@export_group("Sound Effects")
-var primary_audio_player: AudioStreamPlayer3D
-
-@export var primary_se: AudioStream
-#endregion
-
 #region Save System
 
 func get_save_data() -> Dictionary:
@@ -136,7 +128,6 @@ var controls_enabled := true
 
 
 func _ready() -> void:
-	_setup_audio_players()
 	check_input_mappings()
 
 	look_rotation.y = rotation.y
@@ -144,18 +135,6 @@ func _ready() -> void:
 
 	capture_mouse()
 
-# Dynamically instantiates AudioStreamPlayer3D nodes for assigned streams
-func _setup_audio_players() -> void:
-	if primary_se:
-		primary_audio_player = AudioStreamPlayer3D.new()
-		primary_audio_player.stream = primary_se
-		add_child(primary_audio_player)
-
-#region Audio Helper Functions
-func play_primary_se() -> void:
-	if primary_audio_player:
-		primary_audio_player.play()
-#endregion
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not controls_enabled:
@@ -237,9 +216,6 @@ func _physics_process(delta: float) -> void:
 		if current_move_dir:
 			velocity.x = current_move_dir.x * move_speed
 			velocity.z = current_move_dir.z * move_speed
-			
-			if not primary_audio_player.playing:
-				play_primary_se()
 
 		else:
 			velocity.x = move_toward(
@@ -258,16 +234,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 
-	if primary_audio_player.playing and (velocity.x == 0 and velocity.z == 0):
-			primary_audio_player.stop()
-
 			
 	_snap_up_stairs_check(delta)
 	move_and_slide()
 	_snap_down_to_stairs_check()
-	
-	if primary_audio_player.playing:
-		primary_audio_player.stop
 
 	# Regain controls after gravity flip
 	if gravity_flipping:
