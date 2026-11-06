@@ -147,7 +147,9 @@ func open_door() -> void:
 	left_handle.show()
 	right_handle.show()
 
+	play_primary_se()
 	await animate_handles(true)
+	play_secondary_se()
 	await animate_doors(true)
 
 	is_open = true
@@ -161,6 +163,7 @@ func close_door() -> void:
 		return
 
 	is_moving = true
+	
 
 	# Cancel any pending hide timer.
 	hide_timer_version += 1
