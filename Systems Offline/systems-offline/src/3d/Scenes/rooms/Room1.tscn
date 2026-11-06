@@ -5,6 +5,7 @@
 [ext_resource type="MeshLibrary" uid="uid://ci4v8oty26w6d" path="res://src/3d/Mesh/WallLibrary.meshlib" id="4_6lvv6"]
 [ext_resource type="MeshLibrary" uid="uid://61wowouuvern" path="res://src/3d/Mesh/DoorWallNegative.meshlib" id="4_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://cd8d230r2wpe4" path="res://src/2d/Scenes/Inventory/InventoryUI.tscn" id="5_7flw8"]
+[ext_resource type="AudioStream" uid="uid://ru84l0r2lukf" path="res://src/3d/Sound/footsteps on metal.mp3" id="5_hd0mg"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
 [ext_resource type="PackedScene" uid="uid://bvgrjamb53k8l" path="res://src/2d/Scenes/Notifications/NotificationsUI.tscn" id="6_fm5id"]
 [ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="6_tjnt7"]
@@ -221,6 +222,7 @@ transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.9924
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
+primary_se = ExtResource("5_hd0mg")
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
