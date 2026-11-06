@@ -5,7 +5,6 @@
 [ext_resource type="MeshLibrary" uid="uid://ci4v8oty26w6d" path="res://src/3d/Mesh/WallLibrary.meshlib" id="4_6lvv6"]
 [ext_resource type="MeshLibrary" uid="uid://61wowouuvern" path="res://src/3d/Mesh/DoorWallNegative.meshlib" id="4_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://cd8d230r2wpe4" path="res://src/2d/Scenes/Inventory/InventoryUI.tscn" id="5_7flw8"]
-[ext_resource type="AudioStream" uid="uid://ru84l0r2lukf" path="res://src/3d/Sound/footsteps on metal.mp3" id="5_hd0mg"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="6_1v5mr"]
 [ext_resource type="PackedScene" uid="uid://bvgrjamb53k8l" path="res://src/2d/Scenes/Notifications/NotificationsUI.tscn" id="6_fm5id"]
 [ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="6_tjnt7"]
@@ -20,60 +19,49 @@
 [ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="17_wvn26"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="18_3h5nh"]
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
-[ext_resource type="AudioStream" uid="uid://bwja2h58o1j43" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
+[ext_resource type="AudioStream" uid="uid://g2o2wcjmubqo" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
 [ext_resource type="AudioStream" uid="uid://crtn1kyqdb6p" path="res://src/3d/Sound/wire successfully connected.mp3" id="20_s5xlb"]
 [ext_resource type="AudioStream" uid="uid://c1ydfekgg24uw" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
 [ext_resource type="AudioStream" uid="uid://ju56lox6s3wj" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
 [ext_resource type="AudioStream" uid="uid://dpqtcsyejop65" path="res://src/3d/Sound/keypad unlock.mp3" id="22_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://dpml20gos6hgp" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
+[ext_resource type="AudioStream" uid="uid://dcl7bk8txuyb" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
 [ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="AudioStream" uid="uid://dmvlt1d30wstb" path="res://src/3d/Sound/key pickup.mp3" id="24_gav43"]
-[ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
 [ext_resource type="PackedScene" uid="uid://cwjy3vgjfdqli" path="res://src/3d/Scenes/objects/platform.scn" id="32_eivic"]
 [ext_resource type="PackedScene" uid="uid://cwwdt0ekwbfyd" path="res://src/3d/Scenes/objects/Delivery_Tubes.tscn" id="32_io4pa"]
 [ext_resource type="Script" uid="uid://ni6vx5y34e64" path="res://src/3d/Scenes/rooms/key_cinematic_preview.gd" id="32_tbpsc"]
-[ext_resource type="AudioStream" uid="uid://cetu60xrve4km" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="33_dhx8n"]
-[ext_resource type="AudioStream" uid="uid://bhgvx7fltko41" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="34_wkdsg"]
-[ext_resource type="AudioStream" uid="uid://b47cisj106gl4" path="res://src/3d/Sound/random phrases/Its locked/Its locked_3.wav" id="35_sr45x"]
 [ext_resource type="PackedScene" uid="uid://bjmautg631hof" path="res://src/3d/Scenes/objects/Keypad/keypad_touchscreen.tscn" id="36_4qo6h"]
-[ext_resource type="AudioStream" uid="uid://b2vrlrb0oddhe" path="res://src/3d/Sound/random phrases/Its locked/Its locked_4.wav" id="36_kc5sd"]
-[ext_resource type="AudioStream" uid="uid://b4khn8rwufho7" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="37_0prxm"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="38_eivic"]
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
-[ext_resource type="PackedScene" uid="uid://dyalo2q63ur1x" path="res://src/3d/Assets/Comm room/Final_Multitoolcase body.blend" id="39_2pegl"]
-[ext_resource type="AudioStream" uid="uid://b7qyuxw3pws8i" path="res://src/3d/Sound/big button press.mp3" id="39_gav43"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
-[ext_resource type="AudioStream" uid="uid://bty5575j4ueu3" path="res://src/3d/Sound/door(open).mp3" id="40_hd0mg"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
-[ext_resource type="Texture2D" uid="uid://doofkxmq8g04f" path="res://src/3d/Resources/Worm.png" id="43_nbs5u"]
+[ext_resource type="Texture2D" uid="uid://c67jhhpdmqvt5" path="res://src/2d/Assets/worm.png" id="43_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
-[ext_resource type="PackedScene" uid="uid://cq4311fnvpfe7" path="res://src/3d/Assets/General reuseable assets/Final_Door frame.blend" id="46_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
 [ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
-[ext_resource type="PackedScene" uid="uid://b7fnikvqjlpsv" path="res://src/3d/Assets/General reuseable assets/Final_Door left.blend" id="48_nvwfr"]
-[ext_resource type="PackedScene" uid="uid://bthcc0rgn11ki" path="res://src/3d/Assets/General reuseable assets/Final_Door handle.blend" id="49_2pegl"]
-[ext_resource type="Texture2D" uid="uid://b5xxny7feyb5m" path="res://src/3d/Resources/Apple.png" id="49_e6fu1"]
-[ext_resource type="Texture2D" uid="uid://b3ocw8e0ecnc5" path="res://src/3d/Resources/Euro.png" id="50_dhx8n"]
+[ext_resource type="Texture2D" uid="uid://cf8gl5ew5ei1v" path="res://src/2d/Assets/apple.png" id="49_e6fu1"]
+[ext_resource type="Texture2D" uid="uid://bnjnmw0dl016v" path="res://src/2d/Assets/coin.png" id="50_dhx8n"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
-[ext_resource type="Script" uid="uid://diqr03swusugp" path="res://src/3d/Scenes/objects/Door/door_button.gd" id="50_nbs5u"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
-[ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
-[ext_resource type="PackedScene" uid="uid://17e1l2knwo6t" path="res://src/3d/Assets/General reuseable assets/Final_Door right.blend" id="51_nb0cd"]
-[ext_resource type="Texture2D" uid="uid://bkhgq2eau0gak" path="res://src/3d/Resources/Flute.png" id="51_wkdsg"]
-[ext_resource type="PackedScene" uid="uid://bhwxxxofw83li" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="ArrayMesh" uid="uid://bor3u3b6oc0by" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
+[ext_resource type="Texture2D" uid="uid://bjjhc0l3s0qkb" path="res://src/2d/Assets/flute.png" id="51_wkdsg"]
+[ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://cykucbye25euv" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
+[ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
+[ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
+[ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="72_cok2s"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -82,15 +70,35 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_1cg0m"]
-height = 0.13745189
-radius = 0.08300781
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4rn"]
 albedo_texture = ExtResource("43_nbs5u")
 
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gav43"]
+viewport_path = NodePath("MainScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hd0mg"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_gav43")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rwc1x"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_hd0mg")
+size = Vector2(5.2, 4.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_04e8d"]
+viewport_path = NodePath("SideScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_04e8d")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a016q"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_3kfck")
+size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
 size = Vector3(13.210489, 0.35471624, 9.712905)
@@ -181,10 +189,6 @@ albedo_texture = ExtResource("51_wkdsg")
 friction = 0.4
 bounce = 0.7
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ymcgf"]
-height = 0.13745189
-radius = 0.08300781
-
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=987253711]
@@ -218,11 +222,10 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, -1.2083654, 0.05406332, -2.5200272)
+transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, 0.42804193, 0.05406332, -0.14763212)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
-primary_se = ExtResource("5_hd0mg")
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
@@ -278,6 +281,11 @@ visible = false
 
 [node name="Tutorial Room" type="Node" parent="." unique_id=238724803]
 
+[node name="Tutorial Door" parent="Tutorial Room" unique_id=2000211477 node_paths=PackedStringArray("object_ref") instance=ExtResource("67_gav43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.057, 2.479, -7.607)
+object_ref = NodePath(".")
+interaction_type = 2
+
 [node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
@@ -294,7 +302,7 @@ transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, -0.9, 0, 0.9, -3.934025e-08
 script = ExtResource("15_71ovv")
 screen_label = NodePath("Screen")
 keypad_camera = NodePath("KeypadCamera")
-sliding_door = NodePath("../TutorialDoor")
+sliding_door = NodePath("../Tutorial Door")
 lock_led = NodePath("LockLED")
 correct_code = "2947"
 keypad_collision = NodePath("StaticBody3D/CollisionShape3D")
@@ -534,76 +542,7 @@ transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7778175, 5.841619, 0.0050001144, 6.3599706)
 
-[node name="TutorialDoor" type="Node3D" parent="Tutorial Room" unique_id=1156311182 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "object_ref", "player", "player_camera", "transition_camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0572443, 2.4789517, -7.607033)
-script = ExtResource("50_u2kds")
-left_door = NodePath("Final_Door left")
-right_door = NodePath("Final_Door right")
-left_handle = NodePath("Final_Door left/Final_Door handle2")
-right_handle = NodePath("Final_Door right/Final_Door handle")
-object_ref = NodePath(".")
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../TransitionCamera")
-primary_se = ExtResource("39_gav43")
-secondary_se = ExtResource("40_hd0mg")
-array_sounds = Array[AudioStream]([ExtResource("33_dhx8n"), ExtResource("34_wkdsg"), ExtResource("35_sr45x"), ExtResource("36_kc5sd"), ExtResource("37_0prxm")])
-
-[node name="Final_Door frame" parent="Tutorial Room/TutorialDoor" unique_id=1592204761 instance=ExtResource("46_u2kds")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
-
-[node name="Final_Door left" parent="Tutorial Room/TutorialDoor" unique_id=955614823 instance=ExtResource("48_nvwfr")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
-
-[node name="Final_Door handle2" parent="Tutorial Room/TutorialDoor/Final_Door left" unique_id=2041671739 instance=ExtResource("49_2pegl")]
-transform = Transform3D(-1, 1.2079664e-07, -3.3881318e-21, -1.509958e-07, -0.8, -2.961999e-28, -3.3881318e-21, 1.7231503e-28, 1, 0, -0.21, 0)
-
-[node name="Cylinder" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" index="2" unique_id=1822062003]
-transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
-
-[node name="MeshInstance3D" type="StaticBody3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2" unique_id=1725699534 node_paths=PackedStringArray("sliding_door")]
-transform = Transform3D(1, 0, -2.1175824e-21, 0, 1, 0, -2.1175824e-21, 0, 1, -1.2849366e-09, -0.014697984, -6.424683e-10)
-axis_lock_angular_y = true
-script = ExtResource("50_nbs5u")
-sliding_door = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2/MeshInstance3D" unique_id=6955059]
-transform = Transform3D(1, 0, 4.2351647e-22, 0, 1, -1.0658141e-14, -2.9646153e-21, 1.0658141e-14, 1, 0.5412657, -0.039206028, -0.019414758)
-shape = SubResource("CylinderShape3D_1cg0m")
-
-[node name="Final_Door right" parent="Tutorial Room/TutorialDoor" unique_id=1135323037 instance=ExtResource("51_nb0cd")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
-
-[node name="Final_Door handle" parent="Tutorial Room/TutorialDoor/Final_Door right" unique_id=891471535 instance=ExtResource("49_2pegl")]
-transform = Transform3D(1, 0, 0, 0, 0.8, 3.681906e-15, 0, -2.9455249e-15, 1, 0, -0.02, -5.551115e-17)
-
-[node name="MeshInstance3D" type="StaticBody3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle" unique_id=1283189092 node_paths=PackedStringArray("sliding_door")]
-script = ExtResource("50_nbs5u")
-sliding_door = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle/MeshInstance3D" unique_id=123144760]
-transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
-shape = SubResource("CylinderShape3D_1cg0m")
-
-[node name="Hint" type="Node3D" parent="Tutorial Room/TutorialDoor" unique_id=1125687825]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0572443, -1.6599517, 7.909847)
-
-[node name="HintObject" parent="Tutorial Room/TutorialDoor/Hint" unique_id=1149939097 instance=ExtResource("25_354s1")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.3543408, 4.330809, -7.8249993)
-
-[node name="HintObject2" parent="Tutorial Room/TutorialDoor/Hint" unique_id=1554673993 instance=ExtResource("25_354s1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6389487, 4.330809, -7.8249993)
-
-[node name="HintObject3" parent="Tutorial Room/TutorialDoor/Hint" unique_id=945717358 instance=ExtResource("25_354s1")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.997459, 4.330809, -7.8249993)
-
-[node name="HintObject4" parent="Tutorial Room/TutorialDoor/Hint" unique_id=941298832 instance=ExtResource("25_354s1")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.0113729, 4.330809, -7.8249993)
-
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
-
-[node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("39_2pegl")]
-transform = Transform3D(-0.09961947, 0, 0.008715581, 0, 0.1, 0, -0.008715581, 0, -0.09961947, 3.4699924, 2.1616974, -65.077095)
 
 [node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
@@ -654,12 +593,27 @@ transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 
 material_override = SubResource("StandardMaterial3D_3q4rn")
 mesh = SubResource("QuadMesh_1cg0m")
 
-[node name="Final_Power up device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=869677000 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera")]
-object_ref = NodePath(".")
-interaction_type = 1
+[node name="Camera3D" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="2" unique_id=78234944]
+transform = Transform3D(-0.64451575, -1.0896552, 1.0839876, 0, 1.4105213, 1.4178962, -1.5370028, 0.4569282, -0.4545516, 1.5009766, 2.6826806, 2.0238495)
+
+[node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "side_screen", "player", "player_camera", "transition_camera")]
+inspect_camera = NodePath("../Camera3D")
+side_screen = NodePath("Side Screen")
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
+
+[node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
+mesh = SubResource("PlaneMesh_rwc1x")
+
+[node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
+mesh = SubResource("PlaneMesh_a016q")
+
+[node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
+sub_viewport = NodePath("../MainScreen")
+screen_mesh = NodePath("../Main Screen")
+inspect = NodePath("..")
+puzzle = NodePath("../MainScreen/CommsPuzzle")
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Platform" unique_id=535870536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.261959, 3.8237305, 11.92118)
@@ -714,7 +668,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -782,7 +736,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -839,7 +793,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -900,7 +854,7 @@ transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="2" unique_id=728076317]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=1973120282]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -974,7 +928,7 @@ transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -15.734443, -0.14691
 [node name="BigMetalsheetsRack2" parent="CommsRoom/Racks" unique_id=981152394 instance=ExtResource("52_ymcgf")]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -15.684256, -0.14691912, -63.51909)
 
-[node name="CommsDoor" type="RigidBody3D" parent="CommsRoom" unique_id=2000211477]
+[node name="CommsDoor" type="RigidBody3D" parent="CommsRoom" unique_id=1916866443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9766963, 2.4861362, -45.60625)
 mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_3q4rn")
@@ -986,56 +940,11 @@ angular_damp_mode = 1
 angular_damp = 0.2
 script = ExtResource("48_eueio")
 
-[node name="CommsDoor2" type="Node3D" parent="CommsRoom" unique_id=605246356 node_paths=PackedStringArray("left_door", "right_door", "left_handle", "right_handle", "object_ref")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0117555, 2.4789515, -45.62468)
-script = ExtResource("50_u2kds")
+[node name="Comms Door" parent="CommsRoom" unique_id=1726042636 node_paths=PackedStringArray("object_ref") instance=ExtResource("67_gav43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.012, 2.479, -45.625)
 locked = false
-left_door = NodePath("Final_Door left")
-right_door = NodePath("Final_Door right")
-left_handle = NodePath("Final_Door left/Final_Door handle2")
-right_handle = NodePath("Final_Door right/Final_Door handle")
 object_ref = NodePath(".")
 interaction_type = 2
-primary_se = ExtResource("39_gav43")
-secondary_se = ExtResource("40_hd0mg")
-
-[node name="Final_Door frame" parent="CommsRoom/CommsDoor2" unique_id=864311355 instance=ExtResource("46_u2kds")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
-
-[node name="Final_Door left" parent="CommsRoom/CommsDoor2" unique_id=1072498664 instance=ExtResource("48_nvwfr")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
-
-[node name="Final_Door handle2" parent="CommsRoom/CommsDoor2/Final_Door left" unique_id=2113603018 instance=ExtResource("49_2pegl")]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -3.3881318e-21, 0, 1, 0, -0.21, 0)
-
-[node name="Cylinder" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" index="2" unique_id=1822062003]
-transform = Transform3D(0.08450177, -4.440892e-16, -3.1763736e-22, 0, 0.03360359, 0, -2.1175824e-22, -2.220446e-16, 0.08450177, 0.5418905, -0.026178345, -0.0194149)
-
-[node name="MeshInstance3D" type="StaticBody3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2" unique_id=674706864 node_paths=PackedStringArray("sliding_door")]
-transform = Transform3D(1, 0, -2.1175824e-21, 0, 1, 0, -2.1175824e-21, 0, 1, -1.2849366e-09, -0.014697984, -6.424683e-10)
-axis_lock_angular_y = true
-script = ExtResource("50_nbs5u")
-sliding_door = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2/MeshInstance3D" unique_id=230674604]
-transform = Transform3D(1, 0, 4.2351647e-22, 0, 1, -1.0658141e-14, -2.9646153e-21, 1.0658141e-14, 1, 0.5412657, -0.039206028, -0.019414758)
-visible = false
-shape = SubResource("CylinderShape3D_ymcgf")
-
-[node name="Final_Door right" parent="CommsRoom/CommsDoor2" unique_id=2023173238 instance=ExtResource("51_nb0cd")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
-
-[node name="Final_Door handle" parent="CommsRoom/CommsDoor2/Final_Door right" unique_id=1941863094 instance=ExtResource("49_2pegl")]
-transform = Transform3D(1, 0, 0, 0, 0.9, 3.681906e-15, 0, -3.3137155e-15, 1, 0, -0.02, -5.551115e-17)
-
-[node name="MeshInstance3D" type="StaticBody3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle" unique_id=2013879305 node_paths=PackedStringArray("sliding_door")]
-script = ExtResource("50_nbs5u")
-sliding_door = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle/MeshInstance3D" unique_id=745028683]
-transform = Transform3D(1, 1.4488958e-35, 2.1927169e-21, 0, 1, -3.5527137e-15, -2.1927169e-21, 3.5527137e-15, 1, 0.42150873, -0.08931043, -0.019414756)
-visible = false
-shape = SubResource("CylinderShape3D_ymcgf")
 
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
 
@@ -1116,9 +1025,6 @@ shadow_enabled = true
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
 
-[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Elevator monitor base" parent_id_path=PackedInt32Array(1746680253, 220052432) index="1" unique_id=1439739362]
-primary_se = ExtResource("39_gav43")
-
 [node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
 inspect_type = 2
@@ -1146,6 +1052,24 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 visible = true
 push_force = 4.0
 
+[node name="Final_Multitoolcase body" parent="." unique_id=754739194 instance=ExtResource("71_s5xlb")]
+transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.2753582, -65.17566)
+
+[node name="Multitool" parent="Final_Multitoolcase body" unique_id=51961434 instance=ExtResource("72_cok2s")]
+transform = Transform3D(2.9993582, 0.062036842, 2.7117157e-09, 0, -1.3113416e-07, 2.9999995, 0.062036842, -2.9993582, -1.3110612e-07, 0.25037384, 0.03578472, 0.19265747)
+
+[node name="multitool piece 1 lit " parent="Final_Multitoolcase body/Multitool" index="0" unique_id=961166787]
+visible = false
+
+[node name="eye left lit" parent="Final_Multitoolcase body/Multitool" index="1" unique_id=936582030]
+visible = false
+
+[node name="eye middle lit" parent="Final_Multitoolcase body/Multitool" index="2" unique_id=1442694302]
+visible = false
+
+[node name="eye right lit " parent="Final_Multitoolcase body/Multitool" index="3" unique_id=747606435]
+visible = false
+
 [editable path="ProtoController"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
@@ -1164,9 +1088,6 @@ push_force = 4.0
 [editable path="Tutorial Room/Crates/CrateCode(9)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/Fallen Crate With Key"]
 [editable path="Tutorial Room/Crates/Fallen Crate With Key/Final_Crate base"]
-[editable path="Tutorial Room/TutorialDoor/Final_Door frame"]
-[editable path="Tutorial Room/TutorialDoor/Final_Door left/Final_Door handle2"]
-[editable path="Tutorial Room/TutorialDoor/Final_Door right/Final_Door handle"]
 [editable path="CommsRoom/WirePuzzleTest"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small"]
@@ -1192,7 +1113,14 @@ push_force = 4.0
 [editable path="CommsRoom/Platform/Final_Side table of middle platform"]
 [editable path="CommsRoom/Platform/Final_Side table of middle platform2"]
 [editable path="CommsRoom/Platform/Monitor/MonitorScreen"]
-[editable path="CommsRoom/Platform/PowerUp Device/Final_Power up device"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial1"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial2"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial3"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial4"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial5"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SideScreen/CommsPuzzleSideScreen"]
 [editable path="CommsRoom/Platform/Monitor2/MonitorScreen"]
 [editable path="CommsRoom/Cubicle Sphere"]
 [editable path="CommsRoom/Cubicle Sphere/Final_Cubicle roof"]
@@ -1206,9 +1134,6 @@ push_force = 4.0
 [editable path="CommsRoom/Cubicle Hexagon"]
 [editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
 [editable path="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen"]
-[editable path="CommsRoom/CommsDoor2/Final_Door frame"]
-[editable path="CommsRoom/CommsDoor2/Final_Door left/Final_Door handle2"]
-[editable path="CommsRoom/CommsDoor2/Final_Door right/Final_Door handle"]
 [editable path="Elevator Room/Elevator 1st floor"]
 [editable path="Elevator Room/WirePuzzleElevator"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
@@ -1226,3 +1151,9 @@ push_force = 4.0
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Lid Wire space small"]
+[editable path="Final_Multitoolcase body/Multitool"]
+[editable path="Final_Multitoolcase body/Multitool/multitool piece 1 lit "]
+[editable path="Final_Multitoolcase body/Multitool/eye left lit"]
+[editable path="Final_Multitoolcase body/Multitool/eye middle lit"]
+[editable path="Final_Multitoolcase body/Multitool/eye right lit "]
+[editable path="Final_Multitoolcase body/Multitool/MULTITOOL MAIN BODY2"]

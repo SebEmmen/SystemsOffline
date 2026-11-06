@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://6x3wrfusc0f1"]
+
+[ext_resource type="Script" uid="uid://yqgrut262qqj" path="res://src/3d/Scenes/objects/Comms Puzzle/dial.gd" id="1_708wk"]
+[ext_resource type="Texture2D" uid="uid://jaq5ll7ph6sf" path="res://src/3d/Scenes/objects/Comms Puzzle/Bottom dial.svg" id="1_pv70b"]
+[ext_resource type="Texture2D" uid="uid://cobsn4an46j46" path="res://src/3d/Scenes/objects/Comms Puzzle/Dial outer decoration.svg" id="2_4818h"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="2_mu3uv"]
+[ext_resource type="Texture2D" uid="uid://crk5fb5gv8vcp" path="res://src/3d/Scenes/objects/Comms Puzzle/Top dial.svg" id="3_mu3uv"]
+
+[node name="Final Dial" type="Node2D" unique_id=154555332]
+
+[node name="BottomDial" type="TextureRect" parent="." unique_id=1735967430]
+offset_left = -191.0
+offset_top = -192.0
+offset_right = 190.0
+offset_bottom = 189.0
+pivot_offset = Vector2(191, 192)
+texture = ExtResource("1_pv70b")
+script = ExtResource("1_708wk")
+
+[node name="Correct Letter" type="Label" parent="BottomDial" unique_id=615905388]
+layout_mode = 0
+offset_left = 155.0
+offset_top = -12.0
+offset_right = 3535.0
+offset_bottom = 1383.8333
+scale = Vector2(0.15, 0.15)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7100054, 0.90256464, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_mu3uv")
+theme_override_font_sizes/font_size = 1000
+text = "h"
+
+[node name="Letter2" type="Label" parent="BottomDial" unique_id=879674400]
+layout_mode = 0
+offset_left = 385.3036
+offset_top = 91.01426
+offset_right = 3765.3037
+offset_bottom = 1486.8475
+rotation = 1.291605
+scale = Vector2(0.15, 0.15)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7100054, 0.90256464, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_mu3uv")
+theme_override_font_sizes/font_size = 1000
+text = "j"
+
+[node name="Letter3" type="Label" parent="BottomDial" unique_id=760680996]
+layout_mode = 0
+offset_left = 340.25406
+offset_top = 334.48236
+offset_right = 3720.2542
+offset_bottom = 1730.3157
+rotation = 2.523245
+scale = Vector2(0.15, 0.15)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7100054, 0.90256464, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_mu3uv")
+theme_override_font_sizes/font_size = 1000
+text = "e"
+
+[node name="Letter4" type="Label" parent="BottomDial" unique_id=1241860383]
+layout_mode = 0
+offset_left = 102.56762
+offset_top = 374.96365
+offset_right = 3482.5676
+offset_bottom = 1770.7969
+rotation = -2.507511
+scale = Vector2(0.15, 0.15)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7100054, 0.90256464, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_mu3uv")
+theme_override_font_sizes/font_size = 1000
+text = "v"
+
+[node name="Letter5" type="Label" parent="BottomDial" unique_id=1435347004]
+layout_mode = 0
+offset_left = -7.1497188
+offset_top = 167.57281
+offset_right = 3372.8503
+offset_bottom = 1563.406
+rotation = -1.2582095
+scale = Vector2(0.15, 0.15)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7100054, 0.90256464, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_mu3uv")
+theme_override_font_sizes/font_size = 1000
+text = "y"
+
+[node name="DialOuterDecoration" type="Sprite2D" parent="." unique_id=1567678524]
+texture = ExtResource("2_4818h")
+
+[node name="TopDial" type="Sprite2D" parent="." unique_id=1454226459]
+position = Vector2(0, 14)
+texture = ExtResource("3_mu3uv")

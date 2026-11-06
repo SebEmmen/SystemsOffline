@@ -5,8 +5,11 @@ extends InteractableComponent
 enum InspectType{
 	POSTER,
 	CRATE,
-	WIRES_PUZZLE
+	WIRES_PUZZLE,
+	MONITOR
 	}
+
+
 	
 @export var inspect_type: InspectType
 #region Inspect Variables
@@ -47,6 +50,19 @@ var fixed: bool = false
 var cover_removed: bool = false
 var cover_drop_time: float = 0.0
 #endregion
+
+#region Monitor Variables
+@export_group("Monitor")
+## The dial(s) on this monitor
+@export var main_screen: MeshInstance3D
+@export var side_screen: MeshInstance3D
+
+
+signal monitor_entered
+signal monitor_exited
+
+var monitor_active := false
+#endregion
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_audio_players()
@@ -57,6 +73,9 @@ func _ready() -> void:
 			ready_crate()
 		InspectType.WIRES_PUZZLE:
 			ready_puzzle()
+		InspectType.MONITOR:
+			update_monitor()
+			pass
 
 func interact() -> void:
 	if not can_interact:
@@ -77,6 +96,8 @@ func interact() -> void:
 		
 		InspectType.WIRES_PUZZLE:
 			enter_puzzle()
+		InspectType.MONITOR:
+			enter_monitor()
 
 
 #region Inspect Functions
@@ -314,7 +335,48 @@ func exit_wires_puzzle() -> void:
 
 #endregion
 
+#region Monitor Functions
 
+func enter_monitor() -> void:
+	if is_interacting or is_transitioning:
+		return
+
+	is_interacting = true
+	player.disable_controls()
+	player.visible = false
+
+	# Visible so the player can see and use the cursor
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+	await get_tree().process_frame
+	await transition(player_camera, inspect_camera)
+
+	monitor_active = true
+	monitor_entered.emit()
+
+func update_monitor() -> void:
+	if SaveManager.is_puzzle_completed("comms"):
+		main_screen.visible = true
+		side_screen.visible = true
+	else:
+		main_screen.visible = false
+		side_screen.visible = false
+
+func exit_monitor() -> void:
+	if not monitor_active or is_transitioning:
+		return
+
+	monitor_active = false
+	monitor_exited.emit()
+
+	await transition(inspect_camera, player_camera)
+	player.visible = true
+	is_interacting = false
+
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await get_tree().process_frame
+	player.enable_controls()
+#endregion
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
@@ -329,6 +391,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 			InspectType.WIRES_PUZZLE:
 				pass
+			InspectType.MONITOR:
+				exit_monitor()
+				get_viewport().set_input_as_handled()
 		return
 		
 		

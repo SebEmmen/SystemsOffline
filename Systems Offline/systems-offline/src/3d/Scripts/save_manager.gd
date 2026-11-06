@@ -7,6 +7,9 @@ const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 var return_scene: String = ""
 
 #region Comms Puzzles
+#Dial Puzzle
+var dial_puzzle_completed: bool = false
+
 # Wires
 var current_puzzle_id: String = ""
 # id -> { completed, cover_removed, cover_pos, cover_rot }
@@ -47,6 +50,7 @@ func save_game() -> void:
 		"scene": get_tree().current_scene.scene_file_path,
 		"player": player.get_save_data(),
 		"tutorial_puzzle_completed": tutorial_puzzle_completed,
+		"dial_puzzle_completed": dial_puzzle_completed,
 		"puzzles": _puzzles_to_json()
 	}
 
@@ -87,6 +91,7 @@ func load_game() -> void:
 	save_data = loaded_data
 
 	tutorial_puzzle_completed = save_data.get("tutorial_puzzle_completed", false)
+	dial_puzzle_completed = save_data.get("dial_puzzle_completed", false)
 	_puzzles_from_json(save_data.get("puzzles", {}))
 
 	var error = get_tree().change_scene_to_file(save_data["scene"])

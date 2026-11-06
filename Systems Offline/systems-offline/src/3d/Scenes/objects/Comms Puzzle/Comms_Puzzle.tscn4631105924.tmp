@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b1e7uqxjadi1j"]
+
+[ext_resource type="Script" uid="uid://cm0eulmp0dn4d" path="res://src/3d/Scenes/objects/Comms Puzzle/comms_puzzle.gd" id="1_7avjv"]
+[ext_resource type="PackedScene" uid="uid://6x3wrfusc0f1" path="res://src/3d/Scenes/objects/Comms Puzzle/Final_Dial.tscn" id="1_px62k"]
+
+[node name="CommsPuzzle" type="Node2D" unique_id=628618746]
+position = Vector2(869, 280)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_7avjv")
+
+[node name="FinalDial" parent="." unique_id=154555332 instance=ExtResource("1_px62k")]
+
+[node name="FinalDial2" parent="." unique_id=1784975922 instance=ExtResource("1_px62k")]
+position = Vector2(500, 0)
+
+[node name="FinalDial3" parent="." unique_id=1388991305 instance=ExtResource("1_px62k")]
+position = Vector2(1000, 0)
+
+[node name="FinalDial4" parent="." unique_id=1565661192 instance=ExtResource("1_px62k")]
+position = Vector2(-500, 0)
+
+[node name="FinalDial5" parent="." unique_id=1812789232 instance=ExtResource("1_px62k")]
+position = Vector2(-1000, 0)
