@@ -48,18 +48,20 @@
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="Resource" uid="uid://b4yq2dwbxp6qt" path="res://src/3d/Resources/Multitool Key.tres" id="45_nnjxg"]
-[ext_resource type="PackedScene" uid="uid://bhfsnh2vof7a1" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
+[ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
-[ext_resource type="PackedScene" uid="uid://phfo10k8ripa" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
+[ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
 [ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
-[ext_resource type="PackedScene" uid="uid://cp8wx8vmr5ter" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://b5sbe32hskwdj" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
+[ext_resource type="Script" uid="uid://dlogf1myqa0jk" path="res://src/3d/Scenes/objects/multitool.gd" id="64_p5n46"]
+[ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool Key.tscn" id="67_nvpkd"]
 [ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
@@ -76,28 +78,28 @@ point_count = 2
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0prxm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8iy1x"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_p5n46"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_i6svr"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_0prxm")
+albedo_texture = SubResource("ViewportTexture_8iy1x")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_8iy1x"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_nvpkd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_p5n46")
+material = SubResource("ORMMaterial3D_i6svr")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i6svr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nnjxg"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nvpkd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_x8cbg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_i6svr")
+albedo_texture = SubResource("ViewportTexture_nnjxg")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_nnjxg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_fs8bd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_nvpkd")
+material = SubResource("ORMMaterial3D_x8cbg")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -217,9 +219,10 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.40909934, 0.28043073, -0.8683295, 0, 0.95160466, 0.30732477, 0.9124897, -0.12572636, 0.38930082, 11.736336, 0.12792993, -63.894802)
 camera = NodePath("Head/Camera3D")
+arm = NodePath("Head/Camera3D/arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
 primary_se = ExtResource("5_8iy1x")
@@ -628,10 +631,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_8iy1x")
+mesh = SubResource("PlaneMesh_nvpkd")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_nnjxg")
+mesh = SubResource("PlaneMesh_fs8bd")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -692,7 +695,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=1278059622]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -760,7 +763,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=1278059622]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -817,7 +820,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=1278059622]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -878,7 +881,7 @@ transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=1278059622]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -1046,6 +1049,23 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -51.19979)
 shadow_enabled = true
 
+[node name="Final_Multitoolcase body" parent="." unique_id=754739194 instance=ExtResource("71_s5xlb")]
+transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
+
+[node name="Multitool" parent="Final_Multitoolcase body" index="2" unique_id=51961434 node_paths=PackedStringArray("object_ref", "player")]
+script = ExtResource("64_p5n46")
+object_ref = NodePath(".")
+interaction_type = 0
+player = NodePath("../../ProtoController")
+is_part_of_tutorial = false
+item_data = ExtResource("65_8iy1x")
+pickup_message = ""
+rotation_speed = 0.05
+primary_se = null
+secondary_se = null
+tertiary_se = null
+array_sounds = Array[AudioStream]([])
+
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
@@ -1082,9 +1102,6 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 [node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
 visible = true
 push_force = 4.0
-
-[node name="Final_Multitoolcase body" parent="." unique_id=754739194 instance=ExtResource("71_s5xlb")]
-transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
 
 [editable path="ProtoController"]
 [editable path="HUD"]
@@ -1150,6 +1167,8 @@ transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957,
 [editable path="CommsRoom/Cubicle Hexagon"]
 [editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
 [editable path="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen"]
+[editable path="Final_Multitoolcase body"]
+[editable path="Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
 [editable path="Elevator Room/Elevator 1st floor"]
 [editable path="Elevator Room/WirePuzzleElevator"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]

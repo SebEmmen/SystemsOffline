@@ -1,10 +1,4 @@
-
-extends Node3D
-
-var interaction_type: InteractableComponent.InteractionType = \
-	InteractableComponent.InteractionType.PICKUP
-
-@export var can_interact: bool = true
+extends InteractableComponent
 
 
 
@@ -15,7 +9,7 @@ func interact() -> void:
 	var equipment := get_tree().get_first_node_in_group(
 		"multitool_equipment"
 	)
-
+	
 	if equipment == null:
 		push_warning("Multitool equipment system not found.")
 		return
@@ -33,6 +27,8 @@ func interact() -> void:
 		true,
 		2.1
 	)
-
+	print("Object has been picked up!")
+	Notification.show_pickup_notification(item_data)
+	Inventory.add_item(item_data)
 	# Remove the world model.
 	queue_free()
