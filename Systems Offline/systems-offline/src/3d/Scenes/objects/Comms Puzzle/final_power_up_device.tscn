@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dwi76effdkllh" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cube.001 1 Roughness.png" id="5_s6n03"]
 [ext_resource type="Texture2D" uid="uid://dr5uty6yw2goc" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.001 1 Color.png" id="6_s5oym"]
 [ext_resource type="Texture2D" uid="uid://bb1y4w65xmffn" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.001 1 Roughness.png" id="7_vavtl"]
-[ext_resource type="Texture2D" uid="uid://b6hvg1kes0av0" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.001 Color.png" id="8_128aw"]
-[ext_resource type="Texture2D" uid="uid://d7j0i4w53sap" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.001 Roughness.png" id="9_8huf0"]
+[ext_resource type="Texture2D" uid="uid://dc8a2ija2gw2y" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.001 Color.png" id="8_128aw"]
+[ext_resource type="Texture2D" uid="uid://b3qt84j3wd4dg" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.001 Roughness.png" id="9_8huf0"]
 [ext_resource type="Texture2D" uid="uid://ceem32x2ebeqj" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.002 Color.png" id="10_k0awa"]
 [ext_resource type="Texture2D" uid="uid://0mrdpl3dpv47" path="res://src/3d/Assets/Comm room/textures/Ucupaint Cylinder.002 Roughness.png" id="11_8y0e6"]
 [ext_resource type="Texture2D" uid="uid://byq8d72cae2wl" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane Color.png" id="12_yhnoi"]
@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://bmqgs6ikljsnl" path="res://src/3d/Assets/Comm room/textures/Ucupaint Plane.003 Color.png" id="16_beror"]
 [ext_resource type="Script" uid="uid://csmxkn2jg1ogs" path="res://src/3d/Scenes/objects/Comms Puzzle/comms_puzzle_subviewport.gd" id="17_kxhxv"]
 [ext_resource type="PackedScene" uid="uid://336jk7iyijl8" path="res://src/3d/Scenes/objects/Comms Puzzle/Comms_Puzzle_Side_Screen.tscn" id="19_pelnl"]
-[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="20_7x3ct"]
-[ext_resource type="PackedScene" uid="uid://do2v08m4rk0es" path="res://src/3d/Assets/Wires puzzle/Red lightning bolt.blend" id="21_s6n03"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="20_7x3ct"]
+[ext_resource type="PackedScene" uid="uid://da15hxqco428a" path="res://src/3d/Assets/Wires puzzle/Red lightning bolt.blend" id="21_s6n03"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxxaa"]
 resource_name = "Cube"
@@ -669,8 +669,11 @@ metadata/extras = {
 "yp_decal": {}
 }
 
-[node name="Cube_003" type="MeshInstance3D" parent="." unique_id=2116016902]
-transform = Transform3D(1.5225213, 0, 0, 0, 1, 0, 0, 0, 0.90417725, -3.900673, 0.7132775, -6.031943)
+[node name="Cube003_Hinge" type="Node3D" parent="." unique_id=430186651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8745608, 0.9582213, -5.9995775)
+
+[node name="Cube_003" type="MeshInstance3D" parent="Cube003_Hinge" unique_id=2116016902]
+transform = Transform3D(1.5225213, 0, 0, 0, 1, 0, 0, 0, 0.90417725, -0.02611208, -0.2449438, -0.032365322)
 mesh = SubResource("ArrayMesh_3xq0v")
 metadata/extras = {
 "yp_decal": {}
