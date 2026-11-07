@@ -12,19 +12,11 @@ func _ready() -> void:
 func locked_notification() -> void:
 	locked.emit()
 
-func show_pickup_notification(item_data: Variant) -> void:
+func show_pickup_notification(item_data: ItemData) -> void:
 	notification.emit(item_data)
 
 func show_message(text: String, top: bool) -> void:
 	message.emit(text, top)
-	
-func show_message_after_delay(
-	text: String,
-	top: bool,
-	delay: float
-) -> void:
-	await get_tree().create_timer(delay).timeout
-	show_message(text, top)
 
 func hide_message() -> void:
 	hide.emit()

@@ -12,23 +12,15 @@ func _ready() -> void:
 	Notification.message.connect(show_message_top_center)
 	Notification.hide.connect(hide_message)
 
-func show_pickup_notification(item_data: Variant) -> void:
-	var item_name: String
-
-	if item_data is ItemData:
-		item_name = item_data.item_name
-	else:
-		item_name = str(item_data)
-
-	top_center_message_label.text = "You have picked up: " + item_name
+func show_pickup_notification(item_data: ItemData) -> void:
+	top_center_message_label.text = "You have picked up: " + item_data.item_name
 	top_center_message_label.visible = true
-	message_timer.start(2.0)
+	message_timer.start()
 
 func show_message_top_center(text: String, top: bool) -> void:
 	if top:
 		top_center_message_label.text = text
 		top_center_message_label.visible = true
-		message_timer.start(2.5)
 	else:
 		bot_center_message_label.text = text
 		bot_center_message_label.visible = true

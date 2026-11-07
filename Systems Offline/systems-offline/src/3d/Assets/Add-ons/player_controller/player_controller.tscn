@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://b0wgwuupgjh14" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.gd" id="1_ucva2"]
 [ext_resource type="Script" uid="uid://c0qp0g35mplfs" path="res://src/3d/Assets/Add-ons/player_controller/ray_cast.gd" id="2_1ae3g"]
 [ext_resource type="PackedScene" uid="uid://dp70bgqvlx2sr" path="res://src/3d/Scenes/objects/Hand/Arms.tscn" id="3_j2dax"]
-[ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="3_j2dax"]
-[ext_resource type="Script" uid="uid://dvuspaij4e6uy" path="res://src/3d/Assets/Add-ons/player_controller/multitool_holder.gd" id="3_q8aoj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -42,13 +40,6 @@ transform = Transform3D(0.5088612, 5.2154064e-08, -1.3042469, -0.38613826, 1.337
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
 target_position = Vector3(0, -1.5, 0)
 script = ExtResource("2_1ae3g")
-
-[node name="MultitoolHolder" type="Node3D" parent="Head/Camera3D" unique_id=1661896159]
-transform = Transform3D(0.30219904, -0.93861747, 0.16635238, 0.9431003, 0.26900262, -0.1954485, 0.13870215, 0.21595114, 0.96650255, 1.495491, -0.5552771, -0.43997866)
-script = ExtResource("3_q8aoj")
-
-[node name="Multitool" parent="Head/Camera3D/MultitoolHolder" unique_id=51961434 instance=ExtResource("3_j2dax")]
-transform = Transform3D(0.5, 0, 0, 0, 0.09672029, 0.49055603, 0, -0.49055603, 0.09672029, 0, -0.47430575, -1.0066562)
 
 [node name="StairsAheadRayCast3D" type="RayCast3D" parent="." unique_id=1955223396]
 unique_name_in_owner = true
