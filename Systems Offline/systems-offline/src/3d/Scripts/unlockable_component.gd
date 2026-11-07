@@ -62,7 +62,7 @@ var audiotimer: bool = false
 @export var key_arc_height: float = 0.8
 @export var sliding_door: Node3D
 @export var needskey_sounds: Array[AudioStream] = []
-@onready var needskey_sound_player: AudioStreamPlayer3D = $NeedsKeySoundPlayer
+#@onready var needskey_sound_player: AudioStreamPlayer3D = $NeedsKeySoundPlayer
 
 
 var closed_left_rotation: float
@@ -73,10 +73,25 @@ var original_collision_mask: int
 
 #endregion
 
+
 #region Case Specific Variables
 @export_group("Case")
 @export var lid: Node3D
+@export var lid_open_angle: float = 95.0
+@export var lid_open_duration: float = 1.2
+@export_enum("X", "Y", "Z") var lid_axis: int = 1
+
+@export_group("Case Key Animation")
+@export var case_key_scene: PackedScene = preload(
+	"res://src/3d/Scenes/objects/Multitool Key.tscn"
+)
+@export var case_key_start: Marker3D
+@export var case_key_insert: Marker3D
+@export var case_key_turn: Marker3D
+
+var case_lid_closed_rotation: Vector3
 #endregion
+
 
 
 
@@ -509,17 +524,110 @@ func fly_key_to_hanger() -> void:
 
 #region Case Functions
 
+
 func ready_case() -> void:
-	pass
+	if lid:
+		case_lid_closed_rotation = lid.rotation
+
 
 func open_lid() -> void:
-	if Inventory.has_item("multitool_key"):
-		locked = false
-	if locked:
-		print("Door is locked!")
+	if is_open or is_moving:
+		return
+
+	# Require the Multitool Case Key.
+	if not Inventory.has_item("multitool_key"):
 		Notification.locked_notification()
 		return
-	
+
+	if lid == null or case_key_scene == null \
+	or case_key_start == null \
+	or case_key_insert == null \
+	or case_key_turn == null:
+		push_error("Multitool case: Missing animation references.")
+		return
+
+	is_moving = true
+	can_interact = false
+	locked = false
+
+	# Create a visual version of the inventory key.
+	var animated_key := case_key_scene.instantiate() as Node3D
+	if animated_key == null:
+		push_error("Multitool case: Key scene root must be Node3D.")
+		is_moving = false
+		can_interact = true
+		return
+
+	add_child(animated_key)
+	animated_key.global_transform = case_key_start.global_transform
+
+	# Disable collision on the animated key.
+	for node in animated_key.find_children(
+		"*", "CollisionObject3D", true, false
+	):
+		var collider := node as CollisionObject3D
+		collider.collision_layer = 0
+		collider.collision_mask = 0
+
+	# Insert the key into the lock.
+	var insert_tween := create_tween()
+	insert_tween.set_trans(Tween.TRANS_SINE)
+	insert_tween.set_ease(Tween.EASE_IN_OUT)
+	insert_tween.tween_property(
+		animated_key,
+		"global_transform",
+		case_key_insert.global_transform,
+		0.8
+	)
+	await insert_tween.finished
+
+	# Turn the key.
+	var turn_tween := create_tween()
+	turn_tween.set_trans(Tween.TRANS_SINE)
+	turn_tween.set_ease(Tween.EASE_IN_OUT)
+	turn_tween.tween_property(
+		animated_key,
+		"global_transform",
+		case_key_turn.global_transform,
+		0.5
+	)
+	await turn_tween.finished
+
+	# Open Cylinder_006 using its hinge.
+	var target_rotation := case_lid_closed_rotation
+	target_rotation[lid_axis] += deg_to_rad(lid_open_angle)
+
+	var lid_tween := create_tween()
+	lid_tween.set_trans(Tween.TRANS_SINE)
+	lid_tween.set_ease(Tween.EASE_IN_OUT)
+	lid_tween.tween_property(
+		lid,
+		"rotation",
+		target_rotation,
+		lid_open_duration
+	)
+	await lid_tween.finished
+
+	# Remove the temporary key animation.
+	animated_key.queue_free()
+
+	is_open = true
+	open = true
+	is_moving = false
+	can_interact = false
+
+	print("Multitool case opened!")
+
+	# Allow the interaction raycast to reach the Multitool.
+	var interaction_ray := get_tree().get_first_node_in_group(
+		"player_interaction_ray"
+	) as RayCast3D
+
+	var case_body := get_node_or_null("StaticBody3D") as StaticBody3D
+
+	if interaction_ray and case_body:
+		interaction_ray.add_exception(case_body)
+		interaction_ray.force_raycast_update()
 #endregion
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

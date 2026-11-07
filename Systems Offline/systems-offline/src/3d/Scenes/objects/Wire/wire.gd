@@ -2,6 +2,38 @@
 @tool
 extends Path3D
 
+var _last_curve: Curve3D
+var _last_curve_state: PackedVector3Array = PackedVector3Array()
+
+
+var previous_curve_state: PackedVector3Array
+
+
+func _process(_delta: float) -> void:
+	if not Engine.is_editor_hint():
+		return
+
+	if not is_node_ready():
+		return
+
+	if not is_instance_valid(wire_mesh):
+		return
+
+	if curve == null:
+		return
+
+	var current_state := PackedVector3Array()
+
+	for i in range(curve.point_count):
+		current_state.append(curve.get_point_position(i))
+		current_state.append(curve.get_point_in(i))
+		current_state.append(curve.get_point_out(i))
+
+	if current_state != previous_curve_state:
+		previous_curve_state = current_state
+		update_wire()
+
+
 @export_category("Wire")
 @export var wire_radius: float = 0.025:
 	set(value):
@@ -28,11 +60,29 @@ var is_unlocked: bool = false
 
 
 func _ready() -> void:
-	if curve != null:
-		if not curve.changed.is_connected(update_wire):
-			curve.changed.connect(update_wire)
+	if not curve_changed.is_connected(update_wire):
+		curve_changed.connect(update_wire)
+
+	# Enable live updates in the Godot editor.
+	if Engine.is_editor_hint():
+		set_process(true)
 
 	update_wire()
+
+
+
+func _get_curve_points() -> PackedVector3Array:
+	var points := PackedVector3Array()
+
+	if curve == null:
+		return points
+
+	for i in range(curve.point_count):
+		points.append(curve.get_point_position(i))
+		points.append(curve.get_point_in(i))
+		points.append(curve.get_point_out(i))
+
+	return points
 
 
 func update_wire() -> void:
@@ -60,43 +110,119 @@ func update_wire() -> void:
 
 	var current_length := 0.0
 
-	# Generate the wire geometry.
-	for i in range(points.size()):
 
+	# Generate wire geometry with consistent thickness at bends.
+	var previous_direction := Vector3.ZERO
+	var ring_axis := Vector3.ZERO
+
+	for i in range(points.size()):
 		if i > 0:
 			current_length += points[i - 1].distance_to(points[i])
 
-		var direction: Vector3
+		var incoming := Vector3.ZERO
+		var outgoing := Vector3.ZERO
 
-		if i < points.size() - 1:
-			direction = (
-				points[i + 1] - points[i]
-			).normalized()
-		else:
-			direction = (
+		if i > 0:
+			incoming = (
 				points[i] - points[i - 1]
 			).normalized()
 
-		var axis := direction.cross(Vector3.UP)
+		if i < points.size() - 1:
+			outgoing = (
+				points[i + 1] - points[i]
+			).normalized()
 
-		if axis.length_squared() < 0.001:
-			axis = direction.cross(Vector3.RIGHT)
+		# Average both directions at a corner.
+		var direction: Vector3
 
-		axis = axis.normalized()
+		if i == 0:
+			direction = outgoing
+		elif i == points.size() - 1:
+			direction = incoming
+		else:
+			direction = (incoming + outgoing).normalized()
 
-		var second_axis := direction.cross(axis).normalized()
+			if direction.is_zero_approx():
+				direction = outgoing
+
+		if direction.is_zero_approx():
+			continue
+
+		# Keep the circular frame aligned between points.
+		if i == 0:
+			ring_axis = direction.cross(Vector3.UP)
+
+			if ring_axis.length_squared() < 0.000001:
+				ring_axis = direction.cross(Vector3.RIGHT)
+
+			ring_axis = ring_axis.normalized()
+		else:
+			if previous_direction.dot(direction) > -0.999:
+				var rotation := Quaternion(
+					previous_direction,
+					direction
+				)
+				ring_axis = rotation * ring_axis
+
+			ring_axis = (
+				ring_axis
+				- direction * ring_axis.dot(direction)
+			).normalized()
+
+			if ring_axis.length_squared() < 0.000001:
+				ring_axis = direction.cross(Vector3.UP)
+
+				if ring_axis.length_squared() < 0.000001:
+					ring_axis = direction.cross(Vector3.RIGHT)
+
+				ring_axis = ring_axis.normalized()
+
+		var second_axis := direction.cross(ring_axis).normalized()
+
+		previous_direction = direction
+
+		# Miter correction prevents thinning at corners.
+		var miter_factor := 1.0
+		var bend_direction := Vector3.ZERO
+
+		if i > 0 and i < points.size() - 1:
+			var turn_dot := clampf(
+				incoming.dot(outgoing),
+				-1.0,
+				1.0
+			)
+
+			if turn_dot < 0.999:
+				bend_direction = (
+					outgoing - incoming
+				).normalized()
+
+				miter_factor = minf(
+					2.0,
+					sqrt(
+						2.0 / maxf(1.0 + turn_dot, 0.01)
+					)
+				)
 
 		# Generate circular vertices.
 		for j in range(wire_sides):
-
 			var angle := TAU * float(j) / float(wire_sides)
 
 			var offset := (
-				axis * cos(angle)
+				ring_axis * cos(angle)
 				+ second_axis * sin(angle)
 			) * wire_radius
 
-			# UV.y represents distance along the wire.
+			# Correct the ring shape at sharp turns.
+			if not bend_direction.is_zero_approx():
+				var bend_component := offset.dot(bend_direction)
+
+				offset += (
+					bend_direction
+					* bend_component
+					* (miter_factor - 1.0)
+				)
+
 			surface.set_uv(Vector2(
 				float(j) / float(wire_sides),
 				current_length / maxf(total_length, 0.0001)
@@ -117,6 +243,7 @@ func update_wire() -> void:
 				surface.add_index(current + j)
 				surface.add_index(previous + next_j)
 				surface.add_index(current + next_j)
+
 
 	surface.generate_normals()
 
@@ -180,3 +307,21 @@ func set_locked() -> void:
 
 	is_unlocked = false
 	set_wire_progress(0.0)
+	
+
+# Check for changes to the wire curve in the editor.
+
+
+# Read all curve points and their handles.
+func _get_curve_state() -> PackedVector3Array:
+	var state := PackedVector3Array()
+
+	if curve == null:
+		return state
+
+	for i in range(curve.point_count):
+		state.append(curve.get_point_position(i))
+		state.append(curve.get_point_in(i))
+		state.append(curve.get_point_out(i))
+
+	return state
