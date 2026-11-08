@@ -8,7 +8,8 @@ enum MultitoolPart{
 	COMMS,
 	GRAVITY,
 	STRENGTH,
-	SHRINK
+	SHRINK,
+	ARM
 }
 
 @export var multitool_part: MultitoolPart
@@ -17,8 +18,8 @@ enum MultitoolPart{
 func _ready() -> void:
 	match multitool_part:
 		MultitoolPart.BODY:
-			#if SaveManager.is_multool_part_complete("pickup_multitool"):
-				#queue_free()
+			if SaveManager.is_multitool_part_complete("pickup_multitool"):
+				queue_free()
 			pass
 
 func interact() -> void:
