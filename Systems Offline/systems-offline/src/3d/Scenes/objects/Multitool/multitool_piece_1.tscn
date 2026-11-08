@@ -13,10 +13,10 @@ multitool_id = "comms_upgrade"
 object_ref = NodePath(".")
 
 [node name="Circle_006" parent="." index="0" unique_id=990656115]
-transform = Transform3D(-0.24749838, 0.09559672, -0.031474143, -0.024859875, 0.01596599, 0.28649497, 0.10128914, 0.23750767, -0.0065907394, 0, 0, 0)
+transform = Transform3D(0.2685758, 0, 0, 0, 0.256522, 0, 0, 0, 0.288294, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1831097965]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=291282208]
-transform = Transform3D(-0.24749838, 0.09559672, -0.031474143, -0.024859875, 0.01596599, 0.28649497, 0.10128914, 0.23750767, -0.0065907394, 0, 0, 0)
+transform = Transform3D(0.2685758, 0, 0, 0, 0.256522, 0, 0, 0, 0.288294, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_2t1f2")

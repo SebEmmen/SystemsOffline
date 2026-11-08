@@ -27,6 +27,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_7h4rb")
 
 [node name="Circle Piece 1" parent="." unique_id=961166787 instance=ExtResource("2_u2qmr")]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle Piece 1" unique_id=443034497]
 
@@ -35,6 +36,7 @@ transform = Transform3D(-0.24749838, 0.09559672, -0.031474143, -0.024859875, 0.0
 shape = SubResource("ConcavePolygonShape3D_0v6yx")
 
 [node name="Eye piece 2" parent="." unique_id=936582030 instance=ExtResource("3_u2qmr")]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Eye piece 2" unique_id=608245089]
 
@@ -43,6 +45,7 @@ transform = Transform3D(-0.056360934, 0.024304073, 0.021493299, 0.012105716, 0.0
 shape = SubResource("ConcavePolygonShape3D_7h4rb")
 
 [node name="Eye piece 3" parent="." unique_id=1442694302 instance=ExtResource("4_jdof4")]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Eye piece 3" unique_id=748055803]
 
@@ -51,6 +54,7 @@ transform = Transform3D(0.13175948, -0.06772377, -0.05299886, 0.05244598, -0.003
 shape = SubResource("ConcavePolygonShape3D_e5ekl")
 
 [node name="Eye piece 4" parent="." unique_id=747606435 instance=ExtResource("5_0v6yx")]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Eye piece 4" unique_id=1079910975]
 
