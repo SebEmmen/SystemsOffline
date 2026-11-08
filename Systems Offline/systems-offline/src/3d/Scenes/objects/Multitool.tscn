@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m8d3qddgf7sd"]
 
-[ext_resource type="Script" uid="uid://btc5e33gvk1t6" path="res://src/3d/Scenes/objects/multitool_pickup.gd" id="1_7h4rb"]
+[ext_resource type="Script" uid="uid://dlogf1myqa0jk" path="res://src/3d/Scripts/multitool.gd" id="1_7h4rb"]
 [ext_resource type="PackedScene" uid="uid://ckbq1rtt0bs5x" path="res://src/3d/Assets/Multitool/MULTITOOL MAIN BODY.blend" id="1_n3ln2"]
 [ext_resource type="PackedScene" uid="uid://6yfcp5yxngog" path="res://src/3d/Assets/Multitool/multitool piece 1 lit .blend" id="2_u2qmr"]
 [ext_resource type="PackedScene" uid="uid://dg7mt0322gpxy" path="res://src/3d/Assets/Multitool/eye left lit.blend" id="3_u2qmr"]

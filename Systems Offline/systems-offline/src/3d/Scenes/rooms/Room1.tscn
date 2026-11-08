@@ -60,7 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
-[ext_resource type="Script" uid="uid://dlogf1myqa0jk" path="res://src/3d/Scenes/objects/multitool.gd" id="64_p5n46"]
+[ext_resource type="Script" uid="uid://dlogf1myqa0jk" path="res://src/3d/Scripts/multitool.gd" id="64_p5n46"]
 [ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool Key.tscn" id="67_nvpkd"]
