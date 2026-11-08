@@ -60,11 +60,12 @@
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
-[ext_resource type="Script" uid="uid://dlogf1myqa0jk" path="res://src/3d/Scripts/multitool.gd" id="64_p5n46"]
+[ext_resource type="Resource" uid="uid://dh1di115fpr3x" path="res://src/3d/Resources/Multitool_Piece_1.tres" id="62_i6svr"]
 [ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
+[ext_resource type="PackedScene" uid="uid://c72sbmldtcaei" path="res://src/3d/Scenes/objects/Multitool/multitool_piece_1.tscn" id="65_i6svr"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
-[ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool Key.tscn" id="67_nvpkd"]
-[ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
+[ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool/Multitool Key.tscn" id="67_nvpkd"]
+[ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool/Multitool_case.tscn" id="71_s5xlb"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -78,28 +79,28 @@ point_count = 2
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8iy1x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_p5n46"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_i6svr"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8iy1x"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_8iy1x")
+albedo_texture = SubResource("ViewportTexture_p5n46")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_nvpkd"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_i6svr"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_i6svr")
+material = SubResource("ORMMaterial3D_8iy1x")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nnjxg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nvpkd"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_x8cbg"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nnjxg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_nnjxg")
+albedo_texture = SubResource("ViewportTexture_nvpkd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_fs8bd"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_x8cbg"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_x8cbg")
+material = SubResource("ORMMaterial3D_nnjxg")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -631,10 +632,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_nvpkd")
+mesh = SubResource("PlaneMesh_i6svr")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_fs8bd")
+mesh = SubResource("PlaneMesh_x8cbg")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1049,22 +1050,17 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -51.19979)
 shadow_enabled = true
 
-[node name="Final_Multitoolcase body" parent="." unique_id=754739194 instance=ExtResource("71_s5xlb")]
+[node name="multitool piece 1 lit " parent="CommsRoom" unique_id=1999110288 instance=ExtResource("65_i6svr")]
+transform = Transform3D(0.3934389, 0, -0.07215139, -0.07214986, 0.002612841, -0.39343056, 0.00047130027, 0.39999145, 0.002569983, 3.0955696, 1.9367826, -64.04277)
+item_data = ExtResource("62_i6svr")
+
+[node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("71_s5xlb")]
 transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
 
-[node name="Multitool" parent="Final_Multitoolcase body" index="2" unique_id=51961434 node_paths=PackedStringArray("object_ref", "player")]
-script = ExtResource("64_p5n46")
+[node name="Multitool" parent="CommsRoom/Final_Multitoolcase body" index="2" unique_id=51961434 node_paths=PackedStringArray("object_ref", "player")]
 object_ref = NodePath(".")
-interaction_type = 0
-player = NodePath("../../ProtoController")
-is_part_of_tutorial = false
+player = NodePath("../../../ProtoController")
 item_data = ExtResource("65_8iy1x")
-pickup_message = ""
-rotation_speed = 0.05
-primary_se = null
-secondary_se = null
-tertiary_se = null
-array_sounds = Array[AudioStream]([])
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
@@ -1104,6 +1100,12 @@ visible = true
 push_force = 4.0
 
 [editable path="ProtoController"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Circle Piece 1"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 3"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 4"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/MULTITOOL MAIN BODY2"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
@@ -1167,8 +1169,8 @@ push_force = 4.0
 [editable path="CommsRoom/Cubicle Hexagon"]
 [editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
 [editable path="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen"]
-[editable path="Final_Multitoolcase body"]
-[editable path="Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
+[editable path="CommsRoom/Final_Multitoolcase body"]
+[editable path="CommsRoom/Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
 [editable path="Elevator Room/Elevator 1st floor"]
 [editable path="Elevator Room/WirePuzzleElevator"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]

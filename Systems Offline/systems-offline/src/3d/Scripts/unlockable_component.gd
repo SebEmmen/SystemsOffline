@@ -83,7 +83,7 @@ var original_collision_mask: int
 
 @export_group("Case Key Animation")
 @export var case_key_scene: PackedScene = preload(
-	"res://src/3d/Scenes/objects/Multitool Key.tscn"
+	"res://src/3d/Scenes/objects/Multitool/Multitool Key.tscn"
 )
 @export var case_key_start: Marker3D
 @export var case_key_insert: Marker3D
