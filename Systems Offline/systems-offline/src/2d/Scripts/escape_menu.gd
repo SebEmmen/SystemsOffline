@@ -44,6 +44,8 @@ extends Control
 @onready var window_mode_btn: OptionButton = $Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/WindowModeBtn
 @onready var vsync_check: CheckBox = $Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/VSyncCheck
 @onready var scanline_check: CheckBox = $Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/ScanlineCheck
+@onready var fov_slider: HSlider = $Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/FOVSlider
+@onready var fov_val_label: Label = $Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/FOVSlider/FOVVal
 # State
 enum ConfirmAction { NONE, RETURN_TO_MAIN_MENU, QUIT_GAME }
 var pending_confirm_action: ConfirmAction = ConfirmAction.NONE
@@ -120,6 +122,7 @@ func _setup_connections() -> void:
 	window_mode_btn.item_selected.connect(_on_window_mode_selected)
 	vsync_check.toggled.connect(_on_vsync_toggled)
 	scanline_check.toggled.connect(_on_scanline_toggled)
+	fov_slider.value_changed.connect(_on_fov_changed)
 	$Modals/OptionsModal/Panel/VBox/Footer/SaveSettingsBtn.pressed.connect(_save_settings)
 
 func _attach_sound_feedback(node: Node) -> void:
@@ -273,6 +276,12 @@ func _on_sfx_slider_changed(value: float) -> void:
 	if sound_hover:
 		sound_hover.play()
 
+func _on_fov_changed(value: float) -> void:
+	fov_val_label.text = "%d°" % int(value)
+	var player = _get_player()
+	if player and player.has_method("set_base_fov"):
+		player.set_base_fov(value)
+		
 func _set_bus_volume(bus_name: String, normalized_vol: float) -> void:
 	var idx = AudioServer.get_bus_index(bus_name)
 	if idx >= 0:
@@ -307,6 +316,7 @@ func _save_settings() -> void:
 		"window_mode": window_mode_btn.selected,
 		"vsync": vsync_check.button_pressed,
 		"scanline": scanline_check.button_pressed,
+		"fov": fov_slider.value
 	}
 	var file = FileAccess.open(SETTINGS_FILE, FileAccess.WRITE)
 	if file:
@@ -321,6 +331,8 @@ func _load_settings() -> void:
 	window_mode_btn.select(0)
 	vsync_check.button_pressed = true
 	scanline_check.button_pressed = true
+	fov_slider.value = 75.0
+	_on_fov_changed(75.0)
 
 	if not FileAccess.file_exists(SETTINGS_FILE):
 		return
@@ -344,6 +356,9 @@ func _load_settings() -> void:
 		if parsed.has("scanline"):
 			scanline_check.button_pressed = parsed["scanline"]
 			_on_scanline_toggled(parsed["scanline"])
+		if parsed.has("fov"):
+			fov_slider.value = parsed["fov"]
+			_on_fov_changed(parsed["fov"])
 
 func _get_player() -> CharacterBody3D:
 	if ui_manager and ui_manager.player:

@@ -19,7 +19,10 @@ signal wrong_attempt
 @export var transition_camera: Camera3D
 @export var camera_duration: float = 0.7
 @export var return_duration: float = 0.5
-
+var _pan_tween: Tween
+var _return_tween: Tween
+var _panning: bool = false
+var _pan_cancelled: bool = false
 
 func _ready() -> void:
 	check_button.pressed.connect(_on_check_pressed)
@@ -32,12 +35,27 @@ func activate() -> void:
 
 
 func deactivate() -> void:
+	cancel_pan()  # <-- add this
+
 	for dial in dials:
 		dial.stop_and_snap()
 
 	_set_feedback("")
 	_set_active(false)
 
+func _exit_tree() -> void:
+	cancel_pan()
+	
+
+func cancel_pan() -> void:
+	if not _panning:
+		return
+	_pan_cancelled = true
+	# Fast-forward so `await ...finished` resumes instead of hanging forever.
+	if _pan_tween and _pan_tween.is_valid():
+		_pan_tween.custom_step(9999.0)
+	if _return_tween and _return_tween.is_valid():
+		_return_tween.custom_step(9999.0)
 
 func _set_active(on: bool) -> void:
 	var locked: bool = SaveManager.dial_puzzle_completed
