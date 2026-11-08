@@ -9,6 +9,7 @@ signal wrong_attempt
 @export var feedback: Label   # optional
 @export var valid: Label3D
 @export var invalid: Label3D
+@export var multitool_piece: Node3D
 
 
 func _ready() -> void:
@@ -52,6 +53,7 @@ func _on_check_pressed() -> void:
 		
 		_set_active(false)
 		solved.emit()
+		pan_to_multitool_piece()
 	else:
 		_set_feedback("INCORRECT")
 		valid.visible = false
@@ -71,3 +73,15 @@ func _is_correct() -> bool:
 func _on_button_pressed() -> void:
 	print("Button pressed")
 	_is_correct() # Replace with function body.
+
+func pan_to_multitool_piece() -> void:
+	var piece_tween := create_tween()
+	var piece_target := multitool_piece.global_position + Vector3.UP * 0.3
+	piece_tween.tween_property(
+		multitool_piece,
+		"global_position",
+		piece_target,
+		3.0
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+	await piece_tween.finished

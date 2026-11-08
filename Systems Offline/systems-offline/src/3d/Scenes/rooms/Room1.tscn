@@ -48,7 +48,6 @@
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="Resource" uid="uid://b4yq2dwbxp6qt" path="res://src/3d/Resources/Multitool Key.tres" id="45_nnjxg"]
-[ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
 [ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
@@ -60,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
+[ext_resource type="PackedScene" uid="uid://drasxyj2nmf0a" path="res://src/3d/Scenes/objects/Chair.tscn" id="57_nvpkd"]
 [ext_resource type="Resource" uid="uid://dh1di115fpr3x" path="res://src/3d/Resources/Multitool_Piece_1.tres" id="62_i6svr"]
 [ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
 [ext_resource type="PackedScene" uid="uid://c72sbmldtcaei" path="res://src/3d/Scenes/objects/Multitool/multitool_piece_1.tscn" id="65_i6svr"]
@@ -79,28 +79,28 @@ point_count = 2
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i6svr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nnjxg"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nvpkd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_x8cbg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_i6svr")
+albedo_texture = SubResource("ViewportTexture_nnjxg")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_nnjxg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_fs8bd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_nvpkd")
+material = SubResource("ORMMaterial3D_x8cbg")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_x8cbg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s5xlb"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_fs8bd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cok2s"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_x8cbg")
+albedo_texture = SubResource("ViewportTexture_s5xlb")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_s5xlb"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_gav43"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_fs8bd")
+material = SubResource("ORMMaterial3D_cok2s")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -221,7 +221,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.40909934, 0.28043073, -0.8683295, 0, 0.95160466, 0.30732477, 0.9124897, -0.12572636, 0.38930082, 11.736336, 0.12792993, -63.894802)
+transform = Transform3D(0.3816018, -0.08140745, -0.9207348, 0.14745264, 0.98871917, -0.026306067, 0.91248965, -0.12572634, 0.38930076, 10.187911, 0.12792993, -62.453857)
 camera = NodePath("Head/Camera3D")
 arm = NodePath("Head/Camera3D/arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
@@ -621,7 +621,7 @@ material_override = SubResource("StandardMaterial3D_3q4rn")
 mesh = SubResource("QuadMesh_1cg0m")
 
 [node name="Camera3D" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="2" unique_id=78234944]
-transform = Transform3D(-0.64451575, -1.0896552, 1.0839876, 0, 1.4105213, 1.4178962, -1.5370028, 0.4569282, -0.4545516, 1.5009766, 2.6826806, 2.0238495)
+transform = Transform3D(-0.64451575, -1.0896553, 1.0839876, 0, 1.4105213, 1.4178963, -1.5370028, 0.45692816, -0.4545516, 1.5009689, 2.6826806, 2.0238419)
 
 [node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "lightning_off", "side_screen", "player", "player_camera", "transition_camera")]
 inspect_camera = NodePath("../Camera3D")
@@ -632,16 +632,23 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_nnjxg")
+mesh = SubResource("PlaneMesh_fs8bd")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_s5xlb")
+mesh = SubResource("PlaneMesh_gav43")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
 screen_mesh = NodePath("../Main Screen")
 inspect = NodePath("..")
 puzzle = NodePath("../MainScreen/CommsPuzzle")
+
+[node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece")]
+multitool_piece = NodePath("../../multitool piece 1 lit ")
+
+[node name="multitool piece 1 lit " parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="20" unique_id=1999110288 instance=ExtResource("65_i6svr")]
+transform = Transform3D(-1.6392765, 0.7772039, -0.16152978, 1.0765463, 1.5129477, 0.11157107, 0.1655499, 0.0045007467, -1.6584179, -3.43573, 0.6331787, -6.0516357)
+item_data = ExtResource("62_i6svr")
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Platform" unique_id=535870536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.261959, 3.8237305, 11.92118)
@@ -702,14 +709,14 @@ surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
 visible = true
 
-[node name="Chair4" parent="CommsRoom/Cubicle Sphere" unique_id=686452675 instance=ExtResource("45_u2kds")]
-transform = Transform3D(0.8104357, 0.5842482, 0.042990927, 0.05169638, 0.001774556, -0.9986613, -0.58354247, 0.8115728, -0.028765386, 0.7571869, -0.088629246, -0.5653076)
+[node name="Final_Chair3" parent="CommsRoom/Cubicle Sphere" unique_id=609046492 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(0.81043553, 0.5842482, 0.0429908, 0.051696237, 0.0017745454, -0.9986613, -0.5835423, 0.8115731, -0.02876528, 0.7571869, -0.088629246, -0.5653076)
 
-[node name="Chair5" parent="CommsRoom/Cubicle Sphere" unique_id=673814805 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.48894295, -0.87190235, -0.02685977, 0.05169638, 0.0017745579, -0.9986613, 0.8707828, -0.48967668, 0.044206563, 22.570671, -0.088629246, -17.82338)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Sphere" unique_id=680453020 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.48894277, -0.8719022, -0.026859691, 0.051696237, 0.0017745454, -0.9986613, 0.8707826, -0.48967677, 0.044206418, 22.570671, -0.088629246, -17.82338)
 
-[node name="Chair6" parent="CommsRoom/Cubicle Sphere" unique_id=360591222 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.9728843, 0, 0.23129226, 0, 1, 0, -0.23129226, 0, -0.9728843, 24.900963, -4.722689, 0.72473145)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Sphere" unique_id=1545913451 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.9728843, 0, 0.23129225, 0, 1, 0, -0.23129225, 0, -0.9728843, 24.900963, -4.722689, 0.72473145)
 
 [node name="Monitor3" type="CSGCombiner3D" parent="CommsRoom/Cubicle Sphere" unique_id=1678200378]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.8016281, 1.6730895, -13.464584)
@@ -770,11 +777,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
 visible = true
 
-[node name="Chair2" parent="CommsRoom/Cubicle Prism" unique_id=1650044198 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.9562844, 0, -0.29243866, 0, 1, 0, 0.29243866, 0, -0.9562844, 18.29596, -4.723777, -3.4005432)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Prism" unique_id=2063003176 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.9562843, 0, -0.29243866, 0, 1, 0, 0.29243866, 0, -0.9562843, 18.29596, -4.723777, -3.4005432)
 
-[node name="Chair3" parent="CommsRoom/Cubicle Prism" unique_id=750807166 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.25863695, 0.9659038, -0.011672173, 0.051696375, 0.001774557, -0.9986612, -0.96459043, -0.25889406, -0.050392717, 12.526745, -0.08971834, -6.9012146)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Prism" unique_id=794139441 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.25863707, 0.96590406, -0.011672142, 0.051696237, 0.0017745516, -0.9986613, -0.96459025, -0.2588942, -0.05039257, 12.526745, -0.08971834, -6.9012146)
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Cubicle Prism" unique_id=1935208122]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.801, 1.672, -12.304)
@@ -870,14 +877,14 @@ transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 
 material_override = SubResource("StandardMaterial3D_0prxm")
 mesh = SubResource("QuadMesh_1cg0m")
 
-[node name="Chair" parent="CommsRoom/Cubicle Donut" unique_id=1678814839 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.998824, 0, -0.04848536, 0, 1, 0, 0.04848536, 0, -0.998824, 19.128803, -4.723777, -6.2727966)
+[node name="Final_Chair3" parent="CommsRoom/Cubicle Donut" unique_id=257722808 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.9988239, 0, -0.04848525, 0, 1, 0, 0.04848525, 0, -0.9988239, 19.128803, -4.723777, -6.2727966)
 
-[node name="Chair3" parent="CommsRoom/Cubicle Donut" unique_id=2013996766 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.8611148, 0, 0.5084108, 0, 1, 0, -0.5084108, 0, -0.8611148, 15.057453, -4.723777, 5.666992)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Donut" unique_id=756671354 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.8611147, 0, 0.50841075, 0, 1, 0, -0.50841075, 0, -0.8611147, 15.057453, -4.723777, 5.666992)
 
-[node name="Chair2" parent="CommsRoom/Cubicle Donut" unique_id=1839018420 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9156984, 17.756348, -4.723777, -17.454956)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Donut" unique_id=614991277 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.91569835, 17.756348, -4.723777, -17.454956)
 
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
@@ -888,11 +895,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
 visible = true
 
-[node name="Chair" parent="CommsRoom/Cubicle Hexagon" unique_id=21777236 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.8849188, 0, 0.4657454, 0, 1, 0, -0.4657454, 0, -0.8849188, 16.341328, -4.723777, 0.46276855)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Hexagon" unique_id=467318568 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.8849188, 0, 0.46574536, 0, 1, 0, -0.46574536, 0, -0.8849188, 16.341328, -4.723777, 0.46276855)
 
-[node name="Chair6" parent="CommsRoom/Cubicle Hexagon" unique_id=1474010390 instance=ExtResource("45_u2kds")]
-transform = Transform3D(0.62884116, -0.77690864, 0.031171886, 0.05169638, 0.001774556, -0.9986613, 0.7758137, 0.62961066, 0.04127928, 7.633198, -0.05765724, -19.390625)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Hexagon" unique_id=244480947 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(0.6288409, -0.7769088, 0.031171784, 0.051696237, 0.0017745454, -0.9986613, 0.7758134, 0.62961054, 0.04127917, 7.633198, -0.05765724, -19.390625)
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Cubicle Hexagon" unique_id=1720909689]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.801, 1.672, -12.304)
@@ -1049,10 +1056,6 @@ shadow_enabled = true
 [node name="OmniLight3D4" type="OmniLight3D" parent="CommsRoom/Light" unique_id=155894199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -51.19979)
 shadow_enabled = true
-
-[node name="multitool piece 1 lit " parent="CommsRoom" unique_id=1999110288 instance=ExtResource("65_i6svr")]
-transform = Transform3D(0.17610998, 0.34655637, 0.09425469, -3.7252903e-09, 0.104976684, -0.3859792, -0.35914508, 0.16993701, 0.046218626, -6.339504, 3.1222916, -68.76571)
-item_data = ExtResource("62_i6svr")
 
 [node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("71_s5xlb")]
 transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
