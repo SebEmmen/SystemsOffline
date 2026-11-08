@@ -138,28 +138,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_hd0mg")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6ofj6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_loyml"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_loyml"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lghuq"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_6ofj6")
+albedo_texture = SubResource("ViewportTexture_loyml")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_lghuq"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_5buxd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_loyml")
+material = SubResource("ORMMaterial3D_lghuq")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5buxd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_slhau"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_t85fk"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_5buxd")
+albedo_texture = SubResource("ViewportTexture_slhau")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_t85fk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_wlapk"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_slhau")
+material = SubResource("ORMMaterial3D_t85fk")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -703,10 +703,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_lghuq")
+mesh = SubResource("PlaneMesh_5buxd")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_t85fk")
+mesh = SubResource("PlaneMesh_wlapk")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")

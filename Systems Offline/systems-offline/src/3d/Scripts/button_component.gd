@@ -30,6 +30,8 @@ func interact() -> void:
 		ButtonType.KEYPAD_BUTTON:
 			keypad_button_interact()
 		ButtonType.ELEVATOR_BUTTON:
+			if !SaveManager.dial_puzzle_completed:
+				return
 			elevator_button_interact()
 
 #region Elevator Button Functions
@@ -70,15 +72,19 @@ func move_elevator() -> void:
 	var target_y: float = elevator_chamber.position.y + travel_distance
 	var tween: Tween = create_tween()
 	
-	# Smooth acceleration and deceleration for a realistic elevator feel
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	
-	# Animate the Y position smoothly
 	tween.tween_property(elevator_chamber, "position:y", target_y, travel_time)
-	
-	# Reset moving state once movement finishes
 	tween.finished.connect(func(): is_moving = false)
+	
+	# Go to the end of alpha screen 1 second after the elevator starts moving
+	get_tree().create_timer(1.0).timeout.connect(_go_to_end_screen)
+
+
+func _go_to_end_screen() -> void:
+	get_tree().change_scene_to_file("res://src/2d/Scenes/alpha_end_screen.tscn")
+	
+	
 #endregion
 
 #region Keypad Button Functions
