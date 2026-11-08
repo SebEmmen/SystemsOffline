@@ -36,7 +36,7 @@
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="AudioStream" uid="uid://dmvlt1d30wstb" path="res://src/3d/Sound/key pickup.mp3" id="24_gav43"]
-[ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
+[ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/Hints/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
@@ -74,7 +74,12 @@
 [ext_resource type="AudioStream" uid="uid://ch08jk5ukssuw" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="66_fs8bd"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool/Multitool Key.tscn" id="67_nvpkd"]
+[ext_resource type="PackedScene" uid="uid://b57ass78xstv1" path="res://src/3d/Scenes/objects/Hints/shape_1_pedestal.glb" id="70_04e8d"]
+[ext_resource type="PackedScene" uid="uid://crpj3tdupmp7d" path="res://src/3d/Scenes/objects/Hints/shape_2_donut.glb" id="71_3kfck"]
 [ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool/Multitool_case.tscn" id="71_s5xlb"]
+[ext_resource type="PackedScene" uid="uid://h1npmkim3ghs" path="res://src/3d/Scenes/objects/Hints/shape_3_triangle.glb" id="72_a016q"]
+[ext_resource type="PackedScene" uid="uid://gfglg7ggna8f" path="res://src/3d/Scenes/objects/Hints/shape_4_circle.glb" id="73_xm1x8"]
+[ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -133,28 +138,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_hd0mg")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rwc1x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6ofj6"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_04e8d"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_loyml"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_rwc1x")
+albedo_texture = SubResource("ViewportTexture_6ofj6")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_3kfck"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_lghuq"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_04e8d")
+material = SubResource("ORMMaterial3D_loyml")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a016q"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5buxd"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_xm1x8"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_a016q")
+albedo_texture = SubResource("ViewportTexture_5buxd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_6ofj6"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_t85fk"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_xm1x8")
+material = SubResource("ORMMaterial3D_slhau")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -698,10 +703,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_3kfck")
+mesh = SubResource("PlaneMesh_lghuq")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_6ofj6")
+mesh = SubResource("PlaneMesh_t85fk")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -865,6 +870,23 @@ object_ref = NodePath(".")
 interaction_type = 2
 primary_se = ExtResource("16_i6svr")
 secondary_se = ExtResource("17_nvpkd")
+
+[node name="Hint" type="Node" parent="CommsRoom/Comms Door" unique_id=1491900032]
+
+[node name="shape_1_pedestal" parent="CommsRoom/Comms Door/Hint" unique_id=1561494031 instance=ExtResource("70_04e8d")]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -0.9238287, 5.188792, -46.431812)
+
+[node name="shape_2_donut" parent="CommsRoom/Comms Door/Hint" unique_id=521378152 instance=ExtResource("71_3kfck")]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -1.5221443, 5.1555715, -46.431812)
+
+[node name="shape_3_triangle" parent="CommsRoom/Comms Door/Hint" unique_id=38390437 instance=ExtResource("72_a016q")]
+transform = Transform3D(0.2, 0, -8.742278e-09, -8.742278e-09, 3.821371e-16, -0.2, 0, 0.2, 3.821371e-16, -2.0538878, 5.1370287, -46.431812)
+
+[node name="shape_4_circle" parent="CommsRoom/Comms Door/Hint" unique_id=1595821967 instance=ExtResource("73_xm1x8")]
+transform = Transform3D(0.2, 1.6703743e-23, -7.3014383e-31, 0, -8.742278e-09, -0.2, -1.6703743e-23, 0.2, -8.742278e-09, -2.5758617, 5.155685, -46.431812)
+
+[node name="shape_5_hexagon" parent="CommsRoom/Comms Door/Hint" unique_id=263466938 instance=ExtResource("74_6ofj6")]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, -3.1264868, 5.155685, -46.431812)
 
 [node name="Light" type="Node" parent="CommsRoom" unique_id=1621430007]
 
@@ -1065,6 +1087,7 @@ transform = Transform3D(-0.48894277, -0.8719022, -0.026859691, 0.051696237, 0.00
 [editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
 [editable path="CommsRoom/Cubicle Hexagon/Monitor"]
 [editable path="CommsRoom/Cubicle Hexagon/Monitor/MonitorScreen"]
+[editable path="CommsRoom/Comms Door/Hint/shape_1_pedestal"]
 [editable path="CommsRoom/Final_Multitoolcase body"]
 [editable path="CommsRoom/Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
 [editable path="Elevator Room/Elevator 1st floor"]
