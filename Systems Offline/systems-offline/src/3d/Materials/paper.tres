@@ -1,3 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cflgda82sa6gn"]
 
+[ext_resource type="Texture2D" uid="uid://bkhgq2eau0gak" path="res://src/3d/Resources/Flute.png" id="1_tw361"]
+
 [resource]
+albedo_texture = ExtResource("1_tw361")
+uv1_scale = Vector3(2, 2, 2)

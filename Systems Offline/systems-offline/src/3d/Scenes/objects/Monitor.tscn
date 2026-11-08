@@ -1,0 +1,129 @@
+[gd_scene format=4 uid="uid://duifu2far73vl"]
+
+[ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="1_l645p"]
+[ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="2_nms6j"]
+[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="3_yid04"]
+[ext_resource type="Texture2D" uid="uid://tq47qfeylqjm" path="res://src/3d/Assets/Comm room/textures/Ucupaint Sphere.002 Color.png" id="4_vimwc"]
+[ext_resource type="PackedScene" uid="uid://da15hxqco428a" path="res://src/3d/Assets/Wires puzzle/Red lightning bolt.blend" id="5_l645p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvdby"]
+resource_name = "Material.003"
+cull_mode = 2
+albedo_texture = ExtResource("4_vimwc")
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.3718403, 0.9952051, 1, 1)
+metadata/extras = {
+"yp": {
+"active_ypaint_node": "Group",
+"expand_content": 0.0
+}
+}
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d2e33"]
+_surfaces = [{
+"aabb": AABB(-5.8936343, -0.07449354, -4.274616, 11.787269, 0.14898708, 8.549232),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIABQADAAAABQACAAYAAgAHAAYABAAHAAIABgAIAAUABgAHAAgACQAFAAgACQADAAUACQAIAAcAAwAKAAQACQAHAAsAAwAMAAoAAwAJAAwADQAEAAoADQAKAAwABwAEAA4ADgAEAA0ABwAOAAsADAAOAA0ACwAPAAkADAAJAA8ACwAOAA8ADAAPAA4A"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("Eh8AAP//AAAAAP//kNAAABIf/////wAAAAAAAJDQAAAAAP//bi8AAOzgAAD//wAA7OD/////AAD/////kNAAAP//AACQ0AAA//8AAG4vAAAAAAAAbi8AAP////9uLwAAEh8AAAAAAAASH///AAAAAOzg//8AAAAA7OAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vb4hk"]
+resource_name = "Final_Screen on and off_Cube_004"
+_surfaces = [{
+"aabb": AABB(-5.8936343, -0.07449354, -4.274616, 11.787269, 0.14898708, 8.549232),
+"attribute_data": PackedByteArray("/1////+fI/T/n////18j9P+fOrj/X9rL/186uP+f2sv/nyN0aF0thf9fI3SWoi2FlqLSOv9f20toXdI6/5/bS/8f20vEJ/9//x8jdP9fI3RoXS2FaF3SOsQn/z//X9tL/18j9P+f2sv/nyP0/1/ay2hd0jr/n8QHlqLSOv9fxAf/n9tLlqIthf+fI3T/3yN0Otj/fzrY/z+WotI6/9/bS/9fOriWoi2F/586uGhdLYX/XyN0/5/bS/+fI3T/X9tL"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAEQATABQAEwAQABUAFQAQABYAEwAVABcAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAIQAjACQAIwAgACUAJQAgACYAIwAlACcAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_uvdby"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("Eh8AAP//vsYAAP//kNC+xhIf/////77GAAAAAJDQvsYSH///AABE6AAAAABuL0ToEh8AAAAAROgAAP//bi9E6P////9uL0To7OAAAAAAROj//wAAbi9E6Ozg//8AAETo7OD/////vsb//wAAkNC+xuzgAAD//77G/////5DQvsYAAAAAkNACwBIfAAAAAP+/AAAAAG4v/7///wAAbi8CwOzgAAAAAAbA7OAAAP//CsASHwAA//8RwP//AACQ0AfCAAAAAJDQVNUAAP//bi9U1QAA//+Q0FTVAAAAAG4vVNXs4AAA////vxIf//////+/7OD//////78SHwAA////v/////+Q0AT/7OD//wAAIf7/////bi8T8wAA//9uLwD/Eh///wAAmf0SH//////m/+zg/////4T+AAD//5DQ//8SHwAAAAD//+zg//8AAP//Eh///wAA///s4AAAAAD/////AABuL1TV/////5DQVNX/////bi9U1f//AACQ0FTV4uHi4eLh4uHi4eLh4uHi4aHLocuhy6HLocuhy6HLoctdNF00XTRdNF00XTRdNF00HB4cHhweHB4cHhweHB4cHkQE3X03AG2AAAD/fxoCM4QgA0GG5APJh9QJFXsbFDeoVNVU1VTVVNVU1VTVVNVU1f////////////////////8TgXW/CYL6viaNa7mLwBgBTcGbAhuA8b+fgS+//3//v/+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_d2e33")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
+size = Vector3(13.210489, 0.35471624, 9.712905)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ojbw0"]
+size = Vector2(8.5, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm1x8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Monitor" type="CSGCombiner3D" unique_id=607349523]
+
+[node name="MonitorStand" type="CSGSphere3D" parent="." unique_id=1598025577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6270275, 0, 2.5828466)
+radius = 1.0
+radial_segments = 51
+rings = 51
+material = ExtResource("1_l645p")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MonitorStand" unique_id=1404129636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61334705, 0)
+operation = 2
+size = Vector3(2, 1, 2)
+
+[node name="MonitorCylinder" type="CSGCylinder3D" parent="." unique_id=2045984651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639277, 0.88513565, 2.5828466)
+radius = 0.145
+height = 2.05
+material = ExtResource("1_l645p")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MonitorCylinder" unique_id=416683217]
+transform = Transform3D(0.74015343, 0.50579554, 0.443107, -0.56420875, 0.82563215, 4.2922395e-08, -0.36584336, -0.2500049, 0.89646876, 0.04892095, 1.0381058, -0.024180675)
+operation = 2
+size = Vector3(0.635, 0.435, 0.69)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1798643876]
+transform = Transform3D(-0.45398825, -0.5816147, 0.6749956, 0, 0.7575643, 0.65276057, -0.89100766, 0.29634562, -0.3439253, 2.1077092, 3.0706894, 1.9446735)
+
+[node name="MonitorScreen" parent="." unique_id=1298850349 node_paths=PackedStringArray("inspect_camera", "lightning_off", "main_screen", "object_ref") instance=ExtResource("2_nms6j")]
+transform = Transform3D(0.14344831, 0.16919495, 0.11530691, -0.19140087, 0.16081396, 0.0021439898, -0.07272084, -0.08950958, 0.22181013, 0.576, 1.646, 2.614)
+script = ExtResource("3_yid04")
+inspect_type = 3
+inspect_camera = NodePath("../Camera3D")
+lightning_off = NodePath("Red lightning bolt")
+main_screen = NodePath("Screen")
+object_ref = NodePath(".")
+interaction_type = 1
+
+[node name="Cube_001" parent="MonitorScreen" index="1" unique_id=1601771833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011656, 0.31008077, 0)
+
+[node name="Cube_003" parent="MonitorScreen" index="3" unique_id=1335169314]
+visible = false
+mesh = SubResource("ArrayMesh_vb4hk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MonitorScreen" unique_id=995447284]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MonitorScreen/StaticBody3D" unique_id=1365852079]
+transform = Transform3D(0.9999999, 2.9802322e-08, 2.9802322e-08, 0, 0.99999994, 2.2351742e-08, 0, 7.450581e-09, 0.99999994, -0.011657715, 0.34646416, 0)
+shape = SubResource("BoxShape3D_mfatv")
+
+[node name="Screen" type="MeshInstance3D" parent="MonitorScreen" unique_id=785997455]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -0.0026003686, 0.5383232, -7.2759576e-11)
+visible = false
+mesh = SubResource("PlaneMesh_ojbw0")
+
+[node name="Power Off Screen" type="MeshInstance3D" parent="MonitorScreen" unique_id=1111375779]
+transform = Transform3D(-2.9802322e-08, 0, 0.99999994, 2.9802322e-08, 0.99999994, -8.195639e-08, -0.9999999, 2.9802322e-08, 0, -0.0026006699, 0.5295298, 0)
+mesh = SubResource("PlaneMesh_ojbw0")
+surface_material_override/0 = SubResource("StandardMaterial3D_xm1x8")
+
+[node name="Red lightning bolt" parent="MonitorScreen" unique_id=235361443 instance=ExtResource("5_l645p")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4360287e-09, 0.5019079, 2.2351742e-08)
+
+[editable path="MonitorScreen"]

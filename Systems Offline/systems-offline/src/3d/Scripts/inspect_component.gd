@@ -117,7 +117,6 @@ func interact() -> void:
 func enter_inspect() -> void:
 	if is_interacting or is_transitioning:
 		return
-
 	is_interacting = true
 
 	player.disable_controls()
@@ -368,11 +367,13 @@ func enter_monitor() -> void:
 func update_monitor() -> void:
 	if SaveManager.is_puzzle_completed("comms"):
 		main_screen.visible = true
-		side_screen.visible = true
+		if side_screen:
+			side_screen.visible = true
 		lightning_off.visible = false
 	else:
 		main_screen.visible = false
-		side_screen.visible = false
+		if side_screen:
+			side_screen.visible = false
 		lightning_off.visible = true
 
 func exit_monitor() -> void:

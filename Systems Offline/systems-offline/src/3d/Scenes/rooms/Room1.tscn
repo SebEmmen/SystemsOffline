@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c35qrqo7ajmic"]
+[gd_scene format=4 uid="uid://c35qrqo7ajmic"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
@@ -53,21 +53,24 @@
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="Resource" uid="uid://b4yq2dwbxp6qt" path="res://src/3d/Resources/Multitool Key.tres" id="45_nnjxg"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
-[ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
-[ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
-[ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
 [ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
+[ext_resource type="Texture2D" uid="uid://tq47qfeylqjm" path="res://src/3d/Assets/Comm room/textures/Ucupaint Sphere.002 Color.png" id="56_gav43"]
+[ext_resource type="Texture2D" uid="uid://bkhgq2eau0gak" path="res://src/3d/Resources/Flute.png" id="57_hd0mg"]
 [ext_resource type="PackedScene" uid="uid://drasxyj2nmf0a" path="res://src/3d/Scenes/objects/Chair.tscn" id="57_nvpkd"]
 [ext_resource type="Resource" uid="uid://dh1di115fpr3x" path="res://src/3d/Resources/Multitool_Piece_1.tres" id="62_i6svr"]
+[ext_resource type="Texture2D" uid="uid://b5xxny7feyb5m" path="res://src/3d/Resources/Apple.png" id="64_gav43"]
+[ext_resource type="Texture2D" uid="uid://doofkxmq8g04f" path="res://src/3d/Resources/Worm.png" id="65_04e8d"]
 [ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
 [ext_resource type="PackedScene" uid="uid://c72sbmldtcaei" path="res://src/3d/Scenes/objects/Multitool/multitool_piece_1.tscn" id="65_i6svr"]
+[ext_resource type="PackedScene" uid="uid://duifu2far73vl" path="res://src/3d/Scenes/objects/Monitor.tscn" id="65_rwc1x"]
 [ext_resource type="AudioStream" uid="uid://eo1bhqvslcc1" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="65_x8cbg"]
+[ext_resource type="Texture2D" uid="uid://bmhnlr1cflf4e" path="res://src/3d/Resources/Coin.png" id="66_3kfck"]
 [ext_resource type="AudioStream" uid="uid://ch08jk5ukssuw" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="66_fs8bd"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool/Multitool Key.tscn" id="67_nvpkd"]
@@ -80,25 +83,58 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4rn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvdby"]
+resource_name = "Material.003"
+cull_mode = 2
+albedo_texture = ExtResource("56_gav43")
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.3718403, 0.9952051, 1, 1)
+metadata/extras = {
+"yp": {
+"active_ypaint_node": "Group",
+"expand_content": 0.0
+}
+}
+metadata/_gltf_primary_texture_coord = 0
 
-[sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
-size = Vector2(4.92, 7.01)
+[sub_resource type="ArrayMesh" id="ArrayMesh_d2e33"]
+_surfaces = [{
+"aabb": AABB(-5.8936343, -0.07449354, -4.274616, 11.787269, 0.14898708, 8.549232),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIABQADAAAABQACAAYAAgAHAAYABAAHAAIABgAIAAUABgAHAAgACQAFAAgACQADAAUACQAIAAcAAwAKAAQACQAHAAsAAwAMAAoAAwAJAAwADQAEAAoADQAKAAwABwAEAA4ADgAEAA0ABwAOAAsADAAOAA0ACwAPAAkADAAJAA8ACwAOAA8ADAAPAA4A"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("Eh8AAP//AAAAAP//kNAAABIf/////wAAAAAAAJDQAAAAAP//bi8AAOzgAAD//wAA7OD/////AAD/////kNAAAP//AACQ0AAA//8AAG4vAAAAAAAAbi8AAP////9uLwAAEh8AAAAAAAASH///AAAAAOzg//8AAAAA7OAAAAAAAAA=")
+}]
+blend_shape_mode = 0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cok2s"]
-viewport_path = NodePath("MainScreen")
+[sub_resource type="ArrayMesh" id="ArrayMesh_vb4hk"]
+resource_name = "Final_Screen on and off_Cube_004"
+_surfaces = [{
+"aabb": AABB(-5.8936343, -0.07449354, -4.274616, 11.787269, 0.14898708, 8.549232),
+"attribute_data": PackedByteArray("/1////+fI/T/n////18j9P+fOrj/X9rL/186uP+f2sv/nyN0aF0thf9fI3SWoi2FlqLSOv9f20toXdI6/5/bS/8f20vEJ/9//x8jdP9fI3RoXS2FaF3SOsQn/z//X9tL/18j9P+f2sv/nyP0/1/ay2hd0jr/n8QHlqLSOv9fxAf/n9tLlqIthf+fI3T/3yN0Otj/fzrY/z+WotI6/9/bS/9fOriWoi2F/586uGhdLYX/XyN0/5/bS/+fI3T/X9tL"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAEQATABQAEwAQABUAFQAQABYAEwAVABcAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAIQAjACQAIwAgACUAJQAgACYAIwAlACcAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_uvdby"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("Eh8AAP//vsYAAP//kNC+xhIf/////77GAAAAAJDQvsYSH///AABE6AAAAABuL0ToEh8AAAAAROgAAP//bi9E6P////9uL0To7OAAAAAAROj//wAAbi9E6Ozg//8AAETo7OD/////vsb//wAAkNC+xuzgAAD//77G/////5DQvsYAAAAAkNACwBIfAAAAAP+/AAAAAG4v/7///wAAbi8CwOzgAAAAAAbA7OAAAP//CsASHwAA//8RwP//AACQ0AfCAAAAAJDQVNUAAP//bi9U1QAA//+Q0FTVAAAAAG4vVNXs4AAA////vxIf//////+/7OD//////78SHwAA////v/////+Q0AT/7OD//wAAIf7/////bi8T8wAA//9uLwD/Eh///wAAmf0SH//////m/+zg/////4T+AAD//5DQ//8SHwAAAAD//+zg//8AAP//Eh///wAA///s4AAAAAD/////AABuL1TV/////5DQVNX/////bi9U1f//AACQ0FTV4uHi4eLh4uHi4eLh4uHi4aHLocuhy6HLocuhy6HLoctdNF00XTRdNF00XTRdNF00HB4cHhweHB4cHhweHB4cHkQE3X03AG2AAAD/fxoCM4QgA0GG5APJh9QJFXsbFDeoVNVU1VTVVNVU1VTVVNVU1f////////////////////8TgXW/CYL6viaNa7mLwBgBTcGbAhuA8b+fgS+//3//v/+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_d2e33")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_gav43"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_cok2s")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_hd0mg"]
-resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_gav43")
-size = Vector2(5.2, 4.1)
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
+albedo_texture = ExtResource("57_hd0mg")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwc1x"]
-viewport_path = NodePath("SideScreen")
+viewport_path = NodePath("MainScreen")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_04e8d"]
 resource_local_to_scene = true
@@ -107,10 +143,19 @@ albedo_texture = SubResource("ViewportTexture_rwc1x")
 [sub_resource type="PlaneMesh" id="PlaneMesh_3kfck"]
 resource_local_to_scene = true
 material = SubResource("ORMMaterial3D_04e8d")
-size = Vector2(2.7, 4.2)
+size = Vector2(5.2, 4.1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
-size = Vector3(13.210489, 0.35471624, 9.712905)
+[sub_resource type="ViewportTexture" id="ViewportTexture_a016q"]
+viewport_path = NodePath("SideScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_xm1x8"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_a016q")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ofj6"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_xm1x8")
+size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
 render_priority = 0
@@ -127,7 +172,8 @@ shader_parameter/core_width = 0.75
 shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sr45x"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cok2s"]
+albedo_texture = ExtResource("64_gav43")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nvwfr"]
 render_priority = 0
@@ -144,11 +190,8 @@ shader_parameter/core_width = 0.75
 shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
-[sub_resource type="PrismMesh" id="PrismMesh_r5iys"]
-material = ExtResource("47_tq7yy")
-size = Vector3(6, 6, 6)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kc5sd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hd0mg"]
+albedo_texture = ExtResource("65_04e8d")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbs5u"]
 render_priority = 0
@@ -165,7 +208,8 @@ shader_parameter/core_width = 0.75
 shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0prxm"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_6ofj6"]
+albedo_texture = ExtResource("57_hd0mg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2pegl"]
 render_priority = 0
@@ -182,13 +226,8 @@ shader_parameter/core_width = 0.75
 shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
-[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_ojbw0"]
-material = ExtResource("47_tq7yy")
-radius = 3.2
-radial_steps = 6
-section_length = 0.6
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5n46"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
+albedo_texture = ExtResource("66_3kfck")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q4rn"]
 friction = 0.4
@@ -629,19 +668,23 @@ transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08
 [node name="Platform" parent="CommsRoom" unique_id=831807862 instance=ExtResource("32_eivic")]
 transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.6, -8.25, -0.03, -72.3)
 
-[node name="Camera3D" parent="CommsRoom/Platform/Monitor" parent_id_path=PackedInt32Array(831807862, 587283104) index="2" unique_id=596283175]
+[node name="Camera3D" parent="CommsRoom/Platform/Monitor" parent_id_path=PackedInt32Array(831807862, 607349523) index="2" unique_id=1798643876]
 transform = Transform3D(-0.6378046, -1.0393207, 1.136132, 0, 1.475688, 1.3499428, -1.5397997, 0.43049985, -0.47060028, 2.248128, 3.3041801, 1.9894943)
 
-[node name="MonitorScreen" parent="CommsRoom/Platform/Monitor" parent_id_path=PackedInt32Array(831807862, 587283104) index="3" unique_id=366613847 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
+[node name="MonitorScreen" parent="CommsRoom/Platform/Monitor" parent_id_path=PackedInt32Array(831807862, 607349523) index="3" unique_id=1298850349 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
 transform = Transform3D(0.15793523, 0.16610488, 0.099828094, -0.18248567, 0.17081845, 0.004479006, -0.06523399, -0.075698346, 0.22915997, 0.576, 1.646, 2.614)
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=964480600]
-transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 1.725, -1.725, 7.540215e-08, 3.2959325e-15, 0.033, 0.53, 0.01)
-material_override = SubResource("StandardMaterial3D_3q4rn")
-mesh = SubResource("QuadMesh_1cg0m")
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=372334949]
+transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
+
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=1335169314]
+mesh = SubResource("ArrayMesh_vb4hk")
+
+[node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
+surface_material_override/0 = SubResource("ORMMaterial3D_l645p")
 
 [node name="Camera3D" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="2" unique_id=78234944]
 transform = Transform3D(-0.64451575, -1.0896553, 1.0839876, 0, 1.4105213, 1.4178963, -1.5370028, 0.45692816, -0.4545516, 1.5009689, 2.6826806, 2.0238419)
@@ -655,10 +698,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_hd0mg")
+mesh = SubResource("PlaneMesh_3kfck")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_3kfck")
+mesh = SubResource("PlaneMesh_6ofj6")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -672,56 +715,6 @@ multitool_piece = NodePath("../../multitool piece 1 lit ")
 [node name="multitool piece 1 lit " parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="20" unique_id=1999110288 instance=ExtResource("65_i6svr")]
 transform = Transform3D(-1.6392765, 0.7772039, -0.16152978, 1.0765463, 1.5129477, 0.11157107, 0.1655499, 0.0045007467, -1.6584179, -3.43573, 0.6331787, -6.0516357)
 item_data = ExtResource("62_i6svr")
-
-[node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Platform" unique_id=535870536]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.261959, 3.8237305, 11.92118)
-
-[node name="MonitorStand" type="CSGSphere3D" parent="CommsRoom/Platform/Monitor2" unique_id=1824649597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6270275, 0, 2.5828466)
-radius = 1.0
-radial_segments = 51
-rings = 51
-material = ExtResource("47_tq7yy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CommsRoom/Platform/Monitor2/MonitorStand" unique_id=1247712679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61334705, 0)
-operation = 2
-size = Vector3(2, 1, 2)
-
-[node name="MonitorCylinder" type="CSGCylinder3D" parent="CommsRoom/Platform/Monitor2" unique_id=1265340082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639277, 0.88513565, 2.5828466)
-radius = 0.145
-height = 2.05
-material = ExtResource("47_tq7yy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CommsRoom/Platform/Monitor2/MonitorCylinder" unique_id=2070195819]
-transform = Transform3D(0.74015343, 0.50579554, 0.443107, -0.56420875, 0.82563215, 4.2922395e-08, -0.36584336, -0.2500049, 0.89646876, 0.04892095, 1.0381058, -0.024180675)
-operation = 2
-size = Vector3(0.635, 0.435, 0.69)
-
-[node name="Camera3D" type="Camera3D" parent="CommsRoom/Platform/Monitor2" unique_id=336451914]
-transform = Transform3D(-0.6378046, -1.0393207, 1.136132, 0, 1.475688, 1.3499428, -1.5397997, 0.43049985, -0.47060028, 2.248128, 3.3041801, 1.9894943)
-
-[node name="MonitorScreen" parent="CommsRoom/Platform/Monitor2" unique_id=1165570628 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("48_e6fu1")]
-transform = Transform3D(0.15793523, 0.16610488, 0.099828094, -0.18248567, 0.17081845, 0.004479006, -0.06523399, -0.075698346, 0.22915997, 0.576, 1.646, 2.614)
-script = ExtResource("17_wvn26")
-inspect_camera = NodePath("../Camera3D")
-object_ref = NodePath(".")
-interaction_type = 1
-player = NodePath("../../../../ProtoController")
-player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../../TransitionCamera")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="CommsRoom/Platform/Monitor2/MonitorScreen" unique_id=1575074322]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/Platform/Monitor2/MonitorScreen/StaticBody3D" unique_id=1485061657]
-transform = Transform3D(0.9999999, 2.9802322e-08, 2.9802322e-08, 0, 0.99999994, 2.2351742e-08, 0, 7.450581e-09, 0.99999994, -0.011657715, 0.34646416, 0)
-shape = SubResource("BoxShape3D_mfatv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CommsRoom/Platform/Monitor2/MonitorScreen" unique_id=1278577345]
-transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 1.725, -1.725, 7.540215e-08, 3.2959325e-15, 0.033, 0.53, 0.01)
-material_override = SubResource("StandardMaterial3D_3q4rn")
-mesh = SubResource("QuadMesh_1cg0m")
 
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
@@ -741,55 +734,16 @@ transform = Transform3D(-0.48894277, -0.8719022, -0.026859691, 0.051696237, 0.00
 [node name="Final_Chair2" parent="CommsRoom/Cubicle Sphere" unique_id=1545913451 instance=ExtResource("57_nvpkd")]
 transform = Transform3D(-0.9728843, 0, 0.23129225, 0, 1, 0, -0.23129225, 0, -0.9728843, 24.900963, -4.722689, 0.72473145)
 
-[node name="Monitor3" type="CSGCombiner3D" parent="CommsRoom/Cubicle Sphere" unique_id=1678200378]
+[node name="Monitor" parent="CommsRoom/Cubicle Sphere" unique_id=607349523 instance=ExtResource("65_rwc1x")]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.8016281, 1.6730895, -13.464584)
 
-[node name="MonitorStand" type="CSGSphere3D" parent="CommsRoom/Cubicle Sphere/Monitor3" unique_id=87683258]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6270275, 0, 2.5828466)
-radius = 1.0
-radial_segments = 51
-rings = 51
-material = ExtResource("47_tq7yy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CommsRoom/Cubicle Sphere/Monitor3/MonitorStand" unique_id=1676748329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61334705, 0)
-operation = 2
-size = Vector3(2, 1, 2)
-
-[node name="MonitorCylinder" type="CSGCylinder3D" parent="CommsRoom/Cubicle Sphere/Monitor3" unique_id=2144681161]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639277, 0.88513565, 2.5828466)
-radius = 0.145
-height = 2.05
-material = ExtResource("47_tq7yy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CommsRoom/Cubicle Sphere/Monitor3/MonitorCylinder" unique_id=1477862216]
-transform = Transform3D(0.74015343, 0.50579554, 0.443107, -0.56420875, 0.82563215, 4.2922395e-08, -0.36584336, -0.2500049, 0.89646876, 0.04892095, 1.0381058, -0.024180675)
-operation = 2
-size = Vector3(0.635, 0.435, 0.69)
-
-[node name="Camera3D" type="Camera3D" parent="CommsRoom/Cubicle Sphere/Monitor3" unique_id=1449107074]
-transform = Transform3D(-0.6378046, -1.0393207, 1.136132, 0, 1.475688, 1.3499428, -1.5397997, 0.43049985, -0.47060028, 2.748, 3.304, 1.989)
-
-[node name="MonitorScreen" parent="CommsRoom/Cubicle Sphere/Monitor3" unique_id=486042198 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("48_e6fu1")]
-transform = Transform3D(0.15793523, 0.16610488, 0.099828094, -0.18248567, 0.17081845, 0.004479006, -0.06523399, -0.075698346, 0.22915997, 0.576, 1.646, 2.614)
-script = ExtResource("17_wvn26")
-inspect_camera = NodePath("../Camera3D")
-object_ref = NodePath(".")
-interaction_type = 1
+[node name="MonitorScreen" parent="CommsRoom/Cubicle Sphere/Monitor" index="3" unique_id=1298850349 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CommsRoom/Cubicle Sphere/Monitor3/MonitorScreen" unique_id=1800507962]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/Cubicle Sphere/Monitor3/MonitorScreen/StaticBody3D" unique_id=2054819332]
-transform = Transform3D(0.9999999, 2.9802322e-08, 2.9802322e-08, 0, 0.99999994, 2.2351742e-08, 0, 7.450581e-09, 0.99999994, -0.011657715, 0.34646416, 0)
-shape = SubResource("BoxShape3D_mfatv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CommsRoom/Cubicle Sphere/Monitor3/MonitorScreen" unique_id=1349199921]
-transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 1.725, -1.725, 7.540215e-08, 3.2959325e-15, 0.033, 0.53, 0.01)
-material_override = SubResource("StandardMaterial3D_sr45x")
-mesh = SubResource("QuadMesh_1cg0m")
+[node name="Screen" parent="CommsRoom/Cubicle Sphere/Monitor/MonitorScreen" index="9" unique_id=785997455]
+surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
@@ -806,47 +760,16 @@ transform = Transform3D(-0.9562843, 0, -0.29243866, 0, 1, 0, 0.29243866, 0, -0.9
 [node name="Final_Chair" parent="CommsRoom/Cubicle Prism" unique_id=794139441 instance=ExtResource("57_nvpkd")]
 transform = Transform3D(-0.25863707, 0.96590406, -0.011672142, 0.051696237, 0.0017745516, -0.9986613, -0.96459025, -0.2588942, -0.05039257, 12.526745, -0.08971834, -6.9012146)
 
-[node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Cubicle Prism" unique_id=1935208122]
+[node name="Monitor" parent="CommsRoom/Cubicle Prism" unique_id=1701793208 instance=ExtResource("65_rwc1x")]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.801, 1.672, -12.304)
 
-[node name="Triangle" type="MeshInstance3D" parent="CommsRoom/Cubicle Prism/Monitor2" unique_id=2119707406]
-transform = Transform3D(-0.07304791, 0.00025498203, -0.18080081, -0.00068066537, -0.1949988, -4.0305908e-11, -0.18079971, 0.00063110184, 0.07304835, 0.318, 0.611, 2.682)
-mesh = SubResource("PrismMesh_r5iys")
-
-[node name="MonitorCylinder" type="CSGCylinder3D" parent="CommsRoom/Cubicle Prism/Monitor2" unique_id=2021899368]
-transform = Transform3D(0.99999934, 0, 1.2218952e-06, 0, 1, 0, -1.2218952e-06, 0, 0.99999934, 0.6392784, 1.3327215, 2.5828552)
-radius = 0.145
-height = 0.924
-material = ExtResource("47_tq7yy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CommsRoom/Cubicle Prism/Monitor2/MonitorCylinder" unique_id=1222219925]
-transform = Transform3D(0.7401534, 0.5057955, 0.443107, -0.56420875, 0.82563215, 4.2922395e-08, -0.36584333, -0.25000486, 0.89646876, 0.048927307, 0.5511565, -0.02418518)
-operation = 2
-size = Vector3(0.635, 0.435, 0.69)
-
-[node name="Camera3D" type="Camera3D" parent="CommsRoom/Cubicle Prism/Monitor2" unique_id=1004409159]
-transform = Transform3D(-0.6378046, -1.0393207, 1.136132, 0, 1.475688, 1.3499428, -1.5397997, 0.43049985, -0.47060028, 2.748, 3.304, 1.989)
-
-[node name="MonitorScreen" parent="CommsRoom/Cubicle Prism/Monitor2" unique_id=1265917723 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("48_e6fu1")]
-transform = Transform3D(0.15793523, 0.16610488, 0.099828094, -0.18248567, 0.17081845, 0.004479006, -0.06523399, -0.075698346, 0.22915997, 0.576, 1.646, 2.614)
-script = ExtResource("17_wvn26")
-inspect_camera = NodePath("../Camera3D")
-object_ref = NodePath(".")
-interaction_type = 1
+[node name="MonitorScreen" parent="CommsRoom/Cubicle Prism/Monitor" index="3" unique_id=1298850349 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CommsRoom/Cubicle Prism/Monitor2/MonitorScreen" unique_id=522729236]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/Cubicle Prism/Monitor2/MonitorScreen/StaticBody3D" unique_id=252738266]
-transform = Transform3D(0.9999999, 2.9802322e-08, 2.9802322e-08, 0, 0.99999994, 2.2351742e-08, 0, 7.450581e-09, 0.99999994, -0.011657715, 0.34646416, 0)
-shape = SubResource("BoxShape3D_mfatv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CommsRoom/Cubicle Prism/Monitor2/MonitorScreen" unique_id=2098584533]
-transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 1.725, -1.725, 7.540215e-08, 3.2959325e-15, 0.033, 0.53, 0.01)
-material_override = SubResource("StandardMaterial3D_kc5sd")
-mesh = SubResource("QuadMesh_1cg0m")
+[node name="Screen" parent="CommsRoom/Cubicle Prism/Monitor/MonitorScreen" index="9" unique_id=785997455]
+surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
@@ -857,48 +780,16 @@ surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
 visible = true
 
-[node name="Monitor3" type="CSGCombiner3D" parent="CommsRoom/Cubicle Donut" unique_id=538943546]
+[node name="Monitor" parent="CommsRoom/Cubicle Donut" unique_id=1084550683 instance=ExtResource("65_rwc1x")]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.8009949, 1.6720004, -12.479553)
 
-[node name="Donut" type="MeshInstance3D" parent="CommsRoom/Cubicle Donut/Monitor3" unique_id=2005376309]
-transform = Transform3D(0.08725879, 0, -0.260789, 0, 0.275, 0, 0.260789, 0, 0.08725879, 0.63098884, 0.6636829, 2.556132)
-mesh = ExtResource("51_dhx8n")
-surface_material_override/0 = ExtResource("47_tq7yy")
-
-[node name="MonitorCylinder" type="CSGCylinder3D" parent="CommsRoom/Cubicle Donut/Monitor3" unique_id=224497595]
-transform = Transform3D(0.99999934, 0, 1.2218952e-06, 0, 1, 0, -1.2218952e-06, 0, 0.99999934, 0.6392708, 1.5531223, 2.58284)
-radius = 0.145
-height = 0.483
-material = ExtResource("47_tq7yy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CommsRoom/Cubicle Donut/Monitor3/MonitorCylinder" unique_id=1777897795]
-transform = Transform3D(0.68053544, 0.58387035, 0.44268164, -0.6478765, 0.7616964, -0.008649377, -0.34223896, -0.28091672, 0.89663726, 0.10485766, 0.36333278, -0.05164779)
-operation = 2
-size = Vector3(0.635, 0.435, 0.69)
-
-[node name="Camera3D" type="Camera3D" parent="CommsRoom/Cubicle Donut/Monitor3" unique_id=682973167]
-transform = Transform3D(-0.6378046, -1.0393207, 1.136132, 0, 1.475688, 1.3499428, -1.5397997, 0.43049985, -0.47060028, 2.748, 3.304, 1.989)
-
-[node name="MonitorScreen" parent="CommsRoom/Cubicle Donut/Monitor3" unique_id=2013537623 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("48_e6fu1")]
-transform = Transform3D(0.15793523, 0.16610488, 0.099828094, -0.18248567, 0.17081845, 0.004479006, -0.06523399, -0.075698346, 0.22915997, 0.576, 1.646, 2.614)
-script = ExtResource("17_wvn26")
-inspect_camera = NodePath("../Camera3D")
-object_ref = NodePath(".")
-interaction_type = 1
+[node name="MonitorScreen" parent="CommsRoom/Cubicle Donut/Monitor" index="3" unique_id=1298850349 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CommsRoom/Cubicle Donut/Monitor3/MonitorScreen" unique_id=996539836]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/Cubicle Donut/Monitor3/MonitorScreen/StaticBody3D" unique_id=1557802169]
-transform = Transform3D(0.9999999, 2.9802322e-08, 2.9802322e-08, 0, 0.99999994, 2.2351742e-08, 0, 7.450581e-09, 0.99999994, -0.011657715, 0.34646416, 0)
-shape = SubResource("BoxShape3D_mfatv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CommsRoom/Cubicle Donut/Monitor3/MonitorScreen" unique_id=130968239]
-transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 1.725, -1.725, 7.540215e-08, 3.2959325e-15, 0.033, 0.53, 0.01)
-material_override = SubResource("StandardMaterial3D_0prxm")
-mesh = SubResource("QuadMesh_1cg0m")
+[node name="Screen" parent="CommsRoom/Cubicle Donut/Monitor/MonitorScreen" index="9" unique_id=785997455]
+surface_material_override/0 = SubResource("ORMMaterial3D_6ofj6")
 
 [node name="Final_Chair3" parent="CommsRoom/Cubicle Donut" unique_id=257722808 instance=ExtResource("57_nvpkd")]
 transform = Transform3D(-0.9988239, 0, -0.04848525, 0, 1, 0, 0.04848525, 0, -0.9988239, 19.128803, -4.723777, -6.2727966)
@@ -924,47 +815,16 @@ transform = Transform3D(-0.8849188, 0, 0.46574536, 0, 1, 0, -0.46574536, 0, -0.8
 [node name="Final_Chair" parent="CommsRoom/Cubicle Hexagon" unique_id=244480947 instance=ExtResource("57_nvpkd")]
 transform = Transform3D(0.6288409, -0.7769088, 0.031171784, 0.051696237, 0.0017745454, -0.9986613, 0.7758134, 0.62961054, 0.04127917, 7.633198, -0.05765724, -19.390625)
 
-[node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Cubicle Hexagon" unique_id=1720909689]
+[node name="Monitor" parent="CommsRoom/Cubicle Hexagon" unique_id=1360259474 instance=ExtResource("65_rwc1x")]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.801, 1.672, -12.304)
 
-[node name="Hexagon" type="MeshInstance3D" parent="CommsRoom/Cubicle Hexagon/Monitor2" unique_id=611479118]
-transform = Transform3D(2.2351742e-08, 0.17999999, 7.868049e-09, 0, -7.86805e-09, 0.18, 0.17999999, -2.2351742e-08, -6.661338e-16, 0.69627756, 0.53076863, 2.4705963)
-mesh = SubResource("TubeTrailMesh_ojbw0")
-
-[node name="MonitorCylinder" type="CSGCylinder3D" parent="CommsRoom/Cubicle Hexagon/Monitor2" unique_id=2074060305]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639277, 1.3753475, 2.5828466)
-radius = 0.145
-height = 0.75
-material = ExtResource("47_tq7yy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CommsRoom/Cubicle Hexagon/Monitor2/MonitorCylinder" unique_id=2023402607]
-transform = Transform3D(0.74015343, 0.50579554, 0.443107, -0.56420875, 0.82563215, 4.2922395e-08, -0.36584336, -0.2500049, 0.89646876, 0.17529781, 0.43876767, -0.08664625)
-operation = 2
-size = Vector3(0.635, 0.435, 0.69)
-
-[node name="Camera3D" type="Camera3D" parent="CommsRoom/Cubicle Hexagon/Monitor2" unique_id=843169656]
-transform = Transform3D(-0.6378046, -1.0393207, 1.136132, 0, 1.475688, 1.3499428, -1.5397997, 0.43049985, -0.47060028, 2.748, 3.304, 1.989)
-
-[node name="MonitorScreen" parent="CommsRoom/Cubicle Hexagon/Monitor2" unique_id=255893992 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("48_e6fu1")]
-transform = Transform3D(0.15793523, 0.16610488, 0.099828094, -0.18248567, 0.17081845, 0.004479006, -0.06523399, -0.075698346, 0.22915997, 0.576, 1.646, 2.614)
-script = ExtResource("17_wvn26")
-inspect_camera = NodePath("../Camera3D")
-object_ref = NodePath(".")
-interaction_type = 1
+[node name="MonitorScreen" parent="CommsRoom/Cubicle Hexagon/Monitor" index="3" unique_id=1298850349 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen" unique_id=532510535]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen/StaticBody3D" unique_id=1974499468]
-transform = Transform3D(0.9999999, 2.9802322e-08, 2.9802322e-08, 0, 0.99999994, 2.2351742e-08, 0, 7.450581e-09, 0.99999994, -0.011657715, 0.34646416, 0)
-shape = SubResource("BoxShape3D_mfatv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen" unique_id=765942637]
-transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 1.725, -1.725, 7.540215e-08, 3.2959325e-15, 0.033, 0.53, 0.01)
-material_override = SubResource("StandardMaterial3D_p5n46")
-mesh = SubResource("QuadMesh_1cg0m")
+[node name="Screen" parent="CommsRoom/Cubicle Hexagon/Monitor/MonitorScreen" index="9" unique_id=785997455]
+surface_material_override/0 = SubResource("ORMMaterial3D_3kfck")
 
 [node name="Racks" type="Node" parent="CommsRoom" unique_id=1630714578]
 
@@ -1179,6 +1039,7 @@ transform = Transform3D(-0.48894277, -0.8719022, -0.026859691, 0.051696237, 0.00
 [editable path="CommsRoom/Platform/Final_Platform comms"]
 [editable path="CommsRoom/Platform/Final_Side table of middle platform"]
 [editable path="CommsRoom/Platform/Final_Side table of middle platform2"]
+[editable path="CommsRoom/Platform/Monitor"]
 [editable path="CommsRoom/Platform/Monitor/MonitorScreen"]
 [editable path="CommsRoom/Platform/PowerUp Device/PowerUp device"]
 [editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle"]
@@ -1188,19 +1049,22 @@ transform = Transform3D(-0.48894277, -0.8719022, -0.026859691, 0.051696237, 0.00
 [editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial4"]
 [editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial5"]
 [editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SideScreen/CommsPuzzleSideScreen"]
-[editable path="CommsRoom/Platform/Monitor2/MonitorScreen"]
 [editable path="CommsRoom/Cubicle Sphere"]
 [editable path="CommsRoom/Cubicle Sphere/Final_Cubicle roof"]
-[editable path="CommsRoom/Cubicle Sphere/Monitor3/MonitorScreen"]
+[editable path="CommsRoom/Cubicle Sphere/Monitor"]
+[editable path="CommsRoom/Cubicle Sphere/Monitor/MonitorScreen"]
 [editable path="CommsRoom/Cubicle Prism"]
 [editable path="CommsRoom/Cubicle Prism/Final_Cubicle roof"]
-[editable path="CommsRoom/Cubicle Prism/Monitor2/MonitorScreen"]
+[editable path="CommsRoom/Cubicle Prism/Monitor"]
+[editable path="CommsRoom/Cubicle Prism/Monitor/MonitorScreen"]
 [editable path="CommsRoom/Cubicle Donut"]
 [editable path="CommsRoom/Cubicle Donut/Final_Cubicle roof"]
-[editable path="CommsRoom/Cubicle Donut/Monitor3/MonitorScreen"]
+[editable path="CommsRoom/Cubicle Donut/Monitor"]
+[editable path="CommsRoom/Cubicle Donut/Monitor/MonitorScreen"]
 [editable path="CommsRoom/Cubicle Hexagon"]
 [editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
-[editable path="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen"]
+[editable path="CommsRoom/Cubicle Hexagon/Monitor"]
+[editable path="CommsRoom/Cubicle Hexagon/Monitor/MonitorScreen"]
 [editable path="CommsRoom/Final_Multitoolcase body"]
 [editable path="CommsRoom/Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
 [editable path="Elevator Room/Elevator 1st floor"]
