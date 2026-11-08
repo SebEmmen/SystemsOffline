@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dh1di115fpr3x"]
+
+[ext_resource type="Script" uid="uid://4tb0pxmych06" path="res://src/3d/Scripts/itemdata.gd" id="1_kgk7s"]
+[ext_resource type="Texture2D" uid="uid://cww6x5l2lihss" path="res://src/2d/Assets/kitefin_logo.svg" id="2_o6ob4"]
+
+[resource]
+script = ExtResource("1_kgk7s")
+item_id = "comms_upgrade"
+item_name = "Mutitool Upgrade 1/4"
+description = "This upgrade allows the player to translate the aliens language "
+inventory_icon = ExtResource("2_o6ob4")

@@ -185,7 +185,7 @@ func _physics_process(delta: float) -> void:
 		if not is_on_ceiling():
 			velocity += get_gravity() * delta * -1
 	
-	if Input.is_action_just_pressed("arms") and Inventory.has_item("multitool"):
+	if Input.is_action_just_pressed("equip_multitool") and Inventory.has_item("multitool"):
 		arm.visible = !arm_show
 		arm_show = !arm_show
 	# Shrinking

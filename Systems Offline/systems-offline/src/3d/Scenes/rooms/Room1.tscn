@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
+[ext_resource type="MeshLibrary" uid="uid://decvpluk7ag4r" path="res://src/3d/Mesh/WallMeshLibraryDiag.meshlib" id="3_nvpkd"]
 [ext_resource type="MeshLibrary" uid="uid://ci4v8oty26w6d" path="res://src/3d/Mesh/WallLibrary.meshlib" id="4_6lvv6"]
 [ext_resource type="MeshLibrary" uid="uid://61wowouuvern" path="res://src/3d/Mesh/DoorWallNegative.meshlib" id="4_f1ysu"]
 [ext_resource type="PackedScene" uid="uid://cd8d230r2wpe4" path="res://src/2d/Scenes/Inventory/InventoryUI.tscn" id="5_7flw8"]
@@ -24,8 +25,8 @@
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
 [ext_resource type="AudioStream" uid="uid://g2o2wcjmubqo" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
 [ext_resource type="AudioStream" uid="uid://crtn1kyqdb6p" path="res://src/3d/Sound/wire successfully connected.mp3" id="20_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://c1ydfekgg24uw" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
-[ext_resource type="AudioStream" uid="uid://ju56lox6s3wj" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
+[ext_resource type="AudioStream" uid="uid://knq605cgr21x" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
+[ext_resource type="AudioStream" uid="uid://cg27eqvuyonof" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
 [ext_resource type="AudioStream" uid="uid://dpqtcsyejop65" path="res://src/3d/Sound/keypad unlock.mp3" id="22_s5xlb"]
 [ext_resource type="AudioStream" uid="uid://dcl7bk8txuyb" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
 [ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
@@ -34,7 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://dmvlt1d30wstb" path="res://src/3d/Sound/key pickup.mp3" id="24_gav43"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
@@ -46,29 +47,26 @@
 [ext_resource type="PackedScene" uid="uid://cv4irtjbxt6yo" path="res://src/3d/Scenes/env/BrokenWall.tscn" id="38_io4pa"]
 [ext_resource type="PackedScene" uid="uid://c36xluf64wa0p" path="res://src/3d/Scenes/objects/TypeWriterScreen.tscn" id="39_io4pa"]
 [ext_resource type="PackedScene" uid="uid://lvydm5j7dvmt" path="res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn" id="40_qbvi1"]
-[ext_resource type="Texture2D" uid="uid://cf8gl5ew5ei1v" path="res://src/3d/Resources/Apple.png" id="43_nbs5u"]
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="Resource" uid="uid://b4yq2dwbxp6qt" path="res://src/3d/Resources/Multitool Key.tres" id="45_nnjxg"]
-[ext_resource type="PackedScene" uid="uid://ku6n88lioiq8" path="res://src/3d/Assets/Comm room/Final_Chair.blend" id="45_u2kds"]
 [ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="Material" uid="uid://b6x0nwdbf1cuu" path="res://src/3d/Materials/new_standard_material_3d.tres" id="47_tq7yy"]
 [ext_resource type="PackedScene" uid="uid://dypfubayp0rr7" path="res://src/3d/Assets/Comm room/Final_Screen on and off.blend" id="48_e6fu1"]
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
-[ext_resource type="Texture2D" uid="uid://bnjnmw0dl016v" path="res://src/3d/Resources/Coin.png" id="49_e6fu1"]
-[ext_resource type="Texture2D" uid="uid://bjjhc0l3s0qkb" path="res://src/3d/Resources/Flute.png" id="50_dhx8n"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
-[ext_resource type="ArrayMesh" uid="uid://bor3u3b6oc0by" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
-[ext_resource type="Texture2D" uid="uid://c67jhhpdmqvt5" path="res://src/3d/Resources/Worm.png" id="51_wkdsg"]
-[ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="ArrayMesh" uid="uid://cfwsl4xlw05vs" path="res://src/3d/Scenes/objects/torus_on_edge_6m.obj" id="51_dhx8n"]
+[ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
+[ext_resource type="PackedScene" uid="uid://drasxyj2nmf0a" path="res://src/3d/Scenes/objects/Chair.tscn" id="57_nvpkd"]
+[ext_resource type="Resource" uid="uid://dh1di115fpr3x" path="res://src/3d/Resources/Multitool_Piece_1.tres" id="62_i6svr"]
+[ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
+[ext_resource type="PackedScene" uid="uid://c72sbmldtcaei" path="res://src/3d/Scenes/objects/Multitool/multitool_piece_1.tscn" id="65_i6svr"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
-[ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool Key.tscn" id="67_nvpkd"]
-[ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="69_x8cbg"]
-[ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool_case.tscn" id="71_s5xlb"]
-[ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="72_cok2s"]
+[ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool/Multitool Key.tscn" id="67_nvpkd"]
+[ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool/Multitool_case.tscn" id="71_s5xlb"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -78,33 +76,32 @@ _data = {
 point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4rn"]
-albedo_texture = ExtResource("43_nbs5u")
 
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_x8cbg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nvpkd"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_fs8bd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nnjxg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_x8cbg")
+albedo_texture = SubResource("ViewportTexture_nvpkd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_s5xlb"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_x8cbg"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_fs8bd")
+material = SubResource("ORMMaterial3D_nnjxg")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cok2s"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fs8bd"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_gav43"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_s5xlb"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_cok2s")
+albedo_texture = SubResource("ViewportTexture_fs8bd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_hd0mg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_cok2s"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_gav43")
+material = SubResource("ORMMaterial3D_s5xlb")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -126,7 +123,6 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sr45x"]
-albedo_texture = ExtResource("49_e6fu1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nvwfr"]
 render_priority = 0
@@ -148,7 +144,6 @@ material = ExtResource("47_tq7yy")
 size = Vector3(6, 6, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kc5sd"]
-albedo_texture = ExtResource("50_dhx8n")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbs5u"]
 render_priority = 0
@@ -166,7 +161,6 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0prxm"]
-albedo_texture = ExtResource("43_nbs5u")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2pegl"]
 render_priority = 0
@@ -190,7 +184,6 @@ radial_steps = 6
 section_length = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5n46"]
-albedo_texture = ExtResource("51_wkdsg")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q4rn"]
 friction = 0.4
@@ -216,9 +209,16 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 mesh_library = ExtResource("4_6lvv6")
 cell_size = Vector3(2, 6, 2)
 data = {
-"cells": PackedInt32Array(0, 65522, 1048576, 65533, 65522, 1441792, 65526, 65512, 0, 65529, 65512, 0, 65530, 65512, 0, 65531, 65512, 0, 65532, 65512, 0, 1, 65512, 0, 3, 65512, 0, 5, 65512, 0, 4, 65512, 0, 6, 65512, 0, 7, 65512, 0, 65525, 65512, 1048576, 65525, 65511, 1048576, 65525, 65510, 1048576, 65525, 65509, 1048576, 65525, 65508, 1048576, 65525, 65507, 1048576, 65525, 65506, 1048576, 65525, 65505, 1048576, 65525, 65504, 1048576, 65525, 65503, 1048576, 65525, 65502, 1048576, 65525, 65501, 1048576, 65525, 65500, 1048576, 65525, 65499, 1048576, 65525, 65498, 1048576, 65525, 65497, 1048576, 65525, 65496, 1048576, 65525, 65495, 1048576, 8, 65497, 1441792, 8, 65498, 1441792, 8, 65499, 1441792, 8, 65500, 1441792, 8, 65501, 1441792, 8, 65502, 1441792, 8, 65503, 1441792, 8, 65504, 1441792, 8, 65505, 1441792, 8, 65506, 1441792, 8, 65507, 1441792, 8, 65508, 1441792, 8, 65509, 1441792, 8, 65510, 1441792, 8, 65511, 1441792, 8, 65512, 1441792, 65528, 65511, 1441792, 65528, 65513, 655360, 65528, 65510, 1441792, 65528, 65509, 1441792, 65528, 65508, 1441792, 65528, 65507, 1441792, 65528, 65506, 1441792, 65528, 65505, 1441792, 65528, 65504, 1441792, 65528, 65503, 1441792, 65528, 65502, 1441792, 65528, 65501, 1441792, 65528, 65500, 1441792, 65528, 65499, 1441792, 65528, 65498, 1441792, 65528, 65497, 1441792, 65528, 65496, 1441792, 65528, 65495, 1441792, 65528, 65494, 0, 65529, 65494, 0, 65530, 65494, 0, 65531, 65494, 0, 65532, 65494, 1441792, 65532, 65493, 0, 65533, 65493, 0, 65534, 65493, 0, 65535, 65493, 0, 0, 65493, 0, 1, 65493, 0, 2, 65493, 0, 3, 65493, 0, 4, 65493, 0, 65527, 65512, 0, 4, 65487, 0, 1, 65487, 0, 0, 65487, 0, 65535, 65487, 0, 65534, 65487, 0, 65533, 65487, 0, 65530, 65487, 0, 65525, 65514, 1048576, 8, 65513, 1441792, 8, 65514, 1441792, 65525, 65513, 1048576, 65526, 65515, 1441794, 65527, 65516, 1441794, 65528, 65517, 1441794, 65529, 65518, 1441794, 65530, 65519, 1441794, 65531, 65520, 1441794, 65532, 65521, 1441794, 1, 65521, 655362, 2, 65520, 655362, 3, 65519, 655362, 4, 65518, 655362, 5, 65517, 655362, 6, 65516, 2, 7, 65515, 2, 65528, 65531, 0, 65529, 65532, 655360, 65530, 65531, 0, 65531, 65531, 0, 65532, 65531, 0, 1, 65532, 655360, 2, 65532, 655360, 3, 65532, 655360, 4, 65532, 655360, 5, 65531, 0, 65527, 65529, 1441794, 65526, 65522, 1441794, 6, 65529, 2, 7, 65522, 2, 65527, 65531, 1048576, 65527, 65530, 1048576, 65526, 65528, 1048576, 65526, 65527, 1048576, 65526, 65526, 1048576, 65526, 65525, 1048576, 65526, 65523, 1048576, 65526, 65524, 1048576, 65525, 65521, 1048576, 65525, 65520, 1048576, 65525, 65519, 1048576, 65525, 65518, 1048576, 65525, 65517, 1048576, 65525, 65516, 1048576, 65525, 65515, 1048576, 6, 65531, 1441792, 6, 65530, 1441792, 7, 65528, 1441792, 7, 65527, 1441792, 7, 65526, 1441792, 7, 65525, 1441792, 7, 65524, 1441792, 7, 65523, 1441792, 8, 65521, 1441792, 8, 65520, 1441792, 8, 65519, 1441792, 8, 65518, 1441792, 8, 65517, 1441792, 8, 65516, 1441792, 8, 65515, 1441792, 65531, 65487, 0, 65532, 65487, 0, 8, 65496, 1441792, 8, 65495, 1441792, 65526, 65492, 1048576, 65526, 65491, 1048576, 65526, 65490, 1048576, 65529, 65487, 0, 65528, 65488, 655360, 5, 65488, 655360, 65528, 65487, 655362, 65529, 65486, 655362, 3, 65487, 0, 2, 65487, 0, 3, 65485, 0, 2, 65485, 0, 65530, 65485, 0, 65531, 65485, 0, 65532, 65485, 655362, 65533, 65484, 655362, 1, 65485, 1441794, 0, 65484, 1441794, 65535, 65483, 1441794, 65534, 65483, 655362, 65582, 65495, 1310720, 65582, 65496, 1310720, 65582, 65497, 1310720, 65582, 65498, 1310720, 65582, 65499, 1310720, 65582, 65500, 1310720, 65582, 65501, 1310720, 65582, 65502, 1310720, 65582, 65503, 1048576, 65582, 65504, 1048576, 65582, 65505, 1048576, 65582, 65506, 1048576, 65582, 65507, 1048576, 65582, 65508, 1048576, 65582, 65509, 1048576, 65582, 65510, 1048576, 65582, 65511, 1048576, 65582, 65512, 1048576, 65582, 65513, 1310720, 65582, 65515, 1310720, 65583, 65490, 1310720, 65583, 65491, 1310720, 65583, 65492, 1310720, 65583, 65493, 1310724, 65583, 65502, 0, 65583, 65513, 524288, 65583, 65514, 1179648, 65583, 65515, 524291, 65583, 65516, 1179648, 65583, 65517, 1179648, 65583, 65518, 1179648, 65583, 65519, 1179648, 65583, 65520, 1179648, 65583, 65521, 1179648, 65583, 65522, 131075, 65583, 65523, 1048576, 65583, 65524, 1048576, 65583, 65525, 1048576, 65583, 65526, 1048576, 65583, 65527, 1048576, 65583, 65528, 1048576, 65584, 65489, 1179652, 65584, 65492, 0, 65584, 65502, 0, 65584, 65513, 524288, 65584, 65516, 524291, 65584, 65526, 655360, 65584, 65529, 1048579, 65584, 65530, 1048576, 65584, 65531, 1048576, 65584, 65532, 1048576, 65584, 65533, 1048576, 65584, 65534, 1048576, 65585, 65487, 3, 65585, 65488, 655360, 65585, 65513, 524288, 65585, 65517, 524291, 65585, 65526, 655360, 65585, 65535, 655360, 65586, 65486, 3, 65586, 65487, 0, 65586, 65493, 131076, 65586, 65513, 524288, 65586, 65518, 131075, 65586, 65526, 655360, 65586, 65535, 655360, 65587, 65486, 655360, 65587, 65487, 0, 65587, 65493, 0, 65587, 65502, 0, 65587, 65513, 524288, 65587, 65519, 131075, 65587, 65526, 655360, 65587, 65535, 655360, 65588, 65486, 655360, 65588, 65487, 0, 65588, 65493, 0, 65588, 65502, 0, 65588, 65513, 524288, 65588, 65520, 131075, 65588, 65526, 655360, 65588, 65535, 655360, 65589, 65485, 655363, 65589, 65487, 0, 65589, 65493, 0, 65589, 65502, 0, 65589, 65513, 524288, 65589, 65521, 131075, 65589, 65526, 655360, 65589, 65535, 655360, 65590, 65484, 655363, 65590, 65487, 0, 65590, 65493, 0, 65590, 65502, 0, 65590, 65513, 524288, 65590, 65522, 131075, 65590, 65526, 655360, 65590, 65535, 655360, 65591, 65483, 655363, 65591, 65487, 0, 65591, 65502, 0, 65591, 65513, 524288, 65591, 65523, 1179648, 65591, 65526, 655360, 65591, 65535, 655360, 65592, 65483, 1441795, 65592, 65487, 0, 65592, 65502, 0, 65592, 65513, 524288, 65592, 65526, 655360, 65592, 65535, 655360, 65593, 65484, 1441795, 65593, 65487, 0, 65593, 65493, 0, 65593, 65502, 0, 65593, 65513, 524288, 65593, 65526, 655360, 65593, 65535, 655360, 65594, 65485, 1441795, 65594, 65487, 0, 65594, 65493, 0, 65594, 65502, 0, 65594, 65513, 524288, 65594, 65526, 655360, 65594, 65535, 655360, 65595, 65486, 655360, 65595, 65487, 0, 65595, 65493, 0, 65595, 65502, 0, 65595, 65513, 524288, 65595, 65526, 655360, 65595, 65535, 655360, 65596, 65486, 655360, 65596, 65487, 0, 65596, 65493, 0, 65596, 65502, 0, 65596, 65526, 655360, 65596, 65535, 655360, 65597, 65486, 1441795, 65597, 65487, 0, 65597, 65493, 4, 65597, 65502, 0, 65597, 65526, 655360, 65597, 65535, 655360, 65598, 65487, 1441795, 65598, 65488, 655360, 65598, 65502, 0, 65598, 65513, 524288, 65598, 65526, 655360, 65598, 65535, 655360, 65599, 65489, 1048580, 65599, 65492, 0, 65599, 65502, 0, 65599, 65513, 524288, 65599, 65526, 655360, 65599, 65529, 3, 65599, 65530, 1441792, 65599, 65531, 1441792, 65599, 65532, 1441792, 65599, 65533, 1441792, 65599, 65534, 1441792, 65600, 65490, 1179648, 65600, 65491, 1179648, 65600, 65492, 1179648, 65600, 65493, 1441796, 65600, 65502, 0, 65600, 65513, 524288, 65600, 65522, 1179651, 65600, 65523, 1441792, 65600, 65524, 1441792, 65600, 65525, 1441792, 65600, 65526, 1441792, 65600, 65527, 1441792, 65600, 65528, 1441792, 65601, 65495, 1179648, 65601, 65496, 1179648, 65601, 65497, 1179648, 65601, 65498, 1179648, 65601, 65499, 1179648, 65601, 65500, 1179648, 65601, 65501, 1179648, 65601, 65502, 1179648, 65601, 65503, 1441792, 65601, 65504, 1441792, 65601, 65505, 1441792, 65601, 65506, 1441792, 65601, 65507, 1441792, 65601, 65508, 1441792, 65601, 65509, 1441792, 65601, 65510, 1441792, 65601, 65511, 1441792, 65601, 65512, 1441792, 65601, 65513, 1179648, 65601, 65514, 1179648, 65601, 65515, 1179648, 65601, 65516, 1179648, 65601, 65517, 1179648, 65601, 65518, 1179648, 65601, 65519, 1179648, 65601, 65520, 1179648, 65601, 65521, 1179648, 65591, 65525, 1441792, 65534, 65531, 4, 2, 65512, 0, 7, 65494, 1441794, 6, 65492, 1310720, 6, 65491, 1310720, 6, 65490, 1310720, 6, 65488, 1441794, 5, 65487, 1441794, 4, 65486, 1441794, 65527, 65488, 2, 65527, 65489, 1441792, 65526, 65494, 655362, 7, 65493, 1441792, 7, 65489, 1441792, 65527, 65493, 1441792, 6, 65532, 1441792, 1, 5, 2, 6, 65534, 1441792, 6, 65535, 1441792, 6, 1, 1441792, 6, 0, 1441792, 6, 65533, 1441792, 65528, 65532, 1441792, 65528, 65533, 1441792, 65528, 65534, 1441792, 65528, 65535, 1441792, 65528, 0, 1441792, 65528, 1, 1441794, 65532, 5, 1441794, 65531, 4, 1441794, 65530, 3, 1441794, 65529, 2, 1441794, 65534, 65512, 4, 65536, 65512, 0, 131071, 65512, 0, 131070, 65512, 0, 131069, 65512, 0, 65537, 65512, 0, 131068, 65512, 0, 131067, 65512, 0, 131066, 65512, 0, 131065, 65512, 0, 131064, 65512, 0, 131063, 65512, 0, 131062, 65512, 0, 65538, 65512, 0, 65539, 65512, 0, 65540, 65512, 0, 65541, 65512, 0, 65542, 65512, 0, 65533, 65531, 1441792, 65533, 65530, 1441792, 65533, 65529, 1441792, 65533, 65528, 1441792, 65533, 65527, 1441792, 65533, 65526, 1441792, 65533, 65525, 1441792, 65533, 65524, 1441792, 65533, 65523, 1441792, 0, 65531, 1048576, 0, 65530, 1048576, 0, 65529, 1048576, 0, 65528, 1048576, 0, 65527, 1048576, 0, 65526, 1048576, 0, 65525, 1048576, 0, 65524, 1048576, 0, 65523, 1048576, 2, 4, 2, 3, 3, 2, 4, 2, 2, 5, 1, 2, 5, 65494, 1441794, 6, 65495, 1441794, 7, 65496, 1441794, 65528, 65512, 1179648, 65532, 65495, 1441792, 65532, 65496, 655360, 1, 65495, 0, 2, 65495, 0)
+"cells": PackedInt32Array(0, 65522, 1048576, 65533, 65522, 1441792, 65526, 65512, 0, 65529, 65512, 0, 65530, 65512, 0, 65531, 65512, 0, 1, 65512, 0, 3, 65512, 0, 5, 65512, 0, 4, 65512, 0, 6, 65512, 0, 7, 65512, 0, 65525, 65512, 1048576, 65525, 65511, 1048576, 65525, 65510, 1048576, 65525, 65509, 1048576, 65525, 65508, 1048576, 65525, 65507, 1048576, 65525, 65506, 1048576, 65525, 65505, 1048576, 65525, 65504, 1048576, 65525, 65503, 1048576, 65525, 65502, 1048576, 65525, 65501, 1048576, 65525, 65500, 1048576, 65525, 65499, 1048576, 65525, 65498, 1048576, 65525, 65497, 1048576, 65525, 65496, 1048576, 65525, 65495, 1048576, 8, 65497, 1441792, 8, 65498, 1441792, 8, 65499, 1441792, 8, 65500, 1441792, 8, 65501, 1441792, 8, 65502, 1441792, 8, 65503, 1441792, 8, 65504, 1441792, 8, 65505, 1441792, 8, 65506, 1441792, 8, 65507, 1441792, 8, 65508, 1441792, 8, 65509, 1441792, 8, 65510, 1441792, 8, 65511, 1441792, 8, 65512, 1441792, 65528, 65511, 1441792, 65528, 65513, 655360, 65528, 65510, 1441792, 65528, 65509, 1441792, 65528, 65508, 1441792, 65528, 65507, 1441792, 65528, 65506, 1441792, 65528, 65505, 1441792, 65528, 65504, 1441792, 65528, 65503, 1441792, 65528, 65502, 1441792, 65528, 65501, 1441792, 65528, 65500, 1441792, 65528, 65499, 1441792, 65528, 65498, 1441792, 65528, 65497, 1441792, 65528, 65496, 1441792, 65528, 65495, 1441792, 65528, 65494, 0, 65529, 65494, 0, 65530, 65494, 0, 65531, 65494, 0, 65532, 65494, 1441792, 65532, 65493, 0, 65533, 65493, 0, 65534, 65493, 0, 65535, 65493, 0, 0, 65493, 0, 1, 65493, 0, 2, 65493, 0, 3, 65493, 0, 4, 65493, 0, 65527, 65512, 0, 4, 65487, 0, 1, 65487, 0, 0, 65487, 0, 65535, 65487, 0, 65534, 65487, 0, 65533, 65487, 0, 65530, 65487, 0, 65525, 65514, 1048576, 8, 65513, 1441792, 8, 65514, 1441792, 65525, 65513, 1048576, 65528, 65531, 0, 65529, 65532, 655360, 65530, 65531, 0, 65531, 65531, 0, 65532, 65531, 0, 1, 65532, 655360, 2, 65532, 655360, 3, 65532, 655360, 4, 65532, 655360, 5, 65531, 0, 65527, 65529, 1441794, 65526, 65522, 1441794, 6, 65529, 2, 65527, 65531, 1048576, 65527, 65530, 1048576, 65526, 65528, 1048576, 65526, 65527, 1048576, 65526, 65526, 1048576, 65526, 65525, 1048576, 65526, 65523, 1048576, 65526, 65524, 1048576, 65525, 65521, 1048576, 65525, 65520, 1048576, 65525, 65519, 1048576, 65525, 65518, 1048576, 65525, 65517, 1048576, 65525, 65516, 1048576, 65525, 65515, 1048576, 6, 65531, 1441792, 6, 65530, 1441792, 7, 65528, 1441792, 7, 65527, 1441792, 7, 65526, 1441792, 7, 65525, 1441792, 7, 65524, 1441792, 7, 65523, 1441792, 8, 65521, 1441792, 8, 65520, 1441792, 8, 65519, 1441792, 8, 65518, 1441792, 8, 65517, 1441792, 8, 65516, 1441792, 8, 65515, 1441792, 65531, 65487, 0, 65532, 65487, 0, 8, 65496, 1441792, 8, 65495, 1441792, 65526, 65492, 1048576, 65526, 65491, 1048576, 65526, 65490, 1048576, 65529, 65487, 0, 65528, 65488, 655360, 5, 65488, 655360, 65528, 65487, 655362, 65529, 65486, 655362, 3, 65487, 0, 2, 65487, 0, 3, 65485, 0, 2, 65485, 0, 65530, 65485, 0, 65531, 65485, 0, 65532, 65485, 655362, 65533, 65484, 655362, 1, 65485, 1441794, 0, 65484, 1441794, 65535, 65483, 1441794, 65534, 65483, 655362, 65582, 65495, 1310720, 65582, 65496, 1310720, 65582, 65497, 1310720, 65582, 65498, 1310720, 65582, 65499, 1310720, 65582, 65500, 1310720, 65582, 65501, 1310720, 65582, 65502, 1310720, 65582, 65503, 1048576, 65582, 65504, 1048576, 65582, 65505, 1048576, 65582, 65506, 1048576, 65582, 65507, 1048576, 65582, 65508, 1048576, 65582, 65509, 1048576, 65582, 65510, 1048576, 65582, 65511, 1048576, 65582, 65512, 1048576, 65582, 65513, 1310720, 65582, 65515, 1310720, 65583, 65490, 1310720, 65583, 65491, 1310720, 65583, 65492, 1310720, 65583, 65493, 1310724, 65583, 65502, 0, 65583, 65513, 524288, 65583, 65514, 1179648, 65583, 65515, 524291, 65583, 65516, 1179648, 65583, 65517, 1179648, 65583, 65518, 1179648, 65583, 65519, 1179648, 65583, 65520, 1179648, 65583, 65521, 1179648, 65583, 65522, 131075, 65583, 65523, 1048576, 65583, 65524, 1048576, 65583, 65525, 1048576, 65583, 65526, 1048576, 65583, 65527, 1048576, 65583, 65528, 1048576, 65584, 65489, 1179652, 65584, 65492, 0, 65584, 65502, 0, 65584, 65513, 524288, 65584, 65516, 524291, 65584, 65526, 655360, 65584, 65529, 1048579, 65584, 65530, 1048576, 65584, 65531, 1048576, 65584, 65532, 1048576, 65584, 65533, 1048576, 65584, 65534, 1048576, 65585, 65487, 3, 65585, 65488, 655360, 65585, 65513, 524288, 65585, 65517, 524291, 65585, 65526, 655360, 65585, 65535, 655360, 65586, 65486, 3, 65586, 65487, 0, 65586, 65493, 131076, 65586, 65513, 524288, 65586, 65518, 131075, 65586, 65526, 655360, 65586, 65535, 655360, 65587, 65486, 655360, 65587, 65487, 0, 65587, 65493, 0, 65587, 65502, 0, 65587, 65513, 524288, 65587, 65519, 131075, 65587, 65526, 655360, 65587, 65535, 655360, 65588, 65486, 655360, 65588, 65487, 0, 65588, 65493, 0, 65588, 65502, 0, 65588, 65513, 524288, 65588, 65520, 131075, 65588, 65526, 655360, 65588, 65535, 655360, 65589, 65485, 655363, 65589, 65487, 0, 65589, 65493, 0, 65589, 65502, 0, 65589, 65513, 524288, 65589, 65521, 131075, 65589, 65526, 655360, 65589, 65535, 655360, 65590, 65484, 655363, 65590, 65487, 0, 65590, 65493, 0, 65590, 65502, 0, 65590, 65513, 524288, 65590, 65522, 131075, 65590, 65526, 655360, 65590, 65535, 655360, 65591, 65483, 655363, 65591, 65487, 0, 65591, 65502, 0, 65591, 65513, 524288, 65591, 65523, 1179648, 65591, 65526, 655360, 65591, 65535, 655360, 65592, 65483, 1441795, 65592, 65487, 0, 65592, 65502, 0, 65592, 65513, 524288, 65592, 65526, 655360, 65592, 65535, 655360, 65593, 65484, 1441795, 65593, 65487, 0, 65593, 65493, 0, 65593, 65502, 0, 65593, 65513, 524288, 65593, 65526, 655360, 65593, 65535, 655360, 65594, 65485, 1441795, 65594, 65487, 0, 65594, 65493, 0, 65594, 65502, 0, 65594, 65513, 524288, 65594, 65526, 655360, 65594, 65535, 655360, 65595, 65486, 655360, 65595, 65487, 0, 65595, 65493, 0, 65595, 65502, 0, 65595, 65513, 524288, 65595, 65526, 655360, 65595, 65535, 655360, 65596, 65486, 655360, 65596, 65487, 0, 65596, 65493, 0, 65596, 65502, 0, 65596, 65526, 655360, 65596, 65535, 655360, 65597, 65486, 1441795, 65597, 65487, 0, 65597, 65493, 4, 65597, 65502, 0, 65597, 65526, 655360, 65597, 65535, 655360, 65598, 65487, 1441795, 65598, 65488, 655360, 65598, 65502, 0, 65598, 65513, 524288, 65598, 65526, 655360, 65598, 65535, 655360, 65599, 65489, 1048580, 65599, 65492, 0, 65599, 65502, 0, 65599, 65513, 524288, 65599, 65526, 655360, 65599, 65529, 3, 65599, 65530, 1441792, 65599, 65531, 1441792, 65599, 65532, 1441792, 65599, 65533, 1441792, 65599, 65534, 1441792, 65600, 65490, 1179648, 65600, 65491, 1179648, 65600, 65492, 1179648, 65600, 65493, 1441796, 65600, 65502, 0, 65600, 65513, 524288, 65600, 65522, 1179651, 65600, 65523, 1441792, 65600, 65524, 1441792, 65600, 65525, 1441792, 65600, 65526, 1441792, 65600, 65527, 1441792, 65600, 65528, 1441792, 65601, 65495, 1179648, 65601, 65496, 1179648, 65601, 65497, 1179648, 65601, 65498, 1179648, 65601, 65499, 1179648, 65601, 65500, 1179648, 65601, 65501, 1179648, 65601, 65502, 1179648, 65601, 65503, 1441792, 65601, 65504, 1441792, 65601, 65505, 1441792, 65601, 65506, 1441792, 65601, 65507, 1441792, 65601, 65508, 1441792, 65601, 65509, 1441792, 65601, 65510, 1441792, 65601, 65511, 1441792, 65601, 65512, 1441792, 65601, 65513, 1179648, 65601, 65514, 1179648, 65601, 65515, 1179648, 65601, 65516, 1179648, 65601, 65517, 1179648, 65601, 65518, 1179648, 65601, 65519, 1179648, 65601, 65520, 1179648, 65601, 65521, 1179648, 65591, 65525, 1441792, 65534, 65531, 4, 2, 65512, 0, 7, 65494, 1441794, 6, 65492, 1310720, 6, 65491, 1310720, 6, 65490, 1310720, 6, 65488, 1441794, 5, 65487, 1441794, 4, 65486, 1441794, 65527, 65488, 2, 65527, 65489, 1441792, 65526, 65494, 655362, 7, 65493, 1441792, 7, 65489, 1441792, 65527, 65493, 1441792, 6, 65532, 1441792, 6, 65534, 1441792, 6, 65535, 1441792, 6, 1, 1441792, 6, 0, 1441792, 6, 65533, 1441792, 65528, 65532, 1441792, 65528, 65533, 1441792, 65528, 65534, 1441792, 65528, 65535, 1441792, 65528, 0, 1441792, 65536, 65512, 0, 131071, 65512, 0, 131070, 65512, 0, 131069, 65512, 0, 65537, 65512, 0, 131068, 65512, 0, 131067, 65512, 0, 131066, 65512, 0, 131065, 65512, 0, 131064, 65512, 0, 131063, 65512, 0, 131062, 65512, 0, 65538, 65512, 0, 65539, 65512, 0, 65540, 65512, 0, 65541, 65512, 0, 65542, 65512, 0, 65533, 65531, 1441792, 65533, 65530, 1441792, 65533, 65529, 1441792, 65533, 65528, 1441792, 65533, 65527, 1441792, 65533, 65526, 1441792, 65533, 65525, 1441792, 65533, 65524, 1441792, 65533, 65523, 1441792, 0, 65531, 1048576, 0, 65530, 1048576, 0, 65529, 1048576, 0, 65528, 1048576, 0, 65527, 1048576, 0, 65526, 1048576, 0, 65525, 1048576, 0, 65524, 1048576, 0, 65523, 1048576, 65528, 65512, 1179648, 65532, 65495, 1441792, 65532, 65496, 655360, 1, 65495, 0, 2, 65495, 0, 7, 65522, 2, 65532, 65512, 0, 65534, 65512, 4)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Diagonal" type="GridMap" parent="." unique_id=749254493]
+mesh_library = ExtResource("3_nvpkd")
+cell_size = Vector3(2, 6, 2)
+data = {
+"cells": PackedInt32Array(5, 65494, 1048576, 6, 65495, 1048576, 7, 65496, 1048576, 1, 65521, 1310720, 2, 65520, 1310720, 3, 65519, 1310720, 4, 65518, 1310720, 5, 65517, 1310720, 6, 65516, 1310720, 7, 65515, 1310720, 65532, 65521, 131072, 65531, 65520, 131072, 65530, 65519, 131072, 65529, 65518, 131072, 65528, 65517, 131072, 65527, 65516, 131072, 65526, 65515, 131072, 65528, 1, 131072, 65529, 2, 1441792, 65530, 3, 1441792, 65531, 4, 1441792, 65532, 5, 1441792, 1, 5, 655360, 2, 4, 655360, 3, 3, 655360, 4, 2, 655360, 5, 1, 655360)
+}
 
 [node name="WallMap" type="GridMap" parent="." unique_id=1473182104]
 visible = false
@@ -228,18 +228,20 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9950312, 0.012212284, -0.09881139, 5.33687e-09, 0.99244887, 0.12265888, 0.09956318, -0.12204941, 0.98751754, 0.42804193, 0.05406332, -31.80042)
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
+transform = Transform3D(0.3816018, -0.08140745, -0.9207348, 0.14745264, 0.98871917, -0.026306067, 0.91248965, -0.12572634, 0.38930076, 10.187911, 0.12792993, -62.453857)
 camera = NodePath("Head/Camera3D")
-arm = NodePath("Head/Camera3D/Arms")
+arm = NodePath("Head/Camera3D/arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
 primary_se = ExtResource("5_8iy1x")
+my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
+my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
 transform = Transform3D(1, 1.7462298e-09, 0, 0, 1, 2.2351742e-07, 0, 0, 1, 0.0034953356, 0.9400237, -0.013009548)
 
-[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="1" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "crosshair_hand", "view_label")]
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "crosshair_hand", "view_label")]
 interaction_label = NodePath("../../../../HUD/InteractionLabel")
 crosshair = NodePath("../../../../HUD/Crosshair")
 crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
@@ -627,7 +629,7 @@ material_override = SubResource("StandardMaterial3D_3q4rn")
 mesh = SubResource("QuadMesh_1cg0m")
 
 [node name="Camera3D" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="2" unique_id=78234944]
-transform = Transform3D(-0.64451575, -1.0896552, 1.0839876, 0, 1.4105213, 1.4178962, -1.5370028, 0.4569282, -0.4545516, 1.5009766, 2.6826806, 2.0238495)
+transform = Transform3D(-0.64451575, -1.0896553, 1.0839876, 0, 1.4105213, 1.4178963, -1.5370028, 0.45692816, -0.4545516, 1.5009689, 2.6826806, 2.0238419)
 
 [node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "lightning_off", "side_screen", "player", "player_camera", "transition_camera")]
 inspect_camera = NodePath("../Camera3D")
@@ -638,16 +640,23 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_s5xlb")
+mesh = SubResource("PlaneMesh_x8cbg")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_hd0mg")
+mesh = SubResource("PlaneMesh_cok2s")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
 screen_mesh = NodePath("../Main Screen")
 inspect = NodePath("..")
 puzzle = NodePath("../MainScreen/CommsPuzzle")
+
+[node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece")]
+multitool_piece = NodePath("../../multitool piece 1 lit ")
+
+[node name="multitool piece 1 lit " parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="20" unique_id=1999110288 instance=ExtResource("65_i6svr")]
+transform = Transform3D(-1.6392765, 0.7772039, -0.16152978, 1.0765463, 1.5129477, 0.11157107, 0.1655499, 0.0045007467, -1.6584179, -3.43573, 0.6331787, -6.0516357)
+item_data = ExtResource("62_i6svr")
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Platform" unique_id=535870536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.261959, 3.8237305, 11.92118)
@@ -702,20 +711,20 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
 visible = true
 
-[node name="Chair4" parent="CommsRoom/Cubicle Sphere" unique_id=686452675 instance=ExtResource("45_u2kds")]
-transform = Transform3D(0.8104357, 0.5842482, 0.042990927, 0.05169638, 0.001774556, -0.9986613, -0.58354247, 0.8115728, -0.028765386, 0.7571869, -0.088629246, -0.5653076)
+[node name="Final_Chair3" parent="CommsRoom/Cubicle Sphere" unique_id=609046492 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(0.81043553, 0.5842482, 0.0429908, 0.051696237, 0.0017745454, -0.9986613, -0.5835423, 0.8115731, -0.02876528, 0.7571869, -0.088629246, -0.5653076)
 
-[node name="Chair5" parent="CommsRoom/Cubicle Sphere" unique_id=673814805 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.48894295, -0.87190235, -0.02685977, 0.05169638, 0.0017745579, -0.9986613, 0.8707828, -0.48967668, 0.044206563, 22.570671, -0.088629246, -17.82338)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Sphere" unique_id=680453020 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.48894277, -0.8719022, -0.026859691, 0.051696237, 0.0017745454, -0.9986613, 0.8707826, -0.48967677, 0.044206418, 22.570671, -0.088629246, -17.82338)
 
-[node name="Chair6" parent="CommsRoom/Cubicle Sphere" unique_id=360591222 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.9728843, 0, 0.23129226, 0, 1, 0, -0.23129226, 0, -0.9728843, 24.900963, -4.722689, 0.72473145)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Sphere" unique_id=1545913451 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.9728843, 0, 0.23129225, 0, 1, 0, -0.23129225, 0, -0.9728843, 24.900963, -4.722689, 0.72473145)
 
 [node name="Monitor3" type="CSGCombiner3D" parent="CommsRoom/Cubicle Sphere" unique_id=1678200378]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.8016281, 1.6730895, -13.464584)
@@ -770,17 +779,17 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
 visible = true
 
-[node name="Chair2" parent="CommsRoom/Cubicle Prism" unique_id=1650044198 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.9562844, 0, -0.29243866, 0, 1, 0, 0.29243866, 0, -0.9562844, 18.29596, -4.723777, -3.4005432)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Prism" unique_id=2063003176 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.9562843, 0, -0.29243866, 0, 1, 0, 0.29243866, 0, -0.9562843, 18.29596, -4.723777, -3.4005432)
 
-[node name="Chair3" parent="CommsRoom/Cubicle Prism" unique_id=750807166 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.25863695, 0.9659038, -0.011672173, 0.051696375, 0.001774557, -0.9986612, -0.96459043, -0.25889406, -0.050392717, 12.526745, -0.08971834, -6.9012146)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Prism" unique_id=794139441 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.25863707, 0.96590406, -0.011672142, 0.051696237, 0.0017745516, -0.9986613, -0.96459025, -0.2588942, -0.05039257, 12.526745, -0.08971834, -6.9012146)
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Cubicle Prism" unique_id=1935208122]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.801, 1.672, -12.304)
@@ -827,7 +836,7 @@ mesh = SubResource("QuadMesh_1cg0m")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -876,29 +885,29 @@ transform = Transform3D(-7.540215e-08, -1.725, -7.540215e-08, 0, -7.540215e-08, 
 material_override = SubResource("StandardMaterial3D_0prxm")
 mesh = SubResource("QuadMesh_1cg0m")
 
-[node name="Chair" parent="CommsRoom/Cubicle Donut" unique_id=1678814839 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.998824, 0, -0.04848536, 0, 1, 0, 0.04848536, 0, -0.998824, 19.128803, -4.723777, -6.2727966)
+[node name="Final_Chair3" parent="CommsRoom/Cubicle Donut" unique_id=257722808 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.9988239, 0, -0.04848525, 0, 1, 0, 0.04848525, 0, -0.9988239, 19.128803, -4.723777, -6.2727966)
 
-[node name="Chair3" parent="CommsRoom/Cubicle Donut" unique_id=2013996766 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.8611148, 0, 0.5084108, 0, 1, 0, -0.5084108, 0, -0.8611148, 15.057453, -4.723777, 5.666992)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Donut" unique_id=756671354 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.8611147, 0, 0.50841075, 0, 1, 0, -0.50841075, 0, -0.8611147, 15.057453, -4.723777, 5.666992)
 
-[node name="Chair2" parent="CommsRoom/Cubicle Donut" unique_id=1839018420 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.9156984, 0, -0.40186626, 0, 1, 0, 0.40186626, 0, -0.9156984, 17.756348, -4.723777, -17.454956)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Donut" unique_id=614991277 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.91569835, 17.756348, -4.723777, -17.454956)
 
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=182051627]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
 visible = true
 
-[node name="Chair" parent="CommsRoom/Cubicle Hexagon" unique_id=21777236 instance=ExtResource("45_u2kds")]
-transform = Transform3D(-0.8849188, 0, 0.4657454, 0, 1, 0, -0.4657454, 0, -0.8849188, 16.341328, -4.723777, 0.46276855)
+[node name="Final_Chair2" parent="CommsRoom/Cubicle Hexagon" unique_id=467318568 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.8849188, 0, 0.46574536, 0, 1, 0, -0.46574536, 0, -0.8849188, 16.341328, -4.723777, 0.46276855)
 
-[node name="Chair6" parent="CommsRoom/Cubicle Hexagon" unique_id=1474010390 instance=ExtResource("45_u2kds")]
-transform = Transform3D(0.62884116, -0.77690864, 0.031171886, 0.05169638, 0.001774556, -0.9986613, 0.7758137, 0.62961066, 0.04127928, 7.633198, -0.05765724, -19.390625)
+[node name="Final_Chair" parent="CommsRoom/Cubicle Hexagon" unique_id=244480947 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(0.6288409, -0.7769088, 0.031171784, 0.051696237, 0.0017745454, -0.9986613, 0.7758134, 0.62961054, 0.04127917, 7.633198, -0.05765724, -19.390625)
 
 [node name="Monitor2" type="CSGCombiner3D" parent="CommsRoom/Cubicle Hexagon" unique_id=1720909689]
 transform = Transform3D(1.859553, 0, -0.7362491, 0, 2, 0, 0.7362491, 0, 1.859553, 0.801, 1.672, -12.304)
@@ -1056,6 +1065,14 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -51.19979)
 shadow_enabled = true
 
+[node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("71_s5xlb")]
+transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
+
+[node name="Multitool" parent="CommsRoom/Final_Multitoolcase body" index="2" unique_id=51961434 node_paths=PackedStringArray("object_ref", "player")]
+object_ref = NodePath(".")
+player = NodePath("../../../ProtoController")
+item_data = ExtResource("65_8iy1x")
+
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
@@ -1093,27 +1110,13 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 visible = true
 push_force = 4.0
 
-[node name="Final_Multitoolcase body" parent="." unique_id=754739194 instance=ExtResource("71_s5xlb")]
-transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
-
-[node name="Multitool" parent="Final_Multitoolcase body" unique_id=51961434 instance=ExtResource("72_cok2s")]
-transform = Transform3D(2.999359, 0.062036857, 2.7117166e-09, 0, -1.3113416e-07, 2.9999995, 0.062036857, -2.999359, -1.3110613e-07, 0.25450134, 0.035783768, 0.27508545)
-item_data = ExtResource("69_x8cbg")
-is_multitool = true
-
-[node name="multitool piece 1 lit " parent="Final_Multitoolcase body/Multitool" index="0" unique_id=961166787]
-visible = false
-
-[node name="eye left lit" parent="Final_Multitoolcase body/Multitool" index="1" unique_id=936582030]
-visible = false
-
-[node name="eye middle lit" parent="Final_Multitoolcase body/Multitool" index="2" unique_id=1442694302]
-visible = false
-
-[node name="eye right lit " parent="Final_Multitoolcase body/Multitool" index="3" unique_id=747606435]
-visible = false
-
 [editable path="ProtoController"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Circle Piece 1"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 3"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 4"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/MULTITOOL MAIN BODY2"]
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
@@ -1177,6 +1180,8 @@ visible = false
 [editable path="CommsRoom/Cubicle Hexagon"]
 [editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
 [editable path="CommsRoom/Cubicle Hexagon/Monitor2/MonitorScreen"]
+[editable path="CommsRoom/Final_Multitoolcase body"]
+[editable path="CommsRoom/Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
 [editable path="Elevator Room/Elevator 1st floor"]
 [editable path="Elevator Room/WirePuzzleElevator"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
@@ -1194,9 +1199,3 @@ visible = false
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Lid Wire space small"]
-[editable path="Final_Multitoolcase body/Multitool"]
-[editable path="Final_Multitoolcase body/Multitool/multitool piece 1 lit "]
-[editable path="Final_Multitoolcase body/Multitool/eye left lit"]
-[editable path="Final_Multitoolcase body/Multitool/eye middle lit"]
-[editable path="Final_Multitoolcase body/Multitool/eye right lit "]
-[editable path="Final_Multitoolcase body/Multitool/MULTITOOL MAIN BODY2"]

@@ -9,7 +9,7 @@ material = ExtResource("3_b5wgm")
 size = Vector3(2.83, 6, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qofu8"]
-size = Vector3(2.83, 5, 0.3)
+size = Vector3(2.83, 6, 0.3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0usri"]
 size = Vector3(4.5, 6, 0.3)
@@ -49,7 +49,6 @@ visible = false
 visible = false
 
 [node name="DiagonalWall" type="Node3D" parent="." unique_id=1685290533]
-visible = false
 
 [node name="DiagonalWallMesh" type="MeshInstance3D" parent="DiagonalWall" unique_id=2053052685]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -75,6 +74,7 @@ mesh = SubResource("BoxMesh_0usri")
 shape = SubResource("BoxShape3D_grt6b")
 
 [node name="DoorWallNegative" type="Node3D" parent="." unique_id=194199409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19060206, -0.8426293, 0)
 
 [node name="Body" type="StaticBody3D" parent="DoorWallNegative" unique_id=1875149989]
 

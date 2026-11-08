@@ -17,7 +17,7 @@ enum InteractionType{
 @export var player_camera: Camera3D
 @export var transition_camera: Camera3D
 var can_interact: bool = true
-var is_interacting: bool = false 
+var is_interacting: bool = false
 var is_transitioning := false
 
 #region Pickup Variables
