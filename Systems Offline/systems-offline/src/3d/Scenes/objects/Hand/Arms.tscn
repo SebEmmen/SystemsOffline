@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dp70bgqvlx2sr"]
+[gd_scene format=4 uid="uid://c2bdq1rv76xjp"]
 
 [ext_resource type="Script" uid="uid://cu3u2v22yf152" path="res://src/3d/Scenes/objects/Hand/arms.gd" id="1_ln4ue"]
 [ext_resource type="Script" uid="uid://ckckw55p70rq0" path="res://src/3d/Scenes/objects/Hand/skeleton_3d.gd" id="1_tdqcs"]
