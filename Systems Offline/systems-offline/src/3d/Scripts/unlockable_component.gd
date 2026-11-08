@@ -35,6 +35,7 @@ enum UnlockableType{
 @export var handle_light_on: Array[MeshInstance3D]
 @export var handle_light_off: Array[MeshInstance3D]
 
+var want_open := false
 var is_open: bool = false
 var is_moving: bool = false
 var left_closed_position: Vector3
@@ -145,38 +146,19 @@ func ready_door() -> void:
 
 func interact_door() -> void:
 	if locked:
-		print("Door is locked!")
 		Notification.locked_notification()
 		random_sound_selector()
 		return
-	if can_interact:
-		can_interact = false
-		is_interacting = !is_interacting
-	var target_pos = default_position + Vector3(2.95, 0, 0)
-	if is_interacting:
-		open_door()
-	else:
-		close_door()
+	want_open = not is_open
+	_update_door()
 	await get_tree().create_timer(1.0).timeout
 	can_interact = true
 
 func open_door() -> void:
-	print("open_door")
-	if is_open or is_moving:
-		return
-
-	if locked:
-		print("Tutorial Door is locked. A key is required.")
-		Notification.locked_notification()
-		if not audiotimer:
-			audiotimer = true
-			random_array_se()
-			await get_tree().create_timer(2.0).timeout
-			audiotimer = false
+	if is_open or is_moving or locked:
 		return
 
 	is_moving = true
-
 	left_handle.show()
 	right_handle.show()
 
@@ -189,6 +171,7 @@ func open_door() -> void:
 	is_moving = false
 
 	hide_handles_after_delay()
+	_update_door() # player left mid-open? close now
 
 
 func close_door() -> void:
@@ -196,10 +179,7 @@ func close_door() -> void:
 		return
 
 	is_moving = true
-	
-
-	# Cancel any pending hide timer.
-	hide_timer_version += 1
+	hide_timer_version += 1 # cancel pending handle hide
 
 	left_handle.show()
 	right_handle.show()
@@ -209,6 +189,7 @@ func close_door() -> void:
 
 	is_open = false
 	is_moving = false
+	_update_door() # player came back mid-close? reopen now
 
 
 func animate_handles(push: bool) -> void:
@@ -298,6 +279,27 @@ func toggle_handle_light(on: bool, off: bool) -> void:
 		light.visible = on
 	for light in handle_light_off:
 		light.visible = off
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if not body.is_in_group("player"):
+		return
+	want_open = true
+	_update_door()
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if not body.is_in_group("player"):
+		return
+	want_open = false
+	_update_door()
+
+func _update_door() -> void:
+	if locked or is_moving:
+		return # re-checked when the current movement finishes
+	if want_open and not is_open:
+		open_door()
+	elif not want_open and is_open:
+		close_door()
+
 #endregion
 
 #region Cover Functions
