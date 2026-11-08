@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b0wgwuupgjh14" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.gd" id="1_ucva2"]
 [ext_resource type="Script" uid="uid://c0qp0g35mplfs" path="res://src/3d/Assets/Add-ons/player_controller/ray_cast.gd" id="2_1ae3g"]
 [ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool/Multitool.tscn" id="3_j2dax"]
-[ext_resource type="PackedScene" uid="uid://dp70bgqvlx2sr" path="res://src/3d/Scenes/objects/Hand/arms.tscn" id="3_j2wtt"]
+[ext_resource type="PackedScene" uid="uid://dp70bgqvlx2sr" path="res://src/3d/Scenes/objects/Hand/Arms.tscn" id="3_j2wtt"]
 [ext_resource type="Script" uid="uid://bknghyrj3cvai" path="res://src/3d/Assets/Add-ons/player_controller/multitool_holder.gd" id="3_q8aoj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -15,8 +15,9 @@ albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 radius = 0.4
 height = 1.8
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=1779789665]
+[node name="ProtoController" type="CharacterBody3D" unique_id=1779789665 node_paths=PackedStringArray("arm")]
 script = ExtResource("1_ucva2")
+arm = NodePath("Head/Camera3D/Arms")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1438870549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -40,17 +41,18 @@ transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0
 target_position = Vector3(0, -1.5, 0)
 script = ExtResource("2_1ae3g")
 
-[node name="arms" parent="Head/Camera3D" unique_id=1888308790 instance=ExtResource("3_j2wtt")]
-transform = Transform3D(3.9681184, -0.02524048, -3.0419397, -2.2205434, 3.3933463, -2.9247882, 2.0792356, 3.672133, 2.6818304, 3.2, -1.407, -0.433)
+[node name="Arms" parent="Head/Camera3D" unique_id=791901379 instance=ExtResource("3_j2wtt")]
+transform = Transform3D(4.34834, 0.67354685, -2.3745048, -2.1545672, 3.3824415, -2.9861217, 1.204066, 3.6201406, 3.2318416, 2.160874, -2.2994924, 0.826943)
+script = null
 
 [node name="MultitoolHolder" type="Node3D" parent="Head/Camera3D" unique_id=1661896159 node_paths=PackedStringArray("upgrades")]
-transform = Transform3D(-0.3391594, -0.049716428, -0.9394145, -0.5844966, 0.79359657, 0.16902295, 0.73711294, 0.60641, -0.29821482, 0.3428418, -0.51358736, -1.7140648)
+transform = Transform3D(-0.1701603, 0.06269607, -0.98342013, -0.5924727, 0.79094034, 0.1529398, 0.78741497, 0.6086736, -0.09744108, 1.0104771, -0.29541314, -1.0697064)
 script = ExtResource("3_q8aoj")
 upgrades = [NodePath("Multitool/Circle Piece 1"), NodePath("Multitool/Eye piece 2"), NodePath("Multitool/Eye piece 3"), NodePath("Multitool/Eye piece 4")]
 upgrades_ids = Array[String](["comms_upgrade", "gravity_upgrade", "strength_upgrade", "shrink_upgrade"])
 
 [node name="Multitool" parent="Head/Camera3D/MultitoolHolder" unique_id=51961434 instance=ExtResource("3_j2dax")]
-transform = Transform3D(0.4499999, 5.0261697e-06, 0.0002797598, -0.00027806155, 0.058181323, 0.44622284, -3.1186755e-05, -0.44622296, 0.058181312, 0, 0, 0)
+transform = Transform3D(0.4348643, 0.005020678, 0.11561929, -0.11563003, 0.03736592, 0.43328223, -0.0047663264, -0.44841793, 0.037399214, 0.020069718, -0.048737288, 0.4330762)
 
 [node name="StairsAheadRayCast3D" type="RayCast3D" parent="." unique_id=1955223396]
 unique_name_in_owner = true

@@ -185,10 +185,6 @@ func _physics_process(delta: float) -> void:
 		if not is_on_ceiling():
 			velocity += get_gravity() * delta * -1
 	
-	if Input.is_action_just_pressed("equip_multitool") and Inventory.has_item("multitool"):
-		print("arms should open")
-		arm.visible = !arm_show
-		arm_show = !arm_show
 	# Shrinking
 	if can_shrink and controls_enabled and Input.is_action_just_pressed("shrink"):
 		var tween = create_tween().set_parallel(true)

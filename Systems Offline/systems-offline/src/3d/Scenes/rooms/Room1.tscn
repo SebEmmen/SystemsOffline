@@ -233,10 +233,9 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -2.6573367, 0.07450342, -54.73433)
 camera = NodePath("Head/Camera3D")
-arm = NodePath("Head/Camera3D/arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
 primary_se = ExtResource("5_8iy1x")
@@ -255,6 +254,9 @@ crosshair = NodePath("../../../../HUD/Crosshair")
 crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
 crosshair_hand = NodePath("../../../../HUD/HandCrosshair")
 view_label = NodePath("../../../../HUD/ViewLabel")
+
+[node name="Arms" parent="ProtoController/Head/Camera3D" index="1" unique_id=791901379]
+script = null
 
 [node name="Multitool" parent="ProtoController/Head/Camera3D/MultitoolHolder" parent_id_path=PackedInt32Array(1779789665, 1661896159) index="0" unique_id=51961434 node_paths=PackedStringArray("object_ref")]
 multitool_id = "multitool"

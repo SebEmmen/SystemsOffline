@@ -14,14 +14,20 @@ var is_equipped: bool = false
 
 
 func _ready() -> void:
-	_make_multitool_render_on_top()
+	#_make_multitool_render_on_top()
 	add_to_group("multitool_equipment")
 
-	# Multitool starts hidden.
-	multitool.hide()
+	# Restore ownership from SaveManager.
+	has_multitool = SaveManager.is_multitool_part_complete(
+        "pickup_multitool"
+	)
 
-	# Prevent the held model from affecting
-	# the player's movement or raycast.
+	is_equipped = false
+
+	_update_visibility()
+	_update_upgrades()
+
+	# Disable collisions.
 	for node in multitool.find_children(
 		"*", "CollisionObject3D", true, false
 	):
@@ -106,12 +112,18 @@ func _process(_delta: float) -> void:
 
 
 func _update_visibility() -> void:
-	multitool.visible = (
+	var should_show : bool = (
 		has_multitool
 		and is_equipped
 		and camera.current
 		and player.get("controls_enabled") == true
 	)
+
+	multitool.visible = should_show
+
+	# Show or hide the arm together with the multitool.
+	if player.arm:
+		player.arm.visible = should_show
 
 func _update_upgrades() -> void:
 	var i = 0
