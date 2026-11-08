@@ -224,7 +224,7 @@ func _multitool(id: String) -> Dictionary:
 		}
 	return multitool[id]
 
-func is_multool_part_complete(id: String) -> bool:
+func is_multitool_part_complete(id: String) -> bool:
 	return _multitool(id)["completed"]
 
 func complete_multitool_part(id: String) -> void:

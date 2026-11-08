@@ -116,7 +116,7 @@ func _update_visibility() -> void:
 func _update_upgrades() -> void:
 	var i = 0
 	for upgrade in upgrades_ids:
-		if SaveManager.is_multool_part_complete(upgrade):
+		if SaveManager.is_multitool_part_complete(upgrade):
 			upgrades[i].visible = true
 			if i < 3:
 				i = i+1

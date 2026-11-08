@@ -25,10 +25,13 @@
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
 [ext_resource type="AudioStream" uid="uid://g2o2wcjmubqo" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
 [ext_resource type="AudioStream" uid="uid://crtn1kyqdb6p" path="res://src/3d/Sound/wire successfully connected.mp3" id="20_s5xlb"]
+[ext_resource type="AudioStream" uid="uid://ccxncw627hj0y" path="res://src/3d/Sound/random phrases/Its locked/Its locked_3.wav" id="21_cok2s"]
 [ext_resource type="AudioStream" uid="uid://knq605cgr21x" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
+[ext_resource type="AudioStream" uid="uid://0rumq2jkjbsv" path="res://src/3d/Sound/random phrases/Its locked/Its locked_4.wav" id="22_gav43"]
 [ext_resource type="AudioStream" uid="uid://cg27eqvuyonof" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
 [ext_resource type="AudioStream" uid="uid://dpqtcsyejop65" path="res://src/3d/Sound/keypad unlock.mp3" id="22_s5xlb"]
 [ext_resource type="AudioStream" uid="uid://dcl7bk8txuyb" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
+[ext_resource type="AudioStream" uid="uid://gvy2mvilhvny" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="23_hd0mg"]
 [ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
@@ -64,6 +67,8 @@
 [ext_resource type="Resource" uid="uid://dh1di115fpr3x" path="res://src/3d/Resources/Multitool_Piece_1.tres" id="62_i6svr"]
 [ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
 [ext_resource type="PackedScene" uid="uid://c72sbmldtcaei" path="res://src/3d/Scenes/objects/Multitool/multitool_piece_1.tscn" id="65_i6svr"]
+[ext_resource type="AudioStream" uid="uid://eo1bhqvslcc1" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="65_x8cbg"]
+[ext_resource type="AudioStream" uid="uid://ch08jk5ukssuw" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="66_fs8bd"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool/Multitool Key.tscn" id="67_nvpkd"]
 [ext_resource type="PackedScene" uid="uid://ceqfmd4emlkgo" path="res://src/3d/Scenes/objects/Multitool/Multitool_case.tscn" id="71_s5xlb"]
@@ -80,28 +85,28 @@ point_count = 2
 [sub_resource type="QuadMesh" id="QuadMesh_1cg0m"]
 size = Vector2(4.92, 7.01)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nvpkd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cok2s"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nnjxg"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_gav43"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_nvpkd")
+albedo_texture = SubResource("ViewportTexture_cok2s")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_x8cbg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_hd0mg"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_nnjxg")
+material = SubResource("ORMMaterial3D_gav43")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fs8bd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rwc1x"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_s5xlb"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_04e8d"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_fs8bd")
+albedo_texture = SubResource("ViewportTexture_rwc1x")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_cok2s"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_3kfck"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_s5xlb")
+material = SubResource("ORMMaterial3D_04e8d")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfatv"]
@@ -229,7 +234,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.3816018, -0.08140745, -0.9207348, 0.14745264, 0.98871917, -0.026306067, 0.91248965, -0.12572634, 0.38930076, -1.1554594, 0.12792993, -1.4605865)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -2.6573367, 0.07450342, -54.73433)
 camera = NodePath("Head/Camera3D")
 arm = NodePath("Head/Camera3D/arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
@@ -241,12 +246,19 @@ my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
 transform = Transform3D(1, 1.7462298e-09, 0, 0, 1, 2.2351742e-07, 0, 0, 1, 0.0034953356, 0.9400237, -0.013009548)
 
-[node name="RayCast3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "crosshair_hand", "view_label")]
+[node name="Camera3D" parent="ProtoController/Head" parent_id_path=PackedInt32Array(1779789665, 405265329) index="0" unique_id=1159036928]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000002, 0, 0, 0)
+
+[node name="RayCast3D" parent="ProtoController/Head/Camera3D" index="0" unique_id=428450941 node_paths=PackedStringArray("interaction_label", "crosshair", "crosshair_view", "crosshair_hand", "view_label")]
 interaction_label = NodePath("../../../../HUD/InteractionLabel")
 crosshair = NodePath("../../../../HUD/Crosshair")
 crosshair_view = NodePath("../../../../HUD/ViewCrosshair")
 crosshair_hand = NodePath("../../../../HUD/HandCrosshair")
 view_label = NodePath("../../../../HUD/ViewLabel")
+
+[node name="Multitool" parent="ProtoController/Head/Camera3D/MultitoolHolder" parent_id_path=PackedInt32Array(1779789665, 1661896159) index="0" unique_id=51961434 node_paths=PackedStringArray("object_ref")]
+multitool_id = "multitool"
+object_ref = NodePath(".")
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
@@ -299,6 +311,7 @@ object_ref = NodePath(".")
 interaction_type = 2
 primary_se = ExtResource("16_i6svr")
 secondary_se = ExtResource("17_nvpkd")
+array_sounds = Array[AudioStream]([ExtResource("65_x8cbg"), ExtResource("66_fs8bd"), ExtResource("21_cok2s"), ExtResource("22_gav43"), ExtResource("23_hd0mg")])
 
 [node name="Hint Tutorial Room" type="Node" parent="Tutorial Room" unique_id=1831487568]
 
@@ -577,7 +590,9 @@ transform = Transform3D(-0.06757629, 0, -0.07371189, -0.009402253, 0.09918315, 0
 script = ExtResource("24_70r7a")
 object_ref = NodePath(".")
 player = NodePath("../../ProtoController")
+is_multitool_key = true
 item_data = ExtResource("45_nnjxg")
+primary_se = ExtResource("24_gav43")
 
 [node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
@@ -640,10 +655,10 @@ player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_x8cbg")
+mesh = SubResource("PlaneMesh_hd0mg")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_cok2s")
+mesh = SubResource("PlaneMesh_3kfck")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1067,6 +1082,7 @@ shadow_enabled = true
 
 [node name="Final_Multitoolcase body" parent="CommsRoom" unique_id=754739194 instance=ExtResource("71_s5xlb")]
 transform = Transform3D(-0.099874265, 0, 0.0050130957, 0, 0.1, 0, -0.0050130957, 0, -0.099874265, 3.644038, 2.1588106, -65.17566)
+array_sounds = Array[AudioStream]([ExtResource("21_sr45x"), ExtResource("22_kc5sd")])
 
 [node name="Multitool" parent="CommsRoom/Final_Multitoolcase body" index="2" unique_id=51961434 node_paths=PackedStringArray("object_ref", "player")]
 object_ref = NodePath(".")
@@ -1078,8 +1094,10 @@ item_data = ExtResource("65_8iy1x")
 [node name="Elevator 1st floor" parent="Elevator Room" unique_id=1746680253 instance=ExtResource("38_eivic")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -2.1916537, 3.0480888, -36.62675)
 
-[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Final_monitor alien elevator" parent_id_path=PackedInt32Array(1746680253, 533998609) index="1" unique_id=992554857 node_paths=PackedStringArray("player")]
+[node name="Elevator button" parent="Elevator Room/Elevator 1st floor/Final_monitor alien elevator" parent_id_path=PackedInt32Array(1746680253, 533998609) index="1" unique_id=992554857 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
 player = NodePath("../../../../ProtoController")
+player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../../TransitionCamera")
 
 [node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "elevator_on", "elevator_off", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
@@ -1109,6 +1127,9 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 [node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
 visible = true
 push_force = 4.0
+
+[node name="Final_Chair" parent="." unique_id=1422007080 instance=ExtResource("57_nvpkd")]
+transform = Transform3D(-0.48894277, -0.8719022, -0.026859691, 0.051696237, 0.0017745454, -0.9986613, 0.8707826, -0.48967677, 0.044206418, 22.570671, -0.088629246, -17.82338)
 
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]

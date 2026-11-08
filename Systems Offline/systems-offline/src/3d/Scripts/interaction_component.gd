@@ -22,10 +22,10 @@ var is_transitioning := false
 
 #region Pickup Variables
 @export_group("PickUp")
+@export var is_multitool_key: bool = false
 @export var is_part_of_tutorial: bool = false
 @export var item_data: ItemData
 @export var pickup_message: String
-@export var is_multitool:= false
 #endregion
 
 
@@ -53,6 +53,9 @@ func _ready() -> void:
 		InteractionType.PICKUP:
 			if is_part_of_tutorial and SaveManager.tutorial_puzzle_completed:
 				object_ref.queue_free()
+			if SaveManager.is_multitool_part_complete("open_multitool") or SaveManager.is_multitool_part_complete("pickup_multitool_key"):
+				if is_multitool_key:
+					object_ref.queue_free()
 			pass
 
 # Dynamically instantiates AudioStreamPlayer3D nodes for assigned streams
@@ -100,13 +103,13 @@ func random_array_se() -> void:
 func interact() -> void:
 	match interaction_type:
 		InteractionType.PICKUP:
+			if is_multitool_key:
+				SaveManager.complete_multitool_part("pickup_multitool_key")
 			object_ref.visible = false 
 			play_primary_se()
 			print("Object has been picked up!")
 			Notification.show_pickup_notification(item_data)
 			Inventory.add_item(item_data)
-			if is_multitool:
-				Notification.show_message("Press q to view the multitool!", true)
 			queue_free()
 			
 		InteractionType.INSPECT:

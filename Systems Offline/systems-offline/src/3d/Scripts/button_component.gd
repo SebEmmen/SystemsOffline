@@ -39,18 +39,21 @@ func elevator_button_interact() -> void:
 		Notification.show_message("The elevator is leaving soon! Step inside!", true)
 
 
-func _on_area_3d_body_entered(area: Node3D) -> void:
-	if not player.is_in_group("player"):
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if not body.is_in_group("player"):
 		return
+
+	player = body
 	inside = true
 	move_elevator()
 
 	print("I'm inside ", inside, " and button is pressed ", active)
 
 
-func _on_area_3d_body_exited(area: Node3D) -> void:
-	if not player.is_in_group("player"):
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if not body.is_in_group("player"):
 		return
+
 	inside = false
 	print("I'm inside ", inside, " and button is pressed ", active)
 

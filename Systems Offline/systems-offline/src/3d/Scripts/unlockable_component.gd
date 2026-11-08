@@ -127,6 +127,12 @@ func interact() -> void:
 		UnlockableType.CASE:
 			open_lid()
 
+func random_sound_selector() -> void:
+	if not audiotimer:
+			audiotimer = true
+			random_array_se()
+			await get_tree().create_timer(2.0).timeout
+			audiotimer = false
 #region Door Functions
 
 func ready_door() -> void:
@@ -141,6 +147,7 @@ func interact_door() -> void:
 	if locked:
 		print("Door is locked!")
 		Notification.locked_notification()
+		random_sound_selector()
 		return
 	if can_interact:
 		can_interact = false
@@ -320,11 +327,7 @@ func open_cover() -> void:
 
 	if locked and not Inventory.has_item("tutorial_key"):
 		Notification.locked_notification()
-		if not audiotimer:
-			audiotimer = true
-			random_array_se()
-			await get_tree().create_timer(2.0).timeout
-			audiotimer = false
+		random_sound_selector()
 		return
 
 	if not key or not key_start or not key_insert \
@@ -526,6 +529,8 @@ func fly_key_to_hanger() -> void:
 
 
 func ready_case() -> void:
+	if SaveManager.is_multitool_part_complete("open_multitool"):
+		can_interact = false
 	if lid:
 		case_lid_closed_rotation = lid.rotation
 
@@ -537,6 +542,7 @@ func open_lid() -> void:
 	# Require the Multitool Case Key.
 	if not Inventory.has_item("multitool_key"):
 		Notification.locked_notification()
+		random_sound_selector()
 		return
 
 	if lid == null or case_key_scene == null \
@@ -545,7 +551,7 @@ func open_lid() -> void:
 	or case_key_turn == null:
 		push_error("Multitool case: Missing animation references.")
 		return
-
+	SaveManager.complete_multitool_part("open_multitool")
 	is_moving = true
 	can_interact = false
 	locked = false

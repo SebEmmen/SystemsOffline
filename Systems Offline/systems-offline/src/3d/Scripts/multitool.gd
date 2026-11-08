@@ -1,6 +1,8 @@
 class_name Multitool
 extends InteractableComponent
 
+
+
 enum MultitoolPart{
 	BODY,
 	COMMS,
@@ -11,6 +13,13 @@ enum MultitoolPart{
 
 @export var multitool_part: MultitoolPart
 @export var multitool_id: String
+
+func _ready() -> void:
+	match multitool_part:
+		MultitoolPart.BODY:
+			#if SaveManager.is_multool_part_complete("pickup_multitool"):
+				#queue_free()
+			pass
 
 func interact() -> void:
 	match multitool_part:
@@ -23,7 +32,7 @@ func interact() -> void:
 func body_interact() -> void:
 	if not can_interact:
 		return
-
+	
 	var equipment := get_tree().get_first_node_in_group(
 		"multitool_equipment"
 	)
@@ -48,6 +57,7 @@ func body_interact() -> void:
 	print("Object has been picked up!")
 	
 	Inventory.add_item(item_data)
+	SaveManager.complete_multitool_part("pickup_multitool")
 	# Remove the world model.
 	queue_free()
 #endregion
