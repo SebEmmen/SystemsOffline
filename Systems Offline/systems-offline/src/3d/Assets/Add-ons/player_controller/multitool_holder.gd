@@ -8,6 +8,10 @@ extends Node3D
 var has_multitool: bool = false
 var is_equipped: bool = false
 
+@export_group("Multitool Upgrades")
+@export var upgrades: Array[Node3D]
+@export var upgrades_ids: Array[String]
+
 
 func _ready() -> void:
 	_make_multitool_render_on_top()
@@ -98,6 +102,7 @@ func collect_multitool() -> void:
 
 func _process(_delta: float) -> void:
 	_update_visibility()
+	_update_upgrades()
 
 
 func _update_visibility() -> void:
@@ -107,3 +112,12 @@ func _update_visibility() -> void:
 		and camera.current
 		and player.get("controls_enabled") == true
 	)
+
+func _update_upgrades() -> void:
+	var i = 0
+	for upgrade in upgrades_ids:
+		if SaveManager.is_multool_part_complete(upgrade):
+			upgrades[i].visible = true
+			if i < 3:
+				i = i+1
+	pass

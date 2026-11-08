@@ -6,6 +6,10 @@ const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 
 var return_scene: String = ""
 
+#region Multitool Progress
+var multitool: Dictionary = {}
+#endregion
+
 #region Comms Puzzles
 #Dial Puzzle
 var dial_puzzle_completed: bool = false
@@ -51,7 +55,8 @@ func save_game() -> void:
 		"player": player.get_save_data(),
 		"tutorial_puzzle_completed": tutorial_puzzle_completed,
 		"dial_puzzle_completed": dial_puzzle_completed,
-		"puzzles": _puzzles_to_json()
+		"puzzles": _puzzles_to_json(),
+		"multitool": _multitool_to_json()
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -93,6 +98,7 @@ func load_game() -> void:
 	tutorial_puzzle_completed = save_data.get("tutorial_puzzle_completed", false)
 	dial_puzzle_completed = save_data.get("dial_puzzle_completed", false)
 	_puzzles_from_json(save_data.get("puzzles", {}))
+	_multitool_from_json(save_data.get("multitool", {}))
 
 	var error = get_tree().change_scene_to_file(save_data["scene"])
 
@@ -137,6 +143,23 @@ func _puzzles_from_json(data: Dictionary) -> void:
 			"cover_removed": d.get("cover_removed", false),
 			"cover_pos": Vector3(pos[0], pos[1], pos[2]),
 			"cover_rot": Vector3(rot[0], rot[1], rot[2]),
+		}
+		
+func _multitool_to_json() -> Dictionary:
+	var out := {}
+	for id in multitool:
+		var m: Dictionary = multitool[id]
+		out[id] = {
+			"completed": m["completed"]
+		}
+	return out
+
+func _multitool_from_json(data: Dictionary) -> void:
+	multitool.clear()
+	for id in data:
+		var d: Dictionary = data[id]
+		multitool[id] = {
+			"completed": d.get("completed", false)
 		}
 
 func enter_subscene(scene_path: String, puzzle_id: String, cover: RigidBody3D = null) -> void:
@@ -192,6 +215,23 @@ func new_game() -> void:
 	await get_tree().scene_changed
 
 	save_game()
+
+#region Multitool Progress
+func _multitool(id: String) -> Dictionary:
+	if not multitool.has(id):
+		multitool[id] = {
+			"completed": false,
+		}
+	return multitool[id]
+
+func is_multool_part_complete(id: String) -> bool:
+	return _multitool(id)["completed"]
+
+func complete_multitool_part(id: String) -> void:
+	var m := _multitool(id)
+	m["completed"] = true
+#endregion
+
 
 #region Puzzle state
 func _puzzle(id: String) -> Dictionary:

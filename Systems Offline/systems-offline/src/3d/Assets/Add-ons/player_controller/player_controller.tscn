@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b0wgwuupgjh14" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.gd" id="1_ucva2"]
 [ext_resource type="Script" uid="uid://c0qp0g35mplfs" path="res://src/3d/Assets/Add-ons/player_controller/ray_cast.gd" id="2_1ae3g"]
 [ext_resource type="PackedScene" uid="uid://m8d3qddgf7sd" path="res://src/3d/Scenes/objects/Multitool.tscn" id="3_j2dax"]
-[ext_resource type="PackedScene" uid="uid://cny1ti2su30wv" path="res://src/3d/Scenes/objects/Hand/arms.blend" id="3_j2wtt"]
+[ext_resource type="PackedScene" uid="uid://dhpduxwxobpus" path="res://src/3d/Scenes/objects/Hand/arms.blend" id="3_j2wtt"]
 [ext_resource type="Script" uid="uid://dvuspaij4e6uy" path="res://src/3d/Assets/Add-ons/player_controller/multitool_holder.gd" id="3_q8aoj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -43,12 +43,26 @@ script = ExtResource("2_1ae3g")
 [node name="arms" parent="Head/Camera3D" unique_id=918034994 instance=ExtResource("3_j2wtt")]
 transform = Transform3D(3.9668314, -0.025104139, -3.043619, -2.223017, 3.3912945, -2.9252899, 2.079048, 3.6740294, 2.6793761, 3.200428, -1.4066855, -0.4326787)
 
-[node name="MultitoolHolder" type="Node3D" parent="Head/Camera3D" unique_id=1661896159]
+[node name="MultitoolHolder" type="Node3D" parent="Head/Camera3D" unique_id=1661896159 node_paths=PackedStringArray("upgrades")]
 transform = Transform3D(-0.3391594, -0.049716428, -0.9394145, -0.5844966, 0.79359657, 0.16902295, 0.73711294, 0.60641, -0.29821482, 0.3428418, -0.51358736, -1.7140648)
 script = ExtResource("3_q8aoj")
+upgrades = [NodePath("Multitool/Circle Piece 1"), NodePath("Multitool/Eye piece 2"), NodePath("Multitool/Eye piece 3"), NodePath("Multitool/Eye piece 4")]
+upgrades_ids = Array[String](["comms_upgrade", "gravity_upgrade", "strength_upgrade", "shrink_upgrade"])
 
 [node name="Multitool" parent="Head/Camera3D/MultitoolHolder" unique_id=51961434 instance=ExtResource("3_j2dax")]
 transform = Transform3D(0.4499999, 5.0261697e-06, 0.0002797598, -0.00027806155, 0.058181323, 0.44622284, -3.1186755e-05, -0.44622296, 0.058181312, 0, 0, 0)
+
+[node name="Circle Piece 1" parent="Head/Camera3D/MultitoolHolder/Multitool" index="0" unique_id=961166787]
+visible = false
+
+[node name="Eye piece 2" parent="Head/Camera3D/MultitoolHolder/Multitool" index="1" unique_id=936582030]
+visible = false
+
+[node name="Eye piece 3" parent="Head/Camera3D/MultitoolHolder/Multitool" index="2" unique_id=1442694302]
+visible = false
+
+[node name="Eye piece 4" parent="Head/Camera3D/MultitoolHolder/Multitool" index="3" unique_id=747606435]
+visible = false
 
 [node name="StairsAheadRayCast3D" type="RayCast3D" parent="." unique_id=1955223396]
 unique_name_in_owner = true
@@ -58,3 +72,10 @@ target_position = Vector3(0, -0.55, 0)
 [node name="StairsBelowRayCast3D" type="RayCast3D" parent="." unique_id=954293943]
 unique_name_in_owner = true
 target_position = Vector3(0, -0.75, 0)
+
+[editable path="Head/Camera3D/MultitoolHolder/Multitool"]
+[editable path="Head/Camera3D/MultitoolHolder/Multitool/Circle Piece 1"]
+[editable path="Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
+[editable path="Head/Camera3D/MultitoolHolder/Multitool/Eye piece 3"]
+[editable path="Head/Camera3D/MultitoolHolder/Multitool/Eye piece 4"]
+[editable path="Head/Camera3D/MultitoolHolder/Multitool/MULTITOOL MAIN BODY2"]

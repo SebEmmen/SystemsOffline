@@ -26,35 +26,35 @@ data = PackedVector3Array(0.5751, -0.20099999, 0.65459996, 0.70199996, -0.148199
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_7h4rb")
 
-[node name="multitool piece 1 lit " parent="." unique_id=961166787 instance=ExtResource("2_u2qmr")]
+[node name="Circle Piece 1" parent="." unique_id=961166787 instance=ExtResource("2_u2qmr")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="multitool piece 1 lit " unique_id=443034497]
+[node name="StaticBody3D" type="StaticBody3D" parent="Circle Piece 1" unique_id=443034497]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="multitool piece 1 lit /StaticBody3D" unique_id=892709726]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Circle Piece 1/StaticBody3D" unique_id=892709726]
 transform = Transform3D(-0.24749838, 0.09559672, -0.031474143, -0.024859875, 0.01596599, 0.28649497, 0.10128914, 0.23750767, -0.0065907394, 0.23461348, 0.15750107, 0.58014834)
 shape = SubResource("ConcavePolygonShape3D_0v6yx")
 
-[node name="eye left lit" parent="." unique_id=936582030 instance=ExtResource("3_u2qmr")]
+[node name="Eye piece 2" parent="." unique_id=936582030 instance=ExtResource("3_u2qmr")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="eye left lit" unique_id=608245089]
+[node name="StaticBody3D" type="StaticBody3D" parent="Eye piece 2" unique_id=608245089]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="eye left lit/StaticBody3D" unique_id=677839893]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Eye piece 2/StaticBody3D" unique_id=677839893]
 transform = Transform3D(-0.056360934, 0.024304073, 0.021493299, 0.012105716, 0.0049650753, 0.12910941, 0.019894352, 0.06583247, -0.01767232, 0.282875, 0.0075600594, 0.5829963)
 shape = SubResource("ConcavePolygonShape3D_7h4rb")
 
-[node name="eye middle lit" parent="." unique_id=1442694302 instance=ExtResource("4_jdof4")]
+[node name="Eye piece 3" parent="." unique_id=1442694302 instance=ExtResource("4_jdof4")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="eye middle lit" unique_id=748055803]
+[node name="StaticBody3D" type="StaticBody3D" parent="Eye piece 3" unique_id=748055803]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="eye middle lit/StaticBody3D" unique_id=1707620814]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Eye piece 3/StaticBody3D" unique_id=1707620814]
 transform = Transform3D(0.13175948, -0.06772377, -0.05299886, 0.05244598, -0.0034647374, 0.16062067, -0.0657691, -0.13843827, 0.02190705, 0.15503865, 0.16596292, 0.58586466)
 shape = SubResource("ConcavePolygonShape3D_e5ekl")
 
-[node name="eye right lit " parent="." unique_id=747606435 instance=ExtResource("5_0v6yx")]
+[node name="Eye piece 4" parent="." unique_id=747606435 instance=ExtResource("5_0v6yx")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="eye right lit " unique_id=1079910975]
+[node name="StaticBody3D" type="StaticBody3D" parent="Eye piece 4" unique_id=1079910975]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="eye right lit /StaticBody3D" unique_id=360403796]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Eye piece 4/StaticBody3D" unique_id=360403796]
 transform = Transform3D(-0.052926496, -0.025655555, 0.013775376, -0.0050015827, -0.005089858, -0.12506616, 0.022492198, -0.061502032, 0.004603979, 0.28115153, 0.30373704, 0.5268806)
 shape = SubResource("ConcavePolygonShape3D_py04d")
 
@@ -66,8 +66,8 @@ shape = SubResource("ConcavePolygonShape3D_py04d")
 transform = Transform3D(0.6624403, 0, 0, 0, 1.7281156, 0, 0, 0, 0.6624403, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_4tnwd")
 
-[editable path="multitool piece 1 lit "]
-[editable path="eye left lit"]
-[editable path="eye middle lit"]
-[editable path="eye right lit "]
+[editable path="Circle Piece 1"]
+[editable path="Eye piece 2"]
+[editable path="Eye piece 3"]
+[editable path="Eye piece 4"]
 [editable path="MULTITOOL MAIN BODY2"]
