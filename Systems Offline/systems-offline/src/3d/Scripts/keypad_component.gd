@@ -156,7 +156,9 @@ func check_code() -> void:
 
 	else:
 		play_secondary_se()
-		flash_error()
+		await flash_error()
+		entered_code = ""
+		update_screen()
 
 	
 func flash_enter():

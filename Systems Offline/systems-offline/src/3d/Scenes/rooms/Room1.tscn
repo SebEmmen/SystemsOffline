@@ -229,7 +229,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.3816018, -0.08140745, -0.9207348, 0.14745264, 0.98871917, -0.026306067, 0.91248965, -0.12572634, 0.38930076, 10.187911, 0.12792993, -62.453857)
+transform = Transform3D(0.3816018, -0.08140745, -0.9207348, 0.14745264, 0.98871917, -0.026306067, 0.91248965, -0.12572634, 0.38930076, -1.1554594, 0.12792993, -1.4605865)
 camera = NodePath("Head/Camera3D")
 arm = NodePath("Head/Camera3D/arms")
 ray = NodePath("Head/Camera3D/RayCast3D")
