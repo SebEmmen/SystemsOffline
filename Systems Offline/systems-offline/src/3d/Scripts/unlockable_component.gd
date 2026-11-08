@@ -35,6 +35,7 @@ enum UnlockableType{
 @export var handle_light_on: Array[MeshInstance3D]
 @export var handle_light_off: Array[MeshInstance3D]
 
+var first_time := true
 var want_open := false
 var is_open: bool = false
 var is_moving: bool = false
@@ -149,8 +150,16 @@ func interact_door() -> void:
 		Notification.locked_notification()
 		random_sound_selector()
 		return
-	want_open = not is_open
-	_update_door()
+
+	if first_time:
+		# First open must come from the button press
+		first_time = false
+		want_open = true
+		open_door()
+	else:
+		want_open = not is_open
+		_update_door()
+
 	await get_tree().create_timer(1.0).timeout
 	can_interact = true
 
@@ -293,7 +302,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	_update_door()
 
 func _update_door() -> void:
-	if locked or is_moving:
+	if locked or is_moving or first_time:
 		return # re-checked when the current movement finishes
 	if want_open and not is_open:
 		open_door()

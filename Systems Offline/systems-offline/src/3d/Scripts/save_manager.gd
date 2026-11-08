@@ -203,8 +203,24 @@ func return_from_subscene() -> void:
 	save_game()
 
 
-func new_game() -> void:
+func reset_progress() -> void:
 	save_data.clear()
+
+	tutorial_puzzle_completed = false
+	dial_puzzle_completed = false
+
+	puzzles.clear()
+	multitool.clear()
+
+	current_puzzle_id = ""
+	return_scene = ""
+	return_player_state = {}
+	in_subscene = false
+
+
+func new_game() -> void:
+	reset_progress()
+	# Inventory.clear()  # see note below
 
 	var error = get_tree().change_scene_to_file(START_SCENE)
 
@@ -213,6 +229,9 @@ func new_game() -> void:
 		return
 
 	await get_tree().scene_changed
+
+	# Give the new scene's nodes a frame to finish _ready()
+	await get_tree().process_frame
 
 	save_game()
 

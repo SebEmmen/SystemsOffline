@@ -118,7 +118,7 @@ func _update_visibility() -> void:
 		and camera.current
 		and player.get("controls_enabled") == true
 	)
-
+	print(should_show)
 	multitool.visible = should_show
 
 	# Show or hide the arm together with the multitool.

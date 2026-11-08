@@ -302,10 +302,8 @@ view_label = NodePath("../../../../HUD/ViewLabel")
 [node name="Arms" parent="ProtoController/Head/Camera3D" index="1" unique_id=791901379]
 visible = false
 
-[node name="MultitoolHolder" parent="ProtoController/Head/Camera3D" index="2" unique_id=1661896159]
+[node name="Multitool" parent="ProtoController/Head/Camera3D/MultitoolHolder" parent_id_path=PackedInt32Array(1779789665, 1661896159) index="0" unique_id=51961434 node_paths=PackedStringArray("object_ref")]
 visible = false
-
-[node name="Multitool" parent="ProtoController/Head/Camera3D/MultitoolHolder" index="0" unique_id=51961434 node_paths=PackedStringArray("object_ref")]
 multitool_part = 5
 multitool_id = "multitool"
 object_ref = NodePath(".")
