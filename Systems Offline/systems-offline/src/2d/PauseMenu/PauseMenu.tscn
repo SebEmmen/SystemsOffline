@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="2_title_font"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="3_body_font"]
 [ext_resource type="FontFile" uid="uid://bu7d0fwnhl5n4" path="res://src/2d/Fonts/MatixType/MatrixType-Bold.ttf" id="4_bold_font"]
-[ext_resource type="Texture2D" uid="uid://dqnaakng5aw74" path="res://src/2d/Assets/kitefin_logo.svg" id="5_kitefin_logo"]
+[ext_resource type="Texture2D" uid="uid://cww6x5l2lihss" path="res://src/2d/Assets/kitefin_logo.svg" id="5_kitefin_logo"]
 [ext_resource type="Shader" uid="uid://flukwg68kqde" path="res://src/2d/Shaders/pause_backdrop.gdshader" id="6_backdrop_shader"]
 [ext_resource type="AudioStream" uid="uid://do73p80to2008" path="res://src/3d/Sound/press(temp).mp3" id="7_sound_hover"]
 [ext_resource type="AudioStream" uid="uid://bwthc5dy7ajr6" path="res://src/3d/Sound/correct.mp3" id="8_sound_confirm"]
@@ -369,9 +369,10 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("4_bold_font")
 theme_override_font_sizes/font_size = 13
-current_tab = 0
+current_tab = 2
 
 [node name="Audio" type="MarginContainer" parent="Modals/OptionsModal/Panel/VBox/TabContainer" unique_id=878057529]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
@@ -500,8 +501,26 @@ focus_mode = 0
 button_pressed = true
 text = "Enabled"
 
+[node name="FOVLabel" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=1206186374]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_body_font")
+text = "FOV"
+
+[node name="FOVSlider" type="HSlider" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid" unique_id=1649305659]
+layout_mode = 2
+min_value = 60.0
+max_value = 110.0
+value = 60.0
+
+[node name="FOVVal" type="Label" parent="Modals/OptionsModal/Panel/VBox/TabContainer/Display/Grid/FOVSlider" unique_id=1969376440]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -1.0
+offset_right = 115.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("3_body_font")
+
 [node name="Controls" type="MarginContainer" parent="Modals/OptionsModal/Panel/VBox/TabContainer" unique_id=1593539473]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16

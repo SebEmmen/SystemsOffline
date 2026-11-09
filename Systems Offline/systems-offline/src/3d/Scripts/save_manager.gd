@@ -2,7 +2,8 @@ extends Node
 
 const SAVE_PATH = "user://savegame.json"
 const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
-
+const SETTINGS_FILE = "user://settings.json"
+const DEFAULT_FOV := 75.0
 
 var return_scene: String = ""
 
@@ -217,10 +218,26 @@ func reset_progress() -> void:
 	return_player_state = {}
 	in_subscene = false
 
+func _reset_fov_setting() -> void:
+	var data := {}
+	if FileAccess.file_exists(SETTINGS_FILE):
+		var f = FileAccess.open(SETTINGS_FILE, FileAccess.READ)
+		if f:
+			var parsed = JSON.parse_string(f.get_as_text())
+			f.close()
+			if parsed is Dictionary:
+				data = parsed
+
+	data["fov"] = DEFAULT_FOV
+
+	var out = FileAccess.open(SETTINGS_FILE, FileAccess.WRITE)
+	if out:
+		out.store_string(JSON.stringify(data, "\t"))
+		out.close()
 
 func new_game() -> void:
 	reset_progress()
-	# Inventory.clear()  # see note below
+	_reset_fov_setting()  
 
 	var error = get_tree().change_scene_to_file(START_SCENE)
 

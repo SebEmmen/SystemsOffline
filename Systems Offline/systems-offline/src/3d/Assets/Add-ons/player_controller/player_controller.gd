@@ -16,7 +16,8 @@ var arm_show := false
 @export var is_shrunk: bool = false
 @export var can_gravity_invert: bool = true
 @export var gravity_invert: bool = false
-
+var base_fov: float = 75.0
+const SHRUNK_FOV_OFFSET := 35.0  # was 110 - 75
 
 #region Speeds
 @export_group("Speeds")
@@ -146,6 +147,9 @@ func _ready() -> void:
 
 	capture_mouse()
 
+func set_base_fov(value: float) -> void:
+	base_fov = value
+	camera.fov = base_fov + (SHRUNK_FOV_OFFSET if is_shrunk else 0.0)
 # Dynamically instantiates AudioStreamPlayer3D nodes for assigned streams
 func _setup_audio_players() -> void:
 	if primary_se:
@@ -188,17 +192,14 @@ func _physics_process(delta: float) -> void:
 	# Shrinking
 	if can_shrink and controls_enabled and Input.is_action_just_pressed("shrink"):
 		var tween = create_tween().set_parallel(true)
-		if !is_shrunk:
-			is_shrunk = !is_shrunk
-			tween.tween_property(self, "scale", Vector3(0.1, 0.1, 0.1), 0.2)
-			tween.tween_property(camera, "fov", 110, 0.2)
-			tween.tween_property(ray, "scale", Vector3(0.2, 0.2, 0.2), 0.2)
-
+		if is_shrunk:
+			scale = Vector3.ONE * 0.1
+			camera.fov = base_fov + SHRUNK_FOV_OFFSET
+			ray.scale = Vector3.ONE * 0.2
 		else:
-			is_shrunk = !is_shrunk
-			tween.tween_property(self, "scale", Vector3(1, 1, 1), 0.2)
-			tween.tween_property(camera, "fov", 75, 0.2)
-			tween.tween_property(ray, "scale", Vector3(2.0, 2.0, 2.0), 0.2)
+			scale = Vector3.ONE
+			camera.fov = base_fov
+			ray.scale = Vector3.ONE * 2.02
 
 	# Gravity invert
 	if can_gravity_invert and controls_enabled and Input.is_action_just_pressed("gravity_invert"):
@@ -288,10 +289,8 @@ func rotate_look(rot_input: Vector2) -> void:
 
 	look_rotation.x = clamp(
 		look_rotation.x,
-		#deg_to_rad(-85),
-		#deg_to_rad(85)
-		deg_to_rad(-50),
-		deg_to_rad(100)
+		deg_to_rad(-85),
+		deg_to_rad(85)
 	)
 
 	look_rotation.y -= rot_input.x * look_speed
@@ -408,6 +407,7 @@ func check_input_mappings() -> void:
 			+ input_sprint
 		)
 		can_sprint = false
+
 
 
 #region step

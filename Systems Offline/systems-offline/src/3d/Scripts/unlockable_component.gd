@@ -22,6 +22,7 @@ enum UnlockableType{
 @export var right_door: Node3D
 @export var slide_distance: float = 5
 @export var slide_duration: float = 2
+@export var trigger_area: Area3D
 
 @export_group("Door Handles")
 @export var left_handle: Node3D
@@ -152,12 +153,10 @@ func interact_door() -> void:
 		return
 
 	if first_time:
-		# First open must come from the button press
 		first_time = false
 		want_open = true
 		open_door()
 	else:
-		want_open = not is_open
 		_update_door()
 
 	await get_tree().create_timer(1.0).timeout
@@ -303,11 +302,20 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func _update_door() -> void:
 	if locked or is_moving or first_time:
-		return # re-checked when the current movement finishes
+		return
+	want_open = _player_in_area()
 	if want_open and not is_open:
 		open_door()
 	elif not want_open and is_open:
 		close_door()
+
+func _player_in_area() -> bool:
+	if trigger_area == null:
+		return want_open  # fallback to old behaviour
+	for body in trigger_area.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			return true
+	return false
 
 #endregion
 

@@ -19,7 +19,10 @@ signal wrong_attempt
 @export var transition_camera: Camera3D
 @export var camera_duration: float = 0.7
 @export var return_duration: float = 0.5
-
+var _pan_tween: Tween
+var _return_tween: Tween
+var _panning: bool = false
+var _pan_cancelled: bool = false
 
 func _ready() -> void:
 	check_button.pressed.connect(_on_check_pressed)
@@ -32,12 +35,27 @@ func activate() -> void:
 
 
 func deactivate() -> void:
+	cancel_pan()  # <-- add this
+
 	for dial in dials:
 		dial.stop_and_snap()
 
 	_set_feedback("")
 	_set_active(false)
 
+func _exit_tree() -> void:
+	cancel_pan()
+	
+
+func cancel_pan() -> void:
+	if not _panning:
+		return
+	_pan_cancelled = true
+	# Fast-forward so `await ...finished` resumes instead of hanging forever.
+	if _pan_tween and _pan_tween.is_valid():
+		_pan_tween.custom_step(9999.0)
+	if _return_tween and _return_tween.is_valid():
+		_return_tween.custom_step(9999.0)
 
 func _set_active(on: bool) -> void:
 	var locked: bool = SaveManager.dial_puzzle_completed
@@ -102,131 +120,63 @@ func _on_button_pressed() -> void:
 
 
 func pan_to_multitool_piece() -> void:
-	print("PAN: Function started")
-	print("PAN: Transition camera = ", transition_camera)
-	print("PAN: Active camera = ", get_tree().root.get_camera_3d())
-	print("PAN: Multitool piece = ", multitool_piece)
-
-	if transition_camera == null:
-		push_error("PAN: Transition camera is not assigned!")
+	if _panning:
 		return
 
-	if multitool_piece == null:
-		push_error("PAN: Multitool piece is not assigned!")
+	if transition_camera == null or multitool_piece == null:
+		push_error("PAN: Transition camera or Multitool piece not assigned!")
 		return
 
-	# Get the camera currently being used to inspect the puzzle.
 	var inspect_camera := get_tree().root.get_camera_3d()
-
-	if inspect_camera == null:
-		push_error("PAN: No active camera found!")
+	if inspect_camera == null or inspect_camera == transition_camera:
+		push_error("PAN: No valid inspect camera!")
 		return
 
-	if inspect_camera == transition_camera:
-		push_error("PAN: Transition camera is already active!")
-		return
+	_panning = true
+	_pan_cancelled = false
 
-	print("PAN: Starting camera animation")
-
-	# Save the inspect camera's position and rotation.
-	var start_transform := (
-		inspect_camera.global_transform.orthonormalized()
-	)
-
-	# Save the desired transition camera position and rotation.
-	var target_transform := (
-		transition_camera.global_transform.orthonormalized()
-	)
-
-	# Save the transition camera's original properties.
+	var start_transform := inspect_camera.global_transform.orthonormalized()
+	var target_transform := transition_camera.global_transform.orthonormalized()
 	var original_transform := transition_camera.transform
 	var original_top_level := transition_camera.top_level
-
 	var start_fov := inspect_camera.fov
 	var target_fov := transition_camera.fov
 
-	# Position the transition camera at the inspect camera.
 	transition_camera.top_level = true
 	transition_camera.global_transform = start_transform
 	transition_camera.fov = start_fov
-
-	# Switch to the transition camera.
 	transition_camera.make_current()
 
-	# Calculate where the Multitool piece should move.
-	var piece_target := (
-		multitool_piece.global_position + Vector3.UP * 0.3
-	)
+	var piece_target := multitool_piece.global_position + Vector3.UP * 0.3
 
-	# Create one tween for the camera and Multitool piece.
-	var tween := create_tween()
+	_pan_tween = create_tween()
+	_pan_tween.set_parallel(true)
+	_pan_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	_pan_tween.tween_property(transition_camera, "global_transform", target_transform, camera_duration)
+	_pan_tween.tween_property(transition_camera, "fov", target_fov, camera_duration)
+	_pan_tween.tween_property(multitool_piece, "global_position", piece_target, 3.0) \
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
-	tween.set_parallel(true)
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_IN_OUT)
+	await _pan_tween.finished
 
-	# Move and rotate the camera toward the device.
-	tween.tween_property(
-		transition_camera,
-		"global_transform",
-		target_transform,
-		camera_duration
-	)
+	if not _pan_cancelled:
+		_return_tween = create_tween()
+		_return_tween.set_parallel(true)
+		_return_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+		_return_tween.tween_property(transition_camera, "global_transform", start_transform, return_duration)
+		_return_tween.tween_property(transition_camera, "fov", start_fov, return_duration)
+		await _return_tween.finished
 
-	# Animate the camera's field of view.
-	tween.tween_property(
-		transition_camera,
-		"fov",
-		target_fov,
-		camera_duration
-	)
+	# Only hand the view back if the transition camera still owns it
+	if not _pan_cancelled and transition_camera.current \
+			and is_instance_valid(inspect_camera) and inspect_camera.is_inside_tree():
+		inspect_camera.make_current()
 
-	# Raise the Multitool piece at the same time.
-	tween.tween_property(
-		multitool_piece,
-		"global_position",
-		piece_target,
-		3.0
-	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-
-	await tween.finished
-
-	print("PAN: Camera reached transition position")
-
-	# Create a second tween to return to inspection.
-	var return_tween := create_tween()
-
-	return_tween.set_parallel(true)
-	return_tween.set_trans(Tween.TRANS_QUAD)
-	return_tween.set_ease(Tween.EASE_IN_OUT)
-
-	# Move the camera back.
-	return_tween.tween_property(
-		transition_camera,
-		"global_transform",
-		start_transform,
-		return_duration
-	)
-
-	# Restore the original field of view.
-	return_tween.tween_property(
-		transition_camera,
-		"fov",
-		start_fov,
-		return_duration
-	)
-
-	await return_tween.finished
-
-	# Switch back to the original inspect camera.
-	inspect_camera.make_current()
-
-	# Restore the transition camera to its original position.
 	transition_camera.top_level = original_top_level
 	transition_camera.transform = original_transform
 	transition_camera.fov = target_fov
 
-	print("PAN: Camera transition complete")
+	_panning = false
 	
 	
 func _input(event: InputEvent) -> void:
