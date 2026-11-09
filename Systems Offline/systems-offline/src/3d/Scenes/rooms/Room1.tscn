@@ -25,20 +25,20 @@
 [ext_resource type="AudioStream" uid="uid://u45mvuipq8v1" path="res://src/3d/Sound/error.mp3" id="18_io4pa"]
 [ext_resource type="AudioStream" uid="uid://g2o2wcjmubqo" path="res://src/3d/Sound/keypad button press.mp3" id="20_fs8bd"]
 [ext_resource type="AudioStream" uid="uid://crtn1kyqdb6p" path="res://src/3d/Sound/wire successfully connected.mp3" id="20_s5xlb"]
-[ext_resource type="AudioStream" uid="uid://ccxncw627hj0y" path="res://src/3d/Sound/random phrases/Its locked/Its locked_3.wav" id="21_cok2s"]
-[ext_resource type="AudioStream" uid="uid://knq605cgr21x" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
-[ext_resource type="AudioStream" uid="uid://0rumq2jkjbsv" path="res://src/3d/Sound/random phrases/Its locked/Its locked_4.wav" id="22_gav43"]
-[ext_resource type="AudioStream" uid="uid://cg27eqvuyonof" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
+[ext_resource type="AudioStream" uid="uid://b47cisj106gl4" path="res://src/3d/Sound/random phrases/Its locked/Its locked_3.wav" id="21_cok2s"]
+[ext_resource type="AudioStream" uid="uid://c1ydfekgg24uw" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_1.wav" id="21_sr45x"]
+[ext_resource type="AudioStream" uid="uid://b2vrlrb0oddhe" path="res://src/3d/Sound/random phrases/Its locked/Its locked_4.wav" id="22_gav43"]
+[ext_resource type="AudioStream" uid="uid://ju56lox6s3wj" path="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav" id="22_kc5sd"]
 [ext_resource type="AudioStream" uid="uid://dpqtcsyejop65" path="res://src/3d/Sound/keypad unlock.mp3" id="22_s5xlb"]
 [ext_resource type="AudioStream" uid="uid://dcl7bk8txuyb" path="res://src/3d/Sound/opening keypad.mp3" id="23_cok2s"]
-[ext_resource type="AudioStream" uid="uid://gvy2mvilhvny" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="23_hd0mg"]
+[ext_resource type="AudioStream" uid="uid://b4khn8rwufho7" path="res://src/3d/Sound/random phrases/Its locked/Its locked_5.wav" id="23_hd0mg"]
 [ext_resource type="AudioStream" uid="uid://c3vrc87uher4m" path="res://src/3d/Sound/crate.mp3" id="24_6lvv6"]
 [ext_resource type="Script" uid="uid://4r25cp88aqau" path="res://src/3d/Scripts/interaction_component.gd" id="24_70r7a"]
 [ext_resource type="PackedScene" uid="uid://dlsafydximrtk" path="res://src/3d/Scenes/objects/TutorialKey.tscn" id="24_crb2e"]
 [ext_resource type="AudioStream" uid="uid://dmvlt1d30wstb" path="res://src/3d/Sound/key pickup.mp3" id="24_gav43"]
 [ext_resource type="PackedScene" uid="uid://h5m45rb1xd1k" path="res://src/3d/Scenes/objects/Hints/HintObject.tscn" id="25_354s1"]
 [ext_resource type="Resource" uid="uid://jyd52qx51xte" path="res://src/3d/Resources/Tutorial_Key.tres" id="25_dqwws"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="26_diyv0"]
 [ext_resource type="PackedScene" uid="uid://deinepjyf5q2s" path="res://src/3d/Scenes/objects/key_hanger/key_hanger.tscn" id="29_a4exi"]
 [ext_resource type="PackedScene" uid="uid://bu8o6roi0s2ld" path="res://src/3d/Scenes/objects/Rack.tscn" id="30_4qo6h"]
 [ext_resource type="PackedScene" uid="uid://cop5px3uuwsk6" path="res://src/3d/Scenes/objects/Wire/wire.tscn" id="32_8gijo"]
@@ -56,18 +56,22 @@
 [ext_resource type="Script" uid="uid://bv3yr0qvxeefj" path="res://src/3d/Scenes/objects/Beachball/beachball.gd" id="48_eueio"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
-[ext_resource type="PackedScene" uid="uid://ds6i3iesthcqa" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
+[ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
-[ext_resource type="PackedScene" uid="uid://hn6jv57g7vte" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="Texture2D" uid="uid://bsdkw2gpfkfmg" path="res://src/3d/Assets/Comm room/textures/Ucupaint Sphere.002 Color.png" id="56_gav43"]
+[ext_resource type="Texture2D" uid="uid://bjjhc0l3s0qkb" path="res://src/3d/Resources/Flute.png" id="57_3kfck"]
 [ext_resource type="PackedScene" uid="uid://drasxyj2nmf0a" path="res://src/3d/Scenes/objects/Chair.tscn" id="57_nvpkd"]
 [ext_resource type="Resource" uid="uid://dh1di115fpr3x" path="res://src/3d/Resources/Multitool_Piece_1.tres" id="62_i6svr"]
+[ext_resource type="Texture2D" uid="uid://cf8gl5ew5ei1v" path="res://src/3d/Resources/Apple.png" id="64_6ofj6"]
+[ext_resource type="Texture2D" uid="uid://c67jhhpdmqvt5" path="res://src/3d/Resources/Worm.png" id="64_a016q"]
 [ext_resource type="Resource" uid="uid://brb71d7y77g0x" path="res://src/3d/Resources/Multitool.tres" id="65_8iy1x"]
 [ext_resource type="PackedScene" uid="uid://c72sbmldtcaei" path="res://src/3d/Scenes/objects/Multitool/multitool_piece_1.tscn" id="65_i6svr"]
 [ext_resource type="PackedScene" uid="uid://duifu2far73vl" path="res://src/3d/Scenes/objects/Monitor.tscn" id="65_rwc1x"]
-[ext_resource type="AudioStream" uid="uid://eo1bhqvslcc1" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="65_x8cbg"]
-[ext_resource type="AudioStream" uid="uid://ch08jk5ukssuw" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="66_fs8bd"]
+[ext_resource type="AudioStream" uid="uid://cetu60xrve4km" path="res://src/3d/Sound/random phrases/Its locked/Its locked_1.wav" id="65_x8cbg"]
+[ext_resource type="AudioStream" uid="uid://bhgvx7fltko41" path="res://src/3d/Sound/random phrases/Its locked/Its locked_2.wav" id="66_fs8bd"]
+[ext_resource type="Texture2D" uid="uid://bnjnmw0dl016v" path="res://src/3d/Resources/Coin.png" id="66_loyml"]
 [ext_resource type="PackedScene" uid="uid://1njvtejaktv4" path="res://src/3d/Scenes/objects/Door/Door.tscn" id="67_gav43"]
 [ext_resource type="PackedScene" uid="uid://c7ghe4578584d" path="res://src/3d/Scenes/objects/Multitool/Multitool Key.tscn" id="67_nvpkd"]
 [ext_resource type="PackedScene" uid="uid://b57ass78xstv1" path="res://src/3d/Scenes/objects/Hints/shape_1_pedestal.glb" id="70_04e8d"]
@@ -132,6 +136,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d2e33")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
+albedo_texture = ExtResource("57_3kfck")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_04e8d"]
 viewport_path = NodePath("MainScreen")
@@ -173,6 +178,7 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cok2s"]
+albedo_texture = ExtResource("64_6ofj6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nvwfr"]
 render_priority = 0
@@ -190,6 +196,7 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hd0mg"]
+albedo_texture = ExtResource("64_a016q")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbs5u"]
 render_priority = 0
@@ -207,6 +214,7 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_6ofj6"]
+albedo_texture = ExtResource("57_3kfck")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2pegl"]
 render_priority = 0
@@ -224,6 +232,7 @@ shader_parameter/fresnel_core = true
 shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
+albedo_texture = ExtResource("66_loyml")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3q4rn"]
 friction = 0.4
@@ -480,40 +489,6 @@ transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 
 
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
-[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(-0.6, 0, -5.2453668e-08, 0, 0.6, 0, 5.2453668e-08, 0, -0.6, 6.4279594, 0, 0.72870445)
-script = ExtResource("17_wvn26")
-inspect_type = 1
-inspect_camera = NodePath("CrateCamera")
-alien_language = ExtResource("26_diyv0")
-number_label = NodePath("Label3D")
-number = "7"
-crate_lid = NodePath("Plane_002")
-lid_target = NodePath("LidTarget")
-puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
-puzzle_id = ""
-object_ref = NodePath(".")
-interaction_type = 1
-player = NodePath("../../../ProtoController")
-player_camera = NodePath("../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../TransitionCamera")
-primary_se = ExtResource("24_6lvv6")
-
-[node name="Plane" parent="Tutorial Room/Crates/CrateCode(7)/Final_Crate base" parent_id_path=PackedInt32Array(158196895, 1859065894) index="0" unique_id=1564338289]
-transform = Transform3D(0.9920694, -0.058007836, -0.111505084, 0.08457476, 0.9643389, 0.250794, 0.092980675, -0.25823557, 0.9615971, 0.42281342, -0.8696093, 0.26231754)
-
-[node name="Plane_002" parent="Tutorial Room/Crates/CrateCode(7)" index="1" unique_id=1262140986]
-transform = Transform3D(0.51786023, -0.030280095, -0.058205653, 0.044148028, 0.5033849, 0.13091445, 0.048535902, -0.13479897, 0.50195366, 0.19466496, 0.46842587, -0.10708153)
-
-[node name="CrateCamera" parent="Tutorial Room/Crates/CrateCode(7)" index="2" unique_id=1477527282]
-transform = Transform3D(1.6534489, 0.18584178, -0.09667971, 0.14095792, -0.41799, 1.6072313, 0.15496776, -1.6026616, -0.43039262, 0.13592148, 1.4360126, -0.3668735)
-
-[node name="Label3D" parent="Tutorial Room/Crates/CrateCode(7)" index="3" unique_id=599382943]
-transform = Transform3D(0.99206936, 0.11150508, -0.05800784, 0.08457476, -0.25079402, 0.9643388, 0.09298065, -0.9615971, -0.2582356, 0.2452383, -0.4412093, 0.17426765)
-
-[node name="LidTarget" parent="Tutorial Room/Crates/CrateCode(7)" index="4" unique_id=726277770]
-transform = Transform3D(0.20871171, -0.9715998, -0.11150509, 0.9519601, 0.17571063, 0.250794, -0.22407876, -0.15849203, 0.9615971, -0.58608055, 0.009798407, -0.07758474)
-
 [node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.45346525, 0, 1.1110216, 0, 1.1999999, 0, -1.1110216, 0, -0.45346525, -11.155058, 0, 2.162239)
 script = ExtResource("17_wvn26")
@@ -552,8 +527,8 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
-[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1266032156 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
-transform = Transform3D(-0.7826081, 0, -0.6225147, 0, 1, 0, 0.6225147, 0, -0.7826081, 4.8455973, 0, -0.80292845)
+[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1895371636 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+transform = Transform3D(0.5255426, 0, -0.85076725, 0, 1, 0, 0.85076725, 0, 0.5255426, 5.627362, 0, -1.12076)
 script = ExtResource("17_wvn26")
 inspect_type = 1
 inspect_camera = NodePath("CrateCamera")
@@ -571,34 +546,41 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 primary_se = ExtResource("24_6lvv6")
 
-[node name="Plane" parent="Tutorial Room/Crates/CrateCode(9)/Final_Crate base" parent_id_path=PackedInt32Array(1266032156, 1859065894) index="0" unique_id=1564338289]
-transform = Transform3D(0.98928547, 0.115358025, -0.08948073, -0.08993406, 0.9643389, 0.2489225, 0.11500499, -0.238208, 0.96438104, -0.23019457, 0.34148818, 0.2060728)
-
-[node name="Plane_002" parent="Tutorial Room/Crates/CrateCode(9)" index="1" unique_id=1262140986]
-transform = Transform3D(0.516407, 0.06021689, -0.04670897, -0.04694558, 0.5033849, 0.12993754, 0.06003259, -0.12434458, 0.50340694, -0.01914978, 1.1949785, -0.120253086)
-
-[node name="Label3D" parent="Tutorial Room/Crates/CrateCode(9)" index="3" unique_id=599382943]
-transform = Transform3D(0.98928547, 0.08948082, 0.115358025, -0.08993406, -0.24892253, 0.96433884, 0.11500499, -0.96438104, -0.23820803, -0.13294554, 0.2853793, 0.14210367)
-
-[node name="LidTarget" parent="Tutorial Room/Crates/CrateCode(9)" index="4" unique_id=726277770]
-transform = Transform3D(0.37505406, -0.9226743, -0.08948082, 0.9054128, 0.3438971, 0.24892248, -0.19890216, -0.17437646, 0.96438104, -0.8677745, 0.87780714, -0.11671162)
+[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+transform = Transform3D(-0.39433628, 0, -0.45221552, 0, 0.59999996, 0, 0.45221552, 0, -0.39433628, 5.808043, 0, 1.5811884)
+script = ExtResource("17_wvn26")
+inspect_type = 1
+inspect_camera = NodePath("CrateCamera")
+alien_language = ExtResource("26_diyv0")
+number_label = NodePath("Label3D")
+number = "7"
+crate_lid = NodePath("Plane_002")
+lid_target = NodePath("LidTarget")
+puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+puzzle_id = ""
+object_ref = NodePath(".")
+interaction_type = 1
+player = NodePath("../../../ProtoController")
+player_camera = NodePath("../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../TransitionCamera")
+primary_se = ExtResource("24_6lvv6")
 
 [node name="Fallen Crate With Key" parent="Tutorial Room/Crates" unique_id=1418094132 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-5.2453668e-08, -1.2, 0, 1.2, -5.2453668e-08, 0, 0, 0, 1.2, 7.444, 0.861, -4.1)
 
-[node name="Plane_002" parent="Tutorial Room/Crates/Fallen Crate With Key" index="1" unique_id=1262140986]
-transform = Transform3D(-2.2817343e-08, -0.522, 4.440892e-16, 0.50537306, -2.2090555e-08, 0.13069834, -0.13069834, 5.7130056e-09, 0.50537306, -0.5414939, 2.297679, -0.34020257)
-
-[node name="Tutorial Key" parent="Tutorial Room" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("24_crb2e")]
-transform = Transform3D(-0.10857003, -0.99313694, 0.043492734, 0.26049808, 0.01379931, 0.9653759, -0.95935017, 0.1161405, 0.25721225, 6.2642946, 0.9396702, -3.6559107)
+[node name="Tutorial Key" parent="Tutorial Room/Crates/Fallen Crate With Key" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("24_crb2e")]
+transform = Transform3D(0.21708171, 0.011499455, 0.8044797, 0.09047501, 0.82761407, -0.036243968, -0.7994583, 0.09678371, 0.2143435, -0.6124191, 1.3959074, 0.37007427)
 script = ExtResource("24_70r7a")
 object_ref = NodePath(".")
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../TransitionCamera")
+player = NodePath("../../../../ProtoController")
+player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../../TransitionCamera")
 is_part_of_tutorial = true
 item_data = ExtResource("25_dqwws")
 primary_se = ExtResource("24_gav43")
+
+[node name="Plane_002" parent="Tutorial Room/Crates/Fallen Crate With Key" index="2" unique_id=1262140986]
+transform = Transform3D(-2.2817343e-08, -0.522, 4.440892e-16, 0.50537306, -2.2090555e-08, 0.13069834, -0.13069834, 5.7130056e-09, 0.50537306, -0.5414939, 2.297679, -0.34020257)
 
 [node name="Shelves" type="Node" parent="Tutorial Room" unique_id=763259974]
 
@@ -704,10 +686,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=1065637940]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=906627970]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="7" unique_id=1784293886]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=149311035]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -753,7 +735,7 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="2" unique_id=840184369]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=511470494]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -782,7 +764,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="2" unique_id=840184369]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=511470494]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -808,7 +790,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="2" unique_id=840184369]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=511470494]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -837,7 +819,7 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="2" unique_id=840184369]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=511470494]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -1053,14 +1035,14 @@ push_force = 4.0
 [editable path="Tutorial Room/KeypadTouchscreen"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/KeypadTouchscreen/KeyHanger"]
-[editable path="Tutorial Room/Crates/CrateCode(7)"]
-[editable path="Tutorial Room/Crates/CrateCode(7)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(4)"]
 [editable path="Tutorial Room/Crates/CrateCode(4)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(2)"]
 [editable path="Tutorial Room/Crates/CrateCode(2)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(9)"]
 [editable path="Tutorial Room/Crates/CrateCode(9)/Final_Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(7)"]
+[editable path="Tutorial Room/Crates/CrateCode(7)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/Fallen Crate With Key"]
 [editable path="Tutorial Room/Crates/Fallen Crate With Key/Final_Crate base"]
 [editable path="CommsRoom/WirePuzzleTest"]
