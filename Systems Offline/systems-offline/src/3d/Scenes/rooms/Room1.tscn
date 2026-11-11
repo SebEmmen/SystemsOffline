@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c35qrqo7ajmic"]
 
+[ext_resource type="Texture2D" uid="uid://bay85kwwcixt0" path="res://src/3d/Sky/kloppenheim_06_puresky_4k.hdr" id="1_8gijo"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="1_alw4e"]
 [ext_resource type="MeshLibrary" uid="uid://d2es736ms1v62" path="res://src/3d/Mesh/FloorMeshLibrary.meshlib" id="2_1ds61"]
 [ext_resource type="MeshLibrary" uid="uid://decvpluk7ag4r" path="res://src/3d/Mesh/WallMeshLibraryDiag.meshlib" id="3_nvpkd"]
@@ -80,6 +81,19 @@
 [ext_resource type="PackedScene" uid="uid://h1npmkim3ghs" path="res://src/3d/Scenes/objects/Hints/shape_3_triangle.glb" id="72_a016q"]
 [ext_resource type="PackedScene" uid="uid://dy6wacnbxdxid" path="res://src/3d/Scenes/objects/Hints/shape_4_circle.glb" id="73_xm1x8"]
 [ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
+[ext_resource type="PackedScene" uid="uid://772hsxa0vsf4" path="res://src/3d/Scenes/env/forest_environment.tscn" id="81_loyml"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k78pk"]
+panorama = ExtResource("1_8gijo")
+
+[sub_resource type="Sky" id="Sky_8q0j8"]
+sky_material = SubResource("PanoramaSkyMaterial_k78pk")
+
+[sub_resource type="Environment" id="Environment_w1mtf"]
+background_mode = 2
+background_energy_multiplier = 0.01
+sky = SubResource("Sky_8q0j8")
+ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -138,28 +152,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6ofj6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lghuq"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_loyml"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5buxd"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_6ofj6")
+albedo_texture = SubResource("ViewportTexture_lghuq")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_lghuq"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_slhau"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_loyml")
+material = SubResource("ORMMaterial3D_5buxd")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5buxd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_t85fk"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_wlapk"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_5buxd")
+albedo_texture = SubResource("ViewportTexture_t85fk")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_t85fk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_o48g7"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_slhau")
+material = SubResource("ORMMaterial3D_wlapk")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -240,6 +254,9 @@ bounce = 0.7
 
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=132510855]
+environment = SubResource("Environment_w1mtf")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=987253711]
 transform = Transform3D(0.9446295, -9.759452e-05, -0.32813883, 0.0038034138, 0.99993604, 0.010651676, 0.3281168, -0.011309936, 0.9445694, -2.4873257, 0, 14.431388)
 light_energy = 0.3
@@ -278,7 +295,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -2.6573367, 0.07450342, 9.7099495)
+transform = Transform3D(-0.9537691, 0, 0.30053964, 0, 0.99999994, 0, -0.3005396, 0, -0.9537692, -2.6573367, 0.07450342, 9.7099495)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -489,81 +506,81 @@ transform = Transform3D(-0.99960905, -0.0035999704, 0.027726157, 0, 0.99167585, 
 
 [node name="Crates" type="Node" parent="Tutorial Room" unique_id=933543164]
 
-[node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(4)" parent="Tutorial Room/Crates" unique_id=785939364 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.45346525, 0, 1.1110216, 0, 1.1999999, 0, -1.1110216, 0, -0.45346525, -11.155058, 0, 2.162239)
 script = ExtResource("17_wvn26")
+object_ref = null
+interaction_type = 1
+player = null
+player_camera = null
+transition_camera = null
+primary_se = ExtResource("24_6lvv6")
 inspect_type = 1
-inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
-number_label = NodePath("Label3D")
 number = "4"
-crate_lid = NodePath("Plane_002")
-lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-object_ref = NodePath(".")
-interaction_type = 1
-player = NodePath("../../../ProtoController")
-player_camera = NodePath("../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../TransitionCamera")
-primary_se = ExtResource("24_6lvv6")
+inspect_camera = NodePath("CrateCamera")
+number_label = NodePath("Label3D")
+crate_lid = NodePath("Plane_002")
+lid_target = NodePath("LidTarget")
 
-[node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(2)" parent="Tutorial Room/Crates" unique_id=1003784711 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(0.2749278, 0, 0.7512755, 0, 0.8, 0, -0.7512755, 0, 0.2749278, -11.861279, 0, -2.666003)
 script = ExtResource("17_wvn26")
+object_ref = null
+interaction_type = 1
+player = null
+player_camera = null
+transition_camera = null
+primary_se = ExtResource("24_6lvv6")
 inspect_type = 1
-inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
-number_label = NodePath("Label3D")
 number = "2"
-crate_lid = NodePath("Plane_002")
-lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-object_ref = NodePath(".")
-interaction_type = 1
-player = NodePath("../../../ProtoController")
-player_camera = NodePath("../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../TransitionCamera")
-primary_se = ExtResource("24_6lvv6")
+inspect_camera = NodePath("CrateCamera")
+number_label = NodePath("Label3D")
+crate_lid = NodePath("Plane_002")
+lid_target = NodePath("LidTarget")
 
-[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1895371636 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(9)" parent="Tutorial Room/Crates" unique_id=1895371636 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(0.5255426, 0, -0.85076725, 0, 1, 0, 0.85076725, 0, 0.5255426, 5.627362, 0, -1.12076)
 script = ExtResource("17_wvn26")
+object_ref = null
+interaction_type = 1
+player = null
+player_camera = null
+transition_camera = null
+primary_se = ExtResource("24_6lvv6")
 inspect_type = 1
-inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
-number_label = NodePath("Label3D")
 number = "9"
-crate_lid = NodePath("Plane_002")
-lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-object_ref = NodePath(".")
-interaction_type = 1
-player = NodePath("../../../ProtoController")
-player_camera = NodePath("../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../TransitionCamera")
-primary_se = ExtResource("24_6lvv6")
+inspect_camera = NodePath("CrateCamera")
+number_label = NodePath("Label3D")
+crate_lid = NodePath("Plane_002")
+lid_target = NodePath("LidTarget")
 
-[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("16_2pe5o")]
+[node name="CrateCode(7)" parent="Tutorial Room/Crates" unique_id=158196895 node_paths=PackedStringArray("inspect_camera", "number_label", "crate_lid", "lid_target") instance=ExtResource("16_2pe5o")]
 transform = Transform3D(-0.39433628, 0, -0.45221552, 0, 0.59999996, 0, 0.45221552, 0, -0.39433628, 5.808043, 0, 1.5811884)
 script = ExtResource("17_wvn26")
+object_ref = null
+interaction_type = 1
+player = null
+player_camera = null
+transition_camera = null
+primary_se = ExtResource("24_6lvv6")
 inspect_type = 1
-inspect_camera = NodePath("CrateCamera")
 alien_language = ExtResource("26_diyv0")
-number_label = NodePath("Label3D")
 number = "7"
-crate_lid = NodePath("Plane_002")
-lid_target = NodePath("LidTarget")
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
-object_ref = NodePath(".")
-interaction_type = 1
-player = NodePath("../../../ProtoController")
-player_camera = NodePath("../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../TransitionCamera")
-primary_se = ExtResource("24_6lvv6")
+inspect_camera = NodePath("CrateCamera")
+number_label = NodePath("Label3D")
+crate_lid = NodePath("Plane_002")
+lid_target = NodePath("LidTarget")
 
 [node name="Fallen Crate With Key" parent="Tutorial Room/Crates" unique_id=1418094132 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-5.2453668e-08, -1.2, 0, 1.2, -5.2453668e-08, 0, 0, 0, 1.2, 7.444, 0.861, -4.1)
@@ -645,13 +662,13 @@ primary_se = ExtResource("24_gav43")
 [node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
-inspect_camera = NodePath("Camera3D")
 puzzle_id = "comms"
+interaction_type = 1
+inspect_camera = NodePath("Camera3D")
 power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
 power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
 wire_cover = NodePath("Wire Puzzle Comms/WireCover")
 object_ref = NodePath("Wire Puzzle Comms")
-interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
@@ -686,10 +703,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=906627970]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=1170179749]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=149311035]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=234810703]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -710,10 +727,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_lghuq")
+mesh = SubResource("PlaneMesh_slhau")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_t85fk")
+mesh = SubResource("PlaneMesh_o48g7")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -735,7 +752,7 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=2134994658]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -764,7 +781,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=2134994658]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -790,7 +807,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=2134994658]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -819,7 +836,7 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=2134994658]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -997,13 +1014,13 @@ transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09,
 inspect_type = 2
 puzzle_scene = "uid://0u4neuukgjki"
 puzzle_id = "elevator"
+interaction_type = 1
 power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
 power_on = NodePath("ElevatorPuzzle/WireCover/Green lightning bolt")
 elevator_on = NodePath("../Elevator 1st floor/Final_monitor alien elevator/Signal light green")
 elevator_off = NodePath("../Elevator 1st floor/Final_monitor alien elevator/Signal light red_001")
 wire_cover = NodePath("ElevatorPuzzle/WireCover")
 object_ref = NodePath("ElevatorPuzzle")
-interaction_type = 1
 player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
@@ -1020,6 +1037,9 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 [node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
 visible = true
 push_force = 4.0
+
+[node name="ForestEnvironment" parent="." unique_id=365990558 instance=ExtResource("81_loyml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.08, 0)
 
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]
