@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://baku54oy6soio"
+path="res://.godot/imported/wire connect.mp3-7923e4b096fcea28cfd865948205a805.mp3str"
+
+[deps]
+
+source_file="res://src/3d/Sound/wire connect.mp3"
+dest_files=["res://.godot/imported/wire connect.mp3-7923e4b096fcea28cfd865948205a805.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

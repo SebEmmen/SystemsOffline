@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcl7bk8txuyb"
+path="res://.godot/imported/opening keypad.mp3-657abc47c55c3dab34329155944f8fd4.mp3str"
+
+[deps]
+
+source_file="res://src/3d/Sound/opening keypad.mp3"
+dest_files=["res://.godot/imported/opening keypad.mp3-657abc47c55c3dab34329155944f8fd4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

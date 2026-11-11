@@ -12,3 +12,5 @@
 # Temporary files
 *.tmp
 *.bak
+*.exe
+*.pck

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ru84l0r2lukf"
+path="res://.godot/imported/footsteps on metal.mp3-7e0029c555ac3f8bf84616d07c691958.mp3str"
+
+[deps]
+
+source_file="res://src/3d/Sound/footsteps on metal.mp3"
+dest_files=["res://.godot/imported/footsteps on metal.mp3-7e0029c555ac3f8bf84616d07c691958.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

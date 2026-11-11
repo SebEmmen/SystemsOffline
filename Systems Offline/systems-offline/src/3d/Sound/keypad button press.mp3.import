@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g2o2wcjmubqo"
+path="res://.godot/imported/keypad button press.mp3-c9a657fb9d0f77bcc3ca0b91082d1d2e.mp3str"
+
+[deps]
+
+source_file="res://src/3d/Sound/keypad button press.mp3"
+dest_files=["res://.godot/imported/keypad button press.mp3-c9a657fb9d0f77bcc3ca0b91082d1d2e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

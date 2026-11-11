@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ju56lox6s3wj"
+path="res://.godot/imported/It needs a key_2.wav-92102302fb7fd022034b4b85452448fb.sample"
+
+[deps]
+
+source_file="res://src/3d/Sound/random phrases/It needs a key/It needs a key_2.wav"
+dest_files=["res://.godot/imported/It needs a key_2.wav-92102302fb7fd022034b4b85452448fb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
