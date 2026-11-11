@@ -80,7 +80,6 @@
 [ext_resource type="PackedScene" uid="uid://h1npmkim3ghs" path="res://src/3d/Scenes/objects/Hints/shape_3_triangle.glb" id="72_a016q"]
 [ext_resource type="PackedScene" uid="uid://dy6wacnbxdxid" path="res://src/3d/Scenes/objects/Hints/shape_4_circle.glb" id="73_xm1x8"]
 [ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
-[ext_resource type="PackedScene" uid="uid://6v4ujtgo4roc" path="res://src/3d/Scenes/objects/TempItem.tscn" id="79_loyml"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -1204,13 +1203,6 @@ array_sounds = Array[AudioStream]([ExtResource("21_sr45x"), ExtResource("22_kc5s
 object_ref = NodePath(".")
 player = NodePath("../../../ProtoController")
 item_data = ExtResource("65_8iy1x")
-
-[node name="TempItem" parent="CommsRoom" unique_id=506849166 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("79_loyml")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.69695807, 0.30499995, 6.1584578)
-object_ref = NodePath(".")
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../TransitionCamera")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
