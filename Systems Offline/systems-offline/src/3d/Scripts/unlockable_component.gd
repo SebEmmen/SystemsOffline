@@ -344,11 +344,12 @@ func open_cover() -> void:
 		return
 
 
-	if locked and not Inventory.has_item("tutorial_key"):
+	if locked and not player.get_held_item_id() == "tutorial_key":
 		Notification.locked_notification()
 		random_sound_selector()
 		return
-
+	
+	player.delete_held_item()
 	if not key or not key_start or not key_insert \
 	or not key_turn or not key_hanger_target:
 		push_error("Key cinematic references are missing!")
@@ -559,11 +560,12 @@ func open_lid() -> void:
 		return
 
 	# Require the Multitool Case Key.
-	if not Inventory.has_item("multitool_key"):
+	if not player.get_held_item_id() == "multitool_key":
 		Notification.locked_notification()
 		random_sound_selector()
 		return
-
+	
+	player.delete_held_item()
 	if lid == null or case_key_scene == null \
 	or case_key_start == null \
 	or case_key_insert == null \

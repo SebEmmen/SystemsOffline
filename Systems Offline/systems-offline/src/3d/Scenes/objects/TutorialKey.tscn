@@ -188,7 +188,8 @@ shadow_mesh = SubResource("ArrayMesh_8fcth")
 [sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
 size = Vector3(0.2, 0.422, 0.15)
 
-[node name="Tutorial Key" type="Node3D" unique_id=466876124]
+[node name="Tutorial Key" type="RigidBody3D" unique_id=1624140816]
+transform = Transform3D(0.99937177, -0.024704779, -0.025409829, -0.024712754, -0.9996946, 4.2336988e-11, -0.025402065, 0.00062794675, -0.9996771, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=259460590]
 environment = SubResource("Environment_dvba1")
@@ -216,8 +217,6 @@ mesh = SubResource("ArrayMesh_anbas")
 transform = Transform3D(-0.02315945, 0, 0, 0, 0, 0.038308814, 0, -0.038308814, 0, -1.7681177, -0.06516542, -0.0023680388)
 mesh = SubResource("ArrayMesh_j2ssy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=236518752]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=95298466]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.03918457, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=95298466]
+transform = Transform3D(1.2, 1.027729e-09, 0, -8.3491614e-10, 1.2, -5.820766e-11, 0, 5.820766e-11, 1.1999999, -6.320988e-11, 0.039184567, -1.8189894e-12)
 shape = SubResource("BoxShape3D_r5iys")

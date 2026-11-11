@@ -24,6 +24,7 @@ var is_transitioning := false
 @export_group("PickUp")
 @export var is_multitool_key: bool = false
 @export var is_part_of_tutorial: bool = false
+@export var is_holdable: bool = false
 @export var item_data: ItemData
 @export var pickup_message: String
 #endregion

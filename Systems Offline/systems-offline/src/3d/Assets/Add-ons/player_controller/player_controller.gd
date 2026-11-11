@@ -19,6 +19,13 @@ var arm_show := false
 var base_fov: float = 75.0
 const SHRUNK_FOV_OFFSET := 35.0  # was 110 - 75
 
+#region Held Items
+@export_group("Held Items")
+@export var hand_marker: Marker3D
+@export var input_drop: String = "drop" # Make sure "drop" is in your Project Settings Input Map
+var current_held_item: HoldableInteractableComponent = null
+#endregion
+
 #region Speeds
 @export_group("Speeds")
 
@@ -174,8 +181,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
+	if event.is_action_pressed(input_drop):
+		if current_held_item:
+			current_held_item.drop_item()
+			current_held_item = null
 
+func get_held_item_id() -> String:
+	if current_held_item == null:
+		return ""
+	return current_held_item.item_data.item_id
 
+func delete_held_item() -> void:
+	current_held_item.queue_free()
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()

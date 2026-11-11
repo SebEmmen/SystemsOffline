@@ -5,19 +5,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_b30ba"]
 size = Vector3(1.8708879, 46.374546, 2.8374617)
 
-[node name="Multitool key" type="Node3D" unique_id=551226247]
+[node name="Multitool key" type="RigidBody3D" unique_id=1470084799]
+transform = Transform3D(-0.0018127537, 0.08154599, 0.9966679, 0.999753, 0.02222434, 0, -0.022150287, 0.99642175, -0.08156614, -0.2836895, -1.2039664, 0)
 
 [node name="Final_Key multitoolcase" parent="." unique_id=1538187201 instance=ExtResource("1_b30ba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11629915, 0, 0.2525053)
 
-[node name="Cylinder_005" parent="Final_Key multitoolcase" index="0" unique_id=1707217865]
+[node name="Cylinder_005" parent="Final_Key multitoolcase" index="0" unique_id=1230551995]
 transform = Transform3D(0, 0.0845271, 0, -0.4395951, 0, 0, 0, 0, 0.4395951, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Final_Key multitoolcase" unique_id=1295261733]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -1.1920929e-07, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Key multitoolcase/StaticBody3D" unique_id=646640387]
-transform = Transform3D(0, 0.0845271, 0, -0.43959504, 0, 0, 0, 0, 0.43959504, 1.9970816, 0, -0.0028115213)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=646640387]
+transform = Transform3D(0, 0.08452711, -5.820766e-11, -0.4395952, -3.4924597e-10, 0, 0, 0, 0.4395952, 2.113381, -2.2351742e-08, 0.2496938)
 shape = SubResource("BoxShape3D_b30ba")
 
 [editable path="Final_Key multitoolcase"]
