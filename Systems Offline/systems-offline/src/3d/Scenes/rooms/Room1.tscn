@@ -138,20 +138,8 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_04e8d"]
-viewport_path = NodePath("MainScreen")
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_a016q"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_04e8d")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_xm1x8"]
-resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_a016q")
-size = Vector2(5.2, 4.1)
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_6ofj6"]
-viewport_path = NodePath("SideScreen")
+viewport_path = NodePath("MainScreen")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_loyml"]
 resource_local_to_scene = true
@@ -160,6 +148,18 @@ albedo_texture = SubResource("ViewportTexture_6ofj6")
 [sub_resource type="PlaneMesh" id="PlaneMesh_lghuq"]
 resource_local_to_scene = true
 material = SubResource("ORMMaterial3D_loyml")
+size = Vector2(5.2, 4.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5buxd"]
+viewport_path = NodePath("SideScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_5buxd")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t85fk"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_slhau")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -568,6 +568,9 @@ primary_se = ExtResource("24_6lvv6")
 [node name="Fallen Crate With Key" parent="Tutorial Room/Crates" unique_id=1418094132 instance=ExtResource("16_o4tcg")]
 transform = Transform3D(-5.2453668e-08, -1.2, 0, 1.2, -5.2453668e-08, 0, 0, 0, 1.2, 7.444, 0.861, -4.1)
 
+[node name="Plane_002" parent="Tutorial Room/Crates/Fallen Crate With Key" index="1" unique_id=1262140986]
+transform = Transform3D(-2.2817343e-08, -0.522, 4.440892e-16, 0.50537306, -2.2090555e-08, 0.13069834, -0.13069834, 5.7130056e-09, 0.50537306, -0.5414939, 2.297679, -0.34020257)
+
 [node name="Tutorial Key" parent="Tutorial Room/Crates/Fallen Crate With Key" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("24_crb2e")]
 transform = Transform3D(0.21708171, 0.011499455, 0.8044797, 0.09047501, 0.82761407, -0.036243968, -0.7994583, 0.09678371, 0.2143435, -0.6124191, 1.3959074, 0.37007427)
 script = ExtResource("24_70r7a")
@@ -578,9 +581,6 @@ transition_camera = NodePath("../../../../TransitionCamera")
 is_part_of_tutorial = true
 item_data = ExtResource("25_dqwws")
 primary_se = ExtResource("24_gav43")
-
-[node name="Plane_002" parent="Tutorial Room/Crates/Fallen Crate With Key" index="2" unique_id=1262140986]
-transform = Transform3D(-2.2817343e-08, -0.522, 4.440892e-16, 0.50537306, -2.2090555e-08, 0.13069834, -0.13069834, 5.7130056e-09, 0.50537306, -0.5414939, 2.297679, -0.34020257)
 
 [node name="Shelves" type="Node" parent="Tutorial Room" unique_id=763259974]
 
@@ -710,10 +710,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_xm1x8")
+mesh = SubResource("PlaneMesh_lghuq")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_lghuq")
+mesh = SubResource("PlaneMesh_t85fk")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")

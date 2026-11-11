@@ -26,6 +26,7 @@ signal bridge_disconnected
 @onready var end_1: Area3D = $End1
 @onready var end_2: Area3D = $End2
 @onready var core_mesh: MeshInstance3D = $GlowingCore
+@onready var body: StaticBody3D = $BridgeCenter
 
 var core_material: ShaderMaterial
 var is_dragging := false
@@ -52,6 +53,9 @@ func _ready() -> void:
 	if end_2 != null:
 		end_2.input_ray_pickable = true
 		end_2.input_event.connect(_on_end_input_event)
+	if body != null:
+		body.input_ray_pickable = true
+		body.input_event.connect(_on_end_input_event)
 
 	# Setup drag plane using the bridge's upward axis
 	var normal := global_transform.basis.y.normalized()
