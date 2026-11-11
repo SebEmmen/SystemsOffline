@@ -3,6 +3,7 @@ extends Node
 const SAVE_PATH = "user://savegame.json"
 const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 const SETTINGS_FILE = "user://settings.json"
+const INTRO_CUTSCENE = "res://src/2d/Assets/Cutscenes/Intro_Cutscene.tscn"
 const DEFAULT_FOV := 75.0
 
 var return_scene: String = ""
@@ -234,23 +235,33 @@ func _reset_fov_setting() -> void:
 	if out:
 		out.store_string(JSON.stringify(data, "\t"))
 		out.close()
-
+#region New Game
 func new_game() -> void:
 	reset_progress()
 	_reset_fov_setting()  
 
+	var error = get_tree().change_scene_to_file(INTRO_CUTSCENE)
+
+	if error != OK:
+		push_error("SaveManager: Could not load cutscene for new game!")
+		return
+
+func finish_cutscene() -> void:
 	var error = get_tree().change_scene_to_file(START_SCENE)
 
 	if error != OK:
-		push_error("SaveManager: Could not start new game!")
+		push_error("SaveManager: Could not load start scene after cutscene!")
 		return
 
 	await get_tree().scene_changed
 
-	# Give the new scene's nodes a frame to finish _ready()
+	# Give the new scene's nodes a frame to finish _ready() and spawn the player
 	await get_tree().process_frame
 
 	save_game()
+	print("New game started, cutscene finished, and game saved!")
+#endregion
+
 
 #region Multitool Progress
 func _multitool(id: String) -> Dictionary:

@@ -161,7 +161,15 @@ func _on_new_game_pressed() -> void:
 		confirm_ok_btn.text = "START NEW GAME"
 		_open_modal(confirm_modal)
 	else:
-		_load_game_with_transition(func(): SaveManager.new_game())
+		_start_new_game_flow()
+
+
+# Helper function to initialize save data and load the cutscene via SaveManager
+func _start_new_game_flow() -> void:
+	_load_game_with_transition(func():
+		if get_tree() != null:
+			SaveManager.new_game()
+	)
 
 func _on_sectors_pressed() -> void:
 	_play_click_sound()
@@ -187,7 +195,7 @@ func _on_confirm_ok_pressed() -> void:
 	_close_modal(confirm_modal)
 	match pending_confirm_action:
 		ConfirmAction.NEW_GAME_OVERWRITE:
-			_load_game_with_transition(func(): SaveManager.new_game())
+			_start_new_game_flow()
 		ConfirmAction.QUIT_GAME:
 			get_tree().quit()
 	pending_confirm_action = ConfirmAction.NONE
