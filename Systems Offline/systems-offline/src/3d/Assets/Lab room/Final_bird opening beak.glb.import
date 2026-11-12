@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bicsqdlgiyo5s"
-path="res://.godot/imported/Bird animation looking around.glb-235520dafe56dd30bc19db473da17a92.scn"
+uid="uid://hushhu3s1whm"
+path="res://.godot/imported/Final_bird opening beak.glb-531d6d860d5926b2e7d978e4bd48c7f7.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Lab room/Bird animation looking around.glb"
-dest_files=["res://.godot/imported/Bird animation looking around.glb-235520dafe56dd30bc19db473da17a92.scn"]
+source_file="res://src/3d/Assets/Lab room/Final_bird opening beak.glb"
+dest_files=["res://.godot/imported/Final_bird opening beak.glb-531d6d860d5926b2e7d978e4bd48c7f7.scn"]
 
 [params]
 
