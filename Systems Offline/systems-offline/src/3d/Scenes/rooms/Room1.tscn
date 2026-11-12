@@ -326,28 +326,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_loyml"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6ofj6"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lghuq"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_loyml"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_loyml")
+albedo_texture = SubResource("ViewportTexture_6ofj6")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5buxd"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_lghuq"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_lghuq")
+material = SubResource("ORMMaterial3D_loyml")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_slhau"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5buxd"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_t85fk"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_slhau")
+albedo_texture = SubResource("ViewportTexture_5buxd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_wlapk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_t85fk"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_t85fk")
+material = SubResource("ORMMaterial3D_slhau")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -507,6 +507,7 @@ player = NodePath("../ProtoController")
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
 [node name="InventoryUI" parent="UI_Manger" unique_id=1823256622 instance=ExtResource("5_7flw8")]
+visible = false
 slot_scene = ExtResource("9_r31ku")
 
 [node name="Label" parent="UI_Manger/InventoryUI" index="1" unique_id=2074652358]
@@ -526,13 +527,8 @@ rotation_sensitivity = 0.005
 
 [node name="NotificationUI" parent="UI_Manger" unique_id=1484425050 instance=ExtResource("6_fm5id")]
 top_level = true
-mouse_filter = 2
 
-[node name="Top Center label" parent="UI_Manger/NotificationUI" index="0" unique_id=528755349]
-offset_top = 36.0
-offset_bottom = 78.0
-
-[node name="Timer" parent="UI_Manger/NotificationUI" index="2" unique_id=413616360]
+[node name="TopTimer" parent="UI_Manger/NotificationUI" index="2" unique_id=413616360]
 wait_time = 2.0
 
 [node name="KeyHandUI" parent="." unique_id=973326925 instance=ExtResource("12_6lvv6")]
@@ -907,10 +903,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=906627970]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=372334949]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=149311035]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=1335169314]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -931,10 +927,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_5buxd")
+mesh = SubResource("PlaneMesh_lghuq")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_wlapk")
+mesh = SubResource("PlaneMesh_t85fk")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -956,7 +952,7 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=1305323279]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -985,7 +981,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=1305323279]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -1011,7 +1007,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=1305323279]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -1040,7 +1036,7 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=511470494]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=1305323279]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]

@@ -1,16 +1,41 @@
+
 extends Control
 
-@onready var top_center_message_label: Label = $"Top Center label"
-@onready var bot_center_message_label: Label = $"Bottom Center label"
-@onready var message_timer: Timer = $Timer
+@onready var top_panel: PanelContainer = $TopNotification
+@onready var top_type: Label = $TopNotification/VBoxContainer/NotificationType
+@onready var top_label: Label = $TopNotification/VBoxContainer/MessageLabel
 
-# Called when the node enters the scene tree for the first time.
+@onready var subtitle_panel: PanelContainer = $SubtitlePanel
+@onready var speaker_label: Label = $SubtitlePanel/VBoxContainer/SpeakerLabel
+@onready var subtitle_label: Label = $SubtitlePanel/VBoxContainer/SubtitleLabel
+
+@onready var top_timer: Timer = $TopTimer
+@onready var subtitle_timer: Timer = $SubtitleTimer
+
+var top_tween: Tween
+var subtitle_tween: Tween
+
+
 func _ready() -> void:
-	top_center_message_label.visible = false
+	top_panel.hide()
+	subtitle_panel.hide()
+
+	top_timer.one_shot = true
+	subtitle_timer.one_shot = true
+
+	top_timer.timeout.connect(_hide_top)
+	subtitle_timer.timeout.connect(_hide_subtitle)
+
 	Notification.notification.connect(show_pickup_notification)
 	Notification.locked.connect(locked_message)
 	Notification.message.connect(show_message_top_center)
 	Notification.hide.connect(hide_message)
+	Notification.subtitle.connect(show_subtitle)
+
+
+# -------------------------------
+# TOP NOTIFICATIONS
+# -------------------------------
 
 func show_pickup_notification(item_data: Variant) -> void:
 	var item_name: String
@@ -20,33 +45,105 @@ func show_pickup_notification(item_data: Variant) -> void:
 	else:
 		item_name = str(item_data)
 
-	top_center_message_label.text = "You have picked up: " + item_name
-	top_center_message_label.visible = true
-	message_timer.start(2.0)
+	show_top("YOU HAVE PICKED UP: ", item_name, 2.5)
 
-func show_message_top_center(text: String, top: bool) -> void:
+
+func show_top(
+	category: String,
+	message: String,
+	duration: float = 2.5
+) -> void:
+	if top_tween and top_tween.is_running():
+		top_tween.kill()
+
+	top_timer.stop()
+
+	top_type.text = category
+	top_label.text = message
+
+	top_panel.modulate.a = 0.0
+	top_panel.show()
+
+	top_tween = create_tween()
+	top_tween.tween_property(
+		top_panel, "modulate:a", 1.0, 0.2
+	)
+
+	top_timer.start(duration)
+
+
+func _hide_top() -> void:
+	if top_tween and top_tween.is_running():
+		top_tween.kill()
+
+	top_tween = create_tween()
+	top_tween.tween_property(
+		top_panel, "modulate:a", 0.0, 0.25
+	)
+	top_tween.tween_callback(top_panel.hide)
+
+
+# -------------------------------
+# CHARACTER SUBTITLES
+# -------------------------------
+
+func show_subtitle(
+	message: String,
+	speaker: String = "MC",
+	duration: float = 3.5
+) -> void:
+	if subtitle_tween and subtitle_tween.is_running():
+		subtitle_tween.kill()
+
+	subtitle_timer.stop()
+
+	speaker_label.text = speaker
+	subtitle_label.text = message
+
+	subtitle_panel.modulate.a = 0.0
+	subtitle_panel.show()
+
+	subtitle_tween = create_tween()
+	subtitle_tween.tween_property(
+		subtitle_panel, "modulate:a", 1.0, 0.2
+	)
+
+	subtitle_timer.start(duration)
+
+
+func _hide_subtitle() -> void:
+	if subtitle_tween and subtitle_tween.is_running():
+		subtitle_tween.kill()
+
+	subtitle_tween = create_tween()
+	subtitle_tween.tween_property(
+		subtitle_panel, "modulate:a", 0.0, 0.3
+	)
+	subtitle_tween.tween_callback(subtitle_panel.hide)
+
+
+# -------------------------------
+# EXISTING SIGNAL COMPATIBILITY
+# -------------------------------
+
+func show_message_top_center(
+	message: String,
+	top: bool
+) -> void:
 	if top:
-		top_center_message_label.text = text
-		top_center_message_label.visible = true
-		message_timer.start(2.5)
+		show_top("SYSTEM MESSAGE", message)
 	else:
-		bot_center_message_label.text = text
-		bot_center_message_label.visible = true
-	
+		show_subtitle(message)
+
 
 func locked_message() -> void:
-	top_center_message_label.text = "Its locked!"
-	top_center_message_label.visible = true
-	message_timer.start()
+	show_subtitle(
+		"It's locked. There must be another way in."
+	)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func hide_message() -> void:
-	top_center_message_label.visible = false
-	bot_center_message_label.visible = false
-
-func _on_timer_timeout() -> void:
-	top_center_message_label.visible = false # Replace with function body.
-	bot_center_message_label.visible = false
+	top_timer.stop()
+	subtitle_timer.stop()
+	_hide_top()
+	_hide_subtitle()

@@ -345,7 +345,7 @@ func open_cover() -> void:
 
 
 	if locked and not player.get_held_item_id() == "tutorial_key":
-		Notification.locked_notification()
+		Notification.say("It's locked... Maybe I can find a key somewhere.")
 		random_sound_selector()
 		return
 	
@@ -561,7 +561,7 @@ func open_lid() -> void:
 
 	# Require the Multitool Case Key.
 	if not player.get_held_item_id() == "multitool_key":
-		Notification.locked_notification()
+		Notification.say("Hmm it's locked... Maybe there is a key lying around somewhere.", "PLAYER", 3.0)
 		random_sound_selector()
 		return
 	

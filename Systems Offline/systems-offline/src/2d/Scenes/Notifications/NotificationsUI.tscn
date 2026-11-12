@@ -2,6 +2,30 @@
 
 [ext_resource type="Script" uid="uid://b5j8nexctu6t5" path="res://src/2d/Scenes/Notifications/notifications_ui.gd" id="1_wouth"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15rn8"]
+bg_color = Color(0.039215688, 0.07058824, 0.10980392, 0.8156863)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.14117648, 0.38431373, 0.48235294, 1)
+corner_detail = 3
+expand_margin_left = 10.0
+expand_margin_top = 12.0
+expand_margin_right = 10.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10ch3"]
+bg_color = Color(0.039215688, 0.07058824, 0.10980392, 0.77254903)
+border_width_top = 3
+border_color = Color(0.14117648, 0.38431373, 0.48235294, 1)
+border_blend = true
+corner_detail = 3
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
 [node name="NotificationUI" type="Control" unique_id=1484425050]
 layout_mode = 3
 anchors_preset = 15
@@ -9,36 +33,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_wouth")
 
-[node name="Top Center label" type="Label" parent="." unique_id=528755349]
-top_level = true
+[node name="TopNotification" type="PanelContainer" parent="." unique_id=2001303357]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -0.5
-offset_right = 0.5
-offset_bottom = 42.0
+offset_left = -225.0
+offset_top = 50.0
+offset_right = 225.0
+offset_bottom = 102.0
 grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-horizontal_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_15rn8")
 
-[node name="Bottom Center label" type="Label" parent="." unique_id=1393183833]
-top_level = true
-layout_mode = 0
-offset_left = 70.0
-offset_top = 372.0
-offset_right = 71.0
-offset_bottom = 414.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-horizontal_alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="TopNotification" unique_id=1734310738]
+layout_mode = 2
 
-[node name="Timer" type="Timer" parent="." unique_id=413616360]
+[node name="NotificationType" type="Label" parent="TopNotification/VBoxContainer" unique_id=1855122707]
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="TopNotification/VBoxContainer" unique_id=667455651]
+layout_mode = 2
+
+[node name="SubtitlePanel" type="PanelContainer" parent="." unique_id=259460017]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -130.0
+offset_right = 325.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_10ch3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubtitlePanel" unique_id=1332635175]
+layout_mode = 2
+
+[node name="SpeakerLabel" type="Label" parent="SubtitlePanel/VBoxContainer" unique_id=431489469]
+layout_mode = 2
+
+[node name="SubtitleLabel" type="Label" parent="SubtitlePanel/VBoxContainer" unique_id=1401746037]
+layout_mode = 2
+
+[node name="TopTimer" type="Timer" parent="." unique_id=413616360]
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="SubtitleTimer" type="Timer" parent="." unique_id=1289968369]
+
+[connection signal="timeout" from="TopTimer" to="." method="_on_timer_timeout"]

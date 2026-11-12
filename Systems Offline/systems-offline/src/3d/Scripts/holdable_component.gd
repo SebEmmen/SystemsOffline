@@ -53,7 +53,7 @@ func interact() -> void:
 	reset_position()
 	disable_physics()
 	is_held = true
-	
+	Notification.show_pickup_notification(object_ref.item_data)
 	print("Successfully picked up item!")
 
 func drop_item() -> void:
