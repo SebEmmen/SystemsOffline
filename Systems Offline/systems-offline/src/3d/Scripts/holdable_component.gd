@@ -115,6 +115,7 @@ func drop_item() -> void:
 	is_held = false
 	active_player = null
 	active_hand_marker = null
+	Notification.show_drop_notification(object_ref.item_data)
 	print("Item dropped with emission glow active!")
 
 # Helper function to apply or remove the emissive glow material override on meshes

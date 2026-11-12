@@ -47,6 +47,15 @@ func show_pickup_notification(item_data: Variant) -> void:
 
 	show_top("YOU HAVE PICKED UP: ", item_name, 2.5)
 
+func show_drop_notification(item_data: Variant) -> void:
+	var item_name: String
+
+	if item_data is ItemData:
+		item_name = item_data.item_name
+	else:
+		item_name = str(item_data)
+
+	show_top("YOU HAVE DROPPED: ", item_name, 2.5)
 
 func show_top(
 	category: String,

@@ -99,7 +99,7 @@ func interact() -> void:
 		
 		InspectType.WIRES_PUZZLE:
 			if puzzle_id == "elevator" and not SaveManager.dial_puzzle_completed:
-				Notification.show_message("Comms puzzle needs to be solved first!", true)
+				Notification.show_message("You cannot open it yet...", true)
 				await get_tree().create_timer(1.0).timeout
 				Notification.hide_message()
 				return

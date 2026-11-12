@@ -82,6 +82,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TopTimer" type="Timer" parent="." unique_id=413616360]
+wait_time = 3.0
 one_shot = true
 
 [node name="SubtitleTimer" type="Timer" parent="." unique_id=1289968369]
