@@ -22,8 +22,13 @@ func _ready() -> void:
 				queue_free()
 			pass
 		MultitoolPart.COMMS:
-			if !SaveManager.dial_puzzle_completed:
+			if SaveManager.is_multitool_part_complete(item_data.item_id):
 				can_interact = false
+				object_ref.visible = false
+		MultitoolPart.GRAVITY:
+			if SaveManager.is_multitool_part_complete(item_data.item_id):
+				can_interact = false
+				object_ref.visible = false
 
 func interact() -> void:
 	match multitool_part:

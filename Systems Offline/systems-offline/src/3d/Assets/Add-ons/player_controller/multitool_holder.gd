@@ -91,7 +91,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			break
 		
 		var action_name = upgrade_inputs[i]
-		if action_name != &"" and event.is_action_pressed(action_name):
+		
+		# Safely check if the action name is valid and exists in the InputMap first
+		if action_name != &"" and InputMap.has_action(action_name) and event.is_action_pressed(action_name):
 			# If it's the first upgrade (index 0), it is always on—ignore input toggling!
 			if i == 0:
 				get_viewport().set_input_as_handled()
@@ -173,8 +175,8 @@ func _update_upgrades() -> void:
 		if SaveManager.is_multitool_part_complete(upgrade_id):
 			upgrades[i].visible = true
 			
-			# Ensure the first upgrade is always forced on as soon as it's unlocked (with bounds safety)
-			if i == 0 and i < upgrade_active_states.size() and not upgrade_active_states[i]:
+			# Ensure any unlocked upgrade activates its glow/state upon loading
+			if i < upgrade_active_states.size() and not upgrade_active_states[i]:
 				_set_upgrade_active(i, true)
 		else:
 			upgrades[i].visible = false

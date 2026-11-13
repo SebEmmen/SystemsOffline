@@ -61,6 +61,9 @@ func save_game() -> void:
 		"multitool": _multitool_to_json()
 	}
 
+	print("--- [SAVE] Starting save_game() ---")
+	print("[SAVE] Multitool dictionary to save: ", save_data["multitool"])
+
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 
 	if file == null:
@@ -70,12 +73,12 @@ func save_game() -> void:
 	file.store_string(JSON.stringify(save_data, "\t"))
 	file.close()
 
-	print("Game saved!")
+	print("[SAVE] Game successfully saved to: ", SAVE_PATH)
 
 
 func load_game() -> void:
 	if not has_save():
-		print("No save file found!")
+		print("[LOAD] No save file found at: ", SAVE_PATH)
 		return
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
@@ -96,6 +99,9 @@ func load_game() -> void:
 		return
 
 	save_data = loaded_data
+
+	print("--- [LOAD] Starting load_game() ---")
+	print("[LOAD] Raw loaded multitool data: ", save_data.get("multitool", {}))
 
 	tutorial_puzzle_completed = save_data.get("tutorial_puzzle_completed", false)
 	dial_puzzle_completed = save_data.get("dial_puzzle_completed", false)
@@ -118,9 +124,7 @@ func load_game() -> void:
 
 	player.load_save_data(save_data["player"])
 
-	print("Game loaded!")
-	print("Loaded tutorial flag: ", tutorial_puzzle_completed, " raw: ", save_data.get("tutorial_puzzle_completed"))
-
+	print("[LOAD] Game successfully loaded!")
 
 func _puzzles_to_json() -> Dictionary:
 	var out := {}
@@ -163,6 +167,7 @@ func _multitool_from_json(data: Dictionary) -> void:
 		multitool[id] = {
 			"completed": d.get("completed", false)
 		}
+	print("[PROGRESS] Restored multitool state into memory -> ", multitool)
 
 func enter_subscene(scene_path: String, puzzle_id: String, cover: RigidBody3D = null) -> void:
 	var player = get_player()
@@ -277,6 +282,7 @@ func is_multitool_part_complete(id: String) -> bool:
 func complete_multitool_part(id: String) -> void:
 	var m := _multitool(id)
 	m["completed"] = true
+	print("[PROGRESS] Multitool part marked complete -> ID: ", id)
 #endregion
 
 
