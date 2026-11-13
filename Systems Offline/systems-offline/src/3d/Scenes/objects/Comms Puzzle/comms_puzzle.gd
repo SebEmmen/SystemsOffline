@@ -80,7 +80,7 @@ func _on_check_pressed() -> void:
 
 	if _is_correct():
 		SaveManager.dial_puzzle_completed = true
-
+		multitool_piece.can_interact = true
 		invalid.visible = false
 		valid.visible = true
 
@@ -131,7 +131,8 @@ func pan_to_multitool_piece() -> void:
 	if inspect_camera == null or inspect_camera == transition_camera:
 		push_error("PAN: No valid inspect camera!")
 		return
-
+	
+	multitool_piece.visible = true
 	_panning = true
 	_pan_cancelled = false
 
