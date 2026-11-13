@@ -128,7 +128,10 @@ func interact() -> void:
 		UnlockableType.COVER:
 			open_cover()
 		UnlockableType.CASE:
-			open_lid()
+			if locked:
+				open_lid()
+			else:
+				tween_lid()
 
 func random_sound_selector() -> void:
 	if not audiotimer:
@@ -550,7 +553,9 @@ func fly_key_to_hanger() -> void:
 
 func ready_case() -> void:
 	if SaveManager.is_multitool_part_complete("open_multitool"):
-		can_interact = false
+		locked = false
+		if SaveManager.is_multitool_part_complete("pickup_multitool"):
+			can_interact = false
 	if lid:
 		case_lid_closed_rotation = lid.rotation
 
@@ -646,6 +651,36 @@ func open_lid() -> void:
 	print("Multitool case opened!")
 
 	# Allow the interaction raycast to reach the Multitool.
+	var interaction_ray := get_tree().get_first_node_in_group(
+		"player_interaction_ray"
+	) as RayCast3D
+
+	var case_body := get_node_or_null("StaticBody3D") as StaticBody3D
+
+	if interaction_ray and case_body:
+		interaction_ray.add_exception(case_body)
+		interaction_ray.force_raycast_update()
+
+func tween_lid() -> void:
+	var target_rotation := case_lid_closed_rotation
+	target_rotation[lid_axis] += deg_to_rad(lid_open_angle)
+
+	var lid_tween := create_tween()
+	lid_tween.set_trans(Tween.TRANS_SINE)
+	lid_tween.set_ease(Tween.EASE_IN_OUT)
+	lid_tween.tween_property(
+		lid,
+		"rotation",
+		target_rotation,
+		lid_open_duration
+	)
+	await lid_tween.finished
+	
+	is_open = true
+	open = true
+	is_moving = false
+	can_interact = false
+	
 	var interaction_ray := get_tree().get_first_node_in_group(
 		"player_interaction_ray"
 	) as RayCast3D
