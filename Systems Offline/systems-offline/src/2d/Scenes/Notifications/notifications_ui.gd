@@ -29,8 +29,9 @@ func _ready() -> void:
 	Notification.notification.connect(show_pickup_notification)
 	Notification.locked.connect(locked_message)
 	Notification.message.connect(show_message_top_center)
-	Notification.hide.connect(hide_message)
+	# Removed Notification.hide.connect(hide_message) -> Replaced by hide_requested below
 	Notification.subtitle.connect(show_subtitle)
+	Notification.hide_requested.connect(hide_message)
 
 
 # -------------------------------

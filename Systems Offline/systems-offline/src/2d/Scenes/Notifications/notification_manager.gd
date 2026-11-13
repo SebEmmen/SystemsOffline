@@ -1,11 +1,10 @@
-
 extends Node
 
 # Existing signals
 signal notification(item_data: Variant)
 signal locked
 signal message(text: String, top: bool)
-signal hide
+signal hide_requested  # Renamed from 'hide' to avoid engine conflict
 
 # New subtitle signal
 signal subtitle(text: String, speaker: String, duration: float)
@@ -37,7 +36,7 @@ func show_message_after_delay(
 
 
 func hide_message() -> void:
-	hide.emit()
+	hide_requested.emit()  # Updated to emit the new signal name
 
 
 # -------------------------------
