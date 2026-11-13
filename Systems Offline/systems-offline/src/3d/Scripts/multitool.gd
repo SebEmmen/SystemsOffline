@@ -30,7 +30,9 @@ func interact() -> void:
 		MultitoolPart.BODY:
 			body_interact()
 		MultitoolPart.COMMS:
-			interact_comms()
+			interact_upgrade()
+		MultitoolPart.GRAVITY:
+			interact_upgrade()
 
 #region Body functions
 func body_interact() -> void:
@@ -66,8 +68,8 @@ func body_interact() -> void:
 	queue_free()
 #endregion
 
-#region Comms Upgrade functions
-func interact_comms() -> void:
+#region Upgrade functions
+func interact_upgrade() -> void:
 	object_ref.visible = false
 	Notification.show_pickup_notification(item_data)
 	SaveManager.complete_multitool_part(item_data.item_id)

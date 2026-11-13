@@ -28,9 +28,16 @@ func _ready() -> void:
 
 	is_equipped = false
 
+	# 1. Setup materials FIRST so upgrade_active_states is populated before checking it
+	_setup_upgrade_materials()
+	
+	# 2. Then update visibility and upgrades
 	_update_visibility()
 	_update_upgrades()
-	_setup_upgrade_materials()
+
+	# Force the first upgrade to be active immediately upon ready if collected
+	if upgrades_ids.size() > 0 and SaveManager.is_multitool_part_complete(upgrades_ids[0]):
+		_set_upgrade_active(0, true)
 
 	# Disable collisions.
 	for node in multitool.find_children(
@@ -71,15 +78,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if player.get("controls_enabled") != true:
 		return
 
-	# 1. Handle traditional equip/unequip toggle key if you still want it
+	# 1. Handle traditional equip/unequip toggle key
 	if event.is_action_pressed("equip_multitool"):
 		is_equipped = not is_equipped
 		_update_visibility()
-		
-		if not is_equipped:
-			for i in range(upgrades.size()):
-				_set_upgrade_active(i, false)
-
 		get_viewport().set_input_as_handled()
 		return
 
@@ -90,13 +92,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		var action_name = upgrade_inputs[i]
 		if action_name != &"" and event.is_action_pressed(action_name):
+			# If it's the first upgrade (index 0), it is always on—ignore input toggling!
+			if i == 0:
+				get_viewport().set_input_as_handled()
+				break
+			
 			# If the multitool isn't equipped yet, bring it up first!
 			if not is_equipped:
 				is_equipped = true
 				_update_visibility()
 			
-			# Toggle or turn on the glow for this specific upgrade piece
-			var new_state = not upgrade_active_states[i]
+			# Toggle or turn on the glow for other upgrade pieces
+			var new_state = not upgrade_active_states[i] if i < upgrade_active_states.size() else true
 			_set_upgrade_active(i, new_state)
 			
 			get_viewport().set_input_as_handled()
@@ -107,18 +114,22 @@ func _set_upgrade_active(index: int, active: bool) -> void:
 	if index < 0 or index >= upgrades.size():
 		return
 		
-	upgrade_active_states[index] = active
+	if index < upgrade_active_states.size():
+		upgrade_active_states[index] = active
+		
 	var mat = upgrade_materials[index] if index < upgrade_materials.size() else null
 	
-	if upgrade_tweens[index] and upgrade_tweens[index].is_running():
+	if index < upgrade_tweens.size() and upgrade_tweens[index] and upgrade_tweens[index].is_running():
 		upgrade_tweens[index].kill()
 		
 	var target_val = 1.0 if active else 0.0
 	var start_val = float(mat.get_shader_parameter("activation")) if mat != null else 0.0
 	
 	if mat != null:
-		upgrade_tweens[index] = create_tween()
-		upgrade_tweens[index].tween_method(
+		var tw = create_tween()
+		if index < upgrade_tweens.size():
+			upgrade_tweens[index] = tw
+		tw.tween_method(
 			func(val): mat.set_shader_parameter("activation", val),
 			start_val,
 			target_val,
@@ -154,10 +165,16 @@ func _update_visibility() -> void:
 
 
 func _update_upgrades() -> void:
-	var i = 0
-	for upgrade in upgrades_ids:
-		if SaveManager.is_multitool_part_complete(upgrade):
-			if i < upgrades.size():
-				upgrades[i].visible = true
-			if i < 3:
-				i = i + 1
+	for i in range(upgrades_ids.size()):
+		if i >= upgrades.size():
+			break
+			
+		var upgrade_id = upgrades_ids[i]
+		if SaveManager.is_multitool_part_complete(upgrade_id):
+			upgrades[i].visible = true
+			
+			# Ensure the first upgrade is always forced on as soon as it's unlocked (with bounds safety)
+			if i == 0 and i < upgrade_active_states.size() and not upgrade_active_states[i]:
+				_set_upgrade_active(i, true)
+		else:
+			upgrades[i].visible = false

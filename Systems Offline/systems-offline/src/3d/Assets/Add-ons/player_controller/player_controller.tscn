@@ -50,7 +50,7 @@ transform = Transform3D(-0.1701603, 0.06269607, -0.98342013, -0.5924727, 0.79094
 script = ExtResource("3_q8aoj")
 upgrades = [NodePath("Multitool/Circle Piece 1/Circle Piece"), NodePath("Multitool/Eye piece 2/eye left"), NodePath("Multitool/Eye piece 3/eye middle"), NodePath("Multitool/Eye piece 4/eye right")]
 upgrades_ids = Array[String](["comms_upgrade", "gravity_upgrade", "strength_upgrade", "shrink_upgrade"])
-upgrade_inputs = Array[StringName]([&"multitool_comms"])
+upgrade_inputs = Array[StringName]([&"multitool_piece_2"])
 
 [node name="Multitool" parent="Head/Camera3D/MultitoolHolder" unique_id=51961434 instance=ExtResource("3_j2dax")]
 transform = Transform3D(0.4348643, 0.005020678, 0.11561929, -0.11563003, 0.03736592, 0.43328223, -0.0047663264, -0.44841793, 0.037399214, 0.020069718, -0.048737288, 0.4330762)
