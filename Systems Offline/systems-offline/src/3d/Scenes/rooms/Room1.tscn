@@ -91,9 +91,10 @@ sky_material = SubResource("PanoramaSkyMaterial_k78pk")
 
 [sub_resource type="Environment" id="Environment_w1mtf"]
 background_mode = 2
-background_energy_multiplier = 0.01
 sky = SubResource("Sky_8q0j8")
-ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.1
+ambient_light_energy = 0.1
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -1039,7 +1040,7 @@ visible = true
 push_force = 4.0
 
 [node name="ForestEnvironment" parent="." unique_id=365990558 instance=ExtResource("81_loyml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.075, 0)
 
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]

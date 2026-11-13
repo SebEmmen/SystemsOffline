@@ -1,15 +1,47 @@
 [gd_scene format=3 uid="uid://772hsxa0vsf4"]
 
+[ext_resource type="Shader" uid="uid://gujkf3gn2nfd" path="res://src/3d/Scenes/env/forest_environment.gdshader" id="1_rqbae"]
+[ext_resource type="Texture2D" uid="uid://c4lukk6062pr1" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_Color.png" id="2_dwbn1"]
 [ext_resource type="Texture2D" uid="uid://b8upj2c43khx7" path="res://src/3d/Sky/Paralax/01_Mist.png" id="2_k78pk"]
+[ext_resource type="Texture2D" uid="uid://det1bgrua1fi7" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_AmbientOcclusion.png" id="3_a6jhu"]
+[ext_resource type="Texture2D" uid="uid://covwudex1vdra" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_Displacement.png" id="3_dwbn1"]
 [ext_resource type="Texture2D" uid="uid://cqfcljw43ageb" path="res://src/3d/Sky/Paralax/02_Bushes.png" id="3_w1mtf"]
-[ext_resource type="Texture2D" uid="uid://b4y6j0kker5fo" path="res://src/3d/Sky/Paralax/Untitled Design.png" id="4_8q0j8"]
+[ext_resource type="Texture2D" uid="uid://b11bophv2c2u3" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_NormalDX.png" id="4_b8ota"]
 [ext_resource type="Texture2D" uid="uid://bnr8darei1x0q" path="res://src/3d/Sky/Paralax/03_Particles.png" id="4_ej7qy"]
+[ext_resource type="Texture2D" uid="uid://cti88kw557v3t" path="res://src/3d/Sky/Paralax/04_Forest.png" id="5_ewkad"]
+[ext_resource type="Texture2D" uid="uid://ej7yquuy4wb4" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_NormalGL.png" id="5_t3if4"]
+[ext_resource type="Texture2D" uid="uid://kjotrvkenoh0" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_Roughness.png" id="6_p0b43"]
 [ext_resource type="Texture2D" uid="uid://dna727pelt2xo" path="res://src/3d/Sky/Paralax/05_Particles.png" id="6_rqbae"]
 [ext_resource type="Texture2D" uid="uid://ckai74yxqg36w" path="res://src/3d/Sky/Paralax/06_Forest.png" id="7_dwbn1"]
 [ext_resource type="Texture2D" uid="uid://b0s3lwix54sc1" path="res://src/3d/Sky/Paralax/07_Forest.png" id="8_a6jhu"]
 [ext_resource type="Texture2D" uid="uid://b3iiwo8pejtqa" path="res://src/3d/Sky/Paralax/08_Forest.png" id="9_b8ota"]
 [ext_resource type="Texture2D" uid="uid://bxlwmfn01aluc" path="res://src/3d/Sky/Paralax/09_Forest.png" id="10_t3if4"]
-[ext_resource type="Texture2D" uid="uid://blce3ie5f524e" path="res://src/3d/Sky/Paralax/10_Sky.png" id="11_p0b43"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1r3xe"]
+render_priority = 0
+shader = ExtResource("1_rqbae")
+shader_parameter/albedo_texture = ExtResource("2_dwbn1")
+shader_parameter/displacement_texture = ExtResource("3_dwbn1")
+shader_parameter/normal_texture = ExtResource("5_t3if4")
+shader_parameter/roughness_texture = ExtResource("6_p0b43")
+shader_parameter/texture_tiling = 31.435
+shader_parameter/displacement_strength = 0.525
+shader_parameter/height_offset = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1cg0m"]
+size = Vector2(300, 300)
+subdivide_width = 199
+subdivide_depth = 199
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wu4nx"]
+albedo_texture = ExtResource("2_dwbn1")
+roughness_texture = ExtResource("6_p0b43")
+normal_enabled = true
+normal_texture = ExtResource("5_t3if4")
+ao_enabled = true
+ao_texture = ExtResource("3_a6jhu")
+heightmap_texture = ExtResource("5_t3if4")
+detail_normal = ExtResource("4_b8ota")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wckvl"]
 transparency = 1
@@ -21,9 +53,9 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wu4nx"]
 material = SubResource("StandardMaterial3D_wckvl")
-top_radius = 55.0
-bottom_radius = 55.0
-height = 25.0
+top_radius = 145.0
+bottom_radius = 145.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -38,9 +70,9 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_stoen"]
 material = SubResource("StandardMaterial3D_h4wej")
-top_radius = 57.0
-bottom_radius = 57.0
-height = 25.0
+top_radius = 150.0
+bottom_radius = 150.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -55,9 +87,9 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6qvi7"]
 material = SubResource("StandardMaterial3D_ewcuj")
-top_radius = 60.0
-bottom_radius = 60.0
-height = 25.0
+top_radius = 155.0
+bottom_radius = 155.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -67,15 +99,15 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.16862746, 0.11372549, 0.078431375, 1)
-albedo_texture = ExtResource("4_8q0j8")
+albedo_texture = ExtResource("5_ewkad")
 uv1_scale = Vector3(19.575, 1.97, 17.226)
 uv1_offset = Vector3(0, -5.995, 0)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ofk4l"]
 material = SubResource("StandardMaterial3D_bodd0")
-top_radius = 65.0
-bottom_radius = 65.0
-height = 25.0
+top_radius = 165.0
+bottom_radius = 165.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -90,9 +122,9 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6ael4"]
 material = SubResource("StandardMaterial3D_aq8xy")
-top_radius = 55.0
-bottom_radius = 55.0
-height = 25.0
+top_radius = 175.0
+bottom_radius = 175.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -107,9 +139,9 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yypp4"]
 material = SubResource("StandardMaterial3D_1xi7d")
-top_radius = 85.0
-bottom_radius = 85.0
-height = 25.0
+top_radius = 185.0
+bottom_radius = 185.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -124,9 +156,9 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7aqne"]
 material = SubResource("StandardMaterial3D_ojtc6")
-top_radius = 100.0
-bottom_radius = 100.0
-height = 25.0
+top_radius = 200.0
+bottom_radius = 200.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -141,9 +173,9 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wsayh"]
 material = SubResource("StandardMaterial3D_c5070")
-top_radius = 120.0
-bottom_radius = 120.0
-height = 25.0
+top_radius = 220.0
+bottom_radius = 220.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
@@ -158,49 +190,38 @@ uv1_scale = Vector3(19.575, 1.97, 17.226)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_i150c"]
 material = SubResource("StandardMaterial3D_76p8q")
-top_radius = 145.0
-bottom_radius = 145.0
-height = 25.0
+top_radius = 245.0
+bottom_radius = 245.0
+height = 50.0
 radial_segments = 128
 cap_top = false
 cap_bottom = false
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcbvl"]
-transparency = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jok6"]
 cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0.16862746, 0.11372549, 0.078431375, 1)
-albedo_texture = ExtResource("11_p0b43")
-uv1_scale = Vector3(19.575, 1.97, 17.226)
+albedo_color = Color(0.5890956, 0.5890956, 0.5890956, 1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_1cg0m"]
-material = SubResource("StandardMaterial3D_pcbvl")
-top_radius = 180.0
-bottom_radius = 180.0
-height = 25.0
+[sub_resource type="SphereMesh" id="SphereMesh_58ftc"]
+material = SubResource("StandardMaterial3D_7jok6")
+radius = 280.0
+height = 280.0
 radial_segments = 128
-cap_top = false
-cap_bottom = false
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_1cg0m"]
-size = Vector2(2000, 2000)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4rn"]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
 
 [node name="ForestEnvironment" type="Node3D" unique_id=365990558]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.584152, 0)
 
 [node name="CrashSite" type="Node3D" parent="." unique_id=437283369]
 
-[node name="Ground" type="MeshInstance3D" parent="CrashSite" unique_id=1542602415]
-
-[node name="Ground2" type="MeshInstance3D" parent="CrashSite" unique_id=891085944]
-
 [node name="BrokenTrees" type="Node3D" parent="CrashSite" unique_id=1497458366]
 
 [node name="Debris" type="Node3D" parent="CrashSite" unique_id=117644406]
+
+[node name="ForestGround" type="MeshInstance3D" parent="CrashSite" unique_id=1086573101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31241, 0)
+material_override = SubResource("ShaderMaterial_1r3xe")
+mesh = SubResource("PlaneMesh_1cg0m")
+surface_material_override/0 = SubResource("StandardMaterial3D_wu4nx")
 
 [node name="NearForest" type="Node3D" parent="." unique_id=212290158]
 
@@ -250,9 +271,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
 mesh = SubResource("CylinderMesh_i150c")
 
 [node name="Layer10_Sky" type="MeshInstance3D" parent="ParalaxBackground" unique_id=547144040]
-mesh = SubResource("CylinderMesh_1cg0m")
-
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=1086573101]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.31241, 0)
-mesh = SubResource("PlaneMesh_1cg0m")
-surface_material_override/0 = SubResource("StandardMaterial3D_3q4rn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+mesh = SubResource("SphereMesh_58ftc")

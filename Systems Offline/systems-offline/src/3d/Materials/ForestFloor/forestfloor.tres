@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bxk3g425cc8lf"]
+
+[ext_resource type="Texture2D" uid="uid://c4lukk6062pr1" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_Color.png" id="1_trhqc"]
+[ext_resource type="Texture2D" uid="uid://b11bophv2c2u3" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_NormalDX.png" id="2_k1bs3"]
+[ext_resource type="Texture2D" uid="uid://ej7yquuy4wb4" path="res://src/3d/Materials/ForestFloor/Ground078_2K-PNG_NormalGL.png" id="3_njwqb"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_trhqc")
+heightmap_texture = ExtResource("3_njwqb")
+detail_normal = ExtResource("2_k1bs3")
