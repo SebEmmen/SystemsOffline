@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bc44tcnwgex04" path="res://src/2d/Assets/Journal/button-pressed@1x.png" id="2_6ogxm"]
 [ext_resource type="FontFile" uid="uid://cfiwv5py05a5i" path="res://src/2d/Assets/Journal/Font/Caveat-Regular.ttf" id="2_ifuti"]
 [ext_resource type="Texture2D" uid="uid://dn3i8fj6mbjsi" path="res://src/2d/Assets/Journal/button-hover@1x.png" id="3_ifuti"]
+[ext_resource type="Texture2D" uid="uid://bcfbod8fh0u05" path="res://src/2d/Assets/Journal/corner@1x.png" id="3_mla7l"]
+[ext_resource type="Texture2D" uid="uid://c0kuc2uba4cis" path="res://src/2d/Assets/Journal/leaf@1x.png" id="4_1dqnb"]
 [ext_resource type="Texture2D" uid="uid://ba57plovrg4ls" path="res://src/2d/Assets/Journal/button-disabled@1x.png" id="4_3cdc8"]
 [ext_resource type="Texture2D" uid="uid://c1afedk4yptre" path="res://src/2d/Assets/Journal/button-focused@1x.png" id="5_mla7l"]
 
@@ -67,26 +69,33 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -176.0
+offset_right = 51.0
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_6ogxm")
-expand_mode = 1
+expand_mode = 4
 stretch_mode = 5
 
 [node name="LeftPage" type="Control" parent="JournalUI/CenterContainer/JournalBook" unique_id=1565833277]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 63.0
-offset_top = 140.0
-offset_right = 410.0
-offset_bottom = 523.0
+offset_left = -4.0
+offset_top = 98.0
+offset_right = 411.0
+offset_bottom = 568.0
 
 [node name="LeftText" type="TextEdit" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=1269541245]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -0.099990845
+offset_left = 28.0
+offset_top = 30.0
+offset_right = -12.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
@@ -116,10 +125,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 21.0
+offset_left = -8.0
+offset_top = -33.0
+offset_right = 32.0
+offset_bottom = 8.0
 grow_vertical = 0
 offset_transform_enabled = true
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -127,16 +136,24 @@ theme_override_fonts/font = ExtResource("2_ifuti")
 theme_override_font_sizes/font_size = 32
 text = "1"
 
+[node name="TextureRect" type="TextureRect" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=123859316]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -26.0
+offset_right = 110.0
+offset_bottom = 79.0
+texture = ExtResource("3_mla7l")
+
 [node name="RightPage" type="Control" parent="JournalUI/CenterContainer/JournalBook" unique_id=1521362810]
 layout_mode = 1
 anchor_left = 0.568
 anchor_top = 0.19500001
 anchor_right = 0.93700004
 anchor_bottom = 0.813
-offset_left = -24.200012
-offset_top = 46.5
-offset_right = -3.3000488
-offset_bottom = -46.100037
+offset_left = -33.200012
+offset_top = 34.5
+offset_right = 62.69995
+offset_bottom = -2.1000366
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(1.81, 0)
@@ -147,8 +164,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.20700002
 anchor_bottom = 1.0
-offset_top = -60.380005
-offset_right = 343.0
+offset_left = 15.0
+offset_top = -139.97202
+offset_right = 404.0
+offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/caret_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
@@ -182,21 +201,30 @@ minimap_draw = true
 
 [node name="RightNumber" type="Label" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1438618076]
 layout_mode = 0
-offset_left = 359.0
-offset_top = 329.0
-offset_right = 373.0
-offset_bottom = 370.0
+offset_left = 417.0
+offset_top = 367.0
+offset_right = 444.0
+offset_bottom = 408.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ifuti")
 theme_override_font_sizes/font_size = 32
 text = "2"
 
+[node name="TextureRect" type="TextureRect" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1323114976]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 349.0
+offset_right = 88.0
+offset_bottom = 449.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1dqnb")
+
 [node name="PreviousButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=1504181040]
 layout_mode = 0
-offset_left = 150.0
-offset_top = 599.0
-offset_right = 322.0
-offset_bottom = 653.0
+offset_left = 90.0
+offset_top = 608.0
+offset_right = 262.0
+offset_bottom = 662.0
 theme_override_colors/font_color = Color(0.7254902, 0.44705883, 0.30588236, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_p7qmb")
@@ -208,10 +236,10 @@ text = "<"
 
 [node name="NextButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=379965990]
 layout_mode = 0
-offset_left = 590.0
-offset_top = 597.0
-offset_right = 762.0
-offset_bottom = 651.0
+offset_left = 651.0
+offset_top = 609.0
+offset_right = 823.0
+offset_bottom = 663.0
 theme_override_colors/font_color = Color(0.7254902, 0.44705883, 0.30588236, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_p7qmb")
