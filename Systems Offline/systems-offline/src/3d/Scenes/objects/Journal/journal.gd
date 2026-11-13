@@ -13,8 +13,8 @@ const TOTAL_PAGES := 20
 @onready var next_button: Button = $JournalUI/CenterContainer/JournalBook/NextButton
 @onready var close_button: Button = $JournalUI/CenterContainer/JournalBook/CloseButton
 
-@onready var left_number: Label = $JournalUI/CenterContainer/JournalBook/PageNumbers/LeftNumber
-@onready var right_number: Label = $JournalUI/CenterContainer/JournalBook/PageNumbers/RightNumber
+@onready var left_number: Label = $JournalUI/CenterContainer/JournalBook/LeftPage/LeftNumber
+@onready var right_number: Label = $JournalUI/CenterContainer/JournalBook/RightPage/RightNumber
 
 var pages: Array[String] = []
 var current_spread: int = 0
