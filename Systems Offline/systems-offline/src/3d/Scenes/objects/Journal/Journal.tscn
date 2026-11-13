@@ -88,54 +88,46 @@ stretch_mode = 5
 
 [node name="LeftPage" type="Control" parent="JournalUI/CenterContainer/JournalBook" unique_id=1565833277]
 layout_mode = 1
-anchor_left = 0.076000005
-anchor_top = 0.164
-anchor_right = 0.47300002
-anchor_bottom = 0.75100005
-offset_left = 18.399994
-offset_top = 0.19999695
-offset_right = -0.30004883
-offset_bottom = 0.2999878
+anchors_preset = 0
+offset_left = 78.0
+offset_top = 85.0
+offset_right = 520.0
+offset_bottom = 557.0
 
 [node name="LeftText" type="TextEdit" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=1269541245]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = 31.0
-offset_right = -16.0
-offset_bottom = 31.0
+offset_bottom = -0.099990845
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ogxm")
 wrap_mode = 1
 
 [node name="RightPage" type="Control" parent="JournalUI/CenterContainer/JournalBook" unique_id=1521362810]
-custom_minimum_size = Vector2(394, 394)
 layout_mode = 1
-anchor_left = 0.57500005
-anchor_top = 0.223
-anchor_right = 0.9110001
-anchor_bottom = 0.77000004
-offset_left = 73.49994
-offset_top = 149.9
-offset_right = 97.8999
-offset_bottom = 161.0
-grow_horizontal = 2
+anchor_left = 0.568
+anchor_top = 0.19500001
+anchor_right = 0.93700004
+anchor_bottom = 0.813
+offset_left = 475.19995
+offset_top = -136.5
+offset_right = 69.29993
+offset_bottom = 130.89996
+grow_horizontal = 0
 grow_vertical = 2
+pivot_offset = Vector2(1.81, 0)
 offset_transform_enabled = true
 
 [node name="RightText" type="TextEdit" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1357708288]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_top = 0.20700002
 anchor_bottom = 1.0
-offset_left = -85.0
-offset_top = -155.0
-offset_right = -85.0
-offset_bottom = -155.0
+offset_top = -144.90001
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/caret_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
