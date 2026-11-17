@@ -22,7 +22,7 @@ metadata/extras = {
 }
 metadata/_gltf_primary_texture_coord = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_d2e33"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_2gei0"]
 _surfaces = [{
 "aabb": AABB(-5.8936343, -0.07449354, -4.274616, 11.787269, 0.14898708, 8.549232),
 "format": 34896613377,
@@ -52,7 +52,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("Eh8AAP//vsYAAP//kNC+xhIf/////77GAAAAAJDQvsYSH///AABE6AAAAABuL0ToEh8AAAAAROgAAP//bi9E6P////9uL0To7OAAAAAAROj//wAAbi9E6Ozg//8AAETo7OD/////vsb//wAAkNC+xuzgAAD//77G/////5DQvsYAAAAAkNACwBIfAAAAAP+/AAAAAG4v/7///wAAbi8CwOzgAAAAAAbA7OAAAP//CsASHwAA//8RwP//AACQ0AfCAAAAAJDQVNUAAP//bi9U1QAA//+Q0FTVAAAAAG4vVNXs4AAA////vxIf//////+/7OD//////78SHwAA////v/////+Q0AT/7OD//wAAIf7/////bi8T8wAA//9uLwD/Eh///wAAmf0SH//////m/+zg/////4T+AAD//5DQ//8SHwAAAAD//+zg//8AAP//Eh///wAA///s4AAAAAD/////AABuL1TV/////5DQVNX/////bi9U1f//AACQ0FTV4uHi4eLh4uHi4eLh4uHi4aHLocuhy6HLocuhy6HLoctdNF00XTRdNF00XTRdNF00HB4cHhweHB4cHhweHB4cHkQE3X03AG2AAAD/fxoCM4QgA0GG5APJh9QJFXsbFDeoVNVU1VTVVNVU1VTVVNVU1f////////////////////8TgXW/CYL6viaNa7mLwBgBTcGbAhuA8b+fgS+//3//v/+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_d2e33")
+shadow_mesh = SubResource("ArrayMesh_2gei0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_caaq2"]
 size = Vector3(13.210489, 0.35471624, 9.712905)
@@ -69,8 +69,11 @@ albedo_color = Color(0, 0, 0, 1)
 
 [node name="ScreenLayout1" type="Node3D" unique_id=616831271]
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1193894919]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 2.1318243, 0)
+
 [node name="MonitorScreen" parent="." unique_id=1106340316 node_paths=PackedStringArray("inspect_camera", "lightning_off", "main_screen", "object_ref") instance=ExtResource("1_etpju")]
-transform = Transform3D(0.25000006, 0, 0, 0, 0.25000006, 0, 0, 0, 0.25000003, 0.576, 1.646, 2.614)
+transform = Transform3D(0.25000006, 0, 0, 0, 0.25000006, 0, 0, 0, 0.25000003, 0, 0, 0)
 script = ExtResource("2_wl1x4")
 inspect_type = 3
 inspect_camera = NodePath("")
