@@ -20,7 +20,8 @@ enum InspectType{
 #region Poster Variable
 @export_group("Poster")
 var default_font: Font = ThemeDB.fallback_font
-@export var alien_language: Font = preload("res://src/2d/Fonts/Systems-Offline (2).ttf")
+@export var alien_language_screen: MeshInstance3D
+@export var human_language_screen: MeshInstance3D
 @export var poster_text: Label3D
 #endregion
 
@@ -86,7 +87,7 @@ func interact() -> void:
 
 	match inspect_type:
 		InspectType.POSTER:
-			enter_inspect()
+			inspect_poster()
 
 		InspectType.CRATE:
 			if is_interacting or is_transitioning:
@@ -118,7 +119,7 @@ func enter_inspect() -> void:
 	if is_interacting or is_transitioning:
 		return
 	is_interacting = true
-
+	
 	player.disable_controls()
 	player.visible = false
 
@@ -127,6 +128,8 @@ func enter_inspect() -> void:
 
 	await get_tree().process_frame
 	await transition(player_camera, inspect_camera)
+
+
 
 
 func exit_inspect() -> void:
@@ -275,16 +278,59 @@ func open_crate() -> void:
 #endregion
 
 #region Poster Functions
+
+#region Poster Functions
+
+func inspect_poster() -> void:
+	if is_interacting or is_transitioning:
+		return
+
+	is_interacting = true
+	if SaveManager.is_multitool_part_complete("comms_upgrade"):
+		translate()
+	player.disable_controls()
+	player.visible = false
+
+	# Visible so the player can see and use the cursor
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+	await get_tree().process_frame
+	await transition(player_camera, inspect_camera)
+	
+
+func exit_poster() -> void:
+	if not is_interacting or is_transitioning:
+		return
+
+	await transition(inspect_camera, player_camera)
+	player.visible = true
+
+	is_interacting = false
+	if SaveManager.is_multitool_part_complete("comms_upgrade"):
+		translate()
+		
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await get_tree().process_frame
+	player.enable_controls()
+	
+
+func translate() -> void:
+	if is_interacting:
+		alien_language_screen.visible = false
+		human_language_screen.visible = true
+	else:
+		human_language_screen.visible = false
+		alien_language_screen.visible = true
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		# Swap to custom font when player steps into Area3D
+	if body.is_in_group("player") and poster_text and default_font:
 		poster_text.font = default_font
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		# Swap to custom font when player steps into Area3D
-		poster_text.font = alien_language
+		pass
+#endregion
 #endregion
 
 #region Wires Puzzle Functions
@@ -391,7 +437,7 @@ func exit_monitor() -> void:
 	await get_tree().process_frame
 	player.enable_controls()
 #endregion
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("interact"):
@@ -401,7 +447,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				exit_crate()
 				get_viewport().set_input_as_handled()
 			InspectType.POSTER:
-				exit_inspect()
+				exit_poster()
 				get_viewport().set_input_as_handled()
 			InspectType.WIRES_PUZZLE:
 				pass

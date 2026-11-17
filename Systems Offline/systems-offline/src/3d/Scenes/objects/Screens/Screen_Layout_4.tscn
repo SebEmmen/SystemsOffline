@@ -99,7 +99,6 @@ shape = SubResource("BoxShape3D_synj7")
 
 [node name="Screen Alien Language" type="MeshInstance3D" parent="MonitorScreen" unique_id=1573090266]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -0.0026003686, 0.5383232, -7.2759576e-11)
-visible = false
 mesh = SubResource("PlaneMesh_0u5m3")
 surface_material_override/0 = SubResource("ORMMaterial3D_d50yh")
 
@@ -124,6 +123,7 @@ outline_size = 5
 
 [node name="Screen Human Language" type="MeshInstance3D" parent="MonitorScreen" unique_id=945348161]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -0.0026004314, 0.5383229, 0)
+visible = false
 mesh = SubResource("PlaneMesh_0u5m3")
 surface_material_override/0 = SubResource("ORMMaterial3D_pk0s7")
 

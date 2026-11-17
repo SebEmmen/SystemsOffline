@@ -72,11 +72,12 @@ albedo_color = Color(0, 0, 0, 1)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1193894919]
 transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 2.1318243, 0)
 
-[node name="MonitorScreen" parent="." unique_id=1106340316 node_paths=PackedStringArray("inspect_camera", "lightning_off", "main_screen", "object_ref") instance=ExtResource("1_etpju")]
+[node name="MonitorScreen" parent="." unique_id=1106340316 node_paths=PackedStringArray("inspect_camera", "alien_language_screen", "human_language_screen", "lightning_off", "main_screen", "object_ref") instance=ExtResource("1_etpju")]
 transform = Transform3D(0.25000006, 0, 0, 0, 0.25000006, 0, 0, 0, 0.25000003, 0, 0, 0)
 script = ExtResource("2_wl1x4")
-inspect_type = 3
-inspect_camera = NodePath("")
+inspect_camera = NodePath("../Camera3D")
+alien_language_screen = NodePath("Screen Alien Language")
+human_language_screen = NodePath("Screen Human Language")
 lightning_off = NodePath("Red lightning bolt")
 main_screen = NodePath("Screen Alien Language")
 object_ref = NodePath(".")
@@ -97,7 +98,6 @@ shape = SubResource("BoxShape3D_caaq2")
 
 [node name="Screen Alien Language" type="MeshInstance3D" parent="MonitorScreen" unique_id=1030977213]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -0.0026003686, 0.5383232, -7.2759576e-11)
-visible = false
 mesh = SubResource("PlaneMesh_t1e7n")
 surface_material_override/0 = SubResource("ORMMaterial3D_121q5")
 
@@ -122,6 +122,7 @@ outline_size = 5
 
 [node name="Screen Human Language" type="MeshInstance3D" parent="MonitorScreen" unique_id=1357154903]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -0.0026004314, 0.5383229, 0)
+visible = false
 mesh = SubResource("PlaneMesh_t1e7n")
 surface_material_override/0 = SubResource("ORMMaterial3D_121q5")
 
