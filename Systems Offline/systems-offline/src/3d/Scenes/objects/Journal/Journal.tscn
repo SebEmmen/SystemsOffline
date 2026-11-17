@@ -7,27 +7,69 @@
 [ext_resource type="Texture2D" uid="uid://dn3i8fj6mbjsi" path="res://src/2d/Assets/Journal/button-hover@1x.png" id="3_ifuti"]
 [ext_resource type="Texture2D" uid="uid://bcfbod8fh0u05" path="res://src/2d/Assets/Journal/corner@1x.png" id="3_mla7l"]
 [ext_resource type="Texture2D" uid="uid://c0kuc2uba4cis" path="res://src/2d/Assets/Journal/leaf@1x.png" id="4_1dqnb"]
-[ext_resource type="Texture2D" uid="uid://ba57plovrg4ls" path="res://src/2d/Assets/Journal/button-disabled@1x.png" id="4_3cdc8"]
+[ext_resource type="Texture2D" uid="uid://b07c0qboyegle" path="res://src/2d/Assets/Journal/Tabs/bookmark-ribbon-7792_256.png" id="5_6lr3l"]
 [ext_resource type="Texture2D" uid="uid://c1afedk4yptre" path="res://src/2d/Assets/Journal/button-focused@1x.png" id="5_mla7l"]
+[ext_resource type="Texture2D" uid="uid://cw15f2ri0rxaj" path="res://src/2d/Assets/Journal/Tabs/bookmark-ribbon-7792_128(2).png" id="6_8n6vt"]
+[ext_resource type="Texture2D" uid="uid://ba3bf7per2boc" path="res://src/2d/Assets/Journal/Tabs/bookmark-ribbon-7792_128(1).png" id="6_fr47y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ogxm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifuti"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qexs2"]
+texture = ExtResource("5_6lr3l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n6vt"]
+texture = ExtResource("6_8n6vt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fr47y"]
+texture = ExtResource("6_fr47y")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p7qmb"]
 texture = ExtResource("1_skmui")
+region_rect = Rect2(204, 0, 95, 60)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bu4hd"]
 texture = ExtResource("2_6ogxm")
+region_rect = Rect2(204, 0, 95, 60)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lx4h4"]
 texture = ExtResource("3_ifuti")
+region_rect = Rect2(204, 0, 95, 60)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skmui"]
-texture = ExtResource("4_3cdc8")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66d8h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ogxm"]
 texture = ExtResource("5_mla7l")
+region_rect = Rect2(204, 0, 95, 60)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55dgl"]
+texture = ExtResource("1_skmui")
+region_rect = Rect2(0, 0, 95, 60)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb0og"]
+texture = ExtResource("2_6ogxm")
+region_rect = Rect2(0, 0, 95, 60)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b8pxm"]
+texture = ExtResource("3_ifuti")
+region_rect = Rect2(0, 0, 95, 60)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fr47y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66d8h"]
+texture = ExtResource("5_mla7l")
+region_rect = Rect2(0, 0, 95, 60)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n6vt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55dgl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb0og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8pxm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apwlm"]
 
 [node name="Journal" type="CanvasLayer" unique_id=459650727]
 
@@ -69,10 +111,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -51.0
-offset_top = -176.0
-offset_right = 51.0
-offset_bottom = 167.0
+offset_left = -6.0
+offset_top = -144.0
+offset_right = 16.0
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_6ogxm")
@@ -92,20 +134,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 28.0
-offset_top = 30.0
-offset_right = -12.0
-offset_bottom = -41.0
+offset_left = 70.0
+offset_top = 85.0
+offset_right = -3.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6039216)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("2_ifuti")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ogxm")
-text = "Day 1
+placeholder_text = "Day 1
 
 I don't remember much about the crash.
 
@@ -120,15 +163,24 @@ First priority: restore power.
 Second priority: figure out where the hell we are."
 wrap_mode = 1
 
+[node name="LeftContent" type="Control" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=1939686592]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="LeftNumber" type="Label" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=9492085]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -33.0
-offset_right = 32.0
-offset_bottom = 8.0
+offset_left = 30.0
+offset_top = -37.0
+offset_right = 70.0
+offset_bottom = 4.0
 grow_vertical = 0
 offset_transform_enabled = true
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -138,10 +190,10 @@ text = "1"
 
 [node name="TextureRect" type="TextureRect" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=123859316]
 layout_mode = 0
-offset_left = -16.0
-offset_top = -26.0
-offset_right = 110.0
-offset_bottom = 79.0
+offset_left = 28.0
+offset_top = 6.0
+offset_right = 154.0
+offset_bottom = 111.0
 texture = ExtResource("3_mla7l")
 
 [node name="RightPage" type="Control" parent="JournalUI/CenterContainer/JournalBook" unique_id=1521362810]
@@ -164,18 +216,19 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.20700002
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -139.97202
-offset_right = 404.0
-offset_bottom = -96.0
+offset_left = 27.0
+offset_top = -76.97201
+offset_right = 373.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/caret_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6039216)
 theme_override_constants/line_spacing = 6
 theme_override_fonts/font = ExtResource("2_ifuti")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ifuti")
 placeholder_text = "Day 2
 
@@ -199,12 +252,21 @@ wrap_mode = 1
 scroll_smooth = true
 minimap_draw = true
 
+[node name="RightContent" type="Control" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=625530555]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="RightNumber" type="Label" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1438618076]
 layout_mode = 0
-offset_left = 417.0
-offset_top = 367.0
-offset_right = 444.0
-offset_bottom = 408.0
+offset_left = 376.0
+offset_top = 353.0
+offset_right = 403.0
+offset_bottom = 394.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ifuti")
 theme_override_font_sizes/font_size = 32
@@ -212,47 +274,139 @@ text = "2"
 
 [node name="TextureRect" type="TextureRect" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1323114976]
 layout_mode = 0
-offset_left = -12.0
-offset_top = 349.0
-offset_right = 88.0
-offset_bottom = 449.0
+offset_left = -11.0
+offset_top = 343.0
+offset_right = 89.0
+offset_bottom = 443.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_1dqnb")
 
+[node name="TabBar" type="HBoxContainer" parent="JournalUI/CenterContainer/JournalBook" unique_id=489125082]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.54200006
+anchor_bottom = 0.18200001
+offset_left = 25.905
+offset_top = 56.29
+offset_right = 381.19995
+offset_bottom = -19.190094
+
+[node name="QuestsTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=873989641]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Quest"
+expand_icon = true
+
+[node name="DiaryTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=660232925]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Diary"
+
+[node name="Spacer" type="Control" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=868614464]
+custom_minimum_size = Vector2(93.59, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BirdsTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=551320776]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Birds"
+
+[node name="NotesTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=1693645295]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Notes"
+
 [node name="PreviousButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=1504181040]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 608.0
-offset_right = 262.0
-offset_bottom = 662.0
+offset_left = 887.0
+offset_top = 327.0
+offset_right = 947.0
+offset_bottom = 372.53506
 theme_override_colors/font_color = Color(0.7254902, 0.44705883, 0.30588236, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_p7qmb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bu4hd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lx4h4")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_skmui")
-theme_override_styles/focus = SubResource("StyleBoxTexture_6ogxm")
-text = "<"
-
-[node name="NextButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=379965990]
-layout_mode = 0
-offset_left = 651.0
-offset_top = 609.0
-offset_right = 823.0
-offset_bottom = 663.0
-theme_override_colors/font_color = Color(0.7254902, 0.44705883, 0.30588236, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_p7qmb")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_bu4hd")
-theme_override_styles/hover = SubResource("StyleBoxTexture_lx4h4")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_skmui")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_66d8h")
 theme_override_styles/focus = SubResource("StyleBoxTexture_6ogxm")
 text = ">"
 
+[node name="NextButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=2060427271]
+layout_mode = 0
+offset_left = -37.0
+offset_top = 330.0
+offset_right = 23.0
+offset_bottom = 375.53506
+theme_override_colors/font_color = Color(0.7254902, 0.44705883, 0.30588236, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_55dgl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rb0og")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b8pxm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fr47y")
+theme_override_styles/focus = SubResource("StyleBoxTexture_66d8h")
+text = "<"
+
 [node name="CloseButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=885106023]
 layout_mode = 0
-offset_left = 1040.0
-offset_top = 20.0
-offset_right = 1040.0
-offset_bottom = 20.0
+offset_left = 829.0
+offset_top = 111.0
+offset_right = 875.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.39215687, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.39215687, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.39215687, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.39215687, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8n6vt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_55dgl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rb0og")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b8pxm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_apwlm")
 text = "X"
