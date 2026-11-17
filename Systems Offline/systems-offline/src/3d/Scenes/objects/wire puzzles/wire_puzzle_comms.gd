@@ -1,5 +1,8 @@
 extends Node3D
 
+signal puzzle_completed
+signal puzzle_exited
+
 # Key = WireSocket, Value = PuzzleWire (or null if empty)
 var socket_state_map := {}
 var completed: bool = false
@@ -11,13 +14,18 @@ func _ready() -> void:
 	initialize_puzzle_tracking()
 
 
+## True only for nodes that live in the same viewport as this puzzle.
+func _in_this_puzzle(node: Node) -> bool:
+	return node.get_viewport() == get_viewport()
+
+
 func initialize_puzzle_tracking() -> void:
 	for node in get_tree().get_nodes_in_group("wire_sockets"):
-		if node is WireSocket:
+		if node is WireSocket and _in_this_puzzle(node):
 			socket_state_map[node] = null
 
 	for node in get_tree().get_nodes_in_group("puzzle_wires"):
-		if node is PuzzleWire:
+		if node is PuzzleWire and _in_this_puzzle(node):
 			node.wire_connected.connect(_on_wire_connected.bind(node))
 			node.wire_disconnected.connect(_on_wire_disconnected.bind(node))
 
@@ -39,7 +47,7 @@ func _rebuild_socket_map() -> void:
 		socket_state_map[socket] = null
 
 	for node in get_tree().get_nodes_in_group("puzzle_wires"):
-		if node is PuzzleWire and node.is_plugged and node.connected_socket != null:
+		if node is PuzzleWire and _in_this_puzzle(node) and node.is_plugged and node.connected_socket != null:
 			socket_state_map[node.connected_socket] = node
 
 
@@ -60,9 +68,6 @@ func check_puzzle_completion() -> void:
 		return
 
 	completed = true
-	print("SUCCESS: All sockets correctly connected!")
-
-	# Short delay so the player can see the final connected state
 	await get_tree().create_timer(1.0).timeout
 
 	# The player may have unplugged a wire during the delay
@@ -70,15 +75,16 @@ func check_puzzle_completion() -> void:
 		completed = false
 		return
 
-	SaveManager.complete_puzzle(SaveManager.current_puzzle_id)
-	_exit_puzzle()
-	print("Exited to main room")
-	
+	print("completion check passed, emitting")
+	_exiting = true
+	puzzle_completed.emit()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _exiting:
 		return
-	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("interact"):
+	# Esc is already handled by InspectComponent, so only listen for interact here
+	if event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
 		_exit_puzzle()
 
@@ -87,7 +93,4 @@ func _exit_puzzle() -> void:
 	if _exiting:
 		return
 	_exiting = true
-	print("exit_puzzle called from scene: ", get_tree().current_scene.name, " node: ", get_path())
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	SaveManager.return_from_subscene()
-	
+	puzzle_exited.emit()

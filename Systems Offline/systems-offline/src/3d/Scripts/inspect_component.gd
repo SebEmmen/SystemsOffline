@@ -41,17 +41,23 @@ var lid_animating: bool = false
 
 #region Wires_Puzzle Variable
 @export_group("Wires_Puzzle")
+@export var puzzle_overlay_scene: PackedScene
 @export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
-@export var puzzle_id: String = ""   # unique per puzzle, e.g. "comms", "elevator"
+@export var puzzle_id: String = ""
 @export var power_off: Node3D
 @export var power_on: Node3D
 @export var elevator_on: MeshInstance3D
 @export var elevator_off: MeshInstance3D
-@export var wire_cover: RigidBody3D   # ":" not "="
+@export var wire_cover: RigidBody3D
+var cover_home: Transform3D
 var fixed: bool = false
 
 var cover_removed: bool = false
 var cover_drop_time: float = 0.0
+
+var puzzle_layer: CanvasLayer
+var puzzle_viewport: SubViewport
+var puzzle_instance: Node
 #endregion
 
 #region Monitor Variables
@@ -79,6 +85,7 @@ func _ready() -> void:
 			ready_puzzle()
 		InspectType.MONITOR:
 			update_monitor()
+			SaveManager.puzzle_completed.connect(func(_id): update_monitor())
 			pass
 
 func interact() -> void:
@@ -279,8 +286,6 @@ func open_crate() -> void:
 
 #region Poster Functions
 
-#region Poster Functions
-
 func inspect_poster() -> void:
 	if is_interacting or is_transitioning:
 		return
@@ -342,6 +347,7 @@ func ready_puzzle() -> void:
 	cover_removed = SaveManager.is_cover_removed(puzzle_id)
 
 	if wire_cover:
+		cover_home = wire_cover.global_transform   # original spot on the panel
 		if fixed:
 			wire_cover.freeze = true
 			cover_removed = false
@@ -352,12 +358,55 @@ func ready_puzzle() -> void:
 			wire_cover.freeze = true
 
 	can_interact = not fixed
-	power_on.visible = fixed
-	power_off.visible = not fixed
+	if power_on:
+		power_on.visible = fixed
+	if power_off:
+		power_off.visible = not fixed
 
 	if elevator_on and elevator_off:
-			elevator_on.visible = fixed
-			elevator_off.visible = not fixed	
+		elevator_on.visible = fixed
+		elevator_off.visible = not fixed	
+
+func _return_cover() -> void:
+	if wire_cover == null:
+		return
+	cover_removed = false
+	wire_cover.freeze = true
+	wire_cover.linear_velocity = Vector3.ZERO
+	wire_cover.angular_velocity = Vector3.ZERO
+
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(wire_cover, "global_transform", cover_home, 0.6)
+
+func _open_puzzle_viewport() -> void:
+	print("InspectComponent: puzzle completed for id: ", puzzle_id)
+	SaveManager.complete_puzzle(puzzle_id)
+	puzzle_layer = puzzle_overlay_scene.instantiate()
+	puzzle_viewport = puzzle_layer.get_node("SubViewportContainer/SubViewport")
+
+	puzzle_instance = (load(puzzle_scene) as PackedScene).instantiate()
+	puzzle_viewport.add_child(puzzle_instance)
+
+	var emitter := _find_puzzle_emitter(puzzle_instance)
+	if emitter == null:
+		push_error("No node with puzzle_completed found in " + puzzle_scene)
+	else:
+		print("Connecting to puzzle script on: ", emitter.get_path())
+		emitter.puzzle_completed.connect(_on_puzzle_completed)
+		emitter.puzzle_exited.connect(exit_wires_puzzle)
+
+	get_tree().root.add_child(puzzle_layer)
+
+func _find_puzzle_emitter(root: Node) -> Node:
+	if root.has_signal("puzzle_completed"):
+		return root
+	for child in root.find_children("*", "", true, false):
+		if child.has_signal("puzzle_completed"):
+			return child
+	return null
+
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
 		return
@@ -374,19 +423,44 @@ func enter_puzzle() -> void:
 
 	is_interacting = true
 	player.disable_controls()
-	SaveManager.enter_subscene(puzzle_scene, puzzle_id, wire_cover)
+	SaveManager.set_cover_transform(puzzle_id, wire_cover.global_transform)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_open_puzzle_viewport()
 
 func _cover_is_settled() -> bool:
 	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
 	return elapsed > 0.5 and (wire_cover.sleeping or wire_cover.linear_velocity.length() < 0.05)
 
 func exit_wires_puzzle() -> void:
-	if not is_interacting or is_transitioning:
+	print("exit_wires_puzzle, is_interacting = ", is_interacting)
+	if not is_interacting:
 		return
 
+	if puzzle_layer:
+		puzzle_layer.queue_free()
+		puzzle_layer = null
+		puzzle_viewport = null
+		puzzle_instance = null
+
 	is_interacting = false
-	SaveManager.return_from_subscene()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	SaveManager.save_game()
+	await get_tree().process_frame
 	player.enable_controls()
+
+func _on_puzzle_completed() -> void:
+	SaveManager.complete_puzzle(puzzle_id)
+	fixed = true
+	can_interact = false
+	if power_on:
+		power_on.visible = true
+	if power_off:
+		power_off.visible = false
+	if elevator_on and elevator_off:
+		elevator_on.visible = true
+		elevator_off.visible = false
+	exit_wires_puzzle()
+	_return_cover()
 
 
 #endregion
@@ -440,8 +514,14 @@ func exit_monitor() -> void:
 func _input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
+
+	if inspect_type == InspectType.WIRES_PUZZLE:
+		if event.is_action_pressed("ui_cancel"):
+			exit_wires_puzzle()
+			get_viewport().set_input_as_handled()
+		return
+
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("interact"):
-		
 		match inspect_type:
 			InspectType.CRATE:
 				exit_crate()
@@ -449,13 +529,9 @@ func _input(event: InputEvent) -> void:
 			InspectType.POSTER:
 				exit_poster()
 				get_viewport().set_input_as_handled()
-			InspectType.WIRES_PUZZLE:
-				pass
 			InspectType.MONITOR:
 				exit_monitor()
 				get_viewport().set_input_as_handled()
-		return
-		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

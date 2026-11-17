@@ -59,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
+[ext_resource type="PackedScene" uid="uid://bc7c5x5egoq0x" path="res://src/3d/Scenes/objects/wire puzzles/PuzzleOverlay.tscn" id="53_5buxd"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="Texture2D" uid="uid://bsdkw2gpfkfmg" path="res://src/3d/Assets/Comm room/textures/Ucupaint Sphere.002 Color.png" id="56_gav43"]
 [ext_resource type="Texture2D" uid="uid://bjjhc0l3s0qkb" path="res://src/3d/Resources/Flute.png" id="57_3kfck"]
@@ -80,12 +81,8 @@
 [ext_resource type="PackedScene" uid="uid://h1npmkim3ghs" path="res://src/3d/Scenes/objects/Hints/shape_3_triangle.glb" id="72_a016q"]
 [ext_resource type="PackedScene" uid="uid://dy6wacnbxdxid" path="res://src/3d/Scenes/objects/Hints/shape_4_circle.glb" id="73_xm1x8"]
 [ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
-[ext_resource type="PackedScene" uid="uid://dg83sdfawnl0t" path="res://src/3d/Scenes/objects/Multitool/Multitool_Piece_2.tscn" id="79_loyml"]
+[ext_resource type="PackedScene" uid="uid://phd3hgn0mb1b" path="res://src/3d/Scenes/objects/Multitool/Multitool_Piece_2.tscn" id="79_loyml"]
 [ext_resource type="Shader" uid="uid://1iof5c6ynfip" path="res://src/3d/Scenes/rooms/Forcefield.gdshader" id="81_loyml"]
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("2_lghuq")
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -346,28 +343,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lghuq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_slhau"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5buxd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_t85fk"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_lghuq")
+albedo_texture = SubResource("ViewportTexture_slhau")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_slhau"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_wlapk"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_5buxd")
+material = SubResource("ORMMaterial3D_t85fk")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t85fk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_o48g7"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_wlapk"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_58ftc"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_t85fk")
+albedo_texture = SubResource("ViewportTexture_o48g7")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_o48g7"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_7jok6"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_wlapk")
+material = SubResource("ORMMaterial3D_58ftc")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -442,21 +439,11 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_bmro6"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_lghuq")
+
 [node name="Room1" type="Node3D" unique_id=1585455230]
-
-[node name="ScreenLayout1" parent="." unique_id=616831271 instance=ExtResource("1_loyml")]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -8.799044, 2.6181636, -46.046516)
-
-[node name="MonitorScreen" parent="ScreenLayout1" index="1" unique_id=1106340316 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
-player = NodePath("../../ProtoController")
-player_camera = NodePath("../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../TransitionCamera")
-
-[node name="Screen Alien Language" parent="ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_slhau")
-
-[node name="Screen Human Language" parent="ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_slhau")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=987253711]
 transform = Transform3D(0.9446295, -9.759452e-05, -0.32813883, 0.0038034138, 0.99993604, 0.010651676, 0.3281168, -0.011309936, 0.9445694, -2.4873257, 0, 14.431388)
@@ -529,6 +516,9 @@ visible = false
 multitool_part = 5
 multitool_id = "multitool"
 object_ref = NodePath(".")
+
+[node name="Circle Piece" parent="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Circle Piece 1" parent_id_path=PackedInt32Array(1779789665, 51961434, 961166787) index="0" unique_id=412834913]
+surface_material_override/0 = null
 
 [node name="eye left" parent="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2" parent_id_path=PackedInt32Array(1779789665, 51961434, 1195316989) index="0" unique_id=782421204]
 surface_material_override/0 = null
@@ -751,6 +741,7 @@ number_label = NodePath("Label3D")
 number = "4"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_overlay_scene = null
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
 interaction_type = 1
@@ -765,6 +756,7 @@ number_label = NodePath("Label3D")
 number = "2"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_overlay_scene = null
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
 interaction_type = 1
@@ -779,6 +771,7 @@ number_label = NodePath("Label3D")
 number = "9"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_overlay_scene = null
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
 interaction_type = 1
@@ -793,6 +786,7 @@ number_label = NodePath("Label3D")
 number = "7"
 crate_lid = NodePath("Plane_002")
 lid_target = NodePath("LidTarget")
+puzzle_overlay_scene = null
 puzzle_scene = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
 puzzle_id = ""
 interaction_type = 1
@@ -886,6 +880,7 @@ primary_se = ExtResource("24_gav43")
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
+puzzle_overlay_scene = ExtResource("53_5buxd")
 puzzle_id = "comms"
 power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
 power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
@@ -950,10 +945,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_slhau")
+mesh = SubResource("PlaneMesh_wlapk")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_o48g7")
+mesh = SubResource("PlaneMesh_7jok6")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1212,6 +1207,9 @@ object_ref = NodePath(".")
 player = NodePath("../../../ProtoController")
 item_data = ExtResource("65_8iy1x")
 
+[node name="Circle Piece" parent="CommsRoom/Final_Multitoolcase body/Multitool/Circle Piece 1" parent_id_path=PackedInt32Array(754739194, 51961434, 961166787) index="0" unique_id=412834913]
+surface_material_override/0 = null
+
 [node name="eye left" parent="CommsRoom/Final_Multitoolcase body/Multitool/Eye piece 2" parent_id_path=PackedInt32Array(754739194, 51961434, 1195316989) index="0" unique_id=782421204]
 surface_material_override/0 = null
 
@@ -1219,6 +1217,20 @@ surface_material_override/0 = null
 
 [node name="eye left" parent="CommsRoom/Eye piece 2" index="0" unique_id=782421204]
 surface_material_override/0 = null
+
+[node name="ScreenLayout1" parent="CommsRoom" unique_id=616831271 instance=ExtResource("1_loyml")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -8.799044, 2.6181636, -46.046516)
+
+[node name="MonitorScreen" parent="CommsRoom/ScreenLayout1" index="1" unique_id=1106340316 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
+player = NodePath("../../../ProtoController")
+player_camera = NodePath("../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../TransitionCamera")
+
+[node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
+surface_material_override/0 = SubResource("ORMMaterial3D_bmro6")
+
+[node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
+surface_material_override/0 = SubResource("ORMMaterial3D_bmro6")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
@@ -1259,8 +1271,6 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 visible = true
 push_force = 4.0
 
-[editable path="ScreenLayout1"]
-[editable path="ScreenLayout1/MonitorScreen"]
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
@@ -1343,6 +1353,8 @@ push_force = 4.0
 [editable path="CommsRoom/Final_Multitoolcase body/Multitool/MULTITOOL MAIN BODY2"]
 [editable path="CommsRoom/Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
 [editable path="CommsRoom/Eye piece 2"]
+[editable path="CommsRoom/ScreenLayout1"]
+[editable path="CommsRoom/ScreenLayout1/MonitorScreen"]
 [editable path="Elevator Room/Elevator 1st floor"]
 [editable path="Elevator Room/WirePuzzleElevator"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
