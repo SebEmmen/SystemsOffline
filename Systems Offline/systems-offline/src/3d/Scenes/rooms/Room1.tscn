@@ -581,10 +581,6 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.9639058, 5.1550264, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
 
-[node name="KeypadWire2" parent="Tutorial Room" unique_id=1036713795 instance=ExtResource("32_8gijo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17241791, 1.0923238, -7.85)
-curve = SubResource("Curve3D_4qo6h")
-
 [node name="BrokenWall" parent="Tutorial Room" unique_id=1554696659 instance=ExtResource("38_io4pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1183305, 3.0035992, 11.874468)
 
