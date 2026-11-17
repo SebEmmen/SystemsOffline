@@ -343,28 +343,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_slhau"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5buxd"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_t85fk"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_slhau")
+albedo_texture = SubResource("ViewportTexture_5buxd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_wlapk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_t85fk"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_t85fk")
+material = SubResource("ORMMaterial3D_slhau")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_o48g7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wlapk"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_58ftc"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_o48g7"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_o48g7")
+albedo_texture = SubResource("ViewportTexture_wlapk")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_7jok6"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_58ftc"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_58ftc")
+material = SubResource("ORMMaterial3D_o48g7")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -439,7 +439,7 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_bmro6"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7jok6"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -876,15 +876,10 @@ is_multitool_key = true
 item_data = ExtResource("45_nnjxg")
 primary_se = ExtResource("24_gav43")
 
-[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "power_off", "power_on", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
+[node name="WirePuzzleTest" parent="CommsRoom" unique_id=2100949581 node_paths=PackedStringArray("inspect_camera", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("40_qbvi1")]
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
-puzzle_overlay_scene = ExtResource("53_5buxd")
-puzzle_id = "comms"
-power_off = NodePath("Wire Puzzle Comms/WireCover/Red lightning bolt")
-power_on = NodePath("Wire Puzzle Comms/WireCover/Green lightning bolt")
-wire_cover = NodePath("Wire Puzzle Comms/WireCover")
 object_ref = NodePath("Wire Puzzle Comms")
 interaction_type = 1
 player = NodePath("../../ProtoController")
@@ -945,10 +940,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_wlapk")
+mesh = SubResource("PlaneMesh_t85fk")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_7jok6")
+mesh = SubResource("PlaneMesh_58ftc")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1227,10 +1222,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_bmro6")
+surface_material_override/0 = SubResource("ORMMaterial3D_7jok6")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_bmro6")
+surface_material_override/0 = SubResource("ORMMaterial3D_7jok6")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
@@ -1245,6 +1240,7 @@ transition_camera = NodePath("../../../../TransitionCamera")
 [node name="WirePuzzleElevator" parent="Elevator Room" unique_id=1690951740 node_paths=PackedStringArray("power_off", "power_on", "elevator_on", "elevator_off", "wire_cover", "object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("44_f1ysu")]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 2.9778502e-23, -4.371139e-09, 0.1, -4.371139e-09, 1.2266942, 0.7600651, -34.50005)
 inspect_type = 2
+puzzle_overlay_scene = ExtResource("53_5buxd")
 puzzle_scene = "uid://0u4neuukgjki"
 puzzle_id = "elevator"
 power_off = NodePath("ElevatorPuzzle/WireCover/Red lightning bolt")
