@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cxlhbrdqn7v3y"]
+
+[node name="TutorialQuest" type="Control" unique_id=134065501]
+custom_minimum_size = Vector2(360, 460)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 460.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1164358294]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.094000004
+anchor_top = 0.072000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.16
+offset_top = 24.879997
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=129871628]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="QuestTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1680637340]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_font_sizes/font_size = 20
+text = "MAIN QUEST"
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1132917214]
+layout_mode = 2
+
+[node name="QuestDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2016373247]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+text = "Escape the Spaceship"
+autowrap_mode = 3
+
+[node name="Objectives" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1141960222]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Objective1" type="CheckBox" parent="MarginContainer/VBoxContainer/Objectives" unique_id=1130186449]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.77254903)
+theme_override_font_sizes/font_size = 13
+disabled = true
+text = "Find a way to escape the spaceship"
+autowrap_mode = 3

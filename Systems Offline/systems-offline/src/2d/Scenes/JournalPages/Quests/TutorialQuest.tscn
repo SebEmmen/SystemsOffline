@@ -39,7 +39,6 @@ layout_mode = 2
 [node name="QuestDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2016373247]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-theme_override_font_sizes/font_size = 14
 text = "Find a way to unlock the door and escape."
 autowrap_mode = 3
 
@@ -49,7 +48,13 @@ theme_override_constants/separation = 12
 
 [node name="Objective1" type="CheckBox" parent="MarginContainer/VBoxContainer/Objectives" unique_id=1130186449]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 disabled = true
 text = "Find the key"
@@ -57,7 +62,13 @@ autowrap_mode = 3
 
 [node name="Objective2" type="CheckBox" parent="MarginContainer/VBoxContainer/Objectives" unique_id=1218730635]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 disabled = true
 text = "Discover the correct access code"
@@ -65,7 +76,13 @@ autowrap_mode = 3
 
 [node name="Objective3" type="CheckBox" parent="MarginContainer/VBoxContainer/Objectives" unique_id=1366608655]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 disabled = true
 text = "Escape the room"

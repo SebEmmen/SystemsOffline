@@ -8,6 +8,10 @@ const TOTAL_PAGES := 20
 # QUEST SCENES
 # --------------------------------------------------
 
+const MAIN_QUEST = preload(
+	"res://src/2d/Scenes/JournalPages/Quests/MainQuest.tscn"
+)
+
 const TUTORIAL_QUEST = preload(
 	"res://src/2d/Scenes/JournalPages/Quests/TutorialQuest.tscn"
 )
@@ -58,11 +62,12 @@ enum JournalTab {
 
 var pages: Array[String] = []
 
-var quest_scenes: Array[PackedScene] = [
-	COMMUNICATIONS_QUEST,
-	ELEVATOR_QUEST,
-	TUTORIAL_QUEST
-]
+var quest_scene_lookup: Dictionary = {
+	"main": MAIN_QUEST,
+	"tutorial": TUTORIAL_QUEST,
+	"elevator": ELEVATOR_QUEST,
+	"communications": COMMUNICATIONS_QUEST
+}
 
 var bird_pages: Array[String] = []
 var diary_pages: Array[String] = []
@@ -120,6 +125,10 @@ func _ready() -> void:
 
 	notes_tab.pressed.connect(
 		func(): switch_tab(JournalTab.NOTES)
+	)
+	
+	QuestManager.progress_changed.connect(
+		_on_quest_progress_changed
 	)
 
 	# Track changes to editable notes.
@@ -230,12 +239,15 @@ func get_active_pages() -> Array[String]:
 
 func get_max_spread() -> int:
 	if current_tab == JournalTab.QUESTS:
-		return maxi(0, quest_scenes.size() - 1)
+		return maxi(
+			0,
+			QuestManager.get_visible_quests().size() - 1
+		)
 
-	var collection := get_active_pages()
-
-	return maxi(0, (collection.size() - 1) / 2)
-
+	return maxi(
+		0,
+		(get_active_pages().size() - 1) / 2
+	)
 
 # --------------------------------------------------
 # TAB SWITCHING
@@ -296,24 +308,72 @@ func clear_content(container: Control) -> void:
 		child.queue_free()
 
 
+
 func show_quest_page() -> void:
-	if current_spread >= quest_scenes.size():
+	var visible_quests := QuestManager.get_visible_quests()
+
+	if current_spread >= visible_quests.size():
 		return
 
-	var quest_page := quest_scenes[current_spread].instantiate() as Control
+	var quest_id: String = visible_quests[current_spread]
+
+	if not quest_scene_lookup.has(quest_id):
+		push_warning("Missing quest scene: " + quest_id)
+		return
+
+	var scene: PackedScene = quest_scene_lookup[quest_id]
+	var quest_page := scene.instantiate() as Control
 
 	if quest_page == null:
-		push_error("Journal: Quest scene root must be a Control.")
+		push_error("Quest scene root must be a Control.")
 		return
 
 	left_content.add_child(quest_page)
 
-	# Fill the left page content area.
 	quest_page.custom_minimum_size = Vector2.ZERO
 	quest_page.set_anchors_and_offsets_preset(
 		Control.PRESET_FULL_RECT
 	)
 
+	update_quest_checkboxes(quest_page, quest_id)
+
+func update_quest_checkboxes(
+	quest_page: Control,
+	quest_id: String
+) -> void:
+	var objectives_node := quest_page.get_node_or_null(
+		"MarginContainer/VBoxContainer/Objectives"
+	)
+
+	if objectives_node == null:
+		push_warning("Quest objectives container missing: " + quest_id)
+		return
+
+	var objective_ids := QuestManager.get_objective_ids(quest_id)
+
+	for i in range(objective_ids.size()):
+		var checkbox := objectives_node.get_node_or_null(
+			"Objective" + str(i + 1)
+		) as CheckBox
+
+		if checkbox == null:
+			continue
+
+		var objective_id := objective_ids[i]
+
+		# Decide whether the player can see this objective.
+		checkbox.visible = QuestManager.is_objective_visible(
+			quest_id,
+			objective_id
+		)
+
+		# Display progress without allowing manual completion.
+		checkbox.button_pressed = QuestManager.is_objective_completed(
+			quest_id,
+			objective_id
+		)
+
+		checkbox.disabled = true
 
 func update_pages() -> void:
 	updating_pages = true
@@ -597,7 +657,18 @@ func update_navigation_buttons() -> void:
 	next_button.visible = has_next
 	next_button.disabled = not has_next
 	
-	
+func _on_quest_progress_changed() -> void:
+	if current_tab != JournalTab.QUESTS:
+		return
+
+	current_spread = clampi(
+		current_spread,
+		0,
+		get_max_spread()
+	)
+
+	tab_spreads[current_tab] = current_spread
+	update_pages()
 # --------------------------------------------------
 # CLEANUP
 # --------------------------------------------------
