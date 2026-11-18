@@ -23,6 +23,7 @@ func show_pickup_notification(item_data: Variant) -> void:
 	notification.emit(item_data)
 
 
+
 func show_message(text: String, top: bool) -> void:
 	message.emit(text, top)
 

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cb6gpa8o2nhi6"]
 
+[ext_resource type="FontFile" uid="uid://cfiwv5py05a5i" path="res://src/2d/Assets/Journal/Font/Caveat-Regular.ttf" id="1_f838e"]
+
 [node name="TutorialQuest" type="Control" unique_id=134065501]
 custom_minimum_size = Vector2(360, 460)
 layout_mode = 3
@@ -11,7 +13,6 @@ mouse_filter = 2
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1164358294]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.094000004
 anchor_top = 0.072000004
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,8 +30,9 @@ theme_override_constants/separation = 15
 [node name="QuestTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1680637340]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-theme_override_font_sizes/font_size = 20
-text = "Tutorial Quest"
+theme_override_fonts/font = ExtResource("1_f838e")
+theme_override_font_sizes/font_size = 26
+text = "Tutorial room"
 autowrap_mode = 3
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1132917214]
@@ -39,7 +41,9 @@ layout_mode = 2
 [node name="QuestDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2016373247]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-text = "Find a way to unlock the door and escape."
+theme_override_fonts/font = ExtResource("1_f838e")
+theme_override_font_sizes/font_size = 20
+text = "Find a way to unlock the door."
 autowrap_mode = 3
 
 [node name="Objectives" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1141960222]
@@ -48,6 +52,7 @@ theme_override_constants/separation = 12
 
 [node name="Objective1" type="CheckBox" parent="MarginContainer/VBoxContainer/Objectives" unique_id=1130186449]
 layout_mode = 2
+tooltip_text = "asd"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -55,7 +60,16 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_colors/icon_normal_color = Color(1, 0, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 0, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 0, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 0, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f838e")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/checkbox_checked_color = Color(1, 0.95686275, 0.85490197, 1)
+theme_override_colors/checkbox_unchecked_color = Color(1, 0, 1, 1)
 disabled = true
 text = "Find the key"
 autowrap_mode = 3
@@ -69,7 +83,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("1_f838e")
+theme_override_font_sizes/font_size = 20
 disabled = true
 text = "Discover the correct access code"
 autowrap_mode = 3
@@ -83,7 +98,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("1_f838e")
+theme_override_font_sizes/font_size = 20
 disabled = true
 text = "Escape the room"
 autowrap_mode = 3

@@ -56,6 +56,10 @@ enum JournalTab {
 @onready var birds_tab: Button = $JournalUI/CenterContainer/JournalBook/TabBar/BirdsTab
 @onready var notes_tab: Button = $JournalUI/CenterContainer/JournalBook/TabBar/NotesTab
 
+@onready var hud: CanvasLayer = get_tree().current_scene.find_child(
+	"HUD", true, false
+)
+
 # --------------------------------------------------
 # DATA
 # --------------------------------------------------
@@ -166,6 +170,9 @@ func _input(event: InputEvent) -> void:
 func open_journal() -> void:
 	if is_open:
 		return
+		
+	if hud:
+		hud.hide()
 
 	is_open = true
 
@@ -186,6 +193,9 @@ func open_journal() -> void:
 func close_journal() -> void:
 	if not is_open:
 		return
+		
+	if hud:
+		hud.show()
 
 	if current_tab == JournalTab.NOTES:
 		save_current_pages()
@@ -237,17 +247,22 @@ func get_active_pages() -> Array[String]:
 	return []
 
 
+
+
 func get_max_spread() -> int:
 	if current_tab == JournalTab.QUESTS:
-		return maxi(
-			0,
-			QuestManager.get_visible_quests().size() - 1
-		)
+		var completed_count: int = QuestManager.get_completed_quests().size()
+
+		# Spread 0 is Main + Active.
+		# Every additional spread contains two completed quests.
+		return ceili(float(completed_count) / 2.0)
 
 	return maxi(
 		0,
 		(get_active_pages().size() - 1) / 2
 	)
+
+
 
 # --------------------------------------------------
 # TAB SWITCHING
@@ -309,33 +324,43 @@ func clear_content(container: Control) -> void:
 
 
 
+
+
 func show_quest_page() -> void:
-	var visible_quests := QuestManager.get_visible_quests()
+	clear_content(left_content)
+	clear_content(right_content)
 
-	if current_spread >= visible_quests.size():
-		return
+	var completed_quests: Array[String] = QuestManager.get_completed_quests()
 
-	var quest_id: String = visible_quests[current_spread]
+	if current_spread == 0:
+		# Page 1: Main Quest (always visible).
+		add_quest_to_page("main", left_content)
 
-	if not quest_scene_lookup.has(quest_id):
-		push_warning("Missing quest scene: " + quest_id)
-		return
+		# Page 2: Current active side quest.
+		var active_quest: String = QuestManager.get_active_quest()
 
-	var scene: PackedScene = quest_scene_lookup[quest_id]
-	var quest_page := scene.instantiate() as Control
+		if active_quest != "" and active_quest != "main":
+			if not QuestManager.is_quest_completed(active_quest):
+				add_quest_to_page(active_quest, right_content)
 
-	if quest_page == null:
-		push_error("Quest scene root must be a Control.")
-		return
+	else:
+		# Pages 3 onward: Completed quests.
+		var first_index: int = (current_spread - 1) * 2
+		var second_index: int = first_index + 1
 
-	left_content.add_child(quest_page)
+		if first_index < completed_quests.size():
+			add_quest_to_page(
+				completed_quests[first_index],
+				left_content
+			)
 
-	quest_page.custom_minimum_size = Vector2.ZERO
-	quest_page.set_anchors_and_offsets_preset(
-		Control.PRESET_FULL_RECT
-	)
+		if second_index < completed_quests.size():
+			add_quest_to_page(
+				completed_quests[second_index],
+				right_content
+			)
 
-	update_quest_checkboxes(quest_page, quest_id)
+
 
 func update_quest_checkboxes(
 	quest_page: Control,
@@ -669,6 +694,29 @@ func _on_quest_progress_changed() -> void:
 
 	tab_spreads[current_tab] = current_spread
 	update_pages()
+	
+	
+	
+
+func add_quest_to_page(
+	quest_id: String,
+	container: Control
+) -> void:
+	if not quest_scene_lookup.has(quest_id):
+		push_warning("No quest scene found for: " + quest_id)
+		return
+
+	var quest_scene: PackedScene = quest_scene_lookup[quest_id]
+	var quest_page: Control = quest_scene.instantiate()
+
+	container.add_child(quest_page)
+
+	quest_page.set_anchors_and_offsets_preset(
+		Control.PRESET_FULL_RECT
+	)
+
+	update_quest_checkboxes(quest_page, quest_id)
+	
 # --------------------------------------------------
 # CLEANUP
 # --------------------------------------------------

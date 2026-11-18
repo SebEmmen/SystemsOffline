@@ -7,10 +7,10 @@ signal quest_completed(quest_id: String)
 signal progress_changed
 
 const QUEST_ORDER: Array[String] = [
-	"tutorial",
-	"communications",
-	"elevator",
 	"main",
+	"tutorial",
+	"elevator",
+	"communications"
 ]
 
 const QUESTS := {
@@ -157,6 +157,7 @@ func is_quest_unlocked(quest_id: String) -> bool:
 		"tutorial":
 			return (
 				has_event("tutorial_keypad_locked")
+				or has_event("tutorial_key_found")
 				or has_event("tutorial_key_used")
 			)
 
@@ -285,6 +286,18 @@ func get_quest_title(quest_id: String) -> String:
 		return ""
 
 	return str(QUESTS[quest_id]["title"])
+
+func get_completed_quests() -> Array[String]:
+	var completed: Array[String] = []
+
+	for quest_id in QUEST_ORDER:
+		if quest_id == "main":
+			continue
+
+		if is_quest_completed(quest_id):
+			completed.append(quest_id)
+
+	return completed
 
 
 # --------------------------------------------------
