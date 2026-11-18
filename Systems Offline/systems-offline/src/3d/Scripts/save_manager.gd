@@ -6,6 +6,8 @@ const SETTINGS_FILE = "user://settings.json"
 const INTRO_CUTSCENE = "res://src/2d/Assets/Cutscenes/Intro_Cutscene.tscn"
 const DEFAULT_FOV := 75.0
 
+
+signal puzzle_completed(id: String)
 var return_scene: String = ""
 
 #region Multitool Progress
@@ -304,6 +306,7 @@ func complete_puzzle(id: String) -> void:
 	var p := _puzzle(id)
 	p["completed"] = true
 	p["cover_removed"] = false
+	puzzle_completed.emit(id)
 
 func is_cover_removed(id: String) -> bool:
 	return _puzzle(id)["cover_removed"]

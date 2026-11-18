@@ -149,7 +149,9 @@ func _return_to_start(delta: float) -> void:
 # ---------------------------------------------------------------- Snapping & Connecting
 
 func _try_connect_both() -> bool:
-	var sockets := get_tree().get_nodes_in_group("wire_sockets")
+	var sockets := get_tree().get_nodes_in_group("wire_sockets").filter(
+		func(n): return n.get_viewport() == get_viewport()
+	)
 	print("--- Trying to connect bridge ---")
 	print("Total sockets found in group 'wire_sockets': ", sockets.size())
 	

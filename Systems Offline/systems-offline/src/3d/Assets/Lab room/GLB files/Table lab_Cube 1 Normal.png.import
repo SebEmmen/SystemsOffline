@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cxojbwj0obps1"
+=======
+uid="uid://do5tntq4pvngu"
+>>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path.s3tc="res://.godot/imported/Table lab_Cube 1 Normal.png-189b0058996cf5a8f961bfb4a4d8240a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
