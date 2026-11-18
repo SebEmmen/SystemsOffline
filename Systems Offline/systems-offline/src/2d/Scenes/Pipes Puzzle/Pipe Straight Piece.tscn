@@ -1,21 +1,9 @@
 [gd_scene format=3 uid="uid://c7dqhylthjves"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aai2c"]
-albedo_color = Color(0.021434637, 0.021434635, 0.021434633, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ojbw0"]
-material = SubResource("StandardMaterial3D_aai2c")
-size = Vector3(6, 6, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
 size = Vector3(6, 1, 1)
 
 [node name="PipeStraightPiece" type="Node2D" unique_id=945145954]
-
-[node name="Box" type="MeshInstance2D" parent="." unique_id=1178778044]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(1, 1, 1, 0.101960786)
-mesh = SubResource("BoxMesh_ojbw0")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1367273705]
 modulate = Color(0.6536918, 0.32718137, 0.028338712, 1)

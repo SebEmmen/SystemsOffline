@@ -2,18 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
 uid="uid://cqk33fqcwomr1"
-=======
-uid="uid://c1yeo00wrlb3"
->>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path.s3tc="res://.godot/imported/2 small cages 1 long cage_Cube_1.png-6a400a3f153a7dbc272b65c5c2c0a14a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "95dd32394287d8f1bcff98ce476674d6"
 }
 
 [deps]

@@ -1,21 +1,9 @@
 [gd_scene format=3 uid="uid://2qre301ur6hl"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0pn3"]
-albedo_color = Color(0.021434637, 0.021434635, 0.021434633, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vsneb"]
-material = SubResource("StandardMaterial3D_r0pn3")
-size = Vector3(6, 6, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_pwxd0"]
 size = Vector3(1, 3.5, 1)
 
 [node name="PipeTPiece" type="Node2D" unique_id=1774526586]
-
-[node name="Box" type="MeshInstance2D" parent="." unique_id=1263319946]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(1, 1, 1, 0.101960786)
-mesh = SubResource("BoxMesh_vsneb")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=79836820]
 modulate = Color(0.654902, 0.3254902, 0.02745098, 1)

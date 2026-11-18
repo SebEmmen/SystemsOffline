@@ -3,11 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-<<<<<<< HEAD
 uid="uid://bj6su6v22ic7a"
-=======
-uid="uid://dqfvc0syhcn8n"
->>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path="res://.godot/imported/3 small cages.glb-a2dec62e0c61e8bfce742eb57dc2efe9.scn"
 
 [deps]
@@ -46,4 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
-gltf/texture_map_mode=1
+gltf/texture_map_mode=0
