@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://deddn01t1uemy"
+=======
 uid="uid://dr3fphdd8jh6i"
+>>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path.s3tc="res://.godot/imported/1 long cage_Cube_3.png-1bf783d44d7a212c55eac85f659c4c9d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],

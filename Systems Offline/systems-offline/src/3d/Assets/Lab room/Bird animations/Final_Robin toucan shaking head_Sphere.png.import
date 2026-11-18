@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://cvjb3hp6lopc7"
+=======
 uid="uid://bh4pfvhxpryi6"
+>>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path.s3tc="res://.godot/imported/Final_Robin toucan shaking head_Sphere.png-082a3bca2fb201cb66b92b52efcbc463.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],

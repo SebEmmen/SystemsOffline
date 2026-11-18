@@ -3,7 +3,11 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
+<<<<<<< HEAD
+uid="uid://dm3pkglr28acy"
+=======
 uid="uid://gvrywccl0pyp"
+>>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path="res://.godot/imported/1 small cage.glb-e0ad20e6e9983c34e9b8228c7d6b6ed0.scn"
 
 [deps]
