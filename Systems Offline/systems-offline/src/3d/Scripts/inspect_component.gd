@@ -381,8 +381,6 @@ func _return_cover() -> void:
 	tween.tween_property(wire_cover, "global_transform", cover_home, 0.6)
 
 func _open_puzzle_viewport() -> void:
-	print("InspectComponent: puzzle completed for id: ", puzzle_id)
-	SaveManager.complete_puzzle(puzzle_id)
 	puzzle_layer = puzzle_overlay_scene.instantiate()
 	puzzle_viewport = puzzle_layer.get_node("SubViewportContainer/SubViewport")
 

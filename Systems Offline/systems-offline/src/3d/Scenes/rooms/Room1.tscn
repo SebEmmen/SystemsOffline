@@ -81,7 +81,6 @@
 [ext_resource type="PackedScene" uid="uid://h1npmkim3ghs" path="res://src/3d/Scenes/objects/Hints/shape_3_triangle.glb" id="72_a016q"]
 [ext_resource type="PackedScene" uid="uid://dy6wacnbxdxid" path="res://src/3d/Scenes/objects/Hints/shape_4_circle.glb" id="73_xm1x8"]
 [ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
-[ext_resource type="PackedScene" uid="uid://phd3hgn0mb1b" path="res://src/3d/Scenes/objects/Multitool/Multitool_Piece_2.tscn" id="79_loyml"]
 [ext_resource type="Shader" uid="uid://1iof5c6ynfip" path="res://src/3d/Scenes/rooms/Forcefield.gdshader" id="81_loyml"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
@@ -343,28 +342,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5buxd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lghuq"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_slhau"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5buxd"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_5buxd")
+albedo_texture = SubResource("ViewportTexture_lghuq")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_t85fk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_slhau"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_slhau")
+material = SubResource("ORMMaterial3D_5buxd")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wlapk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_t85fk"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_o48g7"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_wlapk"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_wlapk")
+albedo_texture = SubResource("ViewportTexture_t85fk")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_58ftc"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_o48g7"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_o48g7")
+material = SubResource("ORMMaterial3D_wlapk")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -439,7 +438,7 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7jok6"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_58ftc"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -940,10 +939,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_t85fk")
+mesh = SubResource("PlaneMesh_slhau")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_58ftc")
+mesh = SubResource("PlaneMesh_o48g7")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1208,11 +1207,6 @@ surface_material_override/0 = null
 [node name="eye left" parent="CommsRoom/Final_Multitoolcase body/Multitool/Eye piece 2" parent_id_path=PackedInt32Array(754739194, 51961434, 1195316989) index="0" unique_id=782421204]
 surface_material_override/0 = null
 
-[node name="Eye piece 2" parent="CommsRoom" unique_id=1195316989 instance=ExtResource("79_loyml")]
-
-[node name="eye left" parent="CommsRoom/Eye piece 2" index="0" unique_id=782421204]
-surface_material_override/0 = null
-
 [node name="ScreenLayout1" parent="CommsRoom" unique_id=616831271 instance=ExtResource("1_loyml")]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -8.799044, 2.6181636, -46.046516)
 
@@ -1222,10 +1216,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_7jok6")
+surface_material_override/0 = SubResource("ORMMaterial3D_58ftc")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_7jok6")
+surface_material_override/0 = SubResource("ORMMaterial3D_58ftc")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
@@ -1348,7 +1342,6 @@ push_force = 4.0
 [editable path="CommsRoom/Final_Multitoolcase body/Multitool/Eye piece 2"]
 [editable path="CommsRoom/Final_Multitoolcase body/Multitool/MULTITOOL MAIN BODY2"]
 [editable path="CommsRoom/Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
-[editable path="CommsRoom/Eye piece 2"]
 [editable path="CommsRoom/ScreenLayout1"]
 [editable path="CommsRoom/ScreenLayout1/MonitorScreen"]
 [editable path="Elevator Room/Elevator 1st floor"]
