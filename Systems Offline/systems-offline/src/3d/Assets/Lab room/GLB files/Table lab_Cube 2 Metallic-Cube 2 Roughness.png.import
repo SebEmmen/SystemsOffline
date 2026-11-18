@@ -2,18 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dkt1j1m6icb7b"
-=======
 uid="uid://bbhqo057jya4m"
->>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path.s3tc="res://.godot/imported/Table lab_Cube 2 Metallic-Cube 2 Roughness.png-127cf776989d2b4afe6e62c7f5601f7f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "2cb2628ebf02fe7b12bdbffc9bba182a"
 }
 
 [deps]

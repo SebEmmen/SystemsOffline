@@ -3,11 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-<<<<<<< HEAD
-uid="uid://kc1axvntplmv"
-=======
 uid="uid://bvac3fcdi5ulx"
->>>>>>> 27e0b04017aa1616776f98a123cbaab33cb12d14
 path="res://.godot/imported/Table bend lab.glb-e22973d83e5e14927110da1b36c5f54d.scn"
 
 [deps]
@@ -46,4 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
-gltf/texture_map_mode=1
+gltf/texture_map_mode=0
