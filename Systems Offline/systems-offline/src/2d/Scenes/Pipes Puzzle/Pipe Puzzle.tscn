@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://c64xwfavsdwda"]
+
+[ext_resource type="Script" uid="uid://c1uva1awekwvg" path="res://src/2d/Scenes/Pipes Puzzle/pipe_puzzle.gd" id="1_uqhre"]
+[ext_resource type="PackedScene" uid="uid://cyntumlcbxd8l" path="res://src/2d/Scenes/Pipes Puzzle/Pipe L Piece.tscn" id="1_xqowi"]
+[ext_resource type="PackedScene" uid="uid://c7dqhylthjves" path="res://src/2d/Scenes/Pipes Puzzle/Pipe Straight Piece.tscn" id="3_6x1jc"]
+[ext_resource type="PackedScene" uid="uid://2qre301ur6hl" path="res://src/2d/Scenes/Pipes Puzzle/Pipe T Piece.tscn" id="3_xqowi"]
+[ext_resource type="PackedScene" uid="uid://5d3o1uo4jj5l" path="res://src/2d/Scenes/Pipes Puzzle/Pipe L IN.tscn" id="4_e1fnf"]
+[ext_resource type="PackedScene" uid="uid://bgpegv8vkqoj0" path="res://src/2d/Scenes/Pipes Puzzle/Pipe Straight OUT.tscn" id="5_n5tsk"]
+[ext_resource type="PackedScene" uid="uid://pufrxbq3p1sr" path="res://src/2d/Scenes/Pipes Puzzle/Pipe L OUT.tscn" id="6_ac2ka"]
+[ext_resource type="PackedScene" uid="uid://d8w2qpntwulk" path="res://src/2d/Scenes/Pipes Puzzle/Button.tscn" id="7_ac2ka"]
+
+[node name="PipePuzzle" type="Node2D" unique_id=541455530]
+script = ExtResource("1_uqhre")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1519619358]
+position = Vector2(12, 9)
+zoom = Vector2(15, 15)
+
+[node name="IN" parent="." unique_id=953753292 instance=ExtResource("4_e1fnf")]
+position = Vector2(3, 3)
+rotation = -3.1415925
+
+[node name="OUT" parent="." unique_id=608212737 instance=ExtResource("5_n5tsk")]
+position = Vector2(3, 15)
+
+[node name="OUT2" parent="." unique_id=823480251 instance=ExtResource("6_ac2ka")]
+position = Vector2(9, 3)
+
+[node name="OUT3" parent="." unique_id=227951679 instance=ExtResource("6_ac2ka")]
+position = Vector2(21, 3)
+rotation = 1.5707964
+
+[node name="Piece 1" parent="." unique_id=682802054 instance=ExtResource("1_xqowi")]
+position = Vector2(3, 9)
+
+[node name="Piece 2" parent="." unique_id=1774526586 instance=ExtResource("3_xqowi")]
+position = Vector2(9, 9)
+rotation = -3.1415925
+
+[node name="Piece 3" parent="." unique_id=188538084 instance=ExtResource("3_xqowi")]
+position = Vector2(15, 9)
+rotation = -1.5707964
+
+[node name="Piece 4" parent="." unique_id=1520964670 instance=ExtResource("1_xqowi")]
+position = Vector2(15, 3)
+rotation = -3.1415925
+
+[node name="Piece 5" parent="." unique_id=945145954 instance=ExtResource("3_6x1jc")]
+position = Vector2(21, 9)
+rotation = 1.5707964
+
+[node name="Piece 6" parent="." unique_id=1269415316 instance=ExtResource("1_xqowi")]
+position = Vector2(9, 15)
+rotation = 4.712389
+
+[node name="Piece 7" parent="." unique_id=49904528 instance=ExtResource("1_xqowi")]
+position = Vector2(15, 15)
+
+[node name="Piece 8" parent="." unique_id=178534371 instance=ExtResource("1_xqowi")]
+position = Vector2(21, 15)
+rotation = -1.5707964
+
+[node name="Button" parent="." unique_id=1658159085 instance=ExtResource("7_ac2ka")]
+position = Vector2(2, 21)
+
+[node name="Button" type="Button" parent="Button" unique_id=315238096]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Button2" parent="." unique_id=865012201 instance=ExtResource("7_ac2ka")]
+position = Vector2(7, 21)
+
+[node name="Button" type="Button" parent="Button2" unique_id=1995405416]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Button3" parent="." unique_id=1002205904 instance=ExtResource("7_ac2ka")]
+position = Vector2(12, 21)
+
+[node name="Button" type="Button" parent="Button3" unique_id=1524001732]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Button4" parent="." unique_id=1648606726 instance=ExtResource("7_ac2ka")]
+position = Vector2(17, 21)
+
+[node name="Button" type="Button" parent="Button4" unique_id=1857343311]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Button5" parent="." unique_id=97720461 instance=ExtResource("7_ac2ka")]
+position = Vector2(22, 21)
+
+[node name="Button" type="Button" parent="Button5" unique_id=471721879]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Label" type="Label" parent="." unique_id=747492207]
+offset_top = -3.0000002
+offset_right = 142.0
+offset_bottom = 20.0
+scale = Vector2(0.1, 0.1)
+text = "Moves remaining: "
+
+[connection signal="pressed" from="Button/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2/Button" to="." method="_on_button_pressed2"]
+[connection signal="pressed" from="Button3/Button" to="." method="_on_button_pressed3"]
+[connection signal="pressed" from="Button4/Button" to="." method="_on_button_pressed4"]
+[connection signal="pressed" from="Button5/Button" to="." method="_on_button_pressed5"]
