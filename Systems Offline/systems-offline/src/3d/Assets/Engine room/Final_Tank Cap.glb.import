@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbytmypenqvtm"
-path="res://.godot/imported/Fuel tank 1.glb-046c88b63f70512bbf3e25afed1f081f.scn"
+uid="uid://dvqdi3200jd8k"
+path="res://.godot/imported/Final_Tank Cap.glb-8438b470c7dfb9636b867469609ff335.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Engine room/Fuel tank 1.glb"
-dest_files=["res://.godot/imported/Fuel tank 1.glb-046c88b63f70512bbf3e25afed1f081f.scn"]
+source_file="res://src/3d/Assets/Engine room/Final_Tank Cap.glb"
+dest_files=["res://.godot/imported/Final_Tank Cap.glb-8438b470c7dfb9636b867469609ff335.scn"]
 
 [params]
 
