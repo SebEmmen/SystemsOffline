@@ -351,25 +351,25 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7jok6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_58ftc"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_bmro6"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7jok6"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_7jok6")
+albedo_texture = SubResource("ViewportTexture_58ftc")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_usd6p"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_bmro6"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_bmro6")
+material = SubResource("ORMMaterial3D_7jok6")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_rmr3x"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_usd6p"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_vfk7l"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_rmr3x"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_rmr3x")
+material = SubResource("ORMMaterial3D_usd6p")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -444,7 +444,7 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_g6v1v"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vfk7l"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -890,7 +890,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_3q4rn")
 
 [node name="ForcefieldHum" type="AudioStreamPlayer3D" parent="Tutorial Room/EntranceWall/Forcefield" unique_id=193151837]
 stream = ExtResource("55_58ftc")
-volume_db = -5.0
+volume_db = -12.0
 unit_size = 3.0
 pitch_scale = 0.85
 autoplay = true
@@ -972,10 +972,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_usd6p")
+mesh = SubResource("PlaneMesh_bmro6")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_vfk7l")
+mesh = SubResource("PlaneMesh_rmr3x")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1249,10 +1249,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_g6v1v")
+surface_material_override/0 = SubResource("ORMMaterial3D_vfk7l")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_g6v1v")
+surface_material_override/0 = SubResource("ORMMaterial3D_vfk7l")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
