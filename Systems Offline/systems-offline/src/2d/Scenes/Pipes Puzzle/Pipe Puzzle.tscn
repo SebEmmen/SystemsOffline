@@ -1,0 +1,283 @@
+[gd_scene format=3 uid="uid://c64xwfavsdwda"]
+
+[ext_resource type="Script" uid="uid://c1uva1awekwvg" path="res://src/2d/Scenes/Pipes Puzzle/pipe_puzzle.gd" id="1_uqhre"]
+[ext_resource type="PackedScene" uid="uid://cyntumlcbxd8l" path="res://src/2d/Scenes/Pipes Puzzle/Pipe L Piece.tscn" id="1_xqowi"]
+[ext_resource type="PackedScene" uid="uid://c7dqhylthjves" path="res://src/2d/Scenes/Pipes Puzzle/Pipe Straight Piece.tscn" id="3_6x1jc"]
+[ext_resource type="PackedScene" uid="uid://2qre301ur6hl" path="res://src/2d/Scenes/Pipes Puzzle/Pipe T Piece.tscn" id="3_xqowi"]
+[ext_resource type="PackedScene" uid="uid://5d3o1uo4jj5l" path="res://src/2d/Scenes/Pipes Puzzle/Pipe L IN.tscn" id="4_e1fnf"]
+[ext_resource type="Script" uid="uid://d0uuwt8622it2" path="res://src/2d/Scenes/Pipes Puzzle/slot.gd" id="4_xw0hn"]
+[ext_resource type="PackedScene" uid="uid://bgpegv8vkqoj0" path="res://src/2d/Scenes/Pipes Puzzle/Pipe Straight OUT.tscn" id="5_n5tsk"]
+[ext_resource type="Script" uid="uid://dwtxq6tycyiwh" path="res://src/2d/Scenes/Pipes Puzzle/piece.gd" id="5_r78jv"]
+[ext_resource type="PackedScene" uid="uid://pufrxbq3p1sr" path="res://src/2d/Scenes/Pipes Puzzle/Pipe L OUT.tscn" id="6_ac2ka"]
+[ext_resource type="PackedScene" uid="uid://d8w2qpntwulk" path="res://src/2d/Scenes/Pipes Puzzle/Button.tscn" id="7_ac2ka"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtgt0"]
+albedo_color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_etwsj"]
+material = SubResource("StandardMaterial3D_wtgt0")
+size = Vector3(6, 6, 1)
+
+[node name="PipePuzzle" type="Node2D" unique_id=541455530]
+script = ExtResource("1_uqhre")
+
+[node name="Home Markers" type="Node2D" parent="." unique_id=1907878117]
+
+[node name="Marker2D" type="Marker2D" parent="Home Markers" unique_id=224185222]
+position = Vector2(-11, 3)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 2" parent="Home Markers/Marker2D" unique_id=1774526586 instance=ExtResource("3_xqowi")]
+position = Vector2(20, 6)
+rotation = 1.5707964
+script = ExtResource("5_r78jv")
+
+[node name="Marker2D2" type="Marker2D" parent="Home Markers" unique_id=1447361231]
+position = Vector2(-18, 9)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 6" parent="Home Markers/Marker2D2" unique_id=188385728 instance=ExtResource("3_6x1jc")]
+position = Vector2(-22, 3)
+script = ExtResource("5_r78jv")
+
+[node name="Marker2D3" type="Marker2D" parent="Home Markers" unique_id=810514823]
+position = Vector2(-9, 11)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 8" parent="Home Markers/Marker2D3" unique_id=178534371 instance=ExtResource("1_xqowi")]
+position = Vector2(30, 4)
+rotation = -1.5707964
+script = ExtResource("5_r78jv")
+
+[node name="Marker2D4" type="Marker2D" parent="Home Markers" unique_id=1919135982]
+position = Vector2(-15, 18)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 3" parent="Home Markers/Marker2D4" unique_id=188538084 instance=ExtResource("3_xqowi")]
+position = Vector2(30, -9)
+rotation = 1.5707964
+script = ExtResource("5_r78jv")
+
+[node name="Marker2D5" type="Marker2D" parent="Home Markers" unique_id=1176521766]
+position = Vector2(35, 5)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 1" parent="Home Markers/Marker2D5" unique_id=682802054 instance=ExtResource("1_xqowi")]
+position = Vector2(-20, 10)
+rotation = 1.5707964
+script = ExtResource("5_r78jv")
+
+[node name="Marker2D6" type="Marker2D" parent="Home Markers" unique_id=1577221569]
+position = Vector2(37, 12)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 7" parent="Home Markers/Marker2D6" unique_id=49904528 instance=ExtResource("1_xqowi")]
+position = Vector2(-34, -3)
+rotation = 1.5707964
+script = ExtResource("5_r78jv")
+
+[node name="Marker2D7" type="Marker2D" parent="Home Markers" unique_id=783809411]
+position = Vector2(34, 19)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 4" parent="Home Markers/Marker2D7" unique_id=1520964670 instance=ExtResource("1_xqowi")]
+position = Vector2(-19, -16)
+rotation = -1.5707964
+script = ExtResource("5_r78jv")
+
+[node name="Marker2D8" type="Marker2D" parent="Home Markers" unique_id=428462722]
+position = Vector2(43, 6)
+script = ExtResource("4_xw0hn")
+
+[node name="Piece 5" parent="Home Markers/Marker2D8" unique_id=945145954 instance=ExtResource("3_6x1jc")]
+position = Vector2(-22, 3)
+script = ExtResource("5_r78jv")
+
+[node name="Grid 1x2" type="Node2D" parent="." unique_id=701723124]
+position = Vector2(3, 9)
+
+[node name="Marker2D" type="Marker2D" parent="Grid 1x2" unique_id=721899815]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 1x2/Marker2D" unique_id=1009514062]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Label" type="Label" parent="Grid 1x2" unique_id=660218429]
+offset_left = -3.5
+offset_top = 2.0
+offset_right = 10.5
+offset_bottom = 24.333334
+rotation = -0.9833192
+scale = Vector2(0.1, 0.1)
+text = "⤹"
+
+[node name="Grid 2x2" type="Node2D" parent="." unique_id=998869554]
+position = Vector2(9, 9)
+
+[node name="Marker2D" type="Marker2D" parent="Grid 2x2" unique_id=1010993573]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 2x2/Marker2D" unique_id=846455316]
+modulate = Color(0, 0, 0.73333335, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Grid 2x3" type="Node2D" parent="." unique_id=22581872]
+position = Vector2(9, 15)
+
+[node name="Label" type="Label" parent="Grid 2x3" unique_id=445892044]
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 13.0
+offset_bottom = 25.333334
+rotation = 2.3561945
+scale = Vector2(0.1, 0.1)
+text = "⤸"
+
+[node name="Marker2D" type="Marker2D" parent="Grid 2x3" unique_id=2060114788]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 2x3/Marker2D" unique_id=2026309216]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Grid 3x1" type="Node2D" parent="." unique_id=533782701]
+position = Vector2(15, 3)
+
+[node name="Marker2D" type="Marker2D" parent="Grid 3x1" unique_id=1092766738]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 3x1/Marker2D" unique_id=53826564]
+modulate = Color(0, 0, 0.73333335, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Grid 3x2" type="Node2D" parent="." unique_id=399314379]
+position = Vector2(15, 9)
+
+[node name="Marker2D" type="Marker2D" parent="Grid 3x2" unique_id=2016023547]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 3x2/Marker2D" unique_id=2011629435]
+modulate = Color(0, 0, 0.73333335, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Grid 3x3" type="Node2D" parent="." unique_id=1283977630]
+position = Vector2(15, 15)
+
+[node name="Marker2D" type="Marker2D" parent="Grid 3x3" unique_id=801624214]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 3x3/Marker2D" unique_id=714489407]
+modulate = Color(0, 0, 0.73333335, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Grid 4x2" type="Node2D" parent="." unique_id=601557009]
+position = Vector2(21, 9)
+
+[node name="Marker2D" type="Marker2D" parent="Grid 4x2" unique_id=1984798632]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 4x2/Marker2D" unique_id=232977896]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Label2" type="Label" parent="Grid 4x2" unique_id=2080712774]
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 13.0
+offset_bottom = 25.333334
+rotation = 2.3561945
+scale = Vector2(0.1, 0.1)
+text = "⤸"
+
+[node name="Grid 4x3" type="Node2D" parent="." unique_id=184553560]
+position = Vector2(21, 15)
+
+[node name="Label" type="Label" parent="Grid 4x3" unique_id=616104123]
+offset_left = -3.5
+offset_top = 2.0
+offset_right = 10.5
+offset_bottom = 24.333334
+rotation = -0.9833192
+scale = Vector2(0.1, 0.1)
+text = "⤹"
+
+[node name="Marker2D" type="Marker2D" parent="Grid 4x3" unique_id=1915687673]
+script = ExtResource("4_xw0hn")
+
+[node name="Box" type="MeshInstance2D" parent="Grid 4x3/Marker2D" unique_id=329015996]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1519619358]
+position = Vector2(12, 9)
+zoom = Vector2(15, 15)
+
+[node name="IN" parent="." unique_id=953753292 instance=ExtResource("4_e1fnf")]
+position = Vector2(3, 3)
+rotation = -3.1415925
+
+[node name="OUT" parent="." unique_id=608212737 instance=ExtResource("5_n5tsk")]
+position = Vector2(3, 15)
+
+[node name="OUT2" parent="." unique_id=823480251 instance=ExtResource("6_ac2ka")]
+position = Vector2(9, 3)
+
+[node name="OUT3" parent="." unique_id=227951679 instance=ExtResource("6_ac2ka")]
+position = Vector2(21, 3)
+rotation = 1.5707964
+
+[node name="Button2" parent="." unique_id=865012201 instance=ExtResource("7_ac2ka")]
+position = Vector2(8, 21)
+
+[node name="Button" type="Button" parent="Button2" unique_id=1995405416]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Label" type="Label" parent="Button2" unique_id=415270141]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 15.0
+offset_bottom = 23.333334
+rotation = 2.3561945
+scale = Vector2(0.1, 0.1)
+text = "⤸"
+
+[node name="Button3" parent="." unique_id=1002205904 instance=ExtResource("7_ac2ka")]
+position = Vector2(16, 21)
+
+[node name="Button" type="Button" parent="Button3" unique_id=1524001732]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Label" type="Label" parent="Button3" unique_id=1250989059]
+offset_left = -1.5
+offset_right = 12.5
+offset_bottom = 22.333334
+rotation = -0.9833192
+scale = Vector2(0.1, 0.1)
+text = "⤹"
+
+[node name="Label" type="Label" parent="." unique_id=747492207]
+offset_top = -3.0000002
+offset_right = 142.0
+offset_bottom = 20.0
+scale = Vector2(0.1, 0.1)
+text = "Moves remaining: "
+
+[connection signal="pressed" from="Button2/Button" to="." method="_on_button_pressed2"]
+[connection signal="pressed" from="Button3/Button" to="." method="_on_button_pressed3"]
