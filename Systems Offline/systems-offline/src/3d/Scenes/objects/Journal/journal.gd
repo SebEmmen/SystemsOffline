@@ -143,6 +143,7 @@ func _ready() -> void:
 	style_handwriting(right_text)
 
 	update_tab_content()
+	
 
 
 # --------------------------------------------------
@@ -170,7 +171,7 @@ func _input(event: InputEvent) -> void:
 func open_journal() -> void:
 	if is_open:
 		return
-		
+
 	if hud:
 		hud.hide()
 
@@ -184,11 +185,15 @@ func open_journal() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
 
+	# Open the Quests tab when there are unread updates.
+	if QuestManager.has_unread_quests():
+		current_tab = JournalTab.QUESTS
+		current_spread = 0
+
 	update_tab_content()
 
 	left_text.release_focus()
 	right_text.release_focus()
-
 
 func close_journal() -> void:
 	if not is_open:
@@ -361,6 +366,29 @@ func show_quest_page() -> void:
 			)
 
 
+func mark_visible_quests_read() -> void:
+	if current_tab != JournalTab.QUESTS:
+		return
+
+	if current_spread == 0:
+		# Main quest is displayed on the left page.
+		QuestManager.mark_quest_read("main")
+
+		# Active quest is displayed on the right page.
+		var active_quest: String = QuestManager.get_active_quest()
+
+		if active_quest != "" and active_quest != "main":
+			QuestManager.mark_quest_read(active_quest)
+
+	else:
+		# Completed quests appear on later spreads.
+		var completed_quests: Array[String] = QuestManager.get_completed_quests()
+		var first_index: int = (current_spread - 1) * 2
+
+		for i in range(first_index, mini(first_index + 2, completed_quests.size())):
+			QuestManager.mark_quest_read(completed_quests[i])
+
+
 
 func update_quest_checkboxes(
 	quest_page: Control,
@@ -419,6 +447,9 @@ func update_pages() -> void:
 		right_content.visible = true
 
 		show_quest_page()
+		
+		if is_open:
+			mark_visible_quests_read()
 
 		left_number.text = str(current_spread * 2 + 1)
 		right_number.text = str(current_spread * 2 + 2)

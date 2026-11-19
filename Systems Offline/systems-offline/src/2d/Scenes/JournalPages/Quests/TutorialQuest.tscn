@@ -13,6 +13,7 @@ mouse_filter = 2
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1164358294]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.094000004
 anchor_top = 0.072000004
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -86,7 +87,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_f838e")
 theme_override_font_sizes/font_size = 20
 disabled = true
-text = "Discover the correct access code"
+text = "Unlock the door"
 autowrap_mode = 3
 
 [node name="Objective3" type="CheckBox" parent="MarginContainer/VBoxContainer/Objectives" unique_id=1366608655]

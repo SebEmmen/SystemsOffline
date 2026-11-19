@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dlim1triykghc"]
+
+[ext_resource type="Script" uid="uid://d2p8hrp3wl7rs" path="res://src/3d/Scenes/objects/Journal/journal_notification.gd" id="1_c5kbb"]
+[ext_resource type="Texture2D" uid="uid://crhmyrobc5sag" path="res://src/2d/Assets/Journal/Notification/journal_icon.svg" id="2_jyr4r"]
+[ext_resource type="AudioStream" uid="uid://ctdlakthwgrbo" path="res://src/2d/Assets/Journal/Notification/freesound-community-pencil-write-73431_04SQi824.mp3" id="3_c5kbb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cg0m"]
+bg_color = Color(0.9098039, 0.22352941, 0.27450982, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="JournalNotification" type="Control" unique_id=1336883950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_c5kbb")
+
+[node name="JournalIcon" type="TextureRect" parent="." unique_id=14808152]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -96.0
+offset_right = -20.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_jyr4r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NotificationDot" type="Panel" parent="JournalIcon" unique_id=467019735]
+custom_minimum_size = Vector2(14, 14)
+custom_maximum_size = Vector2(14, 14)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1cg0m")
+
+[node name="ShortcutLabel" type="Label" parent="JournalIcon" unique_id=79363924]
+custom_minimum_size = Vector2(52.21, 23.325)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 2.0
+offset_top = -13.999989
+offset_right = 58.0
+offset_bottom = 9.325012
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "J"
+horizontal_alignment = 1
+
+[node name="PencilSound" type="AudioStreamPlayer" parent="." unique_id=1647537389]
+stream = ExtResource("3_c5kbb")
+volume_db = 5.0

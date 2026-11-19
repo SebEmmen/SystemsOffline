@@ -5,6 +5,8 @@ signal objective_completed(quest_id: String, objective_id: String)
 signal quest_unlocked(quest_id: String)
 signal quest_completed(quest_id: String)
 signal progress_changed
+signal journal_update(quest_id: String)
+signal unread_changed
 
 const QUEST_ORDER: Array[String] = [
 	"main",
@@ -71,6 +73,7 @@ const OBJECTIVE_ORDER := {
 }
 
 var completed_events: Dictionary = {}
+var unread_quests: Dictionary = {}
 var progress_dirty: bool = false
 
 
@@ -84,13 +87,18 @@ func _ready() -> void:
 
 func reset_progress() -> void:
 	completed_events.clear()
+	unread_quests.clear()
 	progress_dirty = false
+
+	unread_changed.emit()
 	progress_changed.emit()
 
 
 # --------------------------------------------------
 # RECORD GAMEPLAY EVENTS
 # --------------------------------------------------
+
+
 
 func record_event(event_id: String) -> void:
 	if event_id.is_empty():
@@ -99,20 +107,31 @@ func record_event(event_id: String) -> void:
 	if completed_events.has(event_id):
 		return
 
-	# Remember the previous state before changing anything.
-	var previous_unlocked := {}
-	var previous_completed := {}
+	# Remember quest states before recording the event.
+	var previous_unlocked: Dictionary = {}
+	var previous_completed: Dictionary = {}
+	var previous_visible: Dictionary = {}
 
 	for quest_id in QUEST_ORDER:
 		previous_unlocked[quest_id] = is_quest_unlocked(quest_id)
 		previous_completed[quest_id] = is_quest_completed(quest_id)
 
+		for objective_id in get_objective_ids(quest_id):
+			var key: String = quest_id + ":" + objective_id
+
+			previous_visible[key] = is_objective_visible(
+				quest_id,
+				objective_id
+			)
+
+	# Record the gameplay event.
 	completed_events[event_id] = true
 	progress_dirty = true
 
 	print("Quest event recorded: ", event_id)
 
-	# Notify about newly completed objectives.
+	# Emit signals for completed objectives.
+	# These do NOT trigger Journal notifications.
 	for quest_id in QUEST_ORDER:
 		if not is_quest_unlocked(quest_id):
 			continue
@@ -126,20 +145,102 @@ func record_event(event_id: String) -> void:
 					str(objective_id)
 				)
 
-	# Notify about newly completed quests.
+	# Emit signals for completed quests.
+	# These do NOT directly trigger Journal notifications.
 	for quest_id in QUEST_ORDER:
-		if not previous_completed[quest_id] \
+		if not bool(previous_completed[quest_id]) \
 		and is_quest_completed(quest_id):
 			quest_completed.emit(quest_id)
 
-	# Notify about newly unlocked quests.
+	# Emit signals for newly unlocked quests.
 	for quest_id in QUEST_ORDER:
-		if not previous_unlocked[quest_id] \
+		if not bool(previous_unlocked[quest_id]) \
 		and is_quest_unlocked(quest_id):
 			quest_unlocked.emit(quest_id)
 
+	# ----------------------------------------------
+	# DETECT NEW QUESTS AND OBJECTIVES
+	# ----------------------------------------------
+
+	for quest_id in QUEST_ORDER:
+		var has_new_task: bool = false
+
+		# A new quest became available.
+		if not bool(previous_unlocked[quest_id]) \
+		and is_quest_unlocked(quest_id):
+			has_new_task = true
+
+		# A previously hidden objective became visible.
+		if is_quest_unlocked(quest_id):
+			for objective_id in get_objective_ids(quest_id):
+				var key: String = quest_id + ":" + objective_id
+
+				var newly_visible: bool = (
+					not bool(previous_visible[key])
+					and is_objective_visible(
+						quest_id,
+						objective_id
+					)
+				)
+
+				if newly_visible:
+					has_new_task = true
+
+		# Notify once per quest, even if multiple
+		# objectives became visible simultaneously.
+		if has_new_task:
+			mark_quest_unread(quest_id)
+
+	# Refresh the Journal and other quest UI.
 	progress_changed.emit()
 
+# --------------------------------------------------
+# JOURNAL NOTIFICATIONS
+# --------------------------------------------------
+
+
+func mark_quest_unread(quest_id: String) -> void:
+	if not QUESTS.has(quest_id):
+		return
+
+	print("[JOURNAL DEBUG] Marking unread: ", quest_id)
+	print("[JOURNAL DEBUG] Called from:")
+	print_stack()
+
+	unread_quests[quest_id] = true
+	progress_dirty = true
+
+	unread_changed.emit()
+	journal_update.emit(quest_id)
+
+
+
+func mark_quest_read(quest_id: String) -> void:
+	if not unread_quests.has(quest_id):
+		return
+
+	unread_quests.erase(quest_id)
+	progress_dirty = true
+
+	unread_changed.emit()
+
+
+func is_quest_unread(quest_id: String) -> bool:
+	return unread_quests.has(quest_id)
+
+
+func has_unread_quests() -> bool:
+	return not unread_quests.is_empty()
+
+
+func get_unread_quests() -> Array[String]:
+	var result: Array[String] = []
+
+	for quest_id in QUEST_ORDER:
+		if unread_quests.has(quest_id):
+			result.append(quest_id)
+
+	return result
 
 func has_event(event_id: String) -> bool:
 	return completed_events.has(event_id)
@@ -221,6 +322,7 @@ func is_objective_completed(
 
 
 
+
 func is_objective_visible(
 	quest_id: String,
 	objective_id: String
@@ -236,14 +338,15 @@ func is_objective_visible(
 			return true
 
 		"discover_code":
-			# Only appears after inspecting the exposed keypad.
-			return has_event("tutorial_keypad_inspected_open")
+			# Unlock the Door appears after finding the key.
+			return has_event("tutorial_key_found")
 
 		"escape":
-			# Only appears after entering the correct code.
+			# Escape the Room appears after discovering the code.
 			return has_event("tutorial_code_discovered")
 
 	return false
+
 
 
 
@@ -304,14 +407,17 @@ func get_completed_quests() -> Array[String]:
 # SAVE / LOAD
 # --------------------------------------------------
 
+
 func get_save_data() -> Dictionary:
 	return {
-		"completed_events": completed_events.duplicate(true)
+		"completed_events": completed_events.duplicate(true),
+		"unread_quests": get_unread_quests()
 	}
 
 
 func load_save_data(data: Dictionary) -> void:
 	completed_events.clear()
+	unread_quests.clear()
 
 	var events = data.get("completed_events", {})
 
@@ -320,5 +426,16 @@ func load_save_data(data: Dictionary) -> void:
 			if events[event_id] == true:
 				completed_events[str(event_id)] = true
 
+	var saved_unread = data.get("unread_quests", [])
+
+	if saved_unread is Array:
+		for quest_id in saved_unread:
+			var id := str(quest_id)
+
+			if QUESTS.has(id):
+				unread_quests[id] = true
+
 	progress_dirty = false
+
+	unread_changed.emit()
 	progress_changed.emit()

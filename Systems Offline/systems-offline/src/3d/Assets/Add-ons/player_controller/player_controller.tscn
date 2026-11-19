@@ -42,7 +42,7 @@ target_position = Vector3(0, -1.5, 0)
 script = ExtResource("2_1ae3g")
 
 [node name="Arms" parent="Head/Camera3D" unique_id=791901379 instance=ExtResource("3_j2wtt")]
-transform = Transform3D(4.34834, 0.67354685, -2.3745048, -2.1545672, 3.3824415, -2.9861217, 1.204066, 3.6201406, 3.2318416, 2.160874, -2.2994924, 0.826943)
+transform = Transform3D(4.34834, 0.67354685, -2.3745048, -2.1545672, 3.3824415, -2.9861217, 1.204066, 3.6201406, 3.2318416, 2.160874, -2.2994924, 0.8269431)
 script = null
 
 [node name="MultitoolHolder" type="Node3D" parent="Head/Camera3D" unique_id=1661896159 node_paths=PackedStringArray("upgrades")]
@@ -68,4 +68,5 @@ unique_name_in_owner = true
 target_position = Vector3(0, -0.75, 0)
 
 [editable path="Head/Camera3D/MultitoolHolder/Multitool"]
+[editable path="Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
 [editable path="Head/Camera3D/MultitoolHolder/Multitool/MULTITOOL MAIN BODY2"]

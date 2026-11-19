@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://btyjo73dd2bn8"]
 
+[ext_resource type="FontFile" uid="uid://cfiwv5py05a5i" path="res://src/2d/Assets/Journal/Font/Caveat-Regular.ttf" id="1_vh05y"]
+
 [node name="QuestPage" type="Control" unique_id=789337243]
 custom_minimum_size = Vector2(360, 460)
 layout_mode = 3
@@ -10,11 +12,13 @@ mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=746807853]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 66.0
 offset_top = 58.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
@@ -27,7 +31,8 @@ theme_override_constants/separation = 15
 [node name="QuestTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1558276728]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("1_vh05y")
+theme_override_font_sizes/font_size = 26
 text = "Fix the elevator "
 autowrap_mode = 3
 
@@ -37,7 +42,8 @@ layout_mode = 2
 [node name="QuestDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=462854080]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_fonts/font = ExtResource("1_vh05y")
+theme_override_font_sizes/font_size = 20
 text = "Solve the elevator puzzle and continue through the ship."
 autowrap_mode = 3
 
@@ -49,7 +55,8 @@ theme_override_constants/separation = 12
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
 theme_override_colors/font_disabled_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("1_vh05y")
+theme_override_font_sizes/font_size = 20
 disabled = true
 text = "Turn on elevator power "
 autowrap_mode = 3
@@ -58,7 +65,8 @@ autowrap_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
 theme_override_colors/font_disabled_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("1_vh05y")
+theme_override_font_sizes/font_size = 20
 disabled = true
 text = "Grab the multitool"
 autowrap_mode = 3
@@ -67,7 +75,8 @@ autowrap_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
 theme_override_colors/font_disabled_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("1_vh05y")
+theme_override_font_sizes/font_size = 20
 disabled = true
 text = "Rewire the elevator
 "
