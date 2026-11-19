@@ -73,4 +73,4 @@ horizontal_alignment = 1
 
 [node name="PencilSound" type="AudioStreamPlayer" parent="." unique_id=1647537389]
 stream = ExtResource("3_c5kbb")
-volume_db = 5.0
+volume_db = 10.0
