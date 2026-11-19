@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://h5m45rb1xd1k"]
 
-[ext_resource type="Material" uid="uid://bohr3l1u6qq1r" path="res://src/3d/Materials/crate lid.tres" id="1_v6a12"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r5iys"]
-size = Vector3(0.4, 0.4, 0.05)
+[ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="1_4a3u1"]
 
 [node name="HintObject" type="Node3D" unique_id=1149939097]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=122089137]
-material_override = ExtResource("1_v6a12")
-mesh = SubResource("BoxMesh_r5iys")
+[node name="Crate" parent="." unique_id=158196895 instance=ExtResource("1_4a3u1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.025, 0, 0, 0)
