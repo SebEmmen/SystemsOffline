@@ -101,7 +101,7 @@ script = ExtResource("14_h3ctr")
 notification_ui = NodePath("../NotificationUI")
 
 [node name="Elevator 1st floor" parent="." unique_id=1746680253 instance=ExtResource("15_pexpj")]
-transform = Transform3D(-8.742277e-08, 0, 1.9999999, 0, 2, 0, -1.9999999, 0, -8.742277e-08, -6.3405285, 3.283022, 4.3619614)
+transform = Transform3D(-8.742277e-08, 0, 1.9999999, 0, 2, 0, -1.9999999, 0, -8.742277e-08, -6.3405285, 3.0986886, 4.3619614)
 
 [editable path="HUD"]
 [editable path="UI_Manger/PauseMenu"]
