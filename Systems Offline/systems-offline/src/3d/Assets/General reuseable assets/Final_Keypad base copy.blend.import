@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d3ykjewlopv24"
-path="res://.godot/imported/Final_Keypad base copy.blend-4fbba97d1aee0e3d39bcc1b26c18999f.scn"
+valid=false
 
 [deps]
 
 source_file="res://src/3d/Assets/General reuseable assets/Final_Keypad base copy.blend"
-dest_files=["res://.godot/imported/Final_Keypad base copy.blend-4fbba97d1aee0e3d39bcc1b26c18999f.scn"]
 
 [params]
 

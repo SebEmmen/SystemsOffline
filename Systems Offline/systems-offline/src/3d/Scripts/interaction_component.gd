@@ -47,6 +47,12 @@ var array_audio_player: AudioStreamPlayer3D
 @export var array_sounds: Array[AudioStream] = []
 #endregion
 
+#region Quest Variables
+@export_group("Quest Progress")
+@export var quest_event_id: String = ""
+#endregion
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_audio_players()
@@ -101,22 +107,56 @@ func random_array_se() -> void:
 		
 #endregion
 
+
+
 func interact() -> void:
 	match interaction_type:
 		InteractionType.PICKUP:
+			if not can_interact:
+				return
+
+			print("=== PICKUP DEBUG ===")
+			print("Object: ", object_ref.name)
+			print("Quest event ID: '", quest_event_id, "'")
+
 			if is_multitool_key:
-				SaveManager.complete_multitool_part("pickup_multitool_key")
-			object_ref.visible = false 
+				SaveManager.complete_multitool_part(
+					"pickup_multitool_key"
+				)
+
+			object_ref.visible = false
 			play_primary_se()
-			print("Object has been picked up!")
+
 			Notification.show_pickup_notification(item_data)
 			Inventory.add_item(item_data)
+
+			if not quest_event_id.is_empty():
+				print("Sending quest event: ", quest_event_id)
+
+				QuestManager.record_event(quest_event_id)
+
+				print(
+					"Tutorial key objective completed: ",
+					QuestManager.is_objective_completed(
+						"tutorial",
+						"find_key"
+					)
+				)
+			else:
+				push_warning(
+					"Pickup has no Quest Event ID: " +
+					object_ref.name
+				)
+
+			can_interact = false
 			queue_free()
-			
+
 		InteractionType.INSPECT:
 			pass
+
 		InteractionType.UNLOCKABLE:
 			pass
+
 
 func transition(from: Camera3D, target: Camera3D) -> void:
 	if is_transitioning:

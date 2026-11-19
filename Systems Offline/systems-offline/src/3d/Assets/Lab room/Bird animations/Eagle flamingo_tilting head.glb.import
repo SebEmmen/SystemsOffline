@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://hushhu3s1whm"
-path="res://.godot/imported/Final_bird opening beak.glb-531d6d860d5926b2e7d978e4bd48c7f7.scn"
+uid="uid://dkqk06754nrf6"
+path="res://.godot/imported/Eagle flamingo_tilting head.glb-b1d46521e8a903c14aaff8af23694cd9.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Lab room/Final_bird opening beak.glb"
-dest_files=["res://.godot/imported/Final_bird opening beak.glb-531d6d860d5926b2e7d978e4bd48c7f7.scn"]
+source_file="res://src/3d/Assets/Lab room/Bird animations/Eagle flamingo_tilting head.glb"
+dest_files=["res://.godot/imported/Eagle flamingo_tilting head.glb-b1d46521e8a903c14aaff8af23694cd9.scn"]
 
 [params]
 

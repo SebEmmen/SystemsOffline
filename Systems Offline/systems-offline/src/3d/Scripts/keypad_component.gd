@@ -52,18 +52,24 @@ func ready_button_keypad() -> void:
 	update_screen()
 	update_led()
 
+
 func enter_button_keypad() -> void:
 	if not can_interact or is_interacting or is_transitioning:
 		return
 
-	# prevent player from moving if they can open 
-	is_interacting = !is_interacting
+	is_interacting = true
+
 	player.disable_controls()
-	# Transition into keypad view
 	player.hide_player()
+
 	if keypad_collision:
 		keypad_collision.disabled = true
+
+	# Transition into keypad view.
 	await transition(player_camera, keypad_camera)
+
+	# The player has successfully inspected the exposed keypad.
+	QuestManager.record_event("tutorial_keypad_inspected_open")
 
 
 func exit_button_keypad() -> void:
@@ -135,6 +141,9 @@ func check_code() -> void:
 
 	if entered_code == correct_code:
 		SaveManager.tutorial_puzzle_completed = true
+		
+		# Correct access code successfully entered.
+		QuestManager.record_event("tutorial_code_discovered")
 		print(SaveManager.tutorial_puzzle_completed)
 		fixed = true
 		can_interact = false
@@ -146,7 +155,6 @@ func check_code() -> void:
 		sliding_door.unlock_door()
 		flash_enter()
 
-		sliding_door.locked = false
 		update_led()
 
 		if connected_wire != null:

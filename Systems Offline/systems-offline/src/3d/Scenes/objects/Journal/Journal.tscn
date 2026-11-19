@@ -1,0 +1,488 @@
+[gd_scene format=3 uid="uid://doii310bxjkrj"]
+
+[ext_resource type="Texture2D" uid="uid://c0d6vl2wj8jch" path="res://src/2d/Assets/Journal/book@1x.png" id="1_6ogxm"]
+[ext_resource type="Shader" uid="uid://ct2x65nsi6uae" path="res://src/3d/Scenes/objects/Journal/Journal.gdshader" id="1_mla7l"]
+[ext_resource type="FontFile" uid="uid://cfiwv5py05a5i" path="res://src/2d/Assets/Journal/Font/Caveat-Regular.ttf" id="2_ifuti"]
+[ext_resource type="Texture2D" uid="uid://bcfbod8fh0u05" path="res://src/2d/Assets/Journal/corner@1x.png" id="3_mla7l"]
+[ext_resource type="Texture2D" uid="uid://c0kuc2uba4cis" path="res://src/2d/Assets/Journal/leaf@1x.png" id="4_1dqnb"]
+[ext_resource type="Texture2D" uid="uid://b07c0qboyegle" path="res://src/2d/Assets/Journal/Tabs/bookmark-ribbon-7792_256.png" id="5_6lr3l"]
+[ext_resource type="Texture2D" uid="uid://c1afedk4yptre" path="res://src/2d/Assets/Journal/button-focused@1x.png" id="5_mla7l"]
+[ext_resource type="Shader" uid="uid://c4777ibi6ea53" path="res://src/3d/Scenes/objects/Journal/JournalTabShader.gdshader" id="6_1dqnb"]
+[ext_resource type="Texture2D" uid="uid://cw15f2ri0rxaj" path="res://src/2d/Assets/Journal/Tabs/bookmark-ribbon-7792_128(2).png" id="6_8n6vt"]
+[ext_resource type="Texture2D" uid="uid://ba3bf7per2boc" path="res://src/2d/Assets/Journal/Tabs/bookmark-ribbon-7792_128(1).png" id="6_fr47y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cdc8"]
+shader = ExtResource("1_mla7l")
+shader_parameter/age_strength = 0.2800000133
+shader_parameter/edge_darkness = 0.2000000095
+shader_parameter/grain_strength = 0.02800000133
+shader_parameter/stain_strength = 0.1200000057
+shader_parameter/paper_tint = Color(0.88853556, 0.78786504, 0.59933704, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ogxm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifuti"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lr3l"]
+shader = ExtResource("6_1dqnb")
+shader_parameter/bottom_color = Color(0.34901962, 0.2, 0.12156863, 0)
+shader_parameter/cutoff = 0.9410000446975
+shader_parameter/age_strength = 0.35
+shader_parameter/grain_strength = 0.035
+shader_parameter/paper_tint = Color(0.82, 0.7, 0.48, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qexs2"]
+texture = ExtResource("5_6lr3l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n6vt"]
+texture = ExtResource("6_8n6vt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fr47y"]
+texture = ExtResource("6_fr47y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fr47y"]
+shader = ExtResource("6_1dqnb")
+shader_parameter/bottom_color = Color(0.34901962, 0.2, 0.12156863, 0)
+shader_parameter/cutoff = 0.9410000446975
+shader_parameter/age_strength = 0.35
+shader_parameter/grain_strength = 0.035
+shader_parameter/paper_tint = Color(0.82, 0.7, 0.48, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8n6vt"]
+shader = ExtResource("6_1dqnb")
+shader_parameter/bottom_color = Color(0.34901962, 0.2, 0.12156863, 0)
+shader_parameter/cutoff = 0.9410000446975
+shader_parameter/age_strength = 0.35
+shader_parameter/grain_strength = 0.035
+shader_parameter/paper_tint = Color(0.82, 0.7, 0.48, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dqnb"]
+shader = ExtResource("1_mla7l")
+shader_parameter/age_strength = 0.35
+shader_parameter/edge_darkness = 0.25
+shader_parameter/grain_strength = 0.035
+shader_parameter/stain_strength = 0.15
+shader_parameter/paper_tint = Color(0.82, 0.7, 0.48, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3cdc8"]
+load_path = "res://.godot/imported/button-normal@1x.png-71b4a84baefba3f69920da686b12d616.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p7qmb"]
+texture = SubResource("CompressedTexture2D_3cdc8")
+region_rect = Rect2(232, 0, 67, 60)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mla7l"]
+load_path = "res://.godot/imported/button-pressed@1x.png-5cb9c8e9086db0c83ec85b0b7cf3e6cc.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bu4hd"]
+texture = SubResource("CompressedTexture2D_mla7l")
+region_rect = Rect2(232, 0, 67, 60)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1dqnb"]
+load_path = "res://.godot/imported/button-hover@1x.png-4de85fc3b5e6ab05436aa5773be986ee.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lx4h4"]
+texture = SubResource("CompressedTexture2D_1dqnb")
+region_rect = Rect2(232, 0, 67, 60)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66d8h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ogxm"]
+texture = ExtResource("5_mla7l")
+region_rect = Rect2(232, 0, 67, 60)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mla7l"]
+shader = ExtResource("1_mla7l")
+shader_parameter/age_strength = 0.35
+shader_parameter/edge_darkness = 0.25
+shader_parameter/grain_strength = 0.035
+shader_parameter/stain_strength = 0.3330000158175
+shader_parameter/paper_tint = Color(0.82, 0.7, 0.48, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lr3l"]
+load_path = "res://.godot/imported/button-normal@1x.png-71b4a84baefba3f69920da686b12d616.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55dgl"]
+texture = SubResource("CompressedTexture2D_6lr3l")
+region_rect = Rect2(0, 0, 64, 60)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fr47y"]
+load_path = "res://.godot/imported/button-pressed@1x.png-5cb9c8e9086db0c83ec85b0b7cf3e6cc.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb0og"]
+texture = SubResource("CompressedTexture2D_fr47y")
+region_rect = Rect2(0, 0, 95, 60)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8n6vt"]
+load_path = "res://.godot/imported/button-hover@1x.png-4de85fc3b5e6ab05436aa5773be986ee.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b8pxm"]
+texture = SubResource("CompressedTexture2D_8n6vt")
+region_rect = Rect2(0, 0, 95, 60)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fr47y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55dgl"]
+load_path = "res://.godot/imported/button-focused@1x.png-085620bb55f40c5e6fb80c7a42a71426.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66d8h"]
+texture = SubResource("CompressedTexture2D_55dgl")
+region_rect = Rect2(0, 0, 95, 60)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n6vt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55dgl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb0og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8pxm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apwlm"]
+
+[node name="Journal" type="CanvasLayer" unique_id=459650727]
+
+[node name="JournalUI" type="Control" parent="." unique_id=1009998209]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkOverlay" type="ColorRect" parent="JournalUI" unique_id=329182836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -171.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="CenterContainer" type="CenterContainer" parent="JournalUI" unique_id=2102386975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JournalBook" type="Control" parent="JournalUI/CenterContainer" unique_id=2094716893]
+custom_minimum_size = Vector2(900, 700)
+layout_mode = 2
+
+[node name="BookBackground" type="TextureRect" parent="JournalUI/CenterContainer/JournalBook" unique_id=1000652597]
+material = SubResource("ShaderMaterial_3cdc8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -144.0
+offset_right = 16.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6ogxm")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="LeftPage" type="Control" parent="JournalUI/CenterContainer/JournalBook" unique_id=1565833277]
+layout_mode = 1
+anchors_preset = 0
+offset_left = -4.0
+offset_top = 98.0
+offset_right = 411.0
+offset_bottom = 568.0
+
+[node name="LeftText" type="TextEdit" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=1269541245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = 47.0
+offset_right = -3.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6039216)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ogxm")
+placeholder_text = "Day 1
+
+I don't remember much about the crash.
+
+One moment everything was fine. The next, alarms were screaming and the entire ship was shaking.
+
+When I woke up, the emergency lights were on. Most of the systems were offline.
+
+There's a forest outside the windows. I have no idea where we landed.
+
+First priority: restore power.
+
+Second priority: figure out where the hell we are."
+wrap_mode = 1
+
+[node name="LeftContent" type="Control" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=1939686592]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftNumber" type="Label" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=9492085]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -37.0
+offset_right = 70.0
+offset_bottom = 4.0
+grow_vertical = 0
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="TextureRect" type="TextureRect" parent="JournalUI/CenterContainer/JournalBook/LeftPage" unique_id=123859316]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = 6.0
+offset_right = 154.0
+offset_bottom = 111.0
+texture = ExtResource("3_mla7l")
+stretch_mode = 4
+
+[node name="RightPage" type="Control" parent="JournalUI/CenterContainer/JournalBook" unique_id=1521362810]
+layout_mode = 1
+anchor_left = 0.568
+anchor_top = 0.19500001
+anchor_right = 0.93700004
+anchor_bottom = 0.813
+offset_left = -33.200012
+offset_top = 34.5
+offset_right = 62.69995
+offset_bottom = -2.1000366
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(1.81, 0)
+offset_transform_enabled = true
+
+[node name="RightText" type="TextEdit" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1357708288]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.20700002
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -76.97201
+offset_right = 373.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/caret_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.28627452, 0.20784314, 0.14901961, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6039216)
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ifuti")
+placeholder_text = "Day 2
+
+The communications room is locked.
+
+I found several strange symbols scattered around the ship. Some of them look familiar, but I can't remember why.
+
+The electrical wiring is damaged. I might be able to reconnect it if I find the right tools.
+
+Things to investigate:
+
+- The locked communications room
+- The damaged wiring
+- The strange symbols
+- The emergency power system
+
+I also keep hearing something outside.
+
+Probably just the wind."
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="RightContent" type="Control" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=625530555]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -73.0
+offset_right = -35.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightNumber" type="Label" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1438618076]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 353.0
+offset_right = 403.0
+offset_bottom = 394.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 32
+text = "2"
+
+[node name="TextureRect" type="TextureRect" parent="JournalUI/CenterContainer/JournalBook/RightPage" unique_id=1323114976]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 343.0
+offset_right = 89.0
+offset_bottom = 443.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1dqnb")
+
+[node name="TabBar" type="HBoxContainer" parent="JournalUI/CenterContainer/JournalBook" unique_id=489125082]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.54200006
+anchor_bottom = 0.18200001
+offset_left = 25.904999
+offset_top = 57.29
+offset_right = 381.19995
+offset_bottom = -18.190094
+
+[node name="QuestsTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=873989641]
+material = SubResource("ShaderMaterial_6lr3l")
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Quest"
+expand_icon = true
+
+[node name="DiaryTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=660232925]
+material = SubResource("ShaderMaterial_fr47y")
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Diary"
+
+[node name="Spacer" type="Control" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=868614464]
+custom_minimum_size = Vector2(93.59, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BirdsTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=551320776]
+material = SubResource("ShaderMaterial_8n6vt")
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Birds"
+
+[node name="NotesTab" type="Button" parent="JournalUI/CenterContainer/JournalBook/TabBar" unique_id=1693645295]
+material = SubResource("ShaderMaterial_8n6vt")
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.9098039, 0.79607844, 1)
+theme_override_colors/font_focus_color = Color(0.9999992, 0.80314183, 0.26605538, 1)
+theme_override_colors/font_pressed_color = Color(0.22106346, 0.100367405, 0.008837973, 1)
+theme_override_colors/font_hover_color = Color(0.6708283, 0.40201396, 0.043001257, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21960784, 0.101960786, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_qexs2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8n6vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fr47y")
+toggle_mode = true
+text = "Notes"
+
+[node name="NextButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=1504181040]
+material = SubResource("ShaderMaterial_1dqnb")
+layout_mode = 0
+offset_left = 887.0
+offset_top = 327.0
+offset_right = 942.0
+offset_bottom = 372.53506
+theme_override_colors/font_color = Color(0.7254902, 0.44705883, 0.30588236, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_p7qmb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bu4hd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lx4h4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_66d8h")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6ogxm")
+
+[node name="PreviousButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=2060427271]
+material = SubResource("ShaderMaterial_mla7l")
+layout_mode = 0
+offset_left = -23.0
+offset_top = 330.0
+offset_right = 23.0
+offset_bottom = 375.53506
+theme_override_colors/font_color = Color(0.7254902, 0.44705883, 0.30588236, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_55dgl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rb0og")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b8pxm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fr47y")
+theme_override_styles/focus = SubResource("StyleBoxTexture_66d8h")
+
+[node name="CloseButton" type="Button" parent="JournalUI/CenterContainer/JournalBook" unique_id=885106023]
+layout_mode = 0
+offset_left = 829.0
+offset_top = 111.0
+offset_right = 875.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.39215687, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.39215687, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.39215687, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.39215687, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ifuti")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8n6vt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_55dgl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rb0og")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b8pxm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_apwlm")
+text = "X"
