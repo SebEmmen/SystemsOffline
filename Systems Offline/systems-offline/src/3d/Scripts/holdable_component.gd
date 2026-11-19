@@ -19,42 +19,58 @@ func _ready() -> void:
 		original_collision_layer = object_ref.collision_layer
 		original_collision_mask = object_ref.collision_mask
 
+
 func interact() -> void:
 	if is_held:
 		return
-		
-	play_primary_se()
-	
-	# Turn OFF the glow effect the moment it's picked up
-	set_object_glow(false)
-	
+
 	active_player = get_tree().get_first_node_in_group("player")
+
 	if not active_player:
-		printerr("HoldableInteractableComponent: No node found in 'player' group!")
+		printerr(
+			"HoldableInteractableComponent: Player not found!"
+		)
 		return
-		
+
 	if "hand_marker" in active_player and active_player.hand_marker:
 		active_hand_marker = active_player.hand_marker
 	else:
-		printerr("HoldableInteractableComponent: ProtoController is missing its hand_marker export reference!")
+		printerr(
+			"HoldableInteractableComponent: Hand marker missing!"
+		)
 		return
 
 	if "current_held_item" in active_player:
 		if active_player.current_held_item and active_player.current_held_item != self:
 			active_player.current_held_item.drop_item()
+
 		active_player.current_held_item = self
 
-	var current_parent = object_ref.get_parent()
-	if current_parent:
-		current_parent.remove_child(object_ref)
-		
-	active_hand_marker.add_child(object_ref)
-	
+	# Move the object into the player's hand.
+	object_ref.reparent(active_hand_marker)
+
 	reset_position()
 	disable_physics()
+
 	is_held = true
+
+	# Remove the glow.
+	set_object_glow(false)
+
+	play_primary_se()
+
 	Notification.show_pickup_notification(object_ref.item_data)
+
 	print("Successfully picked up item!")
+
+	# ----------------------------------------------
+	# QUEST PROGRESS
+	# ----------------------------------------------
+
+	if not quest_event_id.is_empty():
+		print("Holdable quest event: ", quest_event_id)
+
+		QuestManager.record_event(quest_event_id)
 
 func drop_item() -> void:
 	if not is_held:
@@ -113,9 +129,15 @@ func drop_item() -> void:
 		set_object_glow(true)
 			
 	is_held = false
+	
+	if active_player and "current_held_item" in active_player:
+		if active_player.current_held_item == self:
+			active_player.current_held_item = null
+	
 	active_player = null
 	active_hand_marker = null
 	Notification.show_pickup_notification(object_ref.item_data)
+	print("Item dropped with emission glow active!")
 
 # Helper function to apply or remove the emissive glow material override on meshes
 func set_object_glow(glowing: bool) -> void:

@@ -324,20 +324,52 @@ func _player_in_area() -> bool:
 
 #region Cover Functions
 
+
 func ready_cover() -> void:
+	# Prevent keypad interaction until the cover is unlocked.
 	keypad.can_interact = false
 
 	if not key:
+		push_error("Tutorial cover: Key reference is missing!")
 		return
 
-	if SaveManager.tutorial_puzzle_completed:
-		# Puzzle solved: key is already hanging on the hanger
+	# Restore the cover if the tutorial key was already used.
+	if QuestManager.has_event("tutorial_cover_unlocked"):
+
+		# Restore the opened cover rotations.
+		pivot_left.rotation.z = deg_to_rad(160.0)
+		pivot_right.rotation.z = deg_to_rad(-160.0)
+
+		# Disable collision so the keypad is accessible.
+		cover_body.collision_layer = 0
+		cover_body.collision_mask = 0
+
+		# Position the key on its hanger.
 		key.global_transform = key_hanger_target.global_transform
 		key.show()
+
+		# Restore interaction state.
 		locked = false
+		open = true
+		is_interacting = false
 		can_interact = false
+
+		# Only allow keypad interaction if the code isn't solved.
+		keypad.can_interact = not keypad.fixed
+
 	else:
+		# The cover is still locked.
 		key.hide()
+
+		locked = true
+		open = false
+		is_interacting = false
+		can_interact = true
+
+		# Restore original cover collision.
+		cover_body.collision_layer = original_collision_layer
+		cover_body.collision_mask = original_collision_mask
+
 
 
 func open_cover() -> void:
@@ -347,16 +379,22 @@ func open_cover() -> void:
 		return
 
 
-	if locked and not player.get_held_item_id() == "tutorial_key":
-		Notification.say("It's locked... Maybe I can find a key somewhere.")
+	if locked and player.get_held_item_id() != "tutorial_key":
+		QuestManager.record_event("tutorial_keypad_locked")
+
+		Notification.say(
+			"It's locked... Maybe I can find a key somewhere."
+		)
+
 		random_sound_selector()
 		return
 	
-	player.delete_held_item()
 	if not key or not key_start or not key_insert \
 	or not key_turn or not key_hanger_target:
 		push_error("Key cinematic references are missing!")
 		return
+
+	player.delete_held_item()
 
 	is_interacting = true
 	can_interact = false
@@ -407,6 +445,12 @@ func open_cover() -> void:
 	cover_body.set_deferred("collision_layer", 0)
 	cover_body.set_deferred("collision_mask", 0)
 
+	# Successfully using the key unlocks the Tutorial Quest.
+	QuestManager.record_event("tutorial_key_used")
+
+	# The cover is now unlocked.
+	QuestManager.record_event("tutorial_cover_unlocked")
+
 	# 5. Fly key to hanger
 	await fly_key_to_hanger()
 
@@ -420,6 +464,8 @@ func open_cover() -> void:
 	can_interact = true
 	keypad.can_interact = not keypad.fixed
 	player.enable_controls()
+	
+	
 
 
 
