@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bptr6q2ewxbod"
-path="res://.godot/imported/Boiler.glb-f37697a2c67ef03750345b242ed5cbe3.scn"
+uid="uid://dvqdi3200jd8k"
+path="res://.godot/imported/Final_Tank Cap.glb-8438b470c7dfb9636b867469609ff335.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Engine room/Boiler.glb"
-dest_files=["res://.godot/imported/Boiler.glb-f37697a2c67ef03750345b242ed5cbe3.scn"]
+source_file="res://src/3d/Assets/Engine room/Final_Tank Cap.glb"
+dest_files=["res://.godot/imported/Final_Tank Cap.glb-8438b470c7dfb9636b867469609ff335.scn"]
 
 [params]
 

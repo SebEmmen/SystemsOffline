@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://5d3o1uo4jj5l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtgt0"]
+albedo_color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_etwsj"]
+material = SubResource("StandardMaterial3D_wtgt0")
+size = Vector3(6, 6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pb1q4"]
+size = Vector3(1, 3.5, 1)
+
+[node name="PipeLIn" type="Node2D" unique_id=953753292]
+
+[node name="Box" type="MeshInstance2D" parent="." unique_id=1567940015]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_etwsj")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1135165870]
+modulate = Color(0.3259459, 0.47508126, 0.0082722325, 1)
+position = Vector2(0, -1.25)
+mesh = SubResource("BoxMesh_pb1q4")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=1576038300]
+modulate = Color(0.3254902, 0.4745098, 0.007843138, 1)
+position = Vector2(1.25, 0)
+rotation = 1.5707964
+mesh = SubResource("BoxMesh_pb1q4")
