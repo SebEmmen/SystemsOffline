@@ -44,11 +44,6 @@ script = ExtResource("5_r78jv")
 position = Vector2(-9, 11)
 script = ExtResource("4_xw0hn")
 
-[node name="Piece 8" parent="Home Markers/Marker2D3" unique_id=178534371 instance=ExtResource("1_xqowi")]
-position = Vector2(30, 4)
-rotation = -1.5707964
-script = ExtResource("5_r78jv")
-
 [node name="Marker2D4" type="Marker2D" parent="Home Markers" unique_id=1919135982]
 position = Vector2(-15, 18)
 script = ExtResource("4_xw0hn")
@@ -155,17 +150,6 @@ modulate = Color(0, 0, 0.73333335, 1)
 self_modulate = Color(1, 1, 1, 0.101960786)
 mesh = SubResource("BoxMesh_etwsj")
 
-[node name="Grid 3x2" type="Node2D" parent="." unique_id=399314379]
-position = Vector2(15, 9)
-
-[node name="Marker2D" type="Marker2D" parent="Grid 3x2" unique_id=2016023547]
-script = ExtResource("4_xw0hn")
-
-[node name="Box" type="MeshInstance2D" parent="Grid 3x2/Marker2D" unique_id=2011629435]
-modulate = Color(0, 0, 0.73333335, 1)
-self_modulate = Color(1, 1, 1, 0.101960786)
-mesh = SubResource("BoxMesh_etwsj")
-
 [node name="Grid 3x3" type="Node2D" parent="." unique_id=1283977630]
 position = Vector2(15, 15)
 
@@ -225,6 +209,16 @@ zoom = Vector2(15, 15)
 position = Vector2(3, 3)
 rotation = -3.1415925
 
+[node name="StuckPiece" parent="." unique_id=1407598243 instance=ExtResource("4_e1fnf")]
+position = Vector2(15, 9)
+rotation = -1.5707964
+
+[node name="MeshInstance2D" parent="StuckPiece" index="1" unique_id=1135165870]
+modulate = Color(0.21372765, 0.07589585, 0.007620686, 1)
+
+[node name="MeshInstance2D2" parent="StuckPiece" index="2" unique_id=1576038300]
+modulate = Color(0.21568628, 0.07450981, 0.007843138, 1)
+
 [node name="OUT" parent="." unique_id=608212737 instance=ExtResource("5_n5tsk")]
 position = Vector2(3, 15)
 
@@ -245,7 +239,9 @@ offset_right = 7.0
 offset_bottom = 7.0
 scale = Vector2(0.4479999, 0.466518)
 
-[node name="Label" type="Label" parent="Button2" unique_id=415270141]
+[node name="Marker2D" type="Marker2D" parent="Button2" unique_id=1528334336]
+
+[node name="Label" type="Label" parent="Button2/Marker2D" unique_id=415270141]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 15.0
@@ -264,7 +260,9 @@ offset_right = 7.0
 offset_bottom = 7.0
 scale = Vector2(0.4479999, 0.466518)
 
-[node name="Label" type="Label" parent="Button3" unique_id=1250989059]
+[node name="Marker2D" type="Marker2D" parent="Button3" unique_id=1833720863]
+
+[node name="Label" type="Label" parent="Button3/Marker2D" unique_id=1250989059]
 offset_left = -1.5
 offset_right = 12.5
 offset_bottom = 22.333334
@@ -279,5 +277,26 @@ offset_bottom = 20.0
 scale = Vector2(0.1, 0.1)
 text = "Moves remaining: "
 
+[node name="Reset" parent="." unique_id=1658159085 instance=ExtResource("7_ac2ka")]
+position = Vector2(2, 21)
+
+[node name="Button" type="Button" parent="Reset" unique_id=1344147072]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 7.0
+scale = Vector2(0.4479999, 0.466518)
+
+[node name="Label" type="Label" parent="Reset" unique_id=2083567769]
+offset_left = -0.9999998
+offset_top = -0.99999994
+offset_right = 42.0
+offset_bottom = 22.0
+scale = Vector2(0.05, 0.05)
+text = "Reset"
+
 [connection signal="pressed" from="Button2/Button" to="." method="_on_button_pressed2"]
 [connection signal="pressed" from="Button3/Button" to="." method="_on_button_pressed3"]
+[connection signal="pressed" from="Reset/Button" to="." method="_on_reset_button_pressed"]
+
+[editable path="StuckPiece"]
