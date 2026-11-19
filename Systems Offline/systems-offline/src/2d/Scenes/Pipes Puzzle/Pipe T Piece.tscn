@@ -3,7 +3,10 @@
 [sub_resource type="BoxMesh" id="BoxMesh_pwxd0"]
 size = Vector3(1, 3.5, 1)
 
-[node name="PipeTPiece" type="Node2D" unique_id=1774526586]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsneb"]
+size = Vector2(6, 6)
+
+[node name="PipeTPiece" type="Area2D" unique_id=1707354685]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=79836820]
 modulate = Color(0.654902, 0.3254902, 0.02745098, 1)
@@ -21,3 +24,6 @@ modulate = Color(0.654902, 0.3254902, 0.02745098, 1)
 position = Vector2(-1.25, 0)
 rotation = 1.5707964
 mesh = SubResource("BoxMesh_pwxd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=742483458]
+shape = SubResource("RectangleShape2D_vsneb")
