@@ -7,6 +7,8 @@ const SETTINGS_FILE = "user://settings.json"
 const INTRO_CUTSCENE = "res://src/2d/Assets/Cutscenes/Intro_Cutscene.tscn"
 const DEFAULT_FOV := 75.0
 
+
+signal puzzle_completed(id: String)
 var return_scene: String = ""
 
 #region Multitool Progress
@@ -73,6 +75,9 @@ func save_game() -> void:
 		"quest_progress": QuestManager.get_save_data()
 	}
 
+	print("--- [SAVE] Starting save_game() ---")
+	print("[SAVE] Multitool dictionary to save: ", save_data["multitool"])
+
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 
 	if file == null:
@@ -84,7 +89,7 @@ func save_game() -> void:
 
 	QuestManager.progress_dirty = false
 
-	print("Game saved!")
+	print("[SAVE] Game successfully saved to: ", SAVE_PATH)
 
 
 # --------------------------------------------------
@@ -93,7 +98,7 @@ func save_game() -> void:
 
 func load_game() -> void:
 	if not has_save():
-		print("No save file found!")
+		print("[LOAD] No save file found at: ", SAVE_PATH)
 		return
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
@@ -115,10 +120,13 @@ func load_game() -> void:
 
 	save_data = loaded_data
 
-	# Restore existing puzzle progress.
-	tutorial_puzzle_completed = save_data.get(
-		"tutorial_puzzle_completed", false
-	)
+	print("--- [LOAD] Starting load_game() ---")
+	print("[LOAD] Raw loaded multitool data: ", save_data.get("multitool", {}))
+
+	tutorial_puzzle_completed = save_data.get("tutorial_puzzle_completed", false)
+	dial_puzzle_completed = save_data.get("dial_puzzle_completed", false)
+	_puzzles_from_json(save_data.get("puzzles", {}))
+	_multitool_from_json(save_data.get("multitool", {}))
 
 	dial_puzzle_completed = save_data.get(
 		"dial_puzzle_completed", false
@@ -256,6 +264,7 @@ func _multitool_from_json(data: Dictionary) -> void:
 		multitool[id] = {
 			"completed": d.get("completed", false)
 		}
+	print("[PROGRESS] Restored multitool state into memory -> ", multitool)
 
 
 # --------------------------------------------------
@@ -433,6 +442,8 @@ func is_multitool_part_complete(id: String) -> bool:
 func complete_multitool_part(id: String) -> void:
 	var m := _multitool(id)
 	m["completed"] = true
+	print("[PROGRESS] Multitool part marked complete -> ID: ", id)
+#endregion
 
 
 # --------------------------------------------------
@@ -460,6 +471,7 @@ func complete_puzzle(id: String) -> void:
 
 	p["completed"] = true
 	p["cover_removed"] = false
+	puzzle_completed.emit(id)
 
 
 func is_cover_removed(id: String) -> bool:

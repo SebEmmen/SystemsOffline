@@ -1,4 +1,3 @@
-
 extends Node3D
 
 @onready var multitool: Node3D = $Multitool
@@ -11,21 +10,34 @@ var is_equipped: bool = false
 @export_group("Multitool Upgrades")
 @export var upgrades: Array[Node3D]
 @export var upgrades_ids: Array[String]
+@export var upgrade_inputs: Array[StringName] # Input action names per upgrade (e.g., "comm_ability", "scanner_ability")
+
+# Track materials, tweens, and states individually for each upgrade piece
+var upgrade_materials: Array[ShaderMaterial] = []
+var upgrade_tweens: Array[Tween] = []
+var upgrade_active_states: Array[bool] = []
 
 
 func _ready() -> void:
-	#_make_multitool_render_on_top()
 	add_to_group("multitool_equipment")
 
 	# Restore ownership from SaveManager.
 	has_multitool = SaveManager.is_multitool_part_complete(
-        "pickup_multitool"
+		"pickup_multitool"
 	)
 
 	is_equipped = false
 
+	# 1. Setup materials FIRST so upgrade_active_states is populated before checking it
+	_setup_upgrade_materials()
+	
+	# 2. Then update visibility and upgrades
 	_update_visibility()
 	_update_upgrades()
+
+	# Force the first upgrade to be active immediately upon ready if collected
+	if upgrades_ids.size() > 0 and SaveManager.is_multitool_part_complete(upgrades_ids[0]):
+		_set_upgrade_active(0, true)
 
 	# Disable collisions.
 	for node in multitool.find_children(
@@ -36,65 +48,95 @@ func _ready() -> void:
 		collider.collision_mask = 0
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if not event.is_action_pressed("equip_multitool"):
-		return
+func _setup_upgrade_materials() -> void:
+	upgrade_materials.clear()
+	upgrade_tweens.clear()
+	upgrade_active_states.clear()
+	
+	for upgrade in upgrades:
+		upgrade_active_states.append(false)
+		upgrade_tweens.append(null)
+		
+		var mat: ShaderMaterial = null
+		if upgrade is MeshInstance3D:
+			var mesh_inst := upgrade as MeshInstance3D
+			var active_mat = mesh_inst.get_active_material(0)
+			if active_mat is ShaderMaterial:
+				# Duplicate material so each upgrade piece can glow independently
+				mat = active_mat.duplicate() as ShaderMaterial
+				mesh_inst.set_surface_override_material(0, mat)
+		upgrade_materials.append(mat)
 
+
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.echo:
 		return
-
 	if not has_multitool:
 		return
-
 	if not camera.current:
 		return
-
 	if player.get("controls_enabled") != true:
 		return
 
-	# Toggle equipment instantly.
-	is_equipped = not is_equipped
-	_update_visibility()
+	# 1. Handle traditional equip/unequip toggle key
+	if event.is_action_pressed("equip_multitool"):
+		is_equipped = not is_equipped
+		_update_visibility()
+		get_viewport().set_input_as_handled()
+		return
 
-	get_viewport().set_input_as_handled()
+	# 2. Handle individual upgrade inputs
+	for i in range(upgrade_inputs.size()):
+		if i >= upgrades.size():
+			break
+		
+		var action_name = upgrade_inputs[i]
+		
+		# Safely check if the action name is valid and exists in the InputMap first
+		if action_name != &"" and InputMap.has_action(action_name) and event.is_action_pressed(action_name):
+			# If it's the first upgrade (index 0), it is always on—ignore input toggling!
+			if i == 0:
+				get_viewport().set_input_as_handled()
+				break
+			
+			# If the multitool isn't equipped yet, bring it up first!
+			if not is_equipped:
+				is_equipped = true
+				_update_visibility()
+			
+			# Toggle or turn on the glow for other upgrade pieces
+			var new_state = not upgrade_active_states[i] if i < upgrade_active_states.size() else true
+			_set_upgrade_active(i, new_state)
+			
+			get_viewport().set_input_as_handled()
+			break
 
 
-func _make_multitool_render_on_top() -> void:
-	for node in multitool.find_children(
-		"*", "MeshInstance3D", true, false
-	):
-		var mesh_instance := node as MeshInstance3D
-
-		# Handle meshes that already have a material override.
-		if mesh_instance.material_override != null:
-			if mesh_instance.material_override is BaseMaterial3D:
-				var mat := mesh_instance.material_override.duplicate() as BaseMaterial3D
-				mat.no_depth_test = true
-				mat.render_priority = 100
-				mesh_instance.material_override = mat
-			continue
-
-		if mesh_instance.mesh == null:
-			continue
-
-		for surface in range(mesh_instance.mesh.get_surface_count()):
-			var original := mesh_instance.get_active_material(surface)
-
-			if original is BaseMaterial3D:
-				var mat := original.duplicate() as BaseMaterial3D
-
-				# Render in front of walls.
-				mat.no_depth_test = true
-				mat.render_priority = 100
-
-				mesh_instance.set_surface_override_material(
-					surface, mat
-				)
-			elif original is ShaderMaterial:
-				push_warning(
-					"Custom shader needs depth_test_disabled: "
-					+ mesh_instance.name
-				)
+func _set_upgrade_active(index: int, active: bool) -> void:
+	if index < 0 or index >= upgrades.size():
+		return
+		
+	if index < upgrade_active_states.size():
+		upgrade_active_states[index] = active
+		
+	var mat = upgrade_materials[index] if index < upgrade_materials.size() else null
+	
+	if index < upgrade_tweens.size() and upgrade_tweens[index] and upgrade_tweens[index].is_running():
+		upgrade_tweens[index].kill()
+		
+	var target_val = 1.0 if active else 0.0
+	var start_val = float(mat.get_shader_parameter("activation")) if mat != null else 0.0
+	
+	if mat != null:
+		var tw = create_tween()
+		if index < upgrade_tweens.size():
+			upgrade_tweens[index] = tw
+		tw.tween_method(
+			func(val): mat.set_shader_parameter("activation", val),
+			start_val,
+			target_val,
+			0.3 # Duration of light-up fade
+		)
 
 
 func collect_multitool() -> void:
@@ -102,8 +144,7 @@ func collect_multitool() -> void:
 		return
 
 	has_multitool = true
-
-	print("Multitool collected! Press 1 to equip.")
+	print("Multitool collected!")
 
 
 func _process(_delta: float) -> void:
@@ -124,11 +165,18 @@ func _update_visibility() -> void:
 	if player.arm:
 		player.arm.visible = should_show
 
+
 func _update_upgrades() -> void:
-	var i = 0
-	for upgrade in upgrades_ids:
-		if SaveManager.is_multitool_part_complete(upgrade):
+	for i in range(upgrades_ids.size()):
+		if i >= upgrades.size():
+			break
+			
+		var upgrade_id = upgrades_ids[i]
+		if SaveManager.is_multitool_part_complete(upgrade_id):
 			upgrades[i].visible = true
-			if i < 3:
-				i = i+1
-	pass
+			
+			# Ensure any unlocked upgrade activates its glow/state upon loading
+			if i < upgrade_active_states.size() and not upgrade_active_states[i]:
+				_set_upgrade_active(i, true)
+		else:
+			upgrades[i].visible = false

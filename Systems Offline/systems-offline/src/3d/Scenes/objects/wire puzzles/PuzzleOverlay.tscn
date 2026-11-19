@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bc7c5x5egoq0x"]
+
+[ext_resource type="Script" uid="uid://bxnaijtt63euh" path="res://src/3d/Scripts/inspect_component.gd" id="1_eadxo"]
+
+[node name="PuzzleOverlay" type="CanvasLayer" unique_id=91494180]
+layer = 50
+script = ExtResource("1_eadxo")
+inspect_type = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1564125262]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=7173046]
+own_world_3d = true
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(1728, 648)
+render_target_update_mode = 4
