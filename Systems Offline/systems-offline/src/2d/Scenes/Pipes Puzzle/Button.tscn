@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d8w2qpntwulk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ojbw0"]
+radius = 1.5
+height = 3.0
+
+[node name="Button" type="Node2D" unique_id=1658159085]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1135654352]
+modulate = Color(0, 0.5647059, 1, 1)
+mesh = SubResource("SphereMesh_ojbw0")

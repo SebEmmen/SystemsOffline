@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bsvhspvteb7jl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0pn3"]
+albedo_color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3bc08"]
+material = SubResource("StandardMaterial3D_r0pn3")
+size = Vector3(6, 6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6a45d"]
+size = Vector3(1, 3.5, 1)
+
+[node name="PipeXPiece" type="Node2D" unique_id=40571425]
+
+[node name="Box" type="MeshInstance2D" parent="." unique_id=734315506]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_3bc08")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2067278474]
+modulate = Color(0.654902, 0.3254902, 0.02745098, 1)
+position = Vector2(0, -1.25)
+mesh = SubResource("BoxMesh_6a45d")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=597322442]
+modulate = Color(0.654902, 0.3254902, 0.02745098, 1)
+position = Vector2(1.25, 0)
+rotation = 1.5707964
+mesh = SubResource("BoxMesh_6a45d")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="." unique_id=1306240443]
+modulate = Color(0.654902, 0.3254902, 0.02745098, 1)
+position = Vector2(0, 1.25)
+mesh = SubResource("BoxMesh_6a45d")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="." unique_id=1329342550]
+modulate = Color(0.654902, 0.3254902, 0.02745098, 1)
+position = Vector2(-1.25, 0)
+rotation = 1.5707964
+mesh = SubResource("BoxMesh_6a45d")
