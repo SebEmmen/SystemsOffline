@@ -281,7 +281,7 @@ shadow_mesh = SubResource("ArrayMesh_8fcth")
 size = Vector3(0.2, 0.422, 0.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cg0m"]
-size = Vector3(32.53528, 6.6815186, 23.305298)
+size = Vector3(32.53528, 6.6815186, 39.622955)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvdby"]
 resource_name = "Material.003"
@@ -863,11 +863,11 @@ transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-
 transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7778175, 5.841619, 0.0050001144, 6.3599706)
 
 [node name="TutorialArea" type="Area3D" parent="Tutorial Room" unique_id=1818286345]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4455627, 0, 0, -4.2502704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2502704)
 script = ExtResource("53_slhau")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialArea" unique_id=516855087]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9613647, 2.8407593, 0.15362549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9613647, 2.8407593, -0.37364817)
 shape = SubResource("BoxShape3D_1cg0m")
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
