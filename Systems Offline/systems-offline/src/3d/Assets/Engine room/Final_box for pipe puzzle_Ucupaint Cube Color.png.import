@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c770byph64exc"
-path.s3tc="res://.godot/imported/Final_box for pipe puzzle_Ucupaint Cube Color.png-4244d0ffcbd5fd03b583e14476449022.s3tc.ctex"
+uid="uid://bbtb88bxr57v4"
+path="res://.godot/imported/Final_box for pipe puzzle_Ucupaint Cube Color.png-4244d0ffcbd5fd03b583e14476449022.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "03a0e43990749aa473153efc22eb200c"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://src/3d/Assets/Engine room/Final_box for pipe puzzle_Ucupaint Cube Color.png"
-dest_files=["res://.godot/imported/Final_box for pipe puzzle_Ucupaint Cube Color.png-4244d0ffcbd5fd03b583e14476449022.s3tc.ctex"]
+dest_files=["res://.godot/imported/Final_box for pipe puzzle_Ucupaint Cube Color.png-4244d0ffcbd5fd03b583e14476449022.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

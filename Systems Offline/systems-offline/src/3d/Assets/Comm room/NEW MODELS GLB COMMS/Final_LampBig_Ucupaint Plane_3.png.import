@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8ate1xctwbyl"
+uid="uid://dki5cokei4r8j"
 path.s3tc="res://.godot/imported/Final_LampBig_Ucupaint Plane_3.png-7f5ea800c8d0421e9c17acd5869eb56a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "eec3e7c92a10677825ca5ffd7337c115"
 }
 
 [deps]
