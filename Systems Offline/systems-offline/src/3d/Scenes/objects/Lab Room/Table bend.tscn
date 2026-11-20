@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b8k8yc6f86bqp"]
+
+[ext_resource type="PackedScene" uid="uid://bvac3fcdi5ulx" path="res://src/3d/Assets/Lab room/GLB files/Table bend lab.glb" id="1_dnkqt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnkqt"]
+size = Vector3(10.5, 7.5, 38)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(11, 7.5, 30)
+
+[node name="TableBend" type="Node3D" unique_id=172896715]
+
+[node name="Table bend lab" parent="." unique_id=698975415 instance=ExtResource("1_dnkqt")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table bend lab" unique_id=604428986]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table bend lab/StaticBody3D" unique_id=530659853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9307785, 1.4244289)
+shape = SubResource("BoxShape3D_dnkqt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Table bend lab/StaticBody3D" unique_id=900512343]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.937239, 3.9307785, -12.027422)
+shape = SubResource("BoxShape3D_r5iys")
+
+[editable path="Table bend lab"]

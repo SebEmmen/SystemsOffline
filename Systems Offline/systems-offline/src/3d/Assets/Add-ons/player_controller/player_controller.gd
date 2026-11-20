@@ -297,8 +297,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		velocity.z = 0
-
-	if primary_audio_player.playing and (velocity.x == 0 and velocity.z == 0):
+	if primary_audio_player:
+		if primary_audio_player.playing and (velocity.x == 0 and velocity.z == 0):
 			primary_audio_player.stop()
 
 			
@@ -307,9 +307,9 @@ func _physics_process(delta: float) -> void:
 	_snap_down_to_stairs_check()
 	
 	update_sprint_camera(delta)
-	
-	if primary_audio_player.playing:
-		primary_audio_player.stop
+	if primary_audio_player:
+		if primary_audio_player.playing:
+			primary_audio_player.stop
 
 	# Regain controls after gravity flip
 	if gravity_flipping:

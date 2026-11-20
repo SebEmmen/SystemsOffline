@@ -78,12 +78,13 @@ func move_elevator() -> void:
 	tween.finished.connect(func(): is_moving = false)
 	
 	# Go to the end of alpha screen 1 second after the elevator starts moving
-	get_tree().create_timer(1.0).timeout.connect(_go_to_end_screen)
+	get_tree().create_timer(1.0).timeout.connect( _go_to_lab)
 
 
-func _go_to_end_screen() -> void:
-	get_tree().change_scene_to_file("res://src/2d/Scenes/alpha_end_screen.tscn")
-	
+func _go_to_lab() -> void:
+	if not is_inside_tree():
+		return
+	get_tree().change_scene_to_file("res://src/3d/Scenes/rooms/Room2.tscn")
 	
 #endregion
 

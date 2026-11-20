@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ct7rcv16y8yb4"
+uid="uid://cv2v3g4b33r71"
 path="res://.godot/imported/Final_Fuel tank 3.glb-ef84a2f38a27712cb2c99a0a5997cf56.scn"
 
 [deps]
@@ -42,4 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
-gltf/texture_map_mode=1
+gltf/texture_map_mode=0
