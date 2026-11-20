@@ -57,14 +57,12 @@
 [ext_resource type="PackedScene" uid="uid://0u4neuukgjki" path="res://src/3d/Scenes/objects/wire puzzles/wire_puzzle_elevator.tscn" id="44_f1ysu"]
 [ext_resource type="Resource" uid="uid://b4yq2dwbxp6qt" path="res://src/3d/Resources/Multitool Key.tres" id="45_nnjxg"]
 [ext_resource type="Script" uid="uid://cga5pwd4fx131" path="res://src/3d/Scripts/holdable_component.gd" id="47_lghuq"]
-[ext_resource type="Shader" uid="uid://cocic7l6kg2st" path="res://src/3d/Scenes/objects/wire puzzles/wireGlow.gdshader" id="47_nb0cd"]
 [ext_resource type="PackedScene" uid="uid://54xxulq8ooao" path="res://src/3d/Scenes/objects/cubicle.tscn" id="50_eueio"]
 [ext_resource type="Script" uid="uid://dtkp0y6hv2x8o" path="res://src/3d/Scripts/unlockable_component.gd" id="50_u2kds"]
 [ext_resource type="PackedScene" uid="uid://ccjbwpq414bf1" path="res://src/3d/Assets/Comm room/Final_LampBig.blend" id="52_2pegl"]
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://bc7c5x5egoq0x" path="res://src/3d/Scenes/objects/wire puzzles/PuzzleOverlay.tscn" id="53_5buxd"]
-[ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="Script" uid="uid://btfh12lahhu8j" path="res://src/3d/Scenes/rooms/tutorial_area.gd" id="53_slhau"]
 [ext_resource type="AudioStream" uid="uid://beda5kmpyksyd" path="res://src/3d/Sound/Forcefield/freesound_community-energy-hum-29083.mp3" id="55_58ftc"]
 [ext_resource type="Texture2D" uid="uid://bsdkw2gpfkfmg" path="res://src/3d/Assets/Comm room/textures/Ucupaint Sphere.002 Color.png" id="56_gav43"]
@@ -89,6 +87,11 @@
 [ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
 [ext_resource type="Shader" uid="uid://1iof5c6ynfip" path="res://src/3d/Scenes/rooms/Forcefield.gdshader" id="81_loyml"]
 [ext_resource type="PackedScene" uid="uid://doii310bxjkrj" path="res://src/3d/Scenes/objects/Journal/Journal.tscn" id="82_lghuq"]
+[ext_resource type="PackedScene" uid="uid://dfcwn6xwskdqr" path="res://src/3d/Scenes/objects/Comms room/Secret door.tscn" id="85_rmr3x"]
+[ext_resource type="PackedScene" uid="uid://cnbrtk347rqwp" path="res://src/3d/Scenes/objects/Comms room/Small metal sheet rack.tscn" id="89_7jok6"]
+[ext_resource type="PackedScene" uid="uid://6hs1ru06hqex" path="res://src/3d/Scenes/objects/Comms room/Switch panel 1.tscn" id="90_rmr3x"]
+[ext_resource type="PackedScene" uid="uid://tiqmm3f3sn43" path="res://src/3d/Scenes/objects/Comms room/Switch panel 2.tscn" id="91_vfk7l"]
+[ext_resource type="PackedScene" uid="uid://kg8shdi84bgp" path="res://src/3d/Scenes/objects/Comms room/Switch panel 3.tscn" id="92_g6v1v"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -352,103 +355,43 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7jok6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vfk7l"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_bmro6"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_g6v1v"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_7jok6")
+albedo_texture = SubResource("ViewportTexture_vfk7l")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_usd6p"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_q4pvd"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_bmro6")
+material = SubResource("ORMMaterial3D_g6v1v")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rmr3x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kofuf"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vfk7l"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_c331y"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_rmr3x")
+albedo_texture = SubResource("ViewportTexture_kofuf")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_g6v1v"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_qexs2"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_vfk7l")
+material = SubResource("ORMMaterial3D_c331y")
 size = Vector2(2.7, 4.2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
-render_priority = 0
-shader = ExtResource("47_nb0cd")
-shader_parameter/disconnected_color = Color(0.95, 0.97, 1, 1)
-shader_parameter/disconnected_alpha = 0.0
-shader_parameter/connected_body_color = Color(0.75, 0.98, 1, 1)
-shader_parameter/connected_core_color = Color(1, 1, 1, 1)
-shader_parameter/progress = 1.0
-shader_parameter/transition_width = 0.08
-shader_parameter/glow_strength = 0.50000002375
-shader_parameter/core_brightness = 1.4
-shader_parameter/core_width = 0.75
-shader_parameter/fresnel_core = true
-shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cok2s"]
 albedo_texture = ExtResource("64_6ofj6")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvwfr"]
-render_priority = 0
-shader = ExtResource("47_nb0cd")
-shader_parameter/disconnected_color = Color(0.95, 0.97, 1, 1)
-shader_parameter/disconnected_alpha = 0.0
-shader_parameter/connected_body_color = Color(0.75, 0.98, 1, 1)
-shader_parameter/connected_core_color = Color(1, 1, 1, 1)
-shader_parameter/progress = 1.0
-shader_parameter/transition_width = 0.08
-shader_parameter/glow_strength = 0.50000002375
-shader_parameter/core_brightness = 1.4
-shader_parameter/core_width = 0.75
-shader_parameter/fresnel_core = true
-shader_parameter/edge_darkness = 0.08
-
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hd0mg"]
 albedo_texture = ExtResource("64_a016q")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbs5u"]
-render_priority = 0
-shader = ExtResource("47_nb0cd")
-shader_parameter/disconnected_color = Color(0.95, 0.97, 1, 1)
-shader_parameter/disconnected_alpha = 0.0
-shader_parameter/connected_body_color = Color(0.75, 0.98, 1, 1)
-shader_parameter/connected_core_color = Color(1, 1, 1, 1)
-shader_parameter/progress = 1.0
-shader_parameter/transition_width = 0.08
-shader_parameter/glow_strength = 0.50000002375
-shader_parameter/core_brightness = 1.4
-shader_parameter/core_width = 0.75
-shader_parameter/fresnel_core = true
-shader_parameter/edge_darkness = 0.08
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_6ofj6"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pegl"]
-render_priority = 0
-shader = ExtResource("47_nb0cd")
-shader_parameter/disconnected_color = Color(0.95, 0.97, 1, 1)
-shader_parameter/disconnected_alpha = 0.0
-shader_parameter/connected_body_color = Color(0.75, 0.98, 1, 1)
-shader_parameter/connected_core_color = Color(1, 1, 1, 1)
-shader_parameter/progress = 1.0
-shader_parameter/transition_width = 0.08
-shader_parameter/glow_strength = 0.50000002375
-shader_parameter/core_brightness = 1.4
-shader_parameter/core_width = 0.75
-shader_parameter/fresnel_core = true
-shader_parameter/edge_darkness = 0.08
-
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_q4pvd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_njtf7"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -960,10 +903,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=2112869525]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=1065637940]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=2121613414]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="7" unique_id=1784293886]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -985,16 +928,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_usd6p")
+mesh = SubResource("PlaneMesh_q4pvd")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_g6v1v")
-
-[node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
-sub_viewport = NodePath("../MainScreen")
-screen_mesh = NodePath("../Main Screen")
-inspect = NodePath("..")
-puzzle = NodePath("../MainScreen/CommsPuzzle")
+mesh = SubResource("PlaneMesh_qexs2")
 
 [node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece", "transition_camera")]
 multitool_piece = NodePath("../../multitool piece 1 lit ")
@@ -1016,9 +953,6 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
-
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=12013554]
-surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
 visible = true
@@ -1046,9 +980,6 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=12013554]
-surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
-
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
 visible = true
 
@@ -1071,9 +1002,6 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
-
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=12013554]
-surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
 visible = true
@@ -1101,9 +1029,6 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=12013554]
-surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
-
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
 visible = true
 
@@ -1125,18 +1050,6 @@ transition_camera = NodePath("../../../../TransitionCamera")
 surface_material_override/0 = SubResource("ORMMaterial3D_3kfck")
 
 [node name="Racks" type="Node" parent="CommsRoom" unique_id=1630714578]
-
-[node name="MetalsheetRackSmall" parent="CommsRoom/Racks" unique_id=623325452 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 13.797035, 0.036367357, -70.23085)
-
-[node name="MetalsheetRackSmall2" parent="CommsRoom/Racks" unique_id=1030623037 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-6.556708e-09, 0, 0.14999999, 0, 0.14999999, 0, -0.14999999, 0, -6.556708e-09, 15.664743, 0.036367357, -61.0874)
-
-[node name="MetalsheetRackSmall3" parent="CommsRoom/Racks" unique_id=65036299 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-0.14999999, 0, -1.3113416e-08, 0, 0.14999999, 0, 1.3113416e-08, 0, -0.14999999, 15.147925, 0.036367357, -56.867847)
-
-[node name="MetalsheetRackSmall4" parent="CommsRoom/Racks" unique_id=1702791108 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-0.14999999, 0, -1.3113416e-08, 0, 0.14999999, 0, 1.3113416e-08, 0, -0.14999999, 15.147925, 0.036367357, -48.590588)
 
 [node name="BigMetalsheetsRack" parent="CommsRoom/Racks" unique_id=610385290 instance=ExtResource("52_ymcgf")]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -15.734443, -0.14691912, -71.85366)
@@ -1228,7 +1141,7 @@ omni_range = 10.0
 omni_attenuation = 2.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CommsRoom/Light" unique_id=292227161]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.992824, 3.5685997, -72.60526)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.961123, 3.5685997, -72.62754)
 shadow_enabled = true
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="CommsRoom/Light" unique_id=978342115]
@@ -1268,10 +1181,13 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_q4pvd")
+surface_material_override/0 = SubResource("ORMMaterial3D_njtf7")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_q4pvd")
+surface_material_override/0 = SubResource("ORMMaterial3D_njtf7")
+
+[node name="SecretDoor" parent="CommsRoom" unique_id=1380277633 instance=ExtResource("85_rmr3x")]
+transform = Transform3D(-2.3822707e-08, 0, 0.545, 0, 0.545, 0, -0.545, 0, -2.3822707e-08, -10.37552, 0.0050001144, -50.53776)
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
@@ -1312,6 +1228,30 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 [node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
 visible = true
 push_force = 4.0
+
+[node name="SmallMetalSheetRack" parent="." unique_id=1662217309 instance=ExtResource("89_7jok6")]
+transform = Transform3D(-2.3385594e-08, 0, 0.535, 0, 0.535, 0, -0.535, 0, -2.3385594e-08, 15.739589, 0.048130274, -61.177677)
+
+[node name="SmallMetalSheetRack4" parent="." unique_id=1495840887 instance=ExtResource("89_7jok6")]
+transform = Transform3D(-2.3385594e-08, 0, -0.535, 0, 0.535, 0, 0.535, 0, -2.3385594e-08, 13.965663, 0.048130274, -70.24315)
+
+[node name="SmallMetalSheetRack2" parent="." unique_id=1261128839 instance=ExtResource("89_7jok6")]
+transform = Transform3D(-0.535, 0, 4.6771188e-08, 0, 0.535, 0, -4.6771188e-08, 0, -0.535, 15.168842, 0.048130274, -56.979805)
+
+[node name="SmallMetalSheetRack3" parent="." unique_id=1489318633 instance=ExtResource("89_7jok6")]
+transform = Transform3D(-0.535, 0, 4.6771188e-08, 0, 0.535, 0, -4.6771188e-08, 0, -0.535, 15.168842, 0.048130274, -48.563366)
+
+[node name="SwitchPanel1" parent="." unique_id=1088680252 instance=ExtResource("90_rmr3x")]
+transform = Transform3D(-1.1802075e-08, 0, -0.27, 0, 0.27, 0, 0.27, 0, -1.1802075e-08, 14.273332, 1.5220866, -67.42378)
+
+[node name="SwitchPanel2" parent="." unique_id=1844678200 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(-3.1035086e-08, 0, -0.71, 0, 0.71, 0, 0.71, 0, -3.1035086e-08, 14.208645, 1.598211, -74.16488)
+
+[node name="SwitchPanel4" parent="." unique_id=764020841 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(-3.1035086e-08, 0, -0.71, 0, 0.71, 0, 0.71, 0, -3.1035086e-08, 14.208645, 1.598211, -52.795044)
+
+[node name="SwitchPanel3" parent="." unique_id=1777063122 instance=ExtResource("92_g6v1v")]
+transform = Transform3D(-3.278354e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.278354e-08, 14.222916, 1.4363134, -60.2916)
 
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]

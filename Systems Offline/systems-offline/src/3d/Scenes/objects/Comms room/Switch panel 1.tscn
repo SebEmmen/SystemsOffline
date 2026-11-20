@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://6hs1ru06hqex"]
+
+[ext_resource type="PackedScene" uid="uid://buxr3m67w73lc" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Switch panel 1.glb" id="1_amjaj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vffm3"]
+size = Vector3(0.87841797, 1.0231628, 1.3023682)
+
+[node name="SwitchPanel1" type="Node3D" unique_id=1088680252]
+
+[node name="Final_Filler_Switch panel 1" parent="." unique_id=316740566 instance=ExtResource("1_amjaj")]
+transform = Transform3D(0.605, 0, 0, 0, 0.605, 0, 0, 0, 0.605, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=516126890]
+transform = Transform3D(0.605, 0, 0, 0, 0.605, 0, 0, 0, 0.605, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=318086200]
+transform = Transform3D(1, 0, 0, 0, 15.373, 0, 0, 0, 6.1182446, 0.29632846, 7.82781, -0.0041076955)
+shape = SubResource("BoxShape3D_vffm3")
+
+[editable path="Final_Filler_Switch panel 1"]
