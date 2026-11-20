@@ -64,6 +64,59 @@ var in_subscene = false
 var return_player_state: Dictionary = {}
 var save_data: Dictionary = {}
 
+# --------------------------------------------------
+# SCENE SWITCH
+# --------------------------------------------------
+
+func change_room(spawn: Spawn) -> void:
+	if is_changing_room:
+		return
+	is_changing_room = true
+
+	var data: Dictionary = SPAWNS[spawn]
+
+	var player := get_player()
+	if player == null:
+		push_error("SaveManager: Player not found!")
+		is_changing_room = false
+		return
+
+	# Detach the player so it isn't freed with the old room.
+	player.disable_controls()
+	player.get_parent().remove_child(player)
+
+	var error = get_tree().change_scene_to_file(data["scene"])
+	if error != OK:
+		push_error("SaveManager: Could not load room: " + data["scene"])
+		# Put the player back so the game isn't broken.
+		get_tree().current_scene.add_child(player)
+		player.enable_controls()
+		is_changing_room = false
+		return
+
+	await get_tree().scene_changed
+	await get_tree().process_frame
+
+	var new_room := get_tree().current_scene
+
+	# If the new room has its own player (handy for F6 testing), remove it.
+	for other in get_tree().get_nodes_in_group("player"):
+		if other != player:
+			other.remove_from_group("player")  # queue_free is deferred
+			other.queue_free()
+
+	new_room.add_child(player)
+
+	player.global_position = data["position"]
+	player.rotation.y = deg_to_rad(data["yaw"])
+	player.look_rotation.y = player.rotation.y
+	player.look_rotation.x = 0.0
+	player.head.rotation.x = 0.0
+	player.velocity = Vector3.ZERO
+	player.camera.make_current()
+	player.enable_controls()
+
+	is_changing_room = false
 
 # --------------------------------------------------
 # SAVE FILE
@@ -373,38 +426,6 @@ func reset_progress() -> void:
 
 	# QUEST MANAGER: Reset all quests for a new game.
 	QuestManager.reset_progress()
-
-# --------------------------------------------------
-# SCENES
-# --------------------------------------------------
-
-func change_room(spawn: Spawn) -> void:
-	if is_changing_room:
-		return
-	is_changing_room = true
-
-	var data: Dictionary = SPAWNS[spawn]
-
-	var error = get_tree().change_scene_to_file(data["scene"])
-	if error != OK:
-		push_error("SaveManager: Could not load room: " + data["scene"])
-		is_changing_room = false
-		return
-
-	await get_tree().scene_changed
-	await get_tree().process_frame
-
-	var player := get_player()
-	if player == null:
-		push_error("SaveManager: Player not found after room change!")
-		is_changing_room = false
-		return
-
-	player.global_position = data["position"]
-	player.rotation.y = deg_to_rad(data["yaw"])
-	player.velocity = Vector3.ZERO
-
-	is_changing_room = false
 
 # --------------------------------------------------
 # SETTINGS
