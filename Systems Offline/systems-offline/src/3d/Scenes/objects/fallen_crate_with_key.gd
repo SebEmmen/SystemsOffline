@@ -8,6 +8,10 @@ extends Node3D
 @export_group("Debug")
 @export var debug_enabled: bool = true
 
+@export_group("Sound")
+@export var impact_delay: float = 1.0
+@onready var impact_sound: AudioStreamPlayer3D = $CrateBody/ImpactSound
+
 
 func _ready() -> void:
 	# Keep both parts frozen until released.
@@ -39,4 +43,10 @@ func release_crate() -> void:
 	# Move the crate 0.2 meters along the X-axis.
 	crate_body.apply_central_impulse(Vector3(-35, 0.0, 0.0))
 	crate_lid.apply_central_impulse(Vector3(-5.1, 0.0, 0.0))
+	
+	print("impact_delay")
+	await get_tree().create_timer(impact_delay).timeout
+
+	if is_instance_valid(impact_sound):
+		impact_sound.play()
 	

@@ -6,6 +6,7 @@ extends Node
 @export var forcefield: MeshInstance3D
 @export var fallen_crate: Node3D
 
+
 @export_group("Camera")
 @export var turn_duration: float = 1.5
 @export var turn_angle: float = 180.0
@@ -18,17 +19,23 @@ extends Node
 var starting_rotation: float
 var camera_tween: Tween
 var cinematic_active: bool = false
+var forcefield_tween: Tween
 
 
 @export var forcefield_hum: AudioStreamPlayer3D
 
 
+
 func start_forcefield_hum() -> void:
 	if forcefield_hum == null:
+		push_warning("ForcefieldHum is not assigned!")
 		return
 
 	if not forcefield_hum.playing:
 		forcefield_hum.play()
+		print("Forcefield hum started")
+
+
 
 
 
@@ -37,21 +44,18 @@ func start_forcefield_hum() -> void:
 func _ready() -> void:
 	var should_play_intro: bool = SaveManager.play_opening_cinematic
 
-	# Initialize the forcefield immediately.
+	# Initialize the material.
 	setup_forcefield()
 
+	# Always start with the forcefield invisible.
+	set_forcefield_parameters(0.0, 0.0)
+
+	await get_tree().process_frame
+
 	if should_play_intro:
-		# Keep the forcefield invisible before the cinematic.
-		set_forcefield_parameters(0.0, 0.0)
-
 		SaveManager.play_opening_cinematic = false
-
-		await get_tree().process_frame
 		start_cinematic()
-	else:
-		# Continue: forcefield is already activated.
-		set_forcefield_parameters(1.0, 1.0)
-		start_forcefield_hum()
+
 
 
 
@@ -67,19 +71,29 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 
+
 func start_cinematic() -> void:
 	if cinematic_active or player == null:
 		return
 
 	cinematic_active = true
 
-	# Remember the original direction.
+	# Reset the forcefield before every cinematic.
+	set_forcefield_parameters(0.0, 0.0)
+
+	# Stop the previous activation animation if it is running.
+	if forcefield_tween and forcefield_tween.is_running():
+		forcefield_tween.kill()
+
+	# Stop the humming sound so it can restart.
+	if forcefield_hum:
+		forcefield_hum.stop()
+
 	starting_rotation = player.rotation.y
 
-	# Disable player movement and mouse look.
 	player.disable_controls()
-
 	animation_player.play("Opening")
+
 
 
 
@@ -213,10 +227,12 @@ func set_forcefield_parameters(
 
 
 func activate_forcefield() -> void:
+	start_forcefield_hum()
 	if forcefield_material == null:
 		return
 
-	var tween := create_tween()
+	forcefield_tween = create_tween()
+	var tween := forcefield_tween
 
 	# Brief startup flicker.
 	tween.tween_method(
