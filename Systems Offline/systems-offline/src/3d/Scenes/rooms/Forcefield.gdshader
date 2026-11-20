@@ -3,6 +3,7 @@ shader_type spatial;
 render_mode unshaded, blend_mix, cull_disabled, depth_draw_never;
 
 uniform vec4 hologram_color : source_color = vec4(0.0, 1.0, 0.45, 1.0);
+uniform float activation : hint_range(0.0, 1.0) = 1.0;
 
 uniform float opacity : hint_range(0.0, 1.0) = 0.25;
 uniform float scan_density : hint_range(1.0, 100.0) = 30.0;
@@ -81,14 +82,15 @@ void fragment() {
 
     EMISSION = hologram_color.rgb *
         brightness *
-        glow_strength;
+        glow_strength *
+		activation;
 
-    ALPHA = clamp(
-        opacity +
-        lines * 0.15 +
-        scan * 0.3 +
-        edge * 0.4,
-        0.0,
-        1.0
-    );
+	ALPHA = clamp(
+	    opacity +
+	    lines * 0.15 +
+	    scan * 0.3 +
+	    edge * 0.4,
+	    0.0,
+	    1.0
+	) * activation;
 }
