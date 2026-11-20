@@ -14,7 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://doii310bxjkrj" path="res://src/3d/Scenes/objects/Journal/Journal.tscn" id="12_md5ph"]
 [ext_resource type="Script" uid="uid://d234nlqwa7cm0" path="res://src/3d/Scenes/objects/Journal/journal.gd" id="13_lmhh8"]
 [ext_resource type="Script" uid="uid://d1gkt6n4y2q1o" path="res://src/3d/Scenes/rooms/quest_notifications.gd" id="14_h3ctr"]
+[ext_resource type="PackedScene" uid="uid://dbfsfqviljvxo" path="res://src/3d/Scenes/objects/Engine Room/Fuel_Tank_2.tscn" id="15_bipn2"]
 [ext_resource type="PackedScene" uid="uid://bfjsj706onp7j" path="res://src/3d/Scenes/objects/elevator/elevator_1_st_floor.scn" id="15_pexpj"]
+[ext_resource type="PackedScene" uid="uid://t0qk5md7fnsn" path="res://src/3d/Scenes/objects/Engine Room/fuel_tank_1.scn" id="15_recx6"]
+[ext_resource type="PackedScene" uid="uid://twt4kfjqd704" path="res://src/3d/Scenes/objects/Engine Room/Fuel_Tank_3.scn" id="17_kqpy8"]
+[ext_resource type="PackedScene" uid="uid://b8k8yc6f86bqp" path="res://src/3d/Scenes/objects/Lab Room/Table bend.tscn" id="19_v0fyp"]
+[ext_resource type="PackedScene" uid="uid://cd5fwhr0twmdo" path="res://src/3d/Scenes/objects/Engine Room/Boiler.scn" id="19_xe0w0"]
 
 [node name="Room2" type="Node3D" unique_id=1728398301]
 
@@ -98,6 +103,23 @@ script = ExtResource("13_lmhh8")
 [node name="QuestNotifications" type="Node" parent="UI_Manger" unique_id=421629806 node_paths=PackedStringArray("notification_ui")]
 script = ExtResource("14_h3ctr")
 notification_ui = NodePath("../NotificationUI")
+
+[node name="Engine Room" type="Node" parent="." unique_id=266432225]
+
+[node name="Boiler" parent="Engine Room" unique_id=1148602733 instance=ExtResource("19_xe0w0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.733957, 2.9475794, 3.530736)
+
+[node name="FuelTank2" parent="Engine Room" unique_id=126686054 instance=ExtResource("15_bipn2")]
+transform = Transform3D(-0.99983823, 0, 0.017984103, 0, 1, 0, -0.017984103, 0, -0.99983823, 25.638773, 3.0584803, 5.3938494)
+
+[node name="FuelTank1" parent="Engine Room" unique_id=1587088441 instance=ExtResource("15_recx6")]
+transform = Transform3D(-0.99983823, 0, 0.017984122, 0, 1, 0, -0.017984122, 0, -0.99983823, 25.638773, 3.0584803, 5.3938494)
+
+[node name="FuelTank3" parent="Engine Room" unique_id=572567164 instance=ExtResource("17_kqpy8")]
+transform = Transform3D(-0.99983823, 0, 0.017984103, 0, 1, 0, -0.017984103, 0, -0.99983823, 25.638773, 3.0584803, 5.3938494)
+
+[node name="TableBend" parent="Engine Room" unique_id=172896715 instance=ExtResource("19_v0fyp")]
+transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.29999998, 0, -0.3, 0, -1.3113417e-08, 3.235526, 0, 5.7606363)
 
 [node name="Elevator 1st floor" parent="." unique_id=1746680253 instance=ExtResource("15_pexpj")]
 transform = Transform3D(-8.742277e-08, 0, 1.9999999, 0, 2, 0, -1.9999999, 0, -8.742277e-08, -10.130507, 3.0986886, 8.125969)
