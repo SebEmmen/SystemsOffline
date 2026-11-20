@@ -59,9 +59,6 @@ var tutorial_puzzle_completed: bool = false
 # Key
 #endregion
 
-
-var play_opening_cinematic: bool = false
-
 var in_subscene = false
 
 var return_player_state: Dictionary = {}
@@ -449,10 +446,15 @@ func new_game() -> void:
 	reset_progress()
 	_reset_fov_setting()
 
-	play_opening_cinematic = true
-	print("SaveManager: Opening cinematic enabled!")
+	var error = get_tree().change_scene_to_file(
+		INTRO_CUTSCENE
+	)
 
-	get_tree().change_scene_to_file(INTRO_CUTSCENE)
+	if error != OK:
+		push_error(
+			"SaveManager: Could not load cutscene for new game!"
+		)
+		return
 
 
 func finish_cutscene() -> void:

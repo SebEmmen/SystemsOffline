@@ -32,8 +32,8 @@ func _get_player() -> CharacterBody3D:
 		#print("ESC seen in _input")
 
 func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_pressed("ui_cancel"):
-		#print("ESC reached _unhandled_input, current_menu=", current_menu)
+	if event.is_action_pressed("ui_cancel"):
+		print("ESC reached _unhandled_input, current_menu=", current_menu)
 
 
 	# ESCAPE

@@ -33,7 +33,7 @@ func _on_unread_changed() -> void:
 func _update_visibility() -> void:
 	var has_unread: bool = QuestManager.has_unread_quests()
 
-	#print("[JOURNAL] Unread quests: ", QuestManager.get_unread_quests())
+	print("[JOURNAL] Unread quests: ", QuestManager.get_unread_quests())
 
 	visible = has_unread
 	notification_dot.visible = has_unread
@@ -41,18 +41,18 @@ func _update_visibility() -> void:
 
 
 func _on_journal_update(quest_id: String) -> void:
-	#print("[SOUND] Journal update: ", quest_id)
+	print("[SOUND] Journal update: ", quest_id)
 
 	if pencil_sound.stream == null:
 		print("[SOUND] No audio stream assigned!")
 		return
 
-	#print("[SOUND] Stream: ", pencil_sound.stream.resource_path)
-	#print("[SOUND] Length: ", pencil_sound.stream.get_length())
-	#print("[SOUND] Volume: ", pencil_sound.volume_db)
-	#print("[SOUND] Bus: ", pencil_sound.bus)
+	print("[SOUND] Stream: ", pencil_sound.stream.resource_path)
+	print("[SOUND] Length: ", pencil_sound.stream.get_length())
+	print("[SOUND] Volume: ", pencil_sound.volume_db)
+	print("[SOUND] Bus: ", pencil_sound.bus)
 
 	pencil_sound.stop()
 	pencil_sound.play()
 
-	#print("[SOUND] Is playing: ", pencil_sound.playing)
+	print("[SOUND] Is playing: ", pencil_sound.playing)

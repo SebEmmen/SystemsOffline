@@ -15,8 +15,8 @@ func add_item(item_data: ItemData) -> void:
 	if item_data:
 		inventory.append(item_data)
 		inventory_update.emit()
-	#for item in inventory:
-		#print(item.item_name, " ", item.item_id)
+	for item in inventory:
+		print(item.item_name, " ", item.item_id)
 
 func has_item(item_id: String) -> bool:
 	for item in inventory:

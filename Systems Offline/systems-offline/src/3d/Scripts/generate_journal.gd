@@ -117,6 +117,7 @@ func _run() -> void:
 			scene,
             "res://Journal.tscn"
 		)
+		print("Journal scene generated successfully!")
 
 	root.free()
 

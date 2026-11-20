@@ -26,17 +26,12 @@ size = Vector2(3, 3)
 render_priority = 0
 shader = ExtResource("2_80wxn")
 shader_parameter/hologram_color = Color(0.54974216, 0.30419204, 0.0077433717, 1)
-shader_parameter/activation = 1.0
-shader_parameter/opacity = 0.25
+shader_parameter/opacity = 0.10000000475
 shader_parameter/scan_density = 180.000008075
 shader_parameter/scan_speed = 0.5930000281675
 shader_parameter/scan_angle = 45.0
 shader_parameter/glow_strength = 2.0
 shader_parameter/glitch_strength = 0.150000007125
-shader_parameter/activation_progress = 1.0
-shader_parameter/activation_flicker = 0.0
-shader_parameter/activation_edge_width = 0.04
-shader_parameter/activation_edge_glow = 6.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_80wxn"]
 _surfaces = [{
