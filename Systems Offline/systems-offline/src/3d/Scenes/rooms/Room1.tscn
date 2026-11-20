@@ -355,28 +355,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vfk7l"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rmr3x"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_g6v1v"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vfk7l"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_vfk7l")
+albedo_texture = SubResource("ViewportTexture_rmr3x")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_q4pvd"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_g6v1v"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_g6v1v")
+material = SubResource("ORMMaterial3D_vfk7l")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kofuf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q4pvd"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_c331y"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_kofuf"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_kofuf")
+albedo_texture = SubResource("ViewportTexture_q4pvd")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qexs2"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_c331y"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_c331y")
+material = SubResource("ORMMaterial3D_kofuf")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cok2s"]
@@ -391,7 +391,7 @@ albedo_texture = ExtResource("57_3kfck")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_njtf7"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_qexs2"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -903,10 +903,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=1065637940]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=2112869525]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="7" unique_id=1784293886]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=2121613414]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -928,10 +928,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_q4pvd")
+mesh = SubResource("PlaneMesh_g6v1v")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_qexs2")
+mesh = SubResource("PlaneMesh_c331y")
 
 [node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece", "transition_camera")]
 multitool_piece = NodePath("../../multitool piece 1 lit ")
@@ -1181,10 +1181,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_njtf7")
+surface_material_override/0 = SubResource("ORMMaterial3D_qexs2")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_njtf7")
+surface_material_override/0 = SubResource("ORMMaterial3D_qexs2")
 
 [node name="SecretDoor" parent="CommsRoom" unique_id=1380277633 instance=ExtResource("85_rmr3x")]
 transform = Transform3D(-2.3822707e-08, 0, 0.545, 0, 0.545, 0, -0.545, 0, -2.3822707e-08, -10.37552, 0.0050001144, -50.53776)
