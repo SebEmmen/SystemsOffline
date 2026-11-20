@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cw3bobrlbj8pg"
-path="res://.godot/imported/Final_Cubicle.glb-d550133d187d52503b057b72ee3b2c3a.scn"
+path="res://.godot/imported/Final_Cubicle.glb-a17eac3c8a63fb4f7eac919c4689f81b.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Cubicle.glb"
-dest_files=["res://.godot/imported/Final_Cubicle.glb-d550133d187d52503b057b72ee3b2c3a.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Cubicle.glb"
+dest_files=["res://.godot/imported/Final_Cubicle.glb-a17eac3c8a63fb4f7eac919c4689f81b.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6pmlaol4vgdf"
-path="res://.godot/imported/Final_Back of main screen arms.glb-d36414e2b3897ef5fc595f3a36f8d0f9.scn"
+path="res://.godot/imported/Final_Back of main screen arms.glb-8fc1fc4fa684a2a47231131ae12fc57f.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Back of main screen arms.glb"
-dest_files=["res://.godot/imported/Final_Back of main screen arms.glb-d36414e2b3897ef5fc595f3a36f8d0f9.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Back of main screen arms.glb"
+dest_files=["res://.godot/imported/Final_Back of main screen arms.glb-8fc1fc4fa684a2a47231131ae12fc57f.scn"]
 
 [params]
 

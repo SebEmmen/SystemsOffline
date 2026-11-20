@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx5jccbg2r61c"
-path.s3tc="res://.godot/imported/Final_Cubicle_Ucupaint Kubus Roughness.png-b6002f4003a568c835c8bbb507434899.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Cubicle_Ucupaint Kubus Roughness.png-8334f31665772cbcc305d3b9abaacc66.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Cubicle_Ucupaint Kubus Roughness.png"
-dest_files=["res://.godot/imported/Final_Cubicle_Ucupaint Kubus Roughness.png-b6002f4003a568c835c8bbb507434899.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Cubicle_Ucupaint Kubus Roughness.png"
+dest_files=["res://.godot/imported/Final_Cubicle_Ucupaint Kubus Roughness.png-8334f31665772cbcc305d3b9abaacc66.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bb0eujfvy7rxp"
-path="res://.godot/imported/Final_Chair.glb-43ff0e0eb525bb8575bc4eaeeb6e1121.scn"
+path="res://.godot/imported/Final_Chair.glb-2e9e8eb442a81820399bfd8cfc483424.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Chair.glb"
-dest_files=["res://.godot/imported/Final_Chair.glb-43ff0e0eb525bb8575bc4eaeeb6e1121.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Chair.glb"
+dest_files=["res://.godot/imported/Final_Chair.glb-2e9e8eb442a81820399bfd8cfc483424.scn"]
 
 [params]
 

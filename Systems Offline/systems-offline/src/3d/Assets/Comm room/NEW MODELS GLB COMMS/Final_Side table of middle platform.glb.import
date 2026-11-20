@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://btdba5cb2tkes"
-path="res://.godot/imported/Final_Side table of middle platform.glb-5ac1b318936c3127539d1b7e219a5e6b.scn"
+path="res://.godot/imported/Final_Side table of middle platform.glb-b72dc5b2f2b3ed63453136c65b4c72a9.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Side table of middle platform.glb"
-dest_files=["res://.godot/imported/Final_Side table of middle platform.glb-5ac1b318936c3127539d1b7e219a5e6b.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Side table of middle platform.glb"
+dest_files=["res://.godot/imported/Final_Side table of middle platform.glb-b72dc5b2f2b3ed63453136c65b4c72a9.scn"]
 
 [params]
 

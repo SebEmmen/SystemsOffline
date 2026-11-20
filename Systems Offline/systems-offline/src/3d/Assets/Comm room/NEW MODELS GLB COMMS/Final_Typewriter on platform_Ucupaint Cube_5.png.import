@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1vaau5fcv3bq"
-path.s3tc="res://.godot/imported/Final_Typewriter on platform_Ucupaint Cube_5.png-e49e9c094cddac00a6fe145af9544703.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Typewriter on platform_Ucupaint Cube_5.png-38c38a02e9b4c9706e58e2e60f312ef0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Typewriter on platform_Ucupaint Cube_5.png"
-dest_files=["res://.godot/imported/Final_Typewriter on platform_Ucupaint Cube_5.png-e49e9c094cddac00a6fe145af9544703.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Typewriter on platform_Ucupaint Cube_5.png"
+dest_files=["res://.godot/imported/Final_Typewriter on platform_Ucupaint Cube_5.png-38c38a02e9b4c9706e58e2e60f312ef0.s3tc.ctex"]
 
 [params]
 

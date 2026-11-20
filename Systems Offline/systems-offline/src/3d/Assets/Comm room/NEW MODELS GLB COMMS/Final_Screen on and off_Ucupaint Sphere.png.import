@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0cpgpom00p6h"
-path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Sphere.png-8f7c6e09b1ac5bcc87505c30b3aa33b3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Sphere.png-755b3356ec6a0040725628c48a559795.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Screen on and off_Ucupaint Sphere.png"
-dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Sphere.png-8f7c6e09b1ac5bcc87505c30b3aa33b3.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Screen on and off_Ucupaint Sphere.png"
+dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Sphere.png-755b3356ec6a0040725628c48a559795.s3tc.ctex"]
 
 [params]
 

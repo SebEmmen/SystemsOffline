@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8ql7jtuhvty0"
-path.s3tc="res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Cylinder_11.png-9e544a81fc313ddad5722ebb43ad32b4.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Cylinder_11.png-2bee77eaa179c6d27e840273d12099c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Filler_Switch panel 2_Ucupaint Cylinder_11.png"
-dest_files=["res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Cylinder_11.png-9e544a81fc313ddad5722ebb43ad32b4.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Switch panel 2_Ucupaint Cylinder_11.png"
+dest_files=["res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Cylinder_11.png-2bee77eaa179c6d27e840273d12099c8.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://24hu8atuukls"
-path.s3tc="res://.godot/imported/Final_Moving valve multitoolcase_Ucupaint Plane.png-37c2086c36374424e7609eb025f8e825.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Moving valve multitoolcase_Ucupaint Plane.png-f30f6c7714d5d1153f35e2059020073b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Moving valve multitoolcase_Ucupaint Plane.png"
-dest_files=["res://.godot/imported/Final_Moving valve multitoolcase_Ucupaint Plane.png-37c2086c36374424e7609eb025f8e825.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Moving valve multitoolcase_Ucupaint Plane.png"
+dest_files=["res://.godot/imported/Final_Moving valve multitoolcase_Ucupaint Plane.png-f30f6c7714d5d1153f35e2059020073b.s3tc.ctex"]
 
 [params]
 

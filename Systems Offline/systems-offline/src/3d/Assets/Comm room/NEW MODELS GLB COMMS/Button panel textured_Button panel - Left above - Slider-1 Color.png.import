@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://iia208epadbp"
-path.s3tc="res://.godot/imported/Button panel textured_Button panel - Left above - Slider-1 Color.png-70dd1f35fbcf11ecc86dba6419ef9789.s3tc.ctex"
+path.s3tc="res://.godot/imported/Button panel textured_Button panel - Left above - Slider-1 Color.png-983f4c4b23c0f4ef6e1ad78f3e9018dc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Button panel textured_Button panel - Left above - Slider-1 Color.png"
-dest_files=["res://.godot/imported/Button panel textured_Button panel - Left above - Slider-1 Color.png-70dd1f35fbcf11ecc86dba6419ef9789.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Button panel textured_Button panel - Left above - Slider-1 Color.png"
+dest_files=["res://.godot/imported/Button panel textured_Button panel - Left above - Slider-1 Color.png-983f4c4b23c0f4ef6e1ad78f3e9018dc.s3tc.ctex"]
 
 [params]
 

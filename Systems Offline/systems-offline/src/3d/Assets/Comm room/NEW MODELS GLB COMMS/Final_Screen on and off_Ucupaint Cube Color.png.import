@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpwm364rn1wga"
-path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Cube Color.png-ddc7730234e593756c9045c9217e33f6.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Cube Color.png-83c25cafa0484fe6e85af40495e64511.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Screen on and off_Ucupaint Cube Color.png"
-dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Cube Color.png-ddc7730234e593756c9045c9217e33f6.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Screen on and off_Ucupaint Cube Color.png"
+dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Cube Color.png-83c25cafa0484fe6e85af40495e64511.s3tc.ctex"]
 
 [params]
 

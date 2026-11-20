@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xwlg4sfrre73"
-path.s3tc="res://.godot/imported/Button panel textured_Button panel - Left above - Outside-1 1 Roughness.png-508f34011edb11656aeb66b3e8f959e9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Button panel textured_Button panel - Left above - Outside-1 1 Roughness.png-cfa9b38c61df5b28e29c3ddc442478c0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Button panel textured_Button panel - Left above - Outside-1 1 Roughness.png"
-dest_files=["res://.godot/imported/Button panel textured_Button panel - Left above - Outside-1 1 Roughness.png-508f34011edb11656aeb66b3e8f959e9.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Button panel textured_Button panel - Left above - Outside-1 1 Roughness.png"
+dest_files=["res://.godot/imported/Button panel textured_Button panel - Left above - Outside-1 1 Roughness.png-cfa9b38c61df5b28e29c3ddc442478c0.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bstfjq6a1541p"
-path.s3tc="res://.godot/imported/Button panel textured_Button panel - Pressure gauge - Arrow-1 Color.png-f097d1f5f6480a55b214c3ad6e3a9f8e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Button panel textured_Button panel - Pressure gauge - Arrow-1 Color.png-3fd7168b51cd8ea3d3b8135aaaca24db.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Button panel textured_Button panel - Pressure gauge - Arrow-1 Color.png"
-dest_files=["res://.godot/imported/Button panel textured_Button panel - Pressure gauge - Arrow-1 Color.png-f097d1f5f6480a55b214c3ad6e3a9f8e.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Button panel textured_Button panel - Pressure gauge - Arrow-1 Color.png"
+dest_files=["res://.godot/imported/Button panel textured_Button panel - Pressure gauge - Arrow-1 Color.png-3fd7168b51cd8ea3d3b8135aaaca24db.s3tc.ctex"]
 
 [params]
 

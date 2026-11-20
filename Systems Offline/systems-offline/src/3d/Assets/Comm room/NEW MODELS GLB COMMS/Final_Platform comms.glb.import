@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpbvhhds28aej"
-path="res://.godot/imported/Final_Platform comms.glb-26e7c1c9e2e7eb69f76ace0d2298dbff.scn"
+path="res://.godot/imported/Final_Platform comms.glb-2e40b30144011ed34a3604455054cdd6.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Platform comms.glb"
-dest_files=["res://.godot/imported/Final_Platform comms.glb-26e7c1c9e2e7eb69f76ace0d2298dbff.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Platform comms.glb"
+dest_files=["res://.godot/imported/Final_Platform comms.glb-2e40b30144011ed34a3604455054cdd6.scn"]
 
 [params]
 

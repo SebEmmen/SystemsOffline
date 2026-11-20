@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj2s0a51evxpq"
-path.s3tc="res://.godot/imported/Final_Big unused metalsheet_Material Color.png-75b24c3f5eb744e0794dfb10028a9bd8.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Big unused metalsheet_Material Color.png-18ffc9f655cf7b7c884ebab2aac7f03e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Big unused metalsheet_Material Color.png"
-dest_files=["res://.godot/imported/Final_Big unused metalsheet_Material Color.png-75b24c3f5eb744e0794dfb10028a9bd8.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Big unused metalsheet_Material Color.png"
+dest_files=["res://.godot/imported/Final_Big unused metalsheet_Material Color.png-18ffc9f655cf7b7c884ebab2aac7f03e.s3tc.ctex"]
 
 [params]
 

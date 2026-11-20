@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctwl0m1tpctfp"
-path.s3tc="res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Roughness.png-d07e7c3af123a202f254651a0602b8ef.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Roughness.png-39ef4df66a92af55441c3b4ccde8e20c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Side table of middle platform_Ucupaint Plane Roughness.png"
-dest_files=["res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Roughness.png-d07e7c3af123a202f254651a0602b8ef.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Side table of middle platform_Ucupaint Plane Roughness.png"
+dest_files=["res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Roughness.png-39ef4df66a92af55441c3b4ccde8e20c.s3tc.ctex"]
 
 [params]
 

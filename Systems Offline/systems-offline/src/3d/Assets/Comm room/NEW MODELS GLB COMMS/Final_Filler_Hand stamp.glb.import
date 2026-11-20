@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://5gvqm5mcerr5"
-path="res://.godot/imported/Final_Filler_Hand stamp.glb-71bb9d4633c08436ec60d23b2b09db81.scn"
+path="res://.godot/imported/Final_Filler_Hand stamp.glb-2c1cae508b0e763305ce2415d02ccca2.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Filler_Hand stamp.glb"
-dest_files=["res://.godot/imported/Final_Filler_Hand stamp.glb-71bb9d4633c08436ec60d23b2b09db81.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Hand stamp.glb"
+dest_files=["res://.godot/imported/Final_Filler_Hand stamp.glb-2c1cae508b0e763305ce2415d02ccca2.scn"]
 
 [params]
 

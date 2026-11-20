@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btsmq0xjowc8u"
-path.s3tc="res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Color.png-3c38ebfa3810ddd3418eed66aba59837.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Color.png-ab0eb30ffa5202f3b6838584ffb4eff2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Metalsheet screen_Ucupaint Metalsheet holder Color.png"
-dest_files=["res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Color.png-3c38ebfa3810ddd3418eed66aba59837.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Metalsheet screen_Ucupaint Metalsheet holder Color.png"
+dest_files=["res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Color.png-ab0eb30ffa5202f3b6838584ffb4eff2.s3tc.ctex"]
 
 [params]
 

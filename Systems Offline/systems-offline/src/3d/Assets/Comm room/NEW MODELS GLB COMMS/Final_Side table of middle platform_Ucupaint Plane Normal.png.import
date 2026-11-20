@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1beqa0etwegm"
-path.s3tc="res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Normal.png-7de163fbebf8a22366cd9ac3896d9c35.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Normal.png-dc8196dfaa801c6e2c1774a0d4a37a33.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Side table of middle platform_Ucupaint Plane Normal.png"
-dest_files=["res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Normal.png-7de163fbebf8a22366cd9ac3896d9c35.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Side table of middle platform_Ucupaint Plane Normal.png"
+dest_files=["res://.godot/imported/Final_Side table of middle platform_Ucupaint Plane Normal.png-dc8196dfaa801c6e2c1774a0d4a37a33.s3tc.ctex"]
 
 [params]
 

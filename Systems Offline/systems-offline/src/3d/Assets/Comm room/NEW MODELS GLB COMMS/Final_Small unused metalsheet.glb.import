@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwge3ixvaiqmp"
-path="res://.godot/imported/Final_Small unused metalsheet.glb-1d0438fed199b8c9b87f5291247bec7f.scn"
+path="res://.godot/imported/Final_Small unused metalsheet.glb-4d5ad85d1de91b67f76991c2e6ac2fd9.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Small unused metalsheet.glb"
-dest_files=["res://.godot/imported/Final_Small unused metalsheet.glb-1d0438fed199b8c9b87f5291247bec7f.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Small unused metalsheet.glb"
+dest_files=["res://.godot/imported/Final_Small unused metalsheet.glb-4d5ad85d1de91b67f76991c2e6ac2fd9.scn"]
 
 [params]
 

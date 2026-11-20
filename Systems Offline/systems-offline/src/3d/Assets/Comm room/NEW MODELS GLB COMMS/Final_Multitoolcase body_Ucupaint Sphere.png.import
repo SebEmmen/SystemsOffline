@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1sjj6roi3s2l"
-path.s3tc="res://.godot/imported/Final_Multitoolcase body_Ucupaint Sphere.png-899fcbd0e764a565520e325f3944751d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Final_Multitoolcase body_Ucupaint Sphere.png-84ffc34eab68b03df73682c2b5776196.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Multitoolcase body_Ucupaint Sphere.png"
-dest_files=["res://.godot/imported/Final_Multitoolcase body_Ucupaint Sphere.png-899fcbd0e764a565520e325f3944751d.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Multitoolcase body_Ucupaint Sphere.png"
+dest_files=["res://.godot/imported/Final_Multitoolcase body_Ucupaint Sphere.png-84ffc34eab68b03df73682c2b5776196.s3tc.ctex"]
 
 [params]
 
