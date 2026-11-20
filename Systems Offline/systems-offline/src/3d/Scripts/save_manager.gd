@@ -31,6 +31,8 @@ const SPAWNS := {
 		"yaw": 180.0,
 	}
 }
+
+var is_changing_room: bool = false
 #endregion
 
 signal puzzle_completed(id: String)
@@ -372,6 +374,37 @@ func reset_progress() -> void:
 	# QUEST MANAGER: Reset all quests for a new game.
 	QuestManager.reset_progress()
 
+# --------------------------------------------------
+# SCENES
+# --------------------------------------------------
+
+func change_room(spawn: Spawn) -> void:
+	if is_changing_room:
+		return
+	is_changing_room = true
+
+	var data: Dictionary = SPAWNS[spawn]
+
+	var error = get_tree().change_scene_to_file(data["scene"])
+	if error != OK:
+		push_error("SaveManager: Could not load room: " + data["scene"])
+		is_changing_room = false
+		return
+
+	await get_tree().scene_changed
+	await get_tree().process_frame
+
+	var player := get_player()
+	if player == null:
+		push_error("SaveManager: Player not found after room change!")
+		is_changing_room = false
+		return
+
+	player.global_position = data["position"]
+	player.rotation.y = deg_to_rad(data["yaw"])
+	player.velocity = Vector3.ZERO
+
+	is_changing_room = false
 
 # --------------------------------------------------
 # SETTINGS
