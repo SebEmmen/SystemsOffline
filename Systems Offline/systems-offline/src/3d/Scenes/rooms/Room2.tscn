@@ -99,16 +99,16 @@ notification_ui = NodePath("../NotificationUI")
 [node name="Engine Room" type="Node" parent="." unique_id=266432225]
 
 [node name="Boiler" parent="Engine Room" unique_id=1148602733 instance=ExtResource("19_xe0w0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.733957, 2.9475794, 3.530736)
+transform = Transform3D(0.937164, 0, -0.34888914, 0, 1, 0, 0.34888914, 0, 0.937164, 24.09054, 2.9475794, 4.691785)
 
 [node name="FuelTank2" parent="Engine Room" unique_id=126686054 instance=ExtResource("15_bipn2")]
-transform = Transform3D(-0.99983823, 0, 0.017984103, 0, 1, 0, -0.017984103, 0, -0.99983823, 25.638773, 3.0584803, 5.3938494)
+transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 27.523663, 3.0584803, 0.21245193)
 
 [node name="FuelTank1" parent="Engine Room" unique_id=1587088441 instance=ExtResource("15_recx6")]
-transform = Transform3D(-0.99983823, 0, 0.017984122, 0, 1, 0, -0.017984122, 0, -0.99983823, 25.638773, 3.0584803, 5.3938494)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 23.224527, 3.0584803, 3.046011)
 
 [node name="FuelTank3" parent="Engine Room" unique_id=572567164 instance=ExtResource("17_kqpy8")]
-transform = Transform3D(-0.99983823, 0, 0.017984103, 0, 1, 0, -0.017984103, 0, -0.99983823, 25.638773, 3.0584803, 5.3938494)
+transform = Transform3D(-0.66995454, 0, -0.7424021, 0, 1, 0, 0.7424021, 0, -0.66995454, 33.711304, 3.0584803, -3.2013369)
 
 [node name="TableBend" parent="Engine Room" unique_id=172896715 instance=ExtResource("19_v0fyp")]
 transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.29999998, 0, -0.3, 0, -1.3113417e-08, 3.235526, 0, 5.7606363)
