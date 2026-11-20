@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ocyqor7mjhu"
-path.s3tc="res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png-7be24ecd7f730984ccf5450862b70f89.s3tc.ctex"
+uid="uid://cjvmbumjgbl1r"
+path.s3tc="res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png-d5eea70d98c681c3b4b780b8a1248858.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png"
-dest_files=["res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png-7be24ecd7f730984ccf5450862b70f89.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png"
+dest_files=["res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png-d5eea70d98c681c3b4b780b8a1248858.s3tc.ctex"]
 
 [params]
 
@@ -30,7 +30,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png"
+roughness/src_normal="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Metalsheet screen_Ucupaint Metalsheet holder Normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

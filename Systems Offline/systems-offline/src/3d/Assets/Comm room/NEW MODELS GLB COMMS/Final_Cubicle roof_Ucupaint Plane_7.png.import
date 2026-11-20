@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvfe0jb2546ew"
-path.s3tc="res://.godot/imported/Final_Cubicle roof_Ucupaint Plane_7.png-e6be7e95bf20eb485dea41375754706e.s3tc.ctex"
+uid="uid://ntevf0cdu3xq"
+path.s3tc="res://.godot/imported/Final_Cubicle roof_Ucupaint Plane_7.png-9e801d3591cc6e3ca0a492324d50ec2e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Cubicle roof_Ucupaint Plane_7.png"
-dest_files=["res://.godot/imported/Final_Cubicle roof_Ucupaint Plane_7.png-e6be7e95bf20eb485dea41375754706e.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Cubicle roof_Ucupaint Plane_7.png"
+dest_files=["res://.godot/imported/Final_Cubicle roof_Ucupaint Plane_7.png-9e801d3591cc6e3ca0a492324d50ec2e.s3tc.ctex"]
 
 [params]
 

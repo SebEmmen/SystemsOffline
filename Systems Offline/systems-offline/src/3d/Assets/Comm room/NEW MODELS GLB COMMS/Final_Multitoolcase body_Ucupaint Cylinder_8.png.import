@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkhc3h6iamyjt"
-path.s3tc="res://.godot/imported/Final_Multitoolcase body_Ucupaint Cylinder_8.png-aaa18141b73a8f33ee39afc4aaad5788.s3tc.ctex"
+uid="uid://ergiku6xqfh3"
+path.s3tc="res://.godot/imported/Final_Multitoolcase body_Ucupaint Cylinder_8.png-87850bdb78efe0b6b27b89c8dd485b9f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Multitoolcase body_Ucupaint Cylinder_8.png"
-dest_files=["res://.godot/imported/Final_Multitoolcase body_Ucupaint Cylinder_8.png-aaa18141b73a8f33ee39afc4aaad5788.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Multitoolcase body_Ucupaint Cylinder_8.png"
+dest_files=["res://.godot/imported/Final_Multitoolcase body_Ucupaint Cylinder_8.png-87850bdb78efe0b6b27b89c8dd485b9f.s3tc.ctex"]
 
 [params]
 

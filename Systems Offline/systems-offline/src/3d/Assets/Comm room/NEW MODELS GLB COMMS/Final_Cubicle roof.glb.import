@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bg4237flqfw20"
-path="res://.godot/imported/Final_Cubicle roof.glb-a4c88ac5b3bda7a2f35e4f3413e99e28.scn"
+uid="uid://c6ltj4tqwat4m"
+path="res://.godot/imported/Final_Cubicle roof.glb-61cda9c3754974e38129e74781f59883.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Cubicle roof.glb"
-dest_files=["res://.godot/imported/Final_Cubicle roof.glb-a4c88ac5b3bda7a2f35e4f3413e99e28.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Cubicle roof.glb"
+dest_files=["res://.godot/imported/Final_Cubicle roof.glb-61cda9c3754974e38129e74781f59883.scn"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d138pv3do41pk"
-path.s3tc="res://.godot/imported/Final_Power up device_Ucupaint Cube.png-0a740e0d83669e931179c932ea6606be.s3tc.ctex"
+uid="uid://clr8nxxgf365q"
+path.s3tc="res://.godot/imported/Final_Power up device_Ucupaint Cube.png-bd97b9977efcf9f9d5282bacfa6ae4cb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Cube.png"
-dest_files=["res://.godot/imported/Final_Power up device_Ucupaint Cube.png-0a740e0d83669e931179c932ea6606be.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Power up device_Ucupaint Cube.png"
+dest_files=["res://.godot/imported/Final_Power up device_Ucupaint Cube.png-bd97b9977efcf9f9d5282bacfa6ae4cb.s3tc.ctex"]
 
 [params]
 

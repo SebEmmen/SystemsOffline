@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btufvrn6fbww7"
-path.s3tc="res://.godot/imported/Final_Power up device_Ucupaint Plane Roughness.png-43c2f88c4e643f5cd9bdb912ee7db7e3.s3tc.ctex"
+uid="uid://tg0uy2p6ftsl"
+path.s3tc="res://.godot/imported/Final_Power up device_Ucupaint Plane Roughness.png-17f000dfd60cdc11f5306a2564a79a72.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Plane Roughness.png"
-dest_files=["res://.godot/imported/Final_Power up device_Ucupaint Plane Roughness.png-43c2f88c4e643f5cd9bdb912ee7db7e3.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Power up device_Ucupaint Plane Roughness.png"
+dest_files=["res://.godot/imported/Final_Power up device_Ucupaint Plane Roughness.png-17f000dfd60cdc11f5306a2564a79a72.s3tc.ctex"]
 
 [params]
 

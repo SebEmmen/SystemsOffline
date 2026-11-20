@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqfh3ljykhyg7"
-path="res://.godot/imported/Final_Racket small metalsheets.glb-90c847a2e4d1ab22ed68b6fce0738d16.scn"
+uid="uid://1p65xitdmeer"
+path="res://.godot/imported/Final_Racket small metalsheets.glb-1ecec89365949642f2a06d776bc0eda9.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Racket small metalsheets.glb"
-dest_files=["res://.godot/imported/Final_Racket small metalsheets.glb-90c847a2e4d1ab22ed68b6fce0738d16.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Racket small metalsheets.glb"
+dest_files=["res://.godot/imported/Final_Racket small metalsheets.glb-1ecec89365949642f2a06d776bc0eda9.scn"]
 
 [params]
 

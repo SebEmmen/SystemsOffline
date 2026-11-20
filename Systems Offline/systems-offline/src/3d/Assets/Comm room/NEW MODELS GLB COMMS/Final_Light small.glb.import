@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpmqjg1hw5113"
-path="res://.godot/imported/Final_Light small.glb-6edb44b269365512775a95287f7c055f.scn"
+uid="uid://4i0vs743timj"
+path="res://.godot/imported/Final_Light small.glb-e18a4cd6ac4c8206fac7581ad071c322.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Light small.glb"
-dest_files=["res://.godot/imported/Final_Light small.glb-6edb44b269365512775a95287f7c055f.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Light small.glb"
+dest_files=["res://.godot/imported/Final_Light small.glb-e18a4cd6ac4c8206fac7581ad071c322.scn"]
 
 [params]
 

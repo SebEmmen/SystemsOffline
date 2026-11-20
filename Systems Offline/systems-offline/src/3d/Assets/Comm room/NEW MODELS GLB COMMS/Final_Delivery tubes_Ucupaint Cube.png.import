@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsml7vgde5h6o"
-path.s3tc="res://.godot/imported/Final_Delivery tubes_Ucupaint Cube.png-805cdb5815e50b796b6f31c0090cb632.s3tc.ctex"
+uid="uid://bw5hakrskjd0k"
+path.s3tc="res://.godot/imported/Final_Delivery tubes_Ucupaint Cube.png-b118c6e1a474317c1a13da4430594a3f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Delivery tubes_Ucupaint Cube.png"
-dest_files=["res://.godot/imported/Final_Delivery tubes_Ucupaint Cube.png-805cdb5815e50b796b6f31c0090cb632.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Delivery tubes_Ucupaint Cube.png"
+dest_files=["res://.godot/imported/Final_Delivery tubes_Ucupaint Cube.png-b118c6e1a474317c1a13da4430594a3f.s3tc.ctex"]
 
 [params]
 

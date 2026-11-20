@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnoas06xtkdt1"
-path.s3tc="res://.godot/imported/Final_Filler_Switch panel 3_Ucupaint Sphere_8.png-884d21145e69e63264978ca24b96ab79.s3tc.ctex"
+uid="uid://dyd120oik4kvu"
+path.s3tc="res://.godot/imported/Final_Filler_Switch panel 3_Ucupaint Sphere_8.png-6ef09489fc76c8583097d5a8741ca64a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Switch panel 3_Ucupaint Sphere_8.png"
-dest_files=["res://.godot/imported/Final_Filler_Switch panel 3_Ucupaint Sphere_8.png-884d21145e69e63264978ca24b96ab79.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Filler_Switch panel 3_Ucupaint Sphere_8.png"
+dest_files=["res://.godot/imported/Final_Filler_Switch panel 3_Ucupaint Sphere_8.png-6ef09489fc76c8583097d5a8741ca64a.s3tc.ctex"]
 
 [params]
 

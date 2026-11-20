@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bln88ysyfkufc"
-path="res://.godot/imported/Final_Keys for typewriter on plaatform.glb-2b0f99880de8dd07730937d7515e1503.scn"
+uid="uid://tyscvwxhvgbg"
+path="res://.godot/imported/Final_Keys for typewriter on plaatform.glb-77974a6d74184583db64bff8ca59e962.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Keys for typewriter on plaatform.glb"
-dest_files=["res://.godot/imported/Final_Keys for typewriter on plaatform.glb-2b0f99880de8dd07730937d7515e1503.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Keys for typewriter on plaatform.glb"
+dest_files=["res://.godot/imported/Final_Keys for typewriter on plaatform.glb-77974a6d74184583db64bff8ca59e962.scn"]
 
 [params]
 

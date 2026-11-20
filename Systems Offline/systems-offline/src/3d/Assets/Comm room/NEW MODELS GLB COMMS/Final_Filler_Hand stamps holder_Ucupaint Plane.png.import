@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://novcpy5g0bfl"
-path.s3tc="res://.godot/imported/Final_Filler_Hand stamps holder_Ucupaint Plane.png-a236686f10f0f84c44bf15b3d1e2660d.s3tc.ctex"
+uid="uid://fiyulf8tatwb"
+path.s3tc="res://.godot/imported/Final_Filler_Hand stamps holder_Ucupaint Plane.png-5998d7c06f18b650f61112512e6a2f30.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Hand stamps holder_Ucupaint Plane.png"
-dest_files=["res://.godot/imported/Final_Filler_Hand stamps holder_Ucupaint Plane.png-a236686f10f0f84c44bf15b3d1e2660d.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Filler_Hand stamps holder_Ucupaint Plane.png"
+dest_files=["res://.godot/imported/Final_Filler_Hand stamps holder_Ucupaint Plane.png-5998d7c06f18b650f61112512e6a2f30.s3tc.ctex"]
 
 [params]
 

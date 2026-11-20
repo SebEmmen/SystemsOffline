@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dawtg5b6dd2gt"
-path.s3tc="res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Roughness.png-876582f8fa30e007df6c20c61952c492.s3tc.ctex"
+uid="uid://2c58pomhcdik"
+path.s3tc="res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Roughness.png-a7b78a3126eef1a2c6ae98e27fcf18e0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Metalsheet screen_Ucupaint Metalsheet holder Roughness.png"
-dest_files=["res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Roughness.png-876582f8fa30e007df6c20c61952c492.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Metalsheet screen_Ucupaint Metalsheet holder Roughness.png"
+dest_files=["res://.godot/imported/Final_Metalsheet screen_Ucupaint Metalsheet holder Roughness.png-a7b78a3126eef1a2c6ae98e27fcf18e0.s3tc.ctex"]
 
 [params]
 

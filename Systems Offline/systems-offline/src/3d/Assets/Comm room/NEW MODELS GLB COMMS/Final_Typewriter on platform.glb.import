@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cevof3fdsip4f"
-path="res://.godot/imported/Final_Typewriter on platform.glb-4485e25195460a52a8e029c4feb96ec1.scn"
+uid="uid://cesnhpogyq65n"
+path="res://.godot/imported/Final_Typewriter on platform.glb-f4526c0349ce86c7ec4038634594dcad.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Typewriter on platform.glb"
-dest_files=["res://.godot/imported/Final_Typewriter on platform.glb-4485e25195460a52a8e029c4feb96ec1.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Typewriter on platform.glb"
+dest_files=["res://.godot/imported/Final_Typewriter on platform.glb-f4526c0349ce86c7ec4038634594dcad.scn"]
 
 [params]
 

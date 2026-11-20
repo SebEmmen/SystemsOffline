@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c12mo1hwtljty"
-path="res://.godot/imported/Final_Filler_Switch panel 3.glb-2e12f8f47ba730f617592674a44321c4.scn"
+uid="uid://dhf0mdn2cxs0d"
+path="res://.godot/imported/Final_Filler_Switch panel 3.glb-725a2caa2303ccc8bbe4afa5e9ee3340.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Switch panel 3.glb"
-dest_files=["res://.godot/imported/Final_Filler_Switch panel 3.glb-2e12f8f47ba730f617592674a44321c4.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Filler_Switch panel 3.glb"
+dest_files=["res://.godot/imported/Final_Filler_Switch panel 3.glb-725a2caa2303ccc8bbe4afa5e9ee3340.scn"]
 
 [params]
 

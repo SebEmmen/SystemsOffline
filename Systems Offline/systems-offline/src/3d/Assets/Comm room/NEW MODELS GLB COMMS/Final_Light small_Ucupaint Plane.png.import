@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0sqpe1p5pf6e"
-path.s3tc="res://.godot/imported/Final_Light small_Ucupaint Plane.png-ba95c910f621224bd39764d33d8715f3.s3tc.ctex"
+uid="uid://c1tyth0s556g1"
+path.s3tc="res://.godot/imported/Final_Light small_Ucupaint Plane.png-430d96e25eed2137d5f62bfc11d1dce4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Light small_Ucupaint Plane.png"
-dest_files=["res://.godot/imported/Final_Light small_Ucupaint Plane.png-ba95c910f621224bd39764d33d8715f3.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Light small_Ucupaint Plane.png"
+dest_files=["res://.godot/imported/Final_Light small_Ucupaint Plane.png-430d96e25eed2137d5f62bfc11d1dce4.s3tc.ctex"]
 
 [params]
 

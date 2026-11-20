@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceywt4qkusl46"
-path.s3tc="res://.godot/imported/Final_Filler_Hand radar_Ucupaint Sphere_7.png-e5c6c30a93433994ff31e05cfe9746d7.s3tc.ctex"
+uid="uid://d1msxd4ry60s3"
+path.s3tc="res://.godot/imported/Final_Filler_Hand radar_Ucupaint Sphere_7.png-f29519827d439211ecfa8bf4c0e1d0be.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Hand radar_Ucupaint Sphere_7.png"
-dest_files=["res://.godot/imported/Final_Filler_Hand radar_Ucupaint Sphere_7.png-e5c6c30a93433994ff31e05cfe9746d7.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Filler_Hand radar_Ucupaint Sphere_7.png"
+dest_files=["res://.godot/imported/Final_Filler_Hand radar_Ucupaint Sphere_7.png-f29519827d439211ecfa8bf4c0e1d0be.s3tc.ctex"]
 
 [params]
 

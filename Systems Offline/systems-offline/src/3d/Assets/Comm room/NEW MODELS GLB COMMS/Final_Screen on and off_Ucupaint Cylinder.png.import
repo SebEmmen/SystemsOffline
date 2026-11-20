@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcfdl7aaqseqa"
-path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Cylinder.png-e71d34dca537ebae5b29200c977f95ef.s3tc.ctex"
+uid="uid://bvjml4e25hbjq"
+path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Cylinder.png-ef1e7828016c1633b1660a4922b6ae62.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Screen on and off_Ucupaint Cylinder.png"
-dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Cylinder.png-e71d34dca537ebae5b29200c977f95ef.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Screen on and off_Ucupaint Cylinder.png"
+dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Cylinder.png-ef1e7828016c1633b1660a4922b6ae62.s3tc.ctex"]
 
 [params]
 

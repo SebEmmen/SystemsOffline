@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ug5mhgc7xvc"
-path.s3tc="res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Plane_2.png-87ab05d08316a2a66c9cc9336b5d5f05.s3tc.ctex"
+uid="uid://dycmnji1gu2fe"
+path.s3tc="res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Plane_2.png-6f5f0bdf7c40629f801c38fe3de1a696.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Filler_Switch panel 2_Ucupaint Plane_2.png"
-dest_files=["res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Plane_2.png-87ab05d08316a2a66c9cc9336b5d5f05.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Filler_Switch panel 2_Ucupaint Plane_2.png"
+dest_files=["res://.godot/imported/Final_Filler_Switch panel 2_Ucupaint Plane_2.png-6f5f0bdf7c40629f801c38fe3de1a696.s3tc.ctex"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxdgqtlndbstc"
-path="res://.godot/imported/Final_LampBig.glb-5028a76e992e972c67c1ee76393582fb.scn"
+uid="uid://bxn6sws3guocl"
+path="res://.godot/imported/Final_LampBig.glb-081a619d8242e72c8beec1330bd9332c.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_LampBig.glb"
-dest_files=["res://.godot/imported/Final_LampBig.glb-5028a76e992e972c67c1ee76393582fb.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_LampBig.glb"
+dest_files=["res://.godot/imported/Final_LampBig.glb-081a619d8242e72c8beec1330bd9332c.scn"]
 
 [params]
 

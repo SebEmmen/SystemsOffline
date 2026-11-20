@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkrw02bkg6bwd"
-path.s3tc="res://.godot/imported/Final_Back of main screen arms_Ucupaint Cube Color_3.png-70157da4f9649fc7948c24087f25c59f.s3tc.ctex"
+uid="uid://bnpgexy4xx3ok"
+path.s3tc="res://.godot/imported/Final_Back of main screen arms_Ucupaint Cube Color_3.png-7083f6a8922905679fba687ee35adb68.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Back of main screen arms_Ucupaint Cube Color_3.png"
-dest_files=["res://.godot/imported/Final_Back of main screen arms_Ucupaint Cube Color_3.png-70157da4f9649fc7948c24087f25c59f.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Back of main screen arms_Ucupaint Cube Color_3.png"
+dest_files=["res://.godot/imported/Final_Back of main screen arms_Ucupaint Cube Color_3.png-7083f6a8922905679fba687ee35adb68.s3tc.ctex"]
 
 [params]
 

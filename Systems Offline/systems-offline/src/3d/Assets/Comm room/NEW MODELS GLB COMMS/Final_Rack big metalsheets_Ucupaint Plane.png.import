@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0kas4lrdrp16"
-path.s3tc="res://.godot/imported/Final_Rack big metalsheets_Ucupaint Plane.png-0803a1a96fa97c22df8ea606cfb08657.s3tc.ctex"
+uid="uid://bmrcglpfpfylm"
+path.s3tc="res://.godot/imported/Final_Rack big metalsheets_Ucupaint Plane.png-260a8855de6294af9f112f6aaf95f3cd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Rack big metalsheets_Ucupaint Plane.png"
-dest_files=["res://.godot/imported/Final_Rack big metalsheets_Ucupaint Plane.png-0803a1a96fa97c22df8ea606cfb08657.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Rack big metalsheets_Ucupaint Plane.png"
+dest_files=["res://.godot/imported/Final_Rack big metalsheets_Ucupaint Plane.png-260a8855de6294af9f112f6aaf95f3cd.s3tc.ctex"]
 
 [params]
 

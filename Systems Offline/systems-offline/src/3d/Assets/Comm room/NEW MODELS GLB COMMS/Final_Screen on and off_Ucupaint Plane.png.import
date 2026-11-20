@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r0ngeocvg1qs"
-path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Plane.png-304ec2840d05e2b2af0a436ab4dc5939.s3tc.ctex"
+uid="uid://bfylmnjs8cokq"
+path.s3tc="res://.godot/imported/Final_Screen on and off_Ucupaint Plane.png-8d4e9dc5ff4a9d0d73283d9d41fd3fb6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Screen on and off_Ucupaint Plane.png"
-dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Plane.png-304ec2840d05e2b2af0a436ab4dc5939.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Screen on and off_Ucupaint Plane.png"
+dest_files=["res://.godot/imported/Final_Screen on and off_Ucupaint Plane.png-8d4e9dc5ff4a9d0d73283d9d41fd3fb6.s3tc.ctex"]
 
 [params]
 

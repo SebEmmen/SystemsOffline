@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhkt3nw1h7u3m"
-path="res://.godot/imported/Final_Screen on and off.glb-2fa3264ddf9d1eb4fbc3eaefa8386d90.scn"
+uid="uid://dtnrrv2btit5e"
+path="res://.godot/imported/Final_Screen on and off.glb-ef05715f26047b07f968fad0946c7572.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Screen on and off.glb"
-dest_files=["res://.godot/imported/Final_Screen on and off.glb-2fa3264ddf9d1eb4fbc3eaefa8386d90.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Screen on and off.glb"
+dest_files=["res://.godot/imported/Final_Screen on and off.glb-ef05715f26047b07f968fad0946c7572.scn"]
 
 [params]
 

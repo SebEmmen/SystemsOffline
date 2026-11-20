@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ejwap7mrork2"
-path="res://.godot/imported/Final_Delivery tubes.glb-12c15c4e0b7a879b83fa1225f6a79909.scn"
+uid="uid://c4ae8nliubugs"
+path="res://.godot/imported/Final_Delivery tubes.glb-3fbc2e2b71926bab05b890af8bc16308.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Delivery tubes.glb"
-dest_files=["res://.godot/imported/Final_Delivery tubes.glb-12c15c4e0b7a879b83fa1225f6a79909.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Delivery tubes.glb"
+dest_files=["res://.godot/imported/Final_Delivery tubes.glb-3fbc2e2b71926bab05b890af8bc16308.scn"]
 
 [params]
 

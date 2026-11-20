@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgokq80drciu5"
-path="res://.godot/imported/Final_Big unused metalsheet.glb-1f377835b6081940260ff4fdcc01b7d8.scn"
+uid="uid://rhnssx74g4b0"
+path="res://.godot/imported/Final_Big unused metalsheet.glb-104d14adf66f7500969cb9b02e3fcac4.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Big unused metalsheet.glb"
-dest_files=["res://.godot/imported/Final_Big unused metalsheet.glb-1f377835b6081940260ff4fdcc01b7d8.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Big unused metalsheet.glb"
+dest_files=["res://.godot/imported/Final_Big unused metalsheet.glb-104d14adf66f7500969cb9b02e3fcac4.scn"]
 
 [params]
 

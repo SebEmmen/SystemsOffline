@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bpen8rovagggd"
-path="res://.godot/imported/Final_Metalsheet screen.glb-55d45225be49a19c6ae0364ceaf79341.scn"
+uid="uid://dbcdl6r7xkkcb"
+path="res://.godot/imported/Final_Metalsheet screen.glb-973f55aa63508ec77010b42cd41961db.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Metalsheet screen.glb"
-dest_files=["res://.godot/imported/Final_Metalsheet screen.glb-55d45225be49a19c6ae0364ceaf79341.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Metalsheet screen.glb"
+dest_files=["res://.godot/imported/Final_Metalsheet screen.glb-973f55aa63508ec77010b42cd41961db.scn"]
 
 [params]
 

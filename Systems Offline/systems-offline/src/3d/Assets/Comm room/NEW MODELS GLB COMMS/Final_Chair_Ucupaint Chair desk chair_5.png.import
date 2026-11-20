@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqv7u52xfvhev"
-path.s3tc="res://.godot/imported/Final_Chair_Ucupaint Chair desk chair_5.png-c449e4e39d50f8f1ce1d89fe3d17d982.s3tc.ctex"
+uid="uid://vhrpony0nhhk"
+path.s3tc="res://.godot/imported/Final_Chair_Ucupaint Chair desk chair_5.png-c8db3816a20227594f5332a2c76b251d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Chair_Ucupaint Chair desk chair_5.png"
-dest_files=["res://.godot/imported/Final_Chair_Ucupaint Chair desk chair_5.png-c449e4e39d50f8f1ce1d89fe3d17d982.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Chair_Ucupaint Chair desk chair_5.png"
+dest_files=["res://.godot/imported/Final_Chair_Ucupaint Chair desk chair_5.png-c8db3816a20227594f5332a2c76b251d.s3tc.ctex"]
 
 [params]
 

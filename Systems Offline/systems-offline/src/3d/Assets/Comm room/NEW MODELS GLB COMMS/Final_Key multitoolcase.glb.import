@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1w1f4xdcxfxo"
-path="res://.godot/imported/Final_Key multitoolcase.glb-7ac1558a6a32035a879adf0079f7e38e.scn"
+uid="uid://udcnav1gqdh5"
+path="res://.godot/imported/Final_Key multitoolcase.glb-0d6882678e2678b17fd06a6bdb4aedd1.scn"
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Key multitoolcase.glb"
-dest_files=["res://.godot/imported/Final_Key multitoolcase.glb-7ac1558a6a32035a879adf0079f7e38e.scn"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Key multitoolcase.glb"
+dest_files=["res://.godot/imported/Final_Key multitoolcase.glb-0d6882678e2678b17fd06a6bdb4aedd1.scn"]
 
 [params]
 

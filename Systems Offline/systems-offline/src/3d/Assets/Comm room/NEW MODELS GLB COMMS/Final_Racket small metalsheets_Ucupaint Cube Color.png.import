@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv3tmwhdxrmvj"
-path.s3tc="res://.godot/imported/Final_Racket small metalsheets_Ucupaint Cube Color.png-e0603daa604bb214609cfa61ce8d31eb.s3tc.ctex"
+uid="uid://dk5dlwbw4xts4"
+path.s3tc="res://.godot/imported/Final_Racket small metalsheets_Ucupaint Cube Color.png-913b7e7d0d9a94030d42343383b2dff1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Racket small metalsheets_Ucupaint Cube Color.png"
-dest_files=["res://.godot/imported/Final_Racket small metalsheets_Ucupaint Cube Color.png-e0603daa604bb214609cfa61ce8d31eb.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Racket small metalsheets_Ucupaint Cube Color.png"
+dest_files=["res://.godot/imported/Final_Racket small metalsheets_Ucupaint Cube Color.png-913b7e7d0d9a94030d42343383b2dff1.s3tc.ctex"]
 
 [params]
 

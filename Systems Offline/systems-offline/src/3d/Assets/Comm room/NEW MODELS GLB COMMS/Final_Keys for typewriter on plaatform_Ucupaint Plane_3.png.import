@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brh4w3dusrock"
-path.s3tc="res://.godot/imported/Final_Keys for typewriter on plaatform_Ucupaint Plane_3.png-e88b04ffc9893fe50834d4f210ae25e9.s3tc.ctex"
+uid="uid://btp6h28y0ig0e"
+path.s3tc="res://.godot/imported/Final_Keys for typewriter on plaatform_Ucupaint Plane_3.png-db00d23d23bfbbb8ea1366caaca119e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Keys for typewriter on plaatform_Ucupaint Plane_3.png"
-dest_files=["res://.godot/imported/Final_Keys for typewriter on plaatform_Ucupaint Plane_3.png-e88b04ffc9893fe50834d4f210ae25e9.s3tc.ctex"]
+source_file="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/GLB files/Final_Keys for typewriter on plaatform_Ucupaint Plane_3.png"
+dest_files=["res://.godot/imported/Final_Keys for typewriter on plaatform_Ucupaint Plane_3.png-db00d23d23bfbbb8ea1366caaca119e5.s3tc.ctex"]
 
 [params]
 
