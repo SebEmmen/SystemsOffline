@@ -15,9 +15,11 @@ albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 radius = 0.4
 height = 1.8
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=1779789665 node_paths=PackedStringArray("arm")]
+[node name="ProtoController" type="CharacterBody3D" unique_id=1779789665 node_paths=PackedStringArray("camera", "arm", "ray")]
 script = ExtResource("1_ucva2")
+camera = NodePath("Head/Camera3D")
 arm = NodePath("Head/Camera3D/Arms")
+ray = NodePath("Head/Camera3D/RayCast3D")
 camera_tilt_degrees = 1.0
 camera_tilt_speed = 1.0
 

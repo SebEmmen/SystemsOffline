@@ -492,10 +492,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "hand_marker", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
+[node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("hand_marker", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
 transform = Transform3D(0.9998475, 1.3889337e-05, 0.017452251, 0, 0.99999964, -0.0007958476, -0.017452259, 0.0007957264, 0.9998473, -1.9735441, 0.005318284, 6.9733696)
-camera = NodePath("Head/Camera3D")
-ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
 hand_marker = NodePath("Head/HandMarker")
 sprint_speed = 10.0
@@ -990,12 +988,6 @@ mesh = SubResource("PlaneMesh_usd6p")
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
 mesh = SubResource("PlaneMesh_g6v1v")
 
-[node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
-sub_viewport = NodePath("../MainScreen")
-screen_mesh = NodePath("../Main Screen")
-inspect = NodePath("..")
-puzzle = NodePath("../MainScreen/CommsPuzzle")
-
 [node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece", "transition_camera")]
 multitool_piece = NodePath("../../multitool piece 1 lit ")
 transition_camera = NodePath("../../../TransitionCameraAfterGame")
@@ -1254,6 +1246,7 @@ player = NodePath("../../../ProtoController")
 item_data = ExtResource("65_8iy1x")
 
 [node name="Circle Piece" parent="CommsRoom/Final_Multitoolcase body/Multitool/Circle Piece 1" parent_id_path=PackedInt32Array(754739194, 51961434, 961166787) index="0" unique_id=412834913]
+visible = false
 surface_material_override/0 = null
 
 [node name="eye left" parent="CommsRoom/Final_Multitoolcase body/Multitool/Eye piece 2" parent_id_path=PackedInt32Array(754739194, 51961434, 1195316989) index="0" unique_id=782421204]
