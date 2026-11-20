@@ -1,16 +1,7 @@
 [gd_scene format=4 uid="uid://dlsafydximrtk"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uee51"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_u85c0"]
-sky_material = SubResource("ProceduralSkyMaterial_uee51")
-
-[sub_resource type="Environment" id="Environment_dvba1"]
-background_mode = 2
-sky = SubResource("Sky_u85c0")
-glow_enabled = true
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(0.1750885, 0.34093493, 0.15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtyxk"]
 resource_name = "Cylinder.003"
@@ -185,38 +176,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8fcth")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
-size = Vector3(0.2, 0.422, 0.15)
-
 [node name="Tutorial Key" type="RigidBody3D" unique_id=1624140816]
 transform = Transform3D(0.99937177, -0.024704779, -0.025409829, -0.024712754, -0.9996946, 4.2336988e-11, -0.025402065, 0.00062794675, -0.9996771, 0, 0, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=259460590]
-environment = SubResource("Environment_dvba1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=95298466]
+transform = Transform3D(1, 7.912604e-10, -3.3527613e-08, -1.2052442e-07, 1, -5.47152e-09, 0, 9.720679e-09, 0.9999961, -0.002792664, 0.03055937, 8.0035534e-11)
+shape = SubResource("BoxShape3D_r5iys")
 
-[node name="Correct key" type="Node3D" parent="." unique_id=164125829]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7914717, 0, 0)
-
-[node name="Circle" type="MeshInstance3D" parent="Correct key" unique_id=1626733573]
-transform = Transform3D(0.045587707, 0, 0, 0, 0.045587707, 0, 0, 0, 0.045587707, -1.7918139, 0, -0.0005098316)
+[node name="Circle" type="MeshInstance3D" parent="." unique_id=1626733573]
+transform = Transform3D(0.045587707, 7.031531e-11, 0, 7.031531e-11, 0.045587707, 0, 1.1641532e-10, 0, 0.045587704, -0.0003420682, -2.9619684e-09, -0.0005098346)
 mesh = SubResource("ArrayMesh_ektmm")
 
-[node name="Cylinder_006" type="MeshInstance3D" parent="Correct key" unique_id=332732522]
-transform = Transform3D(0.017803192, 0, 0, 0, 0.1373207, 0, 0, 0, 0.017803192, -1.7923042, 0, 0)
+[node name="Cylinder_006" type="MeshInstance3D" parent="." unique_id=332732522]
+transform = Transform3D(0.01780319, -1.848548e-10, 0, 1.3869794e-11, 0.13732068, 0, 2.910383e-11, 0, 0.01780319, -0.0008324846, -1.7907311e-09, 2.0809239e-09)
 mesh = SubResource("ArrayMesh_5u3c5")
 
-[node name="Cylinder_007" type="MeshInstance3D" parent="Correct key" unique_id=837263861]
-transform = Transform3D(-4.5984065e-09, -0.090470724, 0, 0.012858076, -3.2354855e-08, 0, 0, 0, -0.012858076, -1.7917644, 0.20272277, -0.00039717113)
+[node name="Cylinder_007" type="MeshInstance3D" parent="." unique_id=837263861]
+transform = Transform3D(-4.6077417e-09, -0.090470724, 0, 0.012858074, -3.233606e-08, 0, 0, 2.3283064e-10, -0.012858075, -0.00029256276, 0.20272276, -0.00039717517)
 mesh = SubResource("ArrayMesh_qyltn")
 
-[node name="Cylinder_008" type="MeshInstance3D" parent="Correct key" unique_id=105836644]
-transform = Transform3D(0.08212583, 0, 0, 0, 0, -0.08212583, 0, 0.02068147, 0, -1.7917469, 0.20464505, 0)
+[node name="Cylinder_008" type="MeshInstance3D" parent="." unique_id=105836644]
+transform = Transform3D(0.08212583, 0, 9.5838004e-11, -9.5838004e-11, 0, -0.08212581, 0, 0.020681469, -3.637979e-12, -0.0002750244, 0.20464505, -3.8708095e-09)
 mesh = SubResource("ArrayMesh_anbas")
 
-[node name="Plane_005" type="MeshInstance3D" parent="Correct key" unique_id=1804077149]
-transform = Transform3D(-0.02315945, 0, 0, 0, 0, 0.038308814, 0, -0.038308814, 0, -1.7681177, -0.06516542, -0.0023680388)
+[node name="Plane_005" type="MeshInstance3D" parent="." unique_id=1804077149]
+transform = Transform3D(-0.023159448, -5.820766e-11, -5.456968e-12, 3.393552e-11, 1.8189894e-12, 0.03830881, 0, -0.038308814, 1.8189894e-12, 0.023354115, -0.06516543, -0.0023680408)
 mesh = SubResource("ArrayMesh_j2ssy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=95298466]
-transform = Transform3D(1.2, 1.027729e-09, 0, -8.3491614e-10, 1.2, -5.820766e-11, 0, 5.820766e-11, 1.1999999, -6.320988e-11, 0.039184567, -1.8189894e-12)
-shape = SubResource("BoxShape3D_r5iys")

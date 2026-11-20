@@ -203,9 +203,9 @@ func mark_quest_unread(quest_id: String) -> void:
 	if not QUESTS.has(quest_id):
 		return
 
-	print("[JOURNAL DEBUG] Marking unread: ", quest_id)
-	print("[JOURNAL DEBUG] Called from:")
-	print_stack()
+	#print("[JOURNAL DEBUG] Marking unread: ", quest_id)
+	#print("[JOURNAL DEBUG] Called from:")
+	#print_stack()
 
 	unread_quests[quest_id] = true
 	progress_dirty = true
