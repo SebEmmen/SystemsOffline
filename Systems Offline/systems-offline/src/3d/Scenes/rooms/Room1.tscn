@@ -14,11 +14,14 @@
 [ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="6_tjnt7"]
 [ext_resource type="PackedScene" uid="uid://bon0sodvgf0lp" path="res://src/2d/PauseMenu/PauseMenu.tscn" id="7_b3d3a"]
 [ext_resource type="PackedScene" uid="uid://cutwb5r3chx52" path="res://src/3d/Scenes/objects/ItemInspector.tscn" id="8_o4t00"]
+[ext_resource type="PackedScene" uid="uid://dlim1triykghc" path="res://src/3d/Scenes/objects/Journal/journal_notification.tscn" id="8_o48g7"]
 [ext_resource type="PackedScene" uid="uid://74jh74isiibj" path="res://src/2d/Scenes/Inventory/InventorySlot.tscn" id="9_r31ku"]
 [ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="10_8wb82"]
 [ext_resource type="PackedScene" uid="uid://bblku5gj5b1j" path="res://src/3d/Scenes/objects/Hand/key_hand_ui.tscn" id="12_6lvv6"]
 [ext_resource type="Script" uid="uid://dnmhios77bumb" path="res://src/3d/Scripts/keypad_component.gd" id="15_71ovv"]
+[ext_resource type="Script" uid="uid://d234nlqwa7cm0" path="res://src/3d/Scenes/objects/Journal/journal.gd" id="15_lghuq"]
 [ext_resource type="PackedScene" uid="uid://6rxnmyusiek6" path="res://src/3d/Scenes/objects/OpenableCrate.scn" id="16_2pe5o"]
+[ext_resource type="Script" uid="uid://d1gkt6n4y2q1o" path="res://src/3d/Scenes/rooms/quest_notifications.gd" id="16_5buxd"]
 [ext_resource type="AudioStream" uid="uid://dvt1g3jjdoo5d" path="res://src/3d/Sound/big button press.mp3" id="16_i6svr"]
 [ext_resource type="PackedScene" uid="uid://lg3llrg6j4rp" path="res://src/3d/Scenes/objects/BasicCrate.scn" id="16_o4tcg"]
 [ext_resource type="AudioStream" uid="uid://bty5575j4ueu3" path="res://src/3d/Sound/door(open).mp3" id="17_nvpkd"]
@@ -61,6 +64,8 @@
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://bc7c5x5egoq0x" path="res://src/3d/Scenes/objects/wire puzzles/PuzzleOverlay.tscn" id="53_5buxd"]
 [ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
+[ext_resource type="Script" uid="uid://btfh12lahhu8j" path="res://src/3d/Scenes/rooms/tutorial_area.gd" id="53_slhau"]
+[ext_resource type="AudioStream" uid="uid://beda5kmpyksyd" path="res://src/3d/Sound/Forcefield/freesound_community-energy-hum-29083.mp3" id="55_58ftc"]
 [ext_resource type="Texture2D" uid="uid://bsdkw2gpfkfmg" path="res://src/3d/Assets/Comm room/textures/Ucupaint Sphere.002 Color.png" id="56_gav43"]
 [ext_resource type="Texture2D" uid="uid://bjjhc0l3s0qkb" path="res://src/3d/Resources/Flute.png" id="57_3kfck"]
 [ext_resource type="PackedScene" uid="uid://drasxyj2nmf0a" path="res://src/3d/Scenes/objects/Chair.tscn" id="57_nvpkd"]
@@ -82,10 +87,11 @@
 [ext_resource type="PackedScene" uid="uid://dy6wacnbxdxid" path="res://src/3d/Scenes/objects/Hints/shape_4_circle.glb" id="73_xm1x8"]
 [ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
 [ext_resource type="Shader" uid="uid://1iof5c6ynfip" path="res://src/3d/Scenes/rooms/Forcefield.gdshader" id="81_loyml"]
+[ext_resource type="PackedScene" uid="uid://doii310bxjkrj" path="res://src/3d/Scenes/objects/Journal/Journal.tscn" id="82_lghuq"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, -0.97, 0.035, 4.603336, 0.5973165, 0, 0.185, -0.705, 0, 1.56, -0.765, 0.045, 1.3198564, 0.91041803, 0),
+"points": PackedVector3Array(0, 0, 0, 0, -0.97, 0.035, 4.603336, 0.63272405, -0.0012775927, 0.185, -0.705, 0, 1.56, -0.765, 0.045, 1.3198564, 0.91041803, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -278,6 +284,9 @@ shadow_mesh = SubResource("ArrayMesh_8fcth")
 [sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
 size = Vector3(0.2, 0.422, 0.15)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cg0m"]
+size = Vector3(32.53528, 6.6815186, 39.622955)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_1cg0m"]
 size = Vector2(5.415, 5.19)
 
@@ -342,28 +351,25 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lghuq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_58ftc"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5buxd"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7jok6"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_lghuq")
+albedo_texture = SubResource("ViewportTexture_58ftc")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_slhau"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_bmro6"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_5buxd")
+material = SubResource("ORMMaterial3D_7jok6")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t85fk"]
-viewport_path = NodePath("SideScreen")
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_wlapk"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_usd6p"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_t85fk")
+albedo_texture = ExtResource("2_lghuq")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_o48g7"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_rmr3x"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_wlapk")
+material = SubResource("ORMMaterial3D_usd6p")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -438,7 +444,7 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_58ftc"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vfk7l"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -482,11 +488,12 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "hand_marker", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -2.6573367, 0.07450342, -51.487293)
+transform = Transform3D(0.9998475, 1.3889337e-05, 0.017452251, 0, 0.99999964, -0.0007958476, -0.017452259, 0.0007957264, 0.9998473, -1.9735441, 0.005318284, 6.9733696)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
 hand_marker = NodePath("Head/HandMarker")
+sprint_speed = 10.0
 primary_se = ExtResource("5_8iy1x")
 my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"), NodePath("../HUD/HandCrosshair")]
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
@@ -524,6 +531,8 @@ surface_material_override/0 = null
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("6_1v5mr")]
 
+[node name="JournalNotification" parent="HUD" unique_id=1336883950 instance=ExtResource("8_o48g7")]
+
 [node name="UI_Manger" type="CanvasLayer" parent="." unique_id=623705313 node_paths=PackedStringArray("player")]
 process_mode = 3
 script = ExtResource("6_tjnt7")
@@ -532,6 +541,7 @@ player = NodePath("../ProtoController")
 [node name="PauseMenu" parent="UI_Manger" unique_id=2114750774 instance=ExtResource("7_b3d3a")]
 
 [node name="InventoryUI" parent="UI_Manger" unique_id=1823256622 instance=ExtResource("5_7flw8")]
+process_mode = 3
 visible = false
 slot_scene = ExtResource("9_r31ku")
 
@@ -547,14 +557,23 @@ offset_bottom = 41.875
 grow_horizontal = 2
 
 [node name="ItemInspector" parent="UI_Manger" unique_id=928279941 instance=ExtResource("8_o4t00")]
+process_mode = 3
 visible = false
 rotation_sensitivity = 0.005
 
 [node name="NotificationUI" parent="UI_Manger" unique_id=1484425050 instance=ExtResource("6_fm5id")]
+process_mode = 3
 top_level = true
 
 [node name="TopTimer" parent="UI_Manger/NotificationUI" index="2" unique_id=413616360]
 wait_time = 2.0
+
+[node name="Journal" parent="UI_Manger" unique_id=459650727 instance=ExtResource("82_lghuq")]
+script = ExtResource("15_lghuq")
+
+[node name="QuestNotifications" type="Node" parent="UI_Manger" unique_id=1073870801 node_paths=PackedStringArray("notification_ui")]
+script = ExtResource("16_5buxd")
+notification_ui = NodePath("../NotificationUI")
 
 [node name="KeyHandUI" parent="." unique_id=973326925 instance=ExtResource("12_6lvv6")]
 
@@ -585,12 +604,12 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.94293344, 5.1550264,
 [node name="HintObject4" parent="Tutorial Room/Hint Tutorial Room" unique_id=1193332617 instance=ExtResource("25_354s1")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.9639058, 5.1550264, -7.512353)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Tutorial Room/Hint Tutorial Room" unique_id=208688206]
+transform = Transform3D(1, 0, 0, 0, 0.9823191, 0.18721436, 0, -0.18721436, 0.9823191, -2.0791183, 5.932065, -5.2255087)
+light_color = Color(0.6817924, 0.7304825, 1, 1)
+
 [node name="KeypadWire" parent="Tutorial Room" unique_id=1206855643 instance=ExtResource("32_8gijo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16098836, 1.0923238, -7.85)
-curve = SubResource("Curve3D_4qo6h")
-
-[node name="KeypadWire2" parent="Tutorial Room" unique_id=1036713795 instance=ExtResource("32_8gijo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17241791, 1.0923238, -7.85)
 curve = SubResource("Curve3D_4qo6h")
 
 [node name="BrokenWall" parent="Tutorial Room" unique_id=1554696659 instance=ExtResource("38_io4pa")]
@@ -798,7 +817,7 @@ transform = Transform3D(-5.2453668e-08, -1.2, 0, 1.2, -5.2453668e-08, 0, 0, 0, 1
 transform = Transform3D(-2.2817343e-08, -0.522, 4.440892e-16, 0.50537306, -2.2090555e-08, 0.13069834, -0.13069834, 5.7130056e-09, 0.50537306, -0.5414939, 2.297679, -0.34020257)
 
 [node name="Tutorial Key" parent="Tutorial Room/Crates/Fallen Crate With Key" unique_id=466876124 node_paths=PackedStringArray("object_ref", "player", "player_camera", "transition_camera") instance=ExtResource("24_crb2e")]
-transform = Transform3D(0.21708171, 0.011499455, 0.8044797, 0.09047501, 0.82761407, -0.036243968, -0.7994583, 0.09678371, 0.2143435, -0.6124191, 1.3959074, 0.37007427)
+transform = Transform3D(0.21708173, 0.011499395, 0.80447966, 0.09047501, 0.82761407, -0.036243986, -0.79945827, 0.096783906, 0.21434347, -0.6124191, 1.3959074, 0.37007427)
 script = ExtResource("47_lghuq")
 object_ref = NodePath(".")
 player = NodePath("../../../../ProtoController")
@@ -807,6 +826,7 @@ transition_camera = NodePath("../../../../TransitionCamera")
 is_part_of_tutorial = true
 item_data = ExtResource("25_dqwws")
 primary_se = ExtResource("24_gav43")
+quest_event_id = "tutorial_key_found"
 
 [node name="Shelves" type="Node" parent="Tutorial Room" unique_id=763259974]
 
@@ -857,12 +877,29 @@ transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7778175, 5.841619, 0.0050001144, 6.3599706)
 
+[node name="TutorialArea" type="Area3D" parent="Tutorial Room" unique_id=1818286345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2502704)
+script = ExtResource("53_slhau")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialArea" unique_id=516855087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9613647, 2.8407593, -0.37364817)
+shape = SubResource("BoxShape3D_1cg0m")
+
 [node name="EntranceWall" type="Node" parent="Tutorial Room" unique_id=1334916295]
 
 [node name="Forcefield" type="MeshInstance3D" parent="Tutorial Room/EntranceWall" unique_id=882475696]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.898982, 2.9765136, 11.8729515)
 mesh = SubResource("PlaneMesh_1cg0m")
 surface_material_override/0 = SubResource("ShaderMaterial_3q4rn")
+
+[node name="ForcefieldHum" type="AudioStreamPlayer3D" parent="Tutorial Room/EntranceWall/Forcefield" unique_id=193151837]
+stream = ExtResource("55_58ftc")
+volume_db = -12.0
+unit_size = 3.0
+pitch_scale = 0.85
+autoplay = true
+max_distance = 8.0
+parameters/looping = true
 
 [node name="CommsRoom" type="Node" parent="." unique_id=1510878533]
 
@@ -939,10 +976,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_slhau")
+mesh = SubResource("PlaneMesh_bmro6")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_o48g7")
+mesh = SubResource("PlaneMesh_rmr3x")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1216,10 +1253,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_58ftc")
+surface_material_override/0 = SubResource("ORMMaterial3D_vfk7l")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_58ftc")
+surface_material_override/0 = SubResource("ORMMaterial3D_vfk7l")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 

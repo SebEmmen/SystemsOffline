@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bgpegv8vkqoj0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aai2c"]
+albedo_color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lskka"]
+material = SubResource("StandardMaterial3D_aai2c")
+size = Vector3(6, 6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l2en5"]
+size = Vector3(6, 1, 1)
+
+[node name="PipeStraightOut" type="Node2D" unique_id=608212737]
+
+[node name="Box" type="MeshInstance2D" parent="." unique_id=1685530688]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.101960786)
+mesh = SubResource("BoxMesh_lskka")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2140292231]
+modulate = Color(0.54509807, 0, 0, 1)
+mesh = SubResource("BoxMesh_l2en5")

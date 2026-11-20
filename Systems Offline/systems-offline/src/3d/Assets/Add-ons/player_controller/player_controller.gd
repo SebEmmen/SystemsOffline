@@ -32,6 +32,22 @@ var current_held_item: HoldableInteractableComponent = null
 @export var look_speed: float = 0.002
 @export var base_speed: float = 5.0
 @export var sprint_speed: float = 7.0
+
+
+@export_group("Sprint Camera Effects")
+@export var sprint_fov_bonus: float = 7.0
+@export var sprint_fov_speed: float = 6.0
+
+@export var head_bob_frequency: float = 12.0
+@export var head_bob_amplitude: float = 0.025
+
+@export var camera_tilt_degrees: float = 2.0
+@export var camera_tilt_speed: float = 7.0
+
+var head_bob_time: float = 0.0
+var camera_base_position: Vector3
+var camera_base_rotation_z: float = 0.0
+
 #endregion
 #region Input Actions
 @export_group("Input Actions")
@@ -151,6 +167,9 @@ func _ready() -> void:
 	arm.visible = arm_show
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	
+	camera_base_position = camera.position
+	camera_base_rotation_z = camera.rotation.z
 
 	capture_mouse()
 
@@ -196,6 +215,8 @@ func delete_held_item() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
+	
+
 
 	# Apply gravity
 	if has_gravity and not gravity_invert:
@@ -284,6 +305,8 @@ func _physics_process(delta: float) -> void:
 	_snap_up_stairs_check(delta)
 	move_and_slide()
 	_snap_down_to_stairs_check()
+	
+	update_sprint_camera(delta)
 	
 	if primary_audio_player.playing:
 		primary_audio_player.stop
@@ -383,6 +406,77 @@ func show_player() -> void:
 	set_physics_process(true)
 	set_process_input(true)
 	set_process_unhandled_input(true)
+
+
+func update_sprint_camera(delta: float) -> void:
+	if not is_instance_valid(camera):
+		return
+
+	# Don't apply camera effects during gravity flips or inspections.
+	if gravity_flipping or not controls_enabled:
+		return
+
+	var movement_input: Vector2 = Input.get_vector(
+		"move_left",
+		"move_right",
+		"move_forward",
+		"move_back"
+	)
+
+	var is_moving: bool = movement_input.length() > 0.1
+	var is_sprinting: bool = Input.is_action_pressed("sprint") and is_moving
+
+	# --------------------------------
+	# FOV CHANGE
+	# --------------------------------
+
+	var target_fov: float = 75.0
+
+	if is_sprinting:
+		target_fov += sprint_fov_bonus
+
+	camera.fov = lerpf(
+		camera.fov,
+		target_fov,
+		clampf(delta * sprint_fov_speed, 0.0, 1.0)
+	)
+
+	# --------------------------------
+	# HEAD BOBBING
+	# --------------------------------
+
+	var target_position: Vector3 = camera_base_position
+
+	if is_sprinting and is_on_floor():
+		head_bob_time += delta * head_bob_frequency
+
+		target_position.y += sin(head_bob_time) * head_bob_amplitude
+
+	else:
+		head_bob_time = 0.0
+
+	camera.position = camera.position.lerp(
+		target_position,
+		clampf(delta * 10.0, 0.0, 1.0)
+	)
+
+	# --------------------------------
+	# CAMERA TILT
+	# --------------------------------
+
+	var target_tilt: float = camera_base_rotation_z
+
+	if is_sprinting:
+		target_tilt += deg_to_rad(
+			-movement_input.x * camera_tilt_degrees
+		)
+
+	camera.rotation.z = lerp_angle(
+		camera.rotation.z,
+		target_tilt,
+		clampf(delta * camera_tilt_speed, 0.0, 1.0)
+	)
+
 
 func check_input_mappings() -> void:
 
