@@ -972,15 +972,16 @@ surface_material_override/0 = SubResource("ORMMaterial3D_l645p")
 [node name="Camera3D" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="2" unique_id=78234944]
 transform = Transform3D(-0.64451575, -1.0896553, 1.0839876, 0, 1.4105213, 1.4178963, -1.5370028, 0.45692816, -0.4545516, 1.5009689, 2.6826806, 2.0238419)
 
-[node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "lightning_off", "side_screen", "player", "player_camera", "transition_camera")]
+[node name="PowerUp device" parent="CommsRoom/Platform/PowerUp Device" parent_id_path=PackedInt32Array(831807862, 1147756009) index="3" unique_id=1235112676 node_paths=PackedStringArray("inspect_camera", "lightning_off", "main_screen", "side_screen", "player", "player_camera", "transition_camera")]
 inspect_camera = NodePath("../Camera3D")
 lightning_off = NodePath("Red lightning bolt")
+main_screen = NodePath("Main Screen")
 side_screen = NodePath("Side Screen")
 player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_003" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="3" unique_id=2116016902]
+[node name="Cube_003" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="3" unique_id=1376057407]
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.99992454, 0.011106923, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.7132797, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
@@ -999,7 +1000,13 @@ puzzle = NodePath("../MainScreen/CommsPuzzle")
 multitool_piece = NodePath("../../multitool piece 1 lit ")
 transition_camera = NodePath("../../../TransitionCameraAfterGame")
 
-[node name="multitool piece 1 lit " parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="20" unique_id=1999110288 instance=ExtResource("65_i6svr")]
+[node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="17" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
+sub_viewport = NodePath("../MainScreen")
+screen_mesh = NodePath("../Main Screen")
+inspect = NodePath("..")
+puzzle = NodePath("../MainScreen/CommsPuzzle")
+
+[node name="multitool piece 1 lit " parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="19" unique_id=1999110288 instance=ExtResource("65_i6svr")]
 transform = Transform3D(-1.6392765, 0.7772039, -0.16152978, 1.0765463, 1.5129477, 0.11157107, 0.1655499, 0.0045007467, -1.6584179, -3.43573, 0.6331787, -6.0516357)
 visible = false
 item_data = ExtResource("62_i6svr")
@@ -1348,7 +1355,7 @@ push_force = 4.0
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
 [editable path="CommsRoom/Platform"]
-[editable path="CommsRoom/Platform/Final_Platform comms"]
+[editable path="CommsRoom/Platform/Final_Platform comms2"]
 [editable path="CommsRoom/Platform/Final_Side table of middle platform"]
 [editable path="CommsRoom/Platform/Final_Side table of middle platform2"]
 [editable path="CommsRoom/Platform/Monitor"]
