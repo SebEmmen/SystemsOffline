@@ -115,10 +115,16 @@ data = {
 }
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray") instance=ExtResource("3_v0fyp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.857557, 0.0050001144, -4.250124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.267508, 0.004999995, 3.9412966)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 primary_se = ExtResource("4_f0p20")
+
+[node name="Arms" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="1" unique_id=791901379]
+visible = false
+
+[node name="MultitoolHolder" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(1779789665, 1159036928) index="2" unique_id=1661896159]
+visible = false
 
 [node name="HUD" parent="." unique_id=1615179516 instance=ExtResource("4_45hx4")]
 

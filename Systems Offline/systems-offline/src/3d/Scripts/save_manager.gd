@@ -6,7 +6,32 @@ const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 const SETTINGS_FILE = "user://settings.json"
 const INTRO_CUTSCENE = "res://src/2d/Assets/Cutscenes/Intro_Cutscene.tscn"
 const DEFAULT_FOV := 75.0
+#region Spawn points
+enum Spawn { ROOM1_NEW_GAME, ROOM1_TUT, ROOM1_ELEVATOR, ROOM2_ENGINE, ROOM2_ELEVATOR }
 
+const SPAWNS := {
+	Spawn.ROOM1_TUT: {
+		"scene": "res://src/3d/Scenes/rooms/Room1.tscn",
+		"position": Vector3(-9.85, 0.005, -5.95),
+		"yaw": 0.0,  # degrees
+	},
+	Spawn.ROOM1_ELEVATOR: {
+		"scene": "res://src/3d/Scenes/rooms/Room1.tscn",
+		"position": Vector3(-1.97, 0.005, -32.6),
+		"yaw": 0.0,  # degrees
+	},
+	Spawn.ROOM2_ELEVATOR: {
+		"scene": "res://src/3d/Scenes/rooms/Room2.tscn",
+		"position": Vector3(-10.268, 0.005, 3.941),
+		"yaw": 180.0,
+	},
+	Spawn.ROOM2_ENGINE: {
+		"scene": "res://src/3d/Scenes/rooms/Room2.tscn",
+		"position": Vector3(18.01, 0.005, 5.958),
+		"yaw": 180.0,
+	}
+}
+#endregion
 
 signal puzzle_completed(id: String)
 var return_scene: String = ""
