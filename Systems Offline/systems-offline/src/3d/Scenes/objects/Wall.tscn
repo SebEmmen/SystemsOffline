@@ -7,7 +7,7 @@ material = ExtResource("1_txa1c")
 size = Vector3(2, 6, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lpto5"]
-size = Vector3(2, 5, 0.3)
+size = Vector3(2, 6, 0.3)
 
 [node name="Wall" type="Node3D" unique_id=1574530245]
 
