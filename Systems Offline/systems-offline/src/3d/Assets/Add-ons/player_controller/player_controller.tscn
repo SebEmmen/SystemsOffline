@@ -18,6 +18,8 @@ height = 1.8
 [node name="ProtoController" type="CharacterBody3D" unique_id=1779789665 node_paths=PackedStringArray("arm")]
 script = ExtResource("1_ucva2")
 arm = NodePath("Head/Camera3D/Arms")
+camera_tilt_degrees = 1.0
+camera_tilt_speed = 1.0
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1438870549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

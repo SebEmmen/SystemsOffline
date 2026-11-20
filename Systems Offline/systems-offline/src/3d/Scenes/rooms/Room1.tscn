@@ -894,7 +894,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_3q4rn")
 
 [node name="ForcefieldHum" type="AudioStreamPlayer3D" parent="Tutorial Room/EntranceWall/Forcefield" unique_id=193151837]
 stream = ExtResource("55_58ftc")
-volume_db = -5.0
+volume_db = -12.0
 unit_size = 3.0
 pitch_scale = 0.85
 autoplay = true
