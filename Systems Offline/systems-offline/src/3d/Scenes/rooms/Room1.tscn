@@ -364,13 +364,16 @@ resource_local_to_scene = true
 material = SubResource("ORMMaterial3D_bmro6")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_rmr3x"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("2_lghuq")
+[sub_resource type="ViewportTexture" id="ViewportTexture_qssh8"]
+viewport_path = NodePath("SideScreen")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_vfk7l"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lfj2v"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_rmr3x")
+albedo_texture = SubResource("ViewportTexture_qssh8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rmr3x"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_lfj2v")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -445,7 +448,7 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_g6v1v"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vfk7l"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -984,7 +987,7 @@ transform = Transform3D(1.522376, -8.483976e-05, 0.012492657, -0.00012911856, 0.
 mesh = SubResource("PlaneMesh_usd6p")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_vfk7l")
+mesh = SubResource("PlaneMesh_rmr3x")
 
 [node name="StaticBody3D" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="14" unique_id=1071024214 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
 sub_viewport = NodePath("../MainScreen")
@@ -1258,10 +1261,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_g6v1v")
+surface_material_override/0 = SubResource("ORMMaterial3D_vfk7l")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_g6v1v")
+surface_material_override/0 = SubResource("ORMMaterial3D_vfk7l")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 

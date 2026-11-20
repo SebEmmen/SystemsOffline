@@ -20,6 +20,7 @@ var upgrade_active_states: Array[bool] = []
 
 func _ready() -> void:
 	add_to_group("multitool_equipment")
+	tree_exiting.connect(_on_tree_exiting)
 
 	# Restore ownership from SaveManager.
 	has_multitool = SaveManager.is_multitool_part_complete(
@@ -47,6 +48,14 @@ func _ready() -> void:
 		collider.collision_layer = 0
 		collider.collision_mask = 0
 
+
+func _on_tree_exiting() -> void:
+	set_process(false)
+	set_process_unhandled_input(false)
+	# Kill any running tweens so their callbacks don't touch freed materials
+	for tw in upgrade_tweens:
+		if tw and tw.is_valid():
+			tw.kill()
 
 func _setup_upgrade_materials() -> void:
 	upgrade_materials.clear()
@@ -132,10 +141,12 @@ func _set_upgrade_active(index: int, active: bool) -> void:
 		if index < upgrade_tweens.size():
 			upgrade_tweens[index] = tw
 		tw.tween_method(
-			func(val): mat.set_shader_parameter("activation", val),
+			func(val):
+				if is_instance_valid(mat):
+					mat.set_shader_parameter("activation", val),
 			start_val,
 			target_val,
-			0.3 # Duration of light-up fade
+			0.3
 		)
 
 
@@ -153,6 +164,9 @@ func _process(_delta: float) -> void:
 
 
 func _update_visibility() -> void:
+	if not is_inside_tree() or not is_instance_valid(multitool) or not is_instance_valid(camera) or not is_instance_valid(player):
+		return
+
 	var should_show : bool = (
 		has_multitool
 		and is_equipped
@@ -161,22 +175,27 @@ func _update_visibility() -> void:
 	)
 	multitool.visible = should_show
 
-	# Show or hide the arm together with the multitool.
-	if player.arm:
-		player.arm.visible = should_show
+	var arm = player.get("arm")
+	if is_instance_valid(arm):
+		arm.visible = should_show
 
 
 func _update_upgrades() -> void:
+	if not is_inside_tree():
+		return
+
 	for i in range(upgrades_ids.size()):
 		if i >= upgrades.size():
 			break
-			
+
+		var upgrade := upgrades[i]
+		if not is_instance_valid(upgrade):
+			continue
+
 		var upgrade_id = upgrades_ids[i]
 		if SaveManager.is_multitool_part_complete(upgrade_id):
-			upgrades[i].visible = true
-			
-			# Ensure any unlocked upgrade activates its glow/state upon loading
+			upgrade.visible = true
 			if i < upgrade_active_states.size() and not upgrade_active_states[i]:
 				_set_upgrade_active(i, true)
 		else:
-			upgrades[i].visible = false
+			upgrade.visible = false
