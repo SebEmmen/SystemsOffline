@@ -37,7 +37,6 @@ func release_crate() -> void:
 	crate_lid.sleeping = false
 
 	# Move the crate 0.2 meters along the X-axis.
-	crate_body.apply_central_impulse(Vector3(-41, 0.0, 0.0))
+	crate_body.apply_central_impulse(Vector3(-35, 0.0, 0.0))
 	crate_lid.apply_central_impulse(Vector3(-5.1, 0.0, 0.0))
-
-	print("DEBUG: Crate released and pushed!")
+	

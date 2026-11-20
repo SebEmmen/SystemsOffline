@@ -575,7 +575,7 @@ func save_journal() -> void:
 	file.store_string(JSON.stringify(data, "\t"))
 	file.close()
 
-	print("Journal saved!")
+	#print("Journal saved!")
 
 
 # --------------------------------------------------
@@ -652,7 +652,7 @@ func load_journal() -> void:
 
 	tab_spreads[current_tab] = current_spread
 
-	print("Journal loaded!")
+	#print("Journal loaded!")
 
 
 # --------------------------------------------------
