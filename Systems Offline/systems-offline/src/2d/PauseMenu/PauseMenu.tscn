@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bon0sodvgf0lp"]
 
 [ext_resource type="Script" uid="uid://dhvnkfdaj5yfy" path="res://src/2d/Scripts/escape_menu.gd" id="1_script"]
-[ext_resource type="FontFile" uid="uid://b8whkermyduhd" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="2_title_font"]
+[ext_resource type="FontFile" uid="uid://bb2octp1dlvtc" path="res://src/2d/Fonts/Systems-Offline (2).ttf" id="2_title_font"]
 [ext_resource type="FontFile" uid="uid://bgplak0qonsrb" path="res://src/2d/Fonts/MatixType/MatrixType-Regular.ttf" id="3_body_font"]
 [ext_resource type="FontFile" uid="uid://bu7d0fwnhl5n4" path="res://src/2d/Fonts/MatixType/MatrixType-Bold.ttf" id="4_bold_font"]
 [ext_resource type="Texture2D" uid="uid://cww6x5l2lihss" path="res://src/2d/Assets/kitefin_logo.svg" id="5_kitefin_logo"]
@@ -26,12 +26,12 @@ content_margin_left = 24.0
 content_margin_top = 12.0
 content_margin_right = 24.0
 content_margin_bottom = 12.0
-bg_color = Color(0.03, 0.06, 0.11, 0.8)
+bg_color = Color(0.03137255, 0.05882353, 0.10980392, 0.8)
 border_width_left = 3
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0, 0.65, 0.85, 0.4)
+border_color = Color(0, 0.6509804, 0.8509804, 0.4)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
