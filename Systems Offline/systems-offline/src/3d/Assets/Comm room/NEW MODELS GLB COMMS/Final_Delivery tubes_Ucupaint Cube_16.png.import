@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwftobdli0gka"
+uid="uid://c3ntmp73ghdb2"
 path.s3tc="res://.godot/imported/Final_Delivery tubes_Ucupaint Cube_16.png-e3d5c24e0afd4e02c02b885e6e130ba1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "91a46f7032a5b737bc2d53977c6a0f43"
 }
 
 [deps]

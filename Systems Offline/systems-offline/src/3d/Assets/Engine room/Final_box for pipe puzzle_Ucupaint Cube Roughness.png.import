@@ -2,11 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptbxhd4pdivl"
+uid="uid://bwlxjlm400rhx"
 path.s3tc="res://.godot/imported/Final_box for pipe puzzle_Ucupaint Cube Roughness.png-3cb9a956646b44adf5a60c4023fb3fe6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+}
+generator_parameters={
+"md5": "970e6806456051f4e2844e88652a2f48"
 }
 
 [deps]
