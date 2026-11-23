@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bat20pu57v2bl"
+uid="uid://cmtou7ugjxjh4"
 path.s3tc="res://.godot/imported/Final_Filler_Hand radar_Ucupaint Sphere.png-ab7b46b5ee82ea394fba284c1fc6ae64.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "ccd8f1a4324a97c6d6f00970c8dd233d"
 }
 
 [deps]
