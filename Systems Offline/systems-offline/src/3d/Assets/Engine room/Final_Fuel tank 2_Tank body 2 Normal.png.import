@@ -2,11 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://claw8wybqxfvv"
+uid="uid://b0wtd3haphvog"
 path.s3tc="res://.godot/imported/Final_Fuel tank 2_Tank body 2 Normal.png-3b2b7d5ae9ca0eee7af78964a96242e4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+}
+generator_parameters={
+"md5": "8b89494335a537645886d0e1fd6fcd3b"
 }
 
 [deps]

@@ -2,11 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4smpquewr70d"
+uid="uid://bgdhpt1t0kee"
 path.s3tc="res://.godot/imported/Final_Fuel tank 3_Ucupaint Cylinder_2.png-7b9804561bb0e616158989a2c37d86d5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+}
+generator_parameters={
+"md5": "1cca62b6bb9f40addbe86b1eb9982de6"
 }
 
 [deps]

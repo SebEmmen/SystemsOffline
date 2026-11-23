@@ -1263,6 +1263,7 @@ player = NodePath("../../../ProtoController")
 item_data = ExtResource("65_8iy1x")
 
 [node name="Circle Piece" parent="CommsRoom/Final_Multitoolcase body/Multitool/Circle Piece 1" parent_id_path=PackedInt32Array(754739194, 51961434, 961166787) index="0" unique_id=412834913]
+visible = false
 surface_material_override/0 = null
 
 [node name="eye left" parent="CommsRoom/Final_Multitoolcase body/Multitool/Eye piece 2" parent_id_path=PackedInt32Array(754739194, 51961434, 1195316989) index="0" unique_id=782421204]
@@ -1330,6 +1331,7 @@ push_force = 4.0
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
 [editable path="UI_Manger/NotificationUI"]
+[editable path="Tutorial Room/FloorWithHole"]
 [editable path="Tutorial Room/KeypadTouchscreen"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/KeypadTouchscreen/KeyHanger"]
