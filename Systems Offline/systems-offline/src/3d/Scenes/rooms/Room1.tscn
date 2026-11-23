@@ -1331,6 +1331,7 @@ push_force = 4.0
 [editable path="UI_Manger/PauseMenu"]
 [editable path="UI_Manger/InventoryUI"]
 [editable path="UI_Manger/NotificationUI"]
+[editable path="Tutorial Room/FloorWithHole"]
 [editable path="Tutorial Room/KeypadTouchscreen"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/KeypadTouchscreen/KeyHanger"]

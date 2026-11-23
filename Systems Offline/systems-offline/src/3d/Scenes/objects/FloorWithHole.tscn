@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvkruhslyqthc" path="res://src/3d/Scenes/objects/floor_with_hole.gd" id="1_628yx"]
 [ext_resource type="Material" uid="uid://c2iccg118yex7" path="res://src/3d/Materials/Plane.tres" id="1_cgk1o"]
-[ext_resource type="Shader" uid="uid://1iof5c6ynfip" path="res://src/3d/Scenes/rooms/Forcefield.gdshader" id="2_80wxn"]
+[ext_resource type="Shader" uid="uid://2oh3yure4rb6" path="res://src/3d/Scenes/rooms/EngineRoomForcefield.gdshader" id="3_4k4qw"]
 [ext_resource type="AudioStream" uid="uid://beda5kmpyksyd" path="res://src/3d/Sound/Forcefield/freesound_community-energy-hum-29083.mp3" id="3_628yx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_37yvu"]
@@ -24,7 +24,7 @@ size = Vector2(3, 3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tc18i"]
 render_priority = 0
-shader = ExtResource("2_80wxn")
+shader = ExtResource("3_4k4qw")
 shader_parameter/hologram_color = Color(0.54974216, 0.30419204, 0.0077433717, 1)
 shader_parameter/activation = 1.0
 shader_parameter/opacity = 0.25
@@ -34,7 +34,7 @@ shader_parameter/scan_angle = 45.0
 shader_parameter/glow_strength = 2.0
 shader_parameter/glitch_strength = 0.150000007125
 shader_parameter/activation_progress = 1.0
-shader_parameter/activation_flicker = 0.0
+shader_parameter/activation_flicker = 1.0
 shader_parameter/activation_edge_width = 0.04
 shader_parameter/activation_edge_glow = 6.0
 
