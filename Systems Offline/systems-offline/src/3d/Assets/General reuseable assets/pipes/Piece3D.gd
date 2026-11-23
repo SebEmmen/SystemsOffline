@@ -1,39 +1,36 @@
 class_name Piece3D
 extends Area3D
 
-static var locked := false
 signal placed
 
-@export var kind := "corner"          # set per piece scene: "straight", "t", "corner"
-@export var symmetry_deg := 360.0     # 180 for straight pieces, 360 for T and corner
+static var locked := false
+static var blocked_rects: Array[Rect2] = []   # set by the puzzle script (X/Z areas where loose pieces can't rest)
 
-@export var snap_radius := 0.7        # world units now, not pixels
-@export var lift_height := 0.3        # how far the piece rises while held
-@export var anchor: Node3D   # optional; falls back to a child named "Anchor"
-
-
-
-# Rotation around Y in world space, folded by the piece's symmetry
-func board_angle() -> float:
-	var x := global_basis.x
-	return fposmod(rad_to_deg(atan2(-x.z, x.x)), symmetry_deg)
-
-@export var free_parent: Node3D      # where loose pieces live; defaults to the starting parent
-@export var play_min := Vector2(-8, -6)   # optional X/Z limits for loose pieces
+@export var kind := "corner"            # "straight", "t" or "corner"
+@export var symmetry_deg := 360.0       # 180 for straight, 360 for T and corner
+@export var snap_radius := 0.7
+@export var lift_height := 0.3
+@export var piece_margin := 0.3         # extra clearance around blocked areas
+@export var anchor: Node3D              # falls back to a child named "Anchor"
+@export var free_parent: Node3D         # where loose pieces live (e.g. "Movable pieces")
+@export var play_min := Vector2(-8, -6) # outer limits for loose pieces (X, Z)
 @export var play_max := Vector2(8, 6)
 
-var home_parent: Node
-var start_global_pos := Vector3.ZERO
-var start_global_rot_y := 0.0
-var rest_y := 0.0
-var start_basis := Basis.IDENTITY
 var slot: Slot3D = null
+var start_slot: Slot3D = null
+var last_slot: Slot3D = null
 var dragging := false
 var drag_offset := Vector3.ZERO
 var drag_plane_y := 0.0
-var last_slot: Slot3D = null
-var start_slot: Slot3D = null
+
+var home_parent: Node
+var rest_y := 0.0
+var start_basis := Basis.IDENTITY
 var start_rotation_y := 0.0
+var start_global_pos := Vector3.ZERO
+var start_global_rot_y := 0.0
+var grab_global_pos := Vector3.ZERO
+var grab_global_rot_y := 0.0
 
 func _ready() -> void:
 	add_to_group("pieces")
@@ -52,7 +49,6 @@ func _ready() -> void:
 	rest_y = global_position.y
 	_claim_start_slot.call_deferred()
 
-
 func _claim_start_slot() -> void:
 	if get_parent() is Slot3D:
 		_place(get_parent(), false)
@@ -63,6 +59,11 @@ func _claim_start_slot() -> void:
 	start_slot = slot
 	start_rotation_y = rotation.y
 	start_basis = basis
+
+# Rotation around Y in world space, folded by the piece's symmetry
+func board_angle() -> float:
+	var x := global_basis.x
+	return fposmod(rad_to_deg(atan2(-x.z, x.x)), symmetry_deg)
 
 func release() -> void:
 	dragging = false
@@ -95,7 +96,6 @@ func return_to_start(duration: float) -> void:
 	tw.tween_method(func(t: float): rotation.y = lerp_angle(from, start_rotation_y, t),
 		0.0, 1.0, duration)
 
-# Note the different signature compared to Area2D
 func _on_input_event(_cam: Node, event: InputEvent, _pos: Vector3, _normal: Vector3, _idx: int) -> void:
 	if locked or dragging:
 		return
@@ -105,7 +105,10 @@ func _on_input_event(_cam: Node, event: InputEvent, _pos: Vector3, _normal: Vect
 		var hit = _mouse_on_plane()
 		drag_offset = global_position - hit if hit else Vector3.ZERO
 		drag_offset.y = 0.0
+		# remember where we came from, so a bad drop can go back
 		last_slot = slot
+		grab_global_pos = global_position
+		grab_global_rot_y = global_rotation.y
 		if slot:
 			slot.piece = null
 			slot = null
@@ -115,7 +118,7 @@ func _mouse_on_plane():
 	var mp := get_viewport().get_mouse_position()
 	var from := cam.project_ray_origin(mp)
 	var dir := cam.project_ray_normal(mp)
-	return Plane(Vector3.UP, drag_plane_y).intersects_ray(from, dir)  # null if no hit
+	return Plane(Vector3.UP, drag_plane_y).intersects_ray(from, dir)
 
 func _process(_delta: float) -> void:
 	if dragging:
@@ -135,19 +138,39 @@ func _input(event: InputEvent) -> void:
 			_drop_free()
 
 func _drop_free() -> void:
-	slot = null
-	if get_parent() != home_parent:
-		reparent(home_parent, true)   # leave the grid so it stops rotating with it
+	var offset := _center() - global_position
 	var end_pos := Vector3(
 		clampf(global_position.x, play_min.x, play_max.x),
 		rest_y,
 		clampf(global_position.z, play_min.y, play_max.y))
+	var c := end_pos + offset
+	if _is_blocked(Vector2(c.x, c.z)):
+		_return_to_grab()
+		return
+	_move_free(end_pos, snappedf(global_rotation.y, PI / 2.0))
+
+func _is_blocked(p: Vector2) -> bool:
+	for r in blocked_rects:
+		if r.grow(piece_margin).has_point(p):
+			return true
+	return false
+
+func _return_to_grab() -> void:
+	if last_slot and last_slot.is_free():
+		_place(last_slot, true)
+	else:
+		_move_free(grab_global_pos, grab_global_rot_y)
+
+func _move_free(end_pos: Vector3, end_rot_y: float) -> void:
+	slot = null
+	if get_parent() != home_parent:
+		reparent(home_parent, true)   # leave the grid so it stops rotating with it
 	var from := global_rotation.y
-	var to := snappedf(from, PI / 2.0)   # tidy up to a 90 degree angle
 	var tw := create_tween().set_parallel(true)
 	tw.tween_property(self, "global_position", end_pos, 0.1)
-	tw.tween_method(func(t: float): global_rotation.y = lerp_angle(from, to, t),
+	tw.tween_method(func(t: float): global_rotation.y = lerp_angle(from, end_rot_y, t),
 		0.0, 1.0, 0.1)
+	tw.finished.connect(placed.emit)
 
 func _nearest_free_slot() -> Slot3D:
 	var best: Slot3D = null
@@ -166,18 +189,10 @@ func _nearest_free_slot() -> Slot3D:
 func _center() -> Vector3:
 	return anchor.global_position if anchor else global_position
 
-# Local position that puts the anchor exactly on the slot origin
-# (the piece's local basis is what rotates the offset)
-func _local_pos_for_anchor() -> Vector3:
-	if anchor == null:
-		return Vector3.ZERO
-	return -(basis * anchor.position)
-
 func _place(s: Slot3D, animate: bool) -> void:
 	slot = s
 	s.piece = self
 	reparent(s, true)
-	# snap rotation to the nearest 90 degrees in the slot's frame
 	var target_rot := snappedf(rotation.y, PI / 2.0)
 	var target_basis := Basis(Vector3.UP, target_rot)
 	var target := Vector3.ZERO
@@ -189,6 +204,8 @@ func _place(s: Slot3D, animate: bool) -> void:
 		tw.tween_property(self, "position", target, 0.1)
 		tw.tween_method(func(t: float): rotation.y = lerp_angle(from, target_rot, t),
 			0.0, 1.0, 0.1)
+		tw.finished.connect(placed.emit)
 	else:
 		rotation.y = target_rot
 		position = target
+		placed.emit()
