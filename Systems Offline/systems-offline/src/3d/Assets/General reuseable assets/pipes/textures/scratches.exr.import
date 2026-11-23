@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ber1g7xcin5ik"
-path.bptc="res://.godot/imported/Scratches.exr-8495f2b79d3528ac967622aaf63bdc23.bptc.ctex"
+path.bptc="res://.godot/imported/scratches.exr-75c77e35e85db491fb96506de0175bfb.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://src/3d/Assets/General reuseable assets/pipes/textures/Scratches.exr"
-dest_files=["res://.godot/imported/Scratches.exr-8495f2b79d3528ac967622aaf63bdc23.bptc.ctex"]
+source_file="res://src/3d/Assets/General reuseable assets/pipes/textures/scratches.exr"
+dest_files=["res://.godot/imported/scratches.exr-75c77e35e85db491fb96506de0175bfb.bptc.ctex"]
 
 [params]
 
