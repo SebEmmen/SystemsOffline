@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://wpddcusruf3d"]
+
+[ext_resource type="PackedScene" uid="uid://c35qrqo7ajmic" path="res://src/3d/Scenes/rooms/Room1.tscn" id="1_hrgtw"]
+[ext_resource type="PackedScene" uid="uid://dho6amm5hle24" path="res://src/3d/Scenes/objects/Comms/Handradar.tscn" id="2_lsoge"]
+[ext_resource type="Texture2D" uid="uid://c06w3hoy7742p" path="res://src/3d/Scenes/objects/Screens/Layout_1.png" id="2_xml5s"]
+[ext_resource type="PackedScene" uid="uid://bm30u2fcl3me0" path="res://src/3d/Scenes/objects/Comms/Handstampholder.tscn" id="3_j4cep"]
+[ext_resource type="PackedScene" uid="uid://dn1ddwty6cqij" path="res://src/3d/Scenes/objects/Comms/Handstamp.tscn" id="4_lsoge"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j4cep"]
+viewport_path = NodePath("MainScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lsoge"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_j4cep")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tr7lf"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_lsoge")
+size = Vector2(5.2, 4.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_scoq8"]
+viewport_path = NodePath("SideScreen")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_xbt6u"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_scoq8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oix1q"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_xbt6u")
+size = Vector2(2.7, 4.2)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vq0wv"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_xml5s")
+
+[node name="Room1" unique_id=1585455230 instance=ExtResource("1_hrgtw")]
+
+[node name="Handradar" parent="CommsRoom/Platform/Final_Platform comms2" parent_id_path=PackedInt32Array(831807862, 408095746) index="1" unique_id=1202987982 instance=ExtResource("2_lsoge")]
+transform = Transform3D(0.051124547, 0, 0.21294901, 0, 0.261, 0, -0.21294901, 0, 0.051124547, 38.90564, 2.657467, 1.0948639)
+
+[node name="Handradar2" parent="CommsRoom/Platform/Final_Platform comms2" parent_id_path=PackedInt32Array(831807862, 408095746) index="2" unique_id=1991199813 instance=ExtResource("2_lsoge")]
+transform = Transform3D(0.13179749, 0, -0.1749012, 0, 0.261, 0, 0.1749012, 0, 0.13179749, 38.90564, 2.657467, 11.675003)
+
+[node name="Handradar3" parent="CommsRoom/Platform/Final_Platform comms2" parent_id_path=PackedInt32Array(831807862, 408095746) index="3" unique_id=466024845 instance=ExtResource("2_lsoge")]
+transform = Transform3D(0.21736763, 0, 0.02668939, 0, 0.261, 0, -0.02668939, 0, 0.21736763, 38.90564, 2.657467, 24.608696)
+
+[node name="Handradar4" parent="CommsRoom/Platform/Final_Platform comms2" parent_id_path=PackedInt32Array(831807862, 408095746) index="4" unique_id=1928468024 instance=ExtResource("2_lsoge")]
+transform = Transform3D(0.20768291, 0, -0.069489725, 0, 0.261, 0, 0.069489725, 0, 0.20768291, 38.228806, 2.657467, 36.903427)
+
+[node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" parent_id_path=PackedInt32Array(831807862, 1235112676) index="12" unique_id=1813707322]
+mesh = SubResource("PlaneMesh_tr7lf")
+
+[node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" parent_id_path=PackedInt32Array(831807862, 1235112676) index="13" unique_id=778415305]
+mesh = SubResource("PlaneMesh_oix1q")
+
+[node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" parent_id_path=PackedInt32Array(616831271, 1106340316) index="9" unique_id=1030977213]
+surface_material_override/0 = SubResource("ORMMaterial3D_vq0wv")
+
+[node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" parent_id_path=PackedInt32Array(616831271, 1106340316) index="10" unique_id=1357154903]
+surface_material_override/0 = SubResource("ORMMaterial3D_vq0wv")
+
+[node name="Handstampholder" parent="." index="14" unique_id=879299265 instance=ExtResource("3_j4cep")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -66.772194)
+
+[node name="Handstampholder2" parent="." index="15" unique_id=338833684 instance=ExtResource("3_j4cep")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -73.67297)
+
+[node name="Handstampholder3" parent="." index="16" unique_id=660053931 instance=ExtResource("3_j4cep")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -51.99989)
+
+[node name="Handstampholder4" parent="." index="17" unique_id=1835118628 instance=ExtResource("3_j4cep")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -59.26966)
+
+[node name="Handstamp" parent="." index="18" unique_id=346696329 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.740696, 1.3146816, -67.19894)
+
+[node name="Handstamp3" parent="." index="19" unique_id=995784430 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.740696, 1.3146816, -71.51344)
+
+[node name="Handstamp4" parent="." index="20" unique_id=959994000 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.380781, 1.3146816, -57.89755)
+
+[node name="Handstamp5" parent="." index="21" unique_id=1502271819 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.380781, 1.3146816, -52.418995)
+
+[node name="Handstamp9" parent="." index="22" unique_id=249436510 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -52.418995)
+
+[node name="Handstamp10" parent="." index="23" unique_id=1157724384 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -51.882668)
+
+[node name="Handstamp11" parent="." index="24" unique_id=1510829183 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -51.881668)
+
+[node name="Handstamp12" parent="." index="25" unique_id=1154076045 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -52.25391)
+
+[node name="Handstamp13" parent="." index="26" unique_id=949832661 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -59.490685)
+
+[node name="Handstamp14" parent="." index="27" unique_id=1725680391 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -59.156456)
+
+[node name="Handstamp15" parent="." index="28" unique_id=115952078 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -58.63827)
+
+[node name="Handstamp16" parent="." index="29" unique_id=1826616425 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -59.3256)
+
+[node name="Handstamp17" parent="." index="30" unique_id=1305775350 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -67.16527)
+
+[node name="Handstamp18" parent="." index="31" unique_id=305558648 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -66.83104)
+
+[node name="Handstamp19" parent="." index="32" unique_id=739091271 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -66.31285)
+
+[node name="Handstamp20" parent="." index="33" unique_id=476381585 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -67.00018)
+
+[node name="Handstamp21" parent="." index="34" unique_id=154346462 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -73.039665)
+
+[node name="Handstamp22" parent="." index="35" unique_id=490276655 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -73.553635)
+
+[node name="Handstamp23" parent="." index="36" unique_id=319458343 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -73.035446)
+
+[node name="Handstamp24" parent="." index="37" unique_id=1263311984 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -74.07423)
+
+[node name="Handstamp2" parent="." index="38" unique_id=1319512428 instance=ExtResource("4_lsoge")]
+transform = Transform3D(0.4959289, -0.22476982, 0.023624247, -4.9803006e-09, -0.05696799, -0.54201454, 0.22600792, 0.4932121, -0.05183867, 14.625662, 1.3617328, -66.718575)
+
+[node name="Handstamp6" parent="." index="39" unique_id=352384290 instance=ExtResource("4_lsoge")]
+transform = Transform3D(-0.23891222, -0.48715943, 0.051202495, 4.9803006e-09, -0.05696799, -0.54201454, 0.48984286, -0.23760341, 0.024973122, 15.418186, 1.3617328, -72.22619)
+
+[node name="Handstamp7" parent="." index="40" unique_id=968246013 instance=ExtResource("4_lsoge")]
+transform = Transform3D(-0.5310318, -0.12192669, 0.012815011, -4.9803006e-09, -0.056967996, -0.54201454, 0.12259829, -0.5281227, 0.05550791, 14.519987, 1.3617328, -59.89266)
+
+[node name="Handstamp8" parent="." index="41" unique_id=1321536336 instance=ExtResource("4_lsoge")]
+transform = Transform3D(-0.5310318, -0.12192669, 0.012815011, -4.9803006e-09, -0.056967996, -0.54201454, 0.12259829, -0.5281227, 0.05550791, 15.03343, 1.3617328, -49.97815)
+
+[editable path="ProtoController"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
+[editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/MULTITOOL MAIN BODY2"]
+[editable path="HUD"]
+[editable path="UI_Manger/PauseMenu"]
+[editable path="UI_Manger/InventoryUI"]
+[editable path="UI_Manger/NotificationUI"]
+[editable path="Tutorial Room/FloorWithHole"]
+[editable path="Tutorial Room/KeypadTouchscreen"]
+[editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
+[editable path="Tutorial Room/KeypadTouchscreen/KeyHanger"]
+[editable path="Tutorial Room/Crates/CrateCode(4)"]
+[editable path="Tutorial Room/Crates/CrateCode(4)/Final_Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(2)"]
+[editable path="Tutorial Room/Crates/CrateCode(2)/Final_Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(9)"]
+[editable path="Tutorial Room/Crates/CrateCode(9)/Final_Crate base"]
+[editable path="Tutorial Room/Crates/CrateCode(7)"]
+[editable path="Tutorial Room/Crates/CrateCode(7)/Final_Crate base"]
+[editable path="CommsRoom/WirePuzzleTest"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Wire2"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/WireSocket2"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/WireSocket2/wire connection part"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 2/Beginning On"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Beginning Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/End Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/stationary part bend"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Beginning"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/End"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 3/Full short wire"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Lid Wire space small"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Wire1"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/WireSocket1/wire connection part"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning Connection"]
+[editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire 1/Beginning On"]
+[editable path="CommsRoom/Platform"]
+[editable path="CommsRoom/Platform/Final_Platform comms2"]
+[editable path="CommsRoom/Platform/Final_Side table of middle platform"]
+[editable path="CommsRoom/Platform/Final_Side table of middle platform2"]
+[editable path="CommsRoom/Platform/Monitor"]
+[editable path="CommsRoom/Platform/Monitor/MonitorScreen"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial1"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial2"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial3"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial4"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen/CommsPuzzle/Dial5"]
+[editable path="CommsRoom/Platform/PowerUp Device/PowerUp device/SideScreen/CommsPuzzleSideScreen"]
+[editable path="CommsRoom/Cubicle Sphere"]
+[editable path="CommsRoom/Cubicle Sphere/Final_Cubicle roof"]
+[editable path="CommsRoom/Cubicle Sphere/Final_Cubicle"]
+[editable path="CommsRoom/Cubicle Sphere/Monitor"]
+[editable path="CommsRoom/Cubicle Sphere/Monitor/MonitorScreen"]
+[editable path="CommsRoom/Cubicle Prism"]
+[editable path="CommsRoom/Cubicle Prism/Final_Cubicle roof"]
+[editable path="CommsRoom/Cubicle Prism/Final_Cubicle"]
+[editable path="CommsRoom/Cubicle Prism/Monitor"]
+[editable path="CommsRoom/Cubicle Prism/Monitor/MonitorScreen"]
+[editable path="CommsRoom/Cubicle Donut"]
+[editable path="CommsRoom/Cubicle Donut/Final_Cubicle roof"]
+[editable path="CommsRoom/Cubicle Donut/Final_Cubicle"]
+[editable path="CommsRoom/Cubicle Donut/Monitor"]
+[editable path="CommsRoom/Cubicle Donut/Monitor/MonitorScreen"]
+[editable path="CommsRoom/Cubicle Hexagon"]
+[editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle roof"]
+[editable path="CommsRoom/Cubicle Hexagon/Final_Cubicle"]
+[editable path="CommsRoom/Cubicle Hexagon/Monitor"]
+[editable path="CommsRoom/Cubicle Hexagon/Monitor/MonitorScreen"]
+[editable path="CommsRoom/Comms Door/Hint/shape_1_pedestal"]
+[editable path="CommsRoom/Final_Multitoolcase body"]
+[editable path="CommsRoom/Final_Multitoolcase body/Multitool"]
+[editable path="CommsRoom/Final_Multitoolcase body/Multitool/Eye piece 2"]
+[editable path="CommsRoom/Final_Multitoolcase body/Multitool/MULTITOOL MAIN BODY2"]
+[editable path="CommsRoom/Final_Multitoolcase body/GlassLidPivot/Glass Lid"]
+[editable path="CommsRoom/ScreenLayout1"]
+[editable path="CommsRoom/ScreenLayout1/MonitorScreen"]
+[editable path="Elevator Room/Elevator 1st floor"]
+[editable path="Elevator Room/WirePuzzleElevator"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Wire space small"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireBeginning"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/WireSocketEnd/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket1/Broken wire part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Broken part/SingleStationarySocket2/Broken wire part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/Wire"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketEnd/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
+[editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Lid Wire space small"]

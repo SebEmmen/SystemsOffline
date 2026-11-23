@@ -63,7 +63,6 @@
 [ext_resource type="PackedScene" uid="uid://cvcl4yqipeooh" path="res://src/3d/Scenes/objects/Metalsheets Rack Big.tscn" id="52_ymcgf"]
 [ext_resource type="PackedScene" uid="uid://nrhxymfcn2hd" path="res://src/3d/Assets/Comm room/Final_Light small.blend" id="53_2pegl"]
 [ext_resource type="PackedScene" uid="uid://bc7c5x5egoq0x" path="res://src/3d/Scenes/objects/wire puzzles/PuzzleOverlay.tscn" id="53_5buxd"]
-[ext_resource type="PackedScene" uid="uid://d1dsqnrwi01mo" path="res://src/3d/Scenes/objects/Metalsheet Rack Small.tscn" id="53_nvwfr"]
 [ext_resource type="Script" uid="uid://btfh12lahhu8j" path="res://src/3d/Scenes/rooms/tutorial_area.gd" id="53_slhau"]
 [ext_resource type="PackedScene" uid="uid://cayonv0y01ra5" path="res://src/3d/Scenes/cinematics/OpeningCinematic.tscn" id="54_58ftc"]
 [ext_resource type="Texture2D" uid="uid://bsdkw2gpfkfmg" path="res://src/3d/Assets/Comm room/textures/Ucupaint Sphere.002 Color.png" id="56_gav43"]
@@ -86,8 +85,15 @@
 [ext_resource type="PackedScene" uid="uid://h1npmkim3ghs" path="res://src/3d/Scenes/objects/Hints/shape_3_triangle.glb" id="72_a016q"]
 [ext_resource type="PackedScene" uid="uid://dy6wacnbxdxid" path="res://src/3d/Scenes/objects/Hints/shape_4_circle.glb" id="73_xm1x8"]
 [ext_resource type="PackedScene" uid="uid://cjgwm5aqfo00r" path="res://src/3d/Scenes/objects/Hints/shape_5_hexagon.glb" id="74_6ofj6"]
+[ext_resource type="PackedScene" uid="uid://cag0b4pjhrnku" path="res://src/3d/Scenes/objects/Comms/Small metalsheet.tscn" id="74_g6v1v"]
 [ext_resource type="Shader" uid="uid://1iof5c6ynfip" path="res://src/3d/Scenes/rooms/Forcefield.gdshader" id="81_loyml"]
 [ext_resource type="PackedScene" uid="uid://doii310bxjkrj" path="res://src/3d/Scenes/objects/Journal/Journal.tscn" id="82_lghuq"]
+[ext_resource type="PackedScene" uid="uid://dho6amm5hle24" path="res://src/3d/Scenes/objects/Comms/Handradar.tscn" id="89_usd6p"]
+[ext_resource type="PackedScene" uid="uid://bm30u2fcl3me0" path="res://src/3d/Scenes/objects/Comms/Handstampholder.tscn" id="90_rmr3x"]
+[ext_resource type="PackedScene" uid="uid://dn1ddwty6cqij" path="res://src/3d/Scenes/objects/Comms/Handstamp.tscn" id="91_vfk7l"]
+[ext_resource type="PackedScene" uid="uid://dvmpf6hene282" path="res://src/3d/Scenes/objects/Comms/Button panel.tscn" id="92_rmr3x"]
+[ext_resource type="PackedScene" uid="uid://cfet118e6u8hf" path="res://src/3d/Scenes/objects/Comms/Metalsheetrack small.tscn" id="92_vfk7l"]
+[ext_resource type="PackedScene" uid="uid://bpnui6ewgmr0c" path="res://src/3d/Scenes/objects/Comms/Big metalsheet.tscn" id="93_vfk7l"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -360,28 +366,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_58ftc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_g6v1v"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7jok6"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_q4pvd"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_58ftc")
+albedo_texture = SubResource("ViewportTexture_g6v1v")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_bmro6"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_kofuf"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_7jok6")
+material = SubResource("ORMMaterial3D_q4pvd")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_usd6p"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c331y"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_rmr3x"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_qexs2"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_usd6p")
+albedo_texture = SubResource("ViewportTexture_c331y")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_vfk7l"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_njtf7"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_rmr3x")
+material = SubResource("ORMMaterial3D_qexs2")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -456,7 +462,7 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_g6v1v"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_uwjal"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -975,10 +981,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=2112869525]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=1065637940]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=2121613414]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="7" unique_id=1784293886]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -1000,10 +1006,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492627, -0.00012911856, 0.99992454, 0.011106938, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.71328735, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_bmro6")
+mesh = SubResource("PlaneMesh_kofuf")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_vfk7l")
+mesh = SubResource("PlaneMesh_njtf7")
 
 [node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece", "transition_camera")]
 multitool_piece = NodePath("../../multitool piece 1 lit ")
@@ -1026,7 +1032,7 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -1055,7 +1061,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -1081,7 +1087,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -1110,7 +1116,7 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -1135,23 +1141,95 @@ surface_material_override/0 = SubResource("ORMMaterial3D_3kfck")
 
 [node name="Racks" type="Node" parent="CommsRoom" unique_id=1630714578]
 
-[node name="MetalsheetRackSmall" parent="CommsRoom/Racks" unique_id=623325452 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 13.797035, 0.036367357, -70.23085)
-
-[node name="MetalsheetRackSmall2" parent="CommsRoom/Racks" unique_id=1030623037 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-6.556708e-09, 0, 0.14999999, 0, 0.14999999, 0, -0.14999999, 0, -6.556708e-09, 15.664743, 0.036367357, -61.0874)
-
-[node name="MetalsheetRackSmall3" parent="CommsRoom/Racks" unique_id=65036299 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-0.14999999, 0, -1.3113416e-08, 0, 0.14999999, 0, 1.3113416e-08, 0, -0.14999999, 15.147925, 0.036367357, -56.867847)
-
-[node name="MetalsheetRackSmall4" parent="CommsRoom/Racks" unique_id=1702791108 instance=ExtResource("53_nvwfr")]
-transform = Transform3D(-0.14999999, 0, -1.3113416e-08, 0, 0.14999999, 0, 1.3113416e-08, 0, -0.14999999, 15.147925, 0.036367357, -48.590588)
-
 [node name="BigMetalsheetsRack" parent="CommsRoom/Racks" unique_id=610385290 instance=ExtResource("52_ymcgf")]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -15.734443, -0.14691912, -71.85366)
 
 [node name="BigMetalsheetsRack2" parent="CommsRoom/Racks" unique_id=981152394 instance=ExtResource("52_ymcgf")]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -15.684256, -0.14691912, -63.51909)
+
+[node name="SmallMetalsheet" parent="CommsRoom/Racks" unique_id=1135677331 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449999, 1.2632589e-07, -5.5218798e-15, -1.171648e-08, -0.13402098, -1.4387715, -1.2578138e-07, -1.4387715, 0.13402098, 14.622596, 0.92469144, -62.22276)
+
+[node name="SmallMetalsheet5" parent="CommsRoom/Racks" unique_id=264414768 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449998, 1.2632587e-07, -7.210102e-15, -5.2385474e-10, -0.0059922636, -1.4449877, -1.263248e-07, -1.4449877, 0.0059922636, 14.622596, 0.92469144, -61.64377)
+
+[node name="SmallMetalsheet6" parent="CommsRoom/Racks" unique_id=94618700 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449998, 1.2632589e-07, -7.203512e-15, 2.0471376e-09, 0.023416465, -1.4448103, -1.2630932e-07, -1.4448103, -0.023416465, 14.622596, 0.92469144, -61.604317)
+
+[node name="SmallMetalsheet7" parent="CommsRoom/Racks" unique_id=1222935931 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449998, 1.2632589e-07, -7.203512e-15, 7.595598e-09, 0.08688346, -1.4423856, -1.2609735e-07, -1.4423856, -0.08688346, 14.622596, 0.92469144, -61.471012)
+
+[node name="SmallMetalsheet2" parent="CommsRoom/Racks" unique_id=1860123800 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449999, 1.2632589e-07, -5.5218798e-15, -1.171648e-08, -0.13402098, -1.4387715, -1.2578138e-07, -1.4387715, 0.13402098, 14.622596, 0.92469144, -62.885612)
+
+[node name="SmallMetalsheet3" parent="CommsRoom/Racks" unique_id=1878100632 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(1.4449999, 2.5211176e-07, -1.1668797e-08, 1.1668796e-08, -0.13347548, -1.4388223, -2.5211173e-07, 1.4388223, -0.13347548, 15.160149, 0.92469144, -63.470493)
+
+[node name="SmallMetalsheet4" parent="CommsRoom/Racks" unique_id=361863627 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(1.4449998, 2.5211173e-07, -1.16687975e-08, 2.1113177e-08, -0.18732834, -1.432806, -2.514969e-07, 1.432806, -0.18732834, 15.160149, 0.92469144, -63.513176)
+
+[node name="SmallMetalsheet8" parent="CommsRoom/Racks" unique_id=1196520555 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449999, 1.2632589e-07, -5.5218798e-15, -1.171648e-08, -0.13402098, -1.4387715, -1.2578138e-07, -1.4387715, 0.13402098, 14.622596, 0.92469144, -47.309216)
+
+[node name="SmallMetalsheet9" parent="CommsRoom/Racks" unique_id=318858932 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449998, 1.2632587e-07, -7.210102e-15, -5.2385474e-10, -0.0059922636, -1.4449877, -1.263248e-07, -1.4449877, 0.0059922636, 14.622596, 0.92469144, -46.730225)
+
+[node name="SmallMetalsheet10" parent="CommsRoom/Racks" unique_id=1206411816 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449998, 1.2632589e-07, -7.203512e-15, 2.0471376e-09, 0.023416465, -1.4448103, -1.2630932e-07, -1.4448103, -0.023416465, 14.622596, 0.92469144, -46.690773)
+
+[node name="SmallMetalsheet11" parent="CommsRoom/Racks" unique_id=1768120832 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449998, 1.2632589e-07, -7.203512e-15, 7.595598e-09, 0.08688346, -1.4423856, -1.2609735e-07, -1.4423856, -0.08688346, 14.622596, 0.92469144, -46.55747)
+
+[node name="SmallMetalsheet12" parent="CommsRoom/Racks" unique_id=871789353 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-1.4449999, 1.2632589e-07, -5.5218798e-15, -1.171648e-08, -0.13402098, -1.4387715, -1.2578138e-07, -1.4387715, 0.13402098, 14.622596, 0.92469144, -47.97207)
+
+[node name="SmallMetalsheet13" parent="CommsRoom/Racks" unique_id=862072143 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(1.4449999, 2.5211176e-07, -1.1668797e-08, 1.1668796e-08, -0.13347548, -1.4388223, -2.5211173e-07, 1.4388223, -0.13347548, 15.160149, 0.92469144, -48.55695)
+
+[node name="SmallMetalsheet14" parent="CommsRoom/Racks" unique_id=486396087 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(1.4449998, 2.5211173e-07, -1.16687975e-08, 2.1113177e-08, -0.18732834, -1.432806, -2.514969e-07, 1.432806, -0.18732834, 15.160149, 0.92469144, -48.599632)
+
+[node name="SmallMetalsheet15" parent="CommsRoom/Racks" unique_id=1584310546 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.0064040767, 1.4387572, -0.13402115, -2.0321544e-08, -0.13402243, -1.4387716, -1.4449861, 0.006376476, -0.0005939525, 14.292837, 0.92469144, -54.19294)
+
+[node name="SmallMetalsheet16" parent="CommsRoom/Racks" unique_id=748802530 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.0064040786, 1.4449736, -0.0059868414, -8.9344493e-10, -0.0059868996, -1.4449877, -1.4449855, 0.0064040227, -2.6532365e-05, 13.713851, 0.92469144, -54.195503)
+
+[node name="SmallMetalsheet17" parent="CommsRoom/Racks" unique_id=155861417 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.006404031, 1.444796, 0.023415875, 2.0260786e-09, 0.0234161, -1.4448102, -1.4449855, 0.006403188, 0.000103774786, 13.6744, 0.92469144, -54.19568)
+
+[node name="SmallMetalsheet18" parent="CommsRoom/Racks" unique_id=654669394 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.006404034, 1.4423714, 0.08688204, 7.595241e-09, 0.08688289, -1.4423856, -1.4449856, 0.0063924463, 0.00038504496, 13.541097, 0.92469144, -54.19627)
+
+[node name="SmallMetalsheet19" parent="CommsRoom/Racks" unique_id=1548989467 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.0064040767, 1.4387572, -0.13402115, -2.0321544e-08, -0.13402243, -1.4387716, -1.4449861, 0.006376476, -0.0005939525, 14.955684, 0.92469144, -54.19)
+
+[node name="SmallMetalsheet20" parent="CommsRoom/Racks" unique_id=146035419 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-0.0064033447, -1.4388084, 0.13347366, 2.0238877e-08, -0.13347498, -1.4388222, 1.4449859, -0.0063759675, 0.00059149833, 15.538177, 0.92469144, -53.64986)
+
+[node name="SmallMetalsheet21" parent="CommsRoom/Racks" unique_id=2102774909 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-0.0064033456, -1.4327918, 0.18732683, 2.8455284e-08, -0.18732864, -1.4328064, 1.4449859, -0.006349301, 0.0008301522, 15.580858, 0.92469144, -53.64967)
+
+[node name="SmallMetalsheet22" parent="CommsRoom/Racks" unique_id=1635012371 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.0064040767, 1.4387572, -0.13402115, -2.0321544e-08, -0.13402243, -1.4387716, -1.4449861, 0.006376476, -0.0005939525, 14.294571, 0.92469144, -70.40559)
+
+[node name="SmallMetalsheet23" parent="CommsRoom/Racks" unique_id=1848957331 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.0064040786, 1.4449736, -0.0059868414, -8.9344493e-10, -0.0059868996, -1.4449877, -1.4449855, 0.0064040227, -2.6532365e-05, 13.715585, 0.92469144, -70.40815)
+
+[node name="SmallMetalsheet24" parent="CommsRoom/Racks" unique_id=111691060 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.006404031, 1.444796, 0.023415875, 2.0260786e-09, 0.0234161, -1.4448102, -1.4449855, 0.006403188, 0.000103774786, 13.676134, 0.92469144, -70.40832)
+
+[node name="SmallMetalsheet25" parent="CommsRoom/Racks" unique_id=967395024 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.006404034, 1.4423714, 0.08688204, 7.595241e-09, 0.08688289, -1.4423856, -1.4449856, 0.0063924463, 0.00038504496, 13.54283, 0.92469144, -70.40891)
+
+[node name="SmallMetalsheet26" parent="CommsRoom/Racks" unique_id=722878873 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(0.0064040767, 1.4387572, -0.13402115, -2.0321544e-08, -0.13402243, -1.4387716, -1.4449861, 0.006376476, -0.0005939525, 14.9574175, 0.92469144, -70.40264)
+
+[node name="SmallMetalsheet27" parent="CommsRoom/Racks" unique_id=217442177 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-0.0064033447, -1.4388084, 0.13347366, 2.0238877e-08, -0.13347498, -1.4388222, 1.4449859, -0.0063759675, 0.00059149833, 15.53991, 0.92469144, -69.86251)
+
+[node name="SmallMetalsheet28" parent="CommsRoom/Racks" unique_id=1834558724 instance=ExtResource("74_g6v1v")]
+transform = Transform3D(-0.0064033456, -1.4327918, 0.18732683, 2.8455284e-08, -0.18732864, -1.4328064, 1.4449859, -0.006349301, 0.0008301522, 15.582592, 0.92469144, -69.86231)
 
 [node name="Comms Door" parent="CommsRoom" unique_id=1726042636 node_paths=PackedStringArray("object_ref") instance=ExtResource("67_gav43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.012, 2.479, -45.625)
@@ -1278,10 +1356,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_g6v1v")
+surface_material_override/0 = SubResource("ORMMaterial3D_uwjal")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_g6v1v")
+surface_material_override/0 = SubResource("ORMMaterial3D_uwjal")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 
@@ -1322,6 +1400,138 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 [node name="WireCover" parent="Elevator Room/WirePuzzleElevator/ElevatorPuzzle" index="5" unique_id=396484773]
 visible = true
 push_force = 4.0
+
+[node name="Handradar" parent="." unique_id=1202987982 instance=ExtResource("89_usd6p")]
+transform = Transform3D(0.051124547, 0, 0.21294901, 0, 0.261, 0, -0.21294901, 0, 0.051124547, 38.90564, 2.657467, 1.0948639)
+
+[node name="Handradar2" parent="." unique_id=513249186 instance=ExtResource("89_usd6p")]
+transform = Transform3D(0.13179749, 0, -0.1749012, 0, 0.261, 0, 0.1749012, 0, 0.13179749, 38.90564, 2.657467, 11.675003)
+
+[node name="Handradar3" parent="." unique_id=1517331426 instance=ExtResource("89_usd6p")]
+transform = Transform3D(0.21736763, 0, 0.02668939, 0, 0.261, 0, -0.02668939, 0, 0.21736763, 38.90564, 2.657467, 24.608696)
+
+[node name="Handradar4" parent="." unique_id=709765973 instance=ExtResource("89_usd6p")]
+transform = Transform3D(0.20768291, 0, -0.069489725, 0, 0.261, 0, 0.069489725, 0, 0.20768291, 38.228806, 2.657467, 36.903427)
+
+[node name="Handstampholder" parent="." unique_id=879299265 instance=ExtResource("90_rmr3x")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -66.772194)
+
+[node name="Handstampholder2" parent="." unique_id=674323366 instance=ExtResource("90_rmr3x")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -73.67297)
+
+[node name="Handstampholder3" parent="." unique_id=1492250083 instance=ExtResource("90_rmr3x")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -51.99989)
+
+[node name="Handstampholder4" parent="." unique_id=1298488263 instance=ExtResource("90_rmr3x")]
+transform = Transform3D(-4.808253e-09, 0, -0.11, 0, 0.11, 0, 0.11, 0, -4.808253e-09, 15.311932, 1.2987332, -59.26966)
+
+[node name="Handstamp" parent="." unique_id=346696329 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.740696, 1.3146816, -67.19894)
+
+[node name="Handstamp3" parent="." unique_id=777743169 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.740696, 1.3146816, -71.51344)
+
+[node name="Handstamp4" parent="." unique_id=1057195713 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.380781, 1.3146816, -57.89755)
+
+[node name="Handstamp5" parent="." unique_id=577779350 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 14.380781, 1.3146816, -52.418995)
+
+[node name="Handstamp9" parent="." unique_id=668685601 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -52.418995)
+
+[node name="Handstamp10" parent="." unique_id=1380845372 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -51.882668)
+
+[node name="Handstamp11" parent="." unique_id=482265286 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -51.881668)
+
+[node name="Handstamp12" parent="." unique_id=1146628680 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -52.25391)
+
+[node name="Handstamp13" parent="." unique_id=1985276374 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -59.490685)
+
+[node name="Handstamp14" parent="." unique_id=758430562 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -59.156456)
+
+[node name="Handstamp15" parent="." unique_id=1791835392 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -58.63827)
+
+[node name="Handstamp16" parent="." unique_id=677100108 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -59.3256)
+
+[node name="Handstamp17" parent="." unique_id=1199121168 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -67.16527)
+
+[node name="Handstamp18" parent="." unique_id=1856779672 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -66.83104)
+
+[node name="Handstamp19" parent="." unique_id=540765667 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -66.31285)
+
+[node name="Handstamp20" parent="." unique_id=1750804671 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -67.00018)
+
+[node name="Handstamp21" parent="." unique_id=1827121352 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -73.039665)
+
+[node name="Handstamp22" parent="." unique_id=1257403810 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.266937, 1.5912405, -73.553635)
+
+[node name="Handstamp23" parent="." unique_id=1866169640 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -73.035446)
+
+[node name="Handstamp24" parent="." unique_id=2047507193 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.3853732, -0.3853732, 0, 0.3853732, 0.3853732, 0, 0, 0, 0.545, 15.387758, 1.7094595, -74.07423)
+
+[node name="Handstamp2" parent="." unique_id=883662519 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(0.4959289, -0.22476982, 0.023624247, -4.9803006e-09, -0.05696799, -0.54201454, 0.22600792, 0.4932121, -0.05183867, 14.625662, 1.3617328, -66.718575)
+
+[node name="Handstamp6" parent="." unique_id=1953422959 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(-0.23891222, -0.48715943, 0.051202495, 4.9803006e-09, -0.05696799, -0.54201454, 0.48984286, -0.23760341, 0.024973122, 15.418186, 1.3617328, -72.22619)
+
+[node name="Handstamp7" parent="." unique_id=1996449390 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(-0.5310318, -0.12192669, 0.012815011, -4.9803006e-09, -0.056967996, -0.54201454, 0.12259829, -0.5281227, 0.05550791, 14.519987, 1.3617328, -59.89266)
+
+[node name="Handstamp8" parent="." unique_id=1531052038 instance=ExtResource("91_vfk7l")]
+transform = Transform3D(-0.5310318, -0.12192669, 0.012815011, -4.9803006e-09, -0.056967996, -0.54201454, 0.12259829, -0.5281227, 0.05550791, 15.03343, 1.3617328, -49.97815)
+
+[node name="ButtonPanel" parent="." unique_id=1878346285 instance=ExtResource("92_rmr3x")]
+transform = Transform3D(-2.4041263e-08, 0, 0.55, 0, 0.55, 0, -0.55, 0, -2.4041263e-08, -15.6561365, 0.0050001144, -50.188175)
+
+[node name="MetalsheetrackSmall" parent="." unique_id=873102576 instance=ExtResource("92_vfk7l")]
+transform = Transform3D(-9.616505e-08, 0, -2.2, 0, 2.2, 0, 2.2, 0, -9.616505e-08, 13.448629, 0.01833126, -70.05096)
+
+[node name="MetalsheetrackSmall2" parent="." unique_id=8941333 instance=ExtResource("92_vfk7l")]
+transform = Transform3D(-2.2, 0, -3.3219078e-07, 0, 2.2, 0, 3.3219078e-07, 0, -2.2, 15.016244, 0.01833126, -63.67059)
+
+[node name="MetalsheetrackSmall4" parent="." unique_id=929175188 instance=ExtResource("92_vfk7l")]
+transform = Transform3D(-2.215, 0, -3.3445568e-07, 0, 2.215, 0, 3.3445568e-07, 0, -2.215, 14.987659, 0.01833126, -48.768288)
+
+[node name="MetalsheetrackSmall3" parent="." unique_id=1680304354 instance=ExtResource("92_vfk7l")]
+transform = Transform3D(-9.638361e-08, 0, 2.205, 0, 2.205, 0, -2.205, 0, -9.638361e-08, 15.74866, 0.01833126, -53.795937)
+
+[node name="BigMetalsheet" parent="." unique_id=2040257439 instance=ExtResource("93_vfk7l")]
+transform = Transform3D(-0.1486799, -1.8891581, -5.854784e-10, 1.8891581, -0.1486799, 0, -4.5936085e-11, -5.8367355e-10, 1.8949999, -14.692807, 1.6793745, -71.93992)
+
+[node name="BigMetalsheet4" parent="." unique_id=245723140 instance=ExtResource("93_vfk7l")]
+transform = Transform3D(-0.2768274, -1.874671, -1.6733283e-10, 1.8746712, -0.27682737, 0, -2.4444492e-11, -1.6553772e-10, 1.895, -15.134493, 1.6793745, -71.93992)
+
+[node name="BigMetalsheet2" parent="." unique_id=724868377 instance=ExtResource("93_vfk7l")]
+transform = Transform3D(-0.14867991, -1.8891581, -3.8159065e-10, 1.8891584, -0.1486799, 0, -2.9939242e-11, -3.8041428e-10, 1.8950001, -14.17739, 1.6793745, -71.93992)
+
+[node name="BigMetalsheet3" parent="." unique_id=2023472449 instance=ExtResource("93_vfk7l")]
+transform = Transform3D(-0.22437558, -1.8816695, -8.8355623e-10, 1.8816695, -0.22437558, 0, -1.0461659e-10, -8.773408e-10, 1.895, -14.111399, 1.6793745, -71.93992)
+
+[node name="BigMetalsheet5" parent="." unique_id=745443717 instance=ExtResource("93_vfk7l")]
+transform = Transform3D(-0.2768274, -1.874671, -1.6733283e-10, 1.8746712, -0.27682737, 0, -2.4444492e-11, -1.6553772e-10, 1.895, -15.504009, 1.6793745, -63.622837)
+
+[node name="BigMetalsheet6" parent="." unique_id=940396167 instance=ExtResource("93_vfk7l")]
+transform = Transform3D(-0.14867991, -1.8891581, -3.8159065e-10, 1.8891584, -0.1486799, 0, -2.9939242e-11, -3.8041428e-10, 1.8950001, -14.62187, 1.6793745, -63.622837)
+
+[node name="BigMetalsheet7" parent="." unique_id=1352401084 instance=ExtResource("93_vfk7l")]
+transform = Transform3D(-0.22437558, -1.8816695, -8.8355623e-10, 1.8816695, -0.22437558, 0, -1.0461659e-10, -8.773408e-10, 1.895, -14.555879, 1.6793745, -63.622837)
 
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]

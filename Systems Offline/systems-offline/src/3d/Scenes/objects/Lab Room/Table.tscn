@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xyuqlraj66nw"]
+
+[ext_resource type="PackedScene" uid="uid://dyri75jpbv510" path="res://src/3d/Assets/Lab room/GLB files/Table lab.glb" id="1_erbod"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7suqm"]
+size = Vector3(13.406566, 10.1723175, 42.91305)
+
+[node name="Table" type="Node3D" unique_id=1718570644]
+
+[node name="Table lab" parent="." unique_id=407143782 instance=ExtResource("1_erbod")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=273785288]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=960038195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6779757, 5.1435843, 0)
+shape = SubResource("BoxShape3D_7suqm")
+
+[editable path="Table lab"]
