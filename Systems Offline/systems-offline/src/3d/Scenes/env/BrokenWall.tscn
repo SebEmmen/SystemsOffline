@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://do66boy6ynkpu" path="res://src/3d/Materials/metalicwall.tres" id="1_1u0du"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
-size = Vector3(10, 7, 1)
+size = Vector3(8.005371, 6.020996, 0.30822754)
 
 [node name="BrokenWall" type="Node3D" unique_id=1554696659]
 
@@ -23,5 +23,5 @@ depth = 1.3
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=267172009]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013098996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0014572144, -0.009776354, 0.03388357)
 shape = SubResource("BoxShape3D_r5iys")
-disabled = true
