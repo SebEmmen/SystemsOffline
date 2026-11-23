@@ -9,13 +9,13 @@ extends Node3D
 @onready var reset_button = $Reset
 
 @export var max_moves := 5
-@export var rotate_time := 0.7      # seconds per rotation
-@export var reset_time := 0.9       # seconds for the reset animation
-@export var reset_delay := 0.5      # pause before resetting
+@export var rotate_time := 0.7
+@export var reset_time := 0.9
+@export var reset_delay := 0.5
 
 var moves_remaining := 0
 var busy := false
-var initial_rotations := []         # Y rotation in degrees (floats)
+var initial_rotations := []
 var initial_button_rotations := []
 
 func _ready() -> void:
@@ -25,9 +25,11 @@ func _ready() -> void:
 		initial_button_rotations.append(b.rotation_degrees.y)
 	moves_remaining = max_moves
 	update_moves_label()
-	for c in reset_button.find_children("*", "BaseButton", true, false):
-		if not c.pressed.is_connected(_on_reset_button_pressed):
-			c.pressed.connect(_on_reset_button_pressed)
+
+	# Connect the 3D buttons (each has the pressed-signal script on its Area3D)
+	$Button/Area3D.pressed.connect(_on_button_pressed_a)
+	$Button2/Area3D.pressed.connect(_on_button_pressed_b)
+	$Reset/Area3D.pressed.connect(_on_reset_button_pressed)
 
 func update_moves_label() -> void:
 	moves_remaining_label.text = "Button presses remaining: " + str(moves_remaining)
@@ -40,19 +42,14 @@ func set_busy(value: bool) -> void:
 func _update_buttons() -> void:
 	var dim := busy or moves_remaining <= 0
 	for b in buttons:
-		if b == null:
-			continue
-		_set_button_dim(b, dim)
-		_set_button_disabled(b, busy)
-	if reset_button:
-		_set_button_dim(reset_button, busy)
-		_set_button_disabled(reset_button, busy)
+		b.get_node("Area3D").disabled = busy
+		_dim_meshes(b, dim)
+	reset_button.get_node("Area3D").disabled = busy
+	_dim_meshes(reset_button, busy)
 
-# Node3D has no modulate, so this only works if your buttons are Controls.
-# For fully 3D buttons, swap this for a material change (see below).
-func _set_button_dim(node: Node, dim: bool) -> void:
-	if node is CanvasItem:
-		node.modulate.a = 0.5 if dim else 1.0
+func _dim_meshes(root: Node, dim: bool) -> void:
+	for m in root.find_children("*", "GeometryInstance3D", true, false):
+		m.transparency = 0.5 if dim else 0.0
 
 func do_move(rotations: Array, button: Node3D, button_degrees: float) -> void:
 	if busy:
@@ -110,17 +107,12 @@ func reset_board() -> void:
 	moves_remaining = max_moves
 	update_moves_label()
 
-func _set_button_disabled(node: Node, value: bool) -> void:
-	if node == null:
-		return
-	for c in node.find_children("*", "BaseButton", true, false):
-		c.disabled = value
+# $Button = old Button2, $Button2 = old Button3. Swap the bodies if they feel backwards.
+func _on_button_pressed_a() -> void:
+	do_move([[3, 90], [6, 90]], $Button, 90)
 
-func _on_button_pressed2() -> void:
-	do_move([[3, 90], [6, 90]], $Button2, 90)
-
-func _on_button_pressed3() -> void:
-	do_move([[1, -90], [7, -90]], $Button3, -90)
+func _on_button_pressed_b() -> void:
+	do_move([[1, -90], [7, -90]], $Button2, -90)
 
 func _on_reset_button_pressed() -> void:
 	if busy:

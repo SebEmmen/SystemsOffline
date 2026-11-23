@@ -6,6 +6,15 @@ static var locked := false
 @export var snap_radius := 0.7        # world units now, not pixels
 @export var lift_height := 0.3        # how far the piece rises while held
 @export var anchor: Node3D   # optional; falls back to a child named "Anchor"
+
+@export var free_parent: Node3D      # where loose pieces live; defaults to the starting parent
+@export var play_min := Vector2(-8, -6)   # optional X/Z limits for loose pieces
+@export var play_max := Vector2(8, 6)
+
+var home_parent: Node
+var start_global_pos := Vector3.ZERO
+var start_global_rot_y := 0.0
+var rest_y := 0.0
 var start_basis := Basis.IDENTITY
 var slot: Slot3D = null
 var dragging := false
@@ -21,6 +30,15 @@ func _ready() -> void:
 		anchor = get_node_or_null("Anchor")
 	input_ray_pickable = true
 	input_event.connect(_on_input_event)
+	if free_parent:
+		home_parent = free_parent
+	elif not get_parent() is Slot3D:
+		home_parent = get_parent()
+	else:
+		home_parent = get_tree().current_scene
+	start_global_pos = global_position
+	start_global_rot_y = global_rotation.y
+	rest_y = global_position.y
 	_claim_start_slot.call_deferred()
 
 
@@ -43,6 +61,15 @@ func release() -> void:
 
 func return_to_start(duration: float) -> void:
 	if start_slot == null:
+		slot = null
+		if get_parent() != home_parent:
+			reparent(home_parent, true)
+		var tw0 := create_tween().set_parallel(true)
+		tw0.tween_property(self, "global_position", start_global_pos, duration) \
+			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		var from0 := global_rotation.y
+		tw0.tween_method(func(t: float): global_rotation.y = lerp_angle(from0, start_global_rot_y, t),
+			0.0, 1.0, duration)
 		return
 	slot = start_slot
 	start_slot.piece = self
@@ -91,10 +118,25 @@ func _input(event: InputEvent) -> void:
 			and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		dragging = false
 		var target := _nearest_free_slot()
-		if target == null:
-			target = last_slot
 		if target:
 			_place(target, true)
+		else:
+			_drop_free()
+
+func _drop_free() -> void:
+	slot = null
+	if get_parent() != home_parent:
+		reparent(home_parent, true)   # leave the grid so it stops rotating with it
+	var end_pos := Vector3(
+		clampf(global_position.x, play_min.x, play_max.x),
+		rest_y,
+		clampf(global_position.z, play_min.y, play_max.y))
+	var from := global_rotation.y
+	var to := snappedf(from, PI / 2.0)   # tidy up to a 90 degree angle
+	var tw := create_tween().set_parallel(true)
+	tw.tween_property(self, "global_position", end_pos, 0.1)
+	tw.tween_method(func(t: float): global_rotation.y = lerp_angle(from, to, t),
+		0.0, 1.0, 0.1)
 
 func _nearest_free_slot() -> Slot3D:
 	var best: Slot3D = null
