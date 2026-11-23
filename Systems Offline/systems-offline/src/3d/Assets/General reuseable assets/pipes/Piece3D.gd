@@ -2,10 +2,21 @@ class_name Piece3D
 extends Area3D
 
 static var locked := false
+signal placed
+
+@export var kind := "corner"          # set per piece scene: "straight", "t", "corner"
+@export var symmetry_deg := 360.0     # 180 for straight pieces, 360 for T and corner
 
 @export var snap_radius := 0.7        # world units now, not pixels
 @export var lift_height := 0.3        # how far the piece rises while held
 @export var anchor: Node3D   # optional; falls back to a child named "Anchor"
+
+
+
+# Rotation around Y in world space, folded by the piece's symmetry
+func board_angle() -> float:
+	var x := global_basis.x
+	return fposmod(rad_to_deg(atan2(-x.z, x.x)), symmetry_deg)
 
 @export var free_parent: Node3D      # where loose pieces live; defaults to the starting parent
 @export var play_min := Vector2(-8, -6)   # optional X/Z limits for loose pieces
@@ -166,9 +177,18 @@ func _place(s: Slot3D, animate: bool) -> void:
 	slot = s
 	s.piece = self
 	reparent(s, true)
-	var target := _local_pos_for_anchor()
+	# snap rotation to the nearest 90 degrees in the slot's frame
+	var target_rot := snappedf(rotation.y, PI / 2.0)
+	var target_basis := Basis(Vector3.UP, target_rot)
+	var target := Vector3.ZERO
+	if anchor:
+		target = -(target_basis * anchor.position)
 	if animate:
-		var tw := create_tween()
+		var from := rotation.y
+		var tw := create_tween().set_parallel(true)
 		tw.tween_property(self, "position", target, 0.1)
+		tw.tween_method(func(t: float): rotation.y = lerp_angle(from, target_rot, t),
+			0.0, 1.0, 0.1)
 	else:
+		rotation.y = target_rot
 		position = target
