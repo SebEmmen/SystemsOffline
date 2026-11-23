@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3atk5p3colca"
+uid="uid://cupe2x5ua8set"
 path.s3tc="res://.godot/imported/Final_Filler_Switch panel 1_Ucupaint Cylinder_10.png-3b440a18e8f0be29e66d04e3666bbe4c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "053eff8251b3cbd6397b8187ead13de2"
 }
 
 [deps]

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dbfsfqviljvxo"]
+
+[ext_resource type="PackedScene" uid="uid://b0hkh76sfkjfn" path="res://src/3d/Assets/Engine room/Final_Fuel tank 2.glb" id="1_qgaq1"]
+[ext_resource type="PackedScene" uid="uid://dvqdi3200jd8k" path="res://src/3d/Assets/Engine room/Final_Tank Cap.glb" id="2_74l0q"]
+[ext_resource type="PackedScene" uid="uid://yicpo3xpxt8r" path="res://src/3d/Assets/Engine room/Final_Tank Valve.glb" id="3_dvpkd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_74l0q"]
+size = Vector3(3.8000956, 3.4606824, 15.631424)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvpkd"]
+size = Vector3(2, 5.8244495, 8.207598)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u3ti7"]
+size = Vector3(2, 13.594186, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgaq1"]
+size = Vector3(2.35, 4, 2.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_su01e"]
+size = Vector3(1.4731636, 8.247151, 29.52158)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u3ti7"]
+points = PackedVector3Array(-0.00016200542, -1.0068139, -0.82939607, -0.10322684, -1.0068139, -0.8164575, -0.00016200542, -0.7134449, -0.82939607, 0.103064835, -1.0068139, -0.8164575, -0.20629162, -1.0068139, -0.80335724, -0.10322684, -0.7134449, -0.8164575, 0.103064835, -0.7134449, -0.8164575, 0.20612967, -1.0068139, -0.80335724, -0.20629162, -0.7134449, -0.80335724, -0.3030364, -1.0068139, -0.7651886, 0.20612967, -0.7134449, -0.80335724, 0.30287445, -1.0068139, -0.7651886, -0.3030364, -0.7134449, -0.7651886, -0.39961913, -1.0068139, -0.72685814, 0.30287445, -0.7134449, -0.7651886, 0.3994571, -1.0068139, -0.72685814, -0.39961913, -0.7134449, -0.72685814, -0.56782866, -1.0068139, -0.60475063, 0.3994571, -0.7134449, -0.72685814, 0.56766665, -1.0068139, -0.60475063, -0.56782866, -0.7134449, -0.60475063, -0.7003869, -1.0068139, -0.4444744, 0.56766665, -0.7134449, -0.60475063, 0.7002249, -1.0068139, -0.4444744, -0.7003869, -0.7134449, -0.4444744, -0.74462694, -1.0068139, -0.35050824, 0.7002249, -0.7134449, -0.4444744, 0.7444649, -1.0068139, -0.35050824, -0.74462694, -0.7134449, -0.35050824, -0.788867, -1.0068139, -0.25638032, 0.7444649, -0.7134449, -0.35050824, 0.788705, -1.0068139, -0.25638032, -0.788867, -0.7134449, -0.25638032, -0.8083132, -1.0068139, -0.15432757, 0.788705, -0.7134449, -0.25638032, 0.80815125, -1.0068139, -0.15432757, -0.8083132, -0.7134449, -0.15432757, -0.8277594, -1.0068139, -0.052113056, 0.80815125, -0.7134449, -0.15432757, 0.8275974, -1.0068139, -0.052113056, -0.8277594, -0.7134449, -0.052113056, -0.81479526, -1.0068139, 0.15538877, 0.8275974, -0.7134449, -0.052113056, 0.81463325, -1.0068139, 0.15538877, -0.81479526, -0.7134449, 0.15538877, -0.75062287, -1.0068139, 0.35302502, 0.81463325, -0.7134449, 0.15538877, 0.782547, -1.0068139, 0.25420696, -0.75062287, -0.7134449, 0.35302502, -0.6948771, -1.0068139, 0.44084543, 0.782547, -0.7134449, 0.25420696, 0.75029874, -1.0068139, 0.35302502, -0.6948771, -0.7134449, 0.44084543, -0.63913137, -1.0068139, 0.5285041, 0.75029874, -0.7134449, 0.35302502, 0.69471514, -1.0068139, 0.44084543, -0.63913137, -0.7134449, 0.5285041, -0.5634533, -1.0068139, 0.5998277, 0.69471514, -0.7134449, 0.44084543, 0.6389694, -1.0068139, 0.5285041, -0.5634533, -0.7134449, 0.5998277, -0.48761314, -1.0068139, 0.67082804, 0.6389694, -0.7134449, 0.5285041, 0.5631292, -1.0068139, 0.5998277, -0.48761314, -0.7134449, 0.67082804, -0.3054672, -1.0068139, 0.7711018, 0.5631292, -0.7134449, 0.5998277, 0.4874512, -1.0068139, 0.67082804, -0.3054672, -0.7134449, 0.7711018, -0.104037106, -1.0068139, 0.8228559, 0.4874512, -0.7134449, 0.67082804, 0.39637816, -1.0068139, 0.72096485, -0.104037106, -0.7134449, 0.8228559, 0.1038751, -1.0068139, 0.8228559, 0.39637816, -0.7134449, 0.72096485, 0.30514312, -1.0068139, 0.7711018, 0.1038751, -0.7134449, 0.8228559, 0.30514312, -0.7134449, 0.7711018)
+
+[node name="FuelTank2" type="Node3D" unique_id=126686054]
+
+[node name="Final_Fuel tank 2" parent="." unique_id=1921076661 instance=ExtResource("1_qgaq1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Fuel tank 2" unique_id=2118082193]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Final_Fuel tank 2/StaticBody3D" unique_id=1952906122]
+transform = Transform3D(-0.22544049, 0.17809916, 1.4512423e-08, -8.5622816e-09, -3.424913e-08, 0.2873025, 0.17809916, 0.2254405, 3.218237e-08, -1.543927, -0.69761074, 4.810991)
+shape = SubResource("BoxShape3D_74l0q")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Final_Fuel tank 2/StaticBody3D" unique_id=1125708099]
+transform = Transform3D(-0.16154766, -1.21965105e-08, 1.21965105e-08, 1.21965105e-08, 0, 0.16154766, -1.21965105e-08, 0.16154766, 9.20811e-16, -0.01802719, 0.066125095, 4.7176633)
+shape = SubResource("BoxShape3D_dvpkd")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Final_Fuel tank 2/StaticBody3D" unique_id=1000709893]
+transform = Transform3D(0.173903, 0, 0, 0, 0.173903, 0, 0, 0, 0.173903, -0.017893218, -1.7533276, 4.4079266)
+shape = SubResource("BoxShape3D_u3ti7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Fuel tank 2/StaticBody3D" unique_id=52181674]
+transform = Transform3D(1.9111694, 0, 0, 0, 1.499603, 0, 0, 0, 1.9111694, -0.017893218, -0.054274082, 6.789038)
+shape = SubResource("BoxShape3D_qgaq1")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Final_Fuel tank 2/StaticBody3D" unique_id=1318586357]
+transform = Transform3D(-0.15740627, -1.1883845e-08, -1.1883845e-08, 1.1883845e-08, 0, -0.15740627, 1.1883845e-08, -0.15740627, 8.972056e-16, -0.025046753, 1.0058829, 8.660973)
+shape = SubResource("BoxShape3D_su01e")
+
+[node name="Final_Tank Cap" parent="." unique_id=919762280 instance=ExtResource("2_74l0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.860713)
+
+[node name="Final_Tank Valve" parent="Final_Tank Cap" unique_id=1809449490 instance=ExtResource("3_dvpkd")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Tank Cap/Final_Tank Valve" unique_id=1040035532]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Tank Cap/Final_Tank Valve/StaticBody3D" unique_id=838165118]
+transform = Transform3D(0.3332714, 0, 0, 0, -0.3332714, -1.0859361e-07, 0, 1.0859361e-07, -0.3332714, 0.6921809, 2.8439984, -0.78599405)
+shape = SubResource("ConvexPolygonShape3D_u3ti7")
+
+[editable path="Final_Fuel tank 2"]
+[editable path="Final_Tank Cap/Final_Tank Valve"]

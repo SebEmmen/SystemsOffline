@@ -6,7 +6,34 @@ const START_SCENE = "res://src/3d/Scenes/rooms/Room1.tscn"
 const SETTINGS_FILE = "user://settings.json"
 const INTRO_CUTSCENE = "res://src/2d/Assets/Cutscenes/Intro_Cutscene.tscn"
 const DEFAULT_FOV := 75.0
+#region Spawn points
+enum Spawn { ROOM1_NEW_GAME, ROOM1_TUT, ROOM1_ELEVATOR, ROOM2_ENGINE, ROOM2_ELEVATOR }
 
+const SPAWNS := {
+	Spawn.ROOM1_TUT: {
+		"scene": "res://src/3d/Scenes/rooms/Room1.tscn",
+		"position": Vector3(-9.85, 0.005, -5.95),
+		"yaw": 0.0,  # degrees
+	},
+	Spawn.ROOM1_ELEVATOR: {
+		"scene": "res://src/3d/Scenes/rooms/Room1.tscn",
+		"position": Vector3(-1.97, 0.005, -32.6),
+		"yaw": 0.0,  # degrees
+	},
+	Spawn.ROOM2_ELEVATOR: {
+		"scene": "res://src/3d/Scenes/rooms/Room2.tscn",
+		"position": Vector3(-10.268, 0.005, 3.941),
+		"yaw": 180.0,
+	},
+	Spawn.ROOM2_ENGINE: {
+		"scene": "res://src/3d/Scenes/rooms/Room2.tscn",
+		"position": Vector3(18.01, 0.005, 5.958),
+		"yaw": 180.0,
+	}
+}
+
+var is_changing_room: bool = false
+#endregion
 
 signal puzzle_completed(id: String)
 var return_scene: String = ""
@@ -31,6 +58,9 @@ var tutorial_puzzle_completed: bool = false
 # Keypad
 # Key
 #endregion
+
+
+var play_opening_cinematic: bool = false
 
 var in_subscene = false
 
@@ -347,6 +377,37 @@ func reset_progress() -> void:
 	# QUEST MANAGER: Reset all quests for a new game.
 	QuestManager.reset_progress()
 
+# --------------------------------------------------
+# SCENES
+# --------------------------------------------------
+
+func change_room(spawn: Spawn) -> void:
+	if is_changing_room:
+		return
+	is_changing_room = true
+
+	var data: Dictionary = SPAWNS[spawn]
+
+	var error = get_tree().change_scene_to_file(data["scene"])
+	if error != OK:
+		push_error("SaveManager: Could not load room: " + data["scene"])
+		is_changing_room = false
+		return
+
+	await get_tree().scene_changed
+	await get_tree().process_frame
+
+	var player := get_player()
+	if player == null:
+		push_error("SaveManager: Player not found after room change!")
+		is_changing_room = false
+		return
+
+	player.global_position = data["position"]
+	player.rotation.y = deg_to_rad(data["yaw"])
+	player.velocity = Vector3.ZERO
+
+	is_changing_room = false
 
 # --------------------------------------------------
 # SETTINGS
@@ -388,15 +449,10 @@ func new_game() -> void:
 	reset_progress()
 	_reset_fov_setting()
 
-	var error = get_tree().change_scene_to_file(
-		INTRO_CUTSCENE
-	)
+	play_opening_cinematic = true
+	print("SaveManager: Opening cinematic enabled!")
 
-	if error != OK:
-		push_error(
-			"SaveManager: Could not load cutscene for new game!"
-		)
-		return
+	get_tree().change_scene_to_file(INTRO_CUTSCENE)
 
 
 func finish_cutscene() -> void:

@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dujhypgrfc6br"
+uid="uid://olp4r7jwwhkj"
 path.s3tc="res://.godot/imported/Final_Power up device_Ucupaint Plane Color.png-c57ebbf373cb57673d487f1f71747a1a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "13255f32644b54fb307e79a975998d7a"
 }
 
 [deps]
