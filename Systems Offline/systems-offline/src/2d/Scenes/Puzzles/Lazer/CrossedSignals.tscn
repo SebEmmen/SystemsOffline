@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://bev3psmq838uo"]
+
+[ext_resource type="Script" uid="uid://dor8qi5n7g477" path="res://src/2d/Scenes/Puzzles/Lazer/crossed_signals_puzzle.gd" id="1_wkxmy"]
+[ext_resource type="Script" uid="uid://mf5vhw5flptf" path="res://src/2d/Scenes/Puzzles/Lazer/crossed_signals_board.gd" id="2_mftgb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bre86"]
+bg_color = Color(0.0627451, 0.11764706, 0.14117648, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.20392157, 0.49803922, 0.4, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsokd"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.07058824, 0.21568628, 0.1764706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22745098, 0.7137255, 0.54509807, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rylq"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.44705883, 0.32156864, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.7137255, 0.54509807, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucvcg"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.11764706, 0.33333334, 0.25490198, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.7137255, 0.54509807, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e40en"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.07058824, 0.14117648, 0.16470589, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.27058825, 0.42745098, 0.43137255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqle3"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.44705883, 0.32156864, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27058825, 0.42745098, 0.43137255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6aig"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.11764706, 0.33333334, 0.25490198, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27058825, 0.42745098, 0.43137255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CrossedSignals" type="Control" unique_id=1744093795]
+custom_minimum_size = Vector2(320, 250)
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_wkxmy")
+
+[node name="Background" type="ColorRect" parent="." unique_id=898710855]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.02745098, 0.07450981, 0.06666667, 1)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=716146780]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Layout" type="VBoxContainer" parent="Margin" unique_id=1173853904]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 9
+
+[node name="Header" type="HBoxContainer" parent="Margin/Layout" unique_id=1965333842]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Margin/Layout/Header" unique_id=775407348]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.5529412, 0.9098039, 0.7647059, 1)
+theme_override_font_sizes/font_size = 22
+text = "CROSSED SIGNALS  //  RELAY CALIBRATION"
+
+[node name="Status" type="Label" parent="Margin/Layout/Header" unique_id=1900270900]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7176471, 0.84313726, 0.827451, 1)
+theme_override_font_sizes/font_size = 13
+text = "0/2 receivers online  |  0/4 relays deployed"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Instructions" type="Label" parent="Margin/Layout" unique_id=1987017222]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6156863, 0.76862746, 0.72156864, 1)
+theme_override_font_sizes/font_size = 13
+text = "Drag the four universal relays from their docks. Each red/blue channel needs TWO relays. Walls block beams. Both receivers must work at once."
+autowrap_mode = 3
+
+[node name="BoardFrame" type="PanelContainer" parent="Margin/Layout" unique_id=560209790]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_bre86")
+
+[node name="Board" type="Control" parent="Margin/Layout/BoardFrame" unique_id=1991550895]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_mftgb")
+
+[node name="Controls" type="HBoxContainer" parent="Margin/Layout" unique_id=110047365]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ResetButton" type="Button" parent="Margin/Layout/Controls" unique_id=663523603]
+custom_minimum_size = Vector2(135, 37)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83137256, 1, 0.9137255, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_gsokd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7rylq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ucvcg")
+text = "RESET RELAYS"
+
+[node name="HintButton" type="Button" parent="Margin/Layout/Controls" unique_id=832716192]
+custom_minimum_size = Vector2(110, 37)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83137256, 1, 0.9137255, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_e40en")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rqle3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l6aig")
+text = "SHOW HINT"
+
+[node name="ControlTip" type="Label" parent="Margin/Layout/Controls" unique_id=714663405]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.5411765, 0.6862745, 0.64705884, 1)
+theme_override_font_sizes/font_size = 12
+text = "Drag: move relay  |  Return to its numbered dock: put away"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HintLabel" type="Label" parent="Margin/Layout" unique_id=1250678249]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.70980394, 0.79607844, 0.7490196, 1)
+theme_override_font_sizes/font_size = 13
+text = "Drag R1–R4 freely. Every color needs exactly two relays; a relay cannot serve both colors."
+autowrap_mode = 3

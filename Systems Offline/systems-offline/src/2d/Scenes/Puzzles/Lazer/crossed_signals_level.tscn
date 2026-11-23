@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dj5a7u540gqtn"]
+
+[ext_resource type="Script" uid="uid://brdljm2apgqn" path="res://src/2d/Scenes/Puzzles/Lazer/cs_level.gd" id="1_xlmus"]
+[ext_resource type="Script" uid="uid://15ovtw7ppiv8" path="res://src/2d/Scenes/Puzzles/Lazer/cs_wall.gd" id="2_7bp0k"]
+[ext_resource type="Script" uid="uid://bm7kdje70d50e" path="res://src/2d/Scenes/Puzzles/Lazer/cs_barrier.gd" id="3_lojhc"]
+[ext_resource type="Script" uid="uid://dfohuwjywda6c" path="res://src/2d/Scenes/Puzzles/Lazer/cs_device.gd" id="4_gmkai"]
+
+[node name="CrossedSignalsLevel" type="Node2D" unique_id=1487534619]
+script = ExtResource("1_xlmus")
+
+[node name="Wall1" type="Node2D" parent="." unique_id=1903267972]
+position = Vector2(480, 150)
+script = ExtResource("2_7bp0k")
+dimensions = Vector2(24, 220)
+
+[node name="Wall2" type="Node2D" parent="." unique_id=2145069684]
+position = Vector2(480, 460)
+script = ExtResource("2_7bp0k")
+dimensions = Vector2(24, 220)
+
+[node name="BarrierA" type="Node2D" parent="." unique_id=1365140050]
+position = Vector2(710, 300)
+script = ExtResource("3_lojhc")
+receiver_path = NodePath("../RedReceiver")
+dimensions = Vector2(20, 120)
+
+[node name="Relay5" type="Node2D" parent="." unique_id=20639052]
+script = ExtResource("4_gmkai")
