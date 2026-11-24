@@ -936,6 +936,7 @@ primary_se = ExtResource("24_gav43")
 transform = Transform3D(3.2385863e-09, -0.07409022, 0.030176796, -0.08, -3.496911e-09, 8.8817804e-17, 1.3190695e-09, -0.030176796, -0.07409022, -7.5541897, 1.4380639, -68.33988)
 inspect_type = 2
 inspect_camera = NodePath("Camera3D")
+puzzle_scene = "uid://lvydm5j7dvmt"
 object_ref = NodePath("Wire Puzzle Comms")
 interaction_type = 1
 player = NodePath("../../ProtoController")
@@ -1013,7 +1014,7 @@ inspect = NodePath("..")
 puzzle = NodePath("../MainScreen/CommsPuzzle")
 
 [node name="multitool piece 1 lit " parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="19" unique_id=1999110288 instance=ExtResource("65_i6svr")]
-transform = Transform3D(-1.6392765, 0.7772039, -0.16152978, 1.0765463, 1.5129477, 0.11157107, 0.1655499, 0.0045007467, -1.6584179, -3.43573, 0.6331787, -6.0516357)
+transform = Transform3D(-1.6392764, 0.7772039, -0.16152981, 1.0765462, 1.5129477, 0.111570835, 0.16554993, 0.0045007467, -1.6584178, -3.4201355, 0.59304047, -6.0436096)
 visible = false
 item_data = ExtResource("62_i6svr")
 
