@@ -49,6 +49,7 @@ var lid_animating: bool = false
 @export var elevator_on: MeshInstance3D
 @export var elevator_off: MeshInstance3D
 @export var wire_cover: RigidBody3D
+
 var cover_home: Transform3D
 var fixed: bool = false
 
@@ -395,7 +396,10 @@ func _open_puzzle_viewport() -> void:
 		emitter.puzzle_completed.connect(_on_puzzle_completed)
 		emitter.puzzle_exited.connect(exit_wires_puzzle)
 
+	print("overlay: ", puzzle_overlay_scene, " | scene: ", puzzle_scene)
+	print("emitter: ", emitter)
 	get_tree().root.add_child(puzzle_layer)
+	print("overlay in tree: ", puzzle_layer.is_inside_tree())
 
 func _find_puzzle_emitter(root: Node) -> Node:
 	if root.has_signal("puzzle_completed"):
@@ -408,7 +412,7 @@ func _find_puzzle_emitter(root: Node) -> Node:
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
 		return
-	if not cover_removed:
+	if wire_cover and not cover_removed:
 		cover_removed = true
 		cover_drop_time = Time.get_ticks_msec() / 1000.0
 		wire_cover.fall_off()
@@ -421,11 +425,14 @@ func enter_puzzle() -> void:
 
 	is_interacting = true
 	player.disable_controls()
-	SaveManager.set_cover_transform(puzzle_id, wire_cover.global_transform)
+	if wire_cover:
+		SaveManager.set_cover_transform(puzzle_id, wire_cover.global_transform)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_open_puzzle_viewport()
 
 func _cover_is_settled() -> bool:
+	if wire_cover == null:
+		return true
 	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
 	return elapsed > 0.5 and (wire_cover.sleeping or wire_cover.linear_velocity.length() < 0.05)
 

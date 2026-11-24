@@ -1,6 +1,7 @@
 extends Node3D
 
-signal solved
+signal puzzle_completed
+signal puzzle_exited
 
 @onready var grid_spots = [
 	$"Grid 1x2", $"Grid 2x2", $"Grid 2x3", $"Grid 3x1", $"Grid 3x3", $"Grid 4x2", $"Grid 4x3"
@@ -178,7 +179,7 @@ func check_solution() -> void:
 			return
 	finished = true
 	Piece3D.locked = true
-	solved.emit()
+	puzzle_completed.emit()
 	print("Puzzle solved!")
 
 func _unhandled_input(event: InputEvent) -> void:
