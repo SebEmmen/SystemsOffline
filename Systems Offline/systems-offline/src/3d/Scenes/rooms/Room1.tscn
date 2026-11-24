@@ -900,9 +900,10 @@ transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-
 [node name="Rack4" parent="Tutorial Room/Shelves" unique_id=326654121 instance=ExtResource("30_4qo6h")]
 transform = Transform3D(-0.7778175, 0, -0.7778175, 0, 1.1, 0, 0.7778175, 0, -0.7778175, 5.841619, 0.0050001144, 6.3599706)
 
-[node name="TutorialArea" type="Area3D" parent="Tutorial Room" unique_id=1818286345]
+[node name="TutorialArea" type="Area3D" parent="Tutorial Room" unique_id=1818286345 node_paths=PackedStringArray("tutorial_key")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.2502704)
 script = ExtResource("53_slhau")
+tutorial_key = NodePath("../Crates/Fallen Crate With Key/Tutorial Key")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial Room/TutorialArea" unique_id=516855087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9613647, 2.8407593, -0.37364817)
@@ -1542,6 +1543,7 @@ transform = Transform3D(-0.22437558, -1.8816695, -8.8355623e-10, 1.8816695, -0.2
 [editable path="UI_Manger/InventoryUI"]
 [editable path="UI_Manger/NotificationUI"]
 [editable path="Tutorial Room/FloorWithHole"]
+[editable path="Tutorial Room/BrokenWall"]
 [editable path="Tutorial Room/KeypadTouchscreen"]
 [editable path="Tutorial Room/KeypadTouchscreen/StaticBody3D/Keypad base"]
 [editable path="Tutorial Room/KeypadTouchscreen/KeyHanger"]
@@ -1553,6 +1555,7 @@ transform = Transform3D(-0.22437558, -1.8816695, -8.8355623e-10, 1.8816695, -0.2
 [editable path="Tutorial Room/Crates/CrateCode(9)/Final_Crate base"]
 [editable path="Tutorial Room/Crates/CrateCode(7)"]
 [editable path="Tutorial Room/Crates/CrateCode(7)/Final_Crate base"]
+[editable path="Tutorial Room/Crates/Fallen Crate With Key"]
 [editable path="CommsRoom/WirePuzzleTest"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms"]
 [editable path="CommsRoom/WirePuzzleTest/Wire Puzzle Comms/Wire space small"]

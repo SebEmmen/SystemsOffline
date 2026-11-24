@@ -92,6 +92,10 @@ func start_cinematic() -> void:
 	starting_rotation = player.rotation.y
 
 	player.disable_controls()
+
+	# Hide and capture the mouse during the cinematic.
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 	animation_player.play("Opening")
 
 
