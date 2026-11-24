@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cqbxd7ynglxgp"]
+
+[ext_resource type="PackedScene" uid="uid://cyah34scfai4m" path="res://src/3d/Assets/General reuseable assets/pipes/One end straight long pipe.glb" id="1_otcuc"]
+
+[node name="One end Straight Long Pipe" type="Node3D" unique_id=481322427]
+
+[node name="One end straight long pipe" parent="." unique_id=150032953 instance=ExtResource("1_otcuc")]
+
+[node name="One end long straight pipe" parent="One end straight long pipe" index="0" unique_id=929442541]
+transform = Transform3D(0, -0.20157433, -2.002594e-08, -0.20157433, 1.9895305e-15, -2.002594e-08, 2.002594e-08, 2.002594e-08, -0.20157433, 0, 0.312, 0)
+
+[editable path="One end straight long pipe"]

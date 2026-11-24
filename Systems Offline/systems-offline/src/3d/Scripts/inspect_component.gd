@@ -5,7 +5,7 @@ extends InteractableComponent
 enum InspectType{
 	POSTER,
 	CRATE,
-	WIRES_PUZZLE,
+	PUZZLE,
 	MONITOR
 	}
 
@@ -39,10 +39,10 @@ var default_font: Font = ThemeDB.fallback_font
 var lid_animating: bool = false
 #endregion
 
-#region Wires_Puzzle Variable
-@export_group("Wires_Puzzle")
+#region Puzzle Variable
+@export_group("Puzzle")
 @export var puzzle_overlay_scene: PackedScene
-@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/.scn"
 @export var puzzle_id: String = ""
 @export var power_off: Node3D
 @export var power_on: Node3D
@@ -82,7 +82,7 @@ func _ready() -> void:
 			pass
 		InspectType.CRATE:
 			ready_crate()
-		InspectType.WIRES_PUZZLE:
+		InspectType.PUZZLE:
 			ready_puzzle()
 		InspectType.MONITOR:
 			update_monitor()
@@ -106,7 +106,7 @@ func interact() -> void:
 			else:
 				enter_crate()
 		
-		InspectType.WIRES_PUZZLE:
+		InspectType.PUZZLE:
 			if puzzle_id == "elevator" and not SaveManager.dial_puzzle_completed:
 				Notification.show_message("You cannot open it yet...", true)
 				await get_tree().create_timer(1.0).timeout
@@ -339,7 +339,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 #endregion
 #endregion
 
-#region Wires Puzzle Functions
+#region Puzzle Functions
 func ready_puzzle() -> void:
 	if puzzle_id == "":
 		push_warning("InspectComponent: puzzle_id not set on " + name)
@@ -520,7 +520,7 @@ func _input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
 
-	if inspect_type == InspectType.WIRES_PUZZLE:
+	if inspect_type == InspectType.PUZZLE:
 		if event.is_action_pressed("ui_cancel"):
 			exit_wires_puzzle()
 			get_viewport().set_input_as_handled()
