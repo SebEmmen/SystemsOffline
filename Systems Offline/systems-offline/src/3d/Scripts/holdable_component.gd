@@ -6,6 +6,13 @@ extends InteractableComponent
 @export var glow_color: Color = Color(0.851, 0.574, 0.095, 1.0) # Warm golden glow
 @export var glow_energy: float = 3.0 # Intensity of the emission glow
 
+@export_group("Drop Physics")
+@export var drop_distance: float = 0
+@export var drop_height: float = 1.2
+@export var drop_forward_force: float = 2
+@export var drop_upward_force: float = 1.5
+@export var inherit_player_momentum: float = 0.7
+
 var is_held: bool = false
 var original_collision_layer: int = 1
 var original_collision_mask: int = 1
@@ -25,6 +32,9 @@ func interact() -> void:
 		return
 
 	active_player = get_tree().get_first_node_in_group("player")
+	if object_ref is RigidBody3D:
+		var body: RigidBody3D = object_ref as RigidBody3D
+		body.add_collision_exception_with(active_player)
 
 	if not active_player:
 		printerr(
@@ -72,72 +82,76 @@ func interact() -> void:
 
 		QuestManager.record_event(quest_event_id)
 
+
 func drop_item() -> void:
 	if not is_held:
 		return
-		
-	var world_root = get_tree().current_scene
+
+	var world_root: Node = get_tree().current_scene
 	object_ref.reparent(world_root, true)
-	
+
 	if active_player:
-		var drop_dir = -active_player.global_transform.basis.z
-		if "camera" in active_player and active_player.camera:
-			drop_dir = -active_player.camera.global_transform.basis.z
-			drop_dir.y = 0.0 # Keep it flat on the ground plane
-			drop_dir = drop_dir.normalized()
-			
-			if drop_dir == Vector3.ZERO:
-				drop_dir = -active_player.global_transform.basis.z
+		# Get the player's forward direction.
+		var drop_dir: Vector3 = -active_player.global_transform.basis.z
+		drop_dir.y = 0.0
+		drop_dir = drop_dir.normalized()
 
-		var target_drop_pos = active_player.global_position + (drop_dir * 1.0)
+		# Position the object at the player's horizontal center.
+		var spawn_position: Vector3 = (
+			active_player.global_position
+			+ active_player.up_direction * drop_height
+			+ drop_dir * drop_distance
+		)
 
-		# BRANCH 1: RigidBody3D physics drop
+		# Forward throw + upward arc + player movement momentum.
+		var throw_velocity: Vector3 = (
+			drop_dir * drop_forward_force
+			+ active_player.up_direction * drop_upward_force
+			+ active_player.velocity * inherit_player_momentum
+		)
+
 		if object_ref is RigidBody3D:
-			object_ref.freeze = false
-			object_ref.collision_layer = original_collision_layer
-			object_ref.collision_mask = original_collision_mask
-			object_ref.global_position = target_drop_pos + Vector3(0, 0.8, 0)
-			object_ref.linear_velocity = drop_dir * 1.0
-			
-		# BRANCH 2: Static / Non-rigidbody drop with ground snapping & height correction
+			var body: RigidBody3D = object_ref as RigidBody3D
+
+			# Position while frozen, then reactivate physics.
+			body.freeze = true
+			body.global_position = spawn_position
+			body.linear_velocity = Vector3.ZERO
+			body.angular_velocity = Vector3.ZERO
+
+			body.collision_layer = original_collision_layer
+			body.collision_mask = original_collision_mask
+			# Prevent the dropped item from colliding with the player.
+			body.add_collision_exception_with(active_player)
+
+			body.freeze = false
+			body.sleeping = false
+			body.linear_velocity = throw_velocity
+
 		else:
+			# Non-rigidbody objects cannot follow a physics arc.
 			if object_ref is CollisionObject3D:
 				object_ref.collision_layer = original_collision_layer
 				object_ref.collision_mask = original_collision_mask
-			
-			var space_state = object_ref.get_world_3d().direct_space_state
-			var ray_start = target_drop_pos + Vector3(0, 1.5, 0)
-			var ray_end = target_drop_pos - Vector3(0, 2.0, 0)
-			
-			var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end)
-			var result = space_state.intersect_ray(query)
-			
-			if result:
-				object_ref.global_position = result.position
-				
-				var local_aabb = get_object_aabb(object_ref)
-				if local_aabb.has_volume():
-					var bottom_y_offset = -local_aabb.position.y
-					object_ref.global_position.y += bottom_y_offset
-				else:
-					object_ref.global_position.y += 0.05
-			else:
-				object_ref.global_position = target_drop_pos + Vector3(0, 0.2, 0)
-			
-	# Turn ON the emission glow effect when dropped!
+
+			object_ref.global_position = spawn_position
+
+	# Restore the emission glow.
 	if enable_glow:
 		set_object_glow(true)
-			
+
 	is_held = false
-	
+
 	if active_player and "current_held_item" in active_player:
 		if active_player.current_held_item == self:
 			active_player.current_held_item = null
-	
+
 	active_player = null
 	active_hand_marker = null
+
 	Notification.show_pickup_notification(object_ref.item_data)
-	print("Item dropped with emission glow active!")
+	print("Item dropped with forward momentum and arc!")
+
 
 # Helper function to apply or remove the emissive glow material override on meshes
 func set_object_glow(glowing: bool) -> void:
