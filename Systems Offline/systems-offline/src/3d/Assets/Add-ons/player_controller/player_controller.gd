@@ -190,20 +190,21 @@ func play_primary_se() -> void:
 #endregion
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		if mouse_captured and (controls_enabled or gravity_flipping):
+			rotate_look(event.relative)
+		return
+
 	if not controls_enabled:
 		return
 
-	# Capture mouse when clicking inside the game
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			capture_mouse()
-	# Look around
-	if mouse_captured and event is InputEventMouseMotion:
-		rotate_look(event.relative)
-	if event.is_action_pressed(input_drop):
-		if current_held_item:
-			current_held_item.drop_item()
-			current_held_item = null
+
+	if event.is_action_pressed(input_drop) and current_held_item:
+		current_held_item.drop_item()
+		current_held_item = null
 
 func get_held_item_id() -> String:
 	if current_held_item == null:
@@ -237,7 +238,7 @@ func _physics_process(delta: float) -> void:
 		and can_gravity_invert
 		and controls_enabled
 		and Input.is_action_just_pressed("gravity_invert")
-		and (_is_on_gravity_pad() || is_on_floor())
+		#and _is_on_gravity_pad()
 	):
 		if is_on_floor() or is_on_ceiling():
 			gravity_invert = not gravity_invert
