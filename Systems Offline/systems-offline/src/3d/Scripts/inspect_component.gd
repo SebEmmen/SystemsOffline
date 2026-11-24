@@ -49,6 +49,8 @@ var lid_animating: bool = false
 @export var elevator_on: MeshInstance3D
 @export var elevator_off: MeshInstance3D
 @export var wire_cover: RigidBody3D
+@export var movable_objects: Node3D
+@export var cover: MeshInstance3D
 
 var cover_home: Transform3D
 var fixed: bool = false
@@ -394,7 +396,7 @@ func _open_puzzle_viewport() -> void:
 	else:
 		print("Connecting to puzzle script on: ", emitter.get_path())
 		emitter.puzzle_completed.connect(_on_puzzle_completed)
-		emitter.puzzle_exited.connect(exit_wires_puzzle)
+		emitter.puzzle_exited.connect(exit_puzzle)
 
 	print("overlay: ", puzzle_overlay_scene, " | scene: ", puzzle_scene)
 	print("emitter: ", emitter)
@@ -436,7 +438,7 @@ func _cover_is_settled() -> bool:
 	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
 	return elapsed > 0.5 and (wire_cover.sleeping or wire_cover.linear_velocity.length() < 0.05)
 
-func exit_wires_puzzle() -> void:
+func exit_puzzle() -> void:
 	print("exit_wires_puzzle, is_interacting = ", is_interacting)
 	if not is_interacting:
 		return
@@ -457,6 +459,9 @@ func _on_puzzle_completed() -> void:
 	SaveManager.complete_puzzle(puzzle_id)
 	fixed = true
 	can_interact = false
+	if movable_objects:
+		movable_objects.visible = true
+		cover.visible = true
 	if power_on:
 		power_on.visible = true
 	if power_off:
@@ -464,7 +469,7 @@ func _on_puzzle_completed() -> void:
 	if elevator_on and elevator_off:
 		elevator_on.visible = true
 		elevator_off.visible = false
-	exit_wires_puzzle()
+	exit_puzzle()
 	_return_cover()
 
 
@@ -522,7 +527,7 @@ func _input(event: InputEvent) -> void:
 
 	if inspect_type == InspectType.PUZZLE:
 		if event.is_action_pressed("ui_cancel"):
-			exit_wires_puzzle()
+			exit_puzzle()
 			get_viewport().set_input_as_handled()
 		return
 

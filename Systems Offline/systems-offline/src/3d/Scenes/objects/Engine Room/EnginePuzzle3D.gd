@@ -24,9 +24,19 @@ var busy := false
 var finished := false
 var initial_rotations := []
 var initial_button_rotations := []
-var solution := {}        # paste the output of F9 here
+var solution := {0: {"kind": "corner", "angle": 0.0, "sym": 360.0},
+1: {"kind": "t", "angle": 0.0, "sym": 360.0}, 
+2: {"kind": "t", "angle": 180.0, "sym": 360.0}, 
+3: {"kind": "corner", "angle": 180.0, "sym": 360.0},
+4: {"kind": "straight", "angle": 0.0, "sym": 180.0},
+5: {"kind": "straight", "angle": 90.0, "sym": 180.0},
+6: {"kind": "corner", "angle": 90.0, "sym": 360.0}} 
 
 func _ready() -> void:
+	Piece3D.locked = false
+	for n in ["Grid 1x2", "Grid 2x2", "Grid 2x3", "Grid 3x1", "Grid 3x3", "Grid 4x2", "Grid 4x3", "Button", "Button2", "Reset", "Label3D"]:
+		if get_node_or_null(n) == null:
+			push_error("Missing node: " + n + " (script is on: " + str(get_path()) + ")")
 	for g in grid_spots:
 		initial_rotations.append(g.rotation_degrees.y)
 	for b in buttons:
@@ -179,8 +189,10 @@ func check_solution() -> void:
 			return
 	finished = true
 	Piece3D.locked = true
+	await get_tree().create_timer(1.0).timeout
+	if not is_inside_tree():
+		return
 	puzzle_completed.emit()
-	print("Puzzle solved!")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_F9:

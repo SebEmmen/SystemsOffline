@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cat6kxhhytckm"]
 
-[sub_resource type="Shader" id="Shader_da2a1"]
+[sub_resource type="Shader" id="Shader_lc4ku"]
 resource_local_to_scene = true
 code = "
 shader_type spatial;
@@ -29,8 +29,8 @@ void fragment() {
 
 [resource]
 render_priority = 0
-shader = SubResource("Shader_da2a1")
-shader_parameter/glass_color = Color(0.39607844, 0.4392157, 0.74509805, 0.20392157)
+shader = SubResource("Shader_lc4ku")
+shader_parameter/glass_color = Color(0.28235295, 0.47843137, 0.92156863, 0.5019608)
 shader_parameter/edge_color = Color(0, 0.8, 1, 0.15)
 shader_parameter/edge_width = 0.0010000000475
 shader_parameter/glow_strength = 1.0000000475
