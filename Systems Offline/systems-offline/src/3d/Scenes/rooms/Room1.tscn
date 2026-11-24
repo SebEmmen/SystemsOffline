@@ -1534,6 +1534,15 @@ transform = Transform3D(-0.14867991, -1.8891581, -3.8159065e-10, 1.8891584, -0.1
 [node name="BigMetalsheet7" parent="." unique_id=1352401084 instance=ExtResource("93_vfk7l")]
 transform = Transform3D(-0.22437558, -1.8816695, -8.8355623e-10, 1.8816695, -0.22437558, 0, -1.0461659e-10, -8.773408e-10, 1.895, -14.555879, 1.6793745, -63.622837)
 
+[node name="Crate12" parent="." unique_id=392132124 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(0.37166035, 0, -1.2978325, 0, 1.3500001, 0, 1.2978325, 0, 0.37166035, 14.692986, 0.012974501, -44.65502)
+
+[node name="Crate14" parent="." unique_id=1029753546 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(0.50022006, 0, -1.0907704, 0, 1.2, 0, 1.0907704, 0, 0.50022006, 14.692986, 1.6299623, -44.65502)
+
+[node name="Crate13" parent="." unique_id=1564789040 instance=ExtResource("16_o4tcg")]
+transform = Transform3D(-0.4730152, 0, -0.9430171, 0, 1.055, 0, 0.9430171, 0, -0.4730152, 14.4976845, 0.012974501, -42.458862)
+
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
