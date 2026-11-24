@@ -19,5 +19,5 @@ stretch = true
 own_world_3d = true
 handle_input_locally = false
 physics_object_picking = true
-size = Vector2i(1728, 648)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4

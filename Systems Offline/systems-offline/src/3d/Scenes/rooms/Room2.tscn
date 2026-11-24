@@ -24,6 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://dwcrlaw60yms7" path="res://src/3d/Scenes/objects/FloorWithHole.tscn" id="22_md5ph"]
 [ext_resource type="PackedScene" uid="uid://c7tae2clxpo2i" path="res://src/3d/Scenes/objects/Cages/Cage combi 1.tscn" id="23_h3ctr"]
 [ext_resource type="PackedScene" uid="uid://c73cr32dy71f1" path="res://src/3d/Scenes/objects/Cages/Cage combi 2.tscn" id="24_1t15u"]
+[ext_resource type="PackedScene" uid="uid://cqbxd7ynglxgp" path="res://src/3d/Scenes/objects/Pipes/One end Straight Long Pipe.tscn" id="24_c32so"]
+[ext_resource type="PackedScene" uid="uid://bh0d54rrvt0j" path="res://src/3d/Scenes/objects/Engine Room/pipe_puzzle_view.scn" id="25_1t15u"]
+[ext_resource type="PackedScene" uid="uid://b6hohc1ddemyi" path="res://src/3d/Scenes/objects/Pipes/One end angle pipe.tscn" id="26_icx0j"]
+[ext_resource type="PackedScene" uid="uid://dcj45tc0cyp1h" path="res://src/3d/Scenes/objects/Pipes/Two end short straight pipe.tscn" id="27_c32so"]
 [ext_resource type="PackedScene" uid="uid://4vhllv75lo7q" path="res://src/3d/Scenes/objects/Astronomy/Roof astronomy.scn" id="25_c32so"]
 [ext_resource type="PackedScene" uid="uid://4defrg7kidpn" path="res://src/3d/Scenes/objects/Astronomy/Telescope.scn" id="26_3yn8a"]
 [ext_resource type="PackedScene" uid="uid://dtwj1qb6psuqb" path="res://src/3d/Scenes/objects/Astronomy/Couch.tscn" id="27_2s3mi"]
@@ -127,7 +131,7 @@ data = {
 }
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray") instance=ExtResource("3_v0fyp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.267508, 0.004999995, 3.9412966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.469263, 0.004999995, -3.4775677)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 primary_se = ExtResource("4_f0p20")
@@ -195,22 +199,69 @@ notification_ui = NodePath("../NotificationUI")
 [node name="Engine Room" type="Node" parent="." unique_id=266432225]
 
 [node name="Boiler" parent="Engine Room" unique_id=1148602733 instance=ExtResource("19_xe0w0")]
-transform = Transform3D(0.937164, 0, -0.34888914, 0, 1, 0, 0.34888914, 0, 0.937164, 24.09054, 2.9475794, 4.691785)
+transform = Transform3D(-0.83362234, 0, 0.5523349, 0, 1, 0, -0.5523349, 0, -0.83362234, 25.052204, -0.011801869, -0.9984653)
 
 [node name="FuelTank2" parent="Engine Room" unique_id=126686054 instance=ExtResource("15_bipn2")]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 27.523663, 3.0584803, 0.21245193)
 
 [node name="FuelTank1" parent="Engine Room" unique_id=1587088441 instance=ExtResource("15_recx6")]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 23.224527, 3.0584803, 3.046011)
+transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, 23.66291, 3.0584803, -11.051712)
 
 [node name="FuelTank3" parent="Engine Room" unique_id=572567164 instance=ExtResource("17_kqpy8")]
-transform = Transform3D(-0.66995454, 0, -0.7424021, 0, 1, 0, 0.7424021, 0, -0.66995454, 33.711304, 3.0584803, -3.2013369)
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 23.380116, 3.0584803, 2.5368032)
 
 [node name="TableBend" parent="Engine Room" unique_id=172896715 instance=ExtResource("19_v0fyp")]
 transform = Transform3D(-1.0272176e-08, 0, 0.235, 0, 0.235, 0, -0.235, 0, -1.0272176e-08, 9.217305, 0, 6.6193495)
 
 [node name="TableBend2" parent="Engine Room" unique_id=1008568353 instance=ExtResource("19_v0fyp")]
 transform = Transform3D(2.802347e-09, 0, -0.235, 0, 0.235, 0, 0.235, 0, 2.802347e-09, -9.123408, 0, -16.717552)
+
+[node name="PipePuzzleView" parent="Engine Room" unique_id=938277941 node_paths=PackedStringArray("player", "player_camera", "transition_camera") instance=ExtResource("25_1t15u")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24.210983, 0.011336088, -6.247361)
+player = NodePath("../../ProtoController")
+player_camera = NodePath("../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../ProtoController/Head/Camera3D")
+
+[node name="Pipes" type="Node" parent="Engine Room" unique_id=143604489]
+
+[node name="One end Straight Long Pipe" parent="Engine Room/Pipes" unique_id=481322427 instance=ExtResource("24_c32so")]
+transform = Transform3D(-1, 0, -6.794811e-08, 0, 1, 0, 1.509958e-07, 0, -0.45, 21.604, 0.067, -6.931)
+
+[node name="OneEndAnglePipe" parent="Engine Room/Pipes" unique_id=566001519 instance=ExtResource("26_icx0j")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 23.603354, 0.05845225, -6.518879)
+
+[node name="TwoEndShortStraightPipe" parent="Engine Room/Pipes" unique_id=1972163780 instance=ExtResource("27_c32so")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.349, 0.067, -6.72)
+
+[node name="One end Straight Long Pipe2" parent="Engine Room/Pipes" unique_id=1153089156 instance=ExtResource("24_c32so")]
+transform = Transform3D(-4.371139e-08, 0, 0.35, 0, 1, 0, -1, 0, -1.5298985e-08, 22.57129, 0.06672889, -8.409956)
+
+[node name="OneEndAnglePipe2" parent="Engine Room/Pipes" unique_id=1427827795 instance=ExtResource("26_icx0j")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.694, 0.067, -8.211161)
+
+[node name="One end Straight Long Pipe3" parent="Engine Room/Pipes" unique_id=2037374438 instance=ExtResource("24_c32so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, 25.999594, -0.055590626, -2.9907537)
+
+[node name="OneEndAnglePipe3" parent="Engine Room/Pipes" unique_id=1407567425 instance=ExtResource("26_icx0j")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.806948, -0.056, -3.701544)
+
+[node name="OneEndAnglePipe4" parent="Engine Room/Pipes" unique_id=1593665476 instance=ExtResource("26_icx0j")]
+transform = Transform3D(-1, 8.742277e-08, 0, -8.742278e-08, -0.99999994, 0, 0, 0, 0.99999994, 25.309052, 0.5321761, -3.9943626)
+
+[node name="OneEndAnglePipe5" parent="Engine Room/Pipes" unique_id=347539716 instance=ExtResource("26_icx0j")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.017126, -0.056, -4.641251)
+
+[node name="One end Straight Long Pipe4" parent="Engine Room/Pipes" unique_id=1720316002 instance=ExtResource("24_c32so")]
+transform = Transform3D(-4.371139e-08, 0, 0.15, 0, 1, 0, -1, 0, -6.5567085e-09, 24.373718, -0.056, -4.721769)
+
+[node name="OneEndAnglePipe6" parent="Engine Room/Pipes" unique_id=1197073902 instance=ExtResource("26_icx0j")]
+transform = Transform3D(4.371139e-08, -3.821371e-15, -1, -8.742278e-08, -1, 0, -1, 8.742278e-08, -4.371139e-08, 22.753304, 0.6887371, -0.54000366)
+
+[node name="OneEndAnglePipe7" parent="Engine Room/Pipes" unique_id=223183073 instance=ExtResource("26_icx0j")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1.1, 23.50133, 0, -0.8446061)
+
+[node name="One end Straight Long Pipe5" parent="Engine Room/Pipes" unique_id=652634336 instance=ExtResource("24_c32so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.35, 23.606632, 0.004999995, -1.6749815)
 
 [node name="Elevator 1st floor" parent="." unique_id=1746680253 instance=ExtResource("15_pexpj")]
 transform = Transform3D(-8.742277e-08, 0, 1.9999999, 0, 2, 0, -1.9999999, 0, -8.742277e-08, -10.130507, 3.0986886, 8.125969)
