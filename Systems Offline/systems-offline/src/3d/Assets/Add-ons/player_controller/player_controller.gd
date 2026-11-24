@@ -218,14 +218,6 @@ func _physics_process(delta: float) -> void:
 	
 
 
-	# Apply gravity
-	if has_gravity and not gravity_invert:
-		if not is_on_floor():
-			velocity += get_gravity() * delta
-			
-	if has_gravity and gravity_invert:
-		if not is_on_ceiling():
-			velocity += get_gravity() * delta * -1
 	
 	# Shrinking
 	if can_shrink and controls_enabled and Input.is_action_just_pressed("shrink"):
@@ -240,16 +232,25 @@ func _physics_process(delta: float) -> void:
 			ray.scale = Vector3.ONE * 2.02
 
 	# Gravity invert
-	if can_gravity_invert and controls_enabled and Input.is_action_just_pressed("gravity_invert"):
+	if (
+		has_gravity
+		and can_gravity_invert
+		and controls_enabled
+		and Input.is_action_just_pressed("gravity_invert")
+		and (_is_on_gravity_pad() || is_on_floor())
+	):
 		if is_on_floor() or is_on_ceiling():
-			gravity_invert = !gravity_invert
+			gravity_invert = not gravity_invert
 			up_direction = Vector3.DOWN if gravity_invert else Vector3.UP
-
+			velocity.y = 0.0
+			_snapped_to_stairs_last_frame = false
 			gravity_flipping = true
-			left_surface = false
 			controls_enabled = false
-		else:
-			print("Must be on floor or ceiling!")
+
+	# Apply gravity in the new direction on the same physics frame.
+	if has_gravity and (gravity_flipping or not is_on_floor()):
+		var gravity := get_gravity()
+		velocity += (-gravity if gravity_invert else gravity) * delta
 
 	# Sprinting
 	if can_sprint and controls_enabled and Input.is_action_pressed(input_sprint):
@@ -302,9 +303,13 @@ func _physics_process(delta: float) -> void:
 			primary_audio_player.stop()
 
 			
-	_snap_up_stairs_check(delta)
+	if not gravity_flipping:
+		_snap_up_stairs_check(delta)
+
 	move_and_slide()
-	_snap_down_to_stairs_check()
+
+	if not gravity_flipping:
+		_snap_down_to_stairs_check()
 	
 	update_sprint_camera(delta)
 	if primary_audio_player:
@@ -312,16 +317,9 @@ func _physics_process(delta: float) -> void:
 			primary_audio_player.stop
 
 	# Regain controls after gravity flip
-	if gravity_flipping:
-		# First wait until we've actually left the old surface
-		if not is_on_floor() and not is_on_ceiling():
-			left_surface = true
-
-		# Only restore controls after leaving and landing again
-		if left_surface and (is_on_floor() or is_on_ceiling()):
-			gravity_flipping = false
-			left_surface = false
-			controls_enabled = true
+	if gravity_flipping and is_on_floor():
+		gravity_flipping = false
+		controls_enabled = true
 		
 func rotate_look(rot_input: Vector2) -> void:
 
@@ -582,4 +580,16 @@ func _snap_up_stairs_check(delta) -> bool:
 	#if _saved_camera_global_pos == null:
 		#_saved_camera_global_pos = %CameraSmooth.global_position
 
+#endregion
+
+
+#region gravity
+func _is_on_gravity_pad() -> bool:
+	#return true
+	for node in get_tree().get_nodes_in_group(&"gravity_pad"):
+		var pad_area := node as Area3D
+		if pad_area and pad_area.monitoring and pad_area.overlaps_body(self):
+			return true
+
+	return false
 #endregion
