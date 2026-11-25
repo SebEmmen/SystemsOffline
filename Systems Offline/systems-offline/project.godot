@@ -34,6 +34,10 @@ window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+player=""
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true

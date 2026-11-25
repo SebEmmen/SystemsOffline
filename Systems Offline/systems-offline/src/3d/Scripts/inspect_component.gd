@@ -5,7 +5,7 @@ extends InteractableComponent
 enum InspectType{
 	POSTER,
 	CRATE,
-	WIRES_PUZZLE,
+	PUZZLE,
 	MONITOR
 	}
 
@@ -39,16 +39,19 @@ var default_font: Font = ThemeDB.fallback_font
 var lid_animating: bool = false
 #endregion
 
-#region Wires_Puzzle Variable
-@export_group("Wires_Puzzle")
+#region Puzzle Variable
+@export_group("Puzzle")
 @export var puzzle_overlay_scene: PackedScene
-@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/wire puzzles/WirePuzzleComms.scn"
+@export_file("*.tscn") var puzzle_scene: String = "res://src/3d/Scenes/objects/.scn"
 @export var puzzle_id: String = ""
 @export var power_off: Node3D
 @export var power_on: Node3D
 @export var elevator_on: MeshInstance3D
 @export var elevator_off: MeshInstance3D
 @export var wire_cover: RigidBody3D
+@export var movable_objects: Node3D
+@export var cover: MeshInstance3D
+
 var cover_home: Transform3D
 var fixed: bool = false
 
@@ -81,7 +84,7 @@ func _ready() -> void:
 			pass
 		InspectType.CRATE:
 			ready_crate()
-		InspectType.WIRES_PUZZLE:
+		InspectType.PUZZLE:
 			ready_puzzle()
 		InspectType.MONITOR:
 			update_monitor()
@@ -105,7 +108,7 @@ func interact() -> void:
 			else:
 				enter_crate()
 		
-		InspectType.WIRES_PUZZLE:
+		InspectType.PUZZLE:
 			if puzzle_id == "elevator" and not SaveManager.dial_puzzle_completed:
 				Notification.show_message("You cannot open it yet...", true)
 				await get_tree().create_timer(1.0).timeout
@@ -338,7 +341,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 #endregion
 #endregion
 
-#region Wires Puzzle Functions
+#region Puzzle Functions
 func ready_puzzle() -> void:
 	if puzzle_id == "":
 		push_warning("InspectComponent: puzzle_id not set on " + name)
@@ -393,9 +396,12 @@ func _open_puzzle_viewport() -> void:
 	else:
 		print("Connecting to puzzle script on: ", emitter.get_path())
 		emitter.puzzle_completed.connect(_on_puzzle_completed)
-		emitter.puzzle_exited.connect(exit_wires_puzzle)
+		emitter.puzzle_exited.connect(exit_puzzle)
 
+	print("overlay: ", puzzle_overlay_scene, " | scene: ", puzzle_scene)
+	print("emitter: ", emitter)
 	get_tree().root.add_child(puzzle_layer)
+	print("overlay in tree: ", puzzle_layer.is_inside_tree())
 
 func _find_puzzle_emitter(root: Node) -> Node:
 	if root.has_signal("puzzle_completed"):
@@ -408,7 +414,7 @@ func _find_puzzle_emitter(root: Node) -> Node:
 func enter_puzzle() -> void:
 	if is_interacting or is_transitioning:
 		return
-	if not cover_removed:
+	if wire_cover and not cover_removed:
 		cover_removed = true
 		cover_drop_time = Time.get_ticks_msec() / 1000.0
 		wire_cover.fall_off()
@@ -421,15 +427,18 @@ func enter_puzzle() -> void:
 
 	is_interacting = true
 	player.disable_controls()
-	SaveManager.set_cover_transform(puzzle_id, wire_cover.global_transform)
+	if wire_cover:
+		SaveManager.set_cover_transform(puzzle_id, wire_cover.global_transform)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_open_puzzle_viewport()
 
 func _cover_is_settled() -> bool:
+	if wire_cover == null:
+		return true
 	var elapsed := Time.get_ticks_msec() / 1000.0 - cover_drop_time
 	return elapsed > 0.5 and (wire_cover.sleeping or wire_cover.linear_velocity.length() < 0.05)
 
-func exit_wires_puzzle() -> void:
+func exit_puzzle() -> void:
 	print("exit_wires_puzzle, is_interacting = ", is_interacting)
 	if not is_interacting:
 		return
@@ -450,6 +459,9 @@ func _on_puzzle_completed() -> void:
 	SaveManager.complete_puzzle(puzzle_id)
 	fixed = true
 	can_interact = false
+	if movable_objects:
+		movable_objects.visible = true
+		cover.visible = true
 	if power_on:
 		power_on.visible = true
 	if power_off:
@@ -457,7 +469,7 @@ func _on_puzzle_completed() -> void:
 	if elevator_on and elevator_off:
 		elevator_on.visible = true
 		elevator_off.visible = false
-	exit_wires_puzzle()
+	exit_puzzle()
 	_return_cover()
 
 
@@ -513,9 +525,9 @@ func _input(event: InputEvent) -> void:
 	if not is_interacting or is_transitioning:
 		return
 
-	if inspect_type == InspectType.WIRES_PUZZLE:
+	if inspect_type == InspectType.PUZZLE:
 		if event.is_action_pressed("ui_cancel"):
-			exit_wires_puzzle()
+			exit_puzzle()
 			get_viewport().set_input_as_handled()
 		return
 
