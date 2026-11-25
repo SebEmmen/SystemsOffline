@@ -382,28 +382,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jf5bm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lba4c"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_a350p"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8yc56"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_jf5bm")
+albedo_texture = SubResource("ViewportTexture_lba4c")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_i1hkq"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_we7eg"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_a350p")
+material = SubResource("ORMMaterial3D_8yc56")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tuyuf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_phtqk"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_s1pxb"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_eu8bf"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_tuyuf")
+albedo_texture = SubResource("ViewportTexture_phtqk")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_n7nev"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_0mhof"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_s1pxb")
+material = SubResource("ORMMaterial3D_eu8bf")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -478,7 +478,7 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_s3243"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_1vgtj"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
@@ -526,7 +526,7 @@ my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"),
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
-transform = Transform3D(1, 1.7471393e-09, 0, -9.094947e-13, 1, 2.2351742e-07, 0, 0, 1, 0.0034954548, 1.000069, -0.013057232)
+transform = Transform3D(1, 1.7507773e-09, 0, -4.5474735e-12, 1, 2.2351742e-07, 0, 0, 1, 1.0710845, 0.95139235, -61.17567)
 
 [node name="Camera3D" parent="ProtoController/Head" parent_id_path=PackedInt32Array(1779789665, 405265329) index="0" unique_id=1159036928]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000002, 0, 0, 0)
@@ -1014,10 +1014,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492627, -0.00012911856, 0.99992454, 0.011106938, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.71328735, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_i1hkq")
+mesh = SubResource("PlaneMesh_we7eg")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_n7nev")
+mesh = SubResource("PlaneMesh_0mhof")
 
 [node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece", "transition_camera")]
 multitool_piece = NodePath("../../multitool piece 1 lit ")
@@ -1040,7 +1040,7 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -1069,7 +1069,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -1095,7 +1095,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -1124,7 +1124,7 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="2" unique_id=840184369]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -1239,7 +1239,7 @@ transform = Transform3D(-0.0064033447, -1.4388084, 0.13347366, 2.0238877e-08, -0
 [node name="SmallMetalsheet28" parent="CommsRoom/Racks" unique_id=1834558724 instance=ExtResource("74_g6v1v")]
 transform = Transform3D(-0.0064033456, -1.4327918, 0.18732683, 2.8455284e-08, -0.18732864, -1.4328064, 1.4449859, -0.006349301, 0.0008301522, 15.582592, 0.92469144, -69.86231)
 
-[node name="Comms Door" parent="CommsRoom" unique_id=1726042636 node_paths=PackedStringArray("object_ref") instance=ExtResource("67_gav43")]
+[node name="Comms Door" parent="CommsRoom" unique_id=1726042636 instance=ExtResource("67_gav43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.012, 2.479, -45.623905)
 locked = false
 primary_se = ExtResource("16_i6svr")
@@ -1362,10 +1362,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_s3243")
+surface_material_override/0 = SubResource("ORMMaterial3D_1vgtj")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_s3243")
+surface_material_override/0 = SubResource("ORMMaterial3D_1vgtj")
 
 [node name="Elevator Room" type="Node" parent="." unique_id=1900360743]
 

@@ -40,6 +40,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Plane": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://src/3d/Materials/Plane.tres",
+"use_external/path": "uid://c2iccg118yex7"
+}
+},
 "nodes": {
 "PATH:Camera": {
 "import/skip_import": true
