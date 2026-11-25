@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cintkayd82wk6"]
+
+[ext_resource type="PackedScene" uid="uid://de7ji3wjmxdh" path="res://src/3d/Assets/Lab room/Bird animations/tube/animation 1.gltf" id="1_o1att"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vffm3"]
+height = 1.8251953
+
+[node name="BirdInTank" type="Node3D" unique_id=568376492]
+
+[node name="animation 1" parent="." unique_id=815882005 instance=ExtResource("1_o1att")]
+transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=889985480]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=900130749]
+transform = Transform3D(2.825, 0, 0, 0, 2.825, 0, 0, 0, 2.825, 0, 2.2518787, 0)
+shape = SubResource("CylinderShape3D_vffm3")
+
+[editable path="animation 1"]
