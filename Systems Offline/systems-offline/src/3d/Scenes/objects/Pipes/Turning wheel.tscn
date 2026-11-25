@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c38trfnsdg6bf"]
+
+[ext_resource type="PackedScene" uid="uid://d4mkmy1gqmiy7" path="res://src/3d/Assets/General reuseable assets/pipes/Turning wheel.glb" id="1_dpqsg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euitc"]
+size = Vector3(55.9767, 56, 55.98835)
+
+[node name="TurningWheel" type="Node3D" unique_id=322243039]
+
+[node name="Turning wheel" parent="." unique_id=125537124 instance=ExtResource("1_dpqsg")]
+transform = Transform3D(0.1, 0, 0, 0, -0.1, 8.742278e-09, 0, -8.742278e-09, -0.1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=793346687]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1888625566]
+transform = Transform3D(0.011382631, 0, 0, 0, -0.011382631, 9.951012e-10, 0, -9.951012e-10, -0.011382631, 0.3188463, -0.15119042, -0.23968403)
+shape = SubResource("BoxShape3D_euitc")
+
+[editable path="Turning wheel"]

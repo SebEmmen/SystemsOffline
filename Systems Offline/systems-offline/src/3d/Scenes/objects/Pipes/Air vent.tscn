@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cyv48ih8koygp"]
+
+[ext_resource type="PackedScene" uid="uid://boijr0lnjemun" path="res://src/3d/Assets/General reuseable assets/pipes/Air vent.glb" id="1_idq5l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwb52"]
+size = Vector3(80, 44, 40)
+
+[node name="AirVent" type="Node3D" unique_id=1384219243]
+
+[node name="Air vent" parent="." unique_id=1215955945 instance=ExtResource("1_idq5l")]
+transform = Transform3D(0.1, 0, 0, 0, -0.1, 8.742278e-09, 0, -8.742278e-09, -0.1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1842677996]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=726348592]
+transform = Transform3D(0.012839377, 0, 0, 0, 0.012839377, -5.3060547e-09, 0, 5.3060547e-09, 0.012839377, 0.13688384, 0.28246638, -0.10966027)
+shape = SubResource("BoxShape3D_lwb52")
+
+[editable path="Air vent"]
