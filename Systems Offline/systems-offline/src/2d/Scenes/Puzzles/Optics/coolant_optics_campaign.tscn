@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b2jtmgipvw3ye"]
+
+[ext_resource type="PackedScene" path="res://src/2d/Scenes/Puzzles/Optics/coolant_optics.tscn" id="1"]
+
+[node name="CoolantOpticsCampaign" unique_id=174216675 instance=ExtResource("1")]
+campaign_enabled = true
+
+[node name="Interface" parent="." index="0"]
+anchors_preset = 0
+
+[node name="Toolbar" parent="Interface" index="0"]
+layout_mode = 0
+
+[node name="Hotbar" parent="Interface" index="1"]
+layout_mode = 0
+
+[node name="Status" parent="Interface" index="2"]
+layout_mode = 0
