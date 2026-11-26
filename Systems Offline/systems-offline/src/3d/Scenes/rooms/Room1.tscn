@@ -516,7 +516,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray", "hand_marker", "my_crosshairs", "my_HUD_labels") groups=["player"] instance=ExtResource("1_alw4e")]
-transform = Transform3D(0.9998475, 1.3889337e-05, 0.017452251, 0, 0.99999964, -0.0007958476, -0.017452259, 0.0007957264, 0.9998473, -1.9735441, 0.005318284, 6.9733696)
+transform = Transform3D(0.9998475, 1.3889337e-05, 0.017452251, 0, 0.99999964, -0.0007958476, -0.017452259, 0.0007957264, 0.9998473, -1.9735441, 0.005318284, -51.015404)
 camera = NodePath("Head/Camera3D")
 ray = NodePath("Head/Camera3D/RayCast3D")
 can_gravity_invert = false
@@ -527,7 +527,7 @@ my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"),
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
-transform = Transform3D(1, 1.7507773e-09, 0, -4.5474735e-12, 1, 2.2351742e-07, 0, 0, 1, 1.0710845, 0.95139235, -61.17567)
+transform = Transform3D(1, 1.7507773e-09, 0, -4.5474735e-12, 1, 2.2351742e-07, 0, 0, 1, 0, 0.951, 0)
 
 [node name="Camera3D" parent="ProtoController/Head" parent_id_path=PackedInt32Array(1779789665, 405265329) index="0" unique_id=1159036928]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000002, 0, 0, 0)
