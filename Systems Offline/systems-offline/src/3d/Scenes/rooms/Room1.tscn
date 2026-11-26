@@ -110,6 +110,7 @@
 [ext_resource type="PackedScene" uid="uid://dywfpose6jafp" path="res://src/3d/Scenes/objects/Pipes/Pipe curve 3.tscn" id="108_mukyr"]
 [ext_resource type="PackedScene" uid="uid://c38trfnsdg6bf" path="res://src/3d/Scenes/objects/Pipes/Turning wheel.tscn" id="109_kcri2"]
 [ext_resource type="PackedScene" uid="uid://d4bt1wb3nvq07" path="res://src/3d/Scenes/objects/Lore Puzzle/Puzzle_Box.tscn" id="110_8yc56"]
+[ext_resource type="Shader" uid="uid://cfm4qwo6s8kq1" path="res://src/3d/Scenes/objects/Lore Puzzle/Puzzle_Box.gdshader" id="111_we7eg"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -383,28 +384,28 @@ shadow_mesh = SubResource("ArrayMesh_d2e33")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_l645p"]
 albedo_texture = ExtResource("57_3kfck")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8yc56"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_we7eg"]
 viewport_path = NodePath("MainScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_we7eg"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_phtqk"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_8yc56")
+albedo_texture = SubResource("ViewportTexture_we7eg")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_phtqk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_eu8bf"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_we7eg")
+material = SubResource("ORMMaterial3D_phtqk")
 size = Vector2(5.2, 4.1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_eu8bf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0mhof"]
 viewport_path = NodePath("SideScreen")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0mhof"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_1vgtj"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_eu8bf")
+albedo_texture = SubResource("ViewportTexture_0mhof")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_1vgtj"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_27ann"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_0mhof")
+material = SubResource("ORMMaterial3D_1vgtj")
 size = Vector2(2.7, 4.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fophp"]
@@ -479,9 +480,19 @@ shader_parameter/edge_darkness = 0.08
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3kfck"]
 albedo_texture = ExtResource("66_loyml")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_27ann"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_rtr2j"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_10sme"]
+viewport_path = NodePath("Lore puzzle model box/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dwbo7"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("111_we7eg")
+shader_parameter/screen_tex = SubResource("ViewportTexture_10sme")
+shader_parameter/rotation_steps = 3
 
 [node name="Room1" type="Node3D" unique_id=1585455230]
 
@@ -1015,10 +1026,10 @@ transition_camera = NodePath("../../../../TransitionCamera")
 transform = Transform3D(1.522376, -8.483976e-05, 0.012492627, -0.00012911856, 0.99992454, 0.011106938, -0.021036148, -0.012284011, 0.9040227, -3.9006805, 0.71328735, -6.031952)
 
 [node name="Main Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="12" unique_id=1813707322]
-mesh = SubResource("PlaneMesh_phtqk")
+mesh = SubResource("PlaneMesh_eu8bf")
 
 [node name="Side Screen" parent="CommsRoom/Platform/PowerUp Device/PowerUp device" index="13" unique_id=778415305]
-mesh = SubResource("PlaneMesh_1vgtj")
+mesh = SubResource("PlaneMesh_27ann")
 
 [node name="CommsPuzzle" parent="CommsRoom/Platform/PowerUp Device/PowerUp device/MainScreen" parent_id_path=PackedInt32Array(831807862, 1235112676, 1045470847) index="0" unique_id=252066882 node_paths=PackedStringArray("multitool_piece", "transition_camera")]
 multitool_piece = NodePath("../../multitool piece 1 lit ")
@@ -1363,10 +1374,10 @@ player_camera = NodePath("../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Screen Alien Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="9" unique_id=1030977213]
-surface_material_override/0 = SubResource("ORMMaterial3D_27ann")
+surface_material_override/0 = SubResource("ORMMaterial3D_rtr2j")
 
 [node name="Screen Human Language" parent="CommsRoom/ScreenLayout1/MonitorScreen" index="10" unique_id=1357154903]
-surface_material_override/0 = SubResource("ORMMaterial3D_27ann")
+surface_material_override/0 = SubResource("ORMMaterial3D_rtr2j")
 
 [node name="Props" type="Node" parent="CommsRoom" unique_id=1819681420]
 
@@ -1565,8 +1576,8 @@ player = NodePath("../../ProtoController")
 player_camera = NodePath("../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../TransitionCamera")
 
-[node name="Quad" parent="PuzzleBox/Lore puzzle model box" index="32" unique_id=950049682]
-surface_material_override/0 = null
+[node name="Screen" parent="PuzzleBox/Lore puzzle model box" index="10" unique_id=1255419613]
+surface_material_override/0 = SubResource("ShaderMaterial_dwbo7")
 
 [node name="Pipes" type="Node" parent="." unique_id=19318585]
 
