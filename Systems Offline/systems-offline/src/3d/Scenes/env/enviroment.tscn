@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cki8p5udqc7am"]
+
+[ext_resource type="PackedScene" uid="uid://cgms4eq0unj28" path="res://src/3d/Scenes/env/forest_floor_patch.tscn" id="2_5yxiq"]
+[ext_resource type="Script" uid="uid://gu6818yhoolj" path="res://forest_floor.gd" id="2_xbyle"]
+[ext_resource type="PackedScene" uid="uid://f1bbem1vgcod" path="res://src/3d/Scenes/env/forest_floor_patch2.tscn" id="3_xbyle"]
+
+[node name="Enviroment" type="Node3D" unique_id=695868683]
+
+[node name="ForestFloor" type="Node3D" parent="." unique_id=1951230189 node_paths=PackedStringArray("fern_clearing")]
+script = ExtResource("2_xbyle")
+tile_scene = ExtResource("2_5yxiq")
+second_tile_scene = ExtResource("3_xbyle")
+rows = 18
+fern_clearing = NodePath("FernClearing")
+
+[node name="FernClearing" type="Node3D" parent="ForestFloor" unique_id=1884926749]
+
+[node name="Marker3D" type="Marker3D" parent="ForestFloor/FernClearing" unique_id=261347330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.57974, 0, 14.792904)
+
+[node name="Marker3D2" type="Marker3D" parent="ForestFloor/FernClearing" unique_id=470160234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.57974, 0, -105.26542)
+
+[node name="Marker3D3" type="Marker3D" parent="ForestFloor/FernClearing" unique_id=1334786755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.755404, 0, -105.571884)
+
+[node name="Marker3D4" type="Marker3D" parent="ForestFloor/FernClearing" unique_id=1386424100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.755404, 0, 27.887936)

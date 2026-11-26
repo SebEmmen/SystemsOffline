@@ -110,6 +110,7 @@
 [ext_resource type="PackedScene" uid="uid://dywfpose6jafp" path="res://src/3d/Scenes/objects/Pipes/Pipe curve 3.tscn" id="108_mukyr"]
 [ext_resource type="PackedScene" uid="uid://c38trfnsdg6bf" path="res://src/3d/Scenes/objects/Pipes/Turning wheel.tscn" id="109_kcri2"]
 [ext_resource type="PackedScene" uid="uid://d0jrpyhs5uu3u" path="res://src/3d/Scenes/objects/Overall objects/Roof detail.tscn" id="110_8yc56"]
+[ext_resource type="PackedScene" uid="uid://cki8p5udqc7am" path="res://src/3d/Scenes/env/enviroment.tscn" id="111_we7eg"]
 
 [sub_resource type="Curve3D" id="Curve3D_4qo6h"]
 _data = {
@@ -127,9 +128,18 @@ sky_material = SubResource("ProceduralSkyMaterial_uee51")
 
 [sub_resource type="Environment" id="Environment_dvba1"]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_58ftc")
 glow_enabled = true
-volumetric_fog_albedo = Color(0.29702762, 0.12452669, 9.62615e-08, 1)
+fog_light_color = Color(0.64705884, 0.6862745, 0.6784314, 1)
+fog_sun_scatter = 0.26
+fog_density = 0.012
+fog_sky_affect = 0.25
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(0.8784314, 0.8980392, 0.8745098, 1)
+volumetric_fog_anisotropy = 0.4
+volumetric_fog_length = 60.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtyxk"]
 resource_name = "Cylinder.003"
@@ -483,7 +493,10 @@ albedo_texture = ExtResource("66_loyml")
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_lghuq")
 
-[node name="Room1" type="Node3D" unique_id=1585455230]
+[node name="WorldEnvironment" type="Node3D" unique_id=1585455230]
+
+[node name="Enviroment" parent="." unique_id=695868683 instance=ExtResource("111_we7eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.8626451e-09, 0, 1, 0, -1.5266585, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=987253711]
 transform = Transform3D(0.9446295, -9.759452e-05, -0.32813883, 0.0038034138, 0.99993604, 0.010651676, 0.3281168, -0.011309936, 0.9445694, -2.4873257, 0, 14.431388)
@@ -527,7 +540,7 @@ my_crosshairs = [NodePath("../HUD/Crosshair"), NodePath("../HUD/ViewCrosshair"),
 my_HUD_labels = [NodePath("../HUD/InteractionLabel"), NodePath("../HUD/ViewLabel")]
 
 [node name="Mesh" parent="ProtoController" index="0" unique_id=1438870549]
-transform = Transform3D(1, 1.7507773e-09, 0, -4.5474735e-12, 1, 2.2351742e-07, 0, 0, 1, 1.0710845, 0.95139235, -61.17567)
+transform = Transform3D(1, 1.7507773e-09, 0, -4.5474735e-12, 1, 2.2351742e-07, 0, 0, 1, 0, 0.9, 0)
 
 [node name="Camera3D" parent="ProtoController/Head" parent_id_path=PackedInt32Array(1779789665, 405265329) index="0" unique_id=1159036928]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000002, 0, 0, 0)
@@ -990,10 +1003,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=2112869525]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=339919037]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=2121613414]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=245645815]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -1041,7 +1054,7 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -1070,7 +1083,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -1096,7 +1109,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -1125,7 +1138,7 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -2034,6 +2047,14 @@ transform = Transform3D(-3.3220655e-08, 0, 0.76, 0, 0.76, 0, -0.76, 0, -3.322065
 
 [node name="RoofDetail15" parent="." unique_id=992155784 instance=ExtResource("110_8yc56")]
 transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, 3.2303631, 0.0049996376, -70.25376)
+
+[node name="Sunrays" type="DirectionalLight3D" parent="." unique_id=1554162529]
+transform = Transform3D(0.8141155, 0.555329, -0.16978098, 0, 0.29237145, 0.95630485, 0.58070296, -0.7785426, 0.23802416, 0, 0, 0)
+light_color = Color(1, 0.94509804, 0.85490197, 1)
+light_energy = 1.2
+light_volumetric_fog_energy = 2.0
+shadow_enabled = true
+directional_shadow_max_distance = 70.0
 
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]

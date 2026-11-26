@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cgms4eq0unj28"]
+
+[ext_resource type="PackedScene" uid="uid://1invu0cd1rch" path="res://src/3d/Scenes/env/forest-floor-patch.glb" id="1_8p0c8"]
+
+[node name="forest-floor-patch" type="Node3D" unique_id=74432112]
+
+[node name="forest-floor-patch" parent="." unique_id=2125372763 instance=ExtResource("1_8p0c8")]
+
+[editable path="forest-floor-patch"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://f1bbem1vgcod"]
+
+[ext_resource type="PackedScene" uid="uid://1invu0cd1rch" path="res://src/3d/Scenes/env/forest-floor-patch.glb" id="1_84xle"]
+
+[node name="forest-floor-patch" type="Node3D" unique_id=74432112]
+
+[node name="forest-floor-patch" parent="." unique_id=2125372763 instance=ExtResource("1_84xle")]
+
+[node name="Fallen log" parent="forest-floor-patch/Forest floor patch" parent_id_path=PackedInt32Array(2125372763, 368942445) index="0" unique_id=1252280859]
+transform = Transform3D(-0.3472964, 0, 1.9696155, 0, 2, 0, -1.9696155, 0, -0.3472964, -2.7632642, 0, -2.355492)
+
+[node name="Ferns" parent="forest-floor-patch/Forest floor patch" parent_id_path=PackedInt32Array(2125372763, 368942445) index="1" unique_id=1726510557]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Forest floor_ leaf litter, needles, twigs and moss" parent="forest-floor-patch/Forest floor patch" parent_id_path=PackedInt32Array(2125372763, 368942445) index="2" unique_id=1488468195]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[editable path="forest-floor-patch"]
