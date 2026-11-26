@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://ye12hn63pwuw"]
 
+[ext_resource type="Script" uid="uid://bxtcqloore765" path="res://src/3d/Scenes/objects/Lore Puzzle/math_puzzle.gd" id="1_lo16k"]
+[ext_resource type="FontFile" uid="uid://66xkphcm714" path="res://src/2d/Fonts/MatixType/MatrixTypeDisplay-Bold.ttf" id="1_w515f"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7e8u"]
-bg_color = Color(0, 0.1254902, 0.13333334, 1)
+bg_color = Color(0, 0.1770829, 0.111965306, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -12,14 +15,46 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+expand_margin_left = 20.0
+expand_margin_top = 5.0
+expand_margin_right = 20.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_q7e8u"]
+color = Color(1, 1, 1, 0.047058824)
+grow_begin = 15.0
+grow_end = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l42ft"]
+bg_color = Color(0, 0.1764706, 0.11372549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7882353, 0.6313726, 0.2901961, 1)
+expand_margin_left = 20.0
+expand_margin_right = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5iys"]
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7882353, 0.6313726, 0.2901961, 1)
+expand_margin_left = 6.0
+expand_margin_top = 4.0
+expand_margin_right = 6.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_r5iys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojbw0"]
 bg_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+expand_margin_left = 15.0
+expand_margin_top = 2.0
+expand_margin_right = 15.0
+expand_margin_bottom = 2.0
 
 [node name="MathPuzzle" type="Control" unique_id=2080747034]
 layout_mode = 3
@@ -30,6 +65,7 @@ offset_right = -768.0
 offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lo16k")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=874971183]
 layout_mode = 1
@@ -38,6 +74,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0.1254902, 0.13333334, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=613789008]
@@ -54,181 +91,225 @@ offset_bottom = 190.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=887355297]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=138483610]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=116556926]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer2" unique_id=116556926]
+unique_name_in_owner = true
 layout_mode = 2
-text = "The Universal Language"
+size_flags_vertical = 0
+offset_transform_enabled = true
+theme_override_fonts/font = ExtResource("1_w515f")
+theme_override_font_sizes/font_size = 20
+text = "The Glyphs Lock"
 horizontal_alignment = 1
 
-[node name="SubTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=132996472]
+[node name="SubTitle" type="Label" parent="MarginContainer/VBoxContainer2" unique_id=132996472]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_w515f")
+text = "Each symbol hides a number."
+horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=414819510]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2" unique_id=887355297]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_constants/separation = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer" unique_id=414819510]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q7e8u")
 
-[node name="Rows" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=2093592503]
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer" unique_id=2093592503]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Row1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1416263907]
+[node name="Row1" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows" unique_id=1416263907]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 16
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1464557146]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1464557146]
 modulate = Color(0.93333334, 1, 1, 1)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "■"
 
-[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1441393062]
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1441393062]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "+"
 
-[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=52940093]
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row1" unique_id=52940093]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "⬤"
 
-[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1316747283]
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1316747283]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "="
 
-[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=926254267]
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row1" unique_id=926254267]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "6"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1264461419]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows" unique_id=1264461419]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_q7e8u")
 
-[node name="Row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=2093761542]
+[node name="Row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows" unique_id=2093761542]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 16
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=691375068]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row2" unique_id=691375068]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "▲"
 
-[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=775378487]
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row2" unique_id=775378487]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "-"
 
-[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=1693971141]
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row2" unique_id=1693971141]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "■"
 
-[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=644362025]
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row2" unique_id=644362025]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "="
 
-[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=353724308]
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row2" unique_id=353724308]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "1"
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=85362939]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows" unique_id=85362939]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_q7e8u")
 
-[node name="Row3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1853462721]
+[node name="Row3" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows" unique_id=1853462721]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 16
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1419715717]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1419715717]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "◆"
 
-[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=921588628]
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row3" unique_id=921588628]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "-"
 
-[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=2085255780]
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row3" unique_id=2085255780]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "▲"
 
-[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1190609498]
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1190609498]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "="
 
-[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=752434267]
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row3" unique_id=752434267]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "2"
 
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1854978302]
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows" unique_id=1854978302]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_q7e8u")
 
-[node name="Row4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1091406813]
+[node name="Row4" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows" unique_id=1091406813]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 16
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=2118104766]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row4" unique_id=2118104766]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "⬤"
 
-[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=719086170]
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row4" unique_id=719086170]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "+"
 
-[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=564553937]
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row4" unique_id=564553937]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
 text = "⬤"
 
-[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=1552880984]
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row4" unique_id=1552880984]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "="
 
-[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=158773478]
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer/Rows/Row4" unique_id=158773478]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w515f")
 text = "4"
 
-[node name="DialRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1491866177]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer" unique_id=1120371368]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 10
+
+[node name="DialRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer" unique_id=1491866177]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 45
 alignment = 1
 
-[node name="Dial1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=1108021862]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow" unique_id=1104552878]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l42ft")
+
+[node name="Dial1" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer" unique_id=1108021862]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=1104724881]
+[node name="UpButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer/Dial1" unique_id=1104724881]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▴"
 flat = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=1821432483]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer/Dial1" unique_id=1821432483]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial1/PanelContainer" unique_id=1333233138]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer/Dial1/PanelContainer" unique_id=1333233138]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_r5iys")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=1287792560]
+[node name="DownButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer/Dial1" unique_id=1287792560]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▾"
 flat = true
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=48248413]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer/Dial1" unique_id=48248413]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
@@ -236,34 +317,38 @@ text = "■"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Dial2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=536716113]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow" unique_id=619168800]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l42ft")
+
+[node name="Dial2" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer2" unique_id=536716113]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=912212175]
+[node name="UpButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer2/Dial2" unique_id=912212175]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▴"
 flat = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=901211100]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer2/Dial2" unique_id=901211100]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial2/PanelContainer" unique_id=280055835]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer2/Dial2/PanelContainer" unique_id=280055835]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_r5iys")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=1194477497]
+[node name="DownButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer2/Dial2" unique_id=1194477497]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▾"
 flat = true
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=1516124662]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer2/Dial2" unique_id=1516124662]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
@@ -271,34 +356,38 @@ text = "⬤"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Dial3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=972706913]
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow" unique_id=1134373546]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l42ft")
+
+[node name="Dial3" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer3" unique_id=972706913]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=1482985018]
+[node name="UpButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer3/Dial3" unique_id=1482985018]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▴"
 flat = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=1660570952]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer3/Dial3" unique_id=1660570952]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial3/PanelContainer" unique_id=1388416464]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer3/Dial3/PanelContainer" unique_id=1388416464]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_r5iys")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=1075793211]
+[node name="DownButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer3/Dial3" unique_id=1075793211]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▾"
 flat = true
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=31130409]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer3/Dial3" unique_id=31130409]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
@@ -306,34 +395,38 @@ text = "▲"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Dial4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=1178933597]
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow" unique_id=553038471]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l42ft")
+
+[node name="Dial4" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer4" unique_id=1178933597]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=851084140]
+[node name="UpButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer4/Dial4" unique_id=851084140]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▴"
 flat = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=369387634]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer4/Dial4" unique_id=369387634]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial4/PanelContainer" unique_id=124519040]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer4/Dial4/PanelContainer" unique_id=124519040]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_r5iys")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=553284105]
+[node name="DownButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer4/Dial4" unique_id=553284105]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 text = "▾"
 flat = true
 
-[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=18358930]
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer4/Dial4" unique_id=18358930]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.81960785, 0.5294118, 1)
@@ -341,10 +434,17 @@ text = "◆"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=486067492]
+[node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer" unique_id=486067492]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ojbw0")
 text = "Submit
 "
+
+[node name="FeedbackLabel" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer" unique_id=1360383580]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/DialRow/PanelContainer/Dial1/UpButton" to="." method="_on_button_pressed"]

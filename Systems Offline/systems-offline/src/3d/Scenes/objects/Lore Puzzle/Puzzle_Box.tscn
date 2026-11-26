@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://d4bt1wb3nvq07"]
 
 [ext_resource type="Texture2D" uid="uid://btn8w0e3nwel3" path="res://src/3d/Assets/General reuseable assets/Lore puzzle model box_Cube Color.png" id="1_0oklm"]
+[ext_resource type="Script" uid="uid://b5at36hk2oo4m" path="res://src/3d/Scenes/objects/Lore Puzzle/puzzle_box_subviewport.gd" id="1_ve8pr"]
+[ext_resource type="Script" uid="uid://b8erwh61d0p4u" path="res://src/3d/Scenes/objects/Lore Puzzle/PuzzleBox.gd" id="1_wgy3r"]
 [ext_resource type="Texture2D" uid="uid://cja6ael7vsk5" path="res://src/3d/Assets/General reuseable assets/Lore puzzle model box_Cube Roughness.png" id="2_la8vx"]
 [ext_resource type="Texture2D" uid="uid://dd21r8p0ap7sy" path="res://src/3d/Assets/General reuseable assets/Lore puzzle model box_Circle.png" id="3_ve8pr"]
 [ext_resource type="Texture2D" uid="uid://clfwjq6r8kw2m" path="res://src/3d/Assets/General reuseable assets/Lore puzzle model box_Plane Color.png" id="4_wgy3r"]
@@ -9,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b3egusddibcfm" path="res://src/3d/Assets/General reuseable assets/Lore puzzle model box_Cube.png" id="7_c7c5s"]
 [ext_resource type="Texture2D" uid="uid://chhrwfbbmmuo4" path="res://src/3d/Assets/General reuseable assets/Lore puzzle model box_Cylinder.png" id="8_3q2q2"]
 [ext_resource type="Shader" uid="uid://cfm4qwo6s8kq1" path="res://src/3d/Scenes/objects/Lore Puzzle/Puzzle_Box.gdshader" id="8_la8vx"]
+[ext_resource type="PackedScene" uid="uid://ye12hn63pwuw" path="res://src/3d/Scenes/objects/Lore Puzzle/math_puzzle.tscn" id="10_la8vx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omtde"]
 resource_name = "Cube"
@@ -279,8 +282,8 @@ shadow_mesh = SubResource("ArrayMesh_yau08")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xq7d3"]
 resource_name = "Cube.005"
 cull_mode = 2
+shading_mode = 0
 albedo_texture = ExtResource("7_c7c5s")
-metallic = 1.0
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i8f2h"]
@@ -316,6 +319,16 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_i8f2h")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c7c5s"]
+viewport_path = NodePath("Lore puzzle model box/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gup0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_la8vx")
+shader_parameter/screen_tex = SubResource("ViewportTexture_c7c5s")
+shader_parameter/rotation_steps = 3
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0vl1y"]
 _surfaces = [{
@@ -940,21 +953,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x33vq")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wgy3r"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0oklm"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("8_la8vx")
-shader_parameter/screen_tex = SubResource("ViewportTexture_wgy3r")
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5iys"]
+size = Vector3(6, 20, 14)
 
 [node name="PuzzleBox" type="Node3D" unique_id=1592141933]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=228418649]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.540001, 10.5, 0.708)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=423689896]
+transform = Transform3D(0.055373605, -0.22146155, 0.9735957, 0.012575382, 0.9751691, 0.22110422, -0.9983865, 0, 0.056783594, 3.849391, 0, 10.13023)
 
-[node name="Lore puzzle model box" type="Node3D" parent="." unique_id=823798465]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=228418649]
+transform = Transform3D(-4.371139e-08, -0.08715574, 0.9961947, 0, 0.9961947, 0.08715574, -1, 3.8096983e-09, -4.3545054e-08, 10.280655, 11.531959, 0.5191999)
+
+[node name="Lore puzzle model box" type="Node3D" parent="." unique_id=823798465 node_paths=PackedStringArray("inspect_camera", "main_screen", "object_ref")]
+script = ExtResource("1_wgy3r")
+inspect_type = 3
+inspect_camera = NodePath("../Camera3D")
+main_screen = NodePath("Screen")
+object_ref = NodePath(".")
+interaction_type = 1
 
 [node name="Circle" type="MeshInstance3D" parent="Lore puzzle model box" unique_id=112073195]
 transform = Transform3D(0, 8.528496, 0, -4.406485, 0, 0, 0, 0, 4.406485, -1.7929778, 16.028275, 0)
@@ -997,8 +1013,9 @@ transform = Transform3D(0.054220513, 0, 0, 0, 5.3023415, 0, 0, 0, 3.574853, 2.56
 mesh = SubResource("ArrayMesh_j0u7y")
 
 [node name="Screen" type="MeshInstance3D" parent="Lore puzzle model box" unique_id=1255419613]
-transform = Transform3D(0.054220513, 0, 0, 0, 5.3023415, 0, 0, 0, 3.574853, 2.5509431, 10.4338045, 0)
+transform = Transform3D(0.054220513, 0, 0, 0, 5.3023415, 0, 0, 0, 3.574853, 2.5631692, 10.4338045, 0)
 mesh = SubResource("ArrayMesh_odhss")
+surface_material_override/0 = SubResource("ShaderMaterial_8gup0")
 
 [node name="Cube_006" type="MeshInstance3D" parent="Lore puzzle model box" unique_id=620321617]
 transform = Transform3D(0.039861143, -0.19483273, 0, 0.007968413, 0.9746302, 0, 0, 0, 4.402147, 2.7218623, 1.9013853, 0)
@@ -1084,133 +1101,28 @@ mesh = SubResource("ArrayMesh_gwbbq")
 transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 10.439345, 0)
 mesh = SubResource("ArrayMesh_ogc38")
 
-[node name="Quad" type="MeshInstance3D" parent="Lore puzzle model box" unique_id=950049682]
-transform = Transform3D(0.054220513, 0, 0, 0, 5.3023415, 0, 0, 0, 3.574853, 2.56, 10.434, 0)
-mesh = SubResource("ArrayMesh_odhss")
-surface_material_override/0 = SubResource("ShaderMaterial_0oklm")
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=825438630]
+[node name="SubViewport" type="SubViewport" parent="Lore puzzle model box" unique_id=825438630]
 transparent_bg = true
 size = Vector2i(768, 1024)
+size_2d_override = Vector2i(384, 512)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="MathPuzzle" type="Control" parent="SubViewport" unique_id=945826015]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MathPuzzle" parent="Lore puzzle model box/SubViewport" unique_id=2080747034 instance=ExtResource("10_la8vx")]
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="SubViewport/MathPuzzle" unique_id=1420146689]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0.33333334, 0, 1)
+[node name="StaticBody3D" type="StaticBody3D" parent="Lore puzzle model box" unique_id=109502371 node_paths=PackedStringArray("sub_viewport", "screen_mesh", "inspect", "puzzle")]
+script = ExtResource("1_ve8pr")
+sub_viewport = NodePath("../SubViewport")
+screen_mesh = NodePath("../Screen")
+inspect = NodePath("..")
+puzzle = NodePath("../SubViewport/MathPuzzle")
+flip_u = true
+use_2d_override_scale = true
 
-[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MathPuzzle" unique_id=310868587]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 32.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MathPuzzle/MarginContainer" unique_id=849386323]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Title" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer" unique_id=716554454]
-layout_mode = 2
-text = "The Universal Language"
-horizontal_alignment = 1
-
-[node name="SubTitle" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer" unique_id=1992440716]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer" unique_id=1592132931]
-layout_mode = 2
-
-[node name="Rows" type="VBoxContainer" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer" unique_id=368837355]
-layout_mode = 2
-
-[node name="Row1" type="HBoxContainer" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1991548541]
-layout_mode = 2
-
-[node name="Glyph" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=454845091]
-layout_mode = 2
-
-[node name="MathSymbol" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1861547574]
-layout_mode = 2
-
-[node name="Glyph2" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=628250080]
-layout_mode = 2
-
-[node name="Equal" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1429382100]
-layout_mode = 2
-
-[node name="Result" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=671188312]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1233662536]
-layout_mode = 2
-
-[node name="Row2" type="HBoxContainer" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1015043181]
-layout_mode = 2
-
-[node name="Glyph" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=794273683]
-layout_mode = 2
-
-[node name="MathSymbol" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=746809970]
-layout_mode = 2
-
-[node name="Glyph2" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=1345732755]
-layout_mode = 2
-
-[node name="Equal" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=2128844727]
-layout_mode = 2
-
-[node name="Result" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=384843708]
-layout_mode = 2
-
-[node name="HSeparator2" type="HSeparator" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1842550115]
-layout_mode = 2
-
-[node name="Row3" type="HBoxContainer" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=486562668]
-layout_mode = 2
-
-[node name="Glyph" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=2004220358]
-layout_mode = 2
-
-[node name="MathSymbol" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1190574872]
-layout_mode = 2
-
-[node name="Glyph2" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1967120469]
-layout_mode = 2
-
-[node name="Equal" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=211136959]
-layout_mode = 2
-
-[node name="Result" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=350289090]
-layout_mode = 2
-
-[node name="HSeparator3" type="HSeparator" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=902805520]
-layout_mode = 2
-
-[node name="Row1" type="HBoxContainer" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/HSeparator3" unique_id=1476961878]
-layout_mode = 0
-
-[node name="Glyph" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/HSeparator3/Row1" unique_id=1335097807]
-layout_mode = 2
-
-[node name="MathSymbol" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/HSeparator3/Row1" unique_id=1643950064]
-layout_mode = 2
-
-[node name="Glyph2" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/HSeparator3/Row1" unique_id=1943425130]
-layout_mode = 2
-
-[node name="Equal" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/HSeparator3/Row1" unique_id=22231789]
-layout_mode = 2
-
-[node name="Result" type="Label" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/HSeparator3/Row1" unique_id=1201900703]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="SubViewport/MathPuzzle/MarginContainer/VBoxContainer/PanelContainer/Rows/HSeparator3" unique_id=342734567]
-layout_mode = 0
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lore puzzle model box/StaticBody3D" unique_id=285856149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.59817, 0)
+shape = SubResource("BoxShape3D_r5iys")

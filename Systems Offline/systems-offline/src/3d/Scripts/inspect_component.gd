@@ -499,12 +499,14 @@ func update_monitor() -> void:
 		main_screen.visible = true
 		if side_screen:
 			side_screen.visible = true
-		lightning_off.visible = false
+		if lightning_off:
+			lightning_off.visible = false
 	else:
 		main_screen.visible = false
 		if side_screen:
 			side_screen.visible = false
-		lightning_off.visible = true
+		
+			lightning_off.visible = true
 
 func exit_monitor() -> void:
 	if not monitor_active or is_transitioning:

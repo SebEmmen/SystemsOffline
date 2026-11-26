@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bct8vx1c0lr7y" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Cylinder_8.png" id="9_y53ac"]
 [ext_resource type="Texture2D" uid="uid://r5aehwni3pqy" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Cylinder_9.png" id="10_bghlm"]
 [ext_resource type="Texture2D" uid="uid://dqeq16fyeeulv" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Cylinder_10.png" id="11_kj6u6"]
-[ext_resource type="Texture2D" uid="uid://bv18c0gunsa4f" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Plane Color.png" id="12_qvpdh"]
+[ext_resource type="Texture2D" uid="uid://olp4r7jwwhkj" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Plane Color.png" id="12_qvpdh"]
 [ext_resource type="Texture2D" uid="uid://tg0uy2p6ftsl" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Plane Roughness.png" id="13_5po0k"]
 [ext_resource type="Texture2D" uid="uid://boeacy14pdi0y" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Plane.png" id="14_hv8er"]
 [ext_resource type="Texture2D" uid="uid://c468gv7g6ms2a" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Power up device_Ucupaint Plane_14.png" id="15_4pldq"]
@@ -614,7 +614,6 @@ mesh = SubResource("ArrayMesh_tdoi8")
 
 [node name="Main Screen" type="MeshInstance3D" parent="." unique_id=1813707322]
 transform = Transform3D(-0.004700449, 0, 0.999989, 0, 1, 0, -0.999989, 0, -0.004700449, 0.015914202, 0.273, -1.7067425)
-visible = false
 mesh = SubResource("PlaneMesh_bghlm")
 
 [node name="Side Screen" type="MeshInstance3D" parent="." unique_id=778415305]
