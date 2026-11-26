@@ -614,6 +614,7 @@ mesh = SubResource("ArrayMesh_tdoi8")
 
 [node name="Main Screen" type="MeshInstance3D" parent="." unique_id=1813707322]
 transform = Transform3D(-0.004700449, 0, 0.999989, 0, 1, 0, -0.999989, 0, -0.004700449, 0.015914202, 0.273, -1.7067425)
+visible = false
 mesh = SubResource("PlaneMesh_bghlm")
 
 [node name="Side Screen" type="MeshInstance3D" parent="." unique_id=778415305]
