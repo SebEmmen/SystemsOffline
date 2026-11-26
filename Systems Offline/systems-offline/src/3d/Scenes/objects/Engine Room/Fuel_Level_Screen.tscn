@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://drsjvg7jbpisw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r5iys"]
+font_size = 45
+font_color = Color(9.866804e-07, 0.4015996, 0.27309918, 1)
+
+[node name="FuelLevelScreen" type="Control" unique_id=194534804]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1486140127]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14276212, 0.009507895, 1.504086e-08, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=598420676]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=626149319]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=381016805]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Engine Room"
+label_settings = SubResource("LabelSettings_r5iys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=756645804]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1213313462]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=1972996215]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 400.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer" unique_id=562710685]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/VBoxContainer" unique_id=1808014278]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.11764706, 0.78431374, 1, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer" unique_id=285531007]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/VBoxContainer2" unique_id=317537303]
+layout_mode = 2
+color = Color(0.11764706, 0.78431374, 1, 1)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer" unique_id=457225698]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/VBoxContainer3" unique_id=705340576]
+layout_mode = 2
+color = Color(0.11764706, 0.78431374, 1, 1)
