@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ng0l402uy25b"]
+
+[ext_resource type="PackedScene" uid="uid://cgpnv7kh7fb03" path="res://src/3d/Assets/Lab room/Bird animations/Eagle flamingo_shaing head.glb" id="1_2eqjw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_p1jjn"]
+height = 5.774658
+
+[node name="FlamingoEagleBird" type="Node3D" unique_id=1133874129]
+
+[node name="Eagle flamingo_shaing head" parent="." unique_id=913765770 instance=ExtResource("1_2eqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35936058, 3.5511563, 0.23637497)
+
+[node name="Skeleton3D" parent="Eagle flamingo_shaing head/Armature" parent_id_path=PackedInt32Array(913765770, 855952481) index="0" unique_id=1430702340]
+bones/0/rotation = Quaternion(-0.075797096, -0.0034323616, 0.18681353, 0.97946095)
+bones/2/rotation = Quaternion(0.0339977, 0.006464095, 0.046961255, 0.9982971)
+bones/3/rotation = Quaternion(-0.20611271, 0.5324653, 0.81171685, 0.12294004)
+bones/4/rotation = Quaternion(0.7634991, -0.16962591, 0.15658304, 0.6031401)
+bones/5/rotation = Quaternion(-0.15721917, -0.011309542, 0.08837216, 0.98353684)
+bones/6/rotation = Quaternion(-0.5847558, 0.020910159, 0.18046375, 0.790605)
+bones/7/rotation = Quaternion(-0.4988125, -0.0987931, -0.3910229, 0.7671553)
+bones/8/rotation = Quaternion(0.07102107, -0.20758447, 0.6397532, 0.7366007)
+bones/9/rotation = Quaternion(0.6363013, -0.0211415, -0.29750103, 0.71145403)
+bones/10/rotation = Quaternion(0.7678522, -0.18689482, 0.18035522, 0.58561534)
+bones/11/rotation = Quaternion(-0.14087178, 0.0139639955, 0.11852149, 0.98280865)
+bones/12/rotation = Quaternion(0.2206593, -0.070907354, 0.5672607, 0.7902513)
+bones/14/rotation = Quaternion(-0.51630896, 0.24126244, -0.39158812, 0.7224101)
+bones/15/rotation = Quaternion(-0.46591678, -0.00663386, 0.39990133, 0.78927594)
+bones/16/rotation = Quaternion(0.53691185, 0.011183807, -0.46603832, 0.70314217)
+bones/18/rotation = Quaternion(-0.16322094, 0.34761655, 0.9229845, -0.024925577)
+bones/20/rotation = Quaternion(0.43239865, -0.4421156, -0.5100637, 0.59782964)
+bones/21/rotation = Quaternion(0.50007004, -0.05133695, -0.44956994, 0.738364)
+bones/22/rotation = Quaternion(0.22543468, -0.028694557, -0.08418657, 0.97019)
+bones/23/rotation = Quaternion(-0.07205642, 0.2361554, -0.05046236, 0.9677253)
+bones/24/rotation = Quaternion(0.81141114, -0.3630217, -0.44976282, -0.08683682)
+bones/25/rotation = Quaternion(0.25050458, 0.16477296, 0.88984275, 0.34391484)
+bones/26/rotation = Quaternion(-0.8301206, -0.15641451, -0.17223443, 0.50672454)
+bones/27/rotation = Quaternion(0.6987998, 0.05180166, 0.19789599, 0.6854434)
+bones/28/rotation = Quaternion(0.31717855, 0.046926938, 0.26171038, 0.9103315)
+bones/29/rotation = Quaternion(0.4462799, 0.07420833, 0.7960285, -0.40207714)
+bones/29/scale = Vector3(0.9519549, 0.951955, 0.9519549)
+bones/30/rotation = Quaternion(-0.023641273, 0.24593176, 0.91743565, 0.31188214)
+bones/31/rotation = Quaternion(0.8578455, -0.17627148, 0.06817926, 0.47789258)
+bones/31/scale = Vector3(1.0320084, 1.0320083, 1.0320082)
+bones/32/rotation = Quaternion(-0.6259879, 0.0014302245, 0.32044238, 0.7109529)
+bones/33/rotation = Quaternion(-0.24586725, -0.05964201, 0.27827546, 0.9265824)
+bones/33/scale = Vector3(1.2138233, 1.2138233, 1.2138234)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1698464738]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1388322206]
+transform = Transform3D(2.13, 0, 0, 0, 1, 0, 0, 0, 3.87, 0.3726306, 2.85418, 0.04726219)
+shape = SubResource("CylinderShape3D_p1jjn")
+
+[editable path="Eagle flamingo_shaing head"]
