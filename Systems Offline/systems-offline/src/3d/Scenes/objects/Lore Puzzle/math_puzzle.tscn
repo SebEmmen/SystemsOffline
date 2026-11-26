@@ -1,0 +1,284 @@
+[gd_scene format=3 uid="uid://ye12hn63pwuw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5iys"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r5iys"]
+
+[node name="MathPuzzle" type="Control" unique_id=2080747034]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=874971183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(3.1585805e-07, 0.16141713, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=613789008]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=887355297]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=116556926]
+layout_mode = 2
+text = "The Universal Language"
+horizontal_alignment = 1
+
+[node name="SubTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=132996472]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=414819510]
+layout_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=2093592503]
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1416263907]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1464557146]
+modulate = Color(0.93333334, 1, 1, 1)
+layout_mode = 2
+text = "■"
+
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1441393062]
+layout_mode = 2
+text = "+"
+
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=52940093]
+layout_mode = 2
+text = "⬤"
+
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=1316747283]
+layout_mode = 2
+text = "="
+
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row1" unique_id=926254267]
+layout_mode = 2
+text = "6"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1264461419]
+layout_mode = 2
+
+[node name="Row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=2093761542]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=691375068]
+layout_mode = 2
+text = "▲"
+
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=775378487]
+layout_mode = 2
+text = "-"
+
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=1693971141]
+layout_mode = 2
+text = "■"
+
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=644362025]
+layout_mode = 2
+text = "="
+
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row2" unique_id=353724308]
+layout_mode = 2
+text = "1"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=85362939]
+layout_mode = 2
+
+[node name="Row3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1853462721]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1419715717]
+layout_mode = 2
+text = "◆"
+
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=921588628]
+layout_mode = 2
+text = "-"
+
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=2085255780]
+layout_mode = 2
+text = "▲"
+
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=1190609498]
+layout_mode = 2
+text = "="
+
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row3" unique_id=752434267]
+layout_mode = 2
+text = "2"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1854978302]
+layout_mode = 2
+
+[node name="Row4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/Rows" unique_id=1091406813]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=2118104766]
+layout_mode = 2
+text = "⬤"
+
+[node name="MathSymbol" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=719086170]
+layout_mode = 2
+text = "+"
+
+[node name="Glyph2" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=564553937]
+layout_mode = 2
+text = "⬤"
+
+[node name="Equal" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=1552880984]
+layout_mode = 2
+text = "="
+
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/Rows/Row4" unique_id=158773478]
+layout_mode = 2
+text = "4"
+
+[node name="DialRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1491866177]
+layout_mode = 2
+alignment = 1
+
+[node name="Dial1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=1108021862]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=1104724881]
+layout_mode = 2
+text = "▴"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=1821432483]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial1/PanelContainer" unique_id=1333233138]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_r5iys")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=1287792560]
+layout_mode = 2
+text = "▾"
+flat = true
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial1" unique_id=48248413]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "■"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dial2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=536716113]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=912212175]
+layout_mode = 2
+text = "▴"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=901211100]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial2/PanelContainer" unique_id=280055835]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_r5iys")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=1194477497]
+layout_mode = 2
+text = "▾"
+flat = true
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial2" unique_id=1516124662]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "⬤"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dial3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=972706913]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=1482985018]
+layout_mode = 2
+text = "▴"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=1660570952]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial3/PanelContainer" unique_id=1388416464]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_r5iys")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=1075793211]
+layout_mode = 2
+text = "▾"
+flat = true
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial3" unique_id=31130409]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "▲"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dial4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DialRow" unique_id=1178933597]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=851084140]
+layout_mode = 2
+text = "▴"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=369387634]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r5iys")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial4/PanelContainer" unique_id=124519040]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_r5iys")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=553284105]
+layout_mode = 2
+text = "▾"
+flat = true
+
+[node name="Glyph" type="Label" parent="MarginContainer/VBoxContainer/DialRow/Dial4" unique_id=18358930]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "◆"
+horizontal_alignment = 1
+vertical_alignment = 1
