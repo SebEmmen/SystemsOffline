@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cicmwrgp48x8a"]
+
+[ext_resource type="PackedScene" uid="uid://cyw61xhswt7eh" path="res://src/3d/Assets/Lab room/the tank/animation.gltf" id="1_14050"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vffm3"]
+height = 1.8486328
+
+[node name="Tank" type="Node3D" unique_id=1787020240]
+
+[node name="animation" parent="." unique_id=295912821 instance=ExtResource("1_14050")]
+transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1060013401]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1816820510]
+transform = Transform3D(3.26, 0, 0, 0, 3.26, 0, 0, 0, 3.26, 0, 2.6227245, 0)
+shape = SubResource("CylinderShape3D_vffm3")
+
+[editable path="animation"]

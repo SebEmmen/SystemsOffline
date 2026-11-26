@@ -1,6 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cat6kxhhytckm"]
 
-[sub_resource type="Shader" id="Shader_71ovv"]
+[sub_resource type="Shader" id="Shader_lc4ku"]
+resource_local_to_scene = true
 code = "
 shader_type spatial;
 render_mode blend_mix, depth_prepass_alpha, cull_disabled;
@@ -28,8 +29,8 @@ void fragment() {
 
 [resource]
 render_priority = 0
-shader = SubResource("Shader_71ovv")
-shader_parameter/glass_color = Color(0.5, 0.8, 1, 0.15)
+shader = SubResource("Shader_lc4ku")
+shader_parameter/glass_color = Color(0.28235295, 0.47843137, 0.92156863, 0.5019608)
 shader_parameter/edge_color = Color(0, 0.8, 1, 0.15)
-shader_parameter/edge_width = 0.01
-shader_parameter/glow_strength = 1.0
+shader_parameter/edge_width = 0.0010000000475
+shader_parameter/glow_strength = 1.0000000475

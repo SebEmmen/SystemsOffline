@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bpnui6ewgmr0c"]
+
+[ext_resource type="PackedScene" uid="uid://rhnssx74g4b0" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Big unused metalsheet.glb" id="1_fq3cm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3wxr"]
+size = Vector3(3.174179, 0.31456023, 2.542772)
+
+[node name="BigMetalsheet" type="Node3D" unique_id=2040257439]
+
+[node name="Final_Big unused metalsheet" parent="." unique_id=448215788 instance=ExtResource("1_fq3cm")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=731086866]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=628224909]
+transform = Transform3D(0.45880833, 0, 0, 0, 0.0060860864, 0, 0, 0, 0.8217142, 0, 0, 0)
+shape = SubResource("BoxShape3D_y3wxr")
+
+[editable path="Final_Big unused metalsheet"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bha3ypp8rdpjp" path="res://src/3d/Scenes/objects/Wall2ndFloor.tscn" id="2_8k4ng"]
 [ext_resource type="PackedScene" uid="uid://dhedhqdauaeag" path="res://src/3d/Scenes/objects/DiagonalWall8Meter.tscn" id="2_vpefb"]
+[ext_resource type="PackedScene" uid="uid://b2ddlvhnnxvf7" path="res://src/3d/Scenes/objects/Door/DoorWall.tscn" id="3_8k4ng"]
 
 [node name="WallMesh" type="Node3D" unique_id=1024196097]
 
@@ -12,4 +13,8 @@ transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.70710
 
 [node name="Wall" parent="." unique_id=1574530245 instance=ExtResource("2_8k4ng")]
 
+[node name="DoorWall" parent="." unique_id=1926295122 instance=ExtResource("3_8k4ng")]
+
 [editable path="DiagonalWall2"]
+[editable path="Wall"]
+[editable path="DoorWall"]

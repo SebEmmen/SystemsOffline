@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d2b60u5rbe47s"
+path.s3tc="res://.godot/imported/Final_Wall_Plane.png-54d1c54b87845dea61047315ad3fe9dc.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "49a93127fdd2be17ae787b73f8df1696"
+}
+
+[deps]
+
+source_file="res://src/3d/Assets/Metal steampunk wall/Final wall/Final_Wall_Plane.png"
+dest_files=["res://.godot/imported/Final_Wall_Plane.png-54d1c54b87845dea61047315ad3fe9dc.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

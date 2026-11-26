@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c36xluf64wa0p"]
 
 [ext_resource type="PackedScene" uid="uid://cmttq2cp71rt" path="res://src/3d/Assets/Comm room/Final_Metalsheet screen.blend" id="1_vfxhu"]
+[ext_resource type="PackedScene" uid="uid://dbcdl6r7xkkcb" path="res://src/3d/Assets/Comm room/NEW MODELS GLB COMMS/Final_Metalsheet screen.glb" id="2_evdgp"]
 [ext_resource type="Material" uid="uid://c2iccg118yex7" path="res://src/3d/Materials/Plane.tres" id="3_evdgp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vfxhu"]
@@ -19,14 +20,19 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 [node name="Final_Metalsheet screen" parent="." unique_id=1770024825 instance=ExtResource("1_vfxhu")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
-[node name="Metalsheet holder" parent="Final_Metalsheet screen" index="0" unique_id=1517564204]
-transform = Transform3D(0, -0.08244658, 0, 0, 0, -0.08244658, 0.08244658, 0, 0, 0, 0, 0.4435703)
+[node name="Final_Metalsheet screen" parent="Final_Metalsheet screen" unique_id=576356256 instance=ExtResource("2_evdgp")]
+transform = Transform3D(0.99999934, 0, 0, 0, 0.99999934, 0, 0, 0, 0.99999934, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Final_Metalsheet screen/Metalsheet holder" index="0" unique_id=1964885474]
+[node name="StaticBody3D" type="StaticBody3D" parent="Final_Metalsheet screen/Final_Metalsheet screen" unique_id=1964885474]
+transform = Transform3D(0, -0.08244664, 0, 0, 0, -0.08244664, 0.08244664, 0, 0, 0, 0, 0.44357058)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Metalsheet screen/Metalsheet holder/StaticBody3D" unique_id=2128960995]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Final_Metalsheet screen/Final_Metalsheet screen/StaticBody3D" unique_id=2128960995]
 transform = Transform3D(0.9999993, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, 223.48523, 15.838684, -139.10184)
 shape = SubResource("BoxShape3D_vfxhu")
+
+[node name="Metalsheet holder" parent="Final_Metalsheet screen" index="1" unique_id=1808368277]
+transform = Transform3D(0, -0.08244658, 0, 0, 0, -0.08244658, 0.08244658, 0, 0, 0, 0, 0.4435703)
+visible = false
 
 [node name="Node3D" type="Node3D" parent="." unique_id=978743944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4820294, 0.45896107, 0)

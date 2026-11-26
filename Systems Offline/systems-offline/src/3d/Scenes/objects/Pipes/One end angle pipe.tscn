@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b6hohc1ddemyi"]
+
+[ext_resource type="PackedScene" uid="uid://bxlga8tvklkqy" path="res://src/3d/Assets/General reuseable assets/pipes/One end angle pipe.glb" id="1_ltbn2"]
+
+[node name="OneEndAnglePipe" type="Node3D" unique_id=566001519]
+
+[node name="One end angle pipe" parent="." unique_id=759241535 instance=ExtResource("1_ltbn2")]
+
+[node name="Cylinder_036" parent="One end angle pipe" index="0" unique_id=683834897]
+transform = Transform3D(9.611813e-08, -2.4029532e-07, 0.20157433, -0.20157433, -1.1458174e-13, 9.611813e-08, 0, -0.20157433, -2.4029532e-07, 0, 0.307, 0)
+
+[editable path="One end angle pipe"]

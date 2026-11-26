@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bch0cyq55vhq8"
+uid="uid://dkfegbxsbwus7"
 path.s3tc="res://.godot/imported/Final_Boiler_Ucupaint Cube Roughness.png-ed160756d666c7fee2700de764e494e4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "203df81cd239eca97f00c7ec33ece56a"
 }
 
 [deps]
