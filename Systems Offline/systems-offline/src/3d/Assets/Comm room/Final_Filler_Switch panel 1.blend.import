@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dj270fah6x6ax"
-valid=false
+path="res://.godot/imported/Final_Filler_Switch panel 1.blend-d6d38c5f97c6d85c976035e800c1ed34.scn"
 
 [deps]
 
 source_file="res://src/3d/Assets/Comm room/Final_Filler_Switch panel 1.blend"
+dest_files=["res://.godot/imported/Final_Filler_Switch panel 1.blend-d6d38c5f97c6d85c976035e800c1ed34.scn"]
 
 [params]
 

@@ -34,6 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ajnbw")
 fuel_empty_box = NodePath("MarginContainer/VBoxContainer/Fuel Tanks/Fuel empty error")
+fuel_empty_puzzle_id = "fuel_adding_puzzle"
 pipes_box = NodePath("MarginContainer/VBoxContainer/Fuel Tanks/Pipes not connected error")
 pipes_puzzle_id = "Pipes"
 tank_levels_box = NodePath("MarginContainer/VBoxContainer/Labels/INcorrect tank levels error")

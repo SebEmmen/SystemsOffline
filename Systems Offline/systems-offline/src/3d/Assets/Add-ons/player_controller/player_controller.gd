@@ -19,6 +19,11 @@ var arm_show := false
 var base_fov: float = 75.0
 const SHRUNK_FOV_OFFSET := 35.0  # was 110 - 75
 
+@export_group("Debug")
+@export var debug_fuel_puzzle_id: String = "fuel_adding_puzzle"
+@export var debug_fuel_puzzle: Node
+@export var debug_auto_save: bool = true
+
 #region Held Items
 @export_group("Held Items")
 @export var hand_marker: Marker3D
@@ -188,6 +193,14 @@ func play_primary_se() -> void:
 	if primary_audio_player:
 		primary_audio_player.play()
 #endregion
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_9:
+		if debug_fuel_puzzle_id != "" and not SaveManager.is_puzzle_completed(debug_fuel_puzzle_id):
+			SaveManager.complete_puzzle(debug_fuel_puzzle_id)
+			if debug_auto_save:
+				SaveManager.save_game()
+			print("[DEBUG] Completed fuel puzzle: ", debug_fuel_puzzle_id)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not controls_enabled:
