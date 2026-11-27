@@ -355,7 +355,7 @@ func ready_puzzle() -> void:
 			wire_cover.freeze = true
 			cover_removed = false
 		elif cover_removed:
-			var saved := SaveManager.get_cover_transform(puzzle_id)
+			var saved: Variant = SaveManager.get_cover_transform(puzzle_id)
 			var s := wire_cover.global_transform.basis.get_scale()
 			wire_cover.global_transform = Transform3D(saved.basis.scaled(s), saved.origin)
 			wire_cover.freeze = true

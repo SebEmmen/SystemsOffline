@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dkig0wfe6b3qk"
-path="res://.godot/imported/Broken wire part.blend-f2444d9c7d1a7958f1d706fb54de1c8c.scn"
+valid=false
 
 [deps]
 
 source_file="res://src/3d/Assets/Wires puzzle/Broken wire part.blend"
-dest_files=["res://.godot/imported/Broken wire part.blend-f2444d9c7d1a7958f1d706fb54de1c8c.scn"]
 
 [params]
 

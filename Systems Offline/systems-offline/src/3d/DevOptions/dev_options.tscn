@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://ck3cu5g5vfpur"]
+
+[ext_resource type="Script" uid="uid://bwixoii3e6ped" path="res://src/3d/DevOptions/dev_options.gd" id="1_menu"]
+
+[node name="DevOptions" type="CanvasLayer" unique_id=383374088]
+process_mode = 3
+layer = 100
+script = ExtResource("1_menu")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=518533477]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.04, 0.07, 0.94)
+
+[node name="Margins" type="MarginContainer" parent="Overlay" unique_id=2140061392]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="Overlay/Margins" unique_id=1138981806]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Overlay/Margins/Layout" unique_id=2048792890]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Overlay/Margins/Layout/Header" unique_id=818162742]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Developer options"
+
+[node name="Close" type="Button" parent="Overlay/Margins/Layout/Header" unique_id=989780690]
+layout_mode = 2
+text = "Close [Esc]"
+
+[node name="Status" type="Label" parent="Overlay/Margins/Layout" unique_id=1173803943]
+unique_name_in_owner = true
+layout_mode = 2
+text_overrun_behavior = 3
+
+[node name="Search" type="LineEdit" parent="Overlay/Margins/Layout" unique_id=320950162]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Filter commands"
+
+[node name="Columns" type="HBoxContainer" parent="Overlay/Margins/Layout" unique_id=170654111]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Teleport" type="VBoxContainer" parent="Overlay/Margins/Layout/Columns" unique_id=156485998]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Heading" type="Label" parent="Overlay/Margins/Layout/Columns/Teleport" unique_id=1645056687]
+modulate = Color(0.55, 0.85, 1, 1)
+layout_mode = 2
+text = "Teleport"
+
+[node name="Scroll" type="ScrollContainer" parent="Overlay/Margins/Layout/Columns/Teleport" unique_id=1688385541]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="TeleportCommands" type="VBoxContainer" parent="Overlay/Margins/Layout/Columns/Teleport/Scroll" unique_id=1978896257]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Utils" type="VBoxContainer" parent="Overlay/Margins/Layout/Columns" unique_id=532665210]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Heading" type="Label" parent="Overlay/Margins/Layout/Columns/Utils" unique_id=31620772]
+modulate = Color(0.55, 0.85, 1, 1)
+layout_mode = 2
+text = "Utils"
+
+[node name="Scroll" type="ScrollContainer" parent="Overlay/Margins/Layout/Columns/Utils" unique_id=1986694092]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="UtilsCommands" type="VBoxContainer" parent="Overlay/Margins/Layout/Columns/Utils/Scroll" unique_id=1713996473]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Animations" type="VBoxContainer" parent="Overlay/Margins/Layout/Columns" unique_id=1636509942]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Heading" type="Label" parent="Overlay/Margins/Layout/Columns/Animations" unique_id=507585912]
+modulate = Color(0.55, 0.85, 1, 1)
+layout_mode = 2
+text = "Animations"
+
+[node name="Scroll" type="ScrollContainer" parent="Overlay/Margins/Layout/Columns/Animations" unique_id=760907328]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="AnimationsCommands" type="VBoxContainer" parent="Overlay/Margins/Layout/Columns/Animations/Scroll" unique_id=2032484838]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Overlay/Margins/Layout/Header/Close" to="." method="_close_menu"]
+[connection signal="text_changed" from="Overlay/Margins/Layout/Search" to="." method="_on_search_changed"]
