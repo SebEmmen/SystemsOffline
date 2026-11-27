@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://booir4eb3uq1x"]
+
+[ext_resource type="Script" uid="uid://b5bk8y7gn1hpc" path="res://src/3d/Scenes/objects/Engine Room/error_screen.gd" id="1_ajnbw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3x5j"]
+bg_color = Color(0.18039216, 0.02745098, 0.02745098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.6901961, 0, 1)
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajnbw"]
+font_size = 32
+font_color = Color(1, 0.23137255, 0.1882353, 1)
+
+[node name="ErrorScreen" type="Control" unique_id=359199746]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ajnbw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1825907149]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.14276212, 0.009507895, 1.504086e-08, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1988302203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1399848213]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Fuel Tanks" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=595647611]
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(75, 0)
+theme_override_constants/separation = 300
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=73472088]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3x5j")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Fuel Tanks/PanelContainer" unique_id=1002077638]
+layout_mode = 2
+text = "ERROR:
+FUEL EMPTY"
+label_settings = SubResource("LabelSettings_ajnbw")
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=94253277]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3x5j")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Fuel Tanks/PanelContainer2" unique_id=1755738790]
+layout_mode = 2
+text = "ERROR:
+PIPES NOT CONNECTED"
+label_settings = SubResource("LabelSettings_ajnbw")
+horizontal_alignment = 1
+
+[node name="Labels" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1889463392]
+layout_mode = 2
+offset_transform_position = Vector2(67, 400)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Labels" unique_id=2002741098]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3x5j")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Labels/PanelContainer" unique_id=114392101]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "ERROR:
+INCORRECT TANK LEVELS"
+label_settings = SubResource("LabelSettings_ajnbw")
+horizontal_alignment = 1
