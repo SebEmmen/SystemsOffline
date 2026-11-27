@@ -66,8 +66,8 @@ func _make_clickable(control: Control, index: int) -> void:
 	control.gui_input.connect(_on_tank_input.bind(index))
 
 func _on_tank_input(event: InputEvent, index: int) -> void:
-	if event is InputEventMouseButton and event.pressed \
-			and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print("[FuelLevelScreen] hit tank ", index, " at ", event.position)
 		_click_tank(index)
 
 func _input(event: InputEvent) -> void:

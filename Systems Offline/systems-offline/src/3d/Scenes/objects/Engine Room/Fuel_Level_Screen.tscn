@@ -95,8 +95,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_qeuua")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1486140127]
@@ -106,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.14276212, 0.009507895, 1.504086e-08, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=598420676]

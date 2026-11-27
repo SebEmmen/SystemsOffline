@@ -350,6 +350,29 @@ item/4/navigation_layers = 1
 item/4/preview = SubResource("ImageTexture_w8jno")
 metadata/_editor_source_scene = "res://src/3d/Scenes/objects/SharpDiagonalFloorRight.tscn"
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_c5b41"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c3xgp"]
+viewport_path = NodePath("Final_Screen on and off/SubViewport")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_pa264"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_c5b41")
+orm_texture = SubResource("ViewportTexture_c3xgp")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2anel"]
+viewport_path = NodePath("Final_Screen on and off/SubViewport")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vwyaw"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_2anel")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o6v87"]
+resource_local_to_scene = true
+material = SubResource("ORMMaterial3D_vwyaw")
+size = Vector2(12, 8.5)
+
 [node name="Room2" type="Node3D" unique_id=1728398301]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=805047252]
@@ -525,6 +548,17 @@ transition_camera = NodePath("../../ProtoController/Head/Camera3D")
 
 [node name="Boiler" parent="Engine Room" unique_id=1148602733 instance=ExtResource("19_xe0w0")]
 transform = Transform3D(-0.83362234, 0, 0.5523349, 0, 1, 0, -0.5523349, 0, -0.83362234, 25.052204, -0.011801869, -0.9984653)
+
+[node name="BoilerPuzzleScreen" parent="Engine Room/Boiler" index="2" unique_id=1234801884 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
+player = NodePath("../../../ProtoController")
+player_camera = NodePath("../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../ProtoController/Head/Camera3D")
+
+[node name="Cube_003" parent="Engine Room/Boiler/BoilerPuzzleScreen/Final_Screen on and off" parent_id_path=PackedInt32Array(1148602733, 1234801884, 1985759081) index="3" unique_id=1040262453]
+surface_material_override/0 = SubResource("ORMMaterial3D_pa264")
+
+[node name="Main Screen" parent="Engine Room/Boiler/BoilerPuzzleScreen/Final_Screen on and off" parent_id_path=PackedInt32Array(1148602733, 1234801884, 1985759081) index="8" unique_id=2042944516]
+mesh = SubResource("PlaneMesh_o6v87")
 
 [node name="FuelTank2" parent="Engine Room" unique_id=126686054 instance=ExtResource("15_bipn2")]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 27.523663, 3.0584803, 0.21245193)
@@ -1004,3 +1038,7 @@ transform = Transform3D(-0.05, 0, -4.371139e-09, 0, 0.05, 0, 4.371139e-09, 0, -0
 [editable path="Engine Room/Door/Final_Door left/Final_Door handle2"]
 [editable path="Engine Room/Door/Final_Door right"]
 [editable path="Engine Room/Door/Final_Door right/Final_Door handle"]
+[editable path="Engine Room/Boiler"]
+[editable path="Engine Room/Boiler/Final_Boiler"]
+[editable path="Engine Room/Boiler/Final_Boiler valve"]
+[editable path="Engine Room/Boiler/BoilerPuzzleScreen"]
