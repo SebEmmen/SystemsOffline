@@ -12,12 +12,21 @@ const LINE_CORRECT := Color(0.1, 0.9, 0.3)
 const SELECT_TINT  := Color(1.5, 1.5, 1.5)
 const POUR_TIME    := 0.4
 
-## The pouring puzzle (levels). Must match "Tank Levels Puzzle Id" in the ErrorScreen.
 @export var puzzle_id: String = "fuel_fill_puzzle"
-## The puzzle that adds fuel to Tank 1 (completed by pressing 9). Must match
-## "Fuel Empty Puzzle Id" in the ErrorScreen and debug_fuel_puzzle_id on the player.
 @export var fuel_add_puzzle_id: String = "fuel_adding_puzzle"
+## Must match "Pipes Puzzle Id" in the ErrorScreen.
+@export var pipes_puzzle_id: String = "Pipes"
 @export var auto_save_on_complete: bool = true
+
+@export_group("Error Message")
+@export var blink_count: int = 3
+@export var blink_time: float = 0.12
+@export var hold_time: float = 0.6
+
+@onready var error: PanelContainer = $"MarginContainer/Pipes not connected error"
+var error_label: Label
+var pipes_error_text: String = ""
+var error_tween: Tween
 
 class Tank:
 	var panel: PanelContainer
@@ -35,6 +44,15 @@ var is_solved := false
 
 
 func _ready() -> void:
+	# Error message setup: remember the original text, then hide it.
+	error.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for c in error.find_children("*", "Control", true, false):
+		c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var labels := error.find_children("*", "Label", true, false)
+	if labels.size() > 0:
+		error_label = labels[0] as Label
+		pipes_error_text = error_label.text
+	error.visible = false
 	if puzzle_id != "":
 		SaveManager.is_puzzle_completed(puzzle_id)
 	if fuel_add_puzzle_id != "":
@@ -122,9 +140,20 @@ func _input(event: InputEvent) -> void:
 		_reset()
 
 
+func _is_pipes_connected() -> bool:
+	return pipes_puzzle_id != "" and SaveManager.is_puzzle_completed(pipes_puzzle_id)
+
+
 func _click_tank(index: int) -> void:
-	if is_solved or not _is_fuel_added():
+	if is_solved:
 		return
+	if not _is_fuel_added():
+		_show_error("ERROR:\nFUEL MISSING")
+		return
+	if not _is_pipes_connected():
+		_show_error(pipes_error_text)
+		return
+
 	if selected == -1:
 		if tanks[index].level > 0:
 			selected = index
@@ -135,6 +164,25 @@ func _click_tank(index: int) -> void:
 		var from := selected
 		_deselect()
 		_pour(from, index)
+
+
+func _show_error(msg: String) -> void:
+	if error_tween:
+		error_tween.kill()
+	if error_label:
+		error_label.text = msg
+	error.visible = true
+	error.modulate.a = 1.0
+
+	error_tween = create_tween()
+	for i in blink_count:
+		error_tween.tween_property(error, "modulate:a", 0.0, blink_time)
+		error_tween.tween_property(error, "modulate:a", 1.0, blink_time)
+	error_tween.tween_interval(hold_time)
+	error_tween.tween_callback(func() -> void:
+		error.visible = false
+		error.modulate.a = 1.0
+	)
 
 
 func _deselect() -> void:
@@ -170,6 +218,7 @@ func _complete_puzzle() -> void:
 		if auto_save_on_complete:
 			SaveManager.save_game()
 	solved.emit()
+	print("Completed puzzle id: '", puzzle_id, "'")
 
 
 func _set_level_instant(t: Tank, value: int) -> void:

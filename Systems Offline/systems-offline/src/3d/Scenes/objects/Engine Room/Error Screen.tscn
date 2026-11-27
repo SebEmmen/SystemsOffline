@@ -38,7 +38,7 @@ fuel_empty_puzzle_id = "fuel_adding_puzzle"
 pipes_box = NodePath("MarginContainer/VBoxContainer/Fuel Tanks/Pipes not connected error")
 pipes_puzzle_id = "Pipes"
 tank_levels_box = NodePath("MarginContainer/VBoxContainer/Labels/INcorrect tank levels error")
-tank_levels_puzzle_id = "fuel_puzzle"
+tank_levels_puzzle_id = "fuel_fill_puzzle"
 sharp_blink = true
 flash_speed = 0.5
 

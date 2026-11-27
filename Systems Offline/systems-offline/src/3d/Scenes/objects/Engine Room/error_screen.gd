@@ -41,6 +41,11 @@ var _poll_timer: float = 0.0
 
 
 func _ready() -> void:
+	# Warn about empty IDs (misspelled IDs can't be detected here).
+	for id in [fuel_empty_puzzle_id, pipes_puzzle_id, tank_levels_puzzle_id]:
+		if id == "":
+			push_warning("ErrorScreen: a puzzle id is empty.")
+
 	_register_box(fuel_empty_box)
 	_register_box(pipes_box)
 	_register_box(tank_levels_box)
@@ -133,8 +138,9 @@ func _refresh_single_box(box: Control, puzzle_id: String, fixed_text: String) ->
 	if puzzle_id != "":
 		is_fixed = SaveManager.is_puzzle_completed(puzzle_id)
 
+	# Only update when the state actually changed (or on the first refresh).
 	var prev_state = _last_fixed_state.get(box, null)
-	if prev_state != null and bool(prev_state) == is_fixed and _box_tweens.has(box):
+	if prev_state != null and bool(prev_state) == is_fixed:
 		return
 
 	_last_fixed_state[box] = is_fixed
