@@ -1,8 +1,92 @@
 [gd_scene format=3 uid="uid://drsjvg7jbpisw"]
 
+[ext_resource type="Script" uid="uid://bhesagqos2x5q" path="res://src/3d/Scenes/objects/Engine Room/fuel_level_screen.gd" id="1_qeuua"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_r5iys"]
 font_size = 45
-font_color = Color(9.866804e-07, 0.4015996, 0.27309918, 1)
+font_color = Color(0, 0.4, 0.27450982, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mog6"]
+bg_color = Color(0.14117648, 0.007843138, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.4, 0.27450982, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qeuua"]
+bg_color = Color(0.14117648, 0.007843138, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgm38"]
+bg_color = Color(0, 0, 0.54509807, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojbw0"]
+bg_color = Color(0.14117648, 0.007843138, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.4, 0.27450982, 1)
+expand_margin_top = 32.0
+expand_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axgy0"]
+bg_color = Color(0.14117648, 0.007843138, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.4, 0.27450982, 1)
+expand_margin_top = 32.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx5gx"]
+bg_color = Color(0.14117648, 0.007843138, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.4, 0.27450982, 1)
+expand_margin_top = 31.0
+expand_margin_bottom = 31.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_586rt"]
+bg_color = Color(0.14117648, 0.007843138, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.4, 0.27450982, 1)
+expand_margin_top = 31.0
+expand_margin_bottom = 31.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3f26w"]
+bg_color = Color(0.14117648, 0.007843138, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.4, 0.27450982, 1)
+expand_margin_top = 31.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilk4s"]
+bg_color = Color(0.14117648, 0.007843138, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.4, 0.27450982, 1)
+expand_margin_top = 32.0
+expand_margin_bottom = 32.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgm38"]
+font_size = 40
+font_color = Color(0, 0.4, 0.27450982, 1)
 
 [node name="FuelLevelScreen" type="Control" unique_id=194534804]
 layout_mode = 3
@@ -11,6 +95,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_qeuua")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1486140127]
 layout_mode = 1
@@ -44,40 +131,381 @@ size_flags_vertical = 0
 text = "Engine Room"
 label_settings = SubResource("LabelSettings_r5iys")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=756645804]
+[node name="Fuel Tanks" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=756645804]
 layout_mode = 2
 size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(75, 0)
+theme_override_constants/separation = 300
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1213313462]
+[node name="Tank1" type="Control" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=1213313462]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control" unique_id=1972996215]
-layout_mode = 0
-offset_right = 150.0
-offset_bottom = 400.0
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1" unique_id=1048378787]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -0.5
+offset_right = 199.5
+offset_bottom = 399.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mog6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer" unique_id=562710685]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer" unique_id=1972996215]
 layout_mode = 2
-theme_override_constants/separation = 4
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/VBoxContainer" unique_id=1808014278]
-custom_minimum_size = Vector2(100, 0)
+[node name="Tank1FuelLevel" type="ProgressBar" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer" unique_id=1171639472]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.11764706, 0.78431374, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_qeuua")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qgm38")
+max_value = 6.0
+step = 1.0
+value = 6.0
+fill_mode = 3
+show_percentage = false
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer" unique_id=285531007]
-layout_mode = 2
-theme_override_constants/separation = 4
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel" unique_id=97151033]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/VBoxContainer2" unique_id=317537303]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel/VBoxContainer" unique_id=1745142142]
 layout_mode = 2
-color = Color(0.11764706, 0.78431374, 1, 1)
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer" unique_id=457225698]
-layout_mode = 2
-theme_override_constants/separation = 4
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel" unique_id=1364992419]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 65)
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/VBoxContainer3" unique_id=705340576]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel/VBoxContainer2" unique_id=2142983048]
 layout_mode = 2
-color = Color(0.11764706, 0.78431374, 1, 1)
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel" unique_id=1313553384]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 130)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel/VBoxContainer3" unique_id=835820037]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel" unique_id=13599513]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 195)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel/VBoxContainer4" unique_id=144928555]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel" unique_id=32645312]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 260)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel/VBoxContainer5" unique_id=2016718522]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel" unique_id=1189342133]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 325)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1/PanelContainer/VBoxContainer/Tank1FuelLevel/VBoxContainer6" unique_id=742363835]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_axgy0")
+
+[node name="Target Line" type="ColorRect" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1" unique_id=1441702491]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_top = 389.5
+offset_right = 240.0
+offset_bottom = 396.5
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20, -60)
+color = Color(0.53349864, 0.532407, 7.70092e-07, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1" unique_id=1185672707]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HitArea" type="Control" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank1" unique_id=1527779439]
+anchors_preset = 0
+offset_left = 60.0
+offset_top = -15.0
+offset_right = 290.0
+offset_bottom = 415.0
+
+[node name="Tank2" type="Control" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=659559446]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2" unique_id=518763975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -0.5
+offset_right = 199.5
+offset_bottom = 199.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 200)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mog6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer" unique_id=64189913]
+layout_mode = 2
+
+[node name="Tank2FuelLevel" type="ProgressBar" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer/VBoxContainer" unique_id=667169723]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_qeuua")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qgm38")
+max_value = 3.0
+step = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer/VBoxContainer/Tank2FuelLevel" unique_id=310647235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer/VBoxContainer/Tank2FuelLevel/VBoxContainer" unique_id=497645016]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 31.667)
+theme_override_styles/panel = SubResource("StyleBoxFlat_xx5gx")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer/VBoxContainer/Tank2FuelLevel" unique_id=1688063871]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 63.333)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer/VBoxContainer/Tank2FuelLevel/VBoxContainer2" unique_id=17789449]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 31.667)
+theme_override_styles/panel = SubResource("StyleBoxFlat_586rt")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer/VBoxContainer/Tank2FuelLevel" unique_id=571398328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 126.667)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2/PanelContainer/VBoxContainer/Tank2FuelLevel/VBoxContainer3" unique_id=1222402825]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 31.667)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3f26w")
+
+[node name="Target Line" type="ColorRect" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2" unique_id=1733047034]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_top = 389.5
+offset_right = 240.0
+offset_bottom = 396.5
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20, -185)
+color = Color(0.53349864, 0.532407, 7.70092e-07, 1)
+
+[node name="HitArea" type="Control" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank2" unique_id=1418571455]
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 190.0
+offset_right = 290.0
+offset_bottom = 415.0
+
+[node name="Tank3" type="Control" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=719651106]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3" unique_id=463032088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -0.5
+offset_right = 199.5
+offset_bottom = 266.167
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 133.333)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mog6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer" unique_id=662958220]
+layout_mode = 2
+
+[node name="Tank3FuelLevel" type="ProgressBar" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer" unique_id=719639300]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_qeuua")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qgm38")
+max_value = 4.0
+step = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel" unique_id=1652657655]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel/VBoxContainer" unique_id=979093337]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel" unique_id=1149214590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 64)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel/VBoxContainer2" unique_id=1973457526]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel" unique_id=824471233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 128)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel/VBoxContainer3" unique_id=298300474]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojbw0")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel" unique_id=252568502]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 192)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3/PanelContainer/VBoxContainer/Tank3FuelLevel/VBoxContainer4" unique_id=226939313]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ilk4s")
+
+[node name="Target Line" type="ColorRect" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3" unique_id=1850169001]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_top = 389.5
+offset_right = 240.0
+offset_bottom = 396.5
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20, -125)
+color = Color(0.53349864, 0.532407, 7.70092e-07, 1)
+
+[node name="HitArea" type="Control" parent="MarginContainer/VBoxContainer/Fuel Tanks/Tank3" unique_id=1757987501]
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 115.0
+offset_right = 290.0
+offset_bottom = 415.0
+
+[node name="Labels" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1695123418]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(67, 400)
+theme_override_constants/separation = 80
+
+[node name="Fuel Tank 1" type="Label" parent="MarginContainer/VBoxContainer/Labels" unique_id=1680397510]
+layout_mode = 2
+text = "Fuel Tank 1"
+label_settings = SubResource("LabelSettings_qgm38")
+
+[node name="Fuel Tank 2" type="Label" parent="MarginContainer/VBoxContainer/Labels" unique_id=1430640451]
+layout_mode = 2
+text = "Fuel Tank 2"
+label_settings = SubResource("LabelSettings_qgm38")
+
+[node name="Fuel Tank 3" type="Label" parent="MarginContainer/VBoxContainer/Labels" unique_id=1954313478]
+layout_mode = 2
+text = "Fuel Tank 3"
+label_settings = SubResource("LabelSettings_qgm38")
