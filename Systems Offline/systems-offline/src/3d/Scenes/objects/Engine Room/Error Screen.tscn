@@ -14,11 +14,18 @@ expand_margin_top = 20.0
 expand_margin_right = 20.0
 expand_margin_bottom = 20.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_xors2"]
+font_size = 32
+font_color = Color(1, 0.23137255, 0.1882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rfcuy"]
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_ajnbw"]
 font_size = 32
 font_color = Color(1, 0.23137255, 0.1882353, 1)
 
-[node name="ErrorScreen" type="Control" unique_id=359199746]
+[node name="ErrorScreen" type="Control" unique_id=359199746 node_paths=PackedStringArray("fuel_empty_box", "pipes_box", "tank_levels_box")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +33,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ajnbw")
+fuel_empty_box = NodePath("MarginContainer/VBoxContainer/Fuel Tanks/Fuel empty error")
+pipes_box = NodePath("MarginContainer/VBoxContainer/Fuel Tanks/Pipes not connected error")
+pipes_puzzle_id = "Pipes"
+tank_levels_box = NodePath("MarginContainer/VBoxContainer/Labels/INcorrect tank levels error")
+tank_levels_puzzle_id = "fuel_puzzle"
+sharp_blink = true
+flash_speed = 0.5
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1825907149]
 layout_mode = 1
@@ -61,38 +75,39 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(75, 0)
 theme_override_constants/separation = 300
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=73472088]
+[node name="Fuel empty error" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=73472088]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3x5j")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Fuel Tanks/PanelContainer" unique_id=1002077638]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Fuel Tanks/Fuel empty error" unique_id=1002077638]
 layout_mode = 2
 text = "ERROR:
 FUEL EMPTY"
-label_settings = SubResource("LabelSettings_ajnbw")
+label_settings = SubResource("LabelSettings_xors2")
 horizontal_alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=94253277]
+[node name="Pipes not connected error" type="PanelContainer" parent="MarginContainer/VBoxContainer/Fuel Tanks" unique_id=94253277]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3x5j")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Fuel Tanks/PanelContainer2" unique_id=1755738790]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Fuel Tanks/Pipes not connected error" unique_id=1755738790]
+modulate = Color(1, 0.23137255, 0.1882353, 1)
 layout_mode = 2
 text = "ERROR:
 PIPES NOT CONNECTED"
-label_settings = SubResource("LabelSettings_ajnbw")
+label_settings = SubResource("LabelSettings_rfcuy")
 horizontal_alignment = 1
 
 [node name="Labels" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1889463392]
 layout_mode = 2
 offset_transform_position = Vector2(67, 400)
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Labels" unique_id=2002741098]
+[node name="INcorrect tank levels error" type="PanelContainer" parent="MarginContainer/VBoxContainer/Labels" unique_id=2002741098]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3x5j")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Labels/PanelContainer" unique_id=114392101]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Labels/INcorrect tank levels error" unique_id=114392101]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "ERROR:

@@ -1,5 +1,7 @@
 extends Node
 
+signal solved
+
 const TANKS_PATH  := "MarginContainer/VBoxContainer/Fuel Tanks"
 const LABELS_PATH := "MarginContainer/VBoxContainer/Labels"
 
@@ -10,6 +12,9 @@ const START      := [6, 0, 0]
 const LINE_CORRECT := Color(0.1, 0.9, 0.3)
 const SELECT_TINT  := Color(1.5, 1.5, 1.5)
 const POUR_TIME    := 0.4
+
+@export var puzzle_id: String = "fuel_puzzle"
+@export var auto_save_on_complete: bool = true
 
 class Tank:
 	var panel: PanelContainer
@@ -23,11 +28,14 @@ class Tank:
 
 var tanks: Array[Tank] = []
 var selected := -1
-var solved := false
+var is_solved := false
+
 
 func _ready() -> void:
+	_init_puzzle_in_save_manager()
+
 	var root := get_node(TANKS_PATH)
-	var labels := get_node_or_null(LABELS_PATH)
+	var _labels := get_node_or_null(LABELS_PATH)
 	for i in CAPACITIES.size():
 		var tank_node := root.get_node("Tank%d" % (i + 1))
 		var t := Tank.new()
@@ -59,22 +67,36 @@ func _ready() -> void:
 		hit.gui_input.connect(_on_tank_input.bind(i))
 
 		tanks.append(t)
+
+	if puzzle_id != "" and SaveManager.is_puzzle_completed(puzzle_id):
+		is_solved = true
+		for i in tanks.size():
+			tanks[i].level = TARGETS[i]
+			tanks[i].bar.value = TARGETS[i]
+
 	_refresh()
 
-func _make_clickable(control: Control, index: int) -> void:
-	control.mouse_filter = Control.MOUSE_FILTER_STOP
-	control.gui_input.connect(_on_tank_input.bind(index))
+
+func _init_puzzle_in_save_manager() -> void:
+	if puzzle_id == "":
+		push_warning("Fuel puzzle: 'puzzle_id' is empty; skipping SaveManager initiation.")
+		return
+	# Ensures the puzzle entry exists in SaveManager.puzzles (completed = false if new)
+	SaveManager.is_puzzle_completed(puzzle_id)
+
 
 func _on_tank_input(event: InputEvent, index: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_click_tank(index)
 
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_R:
 		_reset()
 
+
 func _click_tank(index: int) -> void:
-	if solved:
+	if is_solved:
 		return
 	if selected == -1:
 		if tanks[index].level > 0:
@@ -87,10 +109,12 @@ func _click_tank(index: int) -> void:
 		_deselect()
 		_pour(from, index)
 
+
 func _deselect() -> void:
 	if selected != -1:
 		tanks[selected].panel.modulate = Color.WHITE
 	selected = -1
+
 
 func _pour(from: int, to: int) -> void:
 	var src := tanks[from]
@@ -105,7 +129,20 @@ func _pour(from: int, to: int) -> void:
 	_animate(dst)
 
 	# Lock immediately, based on the logical levels
-	solved = tanks.all(func(t): return t.level == t.target)
+	if tanks.all(func(t): return t.level == t.target):
+		_complete_puzzle()
+
+
+func _complete_puzzle() -> void:
+	if is_solved:
+		return
+	is_solved = true
+	if puzzle_id != "":
+		SaveManager.complete_puzzle(puzzle_id)
+		if auto_save_on_complete:
+			SaveManager.save_game()
+	solved.emit()
+
 
 func _animate(t: Tank) -> void:
 	if t.tween:
@@ -114,13 +151,16 @@ func _animate(t: Tank) -> void:
 	t.tween.tween_property(t.bar, "value", t.level, POUR_TIME)
 	t.tween.finished.connect(_refresh)
 
+
 func _refresh() -> void:
 	for t in tanks:
 		t.line.color = LINE_CORRECT if t.level == t.target else t.line_color
 
+
 func _reset() -> void:
+	if is_solved:
+		return
 	_deselect()
-	solved = false
 	for i in tanks.size():
 		tanks[i].level = START[i]
 		if tanks[i].tween:

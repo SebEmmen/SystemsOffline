@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtorhsmsbrfe" path="res://src/3d/Assets/General room floor_Ucupaint Plane Color.png" id="2_wsyno"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://src/3d/Assets/Add-ons/player_controller/player_controller.tscn" id="3_v0fyp"]
 [ext_resource type="PackedScene" uid="uid://ss41tr5ct1ni" path="res://src/2d/HUD/HUD.tscn" id="4_45hx4"]
+[ext_resource type="PackedScene" uid="uid://twh75xaqo6qx" path="res://src/3d/Scenes/transition_camera.tscn" id="4_c3xgp"]
 [ext_resource type="AudioStream" uid="uid://ru84l0r2lukf" path="res://src/3d/Sound/footsteps on metal.mp3" id="4_f0p20"]
 [ext_resource type="PackedScene" uid="uid://dlim1triykghc" path="res://src/3d/Scenes/objects/Journal/journal_notification.tscn" id="5_pexpj"]
 [ext_resource type="Script" uid="uid://73n4et8gpfu5" path="res://src/2d/Scripts/UI_Manager.gd" id="6_recx6"]
@@ -350,27 +351,27 @@ item/4/navigation_layers = 1
 item/4/preview = SubResource("ImageTexture_w8jno")
 metadata/_editor_source_scene = "res://src/3d/Scenes/objects/SharpDiagonalFloorRight.tscn"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c5b41"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c3xgp"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c3xgp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pa264"]
 viewport_path = NodePath("Final_Screen on and off/SubViewport")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_pa264"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_2anel"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_c5b41")
-orm_texture = SubResource("ViewportTexture_c3xgp")
+albedo_texture = SubResource("ViewportTexture_c3xgp")
+orm_texture = SubResource("ViewportTexture_pa264")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2anel"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vwyaw"]
 viewport_path = NodePath("Final_Screen on and off/SubViewport")
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_vwyaw"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_o6v87"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_2anel")
+albedo_texture = SubResource("ViewportTexture_vwyaw")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_o6v87"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_lwffk"]
 resource_local_to_scene = true
-material = SubResource("ORMMaterial3D_vwyaw")
+material = SubResource("ORMMaterial3D_o6v87")
 size = Vector2(12, 8.5)
 
 [node name="Room2" type="Node3D" unique_id=1728398301]
@@ -405,6 +406,9 @@ cell_center_y = false
 data = {
 "cells": PackedInt32Array(65535, 65535, 131072, 65535, 0, 131072, 65535, 65534, 0, 65535, 1, 131072, 65535, 2, 131072, 65535, 3, 0, 65535, 65533, 0, 65535, 65532, 0, 65535, 65531, 0, 65535, 65530, 0, 65535, 65529, 0, 65535, 65528, 0, 65535, 65527, 0, 65535, 4, 0, 65535, 5, 0, 65535, 6, 0, 65535, 7, 0, 65535, 8, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65534, 0, 0, 65533, 0, 0, 65532, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 7, 0, 0, 8, 0, 0, 6, 0, 65534, 0, 0, 65533, 0, 0, 65532, 0, 0, 65531, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 65530, 0, 0, 5, 0, 0, 65529, 0, 0, 65534, 8, 0, 65534, 7, 0, 65534, 6, 0, 65534, 5, 0, 65534, 4, 0, 65534, 3, 0, 65534, 2, 0, 65534, 1, 0, 65533, 1, 0, 65532, 1, 0, 65531, 1, 0, 65530, 1, 0, 65529, 1, 0, 65529, 2, 0, 65529, 3, 0, 65529, 4, 0, 65529, 5, 0, 65529, 6, 0, 65529, 7, 0, 65529, 8, 0, 65530, 8, 0, 65531, 8, 0, 65532, 8, 0, 65533, 8, 0, 65533, 7, 0, 65533, 6, 0, 65533, 5, 0, 65533, 4, 0, 65533, 3, 0, 65533, 2, 0, 65532, 2, 0, 65531, 2, 0, 65530, 2, 0, 65530, 3, 0, 65530, 4, 0, 65530, 5, 0, 65530, 6, 0, 65530, 7, 0, 65531, 7, 0, 65532, 7, 0, 65532, 6, 0, 65532, 5, 0, 65532, 4, 0, 65532, 3, 0, 65531, 3, 0, 65531, 4, 0, 65531, 5, 0, 65531, 6, 0, 65529, 65535, 0, 65529, 65534, 0, 65529, 65533, 0, 65530, 65533, 0, 65530, 65532, 0, 65529, 65532, 0, 65529, 65531, 0, 65529, 65530, 0, 65529, 65529, 0, 65529, 65528, 0, 65529, 65527, 0, 65530, 65527, 0, 65531, 65527, 0, 65532, 65527, 0, 65533, 65527, 0, 65534, 65527, 0, 65534, 65528, 0, 65534, 65529, 0, 65534, 65530, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 65533, 0, 65534, 65532, 0, 65534, 65531, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 65532, 0, 65533, 65531, 0, 65532, 65532, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 65531, 0, 65531, 65532, 0, 65531, 65533, 0, 65531, 65534, 0, 65531, 65535, 0, 65530, 65535, 0, 65530, 65534, 0, 65530, 65531, 0, 65530, 65530, 0, 65530, 65529, 0, 65530, 65528, 0, 65531, 65528, 0, 65532, 65528, 0, 65533, 65528, 0, 65533, 65529, 0, 65532, 65529, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 65532, 65530, 0, 65533, 65530, 0, 1, 65535, 0, 2, 65535, 0, 3, 65535, 0, 4, 65535, 0, 5, 65535, 0, 5, 65534, 0, 4, 65533, 0, 3, 65533, 0, 2, 65533, 0, 1, 65533, 0, 1, 65534, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 5, 65533, 0, 5, 65532, 0, 4, 65532, 0, 3, 65532, 0, 2, 65532, 0, 1, 65532, 0, 1, 65531, 0, 2, 65531, 0, 3, 65531, 0, 4, 65531, 0, 5, 65531, 0, 5, 65530, 0, 4, 65530, 0, 3, 65530, 0, 2, 65530, 0, 1, 65530, 0, 1, 65529, 0, 2, 65529, 0, 3, 65529, 0, 4, 65529, 0, 5, 65529, 0, 4, 65528, 0, 3, 65528, 0, 2, 65528, 0, 1, 65528, 0, 1, 65527, 0, 2, 65527, 0, 3, 65527, 0, 4, 65527, 0, 5, 65527, 0, 5, 65528, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 5, 7, 0, 5, 6, 0, 5, 5, 0, 5, 4, 0, 5, 3, 0, 5, 2, 0, 5, 1, 0, 4, 1, 0, 3, 1, 0, 2, 1, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 4, 6, 0, 4, 5, 0, 4, 4, 0, 4, 3, 0, 4, 2, 0, 3, 2, 0, 2, 2, 0, 2, 3, 0, 2, 4, 0, 2, 5, 0, 2, 6, 0, 3, 6, 0, 3, 5, 0, 3, 4, 0, 3, 3, 0, 6, 65527, 1179648, 6, 65528, 1179648, 6, 65529, 1179648, 6, 65530, 1179648, 6, 65531, 1179648, 6, 65532, 1179648, 6, 65533, 1179648, 6, 65534, 1179648, 6, 65535, 1179648, 6, 0, 1179648, 6, 1, 1179648, 6, 2, 1179648, 6, 3, 1179648, 6, 4, 1179648, 6, 5, 1179648, 6, 6, 1179648, 6, 7, 1179648, 6, 8, 1179648, 7, 8, 1179648, 7, 7, 1179648, 7, 6, 1179648, 7, 5, 1179648, 7, 4, 1179648, 7, 3, 1179648, 7, 2, 1179648, 7, 1, 1179648, 8, 1, 1179648, 7, 0, 1179648, 7, 65535, 1179648, 7, 65534, 1179648, 7, 65533, 1179648, 8, 65533, 1179648, 8, 65532, 1179648, 8, 65531, 1179648, 8, 65530, 1179648, 8, 65529, 1179648, 7, 65529, 1179648, 7, 65528, 1179648, 7, 65527, 1179648, 7, 65530, 1179648, 7, 65531, 1179648, 7, 65532, 1179648, 8, 65528, 1179648, 8, 65527, 1179648, 8, 65534, 1179648, 8, 65535, 1179648, 8, 0, 1179648, 8, 4, 1179648, 8, 5, 1179648, 8, 6, 1179648, 8, 7, 1179648, 8, 8, 1179648, 9, 8, 1179648, 9, 7, 1179648, 10, 7, 1179648, 11, 7, 1179648, 14, 5, 1179648, 13, 5, 1179648, 12, 5, 1179648, 12, 6, 1179648, 13, 6, 1179648, 11, 6, 1179648, 10, 6, 1179648, 10, 5, 1179648, 9, 5, 1179648, 11, 5, 1179648, 9, 6, 1179648, 11, 4, 1179648, 10, 4, 1179648, 9, 4, 1179648, 12, 4, 1179648, 13, 4, 1179648, 14, 4, 1179648, 14, 2, 1179648, 13, 2, 1179648, 13, 3, 1179648, 14, 3, 1179648, 14, 1, 1179648, 12, 2, 1179648, 12, 3, 1179648, 11, 2, 1179648, 10, 2, 1179648, 10, 3, 1179648, 11, 3, 1179648, 9, 1, 1179648, 9, 0, 1179648, 10, 0, 1179648, 10, 65535, 1179648, 10, 65534, 1179648, 10, 1, 1179648, 9, 65535, 1179648, 9, 65534, 1179648, 11, 1, 1179648, 11, 0, 1179648, 11, 65535, 1179648, 12, 1, 1179648, 12, 0, 1179648, 12, 65535, 1179648, 11, 65534, 1179648, 13, 1, 1179648, 13, 0, 1179648, 13, 65535, 1179648, 12, 65534, 1179648, 12, 65533, 1179648, 14, 0, 1179648, 13, 65534, 1179648, 14, 65533, 1179648, 14, 65532, 1179648, 14, 65534, 1179648, 14, 65535, 1179648, 13, 65532, 1179648, 13, 65533, 1179648, 11, 65532, 1179648, 10, 65531, 1179648, 9, 65532, 1179648, 10, 65532, 1179648, 9, 65533, 1179648, 10, 65533, 1179648, 11, 65533, 1179648, 12, 65532, 1179648, 12, 65531, 1179648, 11, 65531, 1179648, 9, 65531, 1179648, 9, 65530, 1179648, 9, 65529, 1179648, 9, 65528, 1179648, 9, 65527, 1179648, 12, 65530, 1179648, 12, 65529, 1179648, 10, 65528, 1179648, 10, 65529, 1179648, 10, 65530, 1179648, 11, 65530, 1179648, 11, 65529, 1179648, 11, 65528, 1179648, 14, 65531, 1179648, 13, 65531, 1179648, 13, 65530, 1179648, 13, 65529, 1179648, 14, 65530, 1179648, 10, 8, 0, 12, 7, 0, 14, 6, 0, 14, 65529, 0, 12, 65528, 0, 10, 65527, 0, 65528, 8, 0, 65528, 7, 0, 65528, 6, 0, 65528, 5, 131072, 65528, 4, 0, 65528, 3, 0, 65527, 0, 0, 65527, 65535, 0, 65527, 65534, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 0, 0, 65528, 1, 0, 65528, 2, 0, 65528, 65533, 0, 65528, 65532, 0, 65528, 65531, 0, 65528, 65530, 0, 65528, 65529, 0, 65528, 65528, 0, 65528, 65527, 0, 65527, 65527, 0, 65526, 65527, 0, 65525, 65527, 0, 65524, 65527, 0, 65523, 65527, 0, 65522, 65527, 0, 65521, 65527, 0, 65521, 65528, 0, 65521, 65529, 0, 65521, 65530, 0, 65521, 65531, 0, 65521, 65532, 0, 65521, 65533, 0, 65521, 65534, 0, 65521, 65535, 0, 65521, 0, 0, 65521, 8, 0, 65522, 8, 0, 65523, 8, 0, 65524, 8, 0, 65525, 8, 0, 65526, 8, 0, 65527, 8, 0, 65522, 0, 0, 65522, 65535, 0, 65522, 65534, 0, 65522, 65533, 0, 65522, 65532, 0, 65522, 65531, 0, 65522, 65530, 0, 65522, 65529, 0, 65522, 65528, 0, 65523, 65528, 0, 65524, 65528, 0, 65525, 65528, 0, 65526, 65528, 0, 65527, 65528, 0, 65527, 65529, 0, 65527, 65532, 0, 65527, 65533, 0, 65527, 65531, 0, 65527, 65530, 0, 65526, 65533, 0, 65526, 65534, 0, 65526, 65535, 0, 65526, 0, 0, 65525, 65532, 0, 65525, 65531, 0, 65525, 65533, 0, 65525, 65534, 0, 65525, 65535, 0, 65525, 0, 0, 65524, 0, 0, 65524, 65535, 0, 65524, 65534, 0, 65524, 65533, 0, 65524, 65532, 0, 65523, 65534, 0, 65523, 65533, 0, 65523, 65532, 0, 65523, 65535, 0, 65523, 0, 0, 65523, 65531, 0, 65523, 65530, 0, 65523, 65529, 0, 65524, 65529, 0, 65525, 65529, 0, 65525, 65530, 0, 65526, 65530, 0, 65524, 65530, 0, 65524, 65531, 0, 65526, 65529, 0, 65526, 65531, 0, 65526, 65532, 0, 65520, 65527, 0, 65520, 65528, 0, 65520, 65529, 0, 65520, 65530, 0, 65520, 65531, 0, 65520, 65532, 0, 65520, 65533, 0, 65520, 65534, 0, 65520, 65535, 0, 65520, 0, 0, 65520, 1, 0, 65520, 2, 0, 65520, 3, 0, 65520, 4, 0, 65520, 5, 0, 65520, 6, 0, 65520, 7, 0, 65520, 8, 0)
 }
+
+[node name="TransitionCamera" parent="." unique_id=1841913826 instance=ExtResource("4_c3xgp")]
+visible = false
 
 [node name="ProtoController" parent="." unique_id=1779789665 node_paths=PackedStringArray("camera", "ray") groups=["player"] instance=ExtResource("3_v0fyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.469263, 0.004999995, -3.4775677)
@@ -549,16 +553,21 @@ transition_camera = NodePath("../../ProtoController/Head/Camera3D")
 [node name="Boiler" parent="Engine Room" unique_id=1148602733 instance=ExtResource("19_xe0w0")]
 transform = Transform3D(-0.83362234, 0, 0.5523349, 0, 1, 0, -0.5523349, 0, -0.83362234, 25.052204, -0.011801869, -0.9984653)
 
-[node name="BoilerPuzzleScreen" parent="Engine Room/Boiler" index="2" unique_id=1234801884 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
+[node name="BoilerErrorScreen" parent="Engine Room/Boiler" index="2" unique_id=297567033 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
 player = NodePath("../../../ProtoController")
 player_camera = NodePath("../../../ProtoController/Head/Camera3D")
-transition_camera = NodePath("../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../TransitionCamera")
+
+[node name="BoilerPuzzleScreen" parent="Engine Room/Boiler" index="3" unique_id=1234801884 node_paths=PackedStringArray("player", "player_camera", "transition_camera")]
+player = NodePath("../../../ProtoController")
+player_camera = NodePath("../../../ProtoController/Head/Camera3D")
+transition_camera = NodePath("../../../TransitionCamera")
 
 [node name="Cube_003" parent="Engine Room/Boiler/BoilerPuzzleScreen/Final_Screen on and off" parent_id_path=PackedInt32Array(1148602733, 1234801884, 1985759081) index="3" unique_id=1040262453]
-surface_material_override/0 = SubResource("ORMMaterial3D_pa264")
+surface_material_override/0 = SubResource("ORMMaterial3D_2anel")
 
 [node name="Main Screen" parent="Engine Room/Boiler/BoilerPuzzleScreen/Final_Screen on and off" parent_id_path=PackedInt32Array(1148602733, 1234801884, 1985759081) index="8" unique_id=2042944516]
-mesh = SubResource("PlaneMesh_o6v87")
+mesh = SubResource("PlaneMesh_lwffk")
 
 [node name="FuelTank2" parent="Engine Room" unique_id=126686054 instance=ExtResource("15_bipn2")]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 27.523663, 3.0584803, 0.21245193)
