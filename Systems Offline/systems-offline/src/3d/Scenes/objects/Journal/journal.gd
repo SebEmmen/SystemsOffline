@@ -149,8 +149,11 @@ func _ready() -> void:
 # --------------------------------------------------
 # INPUT
 # --------------------------------------------------
-
 func _input(event: InputEvent) -> void:
+	var dev_options := get_node_or_null("/root/DevOptions")
+	if dev_options != null and dev_options.call("is_menu_open") == true:
+		return
+
 	if event.is_action_pressed("journal") and not event.is_echo():
 		if is_open:
 			close_journal()

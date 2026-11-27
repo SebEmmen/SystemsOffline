@@ -8,6 +8,8 @@ signal progress_changed
 signal journal_update(quest_id: String)
 signal unread_changed
 
+var _debug_all_quests_unlocked := false
+
 const QUEST_ORDER: Array[String] = [
 	"main",
 	"tutorial",
@@ -251,25 +253,45 @@ func has_event(event_id: String) -> bool:
 # --------------------------------------------------
 
 func is_quest_unlocked(quest_id: String) -> bool:
+	if _debug_all_quests_unlocked:
+		return QUESTS.has(quest_id)
+
 	match quest_id:
 		"main":
 			return true
-
 		"tutorial":
 			return (
 				has_event("tutorial_keypad_locked")
 				or has_event("tutorial_key_found")
 				or has_event("tutorial_key_used")
 			)
-
 		"elevator":
 			return is_quest_completed("tutorial")
-
 		"communications":
 			return is_quest_completed("elevator")
 
 	return false
 
+
+func is_objective_visible(quest_id: String, objective_id: String) -> bool:
+	if not is_quest_unlocked(quest_id):
+		return false
+
+	if _debug_all_quests_unlocked:
+		return objective_id in get_objective_ids(quest_id)
+
+	if quest_id != "tutorial":
+		return true
+
+	match objective_id:
+		"find_key":
+			return true
+		"discover_code":
+			return has_event("tutorial_key_found")
+		"escape":
+			return has_event("tutorial_code_discovered")
+
+	return false
 
 func is_quest_completed(quest_id: String) -> bool:
 	if not QUESTS.has(quest_id):
@@ -318,34 +340,6 @@ func is_objective_completed(
 		return false
 
 	return has_event(str(objectives[objective_id]))
-
-
-
-
-
-func is_objective_visible(
-	quest_id: String,
-	objective_id: String
-) -> bool:
-	if not is_quest_unlocked(quest_id):
-		return false
-
-	if quest_id != "tutorial":
-		return true
-
-	match objective_id:
-		"find_key":
-			return true
-
-		"discover_code":
-			# Unlock the Door appears after finding the key.
-			return has_event("tutorial_key_found")
-
-		"escape":
-			# Escape the Room appears after discovering the code.
-			return has_event("tutorial_code_discovered")
-
-	return false
 
 
 
@@ -438,4 +432,12 @@ func load_save_data(data: Dictionary) -> void:
 	progress_dirty = false
 
 	unread_changed.emit()
+	progress_changed.emit()
+
+
+func debug_unlock_all_quests() -> void:
+	if not OS.is_debug_build() or _debug_all_quests_unlocked:
+		return
+
+	_debug_all_quests_unlocked = true
 	progress_changed.emit()

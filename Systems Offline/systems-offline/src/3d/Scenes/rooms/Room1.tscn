@@ -991,10 +991,10 @@ player = NodePath("../../../../ProtoController")
 player_camera = NodePath("../../../../ProtoController/Head/Camera3D")
 transition_camera = NodePath("../../../../TransitionCamera")
 
-[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=2112869525]
+[node name="Cube_002" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="2" unique_id=339919037]
 transform = Transform3D(1.01264, -1.4901161e-08, 4.4703484e-08, -8.195639e-08, 0.55411214, -2.9802322e-08, 2.9802322e-08, 4.4703484e-08, 0.99609697, 0.020454407, 0.5412674, -0.0005187988)
 
-[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=2121613414]
+[node name="Cube_003" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="3" unique_id=245645815]
 mesh = SubResource("ArrayMesh_vb4hk")
 
 [node name="Screen" parent="CommsRoom/Platform/Monitor/MonitorScreen" index="9" unique_id=785997455]
@@ -1042,7 +1042,7 @@ transform = Transform3D(0.3394029, 0.28334936, 1.6069527, 0, 1.9696155, -0.34729
 [node name="Cubicle Sphere" parent="CommsRoom" unique_id=1899239903 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154125, 0.9567821, -52.770706)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Sphere/Final_Cubicle roof" parent_id_path=PackedInt32Array(1899239903, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_fophp")
 
 [node name="Sphere" parent="CommsRoom/Cubicle Sphere" index="3" unique_id=1328355168]
@@ -1071,7 +1071,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_cok2s")
 [node name="Cubicle Prism" parent="CommsRoom" unique_id=2084082719 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -60.288067)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Prism/Final_Cubicle roof" parent_id_path=PackedInt32Array(2084082719, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_nvwfr")
 
 [node name="Prism" parent="CommsRoom/Cubicle Prism" index="2" unique_id=233811967]
@@ -1097,7 +1097,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_hd0mg")
 [node name="Cubicle Donut" parent="CommsRoom" unique_id=1709922761 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -74.158)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Donut/Final_Cubicle roof" parent_id_path=PackedInt32Array(1709922761, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_nbs5u")
 
 [node name="Donut" parent="CommsRoom/Cubicle Donut" index="4" unique_id=626885502]
@@ -1126,7 +1126,7 @@ transform = Transform3D(-0.91569835, 0, -0.40186635, 0, 1, 0, 0.40186635, 0, -0.
 [node name="Cubicle Hexagon" parent="CommsRoom" unique_id=841048580 instance=ExtResource("50_eueio")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 14.154, 0.957, -67.396)
 
-[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=12013554]
+[node name="Circle_010" parent="CommsRoom/Cubicle Hexagon/Final_Cubicle roof" parent_id_path=PackedInt32Array(841048580, 1977459474) index="10" unique_id=1333166988]
 surface_material_override/0 = SubResource("ShaderMaterial_2pegl")
 
 [node name="Hexagon" parent="CommsRoom/Cubicle Hexagon" index="5" unique_id=1147772406]
@@ -2045,6 +2045,9 @@ transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, 3.2303631, 0.0049996
 [node name="PuzzleBox" parent="." unique_id=1592141933 instance=ExtResource("111_we7eg")]
 transform = Transform3D(-1.8156361e-09, -0.041536905, -0.027833167, 0.05, -2.1855697e-09, 1.4512716e-16, -1.2166267e-09, -0.027833167, 0.041536905, 7.745135, 0.13483247, -44.44093)
 
+[node name="Screen" parent="PuzzleBox/Lore puzzle model box" parent_id_path=PackedInt32Array(1592141933, 823798465) index="10" unique_id=1255419613]
+surface_material_override/0 = null
+
 [editable path="ProtoController"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool"]
 [editable path="ProtoController/Head/Camera3D/MultitoolHolder/Multitool/Eye piece 2"]
@@ -2146,3 +2149,4 @@ transform = Transform3D(-1.8156361e-09, -0.041536905, -0.027833167, 0.05, -2.185
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Draggable part/WireSocketBeginning/wire connection part"]
 [editable path="Elevator Room/WirePuzzleElevator/ElevatorPuzzle/Lid Wire space small"]
+[editable path="PuzzleBox"]

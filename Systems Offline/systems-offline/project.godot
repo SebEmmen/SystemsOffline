@@ -22,6 +22,7 @@ Inventory="*uid://c3hav5wwjxupt"
 SaveManager="*uid://bl27jibd7no3x"
 Notification="*uid://cdco183y1hkmk"
 QuestManager="*uid://b0n8ilge2qyu4"
+DevOptions="*res://src/3d/DevOptions/dev_options.tscn"
 
 [debug]
 
